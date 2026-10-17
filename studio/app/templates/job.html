@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Job {{ job.id }} · WithHammad Studio{% endblock %}
+{% block body %}
+<div class="card">
+  <p class="muted">Job <strong>{{ job.id }}</strong> · {{ job.source_type }} · created {{ job.created_at }}</p>
+  <p><span class="pill {{ job.status }}">{{ job.status }}</span> {% if job.error %}<span class="muted">— {{ job.error }}</span>{% endif %}</p>
+  <div class="stages">
+    {% for s in stages %}
+      {% set cls = 'ok' if s in job.artifacts else ('bad' if (job.status == 'failed' and job.stage == s) else ('on' if job.stage == s and job.status == 'running' else '')) %}
+      <span class="stage {{ cls }}">{{ s }}</span>
+    {% endfor %}
+  </div>
+  <p class="muted">Source: {{ job.source }}</p>
+</div>
+<h2>Events</h2>
+<div class="card"><table>
+  {% for e in job.events %}<tr><td class="muted">{{ e.at[11:19] }}</td><td>{{ e.stage }}</td><td>{{ e.message }}</td></tr>{% endfor %}
+</table></div>
+{% if job.artifacts %}<h2>Artifacts</h2><div class="card"><pre>{{ job.artifacts | tojson(indent=2) }}</pre></div>{% endif %}
+{% if job.status in ('queued', 'running') %}<script>setTimeout(() => location.reload(), 4000)</script>{% endif %}
+{% endblock %}

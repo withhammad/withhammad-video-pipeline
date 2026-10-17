@@ -1,0 +1,5 @@
+# Append to /opt/intake-relay/deploy/Caddyfile once DNS for studio.withhammad.com points at the VPS,
+# then: docker exec intake-relay-caddy caddy reload --config /etc/caddy/Caddyfile
+studio.withhammad.com {
+	reverse_proxy studio-api:8000
+}

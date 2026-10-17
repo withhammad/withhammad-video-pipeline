@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}WithHammad Studio{% endblock %}</title>
+<style>
+  :root { --bg:#0f1115; --card:#171a21; --line:#262b36; --text:#e8e9ec; --muted:#8b93a3; --accent:#4f7cff; --ok:#3ccf8e; --bad:#ff5d5d; --warn:#ffb648; }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif }
+  main { max-width:900px; margin:0 auto; padding:24px 16px }
+  h1 { font-size:20px; margin:0 0 16px } h2 { font-size:16px; margin:24px 0 8px; color:var(--muted); font-weight:500 }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:12px }
+  form .row { display:flex; gap:8px; flex-wrap:wrap }
+  input[type=url] { flex:1; min-width:240px; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:var(--bg); color:var(--text) }
+  input[type=file] { color:var(--muted) }
+  button { padding:10px 16px; border-radius:8px; border:0; background:var(--accent); color:#fff; font-weight:600; cursor:pointer }
+  table { width:100%; border-collapse:collapse } td, th { padding:8px 6px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top }
+  th { color:var(--muted); font-weight:500; font-size:13px }
+  .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; font-weight:600 }
+  .queued { background:#2a2f3b; color:var(--muted) } .running { background:#2a3a5c; color:#9fb8ff }
+  .done { background:#1d3b2f; color:var(--ok) } .failed { background:#3f2222; color:var(--bad) }
+  .stages { display:flex; gap:4px; flex-wrap:wrap; margin:8px 0 }
+  .stage { padding:2px 8px; border-radius:6px; font-size:12px; background:#1f2430; color:var(--muted) }
+  .stage.on { background:#24344f; color:#cfe0ff } .stage.ok { background:#1d3b2f; color:var(--ok) } .stage.bad { background:#3f2222; color:var(--bad) }
+  a { color:#9fb8ff; text-decoration:none } .muted { color:var(--muted); font-size:13px }
+  pre { white-space:pre-wrap; word-break:break-word; background:var(--bg); padding:12px; border-radius:8px; font-size:13px }
+</style>
+</head>
+<body><main>
+<h1><a href="/" style="color:inherit">WithHammad Studio</a></h1>
+{% block body %}{% endblock %}
+</main></body>
+</html>

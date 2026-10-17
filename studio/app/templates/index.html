@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <form method="post" action="/jobs" enctype="multipart/form-data">
+    <div class="row">
+      <input type="url" name="reference" placeholder="Paste one Instagram video URL (or any reference URL)">
+      <button type="submit">Create job</button>
+    </div>
+    <p class="muted">Or upload one image instead: <input type="file" name="image" accept="image/png,image/jpeg,image/webp"></p>
+  </form>
+</div>
+<h2>Jobs</h2>
+<div class="card">
+{% if not jobs %}<p class="muted">No jobs yet.</p>{% else %}
+<table>
+  <tr><th>Created (UTC)</th><th>Source</th><th>Status</th><th>Stage</th></tr>
+  {% for j in jobs %}
+  <tr>
+    <td><a href="/jobs/{{ j.id }}">{{ j.created_at[:16].replace('T',' ') }}</a></td>
+    <td class="muted">{{ j.source_type }} · {{ j.source[:60] }}</td>
+    <td><span class="pill {{ j.status }}">{{ j.status }}</span></td>
+    <td class="muted">{{ j.stage }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+</div>
+{% endblock %}
