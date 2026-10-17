@@ -71,7 +71,7 @@ def main():
         result = db.get_job(args.job_id)
         print(json.dumps({'id': args.job_id, 'outcome': outcome, 'stage': result['stage'], 'error': result['error'],
                           'artifacts': result['artifacts']}, indent=2, ensure_ascii=False))
-        sys.exit(0 if outcome == 'done' else 1)
+        sys.exit(0 if outcome in ('done', 'waiting') else 1)
     if args.command == 'run':
         job_id = create_from_arg(args.source)
         job = db.claim_next()
@@ -82,7 +82,7 @@ def main():
         result = db.get_job(job_id)
         print(json.dumps({'id': job_id, 'outcome': outcome, 'stage': result['stage'],
                           'error': result['error'], 'artifacts': result['artifacts']}, indent=2, ensure_ascii=False))
-        sys.exit(0 if outcome == 'done' else 1)
+        sys.exit(0 if outcome in ('done', 'waiting') else 1)
     if args.job_id:
         print(json.dumps(db.get_job(args.job_id), indent=2, ensure_ascii=False))
     else:

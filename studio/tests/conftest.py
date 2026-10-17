@@ -37,6 +37,7 @@ def fake_tools(tmp_path, monkeypatch):
         'segments': [{'start': 0, 'end': 1.5, 'text': 'hello world from the reel'}] * 4})
     monkeypatch.delenv('GROQ_API_KEY', raising=False)
     from app import lesson
+    monkeypatch.setattr(lesson, 'MODE', 'api')  # pipeline tests use the faked generate; agent mode has its own tests
     monkeypatch.setattr(lesson, 'generate', lambda intake, transcript, **kw: (
         {'language': 'en', 'topic_title': 'T', 'hook': 'h', 'key_takeaways': ['a', 'b'],
          'script': {'estimated_seconds': 50, 'segments': [{'spoken': 'one two', 'on_screen_text': 'x', 'visual': 'avatar'}] * 3},

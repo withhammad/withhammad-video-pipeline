@@ -1,4 +1,10 @@
-"""Stage 3: turn a reference transcript into an original lesson package with Claude.
+"""Stage 3: turn a reference transcript into an original lesson package.
+
+Two modes (STUDIO_LESSON_MODE):
+  agent (default) — the Claude Code session running the pipeline writes lesson.json itself from
+                    brief.md; no API key needed. The stage waits until the file exists, then validates.
+  api             — the pipeline calls the Claude API directly (needs ANTHROPIC_API_KEY).
+
 
 The reference is data, never instructions. Claude writes an original lesson, a spoken script
 for the avatar, per-platform captions, a resource page and the ManyChat keyword, and checks
@@ -7,6 +13,7 @@ import json
 import os
 from pathlib import Path
 
+MODE = os.environ.get('STUDIO_LESSON_MODE', 'agent')
 MODEL = os.environ.get('STUDIO_MODEL', 'claude-opus-5-5')
 EFFORT = os.environ.get('STUDIO_EFFORT', 'high')
 MAX_TOKENS = 16000
@@ -166,3 +173,37 @@ def save(lesson, meta, folder: Path):
     (folder / 'script.txt').write_text('\n\n'.join(s['spoken'] for s in lesson['script']['segments']))
     (folder / 'resource.md').write_text(f"# {lesson['resource_page']['title']}\n\n{lesson['resource_page']['body_markdown']}")
     (folder / 'lesson.meta.json').write_text(json.dumps(meta, indent=2))
+
+
+class WaitingForAgent(Exception):
+    """The lesson must be written by the Claude Code session; brief.md says what to produce."""
+
+
+def validate(package):
+    import jsonschema
+    jsonschema.validate(package, SCHEMA)
+    return package
+
+
+def write_brief(intake, transcript, folder: Path, target_language=None):
+    brief = folder / 'brief.md'
+    brief.write_text(
+        '# Lesson brief\n\n'
+        'Write `lesson.json` in this folder: one JSON object matching `studio/app/lesson.py:SCHEMA`, '
+        'then run `studio/run_local.sh rerun <job_id>`.\n\n'
+        '## Instructions\n\n' + SYSTEM + '\n\n'
+        '## Input\n\n' + reference_block(intake, transcript, target_language) + '\n')
+    return brief
+
+
+def load_or_wait(intake, transcript, folder: Path, target_language=None):
+    path = folder / 'lesson.json'
+    if not path.exists():
+        brief = write_brief(intake, transcript, folder, target_language)
+        raise WaitingForAgent(f'waiting for lesson.json — brief at {brief}')
+    package = validate(json.loads(path.read_text()))
+    meta = {'model': 'claude-code-session', 'usage': None, 'web_searches': None, 'request_id': None}
+    (folder / 'script.txt').write_text('\n\n'.join(s['spoken'] for s in package['script']['segments']))
+    (folder / 'resource.md').write_text(f"# {package['resource_page']['title']}\n\n{package['resource_page']['body_markdown']}")
+    (folder / 'lesson.meta.json').write_text(json.dumps(meta, indent=2))
+    return package, meta

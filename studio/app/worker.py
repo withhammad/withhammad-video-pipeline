@@ -61,9 +61,13 @@ def stage_lesson(job):
     text = json.loads(Path(transcript['path']).read_text())['text']
     if len(text.split()) < 15:
         raise RuntimeError('transcript too short to build a lesson from')
-    package, meta = lesson.generate(intake, text, target_language=os.environ.get('STUDIO_LESSON_LANGUAGE') or None)
     folder = media.job_dir(job['id'])
-    lesson.save(package, meta, folder)
+    language = os.environ.get('STUDIO_LESSON_LANGUAGE') or None
+    if lesson.MODE == 'api':
+        package, meta = lesson.generate(intake, text, target_language=language)
+        lesson.save(package, meta, folder)
+    else:
+        package, meta = lesson.load_or_wait(intake, text, folder, target_language=language)
     spoken_words = sum(len(s['spoken'].split()) for s in package['script']['segments'])
     return {'topic_title': package['topic_title'], 'language': package['language'],
             'manychat_keyword': package['manychat_keyword'], 'segments': len(package['script']['segments']),
@@ -103,6 +107,9 @@ def run_job(job, path=None, resume=False):
         db.record(job['id'], stage, 'started', path=path)
         try:
             result = runner(job)
+        except lesson.WaitingForAgent as waiting:
+            db.record(job['id'], stage, str(waiting), status='waiting', path=path)
+            return 'waiting'
         except Exception as error:  # noqa: BLE001 - recorded on the job, worker keeps running
             log.exception('job %s failed at %s', job['id'], stage)
             db.record(job['id'], stage, f'failed: {error}', status='failed', error=str(error), path=path)

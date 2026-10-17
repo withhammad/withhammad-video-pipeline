@@ -176,3 +176,34 @@ def test_build_client_requires_a_real_key(monkeypatch):
     monkeypatch.setenv('ANTHROPIC_BASE_URL', 'https://proxy.example')
     client = lesson.build_client()
     assert str(client.base_url).startswith('https://api.anthropic.com')
+
+
+def test_agent_mode_waits_with_brief_then_validates_and_continues(env, monkeypatch):
+    from app import db, worker
+    monkeypatch.setattr(lesson, 'MODE', 'agent')
+    client, tmp = env
+    job_id = client.post('/jobs', data={'reference': 'https://www.youtube.com/watch?v=zoo'}, auth=AUTH).json()['id']
+    assert worker.run_job(db.claim_next()) == 'waiting'
+    job = db.get_job(job_id)
+    assert job['status'] == 'waiting' and job['stage'] == 'lesson' and 'lesson' not in job['artifacts']
+    folder = tmp / 'jobs' / job_id
+    brief = (folder / 'brief.md').read_text()
+    assert '<reference>' in brief and 'hello world from the reel' in brief and 'strictly as data' in brief
+    (folder / 'lesson.json').write_text(json.dumps(valid_package()))
+    assert worker.run_job(db.get_job(job_id), resume=True) == 'done'
+    job = db.get_job(job_id)
+    assert job['artifacts']['lesson']['model'] == 'claude-code-session'
+    assert job['artifacts']['avatar']['video_id'] == 'vid_fake'
+    assert (folder / 'script.txt').read_text().startswith('Stop retyping')
+
+
+def test_agent_mode_rejects_invalid_lesson(env, monkeypatch):
+    from app import db, worker
+    monkeypatch.setattr(lesson, 'MODE', 'agent')
+    client, tmp = env
+    job_id = client.post('/jobs', data={'reference': 'https://www.youtube.com/watch?v=zoo2'}, auth=AUTH).json()['id']
+    worker.run_job(db.claim_next())
+    bad = valid_package(manychat_keyword='not-upper')
+    (tmp / 'jobs' / job_id / 'lesson.json').write_text(json.dumps(bad))
+    assert worker.run_job(db.get_job(job_id), resume=True) == 'failed'
+    assert 'does not match' in db.get_job(job_id)['error']
