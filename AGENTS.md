@@ -20,7 +20,17 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 - Every video mirrors the reference reel's beats, length and edit style (docs/EDIT_STYLE.md) in our own words.
 - Lesson text: written by the agent session (no Anthropic API key). Animations: designed by the agent session, rendered with Remotion.
 - Spoken script never contains commands, URLs or code; those go in on_screen_text.
-- HeyGen: ALWAYS fill "Apply custom motion" (e.g. natural hand gestures, slight lean in, nod on key points).
+- HeyGen: ENERGETIC delivery every time — the owner rejects calm/"sleepy" takes. Saved default voice (2026-10-17):
+  HeyGen Voice v1.0.9, Tone **Excited**, Expressiveness **0.80**, Speed **1.1x**, accent Original (accent changes do not
+  stick on the cloned voice). Always switch on "More expressive" and fill "Apply custom motion", e.g.: "High-energy creator
+  delivery: big genuine smile, leans toward the camera on the first line, animated hand gestures on every key point,
+  eyebrows raise on key words, quick confident nods, counts on fingers for lists, points at the camera on the CTA."
+  Scripts: short punchy sentences, exclamation on hook and CTA.
+- Accessibility: burned-in word captions (high contrast), an .srt uploaded to every platform that accepts one, alt text where
+  supported, no information conveyed by colour alone.
+- Distribution target: every video goes to YouTube Shorts, Instagram Reels, LinkedIn, TikTok and Facebook Reels with
+  per-platform details, after the owner approves the final cut and the details.
+- Funnel: comment keyword → ManyChat DM → ask to follow → deliver the resource link (withhammad.com page).
 - Editing stack: Opus (agent session) plans and writes the edit; HyperFrames for animated motion-graphic inserts;
   Remotion (`studio/remotion`, composition `Reel`) assembles avatar + cards + captions. HeyGen speaks faster than
   130 wpm: ~72 words ≈ 22 s.
