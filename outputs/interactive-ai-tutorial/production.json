@@ -1,0 +1,67 @@
+{
+  "status": "demo_capture_complete_narration_in_production",
+  "reference_url": "https://www.youtube.com/watch?v=OayJ4FDbjUw",
+  "reference_title": "Stop Using AI Chat Threads and Do This Instead",
+  "reference_duration_seconds": 3020,
+  "target_format": "1920x1080, landscape, full-length YouTube",
+  "reference_chapters": [
+    {
+      "start_time": 0,
+      "title": "Intro: why single chat threads are dead",
+      "end_time": 117
+    },
+    {
+      "start_time": 117,
+      "title": "Use case 1: editing newsletters (web vs Claude Code)",
+      "end_time": 712
+    },
+    {
+      "start_time": 712,
+      "title": "Use case 2: the four-quadrant task organizer (+ delegate to Slack)",
+      "end_time": 1214
+    },
+    {
+      "start_time": 1214,
+      "title": "Use case 3: revenue model sliders for the boardroom",
+      "end_time": 1785
+    },
+    {
+      "start_time": 1785,
+      "title": "Use case 4: product & package design with team sign-off",
+      "end_time": 2423
+    },
+    {
+      "start_time": 2423,
+      "title": "Bonus: book ideas, blob drawing & instant PowerPoint",
+      "end_time": 2775
+    },
+    {
+      "start_time": 2775,
+      "title": "Wrap-up: nothing is static anymore",
+      "end_time": 3020
+    }
+  ],
+  "presenter": "Hammad Yousuf HeyGen avatar",
+  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "screen_capture": "Fresh Chrome recordings of working demonstrations, full-screen with avatar picture-in-picture where useful",
+  "deliverables": [
+    "Full-length MP4",
+    "Caption SRT",
+    "YouTube thumbnail",
+    "Chapter timestamps and description",
+    "Downloadable prompts and working demo tools",
+    "Website resource page",
+    "ManyChat resource funnel"
+  ],
+  "short_job": "fd7218f0a2e4",
+  "long_job": "fdb2463f9d21",
+  "publication_status": "not_published",
+  "funnel_status": "not_enabled",
+  "avatar_format": "Owner approved: opening and chapter transitions only; cloned voice over full-screen demos",
+  "avatar_render": {
+    "video_id": "4d17643987de3e980c78988aac194703",
+    "status": "waiting",
+    "engine": "avatar_v",
+    "avatar_id": "f0d7cc382e5f42398e2a5a1104b4d183"
+  }
+}

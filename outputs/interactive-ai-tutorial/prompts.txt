@@ -1,0 +1,35 @@
+WITHHAMMAD — FROM CHAT TO WORKING TOOLS
+Original prompts and sample-data demonstrations
+
+1. NEWSLETTER EDITOR
+Build a single-page newsletter editor with an editable subject and body, live word count, reading time at 200 words per minute, live preview, local browser autosave, an emoji button, and plain text, Markdown and HTML exports. Escape all user content in HTML. Show a useful message if local storage is unavailable. Use sample content and no external service or tracking.
+Check: enter a ten-word draft; the count should be ten. Reload and confirm autosave. Export each format and open the actual file. Enter angle brackets and confirm HTML displays them as text.
+Iteration: add an explicit clear-draft confirmation and separate subject and body character counts without changing the export behavior.
+
+2. TASK ORGANIZER
+Build a four-column task board: Do now, Schedule, Delegate and Drop. Each task has a name and estimated minutes. Let me add tasks and move them between columns. Display total minutes per column. For delegated tasks, generate an editable message containing a teammate, deadline and task list. Include a copy button. Do not send messages or claim a Slack integration. Use sample tasks.
+Check: move a 30-minute task from Do now to Delegate; the two totals should update. Generate a message and compare its task list with the Delegate column. Test an empty Delegate column.
+Iteration: add local persistence with a visible reset option and a confirmation before clearing the board.
+
+3. REVENUE SCENARIOS
+Build a transparent model with monthly visitors, conversion percentage, average order value, gross margin percentage and fixed monthly costs. Use AED. Calculate orders, revenue and contribution after fixed costs. Create conservative, base and stretch scenarios by changing conversion by minus 25 percent, zero, and plus 25 percent, leaving other inputs unchanged. Show formulas and export the scenario table to CSV. Label all numbers illustrative, not forecasts. Do not invent a confidence or stability score.
+Check: 20,000 visitors, 2 percent conversion, AED250 order value, 60 percent margin and AED30,000 fixed costs give 400 orders, AED100,000 revenue and AED30,000 after fixed costs. At 1 percent conversion, revenue is AED50,000 and the result after costs is zero. Open the exported CSV and compare all rows.
+Iteration: show a break-even conversion indicator, explain its formula and handle zero visitors, zero order value and zero margin explicitly.
+
+4. PACKAGING CONCEPT
+Build an interactive packaging concept sheet with product name, width, height, depth, board choice, brand colour, a labelled illustrative unfolded box, a simple bill of materials and a printable concept sheet. Include reviewer name and a reviewed-for-discussion checkbox. Clearly state this is not a manufacturing dieline or supplier approval. Use millimetres and sample data.
+Check: changing dimensions updates both the diagram and specification. A blank reviewer cannot produce a reviewed status. Print to PDF and inspect the actual page. Reject invalid or out-of-range dimensions consistently.
+Iteration: add a review date and revision number. Changing a specification after review must clear the review status and explain why.
+
+5. IDEAS TO PRESENTATION
+Create a local idea-selection tool using an editable list of sample book or tutorial ideas. Provide Keep, Revisit and Reject decisions with visible keyboard-accessible buttons. Let me edit the shortlist and export it as text. Do not claim to generate novel ideas unless an AI connection actually exists.
+Then use the selected idea to create a six-slide outline: audience problem, proposed approach, example, evidence needed, next steps and decision. Separate assumptions from verified facts. Export a real presentation only if the environment supports it, then open and inspect the exported file.
+
+REUSABLE BUILD BRIEF
+User: who will use this?
+Task: what repeated action should become easier?
+Inputs: what can change?
+Output: what usable result leaves the tool?
+Checks: which small examples prove the behavior?
+Limits: what should require human review or an actual integration?
+Iteration: change one behavior, then repeat the checks.

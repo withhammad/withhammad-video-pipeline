@@ -1,0 +1,33 @@
+WORKING PRODUCTION — NOT A FINISHED VIDEO
+
+Reference: https://www.youtube.com/watch?v=OayJ4FDbjUw
+Reference duration: 50:20. Output: landscape YouTube tutorial.
+Use original explanations, fresh demonstrations, Hammad's avatar and cloned voice.
+Owner approved avatar only for opening and chapter transitions; cloned narration over demos.
+
+Completed assets
+- Four functioning local examples in demo/index.html.
+- 35-second initial demonstration capture in demo/demo-recording.mp4.
+- Original opening/transition script in avatar-script.txt.
+- HeyGen avatar submission 4d17643987de3e980c78988aac194703; submitted, completion not yet verified.
+- First narration generated with Hammad Yousuf voice: 112.666 seconds.
+  Editing source: studio/.local/jobs/fdb2463f9d21/narration/01-introduction.wav.
+- Full reference transcript and source retained in ignored job fdb2463f9d21 for analysis.
+
+Still required
+- Record and verify Claude builds, iterations, exports and error checks for all chapters.
+- Finish original chapter narration after matching the recorded actions.
+- Generate remaining narration once scripts are final; no repeated auditions.
+- Retrieve completed presenter render and split at chapter boundaries using transcript timings.
+- Assemble 16:9 master with full-screen demonstrations, chapter graphics and readable captions.
+- Prepare original YouTube thumbnail, description, accurate chapters and resource package.
+- Verify complete master before publication or attaching a ManyChat automation.
+
+Accuracy requirements
+- Distinguish local example apps from Claude's generated artifacts in narration.
+- Delegation creates a draft, not a sent Slack message.
+- Revenue example is arithmetic, not a forecast or validated stability score.
+- Packaging drawing is conceptual, not a production dieline or formal approval system.
+- Do not promise a resource is live before its website URL is verified.
+- Chapter timestamps must come from the final edit, not the reference timeline.
+- Do not stretch the initial demo capture to fill a long tutorial.

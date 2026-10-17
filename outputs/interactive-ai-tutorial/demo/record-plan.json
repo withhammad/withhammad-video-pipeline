@@ -1,0 +1,154 @@
+{
+  "url": "file:///Users/hammad/withhammad-video-pipeline/outputs/interactive-ai-tutorial/demo/index.html",
+  "out": "/Users/hammad/withhammad-video-pipeline/outputs/interactive-ai-tutorial/demo/demo-recording.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "debug": true,
+  "actions": [
+    {
+      "wait": 1200
+    },
+    {
+      "move": {
+        "selector": "#draft"
+      }
+    },
+    {
+      "type": {
+        "selector": "#draft",
+        "text": "\n\nTry it today: choose one repetitive task and build a tool that makes the next action easier.",
+        "cps": 28
+      }
+    },
+    {
+      "highlight": {
+        "selector": ".stats",
+        "ms": 1300
+      }
+    },
+    {
+      "move": {
+        "selector": "#exportMarkdown"
+      }
+    },
+    {
+      "activate": "#exportMarkdown"
+    },
+    {
+      "activate": "#nav-tasks"
+    },
+    {
+      "wait": 1000
+    },
+    {
+      "highlight": {
+        "selector": "#board",
+        "ms": 1500
+      }
+    },
+    {
+      "move": {
+        "selector": "#makeMessage"
+      }
+    },
+    {
+      "activate": "#makeMessage"
+    },
+    {
+      "highlight": {
+        "selector": "#message",
+        "ms": 1800
+      }
+    },
+    {
+      "activate": "#nav-revenue"
+    },
+    {
+      "wait": 1000
+    },
+    {
+      "move": {
+        "selector": "#conversion"
+      }
+    },
+    {
+      "set": {
+        "selector": "#conversion",
+        "value": "3",
+        "ms": 1200
+      }
+    },
+    {
+      "highlight": {
+        "selector": "#scenarios",
+        "ms": 1500
+      }
+    },
+    {
+      "set": {
+        "selector": "#conversion",
+        "value": "1",
+        "ms": 1200
+      }
+    },
+    {
+      "set": {
+        "selector": "#conversion",
+        "value": "2",
+        "ms": 1200
+      }
+    },
+    {
+      "move": {
+        "selector": "#exportCSV"
+      }
+    },
+    {
+      "activate": "#exportCSV"
+    },
+    {
+      "activate": "#nav-packaging"
+    },
+    {
+      "wait": 1000
+    },
+    {
+      "move": {
+        "selector": "#boxW"
+      }
+    },
+    {
+      "set": {
+        "selector": "#boxW",
+        "value": "150",
+        "ms": 1000
+      }
+    },
+    {
+      "highlight": {
+        "selector": "#dieline",
+        "ms": 1500
+      }
+    },
+    {
+      "set": {
+        "selector": "#reviewer",
+        "value": "Hammad",
+        "ms": 800
+      }
+    },
+    {
+      "activate": "#approve"
+    },
+    {
+      "highlight": {
+        "selector": "#reviewStatus",
+        "ms": 1500
+      }
+    },
+    {
+      "wait": 1000
+    }
+  ]
+}
