@@ -1,7 +1,7 @@
 # Pending inputs — live checklist
 
 The one place to answer "what's pending". Update it whenever an item moves.
-Last update: 2026-10-17 21:30 — first finished video (job 09a9d211fff0, final.mp4, 21.9 s) awaiting owner approval; next: publish, website page, ManyChat. Previously: 2026-10-17 21:00 (first real reel: lesson done, HeyGen render waiting on the accent choice). Previously: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real lesson produced; avatar render waits on HeyGen).
+Last update: 2026-10-17 23:00 — REA video v5 final (docs/videos/2026-10-17-rea-blueprint.md) awaiting approval; then publish, resource page, ManyChat. Previously: 2026-10-17 21:30 — first finished video (job 09a9d211fff0, final.mp4, 21.9 s) awaiting owner approval; next: publish, website page, ManyChat. Previously: 2026-10-17 21:00 (first real reel: lesson done, HeyGen render waiting on the accent choice). Previously: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real lesson produced; avatar render waits on HeyGen).
 
 | # | Item | Status | Who | How to finish |
 |---|------|--------|-----|---------------|
