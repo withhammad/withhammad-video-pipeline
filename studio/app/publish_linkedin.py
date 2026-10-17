@@ -11,6 +11,10 @@ Verified against Microsoft Learn (LinkedIn Marketing docs) on 2026-10-17. The ve
        uploadInstructions: [{uploadUrl, firstByte, lastByte}]}}            (parts are 4 MB byte ranges)
   PUT  <uploadUrl>  Content-Type: application/octet-stream, the part's bytes -> ETag response header.
        The docs' video upload sample sends no Authorization header; expired upload URLs answer 401.
+  PUT  <thumbnailUploadUrl>  (returned when uploadThumbnail is true) Content-Type: application/octet-stream,
+       media-type-family: STILLIMAGE, the cover JPEG -> 201 in the docs' sample (200 is accepted too, as for the
+       video parts on the same upload host); sent before finalizeUpload. The video's own size and
+       aspect (cover_720x1280.jpg). A thumbnail failure is logged as a warning and never blocks the post.
   POST https://api.linkedin.com/rest/videos?action=finalizeUpload    {"finalizeUploadRequest": {video,
        uploadToken, uploadedPartIds: [ETag, ...] in upload-instruction order}}
   GET  https://api.linkedin.com/rest/videos/{url-encoded video URN}  status WAITING_UPLOAD | PROCESSING |
@@ -60,6 +64,7 @@ POSTS_URL = f'{API}/rest/posts'
 REQUIRED_SCOPE = 'w_member_social'
 
 PART_SIZE = 4 * 1024 * 1024
+THUMBNAIL_HEADERS = {'Content-Type': 'application/octet-stream', 'media-type-family': 'STILLIMAGE'}
 MIN_BYTES, MAX_BYTES = 75 * 1024, 500 * 1000 * 1000
 MIN_SECONDS, MAX_SECONDS = 3.0, 30 * 60.0
 ASPECT, ASPECT_TOLERANCE = 9 / 16, 0.01
@@ -371,6 +376,9 @@ class LinkedInClient:
             raise LinkedInError(f'LinkedIn {step} returned no ETag header; cannot finalize the upload')
         return etag
 
+    def upload_thumbnail(self, url, data):
+        self.send('upload_thumbnail', 'PUT', url, headers=dict(THUMBNAIL_HEADERS), content=data, expect=(200, 201))
+
     def finalize_upload(self, body):
         self.send('finalize_upload', 'POST', FINALIZE_URL, headers=self.rest_headers(True), json_body=body,
                   expect=(200, 201, 204))
@@ -396,9 +404,28 @@ def author_urn():
     return f'urn:li:person:{OWNER_SUB}'
 
 
-def initialize_body(file_size):
+def initialize_body(file_size, thumbnail=False):
     return {'initializeUploadRequest': {'owner': author_urn(), 'fileSizeBytes': file_size,
-                                        'uploadCaptions': False, 'uploadThumbnail': False}}
+                                        'uploadCaptions': False, 'uploadThumbnail': bool(thumbnail)}}
+
+
+class _Thumbnail(dict):
+    """The checked cover: a plain dict for plans, results and state, plus `.data`, the exact bytes that were checked
+    (and are sent), so thumbnail_sha256 always matches what LinkedIn received. JSON never carries the bytes."""
+    data = b''
+
+
+def validate_thumbnail(path):
+    """The cover for the video (app.thumbnail's cover_720x1280.jpg): a JPEG file. Problems come back as text."""
+    path = Path(path)
+    if not path.is_file():
+        return None, f'thumbnail not found: {path}'
+    data = path.read_bytes()
+    if not data.startswith(b'\xff\xd8\xff'):
+        return None, f'{path.name} is not a JPEG'
+    thumb = _Thumbnail(path=str(path), size=len(data), sha256=hashlib.sha256(data).hexdigest())
+    thumb.data = data
+    return thumb, None
 
 
 def finalize_body(video_urn, upload_token, part_ids):
@@ -418,10 +445,11 @@ def _upload_usable(upload, now_ms):
     return bool(upload) and (upload.get('expires_at_ms') or 0) - UPLOAD_URL_MARGIN_MS > now_ms
 
 
-def _plan(client, state, video, commentary, title, now_ms, poll_seconds, processing_timeout):
+def _plan(client, state, video, commentary, title, now_ms, poll_seconds, processing_timeout, thumb=None):
     """The ordered write-side requests a real run would send from this state (tokens redacted)."""
     rest_json, rest_get = _public_headers(client.rest_headers(True)), _public_headers(client.rest_headers())
     plan, upload, size = [], state.get('upload'), video['size']
+    thumbnail_url = None
     finalized = bool(state.get('finalized')) and bool(upload)
     if upload and not finalized and _upload_usable(upload, now_ms):
         video_urn, token = upload['video_urn'], upload['upload_token']
@@ -429,10 +457,13 @@ def _plan(client, state, video, commentary, title, now_ms, poll_seconds, process
                      'note': 'resume: skip upload and finalize if LinkedIn already has the file'})
         parts = [{'url': safe_url(p['url']), 'first': p['first'], 'last': p['last']} for p in upload['instructions']]
         done = upload.get('etags') or [None] * len(parts)
+        if upload.get('thumbnail_url') and not upload.get('thumbnail_uploaded'):
+            thumbnail_url = safe_url(upload['thumbnail_url'])
     elif not finalized:
         video_urn, token = '<video URN from initializeUpload>', '<uploadToken from initializeUpload>'
         plan.append({'step': 'initialize_upload', 'method': 'POST', 'url': INITIALIZE_URL, 'headers': rest_json,
-                     'json': initialize_body(size)})
+                     'json': initialize_body(size, thumbnail=thumb)})
+        thumbnail_url = '<thumbnailUploadUrl from initializeUpload>' if thumb else None
         count = max(1, math.ceil(size / PART_SIZE))
         parts = [{'url': f'<uploadInstructions[{i}].uploadUrl>', 'first': i * PART_SIZE,
                   'last': min((i + 1) * PART_SIZE, size) - 1} for i in range(count)]
@@ -447,6 +478,10 @@ def _plan(client, state, video, commentary, title, now_ms, poll_seconds, process
                          'headers': {'Content-Type': 'application/octet-stream'},
                          'bytes': f"{part['first']}-{part['last']}", 'size': part['last'] - part['first'] + 1,
                          'source': video['path']})
+        if thumb and thumbnail_url:
+            plan.append({'step': 'upload_thumbnail', 'method': 'PUT', 'url': thumbnail_url,
+                         'headers': dict(THUMBNAIL_HEADERS), 'size': thumb['size'], 'source': thumb['path'],
+                         'expect': '201; a failure is a warning and the post still goes out'})
         part_ids = [d or f'<ETag of part {i + 1}>' for i, d in enumerate(done)]
         plan.append({'step': 'finalize_upload', 'method': 'POST', 'url': FINALIZE_URL, 'headers': rest_json,
                      'json': finalize_body(video_urn, token, part_ids)})
@@ -464,23 +499,26 @@ def _plan(client, state, video, commentary, title, now_ms, poll_seconds, process
 def publish(video_path, lesson: dict, *, dry_run=True, state_path=None, credentials_path=None, transport=None,
             probe=None, confirm_not_posted=False, version=None, poll_seconds=POLL_SECONDS,
             processing_timeout=PROCESSING_TIMEOUT, status_forbidden_wait=STATUS_FORBIDDEN_WAIT, sleep=time.sleep,
-            clock=time.monotonic, now=time.time) -> dict:
+            clock=time.monotonic, now=time.time, thumbnail_path=None) -> dict:
     """Post video_path to the owner's LinkedIn feed with lesson['captions']['linkedin'] as commentary.
 
     dry_run (default True): only the read-only identity GET is sent; returns the ordered request plan.
     Posting happens only when dry_run is exactly False. state_path defaults to <video folder>/publish_linkedin.json.
     confirm_not_posted=True is needed only after an earlier post attempt ended without a clear answer and the owner
-    has checked the profile and seen no post."""
+    has checked the profile and seen no post.
+    thumbnail_path (the reel's cover_720x1280.jpg) asks initializeUpload for a thumbnail URL and PUTs the JPEG
+    there before finalizeUpload. Any thumbnail problem is a warning: the post is never blocked by it."""
     dry = dry_run is not False
     video_path = Path(video_path)
     state_path = Path(state_path) if state_path else video_path.parent / STATE_FILENAME
     with (contextlib.nullcontext() if dry else _exclusive(state_path)):
         return _publish(video_path, lesson, dry, state_path, credentials_path, transport, probe, confirm_not_posted,
-                        version, poll_seconds, processing_timeout, status_forbidden_wait, sleep, clock, now)
+                        version, poll_seconds, processing_timeout, status_forbidden_wait, sleep, clock, now,
+                        thumbnail_path)
 
 
 def _publish(video_path, lesson, dry, state_path, credentials_path, transport, probe, confirm_not_posted, version,
-             poll_seconds, processing_timeout, status_forbidden_wait, sleep, clock, now):
+             poll_seconds, processing_timeout, status_forbidden_wait, sleep, clock, now, thumbnail_path=None):
     state = _load_state(state_path)       # read under the lock (real runs), never before it
     if state.get('status') == 'published':
         warnings = []
@@ -513,21 +551,25 @@ def _publish(video_path, lesson, dry, state_path, credentials_path, transport, p
         warnings = []
         if state.get('post_attempt') and not confirm_not_posted:
             warnings.append(_uncertain_message(state['post_attempt']))
+        thumb, problem = validate_thumbnail(thumbnail_path) if thumbnail_path else (None, None)
+        notes = [f'LinkedIn thumbnail skipped: {problem}'] if problem else []
         if dry:
-            plan = _plan(client, state, video, commentary, title, now() * 1000, poll_seconds, processing_timeout)
+            plan = _plan(client, state, video, commentary, title, now() * 1000, poll_seconds, processing_timeout,
+                         thumb)
             return {'platform': 'linkedin', 'dry_run': True, 'status': 'planned', 'author': author_urn(),
                     'identity': {'sub': identity.get('sub'), 'name': identity.get('name'), 'verified': True},
                     'token_expires_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(credentials['expires_at_unix'])),
                     'linkedin_version': client.version, 'video': video, 'commentary': commentary,
-                    'state_path': str(state_path), 'resume': bool(state.get('upload')), 'warnings': warnings,
-                    'checks_performed': checks, 'requests': plan}
+                    'state_path': str(state_path), 'resume': bool(state.get('upload')),
+                    'warnings': warnings + notes, 'thumbnail': thumb, 'checks_performed': checks, 'requests': plan}
         if warnings:
             raise UncertainPostError(warnings[0])
         state.setdefault('platform', 'linkedin')
         state['author'] = author_urn()
         state['video_path'], state['video_sha256'], state['video_size'] = str(video_path), digest, video['size']
         result = _execute(client, state, state_path, video_path, video, commentary, title, now, poll_seconds,
-                          processing_timeout, sleep, clock, status_forbidden_wait)
+                          processing_timeout, sleep, clock, status_forbidden_wait, thumb)
+        result['warnings'] = notes + result['warnings']
         result['requests'] = client.log[len(checks):]
         result['checks_performed'] = checks
         return result
@@ -561,8 +603,31 @@ def _upload_url_expired(error, put=False):
         (put and error.status == 401) or 'EXPIRED_UPLOAD_URL' in f'{error.code} {error.message}')
 
 
+def _upload_thumbnail(client, state, state_path, upload, thumb, warnings):
+    """PUT the cover to thumbnailUploadUrl before finalize. Never raises: the post goes out without it."""
+    if upload.get('thumbnail_uploaded'):
+        return
+    url = upload.get('thumbnail_url')
+    if not url:
+        warnings.append('LinkedIn thumbnail skipped: this upload was started without uploadThumbnail '
+                        '(no thumbnailUploadUrl), so LinkedIn picks the frame')
+        return
+    try:
+        client.upload_thumbnail(url, getattr(thumb, 'data', None) or Path(thumb['path']).read_bytes())
+    except Exception as error:   # never block the post: LinkedIn picks a frame instead
+        message = _redact(str(error) if isinstance(error, LinkedInError) else f'{type(error).__name__}: {error}',
+                          client._token, url)
+        upload['thumbnail_error'] = message
+        warnings.append(f'LinkedIn thumbnail not uploaded, posting without it: {message}')
+    else:
+        upload['thumbnail_uploaded'] = True
+        upload['thumbnail_sha256'] = thumb['sha256']
+        upload.pop('thumbnail_error', None)
+    _save_state(state_path, state)
+
+
 def _execute(client, state, state_path, video_path, video, commentary, title, now, poll_seconds,
-             processing_timeout, sleep, clock, status_forbidden_wait=STATUS_FORBIDDEN_WAIT):
+             processing_timeout, sleep, clock, status_forbidden_wait=STATUS_FORBIDDEN_WAIT, thumb=None):
     warnings = []
     upload = state.get('upload')
     if upload and not state.get('finalized'):
@@ -581,7 +646,7 @@ def _execute(client, state, state_path, video_path, video, commentary, title, no
             elif status == 'PROCESSING_FAILED':
                 _abandon_upload(state, state_path, 'LinkedIn reported PROCESSING_FAILED')
     if not state.get('upload'):
-        value = client.initialize_upload(initialize_body(video['size']))
+        value = client.initialize_upload(initialize_body(video['size'], thumbnail=thumb))
         instructions = [{'url': p['uploadUrl'], 'first': int(p['firstByte']), 'last': int(p['lastByte'])}
                         for p in value.get('uploadInstructions') or []]
         if not instructions:
@@ -589,6 +654,8 @@ def _execute(client, state, state_path, video_path, video, commentary, title, no
         state['upload'] = {'video_urn': value['video'], 'upload_token': value.get('uploadToken', ''),
                            'expires_at_ms': value.get('uploadUrlsExpireAt') or 0, 'instructions': instructions,
                            'etags': [None] * len(instructions)}
+        if thumb:
+            state['upload']['thumbnail_url'] = value.get('thumbnailUploadUrl')
         state['finalized'] = False
         _save_state(state_path, state)
     upload = state['upload']
@@ -608,6 +675,8 @@ def _execute(client, state, state_path, video_path, video, commentary, title, no
                         _abandon_upload(state, state_path, f'upload URL rejected (HTTP {error.status})')
                     raise
                 _save_state(state_path, state)
+        if thumb:
+            _upload_thumbnail(client, state, state_path, upload, thumb, warnings)
         try:
             client.finalize_upload(finalize_body(upload['video_urn'], upload['upload_token'], upload['etags']))
         except LinkedInAPIError as error:

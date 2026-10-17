@@ -47,7 +47,12 @@ Rules:
 - resource_page: Markdown body with the lesson, exact working prompts (copy-paste ready), numbered
   steps, and tool links. No filler.
 - Write in the language of the reference transcript unless a target language is specified.
-- originality_note: one sentence on how this lesson differs from the reference."""
+- originality_note: one sentence on how this lesson differs from the reference.
+- cover: the reel's cover copy. hook (at most 18 characters, the verb phrase) + pill_strong (at most 8, e.g.
+  ANY) + pill_serif (at most 12, the key noun) read as one line, e.g. "Reverse-engineer ANY feature"; it must
+  match the lesson's own caveats. kicker (at most 36) is a small factual label such as the tool name and its
+  licence or price, and states only facts you verified in sources_checked: never call a tool free or open
+  source unless its own documentation says so, and never attach a claim about one tool to another."""
 
 SCHEMA = {
     'type': 'object',
@@ -98,8 +103,38 @@ SCHEMA = {
                                                        'required': ['claim', 'url'],
                                                        'properties': {'claim': {'type': 'string'}, 'url': {'type': 'string'}}}},
         'originality_note': {'type': 'string'},
+        # Optional so lessons written before covers existed still validate; app.thumbnail needs it to build the
+        # cover, and api_schema() makes it required for lessons generated through the API.
+        'cover': {
+            'type': 'object', 'additionalProperties': False,
+            'required': ['kicker', 'hook', 'pill_strong', 'pill_serif'],
+            'properties': {
+                'kicker': {'type': 'string', 'minLength': 1, 'maxLength': 36,
+                           'description': 'small factual label above the hook; only verified facts'},
+                'hook': {'type': 'string', 'minLength': 1, 'maxLength': 18, 'description': '1-3 words, the verb phrase'},
+                'pill_strong': {'type': 'string', 'minLength': 1, 'maxLength': 8, 'description': 'e.g. ANY'},
+                'pill_serif': {'type': 'string', 'minLength': 1, 'maxLength': 12, 'description': 'the key noun'},
+            },
+        },
     },
 }
+OPTIONAL_KEYS = ('cover',)
+STRING_LIMITS = ('minLength', 'maxLength')
+
+
+def api_schema():
+    """SCHEMA as sent with output_config.format: the cover is required for new lessons, and the string length
+    limits are left out because structured outputs do not support them; generate() checks the answer against the
+    full SCHEMA (limits included) and asks once for a corrected lesson."""
+    def strip(node):
+        if isinstance(node, dict):
+            return {k: strip(v) for k, v in node.items() if k not in STRING_LIMITS}
+        if isinstance(node, list):
+            return [strip(v) for v in node]
+        return node
+    schema = strip(SCHEMA)
+    schema['required'] = schema['required'] + [k for k in OPTIONAL_KEYS if k not in schema['required']]
+    return schema
 
 
 def build_client():
@@ -127,12 +162,26 @@ def reference_block(intake, transcript, target_language=None):
     return '\n'.join(parts) + '\n\n' + ask
 
 
+def schema_problem(package):
+    """None when the package passes the full SCHEMA (length limits included), else where and what is wrong."""
+    import jsonschema
+    try:
+        jsonschema.validate(package, SCHEMA)
+    except jsonschema.ValidationError as error:
+        where = '.'.join(str(part) for part in error.absolute_path) or 'the top level'
+        return f'{where}: {error.message}'
+    return None
+
+
 def generate(intake, transcript, client=None, target_language=None, model=None, effort=None):
-    """One lesson package from one reference. Handles pause_turn continuations and refusals."""
+    """One lesson package from one reference. Handles pause_turn continuations and refusals, and checks the answer
+    against the full SCHEMA (structured outputs cannot enforce string lengths, e.g. the cover hook's 18 characters):
+    one correction turn, then a clear failure at the lesson stage instead of a cover error after the render."""
     client = client or build_client()
     messages = [{'role': 'user', 'content': reference_block(intake, transcript, target_language)}]
     usage = {'input_tokens': 0, 'output_tokens': 0}
     served_by = None
+    corrected = False
     for _ in range(MAX_CONTINUATIONS + 1):
         with client.beta.messages.stream(
             model=model or MODEL,
@@ -140,7 +189,7 @@ def generate(intake, transcript, client=None, target_language=None, model=None, 
             system=SYSTEM,
             messages=messages,
             thinking={'type': 'adaptive'},
-            output_config={'effort': effort or EFFORT, 'format': {'type': 'json_schema', 'schema': SCHEMA}},
+            output_config={'effort': effort or EFFORT, 'format': {'type': 'json_schema', 'schema': api_schema()}},
             tools=[{'type': 'web_search_20260209', 'name': 'web_search', 'max_uses': WEB_SEARCH_MAX_USES}],
             betas=['server-side-fallback-2026-07-01'],
             fallbacks='default',
@@ -162,6 +211,15 @@ def generate(intake, transcript, client=None, target_language=None, model=None, 
         if text is None:
             raise RuntimeError('No text block in Claude response')
         lesson = json.loads(text)
+        problem = schema_problem(lesson)
+        if problem and not corrected:
+            corrected = True
+            retry = (f'That JSON fails validation ({problem}). Send the complete lesson JSON again with that fixed '
+                     'and everything else unchanged.')
+            messages += [{'role': 'assistant', 'content': response.content}, {'role': 'user', 'content': retry}]
+            continue
+        if problem:
+            raise RuntimeError(f'The generated lesson does not match the schema after one correction: {problem}')
         searches = sum(1 for b in response.content if b.type == 'server_tool_use')
         return lesson, {'model': served_by, 'usage': usage, 'web_searches': searches,
                         'request_id': getattr(response, '_request_id', None)}

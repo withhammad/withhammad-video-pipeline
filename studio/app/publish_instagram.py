@@ -4,6 +4,9 @@ Verified against Meta's docs on 2026-10-17 (developers.facebook.com/documentatio
   GET  /me?fields=user_id,username,account_type        user_id = the professional account id <IG_ID>  [instagram-api-with-instagram-login/get-started]
   GET  /<IG_ID>/content_publishing_limit?fields=quota_usage,config   data[0].quota_usage, config.quota_total/quota_duration
   POST /<IG_ID>/media   media_type=REELS, video_url, caption, share_to_feed, thumb_offset, is_ai_generated -> {id}  [ig-user/media]
+       cover_url = a public JPEG (at most 8 MB) used as the Reel's cover; it beats thumb_offset, so thumb_offset is
+       dropped when both are given. Hosted like the video (a PublicUrlProvider) and HEAD-checked first. A cover
+       problem only warns (the reel posts without it, as YouTube and LinkedIn do) unless cover_required=True.
   GET  /<IG_CONTAINER_ID>?fields=id,status,status_code  EXPIRED | ERROR | FINISHED | IN_PROGRESS | PUBLISHED   [ig-container]
   POST /<IG_ID>/media_publish   creation_id -> {id: <IG_MEDIA_ID>}                                            [ig-user/media_publish]
   GET  /<IG_MEDIA_ID>?fields=id,permalink,shortcode,timestamp                                                 [reference/instagram-media]
@@ -24,7 +27,8 @@ limit endpoint returns; containers expire after 24 h. The guide suggests polling
 5 minutes; the defaults here are 20 s and 10 min (STUDIO_IG_POLL_SECONDS / _TIMEOUT).
 Double-post guards: a live run holds <state>.lock (one run per state file), an earlier container is always checked
 before a new one is made (PUBLISHED -> reconcile or refuse), and an unknown publish outcome is reconciled against the
-latest posts before media_publish is sent again.
+latest posts before media_publish is sent again, whatever changed in between (a new cover only decides whether the
+container can be reused, never whether this is a different post). Logged URLs have their query string masked.
 """
 import contextlib
 import hashlib
@@ -35,7 +39,7 @@ import struct
 import subprocess
 import time
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urlunsplit
 
 import httpx
 
@@ -60,6 +64,8 @@ MAX_WIDTH = 1920
 MIN_FPS, MAX_FPS = 23.0, 60.0
 MAX_VIDEO_BPS = 25_000_000
 MAX_AUDIO_HZ = 48_000
+COVER_MAX_BYTES = 8 * 1000 * 1000
+COVER_MIME = 'image/jpeg'
 SPEC_AUDIO_BPS = 128_000
 TARGET_ASPECT, ASPECT_TOLERANCE = 9 / 16, 0.01
 CAPTION_MAX, HASHTAG_MAX, MENTION_MAX = 2200, 30, 20
@@ -67,6 +73,11 @@ HASHTAG_RE = re.compile(r'(?<![\w&])#\w+')
 MENTION_RE = re.compile(r'(?<![\w@])@[A-Za-z0-9._]+')
 PUBLISHED_STATES = {'published', 'published_media_id_unknown'}
 RETRY_PUBLISH_SUBCODES = {2207027, 2207008}  # "not ready" / "builder does not exist": documented as retry-later
+# A 400 on a container request that carried cover_url is retried without the cover, except for errors that are
+# clearly not about it: rate limit (4), publishing limit (9), restricted account (25), token (190), video format (352).
+NOT_COVER_ERROR_CODES = {4, 9, 25, 190, 352}
+URL_FIELDS = ('video_url', 'cover_url')
+_URL_QUERY = re.compile(r'(https?://[^\s?#\'"]+)\?[^\s\'")]+')
 HINTS = {
     190: 'the access token is invalid or expired: redo the Instagram OAuth consent and replace the token file',
     (9, 2207042): 'the daily publishing limit is used up: try again after the 24 h window',
@@ -99,6 +110,24 @@ class PublishingLimitError(InstagramPublishError):
     pass
 
 
+class ContainerFailedError(InstagramPublishError):
+    """The container ended ERROR or EXPIRED (container_status says which)."""
+    container_status = None
+
+
+def safe_url(url):
+    """A URL fit for logs, messages and keys: a query string (a presigned URL's signature) is masked."""
+    parts = urlsplit(str(url))
+    if not parts.query and not parts.fragment:
+        return str(url)
+    return urlunsplit(parts._replace(query=REDACTED if parts.query else '', fragment=''))
+
+
+def _mask_urls(text):
+    """Mask the query string of every URL inside free text (an error message from a host or provider)."""
+    return _URL_QUERY.sub(lambda m: m.group(1) + '?' + REDACTED, str(text))
+
+
 # --- public URL providers -------------------------------------------------------------------------------------------
 
 class StaticUrlProvider:
@@ -107,8 +136,8 @@ class StaticUrlProvider:
     Any provider needs: describe(path) -> str with no side effects (used by dry runs), url_for(path) -> str that makes
     the file reachable and returns its public HTTPS URL, and optionally release(url) to take it down after publishing."""
 
-    def __init__(self, url):
-        self.url = _check_public_url(url)
+    def __init__(self, url, label='video_url', step='host_video'):
+        self.url = _check_public_url(url, label, step)
 
     def describe(self, video_path):
         return self.url
@@ -120,26 +149,38 @@ class StaticUrlProvider:
         return None
 
 
-def _check_public_url(url):
+def _check_public_url(url, label='video_url', step='host_video'):
     url = str(url or '').strip()
     parts = urlsplit(url)
     if parts.scheme != 'https' or not parts.netloc:
-        raise InstagramPublishError(f'video_url must be an https:// URL Meta can fetch publicly, got {url[:120]!r}',
-                                    step='host_video')
+        raise InstagramPublishError(f'{label} must be an https:// URL Meta can fetch publicly, got '
+                                    f'{safe_url(url)[:120]!r}', step=step)
     if not url.isascii():
-        raise InstagramPublishError('video_url must contain only US-ASCII characters (Meta recommendation)',
-                                    step='host_video')
+        raise InstagramPublishError(f'{label} must contain only US-ASCII characters (Meta recommendation)', step=step)
     if parts.hostname in ('localhost', '127.0.0.1', '::1') or (parts.hostname or '').endswith(('.local', '.localhost')):
-        raise InstagramPublishError(f'video_url host {parts.hostname} is not reachable from Meta', step='host_video')
+        raise InstagramPublishError(f'{label} host {parts.hostname} is not reachable from Meta', step=step)
     return url
 
 
-def _provider(url_provider):
+def _provider(url_provider, label='url_provider', url_label='video_url', step='host_video'):
     if url_provider is None or hasattr(url_provider, 'url_for'):
         return url_provider
     if isinstance(url_provider, str):
-        return StaticUrlProvider(url_provider)
-    raise TypeError('url_provider must be None, an https URL string or an object with describe/url_for')
+        return StaticUrlProvider(url_provider, url_label, step)
+    raise TypeError(f'{label} must be None, an https URL string or an object with describe/url_for')
+
+
+def validate_cover(cover_path):
+    """The local cover JPEG (app.thumbnail's cover_1080x1920.jpg): a JPEG of at most 8 MB."""
+    path = Path(cover_path)
+    if not path.is_file():
+        raise InstagramPublishError(f'cover not found: {path}', step='cover')
+    data = path.read_bytes()
+    if not data.startswith(b'\xff\xd8\xff'):
+        raise InstagramPublishError(f'{path.name} is not a JPEG; Instagram cover_url must serve image/jpeg', step='cover')
+    if len(data) > COVER_MAX_BYTES:
+        raise InstagramPublishError(f'{path.name} is {len(data)} bytes; the Reels cover limit is 8 MB', step='cover')
+    return {'path': str(path), 'size': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
 
 
 # --- input checks ---------------------------------------------------------------------------------------------------
@@ -457,23 +498,52 @@ class InstagramClient:
             if response.status_code in (403, 405, 501):
                 response = self.public.get(url, headers={'Range': 'bytes=0-0'})
         except httpx.HTTPError as exc:
-            raise InstagramPublishError(f'hosted video {url} is not reachable ({type(exc).__name__}: {exc})',
-                                        step='check_public_url') from None
+            raise InstagramPublishError(f'hosted video {safe_url(url)} is not reachable ({type(exc).__name__}: '
+                                        f'{_mask_urls(exc)})', step='check_public_url') from None
         if response.status_code not in (200, 206):
-            raise InstagramPublishError(f'hosted video {url} answered HTTP {response.status_code}; Meta needs 200',
-                                        step='check_public_url')
+            raise InstagramPublishError(f'hosted video {safe_url(url)} answered HTTP {response.status_code}; '
+                                        'Meta needs 200', step='check_public_url')
         content_type = (response.headers.get('content-type') or '').split(';')[0].strip().lower()
         if content_type.startswith('text/') or content_type in ('application/json', 'application/xml'):
-            raise InstagramPublishError(f'hosted video {url} is served as {content_type}, not a video file',
+            raise InstagramPublishError(f'hosted video {safe_url(url)} is served as {content_type}, not a video file',
                                         step='check_public_url')
         length = response.headers.get('content-length')
         if response.status_code == 206:
             length = (response.headers.get('content-range') or '').rpartition('/')[2] or None
         if length and length.isdigit() and int(length) != expected_size:
-            raise InstagramPublishError(f'hosted video {url} is {length} bytes but the local file is {expected_size}',
-                                        step='check_public_url')
+            raise InstagramPublishError(f'hosted video {safe_url(url)} is {length} bytes but the local file is '
+                                        f'{expected_size}', step='check_public_url')
         return {'status': response.status_code, 'content_length': int(length) if length and length.isdigit() else None,
                 'content_type': response.headers.get('content-type')}
+
+    def check_public_cover(self, url, expected_size=None, max_bytes=COVER_MAX_BYTES):
+        """HEAD (or a one-byte GET) on the hosted cover, with no credentials: 200, image/jpeg, at most 8 MB."""
+        shown = safe_url(url)
+        try:
+            response = self.public.head(url)
+            if response.status_code in (403, 405, 501):
+                response = self.public.get(url, headers={'Range': 'bytes=0-0'})
+        except httpx.HTTPError as exc:
+            raise InstagramPublishError(f'hosted cover {shown} is not reachable ({type(exc).__name__})',
+                                        step='check_cover_url') from None
+        if response.status_code not in (200, 206):
+            raise InstagramPublishError(f'hosted cover {shown} answered HTTP {response.status_code}; Meta needs 200',
+                                        step='check_cover_url')
+        content_type = (response.headers.get('content-type') or '').split(';')[0].strip().lower()
+        if content_type != COVER_MIME:
+            raise InstagramPublishError(f'hosted cover {shown} is served as {content_type or "no content type"}, '
+                                        f'not {COVER_MIME}', step='check_cover_url')
+        length = response.headers.get('content-length')
+        if response.status_code == 206:
+            length = (response.headers.get('content-range') or '').rpartition('/')[2] or None
+        size = int(length) if length and length.isdigit() else None
+        if size is not None and size > max_bytes:
+            raise InstagramPublishError(f'hosted cover {shown} is {size} bytes; the Reels cover limit is 8 MB',
+                                        step='check_cover_url')
+        if size is not None and expected_size is not None and size != expected_size:
+            raise InstagramPublishError(f'hosted cover {shown} is {size} bytes but the local file is {expected_size}',
+                                        step='check_cover_url')
+        return {'status': response.status_code, 'content_length': size, 'content_type': content_type}
 
 
 class _Steps:
@@ -489,8 +559,8 @@ class _Steps:
         entry = {'step': step, 'method': method, 'url': HOST + path, 'headers': headers}
         if params:
             entry['params'] = dict(params)
-        if body is not None:
-            entry['json'] = dict(body)
+        if body is not None:   # what is logged: URL query strings masked (the request itself carries the full URL)
+            entry['json'] = {k: safe_url(v) if k in URL_FIELDS and isinstance(v, str) else v for k, v in body.items()}
         entry.update(extra)
         self.log.append(entry)
         return entry
@@ -506,6 +576,8 @@ class _Steps:
         return self.client.call('POST', path, step, json_body=body) if self.live else None
 
     def note(self, step, method, **fields):
+        if isinstance(fields.get('url'), str):
+            fields['url'] = safe_url(fields['url'])
         entry = {'step': step, 'method': method, **fields}
         self.log.append(entry)
         return entry
@@ -535,11 +607,22 @@ def resolve_collaborators(collaborators, account):
 def publish(video_path, lesson, *, dry_run=True, state_path=None, **options):
     """Publish `video_path` as a Reel. Anything other than dry_run=False is a dry run: GETs only (identity, limit and,
     with a state file, the earlier container), and the return value lists every request that would be sent (tokens
-    redacted). Progress is saved to state_path after every remote id, so a rerun resumes and never posts twice.
+    redacted, URL query strings masked). Progress is saved to state_path after every remote id, so a rerun resumes
+    and never posts twice.
 
     options: url_provider, credentials_path, token, transport, probe, sleep, clock, expected_username, share_to_feed,
-    ai_generated, thumb_offset_ms, poll_seconds, timeout, api_version, collaborators (None = the
-    owner's default Collab for the posting account, [] = no Collab)."""
+    ai_generated, thumb_offset_ms, poll_seconds, timeout, api_version, collaborators (None = the owner's default
+    Collab for the posting account, [] = no Collab), cover_url (an https URL already serving the cover JPEG, or a
+    provider object hosting cover_path the way url_provider hosts the video), cover_path (the local
+    cover_1080x1920.jpg; checked, and compared with the hosted size), cover_required and stop_after.
+
+    The cover never blocks the post (the rule the YouTube and LinkedIn publishers follow too): a cover that fails the
+    local check, can't be hosted, fails the HEAD check or is rejected by Meta (HTTP 400 on the container, or a
+    container that ends ERROR) is dropped with a warning and the reel goes out without it; thumb_offset_ms, when
+    given, then picks the frame. cover_required=True makes any of these stop the run instead. A posted reel's cover
+    can't be changed by API.
+    stop_after='container' hosts and checks the files, creates the container, waits for FINISHED, records it in the
+    state file and returns status 'container_ready' without calling media_publish (the one-time cover_url test)."""
     live = dry_run is False
     if live and not state_path:
         raise InstagramPublishError('publishing needs a state_path: it records every remote id so a retry never '
@@ -551,7 +634,10 @@ def publish(video_path, lesson, *, dry_run=True, state_path=None, **options):
 def _publish(video_path, lesson, *, live, state_path, url_provider=None, credentials_path=None,
              token=None, transport=None, probe=None, sleep=time.sleep, clock=time.monotonic,
              expected_username=EXPECTED_USERNAME, share_to_feed=True, ai_generated=True, thumb_offset_ms=None,
-             poll_seconds=POLL_SECONDS, timeout=PROCESS_TIMEOUT, api_version=API_VERSION, collaborators=None):
+             poll_seconds=POLL_SECONDS, timeout=PROCESS_TIMEOUT, api_version=API_VERSION, collaborators=None,
+             cover_url=None, cover_path=None, cover_required=False, stop_after=None):
+    if stop_after not in (None, 'container'):
+        raise ValueError("stop_after must be None or 'container'")
     caption = caption_for(lesson)
     video = validate_video(video_path, probe=probe)
     if thumb_offset_ms is not None and not 0 <= int(thumb_offset_ms) < video['duration_s'] * 1000:
@@ -564,6 +650,13 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
                                           'hashtags': len(HASHTAG_RE.findall(caption)),
                                           'mentions': len(MENTION_RE.findall(caption))},
               'upload_method': 'video_url', 'warnings': list(video['warnings']), 'blockers': []}
+    # the cover is checked before anything is sent; a problem drops it with a warning (or stops a cover_required run)
+    offset = thumb_offset_ms     # sent only when no cover goes out
+    cover_provider, cover = _prepare_cover(cover_url, cover_path, cover_required, result, offset)
+    if cover_provider is not None and offset is not None:
+        result['warnings'].append(f'thumb_offset_ms {offset} dropped: cover_url sets the cover and Meta would ignore '
+                                  'thumb_offset anyway (it is used again if the cover is dropped)')
+    cover_key = _cover_key(cover_provider, cover)
 
     if state.get('status') in PUBLISHED_STATES or state.get('media_id'):
         if state.get('video', {}).get('sha256') not in (None, video['sha256']):
@@ -575,10 +668,11 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
     if token is None:
         token = load_credentials(credentials_path)['access_token']
     provider = _provider(url_provider)
+    hosts = (provider, cover_provider)
     client = InstagramClient(token, transport=transport, version=api_version)
     steps = _Steps(client, live)
     result['requests'] = steps.log
-    caption_sha = hashlib.sha256(caption.encode()).hexdigest()
+    caption_sha = _caption_sha(caption)
     try:
         # 1. identity: the token must belong to the expected professional account before anything is written
         me = steps.get('identity', client.path('me'), {'fields': 'user_id,username,account_type'})
@@ -612,33 +706,47 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
                 raise PublishingLimitError(message, step='publishing_limit', retriable=True)
             result['blockers'].append(message)
 
-        # 3. an earlier container for this exact file and caption is resumed, never duplicated
-        same_input = (state.get('video', {}).get('sha256') == video['sha256']
-                      and state.get('caption_sha256') == caption_sha)
+        # 3. an earlier container is checked before anything is written. It is resumed only when it carries this exact
+        #    file, caption and cover; the cover decides only whether the container can be reused, never whether this
+        #    is a different post.
+        same_post = (state.get('video', {}).get('sha256') == video['sha256']
+                     and state.get('caption_sha256') == caption_sha)
+        same_cover = state.get('cover_key') == cover_key
+        same_input = same_post and same_cover
         container_id = None
         old = state.get('container_id')
         if old:
-            # checked even when the video or caption changed: if a lost publish response left it PUBLISHED, a fresh
-            # container would post the reel a second time
+            # checked even when the input changed: if a lost publish response left it PUBLISHED, a fresh container
+            # would post the reel a second time
             status = steps.get('container_status', client.path(old), {'fields': 'id,status,status_code'})
             code = status.get('status_code')
-            result['resume'] = {'container_id': old, 'status_code': code, 'same_input': same_input}
+            result['resume'] = {'container_id': old, 'status_code': code, 'same_input': same_input,
+                                'same_cover': same_cover}
             if code == 'PUBLISHED':
-                if same_input:
-                    return _reconcile(steps, client, ig_id, old, caption, state, state_path, result, live)
-                raise InstagramPublishError(f'container {old} for an earlier version of this video/caption is already '
-                                            'PUBLISHED; nothing was posted again (use a new state file to post a '
-                                            'changed version on purpose)', step='resume')
+                if not same_post:
+                    raise InstagramPublishError(f'container {old} for an earlier version of this video/caption is '
+                                                'already PUBLISHED; nothing was posted again (use a new state file to '
+                                                'post a changed version on purpose)', step='resume')
+                if not same_cover:
+                    result['warnings'].append('this reel was already posted with an earlier cover, so the new cover '
+                                              "was not used (a posted reel's cover can't be changed by API; use Edit "
+                                              'cover in the Instagram app)')
+                return _reconcile(steps, client, ig_id, old, caption, state, state_path, result, live, hosts=hosts)
+            if state.get('status') == 'publishing':
+                # media_publish was sent, its outcome is unknown and the container status may lag. Whatever changed
+                # since (cover, caption or file), look for the post before this container is reused or replaced.
+                found = _reconcile(steps, client, ig_id, old, caption, state, state_path, result, live,
+                                   required=False, hosts=hosts, earlier_caption_sha=state.get('caption_sha256'))
+                if found:
+                    if not same_input:
+                        found['warnings'].append('the earlier publish went through, so the changed cover, caption or '
+                                                 'file was not posted')
+                    return found
             if same_input and code in ('FINISHED', 'IN_PROGRESS'):
-                if state.get('status') == 'publishing':
-                    # the last media_publish outcome is unknown and the container status may lag: look for the post
-                    found = _reconcile(steps, client, ig_id, old, caption, state, state_path, result, live,
-                                       required=False)
-                    if found:
-                        return found
                 container_id = old
             else:
-                _archive_container(state, old, code if same_input else f'superseded ({code}): video or caption changed')
+                _archive_container(state, old, code if same_input else
+                                   f"superseded ({code}): {'cover' if same_post else 'video or caption'} changed")
         if state.get('video', {}).get('sha256') != video['sha256']:
             state.pop('video_url', None)  # a hosted copy of an older file must never be reused
         state.update({'platform': 'instagram', 'account': {'username': identity['username'], 'ig_user_id': ig_id},
@@ -648,6 +756,7 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
             save_state(state_path, state)
 
         # 4. host the file, check it is public, create the container
+        base_body = None
         if not container_id:
             if provider is not None:
                 if live:
@@ -677,28 +786,48 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
                                expect={'status': 200, 'content_length': video['size']}, executed=live)
             if live:
                 check['result'] = client.check_public_url(video_url, video['size'])
-            body = {'media_type': 'REELS', 'video_url': video_url, 'caption': caption,
-                    'share_to_feed': bool(share_to_feed)}
+            base_body = {'media_type': 'REELS', 'video_url': video_url, 'caption': caption,
+                         'share_to_feed': bool(share_to_feed)}
             if ai_generated:
-                body['is_ai_generated'] = True
-            if thumb_offset_ms is not None:
-                body['thumb_offset'] = int(thumb_offset_ms)
+                base_body['is_ai_generated'] = True
             names = resolve_collaborators(collaborators, expected_username)
             if names:   # Collab invite; each account must accept before the reel shows on its profile
-                body['collaborators'] = names
+                base_body['collaborators'] = names
             result['collaborators'] = names
-            created = steps.post('create_container', client.path(ig_id, 'media'), body, file_size=video['size'])
-            container_id = str(created['id']) if live else '<IG_CONTAINER_ID>'
-            if live:
-                state.update(container_id=container_id, container_created_at=_now(), status='container_created',
-                             container_status='IN_PROGRESS')
-                save_state(state_path, state)
+            hosted_cover = None
+            if cover_provider is not None:
+                try:
+                    hosted_cover = _host_cover(steps, client, cover_provider, cover, state, state_path, live)
+                except InstagramPublishError as error:
+                    _drop_cover(result, error, cover_required, offset)
+            container_id = _create_container(steps, client, ig_id, base_body, video['size'], hosted_cover, cover_key,
+                                             offset, cover_required, state, state_path, result, live)
 
         # 5. wait until Meta has fetched and processed the video
         result['container_id'] = container_id
-        if _wait_for_container(steps, client, container_id, state, state_path, live, sleep, clock,
-                               poll_seconds, timeout) == 'PUBLISHED':
-            return _reconcile(steps, client, ig_id, container_id, caption, state, state_path, result, live)
+        try:
+            outcome = _wait_for_container(steps, client, container_id, state, state_path, live, sleep, clock,
+                                          poll_seconds, timeout)
+        except ContainerFailedError as error:
+            # a container made in this run with cover_url ended ERROR: Meta may not take the cover, so the reel gets
+            # one more container without it (a video problem fails again, with Meta's own message)
+            if base_body is None or not state.get('cover_key') or error.container_status != 'ERROR':
+                raise
+            _drop_cover(result, error, cover_required, offset)
+            _archive_container(state, container_id, 'ERROR with cover_url; made again without the cover')
+            container_id = _create_container(steps, client, ig_id, base_body, video['size'], None, None, offset,
+                                             cover_required, state, state_path, result, live)
+            result['container_id'] = container_id
+            outcome = _wait_for_container(steps, client, container_id, state, state_path, live, sleep, clock,
+                                          poll_seconds, timeout)
+        if outcome == 'PUBLISHED':
+            return _reconcile(steps, client, ig_id, container_id, caption, state, state_path, result, live,
+                              hosts=hosts)
+        if stop_after == 'container':
+            result['status'] = 'container_ready' if live else ('blocked' if result['blockers'] else 'planned')
+            result['notes'] = ['stop_after=container: media_publish was not called. The container stays unpublished '
+                               'and expires 24 h after it was made; nothing appears on the profile.']
+            return result
 
         # 6. publish (the attempt is recorded first so a lost response is reconciled, not re-posted)
         if live:
@@ -721,7 +850,7 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
         if live:
             state.update(media_id=media_id, status='published', published_at=_now())
             save_state(state_path, state)
-        _finish(steps, client, media_id, provider, state, state_path, result, live)
+        _finish(steps, client, media_id, hosts, state, state_path, result, live)
         if not live and result['blockers']:
             result['status'] = 'blocked'
         return result
@@ -729,9 +858,118 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
         client.close()
 
 
+# --- the cover ------------------------------------------------------------------------------------------------------
+
+def _prepare_cover(cover_url, cover_path, cover_required, result, offset):
+    """(provider, local cover info) for this run, checked before anything is sent. A cover that can't be used is
+    dropped with a warning ((None, None) comes back), or stops the run when cover_required."""
+    if cover_url is None and not cover_path:
+        return None, None
+    try:
+        provider = _provider(cover_url, 'cover_url', 'cover_url', 'host_cover')
+        cover = validate_cover(cover_path) if cover_path else None
+        if provider is None:
+            raise InstagramPublishError('cover_path was given without cover_url: Meta must fetch the cover from a '
+                                        'public HTTPS URL (pass cover_url=<https URL> or a provider object)',
+                                        step='cover')
+        if cover is None and not isinstance(provider, StaticUrlProvider):
+            raise InstagramPublishError('a cover_url provider hosts a local file: pass cover_path too', step='cover')
+    except InstagramPublishError as error:
+        _drop_cover(result, error, cover_required, offset)
+        return None, None
+    result['cover'] = {'provider': type(provider).__name__, **(cover or {}), 'status': 'planned'}
+    return provider, cover
+
+
+def _drop_cover(result, error, cover_required, offset):
+    """Go on without the cover (a warning), or re-raise when the caller asked for cover_required."""
+    if cover_required:
+        raise error
+    message = _mask_urls(str(error))
+    fallback = (f'thumb_offset_ms {offset} picks the frame instead' if offset is not None
+                else 'Instagram picks the frame')
+    result['warnings'].append(f'Instagram cover dropped, the reel posts without it ({fallback}): {message}')
+    result['cover'] = {**(result.get('cover') or {}), 'status': 'dropped', 'error': message}
+
+
+def _cover_key(provider, cover):
+    """Which cover a container carries: the local JPEG's sha256 or, for a URL-only cover, scheme://host/path (a new
+    signature on the same URL is not a new cover)."""
+    if cover:
+        return cover['sha256']
+    if provider is None:
+        return None
+    return 'url:' + urlunsplit(urlsplit(provider.describe(None))._replace(query='', fragment=''))
+
+
+def _host_cover(steps, client, provider, cover, state, state_path, live):
+    """Make the cover JPEG public (like the video) and HEAD-check it before Meta is asked to fetch it. Raises
+    InstagramPublishError (step host_cover or check_cover_url) when the cover can't be served."""
+    local = Path(cover['path']) if cover else None
+    if live:
+        try:
+            hosted = provider.url_for(local)
+        except InstagramPublishError:
+            raise
+        except Exception as exc:   # a hosting hiccup: the caller drops the cover and posts without it
+            raise InstagramPublishError(client.scrub(_mask_urls(f'could not host the cover ({type(exc).__name__}: '
+                                                                f'{exc})')), step='host_cover') from None
+        url = _check_public_url(hosted, 'cover_url', 'host_cover')
+        state.update(cover_url=url, cover_url_provider=type(provider).__name__)
+        save_state(state_path, state)
+    else:
+        url = provider.describe(local)
+    steps.note('host_cover', 'HOST', provider=type(provider).__name__, url=url,
+               file_size=cover['size'] if cover else None, executed=live)
+    check = steps.note('check_cover_url', 'HEAD', url=url, headers={},
+                       expect={'status': 200, 'content_type': COVER_MIME, 'max_bytes': COVER_MAX_BYTES,
+                               'content_length': cover['size'] if cover else None}, executed=live)
+    if live:
+        check['result'] = client.check_public_cover(url, cover['size'] if cover else None)
+    return url
+
+
+def _create_container(steps, client, ig_id, base_body, file_size, cover_url, cover_key, offset, cover_required, state,
+                      state_path, result, live):
+    """POST /media with cover_url (or thumb_offset when no cover goes out) and record the container. When Meta answers
+    HTTP 400 to a request that carried cover_url and the error is not about the token, the limits or the video
+    format, the cover is the likely cause: the container is requested once more without it."""
+    body = dict(base_body)
+    if cover_url:
+        body['cover_url'] = cover_url
+    elif offset is not None:
+        body['thumb_offset'] = int(offset)
+    try:
+        created = steps.post('create_container', client.path(ig_id, 'media'), body, file_size=file_size)
+    except InstagramPublishError as error:
+        if not cover_url or error.http_status != 400 or error.code in NOT_COVER_ERROR_CODES:
+            raise
+        _drop_cover(result, error, cover_required, offset)
+        return _create_container(steps, client, ig_id, base_body, file_size, None, None, offset, cover_required,
+                                 state, state_path, result, live)
+    if cover_url:
+        result['cover'].update(url=safe_url(cover_url), status='sent' if live else 'planned')
+    container_id = str(created['id']) if live else '<IG_CONTAINER_ID>'
+    if live:
+        state.update(container_id=container_id, container_created_at=_now(), status='container_created',
+                     container_status='IN_PROGRESS')
+        if cover_url:
+            state['cover_key'] = cover_key
+        else:
+            state.pop('cover_key', None)
+        save_state(state_path, state)
+    return container_id
+
+
+# --- containers and the post ----------------------------------------------------------------------------------------
+
+def _caption_sha(caption):
+    return hashlib.sha256(caption.encode()).hexdigest()
+
+
 def _archive_container(state, container_id, reason):
     state.setdefault('previous_containers', []).append({'id': container_id, 'reason': reason, 'at': _now()})
-    for key in ('container_id', 'container_created_at', 'container_status'):
+    for key in ('container_id', 'container_created_at', 'container_status', 'cover_key'):
         state.pop(key, None)
 
 
@@ -750,8 +988,10 @@ def _wait_for_container(steps, client, container_id, state, state_path, live, sl
         if code in ('FINISHED', 'PUBLISHED'):
             return code
         if code in ('ERROR', 'EXPIRED'):
-            raise InstagramPublishError(f"Instagram container {container_id} is {code}: {status.get('status')} "
-                                        '(a rerun creates a fresh container)', step='container_status')
+            error = ContainerFailedError(f"Instagram container {container_id} is {code}: {status.get('status')} "
+                                         '(a rerun creates a fresh container)', step='container_status')
+            error.container_status = code
+            raise error
         if clock() >= deadline:
             raise InstagramPublishError(f'Instagram container {container_id} is still {code} after {timeout:g}s; '
                                         'rerun with the same state file to keep waiting', step='container_status',
@@ -759,12 +999,16 @@ def _wait_for_container(steps, client, container_id, state, state_path, live, sl
         sleep(poll_seconds)
 
 
-def _reconcile(steps, client, ig_id, container_id, caption, state, state_path, result, live, required=True):
-    """The container is (or may be) PUBLISHED but its media id was never recorded: find the post instead of posting
-    again. With required=False a miss returns None so the caller can go on."""
+def _reconcile(steps, client, ig_id, container_id, caption, state, state_path, result, live, required=True,
+               hosts=(None, None), earlier_caption_sha=None):
+    """The container is (or may be) PUBLISHED but its media id was never recorded: find the post (by this caption or
+    by the caption of the earlier attempt) instead of posting again. With required=False a miss returns None so the
+    caller can go on."""
     recent = steps.get('reconcile', client.path(ig_id, 'media'),
                        {'fields': 'id,caption,permalink,timestamp', 'limit': 10})
-    match = next((m for m in recent.get('data') or [] if (m.get('caption') or '').strip() == caption), None)
+    wanted = {_caption_sha(caption), earlier_caption_sha} - {None}
+    match = next((m for m in recent.get('data') or []
+                  if _caption_sha((m.get('caption') or '').strip()) in wanted), None)
     if not match and not required:
         return None
     result['container_id'] = container_id
@@ -778,11 +1022,12 @@ def _reconcile(steps, client, ig_id, container_id, caption, state, state_path, r
         state.update(media_id=str(match['id']), permalink=match.get('permalink'), status='published',
                      published_at=state.get('published_at') or match.get('timestamp') or _now())
         save_state(state_path, state)
+        _release_hosted(state, hosts, result['warnings'])
     result.update(status='already_published', media_id=str(match['id']), permalink=match.get('permalink'))
     return result
 
 
-def _finish(steps, client, media_id, provider, state, state_path, result, live):
+def _finish(steps, client, media_id, hosts, state, state_path, result, live):
     media = steps.get('permalink', client.path(media_id), {'fields': 'id,permalink,shortcode,timestamp'}, run=live)
     result.update(status='published' if live else 'planned', media_id=media_id,
                   permalink=(media or {}).get('permalink'))
@@ -790,8 +1035,62 @@ def _finish(steps, client, media_id, provider, state, state_path, result, live):
         return
     state.update(permalink=media.get('permalink'), shortcode=media.get('shortcode'))
     save_state(state_path, state)
-    if provider is not None and hasattr(provider, 'release') and state.get('video_url'):
+    _release_hosted(state, hosts, result['warnings'])
+
+
+def _release_hosted(state, hosts, warnings):
+    """The post is live: take the hosted video and cover down through their providers' release()."""
+    for label, provider, key in (('video', hosts[0], 'video_url'), ('cover', hosts[1], 'cover_url')):
+        url = state.get(key)
+        if provider is None or not url or not hasattr(provider, 'release'):
+            continue
         try:
-            provider.release(state['video_url'])
+            provider.release(url)
         except Exception as exc:  # the post is live; a hosting cleanup failure is only worth a warning
-            result['warnings'].append(f'could not release the hosted video: {exc}')
+            warnings.append(f'could not release the hosted {label}: {_mask_urls(str(exc))}')
+
+
+# --- command line ---------------------------------------------------------------------------------------------------
+
+def main(argv=None):
+    """python -m app.publish_instagram <video.mp4> <lesson.json> --video-url URL [--cover-url URL --cover JPG]
+           [--account with.hammad] [--state FILE] [--stop-after container] [--cover-required] [--live]
+
+    A dry run unless --live, and --live only together with --stop-after container: this command never posts a reel
+    (a post goes through publish() after the owner's explicit OK). Its job is the one-time cover_url check in
+    docs/PENDING.md: create ONE container with cover_url, wait for FINISHED, record it in the state file, stop."""
+    import argparse
+    import sys
+    from . import instagram_tokens
+    parser = argparse.ArgumentParser(prog='python -m app.publish_instagram', description=main.__doc__,
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('video')
+    parser.add_argument('lesson', help='lesson.json (its captions.instagram is the caption)')
+    parser.add_argument('--account', default='with.hammad',
+                        help='posting account; the token is work/.secrets/instagram-<account>-oauth.json')
+    parser.add_argument('--video-url', required=True, help='public https URL already serving the video')
+    parser.add_argument('--cover-url', help='public https URL already serving the cover JPEG')
+    parser.add_argument('--cover', help='the local cover JPEG (compared with the hosted size)')
+    parser.add_argument('--state', help='state file; use a scratch file for the cover test')
+    parser.add_argument('--stop-after', choices=('container',), help='never call media_publish')
+    parser.add_argument('--cover-required', action='store_true', help='stop instead of dropping a cover that fails')
+    parser.add_argument('--live', action='store_true', help='send the writes (needs --stop-after container)')
+    args = parser.parse_args(argv)
+    if args.live and args.stop_after != 'container':
+        parser.error('--live needs --stop-after container: this command never posts a reel')
+    account = args.account.lstrip('@')
+    try:
+        result = publish(args.video, json.loads(Path(args.lesson).read_text()), dry_run=not args.live,
+                         state_path=args.state, url_provider=args.video_url, cover_url=args.cover_url,
+                         cover_path=args.cover, expected_username=account,
+                         credentials_path=instagram_tokens.account_file(account),
+                         cover_required=args.cover_required, stop_after=args.stop_after)
+    except InstagramPublishError as error:
+        print(f'instagram: {error}', file=sys.stderr)
+        return 1
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

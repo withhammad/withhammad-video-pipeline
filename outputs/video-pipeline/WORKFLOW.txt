@@ -24,6 +24,8 @@ Production sequence for Codex:
    Persist returned job IDs immediately. Reconcile unknown outcomes before retrying.
 4. Use Remotion when the lesson benefits from graphics, demonstrations or captions.
    Load its skill before implementation. Inspect the actual rendered output.
+   Then the cover: `python -m app.thumbnail build <job>` from studio/ (AGENTS.md daily
+   routine step 4); the owner approves it with the video. A cover failure never blocks a post.
 5. Prepare a website resource containing the lesson, working prompts, steps and
    tool links. Publish through the verified website source/CMS and check the URL.
 6. Prepare separate platform captions and track each destination's remote post ID.

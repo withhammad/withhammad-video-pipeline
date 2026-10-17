@@ -23,6 +23,10 @@ Verified against the official documentation on 2026-10-17 (developers.google.com
   videos.insert: 1 unit from the Video Uploads quota bucket ("100 calls per day").
   GET  https://www.googleapis.com/youtube/v3/videos?part=status,processingDetails&id=<id>   after the upload:
        uploadStatus uploaded -> processed | failed (failureReason) | rejected (rejectionReason) | deleted.
+  POST https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=<id>&uploadType=media
+       Content-Type: image/jpeg, body = the JPEG (at most 2 MB) -> 200 {items: [{default, medium, high, ...}]}.
+       Any of the videos.insert scopes; 50 quota units. 403 = the channel may not set custom thumbnails yet
+       (verify it at youtube.com/verify). After an upload this step only ever warns: the Short is already live.
 YouTube Help 12779649: a square or vertical upload of up to 3 minutes is a Short; "#Shorts" is optional.
 
 Dry run (the default) sends only the OAuth token refresh (a POST to Google's authorization server that mints a
@@ -51,6 +55,10 @@ EXPECTED_CHANNEL_ID = os.environ.get('STUDIO_YOUTUBE_CHANNEL_ID', 'UCJtrEDGg1R3k
 TOKEN_URL = 'https://oauth2.googleapis.com/token'
 API = 'https://www.googleapis.com/youtube/v3'
 UPLOAD_URL = 'https://www.googleapis.com/upload/youtube/v3/videos'
+THUMBNAIL_URL = 'https://www.googleapis.com/upload/youtube/v3/thumbnails/set'
+THUMBNAIL_MIME = 'image/jpeg'
+THUMBNAIL_MAX_BYTES = 2 * 1024 * 1024
+VERIFY_URL = 'https://www.youtube.com/verify'
 UPLOAD_SCOPE = 'https://www.googleapis.com/auth/youtube.upload'
 # videos.insert "Authorization": any one of these scopes (developers.google.com/youtube/v3/docs/videos/insert).
 INSERT_SCOPES = (UPLOAD_SCOPE, 'https://www.googleapis.com/auth/youtube',
@@ -110,6 +118,10 @@ class UploadSessionExpired(YouTubePublishError):
 
 
 class StateConflictError(YouTubePublishError):
+    pass
+
+
+class ThumbnailError(YouTubePublishError):
     pass
 
 
@@ -693,13 +705,189 @@ def _start_session(session, resource, video, notify_subscribers):
     return location
 
 
+# ---------------------------------------------------------------- custom thumbnail
+
+class _Thumbnail(dict):
+    """The checked cover: a plain dict for plans, results and state, plus `.data`, the exact bytes that were checked.
+    Those bytes are what thumbnails.set sends, so the sha256 in state always matches what YouTube received, even if
+    the file is re-exported or removed while the video uploads. dict(thumb) and JSON never carry the bytes."""
+    data = b''
+
+
+def validate_thumbnail(path):
+    """The cover JPEG for thumbnails.set: a JPEG file of at most 2 MB (app.thumbnail exports cover_1080x1920.jpg)."""
+    path = Path(path)
+    if not path.is_file():
+        raise ThumbnailError(f'Thumbnail not found: {path}', step='thumbnail')
+    data = path.read_bytes()
+    if not data.startswith(b'\xff\xd8\xff'):
+        raise ThumbnailError(f'{path.name} is not a JPEG; thumbnails.set is sent as image/jpeg', step='thumbnail')
+    if len(data) > THUMBNAIL_MAX_BYTES:
+        raise ThumbnailError(f'{path.name} is {len(data)} bytes; YouTube thumbnails must be at most 2 MB',
+                             step='thumbnail')
+    thumb = _Thumbnail(path=str(path), bytes=len(data), sha256=hashlib.sha256(data).hexdigest(),
+                       mime_type=THUMBNAIL_MIME)
+    thumb.data = data
+    return thumb
+
+
+def _thumbnail_request(video_id, thumb, token):
+    params = {'videoId': str(video_id), 'uploadType': 'media'}
+    headers = {**_auth(token), 'Content-Type': THUMBNAIL_MIME, 'Content-Length': str(thumb['bytes'])}
+    return str(httpx.URL(THUMBNAIL_URL, params=params)), headers
+
+
+def _thumbnail_plan(video_id, thumb):
+    url, headers = _thumbnail_request(video_id, thumb, REDACTED)
+    if str(video_id).startswith('<'):   # dry run before the upload: the id comes from the upload response
+        url = f'{THUMBNAIL_URL}?videoId={video_id}&uploadType=media'
+    return {'step': 'set_thumbnail', 'method': 'POST', 'url': url, 'headers': _redact_headers(headers),
+            'body': {'file': thumb['path'], 'bytes': thumb['bytes'], 'sha256': thumb['sha256']},
+            'expect': '200 + thumbnail URLs; sha256 saved to state_path. A failure is a warning, not a failed '
+                      f'publish (403: verify the channel at {VERIFY_URL}).'}
+
+
+def _thumbnail_hint(video_id, thumb_path):
+    return (f'Verify the channel at {VERIFY_URL} (phone, about 1 minute), then run: python -m app.publish_youtube '
+            f'thumbnail {video_id} {thumb_path} --live')
+
+
+def _set_thumbnail(session, video_id, thumb):
+    """POST the checked JPEG bytes to thumbnails.set (one retry after a 401 token refresh). Returns the thumbnail
+    URLs."""
+    data = getattr(thumb, 'data', None) or Path(thumb['path']).read_bytes()
+    for attempt in range(2):
+        url, headers = _thumbnail_request(video_id, thumb, session.token)
+        response = session.http.request('set_thumbnail', 'POST', url, headers=headers, content=data,
+                                        body_note={'file': thumb['path'], 'bytes': thumb['bytes']})
+        if response.status_code == 401 and not attempt:
+            session.refresh()
+            continue
+        if response.status_code != 200:
+            hint = _thumbnail_hint(video_id, thumb['path']) if response.status_code == 403 else ''
+            raise _api_error('thumbnails.set', response, session.secrets, ThumbnailError, hint=hint)
+        payload = _json(response, 'thumbnails.set', session.secrets)
+        items = payload.get('items') if isinstance(payload, dict) else None
+        first = items[0] if isinstance(items, list) and items and isinstance(items[0], dict) else {}
+        return {size: info.get('url') for size, info in first.items() if isinstance(info, dict)}
+    raise ThumbnailError('YouTube thumbnails.set kept answering HTTP 401', step='thumbnails.set', status=401)
+
+
+def _thumbnail_done(state, video_id, thumb):
+    done = state.get('thumbnail') or {}
+    return done.get('sha256') == thumb['sha256'] and done.get('video_id') in (None, video_id)
+
+
+def _apply_thumbnail(session, state_path, section, video_id, thumb, warnings):
+    """Set the thumbnail after the upload; any failure becomes a warning because the Short is already live."""
+    try:
+        urls = _set_thumbnail(session, video_id, thumb)
+    except Exception as error:   # whatever goes wrong here, the caller still gets the live Short's id and URL
+        if isinstance(error, YouTubePublishError):
+            message = str(error)
+        elif isinstance(error, httpx.TransportError):
+            message = f'network error ({error.__class__.__name__})'
+        else:
+            message = f'{error.__class__.__name__}: {_display_url_text(str(error))}'
+        message = session.secrets.text(message)
+        warnings.append(f'Custom thumbnail not set: {message}')
+        return {'status': 'failed', 'error': message, 'sha256': thumb['sha256'], 'path': thumb['path']}
+    record = {'sha256': thumb['sha256'], 'set_at': _now(), 'path': thumb['path'], 'video_id': video_id}
+    section['thumbnail'] = record
+    if state_path:
+        save_state(state_path, section)
+    return dict(record, status='set', urls=urls)
+
+
+@contextlib.contextmanager
+def _verified_session(expected_channel_id, oauth_file, transport):
+    """A refreshed token whose channel is the expected one; yields (session, identity)."""
+    creds = load_credentials(oauth_file)
+    if creds['channel_id'] != expected_channel_id:
+        raise IdentityMismatchError(f'The OAuth file is for channel {creds["channel_id"]}, expected '
+                                    f'{expected_channel_id}; nothing was sent', step='credentials')
+    secrets = _Secrets()
+    secrets.add(creds['refresh_token'], creds['client_secret'], creds['client_id'])
+    http = _Http(secrets, transport)
+    session = _Session(http, creds, secrets)
+    try:
+        session.refresh()
+        yield session, verify_channel(session, expected_channel_id)
+    except httpx.TransportError as error:
+        raise YouTubePublishError(secrets.text(f'Network error talking to Google ({error.__class__.__name__}); '
+                                               'rerun to retry')) from None
+    finally:
+        http.close()
+
+
+def _thumbnail_on_published(state, state_path, thumb, dry_run, result, warnings, expected_channel_id, oauth_file,
+                            transport):
+    """A rerun after the Short is up but before this cover is on it: set (or plan) only the thumbnail."""
+    video_id = state['video_id']
+    try:
+        with _verified_session(expected_channel_id, oauth_file, transport) as (session, identity):
+            result['channel'] = identity
+            if dry_run:
+                result['plan'] = [_thumbnail_plan(video_id, thumb)]
+                result['preflight_requests'] = session.http.sent
+                return {'status': 'planned', 'sha256': thumb['sha256'], 'path': thumb['path']}
+            thumbnail = _apply_thumbnail(session, state_path, dict(state), video_id, thumb, warnings)
+            result['requests_sent'] = session.http.sent
+            return session.secrets.deep(thumbnail)
+    except YouTubePublishError as error:
+        # the Short is live and nothing was sent (an identity mismatch included): the cover can be retried later
+        warnings.append(f'Custom thumbnail not set: {error}')
+        return {'status': 'failed', 'error': str(error), 'sha256': thumb['sha256'], 'path': thumb['path']}
+
+
+def set_thumbnail(video_id, jpg, *, dry_run=True, state_path=None, expected_channel_id=EXPECTED_CHANNEL_ID,
+                  oauth_file=None, transport=None):
+    """Set the custom thumbnail of a Short already on the channel (a retro-fix, or a Short posted from the phone).
+
+    dry_run=True (default): token refresh, identity check and a videos.list check that the video belongs to the
+    channel; returns the planned thumbnails.set request. Live: sends it and, with a state_path, records the JPEG's
+    sha256 so a rerun skips. Unlike the step inside publish(), a failure here raises (it is the whole job)."""
+    if not isinstance(dry_run, bool):
+        raise TypeError('dry_run must be True or False')
+    thumb = validate_thumbnail(jpg)
+    with contextlib.nullcontext() if dry_run or not state_path else _state_lock(state_path):
+        state = load_state(state_path)
+        if state.get('video_id') not in (None, video_id):
+            raise StateConflictError(f'The state file tracks video {state["video_id"]}, not {video_id}')
+        base = {'platform': 'youtube', 'dry_run': dry_run, 'video_id': video_id, 'thumbnail': thumb,
+                'state_path': str(state_path) if state_path else None}
+        if _thumbnail_done(state, video_id, thumb):
+            return dict(base, status='already_set', set_at=state['thumbnail'].get('set_at'), requests_sent=[])
+        with _verified_session(expected_channel_id, oauth_file, transport) as (session, identity):
+            payload = session.get('videos.list (owner check)', f'{API}/videos', {'part': 'snippet', 'id': str(video_id)})
+            items = payload.get('items') or []
+            owner = ((items[0].get('snippet') or {}).get('channelId')) if items else None
+            if owner != expected_channel_id:
+                raise IdentityMismatchError(f'Video {video_id} is not on channel {expected_channel_id} '
+                                            f'(found: {owner or "no such video"}); nothing was sent', step='videos.list')
+            if dry_run:
+                return session.secrets.deep(dict(base, status='planned', channel=identity,
+                                                 preflight_requests=session.http.sent,
+                                                 plan=[_thumbnail_plan(video_id, thumb)]))
+            urls = _set_thumbnail(session, video_id, thumb)
+            record = {'sha256': thumb['sha256'], 'set_at': _now(), 'path': thumb['path'], 'video_id': video_id}
+            if state_path:
+                save_state(state_path, dict(state, thumbnail=record))
+            return session.secrets.deep(dict(base, status='set', channel=identity, set_at=record['set_at'], urls=urls,
+                                             requests_sent=session.http.sent))
+
+
 # ---------------------------------------------------------------- entry point
 
 def publish(video_path, lesson, *, dry_run=True, state_path=None, privacy_status='private', category_id=CATEGORY_ID,
             contains_synthetic_media=True, made_for_kids=False, publish_at=None, notify_subscribers=True,
             expected_channel_id=EXPECTED_CHANNEL_ID, oauth_file=None, restart_expired_session=False,
-            transport=None, probe=None, sleep=time.sleep, max_retries=5):
+            transport=None, probe=None, sleep=time.sleep, max_retries=5, thumbnail_path=None):
     """Upload video_path as a Short. dry_run=True (default): token refresh + read-only GETs, returns the plan.
+
+    thumbnail_path (the reel's cover_1080x1920.jpg) is set with thumbnails.set right after the upload. A thumbnail
+    problem is only a warning: the Short is live either way, and a rerun with the same state file sets the cover
+    without uploading again (it is skipped once the state records that JPEG's sha256).
 
     contains_synthetic_media defaults to True: the avatar is a realistic AI likeness of Hammad performing a
     take he never filmed, which YouTube's altered-or-synthetic policy asks creators to disclose (only cloning
@@ -715,24 +903,36 @@ def publish(video_path, lesson, *, dry_run=True, state_path=None, privacy_status
                         made_for_kids=made_for_kids, publish_at=publish_at, notify_subscribers=notify_subscribers,
                         expected_channel_id=expected_channel_id, oauth_file=oauth_file,
                         restart_expired_session=restart_expired_session, transport=transport, probe=probe,
-                        sleep=sleep, max_retries=max_retries)
+                        sleep=sleep, max_retries=max_retries, thumbnail_path=thumbnail_path)
 
 
 def _publish(video_path, lesson, *, dry_run, state_path, privacy_status, category_id, contains_synthetic_media,
              made_for_kids, publish_at, notify_subscribers, expected_channel_id, oauth_file, restart_expired_session,
-             transport, probe, sleep, max_retries):
+             transport, probe, sleep, max_retries, thumbnail_path=None):
     video = validate_video(video_path, probe)
     resource, warnings = build_video_resource(lesson, privacy_status=privacy_status, category_id=category_id,
                                               contains_synthetic_media=contains_synthetic_media,
                                               made_for_kids=made_for_kids, publish_at=publish_at)
+    thumb = None
+    if thumbnail_path:
+        try:
+            thumb = validate_thumbnail(thumbnail_path)
+        except ThumbnailError as error:
+            warnings.append(f'Custom thumbnail skipped: {error}')
     state = load_state(state_path)
     _check_state(state, video, expected_channel_id)
     if state.get('status') == 'published' and state.get('video_id'):
-        return {'platform': 'youtube', 'dry_run': dry_run, 'status': 'published', 'already_published': True,
-                'video_id': state['video_id'], 'url': state.get('url'), 'watch_url': state.get('watch_url'),
-                'privacy_status': state.get('privacy_status'), 'channel': {'channel_id': state.get('channel_id')},
-                'title': state.get('title'), 'plan': [], 'requests_sent': [],
-                'state_path': str(state_path) if state_path else None}
+        result = {'platform': 'youtube', 'dry_run': dry_run, 'status': 'published', 'already_published': True,
+                  'video_id': state['video_id'], 'url': state.get('url'), 'watch_url': state.get('watch_url'),
+                  'privacy_status': state.get('privacy_status'), 'channel': {'channel_id': state.get('channel_id')},
+                  'title': state.get('title'), 'plan': [], 'requests_sent': [], 'warnings': warnings,
+                  'state_path': str(state_path) if state_path else None}
+        if thumb and _thumbnail_done(state, state['video_id'], thumb):
+            result['thumbnail'] = dict(state['thumbnail'], status='already_set')
+        elif thumb:   # uploaded earlier, but this cover is not on it yet: set it now, nothing is uploaded again
+            result['thumbnail'] = _thumbnail_on_published(state, state_path, thumb, dry_run, result, warnings,
+                                                         expected_channel_id, oauth_file, transport)
+        return result
     creds = load_credentials(oauth_file)
     if creds['channel_id'] != expected_channel_id:
         raise IdentityMismatchError(f'The OAuth file is for channel {creds["channel_id"]}, expected '
@@ -759,7 +959,8 @@ def _publish(video_path, lesson, *, dry_run, state_path, privacy_status, categor
                 'platform': 'youtube', 'dry_run': True, 'status': 'resume_planned' if upload_url else 'planned',
                 'channel': identity, 'category': category, 'video': video, 'metadata': resource,
                 'warnings': warnings, 'preflight_requests': http.sent,
-                'plan': _plan(resource, video, notify_subscribers, upload_url),
+                'plan': _plan(resource, video, notify_subscribers, upload_url)
+                        + ([_thumbnail_plan('<video id from the upload>', thumb)] if thumb else []),
                 'state_path': str(state_path) if state_path else None,
                 'notes': ['Only the OAuth token refresh (POST to oauth2.googleapis.com, creates nothing) and GETs '
                           'were sent. Run with dry_run=False and a state_path to upload.']})
@@ -789,12 +990,13 @@ def _publish(video_path, lesson, *, dry_run, state_path, privacy_status, categor
                        upload_status=uploaded_status.get('uploadStatus'),
                        privacy_status=uploaded_status.get('privacyStatus', privacy_status), published_at=_now())
         save_state(state_path, section)
+        thumbnail = _apply_thumbnail(session, state_path, section, video_id, thumb, warnings) if thumb else None
         return secrets.deep({
             'platform': 'youtube', 'dry_run': False, 'status': 'published', 'already_published': False,
             'video_id': video_id, 'url': short_url, 'watch_url': watch_url,
             'privacy_status': section['privacy_status'], 'upload_status': section['upload_status'],
             'channel': identity, 'title': resource['snippet']['title'], 'warnings': warnings,
-            'requests_sent': http.sent, 'state_path': str(state_path)})
+            'thumbnail': thumbnail, 'requests_sent': http.sent, 'state_path': str(state_path)})
     except httpx.TransportError as error:
         raise YouTubePublishError(secrets.text(f'Network error talking to Google ({error.__class__.__name__}: '
                                                f'{_display_url_text(str(error))}); rerun to resume')) from None
@@ -851,18 +1053,43 @@ def _display_url_text(text):
 
 
 def main(argv=None):
+    """Two commands:
+      python -m app.publish_youtube <video.mp4> <lesson.json> [--state F] [--privacy P] [--thumbnail JPG]
+          dry run of an upload: read-only checks, then the exact requests a live upload would send
+      python -m app.publish_youtube thumbnail <video_id> <jpg> [--state F] [--live]
+          set the custom thumbnail of a Short already on the channel (dry run unless --live)"""
     import argparse
+    import sys
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if argv[:1] == ['thumbnail']:
+        parser = argparse.ArgumentParser(prog='python -m app.publish_youtube thumbnail',
+                                         description='Set the custom thumbnail (thumbnails.set) of a Short on the '
+                                                     'verified channel. Dry run unless --live.')
+        parser.add_argument('video_id')
+        parser.add_argument('jpg')
+        parser.add_argument('--state', default=None, help='publish_youtube.json of the job (records the sha256)')
+        parser.add_argument('--live', action='store_true', help='send thumbnails.set (changes the live Short)')
+        args = parser.parse_args(argv[1:])
+        try:
+            result = set_thumbnail(args.video_id, args.jpg, dry_run=not args.live, state_path=args.state)
+        except YouTubePublishError as error:
+            print(f'thumbnail: {error}', file=sys.stderr)
+            return 1
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+        return 0
     parser = argparse.ArgumentParser(description='Dry-run a YouTube Shorts upload: read-only identity checks, then '
                                                  'print the exact requests a live upload would send.')
     parser.add_argument('video')
     parser.add_argument('lesson')
     parser.add_argument('--state', default=None)
     parser.add_argument('--privacy', default='private', choices=PRIVACY_VALUES)
+    parser.add_argument('--thumbnail', default=None, help='cover JPEG to set after the upload (cover_1080x1920.jpg)')
     args = parser.parse_args(argv)
     result = publish(args.video, json.loads(Path(args.lesson).read_text()), dry_run=True, state_path=args.state,
-                     privacy_status=args.privacy)
+                     privacy_status=args.privacy, thumbnail_path=args.thumbnail)
     print(json.dumps(result, indent=2, ensure_ascii=False))
+    return 0
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

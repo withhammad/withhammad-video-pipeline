@@ -115,17 +115,48 @@ def test_target_language_is_requested():
 
 
 def test_schema_is_strict_everywhere():
-    def walk(node):
+    def walk(node, optional=frozenset()):
         if isinstance(node, dict):
             if node.get('type') == 'object':
                 assert node.get('additionalProperties') is False and 'required' in node
-                assert set(node['required']) == set(node['properties'])
+                assert set(node['required']) == set(node['properties']) - optional
             for v in node.values():
                 walk(v)
         elif isinstance(node, list):
             for v in node:
                 walk(v)
-    walk(lesson.SCHEMA)
+    # Only the top-level cover may be left out (lessons written before covers existed); the API request
+    # requires it and carries no string length limits (structured outputs do not support them).
+    assert lesson.OPTIONAL_KEYS == ('cover',)
+    walk(lesson.SCHEMA, optional=frozenset(lesson.OPTIONAL_KEYS))
+    sent = lesson.api_schema()
+    walk(sent)
+    assert 'maxLength' not in json.dumps(sent) and 'minLength' not in json.dumps(sent)
+    assert 'maxLength' in json.dumps(lesson.SCHEMA)
+
+
+def test_cover_is_optional_but_checked_when_present():
+    lesson.validate(valid_package())   # an old lesson without a cover still validates
+    cover = {'kicker': 'Open-source REA · MIT licence', 'hook': 'Reverse-engineer', 'pill_strong': 'ANY',
+             'pill_serif': 'feature'}
+    assert lesson.validate(valid_package(cover=cover))['cover']['hook'] == 'Reverse-engineer'
+    import jsonschema
+    for key, limit in (('kicker', 36), ('hook', 18), ('pill_strong', 8), ('pill_serif', 12)):
+        with pytest.raises(jsonschema.ValidationError, match='is too long'):
+            lesson.validate(valid_package(cover=dict(cover, **{key: 'x' * (limit + 1)})))
+        lesson.validate(valid_package(cover=dict(cover, **{key: 'x' * limit})))
+    with pytest.raises(jsonschema.ValidationError):
+        lesson.validate(valid_package(cover={k: v for k, v in cover.items() if k != 'hook'}))
+    with pytest.raises(jsonschema.ValidationError):
+        lesson.validate(valid_package(cover=dict(cover, subtitle='extra')))
+
+
+def test_api_request_requires_the_cover_and_the_brief_asks_for_accurate_copy():
+    client = FakeClient([make_response('end_turn', [text_block(valid_package())])])
+    REAL_GENERATE({}, 'words ' * 20, client=client)
+    schema = client.calls[0]['output_config']['format']['schema']
+    assert 'cover' in schema['required'] and schema == lesson.api_schema()
+    assert 'cover:' in lesson.SYSTEM and 'verified in sources_checked' in lesson.SYSTEM
 
 
 @pytest.fixture
@@ -207,3 +238,21 @@ def test_agent_mode_rejects_invalid_lesson(env, monkeypatch):
     (tmp / 'jobs' / job_id / 'lesson.json').write_text(json.dumps(bad))
     assert worker.run_job(db.get_job(job_id), resume=True) == 'failed'
     assert 'does not match' in db.get_job(job_id)['error']
+
+
+def test_generate_enforces_the_length_limits_the_api_schema_leaves_out():
+    cover = {'kicker': 'Open-source REA · MIT licence', 'hook': 'Reverse-engineer any', 'pill_strong': 'ANY',
+             'pill_serif': 'feature'}   # hook is 20 characters, the limit is 18
+    fixed = dict(cover, hook='Reverse-engineer')
+    client = FakeClient([make_response('end_turn', [text_block(valid_package(cover=cover))]),
+                         make_response('end_turn', [text_block(valid_package(cover=fixed))])])
+    pkg, meta = REAL_GENERATE({}, 'words ' * 20, client=client)
+    assert pkg['cover']['hook'] == 'Reverse-engineer' and len(client.calls) == 2
+    retry = client.calls[1]['messages']
+    assert retry[1]['role'] == 'assistant' and 'cover.hook' in retry[2]['content']
+    assert 'is too long' in retry[2]['content'] and meta['usage']['output_tokens'] == 1000
+
+    still_long = FakeClient([make_response('end_turn', [text_block(valid_package(cover=cover))])] * 2)
+    with pytest.raises(RuntimeError, match='after one correction: cover.hook'):
+        REAL_GENERATE({}, 'words ' * 20, client=still_long)
+    assert len(still_long.calls) == 2

@@ -1,13 +1,14 @@
 """One command from a HeyGen take to a rendered, mastered reel.
 
-  python -m app.reel build <job_dir> [--take <file>] [--no-render]
+  python -m app.reel build <job_dir> [--take <file>] [--no-render] [--no-cover]
 
 Reads <job_dir>/plan.json (written per video by the agent session):
   {"take": "takes/<file>.mp4", "templates": [...edit_plan templates...], "emphasis": [...],
    "music": {...}, "title_insert": "job/title_insert.webm", "whisper_prompt": "...", "music_preset": "glow"}
 Steps: trim lead-in → enhance voice → transcribe words → measure voice activity → snap word onsets →
 build edit.json + captions.srt → copy assets into studio/remotion/public/job → render → master to -14 LUFS →
-platform exports (final.mp4, final_ig.mp4 without edit lists, 128 kbps AAC).
+platform exports (final.mp4, final_ig.mp4 without edit lists, 128 kbps AAC) → cover (app.thumbnail: cover_1080x1920.jpg,
+cover_720x1280.jpg, thumbs/cover_sheet.png, cover.json; needs lesson.json "cover"; --no-cover skips it).
 """
 import argparse
 import json
@@ -16,7 +17,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from . import audio, edit_plan, media
+from . import audio, edit_plan, media, thumbnail
 
 STUDIO = Path(__file__).resolve().parents[1]
 REMOTION = STUDIO / 'remotion'
@@ -34,7 +35,7 @@ def transcribe_words(video, prompt=''):
     return caps
 
 
-def build(job, take=None, render=True):
+def build(job, take=None, render=True, cover=True):
     job = Path(job).resolve()
     plan = json.loads((job / 'plan.json').read_text())
     take = Path(take) if take else job / plan['take']
@@ -86,6 +87,19 @@ def build(job, take=None, render=True):
                '-bf', '0', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k', '-ar', '48000', '-movflags', '+faststart',
                '-use_editlist', '0', str(job / 'final_ig.mp4')])
     result.update({'final': str(job / 'final.mp4'), 'final_ig': str(job / 'final_ig.mp4'), 'analysis': audio.analyze(job / 'final.mp4')})
+    if cover:
+        # The reel is already rendered at this point, so any cover problem (lesson.json without "cover", a broken
+        # captions.json, a stuck render) is reported in the result instead of losing it; fix it and run
+        # app.thumbnail build alone.
+        try:
+            built = thumbnail.build(job)
+            result['cover'] = {'chosen': built['chosen'], 'files': {k: v['path'] for k, v in built['files'].items()},
+                               'picks': [{k: e[k] for k in ('n', 't', 'score')} for e in built['picks']]}
+            if built.get('warnings'):
+                result['cover']['warnings'] = built['warnings']
+        except Exception as error:   # the render must survive any cover failure
+            result['cover'] = {'error': str(error) if isinstance(error, thumbnail.CoverError)
+                               else f'{type(error).__name__}: {error}'}
     return result
 
 
@@ -96,8 +110,10 @@ def main():
     b.add_argument('job')
     b.add_argument('--take')
     b.add_argument('--no-render', action='store_true')
+    b.add_argument('--no-cover', action='store_true', help='skip the cover/thumbnail stage after final.mp4')
     args = parser.parse_args()
-    print(json.dumps(build(args.job, args.take, render=not args.no_render), indent=2, default=str))
+    print(json.dumps(build(args.job, args.take, render=not args.no_render, cover=not args.no_cover), indent=2,
+                     default=str))
 
 
 if __name__ == '__main__':
