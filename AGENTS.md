@@ -14,7 +14,10 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 
 ## Owner preferences (fixed)
 
-- HeyGen renders: **720p, portrait (9:16)**, look "Hammad Yousuf" (black blazer), cloned voice "Hammad Yousuf", engine Avatar V.
+- HeyGen renders: **720p, portrait (9:16)**, cloned voice "Hammad Yousuf", engine Avatar V. Look: the owner rejected the
+  dark black-blazer look on 2026-10-17; he wants a bright, casual creator look like the reference reel (black tee, daylight
+  room, white chair). New looks are made in HeyGen Look Studio (Avatar → Create new look → Generate with AI, portrait).
+- Every video mirrors the reference reel's beats, length and edit style (docs/EDIT_STYLE.md) in our own words.
 - Lesson text: written by the agent session (no Anthropic API key). Animations: designed by the agent session, rendered with Remotion.
 - Spoken script never contains commands, URLs or code; those go in on_screen_text.
 
