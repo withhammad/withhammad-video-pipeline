@@ -516,7 +516,7 @@ def publish(video_path, lesson, *, dry_run=True, state_path=None, **options):
     redacted). Progress is saved to state_path after every remote id, so a rerun resumes and never posts twice.
 
     options: url_provider, credentials_path, token, transport, probe, sleep, clock, expected_username, share_to_feed,
-    ai_generated, thumb_offset_ms, poll_seconds, timeout, api_version."""
+    ai_generated, thumb_offset_ms, poll_seconds, timeout, api_version, collaborators."""
     live = dry_run is False
     if live and not state_path:
         raise InstagramPublishError('publishing needs a state_path: it records every remote id so a retry never '
@@ -528,7 +528,7 @@ def publish(video_path, lesson, *, dry_run=True, state_path=None, **options):
 def _publish(video_path, lesson, *, live, state_path, url_provider=None, credentials_path=None,
              token=None, transport=None, probe=None, sleep=time.sleep, clock=time.monotonic,
              expected_username=EXPECTED_USERNAME, share_to_feed=True, ai_generated=True, thumb_offset_ms=None,
-             poll_seconds=POLL_SECONDS, timeout=PROCESS_TIMEOUT, api_version=API_VERSION):
+             poll_seconds=POLL_SECONDS, timeout=PROCESS_TIMEOUT, api_version=API_VERSION, collaborators=None):
     caption = caption_for(lesson)
     video = validate_video(video_path, probe=probe)
     if thumb_offset_ms is not None and not 0 <= int(thumb_offset_ms) < video['duration_s'] * 1000:
@@ -660,6 +660,11 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
                 body['is_ai_generated'] = True
             if thumb_offset_ms is not None:
                 body['thumb_offset'] = int(thumb_offset_ms)
+            if collaborators:   # Collab invite; each account must accept before it shows on their profile
+                names = [str(u).lstrip('@').strip() for u in collaborators if str(u).strip()]
+                if len(names) > 3:
+                    raise InstagramPublishError('Instagram allows at most 3 collaborators', step='collaborators')
+                body['collaborators'] = names
             created = steps.post('create_container', client.path(ig_id, 'media'), body, file_size=video['size'])
             container_id = str(created['id']) if live else '<IG_CONTAINER_ID>'
             if live:

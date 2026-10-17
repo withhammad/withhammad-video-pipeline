@@ -480,3 +480,12 @@ def test_corrupt_state_file_is_a_readable_error(video, tmp_path):
     with pytest.raises(ig.InstagramPublishError, match='not valid JSON'):
         run(video, FakeMeta(video.stat().st_size), dry_run=False, state_path=state_path, url_provider=FakeProvider())
     assert not (tmp_path / 'ig_state.json.lock').exists()
+
+
+def test_collaborators_in_container_body_dry_run():
+    import json as _json
+    from app import publish_instagram as ig
+    import inspect
+    assert 'collaborators' in inspect.signature(ig._publish).parameters
+    src = inspect.getsource(ig._publish)
+    assert "body['collaborators'] = names" in src and 'at most 3 collaborators' in src
