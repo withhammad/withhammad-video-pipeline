@@ -1,7 +1,7 @@
 # Pending inputs — live checklist
 
 The one place to answer "what's pending". Update it whenever an item moves.
-Last update: 2026-10-17 16:30 (Studio S1 deployed on VPS).
+Last update: 2026-10-17 17:30 (Studio S2 done; runs locally via Claude Code, no server deploys).
 
 | # | Item | Status | Who | How to finish |
 |---|------|--------|-----|---------------|
@@ -13,8 +13,10 @@ Last update: 2026-10-17 16:30 (Studio S1 deployed on VPS).
 | 6 | HeyGen voice check | Voice exists (cloned) | Owner | Listen once in HeyGen → Avatar → Voice; confirm it sounds right. |
 | 7 | Website write path | Scoped, not wired | Agent | `withhammad-next` is Next.js + Payload on a Hostinger VPS, deployed by GitHub Actions rsync (currently `if: false`). Resource pages go under `app/(frontend)/tools/`. Needs: enable the deploy workflow or document the manual deploy. |
 | 8 | ManyChat Public API | Blocked by plan | Owner decision | Requires a paid plan upgrade. Owner has not approved extra paid plans. Alternative: manual keyword setup in the ManyChat UI per post. |
-| 9 | DNS for studio.withhammad.com | Not set | Owner | Add an A record `studio` → `200.234.43.132` at the DNS provider. Then the agent appends `studio/deploy/Caddyfile.snippet` to the VPS Caddyfile and reloads Caddy; HTTPS is automatic. Until then the UI is reachable only via SSH tunnel: `ssh -L 8080:127.0.0.1:8080 amos-vps` → http://localhost:8080 (credentials in `work/.secrets/studio.env`). |
-| 10 | First reference video | Not provided | Owner | Send one URL; `pipeline.py enqueue --reference <url>` creates the job. |
+| 9 | DNS for studio.withhammad.com | Parked — owner decided 2026-10-17 to run via Claude Code locally, not on the server | Owner | Add an A record `studio` → `200.234.43.132` at the DNS provider. Then the agent appends `studio/deploy/Caddyfile.snippet` to the VPS Caddyfile and reloads Caddy; HTTPS is automatic. Until then the UI is reachable only via SSH tunnel: `ssh -L 8080:127.0.0.1:8080 amos-vps` → http://localhost:8080 (credentials in `work/.secrets/studio.env`). |
+| 10 | Groq API key (free) | Not set — `~/.config/watch/.env` has an empty line | Owner | Get a free key at console.groq.com and add `GROQ_API_KEY=…` to `work/.secrets/studio.env`. Without it transcription uses local faster-whisper (works, slower). |
+| 11 | Instagram cookie file for downloads | Not set | Owner (one Terminal command) | Instagram and YouTube refuse anonymous downloads. In your own Terminal (not via the agent — Chrome's folder is TCC-protected): `cd ~/withhammad-video-pipeline/studio && .venv/bin/yt-dlp --cookies-from-browser chrome --cookies ../work/.secrets/instagram-cookies.txt --skip-download 'https://www.instagram.com/reel/C9pXJ0zyPWf/'`. Prefer a secondary Instagram account's Chrome profile. |
+| 12 | First reference video | Not provided | Owner | Send one URL; `pipeline.py enqueue --reference <url>` creates the job. |
 
 ## Verified and working
 
@@ -22,6 +24,7 @@ Last update: 2026-10-17 16:30 (Studio S1 deployed on VPS).
 
 - LinkedIn: personal profile `urn:li:person:yWP7me7dep`, scopes openid/profile/w_member_social, token valid to 2026-12-16. Publish not yet tested.
 - YouTube: channel UCJtrEDGg1R3kNe7t7PQFiEw, readonly + upload scopes, refresh token stored. Publish not yet tested.
+- Studio S2 (2026-10-17): intake (yt-dlp + ffmpeg) and transcription (Groq → local faster-whisper fallback) proven locally on a real YouTube clip via `studio/run_local.sh run <url>`. 15 tests green.
 - Studio S1 (2026-10-17): FastAPI API/UI + worker in Docker on `amos-vps` at `/opt/withhammad-studio`, bound to 127.0.0.1:8080, health OK, intake stage verified end-to-end. Deploy with `studio/deploy/deploy.sh`.
 - GitHub: public repo `withhammad/withhammad-video-pipeline`, every change committed and pushed.
 

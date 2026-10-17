@@ -32,6 +32,17 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 - `mcp.mjs` imports the MCP SDK from `/Users/hammad/autonomous-marketing-os/node_modules`.
 - Python 3 standard library only in the helper scripts; keep it that way unless agreed.
 
+## Running the pipeline (local, the normal path)
+
+```bash
+studio/run_local.sh run 'https://www.instagram.com/reel/…'   # or a local .mp4/.png
+studio/run_local.sh status
+studio/run_local.sh serve                                     # optional UI at http://127.0.0.1:8080
+cd studio && .venv/bin/python -m pytest -q                    # tests before every commit
+```
+
+Do not deploy to the VPS unless the owner asks; the owner runs this from Claude Code.
+
 ## Checking state
 
 ```bash

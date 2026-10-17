@@ -21,6 +21,13 @@ repo already talks to directly. `rea-agents` is therefore not needed for this bu
 | 7 Resource page | Commit to `withhammad-next` under `app/(frontend)/tools/` + deploy | GitHub | Website deploy workflow must be enabled first. |
 | 8 Report | Web UI + Markdown in job folder | VPS | Remote post ids, URLs, failures. |
 
+## Operating decision (2026-10-17)
+
+The owner runs the pipeline **through Claude Code on a local machine**, not as a hosted service.
+`studio/run_local.sh run <url-or-file>` is the primary entry point; the Docker/VPS path stays
+in the repo but is not deployed further. Everything is pushed to GitHub so any Claude Code
+session can clone and continue.
+
 ## Architecture options
 
 **A. Python FastAPI + worker + SQLite, Docker Compose on the VPS, small web UI (recommended).**
@@ -38,7 +45,7 @@ Fastest to a working flow and free, but it is a workflow tool, not "an app"; UI 
 ## Milestones (each: code → tests → commit → push → deploy → verify on VPS)
 
 - S1 Scaffold — **done 2026-10-17** (`studio/`, deployed, 8 tests green): Docker Compose, FastAPI, job table, `/jobs` POST (URL or image), web UI list. Deploy behind Nginx at `studio.withhammad.com` (or a path) with basic auth.
-- S2 Intake + transcribe (stages 1–2) with job folder and artifacts.
+- S2 Intake + transcribe — **done 2026-10-17** (`app/media.py`, CLI `app.cli`, `run_local.sh`; Instagram/YouTube need a cookie file).
 - S3 Lesson generation (stage 3) with Opus 5.5; prompt and output schema fixed in repo.
 - S4 HeyGen render (stage 4) once API key + look are confirmed.
 - S5 Remotion animation (stage 5) — template + render sidecar.

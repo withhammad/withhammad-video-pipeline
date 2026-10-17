@@ -2,3 +2,6 @@
 __pycache__/
 .pytest_cache/
 .venv/
+secrets/*
+!secrets/.gitkeep
+.local/

@@ -21,12 +21,13 @@ services:
     container_name: studio-worker
     restart: unless-stopped
     env_file: .env
-    volumes: [ "data:/data" ]
     command: ["python", "-m", "app.worker"]
-    mem_limit: 512m
+    volumes: [ "data:/data", "./secrets:/secrets:ro", "whisper-cache:/home/studio/.cache" ]
+    mem_limit: 1500m
     depends_on: [ api ]
 volumes:
   data: {}
+  whisper-cache: {}
 networks:
   edge:
     external: true

@@ -16,7 +16,9 @@ from . import db
 APP_DIR = Path(__file__).resolve().parent
 UPLOADS = Path(os.environ.get('STUDIO_UPLOADS', '/data/uploads'))
 IMAGE_TYPES = {'image/png': '.png', 'image/jpeg': '.jpg', 'image/webp': '.webp'}
+VIDEO_TYPES = {'video/mp4': '.mp4', 'video/quicktime': '.mov', 'video/webm': '.webm'}
 MAX_IMAGE_BYTES = 15 * 1024 * 1024
+MAX_VIDEO_BYTES = 500 * 1024 * 1024
 
 @asynccontextmanager
 async def lifespan(_app):
@@ -63,26 +65,38 @@ def index(request: Request, user: str = Depends(require_user)):
     return templates.TemplateResponse(request, 'index.html', {'jobs': jobs, 'stages': db.STAGES})
 
 
+async def store_upload(upload: UploadFile, kind: str, suffix: str, limit: int) -> str:
+    job_id = db.create_job(kind, 'pending')
+    target = UPLOADS / f'{job_id}{suffix}'
+    size = 0
+    with target.open('wb') as out:
+        while chunk := await upload.read(1024 * 1024):
+            size += len(chunk)
+            if size > limit:
+                out.close()
+                target.unlink(missing_ok=True)
+                with db.connect() as conn:
+                    conn.execute('DELETE FROM jobs WHERE id=?', (job_id,))
+                raise HTTPException(413, f'{kind} larger than {limit // (1024 * 1024)} MB')
+            out.write(chunk)
+    with db.connect() as conn:
+        conn.execute('UPDATE jobs SET source=? WHERE id=?', (str(target), job_id))
+    return job_id
+
+
 @app.post('/jobs')
 async def create_job(request: Request, reference: str = Form(''), image: UploadFile | None = None,
-                     user: str = Depends(require_user)):
-    if image is not None and image.filename:
+                     video: UploadFile | None = None, user: str = Depends(require_user)):
+    if video is not None and video.filename:
+        suffix = VIDEO_TYPES.get(video.content_type)
+        if not suffix:
+            raise HTTPException(422, 'Video must be MP4, MOV or WebM')
+        job_id = await store_upload(video, 'video', suffix, MAX_VIDEO_BYTES)
+    elif image is not None and image.filename:
         suffix = IMAGE_TYPES.get(image.content_type)
         if not suffix:
             raise HTTPException(422, 'Image must be PNG, JPEG or WebP')
-        job_id = db.create_job('image', 'pending')
-        target = UPLOADS / f'{job_id}{suffix}'
-        size = 0
-        with target.open('wb') as out:
-            while chunk := await image.read(1024 * 1024):
-                size += len(chunk)
-                if size > MAX_IMAGE_BYTES:
-                    out.close()
-                    target.unlink(missing_ok=True)
-                    raise HTTPException(413, 'Image larger than 15 MB')
-                out.write(chunk)
-        with db.connect() as conn:
-            conn.execute('UPDATE jobs SET source=? WHERE id=?', (str(target), job_id))
+        job_id = await store_upload(image, 'image', suffix, MAX_IMAGE_BYTES)
     else:
         job_id = db.create_job('url', validate_url(reference))
     if 'text/html' in request.headers.get('accept', ''):

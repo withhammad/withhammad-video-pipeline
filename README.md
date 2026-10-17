@@ -25,6 +25,7 @@ work/.secrets/                OAuth tokens and client secrets (git-ignored, chmo
 ## Quick start
 
 ```bash
+studio/run_local.sh run 'https://…'    # one reference → download → transcript (more stages coming)
 cd outputs/video-pipeline
 python3 pipeline.py status                                   # what is still blocked
 python3 pipeline.py enqueue --reference 'https://…'          # create a job for a reference video
