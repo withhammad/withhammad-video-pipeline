@@ -20,11 +20,26 @@ another creator's script) and facts are verified.
 
 ## Pacing
 - A visual change every 1.5–3 s (card swap, zoom, B-roll cut). Captions change every word or two.
-- Total length matches the reference (this one: ~31 s). Script ≈ 2.3 words/s.
+- Total length matches the reference (this one: ~31 s).
+- No dead air. The reference editor jump-cuts its pauses (2–4 % of the reel is pause, 262 wpm); HeyGen leaves
+  250–640 ms at every full stop (our first reel: 13–20 % dead air, 196 wpm). `app.tighten` cuts them in picture and
+  sound together: ≤ 220 ms after a sentence end, ≤ 120 ms mid-sentence (from the word's end), anything still audible
+  after a word (judged on the processed voice, including breath and weak fricatives) kept, no cut under 120 ms.
+  The REA reel after it: 4.2 % pause, 219 wpm.
+- Jump cuts are always masked: put a cutaway (screen recording, full-screen B-roll) over a cut first; every cut left on
+  the avatar gets a hard (0 ms) scale step alternating 1.00/1.06, so the head jump reads as a punch-in. A layout
+  change never lands one or two frames after a cut (that reads as a double cut): it moves onto the cut frame.
+
+## Script (for the HeyGen take)
+- Flowing sentences joined with "and", "so" and commas; no one-to-four-word fragments ("Free. Open source."): every
+  full stop costs a TTS pause. Exclamation marks on the hook and the CTA only.
+- ~80 words per 22 s (≈ 3.6 words/s after tightening; the old 2.3 words/s left the reel slow).
+- Brand acronyms spelled the way they are said, in the HeyGen script only ("REA" was heard as "Ray"); captions and
+  on-screen text keep the real spelling. Confirm the pronunciation with the owner once per brand.
 
 ## Who does what
 1. **HeyGen** (Chrome or MCP): avatar clip only — `avatar.mp4`, plain background, 720p portrait.
-2. **Agent session (Opus 5.5)**: writes `edit.json` — scene list with timings, screenshot targets, caption words + emphasis, all aligned to the avatar's word timestamps (from Whisper on `avatar.mp4`).
+2. **Agent session (Opus 5.5)**: writes `edit.json` — scene list with timings, screenshot targets, caption words + emphasis, all aligned to the avatar's word timestamps (Whisper runs once on the HeyGen take; `app.tighten` remaps the words onto the tightened `avatar.mp4`). Broll scenes go on the words around the jump cuts in `cuts.json`.
 3. **Agent session**: captures the screenshots (Chrome) into the job folder.
 4. **Remotion**: renders `final.mp4` from `avatar.mp4` + `edit.json` + screenshots with one fixed template.
 5. Agent checks frames of `final.mp4` before anything is posted.

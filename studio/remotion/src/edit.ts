@@ -25,6 +25,8 @@ export type Music = { src: string; volume?: number; fadeInMs?: number; fadeOutMs
 export type Sfx = { src: string; atMs: number; volume?: number };
 /** Overlay video (usually WebM with alpha) drawn above the cards and below the captions. */
 export type Insert = { src: string; startMs: number; endMs: number; alpha?: boolean };
+/** A jump cut in the avatar clip (app.tighten): from atMs the avatar holds this scale (hard step, no easing). */
+export type JumpCut = { atMs: number; scale: number };
 
 export type EditProps = {
   avatar: string;
@@ -35,6 +37,7 @@ export type EditProps = {
   music?: Music | null;
   sfx?: Sfx[];
   inserts?: Insert[];
+  jumpCuts?: JumpCut[];
 };
 
 export const defaultEdit: EditProps = {
@@ -129,6 +132,19 @@ export const punchTriggers = (scenes: Scene[], pages: CapPage[]): Punch[] => {
     else out.push({ ...p });
   });
   return out;
+};
+
+/** Avatar scale from the jump cuts: the scale of the last cut at or before this frame (1 before the first). A hard
+ * step on the cut frame, alternating 1.00 / 1.06, turns the head jump of a pause cut into a deliberate punch-in.
+ * Compared in frames with the same rounding as sceneAtFrame: (frame / fps) * 1000 falls just under exact cut times
+ * (frame 201 at 25 fps is 8039.999... ms), which put the step one frame late. */
+export const jumpScale = (cuts: JumpCut[] | undefined, frame: number, fps: number): number => {
+  let scale = 1;
+  for (const c of cuts ?? []) {
+    if (Math.round((c.atMs / 1000) * fps) > frame) break;
+    scale = c.scale;
+  }
+  return scale;
 };
 
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);

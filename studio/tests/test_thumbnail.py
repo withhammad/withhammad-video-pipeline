@@ -226,6 +226,12 @@ def test_reel_build_makes_the_cover_after_final_mp4_and_no_cover_skips_it(tmp_pa
     monkeypatch.setattr(audio, 'run', lambda cmd: touch(cmd[-1], 'final_ig'))
     monkeypatch.setattr(audio, 'analyze', lambda path: {})
     monkeypatch.setattr(reel, 'transcribe_words', lambda video, prompt='': [])
+    from app import tighten, voice_gates   # the voice quick win runs before the edit; stub it like the rest
+    monkeypatch.setattr(tighten, 'tighten', lambda take, out, words, **kw: (touch(out), {
+        'fps': 25, 'speed': 1.0, 'sync': None, 'captions': [], 'cuts': []})[1])
+    monkeypatch.setattr(tighten, 'write_cuts', lambda job, cut: None)
+    monkeypatch.setattr(tighten, 'sync_problem', lambda sync, fps, limit: None)
+    monkeypatch.setattr(voice_gates, 'check_job', lambda job, strict=False: {'failed': []})
     monkeypatch.setattr(edit_plan, 'snap_onsets', lambda caps, speech: caps)
     monkeypatch.setattr(edit_plan, 'build', lambda *a, **k: {'inserts': [], 'scenes': []})
     monkeypatch.setattr(edit_plan, 'write', lambda job, edit: None)

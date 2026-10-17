@@ -3,6 +3,13 @@
 Each template names the word (and optional occurrence) that starts it; scene ends are the next scene's start.
 Sound effects follow the cuts: a pop on the title, a whoosh ~100 ms before every card change, and a riser that
 peaks on the end card. Used by the agent session after every new avatar take (timings change, layout does not).
+
+Jump cuts (app.tighten, cuts.json): cutaways go over them first. A broll scene (full-screen card or screen
+recording) that starts or ends within CUTAWAY_SNAP_MS of a cut is moved onto the cut frame, so the head jump
+happens under it. Any other scene change within SCENE_SNAP_FRAMES of a cut moves onto it too: scenes anchor on
+word onsets 20-40 ms after the cut, which showed the post-cut avatar for one frame before the layout changed (a
+visual double cut). Every cut still on the avatar gets a hard (0 ms) scale step that alternates 1.00 / 1.06
+(edit.json "jumpCuts"), the standard creator mask for a jump cut. Plan broll scenes on the words around cuts.
 """
 import json
 import re
@@ -11,6 +18,9 @@ from pathlib import Path
 WHOOSH_LEAD_MS = 270      # the whoosh sample peaks ~210 ms in; this puts the peak on the cut, not the next word
 WHOOSH_TAIL_MS = 60       # the whoosh window [cut-270, cut-60] must be free of speech
 RISER_MS = 1200
+JUMP_SCALE = 1.06         # alternate 1.00 / 1.06 on visible jump cuts
+CUTAWAY_SNAP_MS = 120     # a broll edge this close to a jump cut moves onto it (3 frames at 25 fps)
+SCENE_SNAP_FRAMES = 2     # any scene change this close to a jump cut moves onto the cut frame
 
 
 def clean(word):
@@ -28,14 +38,18 @@ def find_word(captions, word, after_ms=0, occurrence=1):
 
 
 def build(captions, templates, duration_ms, *, emphasis=(), music=None, title_insert=None, sfx_volumes=None,
-          speech=None, fps=30):
-    """templates: [{'anchor': None|'word', 'occurrence': 1, 'scene': {...without startMs/endMs}}, ...]"""
+          speech=None, fps=30, cuts=None):
+    """templates: [{'anchor': None|'word', 'occurrence': 1, 'scene': {...without startMs/endMs}}, ...]
+    cuts: app.tighten cut list ([{'at_ms', ...}]) on the same timeline as the captions."""
     vol = {'pop': 0.2, 'whoosh': 0.2, 'tick': 0.15, 'riser': 0.3, **(sfx_volumes or {})}
     starts, cursor = [], 0
     for t in templates:
         start = 0 if t.get('anchor') is None else find_word(captions, t['anchor'], cursor, t.get('occurrence', 1))
         starts.append(start)
         cursor = start + 1
+    if cuts:
+        starts = snap_cutaways(starts, [t['scene']['type'] for t in templates], [c['at_ms'] for c in cuts])
+        starts = snap_scene_changes(starts, [c['at_ms'] for c in cuts], fps)
     last_frame_end = -(-duration_ms * fps // 1000) * 1000 / fps + 1   # cover the composition's final frame
     scenes = []
     for i, t in enumerate(templates):
@@ -63,8 +77,57 @@ def build(captions, templates, duration_ms, *, emphasis=(), music=None, title_in
         scenes[0]['hideText'] = True
         # start 0.6 s into the insert so frame 0 (the thumbnail) already shows the title
         inserts.append({'src': title_insert, 'startMs': -600, 'endMs': min(5000, scenes[0]['endMs'] + 400), 'alpha': True})
-    return {'avatar': 'job/avatar_enhanced.mp4', 'captions': captions, 'emphasis': list(emphasis), 'scenes': scenes,
+    edit = {'avatar': 'job/avatar_enhanced.mp4', 'captions': captions, 'emphasis': list(emphasis), 'scenes': scenes,
             'durationMs': duration_ms, 'music': music, 'sfx': sfx, 'inserts': inserts}
+    if cuts:
+        edit['jumpCuts'] = jump_cuts([c['at_ms'] for c in cuts], scenes, inserts)
+    return edit
+
+
+def snap_cutaways(starts, types, cut_ms, snap_ms=CUTAWAY_SNAP_MS):
+    """Scene starts with every broll edge that sits within snap_ms of a jump cut moved onto the cut: a broll that
+    starts just after a cut starts on it; a broll that ends just before a cut lasts until it. Order is kept."""
+    out = list(starts)
+    for i, kind in enumerate(types):
+        if kind != 'broll':
+            continue
+        for at in cut_ms:
+            if 0 < out[i] - at <= snap_ms and (i == 0 or at > out[i - 1]):
+                out[i] = at
+                break
+        if i + 1 < len(out):
+            for at in cut_ms:
+                if 0 < at - out[i + 1] <= snap_ms and (i + 2 >= len(out) or at < out[i + 2]):
+                    out[i + 1] = at
+                    break
+    return out
+
+
+def snap_scene_changes(starts, cut_ms, fps, frames=SCENE_SNAP_FRAMES):
+    """Scene starts (after the first) that land within `frames` frames of a jump cut, moved onto the cut frame, so
+    the layout change and the head jump happen on the same frame. Order is kept (a start never passes a neighbour)."""
+    out = list(starts)
+    window = frames * 1000 / fps + 1e-6
+    for i in range(1, len(out)):
+        near = [at for at in cut_ms if 0 < abs(out[i] - at) <= window and at > out[i - 1]
+                and (i + 1 >= len(out) or at < out[i + 1])]
+        if near:
+            out[i] = min(near, key=lambda at: abs(out[i] - at))
+    return out
+
+
+def jump_cuts(cut_ms, scenes, inserts=(), scale=JUMP_SCALE):
+    """[{'atMs', 'scale'}] for every cut the avatar is visible on, alternating scale / 1.0 from the first one.
+    Cuts under a broll scene or an opaque insert are hidden already and get no step; so is a cut on the exact
+    frame a cutaway ends, because the avatar comes back on the post-cut frame and nobody saw the pre-cut one."""
+    def covered(at):
+        return (any(s['type'] == 'broll' and s['startMs'] <= at <= s['endMs'] for s in scenes)
+                or any(not i.get('alpha') and i['startMs'] <= at <= i['endMs'] for i in inserts))
+    out = []
+    for at in sorted(cut_ms):
+        if not covered(at):
+            out.append({'atMs': at, 'scale': scale if len(out) % 2 == 0 else 1.0})
+    return out
 
 
 def _quiet_between(speech, a_ms, b_ms):
