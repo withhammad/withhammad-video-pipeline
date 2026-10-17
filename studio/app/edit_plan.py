@@ -9,7 +9,7 @@ import re
 from pathlib import Path
 
 WHOOSH_LEAD_MS = 270      # the whoosh sample peaks ~210 ms in; this puts the peak on the cut, not the next word
-GAP_FOR_WHOOSH_MS = 150   # a cut inside continuous speech gets a soft tick instead of a whoosh
+WHOOSH_TAIL_MS = 60       # the whoosh window [cut-270, cut-60] must be free of speech
 RISER_MS = 1200
 
 
@@ -54,21 +54,22 @@ def build(captions, templates, duration_ms, *, emphasis=(), music=None, title_in
             sfx.append({'src': 'job/sfx_pop.wav', 'atMs': s['startMs'] + 160, 'volume': vol['pop']})
         elif s['type'] == 'end' and (s.get('word') or s.get('keyword')):
             sfx.append({'src': 'job/sfx_riser.wav', 'atMs': max(0, s['startMs'] - RISER_MS), 'volume': vol['riser']})
-        elif speech is not None and not _quiet_around(speech, s['startMs'], GAP_FOR_WHOOSH_MS):
-            sfx.append({'src': 'job/sfx_tick.wav', 'atMs': s['startMs'], 'volume': vol['tick']})
+        elif speech is not None and not _quiet_between(speech, s['startMs'] - WHOOSH_LEAD_MS, s['startMs'] - WHOOSH_TAIL_MS):
+            continue   # cut inside continuous speech: any SFX would sit on a syllable
         else:
             sfx.append({'src': 'job/sfx_whoosh.wav', 'atMs': max(0, s['startMs'] - WHOOSH_LEAD_MS), 'volume': vol['whoosh']})
     inserts = []
     if title_insert and scenes and scenes[0]['type'] == 'title':
         scenes[0]['hideText'] = True
-        inserts.append({'src': title_insert, 'startMs': 0, 'endMs': min(5000, scenes[0]['endMs'] + 400), 'alpha': True})
+        # start 0.6 s into the insert so frame 0 (the thumbnail) already shows the title
+        inserts.append({'src': title_insert, 'startMs': -600, 'endMs': min(5000, scenes[0]['endMs'] + 400), 'alpha': True})
     return {'avatar': 'job/avatar_enhanced.mp4', 'captions': captions, 'emphasis': list(emphasis), 'scenes': scenes,
             'durationMs': duration_ms, 'music': music, 'sfx': sfx, 'inserts': inserts}
 
 
-def _quiet_around(speech, at_ms, gap_ms):
-    """True when no speech span overlaps [at_ms - gap_ms, at_ms] (room for a whoosh before the cut)."""
-    return not any(s0 < at_ms and s1 > at_ms - gap_ms for s0, s1 in speech)
+def _quiet_between(speech, a_ms, b_ms):
+    """True when no speech span overlaps [a_ms, b_ms]."""
+    return not any(s0 < b_ms and s1 > a_ms for s0, s1 in speech)
 
 
 def snap_onsets(captions, speech, max_shift_ms=900):
@@ -114,13 +115,20 @@ def to_srt(captions, duration_ms=None, max_chars=84, line_chars=42, min_cue_ms=8
             cues.append(cur); cur = []
     if cur:
         cues.append(cur)
+    def split_long(cue):
+        if cue[-1]['endMs'] - cue[0]['startMs'] <= 3000 or len(cue) < 4:
+            return [cue]
+        gaps = [(cue[k]['startMs'] - cue[k - 1]['endMs'], k) for k in range(2, len(cue) - 1)]
+        gap, k = max(gaps)
+        return split_long(cue[:k]) + split_long(cue[k:]) if gap >= 120 else [cue]
+    cues = [part for cue in cues for part in split_long(cue)]
     merged = []
     for cue in cues:
         prev = merged[-1] if merged else None
         short = cue[-1]['endMs'] - cue[0]['startMs'] < min_cue_ms
         fits = prev is not None and len(' '.join(c['text'].strip() for c in prev + cue)) <= max_chars
         sentence_end = prev is not None and re.search(r'[.!?]$', prev[-1]['text'].strip())
-        if short and fits and not sentence_end and cue[0]['startMs'] - prev[-1]['endMs'] <= 600:
+        if short and fits and not sentence_end and cue[0]['startMs'] - prev[-1]['endMs'] <= max_gap_ms:
             merged[-1] = prev + cue
         else:
             merged.append(cue)
@@ -154,3 +162,21 @@ def write(job_dir, edit, srt=True):
     (job_dir / 'edit.json').write_text(json.dumps(edit, indent=1))
     if srt:
         (job_dir / 'captions.srt').write_text(to_srt(edit['captions'], duration_ms=edit['durationMs']))
+
+
+def apply_overrides(captions, overrides):
+    """Hand-measured word timings for a specific take (Whisper is occasionally 200-300 ms off after a fricative).
+    overrides: [{'word': 'every', 'occurrence': 1, 'startMs': 13480, 'endMs': 13820}, ...]"""
+    out = [dict(c) for c in captions]
+    for o in overrides:
+        seen = 0
+        for c in out:
+            if clean(c['text']) == clean(o['word']):
+                seen += 1
+                if seen == o.get('occurrence', 1):
+                    for k in ('startMs', 'endMs'):
+                        if k in o:
+                            c[k] = o[k]
+                    c['timestampMs'] = (c['startMs'] + c['endMs']) // 2
+                    break
+    return out

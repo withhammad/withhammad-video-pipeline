@@ -32,7 +32,8 @@ import {
 import type { Caption } from "@remotion/captions";
 import { fontsReady } from "./fonts";
 
-const FPS = 30;
+/** Matches the HeyGen take (25 fps): a 30 fps timeline repeats every 6th face frame (5 Hz judder). */
+const FPS = 25;
 const W = 720;
 const H = 1280;
 const BLUE = "#2f6bff";
@@ -233,7 +234,7 @@ const whip = (ms: number, delayMs: number, distance: number) => {
     y: (1 - p) * distance,
     scale: 0.9 + 0.1 * p,
     stretch: 1 + Math.min(0.09, vel * 0.3),
-    blur: Math.min(14, vel * 48),
+    blur: Math.min(6, vel * 20),
     opacity: interpolate(ms, [delayMs - 60, delayMs + 50], [0, 1], clamp),
   };
 };
@@ -269,7 +270,7 @@ const WindowBar: React.FC<{ kind: Chrome; dark: boolean; url?: string }> = ({ ki
  * Floating window card. enter="whip" slides it up from below; enter="swap" keeps the frame still
  * and scroll-whips the previous screenshot out and the new one in (contiguous split scenes).
  */
-const Card: React.FC<{ box: Box; shot: Shot; enter: "whip" | "swap"; delayMs?: number; prev?: Shot; dark?: boolean }> = ({
+const Card: React.FC<{ box: Box; shot: Shot; enter: "whip" | "swap" | "cut"; delayMs?: number; prev?: Shot; dark?: boolean }> = ({
   box, shot, enter, delayMs = 0, prev, dark = false,
 }) => {
   const frame = useCurrentFrame();
@@ -280,7 +281,9 @@ const Card: React.FC<{ box: Box; shot: Shot; enter: "whip" | "swap"; delayMs?: n
 
   let wrap: React.CSSProperties = {};
   let content = <ShotImage shot={shot} ms={ms} cw={cw} ch={ch} />;
-  if (enter === "whip") {
+  if (enter === "cut") {
+    // same screenshot as the previous scene: a hard punch-in, no second entrance
+  } else if (enter === "whip") {
     const w = whip(ms, delayMs, 380);
     wrap = {
       transform: `translateY(${w.y}px) scale(${w.scale}, ${w.scale * w.stretch})`,
@@ -291,7 +294,7 @@ const Card: React.FC<{ box: Box; shot: Shot; enter: "whip" | "swap"; delayMs?: n
     const curve = (m: number) => interpolate(m, [0, 300], [0, 1], { ...clamp, easing: IN_OUT });
     const s = curve(ms);
     const vel = Math.abs(s - curve(ms - FRAME_MS));
-    const blur = Math.min(12, vel * 40);
+    const blur = Math.min(6, vel * 20);
     wrap = { transform: `scale(${1 - 0.018 * Math.sin(Math.PI * s)})` };
     if (s < 1) {
       content = (
@@ -352,7 +355,8 @@ const TitleScene: React.FC<{ scene: Extract<Scene, { type: "title" }> }> = ({ sc
   const pillOpen = interpolate(ms, [140, 460], [0, 1], { ...clamp, easing: IN_OUT });
   const textPop = spring({ frame: frame - toFrame(320, fps), fps, config: { damping: 12, stiffness: 180, mass: 0.6 } });
   const shot = shotOf(scene);
-  if (scene.hideText) return shot && shot.image ? <Card box={TITLE_BOX_LOW} shot={shot} enter="whip" delayMs={120} /> : null;
+  // Landed before frame 0 so the first frame (the thumbnail) already shows the card.
+  if (scene.hideText) return shot && shot.image ? <Card box={TITLE_BOX_LOW} shot={shot} enter="whip" delayMs={-300} /> : null;
   return (
     <>
       <div style={{ position: "absolute", top: 78, width: "100%", textAlign: "center", fontFamily: SANS, fontWeight: 800, fontSize: 58, color: "#111", letterSpacing: -1.2, whiteSpace: "nowrap" }}>
@@ -377,7 +381,7 @@ const TitleScene: React.FC<{ scene: Extract<Scene, { type: "title" }> }> = ({ sc
   );
 };
 
-const BRollScene: React.FC<{ scene: Extract<Scene, { type: "broll" }> }> = ({ scene }) => {
+const BRollScene: React.FC<{ scene: Extract<Scene, { type: "broll" }>; enter?: "whip" | "cut" }> = ({ scene, enter = "whip" }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const ms = toMs(frame, fps);
@@ -389,7 +393,7 @@ const BRollScene: React.FC<{ scene: Extract<Scene, { type: "broll" }> }> = ({ sc
     <AbsoluteFill style={{ background: "radial-gradient(130% 70% at 50% 0%, #17223d 0%, #0a0e18 55%, #05070c 100%)" }}>
       <AbsoluteFill style={{ background: `radial-gradient(55% 32% at 50% 40%, rgba(47,107,255,${(0.32 * glow).toFixed(3)}), transparent 72%)` }} />
       <AbsoluteFill style={{ transform: `scale(${zoom})`, transformOrigin: "50% 40%" }}>
-        {shot ? <Card box={BROLL_BOX} shot={{ ...shot, view: { zoomFrom: 1.0, zoomTo: 1.12, panY: [0, -4], ...stripUndefined(shot.view) } }} enter="whip" dark /> : null}
+        {shot ? <Card box={BROLL_BOX} shot={{ ...shot, view: { zoomFrom: 1.0, zoomTo: 1.12, panY: [0, -4], ...stripUndefined(shot.view) } }} enter={enter} dark /> : null}
       </AbsoluteFill>
     </AbsoluteFill>
   );
@@ -427,7 +431,7 @@ const EndWord: React.FC<{ word: string; keyword?: string; keywordAtMs?: number }
       {keyword ? (
         <div
           style={{
-            position: "absolute", top: 832, width: "100%", textAlign: "center", fontFamily: SANS, fontWeight: 800, fontSize: 64, letterSpacing: 1,
+            position: "absolute", top: 826, width: "100%", textAlign: "center", fontFamily: SANS, fontWeight: 800, fontSize: 84, letterSpacing: 1,
             color: BLUE_LIGHT, textShadow: "0 0 3px rgba(0,0,0,0.85), 0 0 28px rgba(90,140,255,0.75), 0 4px 18px rgba(0,0,0,0.5)",
             opacity: interpolate(kPop, [0, 0.35], [0, 1], clamp), transform: `translateY(${(1 - kPop) * 14}px) scale(${0.8 + 0.2 * kPop})`,
           }}
@@ -448,17 +452,21 @@ const CAPTION_TOP: Record<Scene["type"], number> = { title: 572, split: 548, bro
 const Captions: React.FC<{ edit: EditProps; pages: CapPage[] }> = ({ edit, pages }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const ms = toMs(frame, fps);
-  const page = pages.find((p) => ms >= p.startMs && ms < p.endMs);
+  const page = pages.find((p) => frame >= toFrame(p.startMs, fps) && frame < toFrame(p.endMs, fps));
   if (!page) return null;
   const scene = sceneAtFrame(edit.scenes, frame, fps);
+  // The end card carries the CTA alone; captions.srt still has the full line for accessibility.
+  if (scene?.type === "end" && scene.keyword) return null;
   const type = scene?.type ?? "split";
   const dark = type === "broll" || type === "end";
   const skip = new Set(scene?.type === "end" ? [scene.word, scene.keyword ?? ""].flatMap((x) => x.split(/\s+/)).map(cleanWord).filter(Boolean) : []);
-  const words = page.words.filter((w) => !skip.has(w.clean));
+  // Only words already spoken take space, so the light-scene pill never shows a blank slot for the next word.
+  const words = page.words.filter((w) => !skip.has(w.clean) && frame - toFrame(w.startMs, fps) + 1 >= 0);
   if (!words.length) return null;
   return (
-    <div style={{ position: "absolute", top: CAPTION_TOP[type], left: 0, width: "100%", textAlign: "center", whiteSpace: "nowrap", lineHeight: 1.12 }}>
+    <div style={{ position: "absolute", top: CAPTION_TOP[type], left: 0, width: "100%", display: "flex", justifyContent: "center", whiteSpace: "nowrap", lineHeight: 1.12 }}>
+      {/* Light scenes: a white pill keeps captions off the hair and above 4.5:1 contrast. */}
+      <div style={dark ? {} : { background: "rgba(255,255,255,0.92)", borderRadius: 16, padding: "2px 18px 6px", boxShadow: "0 6px 20px rgba(20,40,80,0.12)" }}>
       {words.map((w, j) => {
         // +1: each word lands one frame ahead of the voice, which reads as in sync.
         const since = frame - toFrame(w.startMs, fps) + 1;
@@ -492,6 +500,7 @@ const Captions: React.FC<{ edit: EditProps; pages: CapPage[] }> = ({ edit, pages
           </span>
         );
       })}
+      </div>
     </div>
   );
 };
@@ -546,7 +555,9 @@ export const Reel: React.FC<EditProps> = (edit) => {
             {s.type === "split" && shot ? (
               <Card box={SPLIT_BOX} shot={shot} enter={contiguous ? "swap" : "whip"} prev={contiguous ? shotOf(prevScene) : undefined} />
             ) : null}
-            {s.type === "broll" ? <BRollScene scene={s} /> : null}
+            {s.type === "broll" ? (
+              <BRollScene scene={s} enter={prevScene?.type === "broll" && prevScene.image === s.image && Math.abs(prevScene.endMs - s.startMs) < 40 ? "cut" : "whip"} />
+            ) : null}
             {s.type === "end" ? (
               <EndWord
                 word={s.word}

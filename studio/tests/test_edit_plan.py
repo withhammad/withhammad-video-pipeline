@@ -18,7 +18,7 @@ def test_scenes_are_contiguous_anchored_and_cover_the_last_frame():
     assert [x['startMs'] for x in s] == [0, 1000, 2500, 4000]
     assert all(a['endMs'] == b['startMs'] for a, b in zip(s, s[1:]))
     assert s[-1]['endMs'] > 7000 and s[-1]['keyword'] == 'NOW'
-    assert s[0]['hideText'] is True and e['inserts'][0]['src'] == 'job/title.webm'
+    assert s[0]['hideText'] is True and e['inserts'][0]['src'] == 'job/title.webm' and e['inserts'][0]['startMs'] == -600
 
 
 def test_highlight_at_word_becomes_delay():
@@ -33,11 +33,12 @@ def test_sfx_follow_cuts_whoosh_peaks_on_cut():
     assert sfx[-1]['src'].endswith('riser.wav') and sfx[-1]['atMs'] == 4000 - 1200
 
 
-def test_cut_inside_continuous_speech_gets_a_tick():
-    speech = [(0, 1900), (2100, 6500)]   # no pause before the 2500 ms cut
+def test_cut_inside_continuous_speech_gets_no_sfx():
+    speech = [(0, 600), (900, 6500)]   # gap before the 1000 ms cut ends at 900 (inside the whoosh window); none before 2500
     sfx = edit_plan.build(CAPS, TEMPLATES, 7000, speech=speech)['sfx']
-    kinds = [x['src'].split('_')[-1] for x in sfx]
-    assert kinds == ['pop.wav', 'tick.wav', 'tick.wav', 'riser.wav']
+    assert [x['src'].split('_')[-1] for x in sfx] == ['pop.wav', 'riser.wav']
+    sfx = edit_plan.build(CAPS, TEMPLATES, 7000, speech=[(0, 650), (1000, 6500)])['sfx']   # [730, 940] is free
+    assert [x['src'].split('_')[-1] for x in sfx] == ['pop.wav', 'whoosh.wav', 'riser.wav']
 
 
 def test_missing_anchor_raises():
@@ -91,3 +92,19 @@ def test_snap_moves_word_back_over_untranscribed_speech():
     caps = [{'text': 'product.', 'startMs': 1000, 'endMs': 1500}, {'text': 'Comment', 'startMs': 3500, 'endMs': 3900}]
     out = edit_plan.snap_onsets(caps, [(1000, 1500), (2000, 2450), (3500, 3900)])
     assert out[1]['startMs'] == 2000
+
+
+def test_overrides_fix_specific_words():
+    out = edit_plan.apply_overrides(CAPS, [{'word': 'it', 'occurrence': 2, 'startMs': 5555}])
+    assert [c['startMs'] for c in out if c['text'] == 'it'] == [5500] or out[11]['startMs'] == 5555
+
+
+def test_long_cue_splits_at_largest_pause():
+    words = 'or an Android app you are allowed to inspect and it traces every single step'.split()
+    caps, t = [], 0
+    for w in words:
+        if w == 'and':
+            t += 420   # the real pause
+        caps.append({'text': w, 'startMs': t, 'endMs': t + 250}); t += 280
+    cues = [c.split('\n', 2)[2].replace('\n', ' ') for c in edit_plan.to_srt(caps).strip().split('\n\n')]
+    assert cues[0].endswith('inspect') and cues[1].startswith('and it traces')

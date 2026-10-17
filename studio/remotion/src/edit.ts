@@ -175,7 +175,9 @@ export const musicGain = (music: Music, captions: Caption[], ms: number, duratio
   const fadeOut = Math.max(1, music.fadeOutMs ?? MUSIC_DEFAULTS.fadeOutMs);
   const speak = speechAmount(captions, ms);
   const base = volume + (duckTo - volume) * speak;
-  const fade = Math.min(clamp01(ms / fadeIn), clamp01((durationMs - ms) / fadeOut));
+  // fadeInMs 0 means present from frame 0 (ms/1 would be 0 there and drop the bed on the first frame).
+  const fadeInPart = (music.fadeInMs ?? MUSIC_DEFAULTS.fadeInMs) > 0 ? clamp01(ms / fadeIn) : 1;
+  const fade = Math.min(fadeInPart, clamp01((durationMs + 40 - ms) / fadeOut));
   return Math.max(0, Math.min(1, base * fade));
 };
 

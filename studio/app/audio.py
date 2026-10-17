@@ -44,10 +44,10 @@ OCTAVE_BANDS = ((31, 63), (63, 125), (125, 250), (250, 500), (500, 1000),
 VOICE_CHAIN = (
     'highpass=f=90:poles=2',
     'lowshelf=f=160:g=-4:t=q:w=0.7',
-    'equalizer=f=300:t=q:w=1.2:g=-4',      # critic pass: 250-500 Hz read +2.6 dB boxy vs the reference
+    'equalizer=f=300:t=q:w=1.2:g=-5.5',    # verified: 250-500 Hz still +1.8 dB boxy vs the reference at -4
     'equalizer=f=1200:t=q:w=0.7:g=5',
     'equalizer=f=3500:t=q:w=1.2:g=2',
-    'highshelf=f=7500:g=1:t=q:w=0.7',      # critic pass: +3 dB exposed TTS hiss on earbuds
+    'equalizer=f=10000:t=q:w=1:g=-5',      # verified: HeyGen takes are +5 dB bright at 8-12 kHz vs the reference
     'deesser=i=0.3:m=0.5:f=0.5',
     'acompressor=threshold=0.08:ratio=2.2:attack=15:release=180:knee=3',
 )

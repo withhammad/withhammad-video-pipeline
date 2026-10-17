@@ -52,8 +52,12 @@ def build(job, take=None, render=True):
     for kind in ('whoosh', 'pop', 'tick', 'riser'):
         if not (job / 'audio' / f'sfx_{kind}.wav').exists():
             audio.make_sfx(kind, out_wav=job / 'audio' / f'sfx_{kind}.wav')
+    ov = plan.get('caption_overrides') or {}
+    if ov.get('take') and Path(ov['take']).name == take.name:   # timings are only valid for the take they were measured on
+        caps = edit_plan.apply_overrides(caps, ov.get('words', []))
+        (job / 'captions.json').write_text(json.dumps(caps, indent=1))
     edit = edit_plan.build(caps, plan['templates'], dur_ms, emphasis=plan.get('emphasis', []), music=plan.get('music'),
-                           title_insert=plan.get('title_insert'), speech=speech)
+                           title_insert=plan.get('title_insert'), speech=speech, fps=25)
     if edit['inserts'] and len(edit['scenes']) > 1:
         edit['inserts'][0]['endMs'] = min(edit['inserts'][0]['endMs'], edit['scenes'][1]['startMs'])
     edit_plan.write(job, edit)
@@ -76,8 +80,11 @@ def build(job, take=None, render=True):
                    cwd=REMOTION, check=True, capture_output=True, text=True)
     audio.master(raw, job / 'final.mp4')
     # Instagram/Facebook spec: no edit lists, AAC <= 128 kbps, moov at the front.
-    audio.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(job / 'final.mp4'), '-c:v', 'copy', '-c:a', 'aac', '-b:a', '128k',
-               '-ar', '48000', '-movflags', '+faststart', '-use_editlist', '0', str(job / 'final_ig.mp4')])
+    # Re-encode without B-frames so the first video pts is 0 (with -c:v copy, dropping the edit list exposed a
+    # 67 ms B-frame delay and the picture lagged the audio by ~45 ms).
+    audio.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(job / 'final.mp4'), '-c:v', 'libx264', '-crf', '17', '-preset', 'slow',
+               '-bf', '0', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k', '-ar', '48000', '-movflags', '+faststart',
+               '-use_editlist', '0', str(job / 'final_ig.mp4')])
     result.update({'final': str(job / 'final.mp4'), 'final_ig': str(job / 'final_ig.mp4'), 'analysis': audio.analyze(job / 'final.mp4')})
     return result
 
