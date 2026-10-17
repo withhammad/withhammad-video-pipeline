@@ -97,6 +97,26 @@ cd studio && .venv/bin/python -m pytest -q                    # tests before eve
 
 Do not deploy to the VPS unless the owner asks; the owner runs this from Claude Code.
 
+## Instagram tokens (check and refresh)
+
+Instagram Login long-lived tokens last 60 days and nothing refreshes them automatically. From `studio/`:
+
+```bash
+.venv/bin/python -m app.instagram_tokens status                        # per account: expiry, days left, live /me check
+.venv/bin/python -m app.instagram_tokens refresh --account with.hammad
+.venv/bin/python -m app.instagram_tokens refresh --all
+```
+
+- `status` is read-only: it confirms each token still returns its stored username and exits 1 if any token is dead.
+- `refresh` calls `graph.instagram.com/refresh_access_token`, checks the new token's identity, then rewrites the file
+  atomically (mode 0600) with `refreshed_at` and `expires_at`. Meta only refreshes tokens that are unexpired and at
+  least 24 h old; younger tokens are skipped with the time they become refreshable.
+- Error 190 (session invalidated) cannot be fixed by a refresh: the file is kept and the command prints the
+  re-authorize steps (`outputs/video-pipeline/instagram_oauth.py`, a separate Chrome profile for anything but
+  @with.hammad).
+- Tokens travel only in curl's stdin config, never in argv, output or logs. No scheduled refresh exists; add one only
+  with the owner's go-ahead.
+
 ## Website resource pages
 
 withhammad.com is the Vercel project **withhammad-rebuild** (github.com/withhammad/withhammad-rebuild, production = `main`).
