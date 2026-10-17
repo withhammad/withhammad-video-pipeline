@@ -29,11 +29,11 @@ def test_url_job_downloads_and_transcribes(env, fake_tools):
     job_id = client.post('/jobs', data={'reference': 'https://www.instagram.com/reel/X1/'}, auth=AUTH).json()['id']
     assert worker.run_job(db.claim_next()) == 'done'
     job = db.get_job(job_id)
-    assert job['status'] == 'done' and job['stage'] == 'transcribe'
+    assert job['status'] == 'done' and job['stage'] == 'lesson'
     intake, transcript = job['artifacts']['intake'], job['artifacts']['transcribe']
     assert intake['platform'] == 'instagram' and intake['duration_s'] == 42.0 and intake['title'] == 'Ref'
-    assert transcript['engine'] == 'faster-whisper:test' and transcript['words'] == 5
-    assert (tmp / 'jobs' / job_id / 'transcript.txt').read_text() == 'hello world from the reel'
+    assert transcript['engine'] == 'faster-whisper:test' and transcript['words'] == 20
+    assert (tmp / 'jobs' / job_id / 'transcript.txt').read_text().startswith('hello world from the reel')
     assert calls[0][0] == 'yt-dlp' and '--cookies' not in calls[0]
     assert calls[1][0] == 'ffmpeg' and calls[1][-1].endswith('audio.m4a')
 
@@ -67,7 +67,7 @@ def test_video_upload_job(env, fake_tools, monkeypatch):
     client, _ = env
     calls = fake_tools
     monkeypatch.setattr(media, 'transcribe_local', lambda audio: {
-        'engine': 'faster-whisper:test', 'language': 'ur', 'text': 'salam', 'segments': []})
+        'engine': 'faster-whisper:test', 'language': 'ur', 'text': 'salam ' * 20, 'segments': []})
     r = client.post('/jobs', files={'video': ('clip.mp4', io.BytesIO(b'0' * 2048), 'video/mp4')}, auth=AUTH)
     assert r.status_code == 201
     job = db.claim_next()
@@ -84,7 +84,7 @@ def test_image_job_skips_transcription(env, monkeypatch):
     client, _ = env
     client.post('/jobs', files={'image': ('a.png', io.BytesIO(b'\x89PNG' + b'0' * 50), 'image/png')}, auth=AUTH)
     job = db.claim_next()
-    assert worker.run_job(job) == 'done'
+    assert worker.run_job(job) == 'failed'  # lesson stage needs a transcript
     assert db.get_job(job['id'])['artifacts']['transcribe'] == {'skipped': 'image source has no audio'}
 
 

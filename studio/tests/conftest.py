@@ -33,7 +33,17 @@ def fake_tools(tmp_path, monkeypatch):
     monkeypatch.setattr(media, 'COOKIES_FILE', tmp_path / 'no-cookies.txt')
     monkeypatch.setattr(media, 'COOKIES_FROM_BROWSER', '')
     monkeypatch.setattr(media, 'transcribe_local', lambda audio: {
-        'engine': 'faster-whisper:test', 'language': 'en', 'text': 'hello world from the reel',
-        'segments': [{'start': 0, 'end': 1.5, 'text': 'hello world from the reel'}]})
+        'engine': 'faster-whisper:test', 'language': 'en', 'text': 'hello world from the reel ' * 4,
+        'segments': [{'start': 0, 'end': 1.5, 'text': 'hello world from the reel'}] * 4})
     monkeypatch.delenv('GROQ_API_KEY', raising=False)
+    from app import lesson
+    monkeypatch.setattr(lesson, 'generate', lambda intake, transcript, **kw: (
+        {'language': 'en', 'topic_title': 'T', 'hook': 'h', 'key_takeaways': ['a', 'b'],
+         'script': {'estimated_seconds': 50, 'segments': [{'spoken': 'one two', 'on_screen_text': 'x', 'visual': 'avatar'}] * 3},
+         'demo_steps': [], 'prompts': [], 'tool_links': [],
+         'captions': {k: 'c' for k in ('instagram', 'youtube_title', 'youtube_description', 'tiktok', 'linkedin')},
+         'hashtags': [], 'manychat_keyword': 'TOPIC',
+         'resource_page': {'slug': 'topic', 'title': 'T', 'body_markdown': 'b'},
+         'sources_checked': [], 'originality_note': 'n'},
+        {'model': 'fake', 'usage': {'input_tokens': 0, 'output_tokens': 0}, 'web_searches': 0, 'request_id': None}))
     return calls

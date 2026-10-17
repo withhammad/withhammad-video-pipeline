@@ -8,7 +8,7 @@ import time
 from pathlib import Path
 from urllib.parse import urlparse
 
-from . import db, media
+from . import db, lesson, media
 
 log = logging.getLogger('studio.worker')
 POLL_SECONDS = float(os.environ.get('STUDIO_POLL_SECONDS', '3'))
@@ -53,8 +53,29 @@ def stage_transcribe(job):
             'path': str(folder / 'transcript.json')}
 
 
+def stage_lesson(job):
+    artifacts = db.get_job(job['id'])['artifacts']
+    intake, transcript = artifacts.get('intake', {}), artifacts.get('transcribe', {})
+    if transcript.get('skipped') or not transcript.get('path'):
+        raise RuntimeError('lesson stage needs a transcript; image-only sources are not supported yet')
+    text = json.loads(Path(transcript['path']).read_text())['text']
+    if len(text.split()) < 15:
+        raise RuntimeError('transcript too short to build a lesson from')
+    package, meta = lesson.generate(intake, text, target_language=os.environ.get('STUDIO_LESSON_LANGUAGE') or None)
+    folder = media.job_dir(job['id'])
+    lesson.save(package, meta, folder)
+    spoken_words = sum(len(s['spoken'].split()) for s in package['script']['segments'])
+    return {'topic_title': package['topic_title'], 'language': package['language'],
+            'manychat_keyword': package['manychat_keyword'], 'segments': len(package['script']['segments']),
+            'spoken_words': spoken_words, 'estimated_seconds': package['script']['estimated_seconds'],
+            'sources_checked': len(package['sources_checked']), 'model': meta['model'],
+            'usage': meta['usage'], 'web_searches': meta['web_searches'],
+            'path': str(folder / 'lesson.json'), 'script_path': str(folder / 'script.txt'),
+            'resource_path': str(folder / 'resource.md')}
+
+
 # Later milestones append here in order; a missing stage ends the chain as done.
-STAGE_RUNNERS = {'intake': stage_intake, 'transcribe': stage_transcribe}
+STAGE_RUNNERS = {'intake': stage_intake, 'transcribe': stage_transcribe, 'lesson': stage_lesson}
 
 
 def run_job(job, path=None):
