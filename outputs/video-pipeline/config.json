@@ -54,17 +54,18 @@
         "token_expires_at": "2026-12-16",
         "token_file": "work/.secrets/instagram-with-hammad-oauth.json",
         "login_method": "Instagram \"Log in with Facebook\" in the owner Chrome (Accounts Center), owner enters 2FA; then the consent link without force_reauth",
-        "video_publish_tested": false,
+        "video_publish_tested": true,
         "default_collaborators": [
           "hammadagentic.ai"
-        ]
+        ],
+        "first_publish": "https://www.instagram.com/reel/DemtmtXn_AT/"
       },
       {
         "key": "instagram_secondary",
         "handle": "hammadagentic.ai",
         "account_id": "17841416366504874",
         "profile_url": "https://www.instagram.com/hammadagentic.ai/",
-        "connection_status": "identity_and_scopes_verified",
+        "connection_status": "token_invalidated_2026-10-17",
         "provider": "instagram_login_api",
         "ig_login_user_id": "28274360938863843",
         "account_type": "MEDIA_CREATOR",
@@ -77,7 +78,8 @@
         "video_publish_tested": false,
         "default_collaborators": [
           "with.hammad"
-        ]
+        ],
+        "note": "Meta error 190: session invalidated, seen after Chrome Instagram switched to @with.hammad. Re-authorize only in a separate browser profile so the @with.hammad session stays logged in."
       },
       {
         "key": "youtube",

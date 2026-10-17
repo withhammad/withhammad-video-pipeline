@@ -1,6 +1,6 @@
 # Video: "Reverse-engineer any feature with Claude Code" (keyword BLUEPRINT)
 
-Job `09a9d211fff0` · reference reel: instagram.com/reel/DecMXypvoMF (Nick Saraev, style only) · status: **approved and published 2026-10-17** (Instagram + ManyChat pending)
+Job `09a9d211fff0` · reference reel: instagram.com/reel/DecMXypvoMF (Nick Saraev, style only) · status: **approved and published 2026-10-17** on all five platforms; ManyChat BLUEPRINT live
 
 ## The file
 | | |
@@ -49,5 +49,9 @@ CTA routing: Instagram uses the ManyChat comment→DM funnel (docs/FUNNEL.md). Y
 | LinkedIn | https://www.linkedin.com/feed/update/urn:li:ugcPost:7517235951950065666/ | API, guide link + AI-avatar note |
 | TikTok | https://www.tiktok.com/@hammadyousuf01/video/7697650231063710996 | Chrome, AI-generated label, public after review |
 | Facebook Reel | https://www.facebook.com/reel/2533097837199069/ | Chrome, public, AI label, English captions |
-| Instagram @with.hammad | — | owner posting from phone (Chrome session would not switch accounts); ManyChat BLUEPRINT automation attaches once the reel is visible |
+| Instagram @with.hammad | https://www.instagram.com/reel/DemtmtXn_AT/ | API (Instagram Login), media 18115860488161073, 2026-10-17 18:06 UTC; Collab invite to @hammadagentic.ai (awaiting acceptance in the app); AI label on ("AI content" shown); full caption with 5 hashtags |
 ManyChat stays on the Free plan (owner decision): ~9 DMs left this month; "next post" trigger is paid, so the automation is attached to the specific reel after it is live.
+ManyChat: Quick Automation "Auto-DM links from comments" is **LIVE** on reel DemtmtXn_AT. Keywords BLUEPRINT/Blueprint/
+blueprint; three rotating public replies; opening DM with a "Send me the link" button; link DM with a follow invitation in
+the text and a "Get the Blueprint" button to withhammad.com/resources/reverse-engineer-features-with-claude-code. The paid
+"ask to follow" and email steps are off. Not yet tested with a real comment from another account.

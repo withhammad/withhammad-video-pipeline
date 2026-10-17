@@ -33,6 +33,9 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 - Instagram login for @with.hammad: Chrome autofills the @hammadagentic.ai password on Instagram's login page, so a
   password login authorizes the wrong account. Use "Log in with Facebook" (both accounts sit in one Accounts Center),
   let the owner enter the 2FA code, then open the consent link without `force_reauth`.
+  Instagram Login tokens die when their web session ends: after Chrome's Instagram switched to @with.hammad, the
+  @hammadagentic.ai token failed with error 190 (session invalidated). Never log the main Chrome profile out of
+  @with.hammad; authorize any other account in a separate Chrome profile.
 - Instagram Collab, every reel: a reel posted on @with.hammad invites @hammadagentic.ai as collaborator, and the
   reverse, so it shows on both profiles (owner rule 2026-10-17). `publish_instagram.publish()` does this by default
   (`DEFAULT_COLLABORATORS`); pass `collaborators=[]` only if the owner asks for a solo post. The invited account must
