@@ -13,9 +13,19 @@
     "training_status": "completed",
     "available_look_count": 3,
     "looks_seen_in_gallery_2026_10_17": [
-      {"name": "Hammad Yousuf", "note": "black blazer, studio; marked favourite in HeyGen", "proposed_default": true},
-      {"name": "Smiling person in grey shirt", "note": "casual, light background"},
-      {"name": "Hammad Yousuf - 1", "note": "webcam-style, marked New"}
+      {
+        "name": "Hammad Yousuf",
+        "note": "black blazer, studio; marked favourite in HeyGen",
+        "proposed_default": true
+      },
+      {
+        "name": "Smiling person in grey shirt",
+        "note": "casual, light background"
+      },
+      {
+        "name": "Hammad Yousuf - 1",
+        "note": "webcam-style, marked New"
+      }
     ],
     "selected_look_id": null,
     "selected_look_name_pending_owner_confirmation": "Hammad Yousuf",
@@ -41,8 +51,17 @@
         "handle": "hammadagentic.ai",
         "account_id": "17841416366504874",
         "profile_url": "https://www.instagram.com/hammadagentic.ai/",
-        "connection_status": "meta_app_registered_token_pending",
-        "provider": "instagram_direct_api"
+        "connection_status": "identity_and_scopes_verified",
+        "provider": "instagram_login_api",
+        "ig_login_user_id": "28274360938863843",
+        "account_type": "MEDIA_CREATOR",
+        "scopes": [
+          "instagram_business_basic",
+          "instagram_business_content_publish"
+        ],
+        "token_expires_at": "2026-12-16",
+        "token_file": "work/.secrets/instagram-hammadagentic-ai-oauth.json",
+        "video_publish_tested": false
       },
       {
         "key": "youtube",

@@ -21,7 +21,6 @@ import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlencode, urlparse
-from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[2]
 SECRETS = ROOT / 'work' / '.secrets'
@@ -43,9 +42,23 @@ def ensure_cert():
 
 
 def request_json(url, data=None):
-    body = urlencode(data).encode() if data is not None else None
-    with urlopen(Request(url, data=body), timeout=30) as response:
-        return json.load(response)
+    """GET or form-POST through /usr/bin/curl: python.org builds on macOS ship without CA roots."""
+    config = 'silent\nshow-error\nfail-with-body\nmax-time = 30\n'
+    if data is not None:
+        config += 'request = "POST"\nheader = "Content-Type: application/x-www-form-urlencoded"\n'
+        config += 'data = "' + urlencode(data).replace('"', '%22') + '"\n'
+    process = subprocess.run(['/usr/bin/curl', '--config', '-', url], input=config,
+                             text=True, capture_output=True, timeout=35)
+    try:
+        payload = json.loads(process.stdout) if process.stdout else {}
+    except json.JSONDecodeError:
+        payload = {}
+    if process.returncode:
+        detail = payload.get('error_message') or payload.get('error', {}).get('message') \
+            if isinstance(payload, dict) else None
+        raise RuntimeError(f'Provider request failed (curl exit {process.returncode})'
+                           + (f': {detail}' if detail else ''))
+    return payload
 
 
 def exchange(code, expected):
@@ -124,10 +137,12 @@ def main():
     parser.add_argument('--timeout', type=int, default=300)
     parser.add_argument('--force-reauth', action='store_true',
                         help='force a fresh Instagram login (use to switch accounts)')
+    parser.add_argument('--state', help='reuse a state from an earlier run whose listener '
+                        'was gone when the redirect arrived; then reload that redirect tab')
     args = parser.parse_args()
     expected = args.account.lower().lstrip('@')
     ensure_cert()
-    state = secrets.token_urlsafe(24)
+    state = args.state or secrets.token_urlsafe(24)
     outcome = {}
     server = HTTPServer(('127.0.0.1', 8766), make_handler(state, expected, outcome))
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
