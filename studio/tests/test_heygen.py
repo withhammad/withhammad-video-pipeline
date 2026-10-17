@@ -118,3 +118,25 @@ def test_missing_key_is_a_clear_error(monkeypatch):
     monkeypatch.delenv('HEYGEN_API_KEY', raising=False)
     with pytest.raises(RuntimeError, match='HEYGEN_API_KEY is missing'):
         heygen.HeyGen()
+
+
+def test_avatar_stage_without_key_waits_then_accepts_external_render(tmp_path, monkeypatch):
+    import io
+    from fastapi.testclient import TestClient
+    from app import db, main, worker
+    monkeypatch.setattr(db, 'DB_PATH', tmp_path / 'studio.sqlite')
+    monkeypatch.setattr(main, 'UPLOADS', tmp_path / 'uploads')
+    monkeypatch.delenv('HEYGEN_API_KEY', raising=False)
+    os.environ.setdefault('STUDIO_USER', 'tester'); os.environ.setdefault('STUDIO_PASSWORD', 'pw')
+    with TestClient(main.app) as client:
+        job_id = client.post('/jobs', data={'reference': 'https://www.instagram.com/reel/R/'},
+                             auth=(os.environ['STUDIO_USER'], os.environ['STUDIO_PASSWORD'])).json()['id']
+    assert worker.run_job(db.claim_next()) == 'waiting'
+    job = db.get_job(job_id)
+    assert job['stage'] == 'avatar' and 'lesson' in job['artifacts'] and 'avatar.mp4' in job['events'][-1]['message']
+    folder = tmp_path / 'jobs' / job_id
+    (folder / 'avatar.mp4').write_bytes(b'video')
+    (folder / 'heygen_submission.json').write_text(json.dumps({'video_id': 'web_1', 'rendered_via': 'heygen-web'}))
+    assert worker.run_job(db.get_job(job_id), resume=True) == 'done'
+    avatar = db.get_job(job_id)['artifacts']['avatar']
+    assert avatar['video_id'] == 'web_1' and avatar['rendered_via'] == 'heygen-web' and avatar['duration_s'] == 12.5

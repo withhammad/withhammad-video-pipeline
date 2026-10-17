@@ -87,6 +87,17 @@ def stage_avatar(job):
     script = '\n\n'.join(seg['spoken'] for seg in package['script']['segments'])
     folder = media.job_dir(job['id'])
     submission = folder / 'heygen_submission.json'
+    rendered = folder / 'avatar.mp4'
+    if not os.environ.get('HEYGEN_API_KEY'):
+        # Rendered outside the API (HeyGen web app in Chrome, or the HeyGen MCP) by the agent session.
+        if not rendered.exists():
+            raise lesson.WaitingForAgent(f'waiting for avatar.mp4 — render {folder / "script.txt"} in HeyGen '
+                                         f'(Chrome or MCP) and save it as {rendered}')
+        info = json.loads(submission.read_text()) if submission.exists() else {}
+        return {'video_id': info.get('video_id'), 'look_id': info.get('look_id'), 'look_name': info.get('look_name'),
+                'voice_id': info.get('voice_id'), 'duration_s': media.probe_duration(rendered), 'video': str(rendered),
+                'subtitles': None, 'thumbnail_url': None, 'video_page_url': info.get('video_page_url'),
+                'rendered_via': info.get('rendered_via', 'external')}
     resume = json.loads(submission.read_text())['video_id'] if submission.exists() else None
     return heygen.render(job['id'], script, package['topic_title'], folder, resume_video_id=resume)
 
