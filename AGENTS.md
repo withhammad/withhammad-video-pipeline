@@ -20,6 +20,13 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 - Every video mirrors the reference reel's beats, length and edit style (docs/EDIT_STYLE.md) in our own words.
 - Lesson text: written by the agent session (no Anthropic API key). Animations: designed by the agent session, rendered with Remotion.
 - Spoken script never contains commands, URLs or code; those go in on_screen_text.
+- HeyGen: ALWAYS fill "Apply custom motion" (e.g. natural hand gestures, slight lean in, nod on key points).
+- Editing stack: Opus (agent session) plans and writes the edit; HyperFrames for animated motion-graphic inserts;
+  Remotion (`studio/remotion`, composition `Reel`) assembles avatar + cards + captions. HeyGen speaks faster than
+  130 wpm: ~72 words ≈ 22 s.
+- Stage 5 commands: transcribe avatar.mp4 with word timestamps → captions.json; write edit.json (scenes timed to words);
+  copy avatar + shots to `studio/remotion/public/job/`; `npx remotion render Reel out/final.mp4 --props=<job>/edit.json`.
+  Check a contact sheet of final.mp4 before showing the owner. Nothing is posted without the owner's explicit OK.
 
 ## Hard rules
 
