@@ -87,6 +87,13 @@ cd studio && .venv/bin/python -m pytest -q                    # tests before eve
 
 Do not deploy to the VPS unless the owner asks; the owner runs this from Claude Code.
 
+## Website resource pages
+
+withhammad.com is the Vercel project **withhammad-rebuild** (github.com/withhammad/withhammad-rebuild, production = `main`).
+Not withhammad-next. Work in a fresh clone (the owner's checkout at ~/withhammad has uncommitted work), follow that repo's
+CLAUDE.md, add `src/app/(site)/resources/<slug>/page.tsx` + `src/content/resources/<slug>.ts`, sitemap entry and a link
+on /resources; tsc, lint, build, then push and confirm the live URL returns 200 at 375 px without horizontal scroll.
+
 ## Checking state
 
 ```bash

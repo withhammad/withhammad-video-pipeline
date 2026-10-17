@@ -115,9 +115,12 @@
   "website": {
     "url": "https://withhammad.com",
     "tools_path": "/tools",
-    "write_connection_verified": false,
-    "repository": "https://github.com/withhammad/withhammad-next",
-    "local_checkout": "/Users/hammad/withhammad-next"
+    "write_connection_verified": true,
+    "repository": "https://github.com/withhammad/withhammad-rebuild",
+    "local_checkout": "/Users/hammad/withhammad (owner has uncommitted work there; agents use a fresh clone)",
+    "vercel_project": "withhammad-rebuild (production = main, ~70 s deploy)",
+    "not_the_site": "withhammad-next / Vercel withhammad-site do NOT serve withhammad.com",
+    "resources_path": "/resources/<slug> (src/app/(site)/resources/<slug>/page.tsx + src/content/resources/<slug>.ts, sitemap + /resources index link)"
   },
   "manychat": {
     "connected": false,
