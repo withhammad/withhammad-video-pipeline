@@ -1,7 +1,7 @@
 # Pending inputs — live checklist
 
 The one place to answer "what's pending". Update it whenever an item moves.
-Last update: 2026-10-17 22:20 — REA reel live on @with.hammad via API (DemtmtXn_AT) as a Collab invite to @hammadagentic.ai; ManyChat BLUEPRINT live; @hammadagentic.ai token invalidated. Previously: 2026-10-17 22:05 — @with.hammad API connected. Previously: 2026-10-17 23:00 — REA video v5 final awaiting approval. Previously: 2026-10-17 21:30 — first finished video (job 09a9d211fff0, final.mp4, 21.9 s) awaiting owner approval; next: publish, website page, ManyChat. Previously: 2026-10-17 21:00 (first real reel: lesson done, HeyGen render waiting on the accent choice). Previously: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real lesson produced; avatar render waits on HeyGen).
+Last update: 2026-10-17 22:45 — @with.hammad name and bio updated to option A (docs/INSTAGRAM_PROFILE.md); owner adds bio links on the phone. Previously: 2026-10-17 22:20 — REA reel live via API. Previously: 2026-10-17 22:05 — @with.hammad API connected. Previously: 2026-10-17 23:00 — REA video v5 final awaiting approval. Previously: 2026-10-17 21:30 — first finished video (job 09a9d211fff0, final.mp4, 21.9 s) awaiting owner approval; next: publish, website page, ManyChat. Previously: 2026-10-17 21:00 (first real reel: lesson done, HeyGen render waiting on the accent choice). Previously: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real lesson produced; avatar render waits on HeyGen).
 
 | # | Item | Status | Who | How to finish |
 |---|------|--------|-----|---------------|
@@ -20,6 +20,7 @@ Last update: 2026-10-17 22:20 — REA reel live on @with.hammad via API (DemtmtX
 | 13 | HeyGen look + voice accent | **Blocking the render** — owner rejected the black-blazer look; two reel-style looks generated, waiting for his pick. Accent: US chosen, but the dropdown ignores extension clicks; set it by hand once (Avatar → Voice → Accent → United States → Update default voice settings) | Owner | Avatar V requires a regional accent for the cloned voice (choices include United States, UK, Australia, Canada, India; no Pakistan). Pick one; it is then saved as the default. |
 | 14 | First reference video | Not provided | Owner | Send one URL; `pipeline.py enqueue --reference <url>` creates the job. |
 | 15 | Accept the Collab invite on @hammadagentic.ai for each reel | Pending for DemtmtXn_AT | Owner (phone) | Instagram app as @hammadagentic.ai → Messages → chat with with.hammad → invite → Review → Accept. The API accept endpoint is Facebook Login only. |
+| 16 | @with.hammad bio links | Pending | Owner (phone; links can't be edited on the web) | Instagram app → Edit profile → Links → Add external link: 1) https://withhammad.com/resources titled "Free guides from my reels", 2) https://withhammad.com titled "Agents that run your marketing"; keep YouTube third (drag to reorder). See docs/INSTAGRAM_PROFILE.md. |
 
 ## Verified and working
 
