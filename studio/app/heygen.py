@@ -19,6 +19,7 @@ LOOK_NAME = os.environ.get('STUDIO_HEYGEN_LOOK_NAME', 'Hammad Yousuf')
 LOOK_ID = os.environ.get('STUDIO_HEYGEN_LOOK_ID', '')
 VOICE_ID = os.environ.get('STUDIO_HEYGEN_VOICE_ID', '0f7032b11fb743589cc81b721f4389b3')
 ENGINE = os.environ.get('STUDIO_HEYGEN_ENGINE', 'avatar_v')
+RESOLUTION = os.environ.get('STUDIO_HEYGEN_RESOLUTION', '720p')  # owner preference: always 720p
 POLL_SECONDS = float(os.environ.get('STUDIO_HEYGEN_POLL_SECONDS', '15'))
 RENDER_TIMEOUT = float(os.environ.get('STUDIO_HEYGEN_TIMEOUT', '1800'))
 
@@ -74,7 +75,7 @@ class HeyGen:
 
     def create_avatar_video(self, look_id, script, voice_id, title, callback_id=None, speed=1.0):
         body = {'type': 'avatar', 'avatar_id': look_id, 'script': script, 'voice_id': voice_id,
-                'title': title[:120], 'aspect_ratio': '9:16', 'resolution': '1080p', 'fit': 'cover',
+                'title': title[:120], 'aspect_ratio': '9:16', 'resolution': RESOLUTION, 'fit': 'cover',
                 'caption': {'file_format': 'srt'}, 'output_format': 'mp4',
                 'voice_settings': {'speed': speed}, 'engine': {'type': ENGINE}}
         if callback_id:

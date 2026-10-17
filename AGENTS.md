@@ -12,6 +12,12 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 - `git log` — the progress log. Commit after every meaningful change with a subject that says
   what shipped; push to `origin main` right away. Nothing stays uncommitted at the end of a turn.
 
+## Owner preferences (fixed)
+
+- HeyGen renders: **720p, portrait (9:16)**, look "Hammad Yousuf" (black blazer), cloned voice "Hammad Yousuf", engine Avatar V.
+- Lesson text: written by the agent session (no Anthropic API key). Animations: designed by the agent session, rendered with Remotion.
+- Spoken script never contains commands, URLs or code; those go in on_screen_text.
+
 ## Hard rules
 
 1. Secrets live only in `work/.secrets/` (git-ignored, mode 600). Never print, paste or commit

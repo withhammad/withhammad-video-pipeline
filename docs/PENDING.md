@@ -1,7 +1,7 @@
 # Pending inputs — live checklist
 
 The one place to answer "what's pending". Update it whenever an item moves.
-Last update: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real lesson produced; avatar render waits on HeyGen).
+Last update: 2026-10-17 21:00 (first real reel: lesson done, HeyGen render waiting on the accent choice). Previously: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real lesson produced; avatar render waits on HeyGen).
 
 | # | Item | Status | Who | How to finish |
 |---|------|--------|-----|---------------|
@@ -17,7 +17,8 @@ Last update: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real 
 | 10 | Groq API key (free) | Not set — `~/.config/watch/.env` has an empty line | Owner | Get a free key at console.groq.com and add `GROQ_API_KEY=…` to `work/.secrets/studio.env`. Without it transcription uses local faster-whisper (works, slower). |
 | 11 | Instagram cookie file for downloads | Not set | Owner (one Terminal command) | Instagram and YouTube refuse anonymous downloads. In your own Terminal (not via the agent — Chrome's folder is TCC-protected): `cd ~/withhammad-video-pipeline/studio && .venv/bin/yt-dlp --cookies-from-browser chrome --cookies ../work/.secrets/instagram-cookies.txt --skip-download 'https://www.instagram.com/reel/C9pXJ0zyPWf/'`. Prefer a secondary Instagram account's Chrome profile. |
 | 12 | Anthropic API key | **Not needed** (owner decision 2026-10-17) | — | The Claude Code session writes the lesson itself (agent mode). `STUDIO_LESSON_MODE=api` + key only if the pipeline must run unattended. |
-| 13 | First reference video | Not provided | Owner | Send one URL; `pipeline.py enqueue --reference <url>` creates the job. |
+| 13 | HeyGen voice accent | **Blocking the first render** | Owner | Avatar V requires a regional accent for the cloned voice (choices include United States, UK, Australia, Canada, India; no Pakistan). Pick one; it is then saved as the default. |
+| 14 | First reference video | Not provided | Owner | Send one URL; `pipeline.py enqueue --reference <url>` creates the job. |
 
 ## Verified and working
 
@@ -25,6 +26,7 @@ Last update: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real 
 
 - LinkedIn: personal profile `urn:li:person:yWP7me7dep`, scopes openid/profile/w_member_social, token valid to 2026-12-16. Publish not yet tested.
 - YouTube: channel UCJtrEDGg1R3kNe7t7PQFiEw, readonly + upload scopes, refresh token stored. Publish not yet tested.
+- First real reel (2026-10-17): job `09a9d211fff0` (Nick Saraev reel on REA) → verified, original lesson 'Reverse-engineer a feature with Claude Code, the right way', keyword BLUEPRINT, 157 words ≈ 72 s; script loaded in HeyGen (720p portrait, black-blazer look).
 - First real lesson (2026-10-17): job `dae18cbf0d11` ('Me at the zoo') → original lesson 'Your first video only has to exist', keyword FIRST, 7 segments, 136 words ≈ 63 s, captions ×5, resource page with 3 prompts — written in the Claude Code session, schema-validated by the pipeline.
 - Studio S4 (2026-10-17): avatar stage against HeyGen API v3 (`POST /v3/videos` type avatar, 9:16 1080p, SRT captions, idempotency key, resume from a persisted video_id). `rerun <job> --from <stage>` resumes jobs without re-downloading. 32 tests green; live render pending the HeyGen key.
 - Studio S3 (2026-10-17): lesson stage — Opus 5.5, adaptive thinking, effort high, schema-constrained JSON (script segments, captions ×5, resource page, ManyChat keyword, sources checked), web search for claim verification, server-side refusal fallback. 22 tests green; live run pending the API key.
