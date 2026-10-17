@@ -23,6 +23,7 @@ PROBE = {'streams': [{'index': 0, 'codec_type': 'video', 'codec_name': 'h264', '
          'format': {'format_name': 'mov,mp4,m4a,3gp,3g2,mj2', 'duration': '21.867', 'size': str(SIZE),
                     'tags': {'major_brand': 'isom'}}}
 FAR_FUTURE_MS = int((time.time() + 30 * 86400) * 1000)
+THUMB_UPLOAD_URL = 'https://www.linkedin.com/dms-uploads/C5505AQH/uploadedThumbnail/thumb?sau=SIGNED-THUMB'
 
 
 class FakeLinkedIn:
@@ -66,12 +67,17 @@ class FakeLinkedIn:
             return httpx.Response(200, json={'sub': self.sub, 'name': 'Hammad Yousuf', 'locale': 'en-US'})
         if key == 'init':
             chunk = math.ceil(SIZE / self.parts)
-            return httpx.Response(200, json={'value': {
+            value = {
                 'uploadUrlsExpireAt': FAR_FUTURE_MS, 'video': self.video_urn, 'uploadToken': 'utok-1',
                 'uploadInstructions': [{'uploadUrl': f'https://www.linkedin.com/dms-uploads/C5505AQH/uploadedVideo/{i}'
                                                      f'?sau=SIGNED-{i}',
                                         'firstByte': i * chunk, 'lastByte': min((i + 1) * chunk, SIZE) - 1}
-                                       for i in range(self.parts)]}})
+                                       for i in range(self.parts)]}
+            if json.loads(request.content)['initializeUploadRequest']['uploadThumbnail']:
+                value['thumbnailUploadUrl'] = THUMB_UPLOAD_URL
+            return httpx.Response(200, json={'value': value})
+        if key == 'putthumb':
+            return httpx.Response(201)
         if key.startswith('put'):
             return httpx.Response(200, headers={'etag': f'"etag-{key[3:]}"'})
         if key == 'finalize':
@@ -532,3 +538,85 @@ def test_real_ffprobe_reads_a_generated_clip(tmp_path):
         pytest.skip('generated clip is under LinkedIn minimum size')
     summary = li.validate_video(clip, info)
     assert (summary['width'], summary['height'], summary['video_codec'], summary['audio_codec']) == (360, 640, 'h264', 'aac')
+
+
+# ---------------------------------------------------------------- thumbnail (uploadThumbnail)
+
+@pytest.fixture
+def cover(tmp_path):
+    path = tmp_path / 'cover_720x1280.jpg'
+    path.write_bytes(b'\xff\xd8\xff\xe0\x00\x10JFIF\x00' + bytes(range(256)) * 4 + b'\xff\xd9')
+    return path
+
+
+def test_dry_run_plans_the_thumbnail_put_before_finalize(run, cover):
+    fake = FakeLinkedIn()
+    result = run(fake, thumbnail_path=cover)
+    assert [(r.method, str(r.url)) for r in fake.requests] == [('GET', li.USERINFO_URL)]
+    plan = result['requests']
+    assert [s['step'] for s in plan] == ['initialize_upload', 'upload_part', 'upload_thumbnail', 'finalize_upload',
+                                         'wait_until_available', 'create_post']
+    assert plan[0]['json']['initializeUploadRequest']['uploadThumbnail'] is True
+    thumb = plan[2]
+    assert thumb['method'] == 'PUT' and thumb['url'] == '<thumbnailUploadUrl from initializeUpload>'
+    assert thumb['headers'] == {'Content-Type': 'application/octet-stream', 'media-type-family': 'STILLIMAGE'}
+    assert thumb['size'] == cover.stat().st_size and result['thumbnail']['path'] == str(cover)
+
+
+def test_thumbnail_is_uploaded_before_finalize_and_recorded(run, cover):
+    fake = FakeLinkedIn(parts=2)
+    result = run(fake, dry_run=False, thumbnail_path=cover)
+    assert fake.sequence() == [('GET', 'userinfo'), ('POST', 'init'), ('PUT', 'put0'), ('PUT', 'put1'),
+                               ('PUT', 'putthumb'), ('POST', 'finalize'), ('GET', 'video'), ('GET', 'video'),
+                               ('POST', 'post')]
+    assert fake.body('init')['initializeUploadRequest']['uploadThumbnail'] is True
+    put = next(r for r in fake.requests if fake.key(r) == 'putthumb')
+    assert str(put.url) == THUMB_UPLOAD_URL and put.content == cover.read_bytes()
+    assert put.headers['content-type'] == 'application/octet-stream'
+    assert put.headers['media-type-family'] == 'STILLIMAGE' and 'authorization' not in put.headers
+    assert result['status'] == 'published' and result['warnings'] == []
+    logged = next(e for e in result['requests'] if e['step'] == 'upload_thumbnail')
+    assert logged['status'] == 201 and logged['url'].endswith('/uploadedThumbnail/thumb?<redacted>')
+    assert 'SIGNED' not in json.dumps(result) and TOKEN not in json.dumps(result)
+    upload = read_state(run.state)['upload']
+    assert upload['thumbnail_uploaded'] is True and upload['thumbnail_sha256'] == hashlib.sha256(
+        cover.read_bytes()).hexdigest()
+
+
+@pytest.mark.parametrize('failure', [
+    httpx.Response(400, json={'message': f'bad image at {THUMB_UPLOAD_URL}', 'status': 400}),
+    httpx.Response(200),                                   # anything but 201 counts as failed
+    httpx.ConnectError(f'reset while sending to {THUMB_UPLOAD_URL}')])
+def test_thumbnail_failure_never_blocks_the_post(run, cover, failure):
+    fake = FakeLinkedIn(parts=1, fail={'putthumb': failure})
+    result = run(fake, dry_run=False, thumbnail_path=cover)
+    assert fake.sequence()[-5:] == [('PUT', 'putthumb'), ('POST', 'finalize'), ('GET', 'video'), ('GET', 'video'),
+                                    ('POST', 'post')]
+    assert result['status'] == 'published' and result['post_urn'] == POST_URN
+    assert len(result['warnings']) == 1 and 'thumbnail not uploaded' in result['warnings'][0]
+    upload = read_state(run.state)['upload']
+    # The state file keeps signed URLs only as resume targets (mode 600); the error text and the result never do.
+    dumped = json.dumps(result) + upload['thumbnail_error']
+    assert 'SIGNED' not in dumped and TOKEN not in dumped
+    assert 'thumbnail_uploaded' not in upload
+
+
+def test_unusable_thumbnail_is_skipped_and_the_post_goes_out(run, tmp_path):
+    png = tmp_path / 'cover.png'
+    png.write_bytes(b'\x89PNG\r\n\x1a\n' + b'0' * 40)
+    fake = FakeLinkedIn(parts=1)
+    result = run(fake, dry_run=False, thumbnail_path=png)
+    assert fake.body('init')['initializeUploadRequest']['uploadThumbnail'] is False
+    assert 'putthumb' not in [k for _, k in fake.sequence()] and result['status'] == 'published'
+    assert result['warnings'] == ['LinkedIn thumbnail skipped: cover.png is not a JPEG']
+
+
+def test_resumed_upload_started_without_thumbnail_warns_and_posts(run, cover):
+    broken = httpx.Response(500, json={'message': 'try later'})
+    with pytest.raises(li.LinkedInAPIError):
+        run(FakeLinkedIn(parts=1, fail={'finalize': broken}), dry_run=False)   # no thumbnail asked for
+    fake = FakeLinkedIn(parts=1, statuses=('WAITING_UPLOAD', 'AVAILABLE'))
+    result = run(fake, dry_run=False, thumbnail_path=cover)
+    assert 'init' not in [k for _, k in fake.sequence()] and 'putthumb' not in [k for _, k in fake.sequence()]
+    assert result['status'] == 'published'
+    assert any('started without uploadThumbnail' in w for w in result['warnings'])

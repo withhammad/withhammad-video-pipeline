@@ -511,3 +511,120 @@ def test_empty_collaborators_list_posts_without_collab(video):
     create = next(r for r in plan['requests'] if r['step'] == 'create_container')
     assert 'collaborators' not in create['json'] and plan['collaborators'] == []
 
+
+
+# ---------------------------------------------------------------- cover_url
+
+COVER_URL = 'https://media.example.test/covers/blueprint.jpg'
+
+
+@pytest.fixture
+def cover(tmp_path):
+    path = tmp_path / 'cover_1080x1920.jpg'
+    path.write_bytes(b'\xff\xd8\xff\xe0\x00\x10JFIF\x00' + bytes(range(256)) * 4 + b'\xff\xd9')
+    return path
+
+
+def serve_cover(meta, size, content_type='image/jpeg', status=200):
+    meta.overrides[('HEAD', '/covers/blueprint.jpg')] = httpx.Response(
+        status, headers={'content-type': content_type, 'content-length': str(size)})
+
+
+def test_cover_url_is_hosted_head_checked_and_sent_in_the_container(video, cover, tmp_path):
+    meta, provider, cover_host = FakeMeta(video.stat().st_size), FakeProvider(), FakeProvider(COVER_URL)
+    serve_cover(meta, cover.stat().st_size)
+    state_path = tmp_path / 'ig_state.json'
+    result = run(video, meta, dry_run=False, state_path=state_path, url_provider=provider, cover_url=cover_host,
+                 cover_path=cover)
+    calls = meta.calls()
+    head = calls.index(('HEAD', 'media.example.test', '/covers/blueprint.jpg'))
+    assert head < calls.index(('POST', 'graph.instagram.com', f'/{V}/{IG_ID}/media'))
+    assert 'authorization' not in meta.requests[head].headers   # the token never goes to the file host
+    create = next(r for r in meta.requests if r.method == 'POST' and r.url.path.endswith('/media'))
+    body = json.loads(create.content)
+    assert body['cover_url'] == COVER_URL and 'thumb_offset' not in body and body['video_url'] == VIDEO_URL
+    assert cover_host.hosted == [str(cover)] and result['status'] == 'published'
+    assert result['cover']['url'] == COVER_URL and result['cover']['size'] == cover.stat().st_size
+    state = json.loads(state_path.read_text())
+    assert state['cover_url'] == COVER_URL and state['cover_key'] == ig.validate_cover(cover)['sha256']
+    assert TOKEN not in json.dumps(result) and TOKEN not in state_path.read_text()
+
+
+def test_dry_run_lists_the_cover_and_drops_thumb_offset_with_a_warning(video, cover):
+    meta = FakeMeta(video.stat().st_size)
+    plan = run(video, meta, url_provider=FakeProvider(), cover_url=COVER_URL, cover_path=cover, thumb_offset_ms=1500)
+    assert meta.writes() == [] and all(c[1] == 'graph.instagram.com' for c in meta.calls())
+    steps = [(r['step'], r['method'], r.get('executed')) for r in plan['requests']]
+    assert ('host_cover', 'HOST', False) in steps and ('check_cover_url', 'HEAD', False) in steps
+    check = next(r for r in plan['requests'] if r['step'] == 'check_cover_url')
+    assert check['expect'] == {'status': 200, 'content_type': 'image/jpeg', 'max_bytes': 8_000_000,
+                               'content_length': cover.stat().st_size}
+    create = next(r for r in plan['requests'] if r['step'] == 'create_container')
+    assert create['json']['cover_url'] == COVER_URL and 'thumb_offset' not in create['json']
+    assert any('thumb_offset_ms 1500 dropped' in w for w in plan['warnings'])
+
+
+@pytest.mark.parametrize('url', ['http://media.example.test/covers/blueprint.jpg', 'https://localhost/c.jpg', ''])
+def test_cover_url_must_be_public_https(video, cover, url):
+    meta = FakeMeta(video.stat().st_size)
+    with pytest.raises(ig.InstagramPublishError, match='cover_url') as error:
+        run(video, meta, url_provider=FakeProvider(), cover_url=url or 'ftp://x', cover_path=cover)
+    assert error.value.step == 'host_cover' and meta.requests == []
+
+
+@pytest.mark.parametrize('content_type, size, message', [('image/png', 1000, 'served as image/png'),
+                                                         ('image/jpeg', 9_000_000, '8 MB'),
+                                                         ('image/jpeg', 12, 'local file is')])
+def test_cover_head_check_stops_before_the_container(video, cover, tmp_path, content_type, size, message):
+    meta = FakeMeta(video.stat().st_size)
+    serve_cover(meta, size, content_type)
+    with pytest.raises(ig.InstagramPublishError, match=message) as error:
+        run(video, meta, dry_run=False, state_path=tmp_path / 's.json', url_provider=FakeProvider(),
+            cover_url=COVER_URL, cover_path=cover)
+    assert error.value.step == 'check_cover_url' and meta.writes() == []
+
+
+def test_local_cover_must_be_a_jpeg_and_a_provider_needs_the_file(video, tmp_path):
+    png = tmp_path / 'cover.png'
+    png.write_bytes(b'\x89PNG\r\n\x1a\n' + b'0' * 40)
+    meta = FakeMeta(video.stat().st_size)
+    with pytest.raises(ig.InstagramPublishError, match='not a JPEG'):
+        run(video, meta, url_provider=FakeProvider(), cover_url=COVER_URL, cover_path=png)
+    with pytest.raises(ig.InstagramPublishError, match='pass cover_path'):
+        run(video, meta, url_provider=FakeProvider(), cover_url=FakeProvider(COVER_URL))
+    jpeg = tmp_path / 'other.jpg'
+    jpeg.write_bytes(b'\xff\xd8\xff\xe0' + b'1' * 64)
+    with pytest.raises(ig.InstagramPublishError, match='without cover_url'):
+        run(video, meta, url_provider=FakeProvider(), cover_path=jpeg)
+    assert meta.requests == []
+
+
+def test_static_cover_url_without_local_file_is_still_head_checked(video, tmp_path):
+    meta = FakeMeta(video.stat().st_size)
+    serve_cover(meta, 180_000)
+    result = run(video, meta, dry_run=False, state_path=tmp_path / 's.json', url_provider=FakeProvider(),
+                 cover_url=COVER_URL)
+    assert ('HEAD', 'media.example.test', '/covers/blueprint.jpg') in meta.calls()
+    create = next(r for r in meta.requests if r.method == 'POST' and r.url.path.endswith('/media'))
+    assert json.loads(create.content)['cover_url'] == COVER_URL and result['status'] == 'published'
+    assert json.loads((tmp_path / 's.json').read_text())['cover_key'] == f'url:{COVER_URL}'
+
+
+def test_changed_cover_with_unpublished_container_makes_a_new_one(video, cover, tmp_path):
+    state_path = tmp_path / 'ig_state.json'
+    meta = FakeMeta(video.stat().st_size, statuses=('ERROR',))
+    serve_cover(meta, cover.stat().st_size)
+    with pytest.raises(ig.InstagramPublishError, match='ERROR'):
+        run(video, meta, dry_run=False, state_path=state_path, url_provider=FakeProvider(), cover_url=COVER_URL,
+            cover_path=cover)
+    meta = FakeMeta(video.stat().st_size, statuses=('FINISHED',))   # C1 finished, but with the old cover
+    meta.overrides[('POST', f'/{V}/{IG_ID}/media')] = httpx.Response(200, json={'id': 'C2'})
+    new_cover = tmp_path / 'cover_2.jpg'
+    new_cover.write_bytes(cover.read_bytes() + b'\x00')
+    serve_cover(meta, new_cover.stat().st_size)
+    result = run(video, meta, dry_run=False, state_path=state_path, url_provider=FakeProvider(), cover_url=COVER_URL,
+                 cover_path=new_cover)
+    assert result['container_id'] == 'C2' and result['status'] == 'published'
+    state = json.loads(state_path.read_text())
+    assert 'superseded' in state['previous_containers'][0]['reason']
+    assert state['cover_key'] == ig.validate_cover(new_cover)['sha256']

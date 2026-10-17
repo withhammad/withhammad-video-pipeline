@@ -56,6 +56,9 @@ class FakeGoogle:
         self.on('init', lambda r, b: httpx.Response(200, headers={'Location': SESSION}))
         self.on('session', lambda r, b: httpx.Response(201, json={
             'id': 'vid123', 'status': {'uploadStatus': 'uploaded', 'privacyStatus': 'private'}}))
+        self.on('thumbnail', lambda r, b: httpx.Response(200, json={'kind': 'youtube#thumbnailSetResponse', 'items': [
+            {'default': {'url': 'https://i.ytimg.com/vi/vid123/default.jpg', 'width': 120, 'height': 90},
+             'high': {'url': 'https://i.ytimg.com/vi/vid123/hqdefault.jpg', 'width': 480, 'height': 360}}]}))
 
     def on(self, key, *factories):
         self.queues[key] = list(factories)
@@ -73,6 +76,8 @@ class FakeGoogle:
             return 'videos'
         if url.path == '/upload/youtube/v3/videos':
             return 'session' if 'upload_id' in url.params else 'init'
+        if url.path == '/upload/youtube/v3/thumbnails/set':
+            return 'thumbnail'
         return 'unknown'
 
     def __call__(self, request):
@@ -505,3 +510,163 @@ def test_video_status_reports_processing_outcome(creds):
     result = yt.video_status('vid123', oauth_file=creds, transport=httpx.MockTransport(server))
     assert result['done'] is False and result['processing_status'] == 'processing'
     assert_no_secrets(json.dumps(result))
+
+
+# ---------------------------------------------------------------- custom thumbnail (thumbnails.set)
+
+THUMB_URL = 'https://www.googleapis.com/upload/youtube/v3/thumbnails/set'
+FORBIDDEN = {'error': {'code': 403, 'message': 'The authenticated user does not have permission to upload and set '
+                                               'custom video thumbnails.', 'errors': [{'reason': 'forbidden'}]}}
+
+
+@pytest.fixture
+def cover(tmp_path):
+    path = tmp_path / 'cover_1080x1920.jpg'
+    path.write_bytes(b'\xff\xd8\xff\xe0\x00\x10JFIF\x00' + bytes(range(256)) * 8 + b'\xff\xd9')
+    return path
+
+
+def test_dry_run_plans_thumbnails_set_after_the_upload(video, creds, cover):
+    server = FakeGoogle()
+    result = run(video, creds, server, thumbnail_path=cover)
+    assert server.keys() == [('POST', 'token'), ('GET', 'channels'), ('GET', 'categories')]
+    step = result['plan'][-1]
+    assert [p['step'] for p in result['plan']] == ['start_upload_session', 'upload_file', 'set_thumbnail']
+    assert step['method'] == 'POST'
+    assert step['url'] == f'{THUMB_URL}?videoId=<video id from the upload>&uploadType=media'
+    assert step['headers'] == {'Authorization': 'Bearer ***', 'Content-Type': 'image/jpeg',
+                               'Content-Length': str(cover.stat().st_size)}
+    assert step['body']['sha256'] == yt.validate_thumbnail(cover)['sha256'] and 'youtube.com/verify' in step['expect']
+    assert_no_secrets(json.dumps(result))
+
+
+def test_live_upload_sets_the_thumbnail_once_and_records_its_sha(video, creds, cover, tmp_path):
+    state_path = tmp_path / 'state.json'
+    server = FakeGoogle()
+    result = run(video, creds, server, dry_run=False, state_path=state_path, thumbnail_path=cover)
+    assert server.keys() == [('POST', 'token'), ('GET', 'channels'), ('GET', 'categories'), ('POST', 'init'),
+                             ('PUT', 'session'), ('POST', 'thumbnail')]
+    call = server.calls[-1]
+    assert call['url'] == f'{THUMB_URL}?videoId=vid123&uploadType=media'
+    assert call['headers']['content-type'] == 'image/jpeg' and call['headers']['authorization'] == f'Bearer {ACCESS}'
+    assert call['body'] == cover.read_bytes()
+    assert result['status'] == 'published' and result['thumbnail']['status'] == 'set' and result['warnings'] == []
+    assert result['thumbnail']['urls']['high'] == 'https://i.ytimg.com/vi/vid123/hqdefault.jpg'
+    saved = json.loads(state_path.read_text())['youtube']
+    assert saved['thumbnail']['sha256'] == yt.validate_thumbnail(cover)['sha256'] and saved['thumbnail']['set_at']
+    assert saved['thumbnail']['video_id'] == 'vid123' and saved['status'] == 'published'
+    assert_no_secrets(json.dumps(result), state_path.read_text())
+
+    rerun = FakeGoogle()
+    for dry in (False, True):
+        again = run(video, creds, rerun, dry_run=dry, state_path=state_path, thumbnail_path=cover)
+        assert again['already_published'] is True and again['thumbnail']['status'] == 'already_set'
+    assert rerun.calls == []   # same video, same JPEG: nothing is sent at all
+
+
+def test_thumbnail_403_is_a_warning_and_a_rerun_sets_only_the_thumbnail(video, creds, cover, tmp_path):
+    state_path = tmp_path / 'state.json'
+    server = FakeGoogle()
+    server.on('thumbnail', lambda r, b: httpx.Response(403, json=FORBIDDEN))
+    result = run(video, creds, server, dry_run=False, state_path=state_path, thumbnail_path=cover)
+    assert result['status'] == 'published' and result['video_id'] == 'vid123'
+    assert result['thumbnail']['status'] == 'failed'
+    assert len(result['warnings']) == 1 and 'HTTP 403' in result['warnings'][0]
+    assert 'https://www.youtube.com/verify' in result['warnings'][0]
+    assert 'thumbnail vid123' in result['warnings'][0]   # the exact retro-fix command
+    saved = json.loads(state_path.read_text())['youtube']
+    assert saved['status'] == 'published' and 'thumbnail' not in saved
+    assert_no_secrets(json.dumps(result))
+
+    planned = run(video, creds, FakeGoogle(), state_path=state_path, thumbnail_path=cover)
+    assert planned['already_published'] is True and planned['thumbnail']['status'] == 'planned'
+    assert [p['step'] for p in planned['plan']] == ['set_thumbnail']
+    assert planned['plan'][0]['url'] == f'{THUMB_URL}?videoId=vid123&uploadType=media'
+
+    rerun = FakeGoogle()
+    again = run(video, creds, rerun, dry_run=False, state_path=state_path, thumbnail_path=cover)
+    assert rerun.keys() == [('POST', 'token'), ('GET', 'channels'), ('POST', 'thumbnail')]   # no second upload
+    assert again['thumbnail']['status'] == 'set' and again['already_published'] is True
+    assert json.loads(state_path.read_text())['youtube']['thumbnail']['video_id'] == 'vid123'
+
+
+def test_network_error_on_thumbnail_is_a_warning(video, creds, cover, tmp_path):
+    def drop(request, body):
+        raise httpx.ConnectError(f'reset while sending {request.headers["authorization"]}')
+    server = FakeGoogle()
+    server.on('thumbnail', drop)
+    result = run(video, creds, server, dry_run=False, state_path=tmp_path / 'state.json', thumbnail_path=cover)
+    assert result['status'] == 'published' and result['thumbnail']['status'] == 'failed'
+    assert 'ConnectError' in result['warnings'][0]
+    assert_no_secrets(json.dumps(result))
+
+
+@pytest.mark.parametrize('content, message', [(b'\x89PNG\r\n\x1a\n' + b'0' * 50, 'not a JPEG'),
+                                              (b'\xff\xd8\xff' + b'0' * (2 * 1024 * 1024), 'at most 2 MB')])
+def test_unusable_thumbnail_is_skipped_with_a_warning(video, creds, tmp_path, content, message):
+    bad = tmp_path / 'cover.jpg'
+    bad.write_bytes(content)
+    with pytest.raises(yt.ThumbnailError, match=message):
+        yt.validate_thumbnail(bad)
+    server = FakeGoogle()
+    result = run(video, creds, server, dry_run=False, state_path=tmp_path / 'state.json', thumbnail_path=bad)
+    assert result['status'] == 'published' and 'thumbnail' not in [c['key'] for c in server.calls]
+    assert any(message in w for w in result['warnings'])
+
+
+def test_set_thumbnail_on_an_existing_short(creds, cover, tmp_path):
+    def owner(channel):
+        return lambda r, b: httpx.Response(200, json={'items': [{'id': 'HClAkG74r6A', 'snippet': {'channelId': channel}}]})
+    server = FakeGoogle()
+    server.on('videos', owner(CHANNEL))
+    planned = yt.set_thumbnail('HClAkG74r6A', cover, oauth_file=creds, transport=httpx.MockTransport(server))
+    assert server.keys() == [('POST', 'token'), ('GET', 'channels'), ('GET', 'videos')]
+    assert planned['status'] == 'planned'
+    assert planned['plan'][0]['url'] == f'{THUMB_URL}?videoId=HClAkG74r6A&uploadType=media'
+    assert 'id=HClAkG74r6A' in server.calls[2]['url']
+
+    state_path = tmp_path / 'publish_youtube.json'
+    yt.save_state(state_path, {'status': 'published', 'video_id': 'HClAkG74r6A', 'channel_id': CHANNEL})
+    server = FakeGoogle()
+    server.on('videos', owner(CHANNEL))
+    done = yt.set_thumbnail('HClAkG74r6A', cover, dry_run=False, state_path=state_path, oauth_file=creds,
+                            transport=httpx.MockTransport(server))
+    assert server.keys()[-1] == ('POST', 'thumbnail') and done['status'] == 'set'
+    saved = json.loads(state_path.read_text())['youtube']
+    assert saved['status'] == 'published' and saved['thumbnail']['sha256'] == done['thumbnail']['sha256']
+    assert_no_secrets(json.dumps(done), state_path.read_text())
+
+    server = FakeGoogle()
+    again = yt.set_thumbnail('HClAkG74r6A', cover, dry_run=False, state_path=state_path, oauth_file=creds,
+                             transport=httpx.MockTransport(server))
+    assert again['status'] == 'already_set' and server.calls == []
+
+    with pytest.raises(yt.StateConflictError, match='HClAkG74r6A'):
+        yt.set_thumbnail('otherVideo1', cover, dry_run=False, state_path=state_path, oauth_file=creds,
+                         transport=httpx.MockTransport(FakeGoogle()))
+
+
+def test_set_thumbnail_refuses_a_video_on_another_channel_and_raises_on_403(creds, cover):
+    server = FakeGoogle()
+    server.on('videos', lambda r, b: httpx.Response(200, json={'items': [
+        {'id': 'x', 'snippet': {'channelId': 'UCsomeoneElse000000000000'}}]}))
+    with pytest.raises(yt.IdentityMismatchError, match='not on channel'):
+        yt.set_thumbnail('x', cover, dry_run=False, oauth_file=creds, transport=httpx.MockTransport(server))
+    assert 'thumbnail' not in [c['key'] for c in server.calls]
+    server = FakeGoogle()
+    server.on('videos', lambda r, b: httpx.Response(200, json={'items': [{'id': 'x', 'snippet': {'channelId': CHANNEL}}]}))
+    server.on('thumbnail', lambda r, b: httpx.Response(403, json=FORBIDDEN))
+    with pytest.raises(yt.ThumbnailError, match='youtube.com/verify') as error:
+        yt.set_thumbnail('x', cover, dry_run=False, oauth_file=creds, transport=httpx.MockTransport(server))
+    assert error.value.status == 403 and error.value.reason == 'forbidden'
+    assert_no_secrets(str(error.value))
+
+
+def test_thumbnail_cli_is_a_dry_run_unless_live(monkeypatch, cover, capsys):
+    calls = []
+    monkeypatch.setattr(yt, 'set_thumbnail', lambda *a, **kw: calls.append((a, kw)) or {'status': 'planned'})
+    assert yt.main(['thumbnail', 'HClAkG74r6A', str(cover)]) == 0
+    assert yt.main(['thumbnail', 'HClAkG74r6A', str(cover), '--live', '--state', 'publish_youtube.json']) == 0
+    assert calls[0] == (('HClAkG74r6A', str(cover)), {'dry_run': True, 'state_path': None})
+    assert calls[1] == (('HClAkG74r6A', str(cover)), {'dry_run': False, 'state_path': 'publish_youtube.json'})
+    assert '"planned"' in capsys.readouterr().out

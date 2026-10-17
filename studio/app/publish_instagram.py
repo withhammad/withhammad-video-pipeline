@@ -4,6 +4,8 @@ Verified against Meta's docs on 2026-10-17 (developers.facebook.com/documentatio
   GET  /me?fields=user_id,username,account_type        user_id = the professional account id <IG_ID>  [instagram-api-with-instagram-login/get-started]
   GET  /<IG_ID>/content_publishing_limit?fields=quota_usage,config   data[0].quota_usage, config.quota_total/quota_duration
   POST /<IG_ID>/media   media_type=REELS, video_url, caption, share_to_feed, thumb_offset, is_ai_generated -> {id}  [ig-user/media]
+       cover_url = a public JPEG (at most 8 MB) used as the Reel's cover; it beats thumb_offset, so thumb_offset is
+       dropped when both are given. Hosted like the video (a PublicUrlProvider) and HEAD-checked first.
   GET  /<IG_CONTAINER_ID>?fields=id,status,status_code  EXPIRED | ERROR | FINISHED | IN_PROGRESS | PUBLISHED   [ig-container]
   POST /<IG_ID>/media_publish   creation_id -> {id: <IG_MEDIA_ID>}                                            [ig-user/media_publish]
   GET  /<IG_MEDIA_ID>?fields=id,permalink,shortcode,timestamp                                                 [reference/instagram-media]
@@ -60,6 +62,8 @@ MAX_WIDTH = 1920
 MIN_FPS, MAX_FPS = 23.0, 60.0
 MAX_VIDEO_BPS = 25_000_000
 MAX_AUDIO_HZ = 48_000
+COVER_MAX_BYTES = 8 * 1000 * 1000
+COVER_MIME = 'image/jpeg'
 SPEC_AUDIO_BPS = 128_000
 TARGET_ASPECT, ASPECT_TOLERANCE = 9 / 16, 0.01
 CAPTION_MAX, HASHTAG_MAX, MENTION_MAX = 2200, 30, 20
@@ -107,8 +111,8 @@ class StaticUrlProvider:
     Any provider needs: describe(path) -> str with no side effects (used by dry runs), url_for(path) -> str that makes
     the file reachable and returns its public HTTPS URL, and optionally release(url) to take it down after publishing."""
 
-    def __init__(self, url):
-        self.url = _check_public_url(url)
+    def __init__(self, url, label='video_url', step='host_video'):
+        self.url = _check_public_url(url, label, step)
 
     def describe(self, video_path):
         return self.url
@@ -120,26 +124,38 @@ class StaticUrlProvider:
         return None
 
 
-def _check_public_url(url):
+def _check_public_url(url, label='video_url', step='host_video'):
     url = str(url or '').strip()
     parts = urlsplit(url)
     if parts.scheme != 'https' or not parts.netloc:
-        raise InstagramPublishError(f'video_url must be an https:// URL Meta can fetch publicly, got {url[:120]!r}',
-                                    step='host_video')
+        raise InstagramPublishError(f'{label} must be an https:// URL Meta can fetch publicly, got {url[:120]!r}',
+                                    step=step)
     if not url.isascii():
-        raise InstagramPublishError('video_url must contain only US-ASCII characters (Meta recommendation)',
-                                    step='host_video')
+        raise InstagramPublishError(f'{label} must contain only US-ASCII characters (Meta recommendation)', step=step)
     if parts.hostname in ('localhost', '127.0.0.1', '::1') or (parts.hostname or '').endswith(('.local', '.localhost')):
-        raise InstagramPublishError(f'video_url host {parts.hostname} is not reachable from Meta', step='host_video')
+        raise InstagramPublishError(f'{label} host {parts.hostname} is not reachable from Meta', step=step)
     return url
 
 
-def _provider(url_provider):
+def _provider(url_provider, label='url_provider', url_label='video_url', step='host_video'):
     if url_provider is None or hasattr(url_provider, 'url_for'):
         return url_provider
     if isinstance(url_provider, str):
-        return StaticUrlProvider(url_provider)
-    raise TypeError('url_provider must be None, an https URL string or an object with describe/url_for')
+        return StaticUrlProvider(url_provider, url_label, step)
+    raise TypeError(f'{label} must be None, an https URL string or an object with describe/url_for')
+
+
+def validate_cover(cover_path):
+    """The local cover JPEG (app.thumbnail's cover_1080x1920.jpg): a JPEG of at most 8 MB."""
+    path = Path(cover_path)
+    if not path.is_file():
+        raise InstagramPublishError(f'cover not found: {path}', step='cover')
+    data = path.read_bytes()
+    if not data.startswith(b'\xff\xd8\xff'):
+        raise InstagramPublishError(f'{path.name} is not a JPEG; Instagram cover_url must serve image/jpeg', step='cover')
+    if len(data) > COVER_MAX_BYTES:
+        raise InstagramPublishError(f'{path.name} is {len(data)} bytes; the Reels cover limit is 8 MB', step='cover')
+    return {'path': str(path), 'size': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
 
 
 # --- input checks ---------------------------------------------------------------------------------------------------
@@ -475,6 +491,34 @@ class InstagramClient:
         return {'status': response.status_code, 'content_length': int(length) if length and length.isdigit() else None,
                 'content_type': response.headers.get('content-type')}
 
+    def check_public_cover(self, url, expected_size=None, max_bytes=COVER_MAX_BYTES):
+        """HEAD (or a one-byte GET) on the hosted cover, with no credentials: 200, image/jpeg, at most 8 MB."""
+        try:
+            response = self.public.head(url)
+            if response.status_code in (403, 405, 501):
+                response = self.public.get(url, headers={'Range': 'bytes=0-0'})
+        except httpx.HTTPError as exc:
+            raise InstagramPublishError(f'hosted cover {url} is not reachable ({type(exc).__name__})',
+                                        step='check_cover_url') from None
+        if response.status_code not in (200, 206):
+            raise InstagramPublishError(f'hosted cover {url} answered HTTP {response.status_code}; Meta needs 200',
+                                        step='check_cover_url')
+        content_type = (response.headers.get('content-type') or '').split(';')[0].strip().lower()
+        if content_type != COVER_MIME:
+            raise InstagramPublishError(f'hosted cover {url} is served as {content_type or "no content type"}, '
+                                        f'not {COVER_MIME}', step='check_cover_url')
+        length = response.headers.get('content-length')
+        if response.status_code == 206:
+            length = (response.headers.get('content-range') or '').rpartition('/')[2] or None
+        size = int(length) if length and length.isdigit() else None
+        if size is not None and size > max_bytes:
+            raise InstagramPublishError(f'hosted cover {url} is {size} bytes; the Reels cover limit is 8 MB',
+                                        step='check_cover_url')
+        if size is not None and expected_size is not None and size != expected_size:
+            raise InstagramPublishError(f'hosted cover {url} is {size} bytes but the local file is {expected_size}',
+                                        step='check_cover_url')
+        return {'status': response.status_code, 'content_length': size, 'content_type': content_type}
+
 
 class _Steps:
     """Runs the publishing sequence or, in a dry run, records what would be sent. Only GETs ever run in a dry run."""
@@ -539,7 +583,10 @@ def publish(video_path, lesson, *, dry_run=True, state_path=None, **options):
 
     options: url_provider, credentials_path, token, transport, probe, sleep, clock, expected_username, share_to_feed,
     ai_generated, thumb_offset_ms, poll_seconds, timeout, api_version, collaborators (None = the
-    owner's default Collab for the posting account, [] = no Collab)."""
+    owner's default Collab for the posting account, [] = no Collab), cover_url (an https URL already serving the
+    cover JPEG, or a provider object hosting cover_path the way url_provider hosts the video) and cover_path (the
+    local cover_1080x1920.jpg; checked, and compared with the hosted size). A cover problem stops the run before the
+    container exists: the cover can't be changed by API once the reel is posted."""
     live = dry_run is False
     if live and not state_path:
         raise InstagramPublishError('publishing needs a state_path: it records every remote id so a retry never '
@@ -551,9 +598,22 @@ def publish(video_path, lesson, *, dry_run=True, state_path=None, **options):
 def _publish(video_path, lesson, *, live, state_path, url_provider=None, credentials_path=None,
              token=None, transport=None, probe=None, sleep=time.sleep, clock=time.monotonic,
              expected_username=EXPECTED_USERNAME, share_to_feed=True, ai_generated=True, thumb_offset_ms=None,
-             poll_seconds=POLL_SECONDS, timeout=PROCESS_TIMEOUT, api_version=API_VERSION, collaborators=None):
+             poll_seconds=POLL_SECONDS, timeout=PROCESS_TIMEOUT, api_version=API_VERSION, collaborators=None,
+             cover_url=None, cover_path=None):
     caption = caption_for(lesson)
     video = validate_video(video_path, probe=probe)
+    pre_warnings = []
+    cover_provider = _provider(cover_url, 'cover_url', 'cover_url', 'host_cover')
+    cover = validate_cover(cover_path) if cover_path else None
+    if cover_provider is None and cover is not None:
+        raise InstagramPublishError('cover_path was given without cover_url: Meta must fetch the cover from a public '
+                                    'HTTPS URL (pass cover_url=<https URL> or a provider object)', step='cover')
+    if cover_provider is not None and cover is None and not isinstance(cover_provider, StaticUrlProvider):
+        raise InstagramPublishError('a cover_url provider hosts a local file: pass cover_path too', step='cover')
+    if cover_provider is not None and thumb_offset_ms is not None:
+        pre_warnings.append(f'thumb_offset_ms {thumb_offset_ms} dropped: cover_url sets the cover and Meta would '
+                            'ignore thumb_offset anyway')
+        thumb_offset_ms = None
     if thumb_offset_ms is not None and not 0 <= int(thumb_offset_ms) < video['duration_s'] * 1000:
         raise InstagramPublishError(f'thumb_offset_ms {thumb_offset_ms} must be >= 0 and below the video length '
                                     f"({video['duration_s'] * 1000:.0f} ms); Meta rejects it (2207057)",
@@ -563,7 +623,9 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
               'video': video, 'caption': {'text': caption, 'length': len(caption),
                                           'hashtags': len(HASHTAG_RE.findall(caption)),
                                           'mentions': len(MENTION_RE.findall(caption))},
-              'upload_method': 'video_url', 'warnings': list(video['warnings']), 'blockers': []}
+              'upload_method': 'video_url', 'warnings': list(video['warnings']) + pre_warnings, 'blockers': []}
+    if cover_provider is not None:
+        result['cover'] = {'provider': type(cover_provider).__name__, **(cover or {})}
 
     if state.get('status') in PUBLISHED_STATES or state.get('media_id'):
         if state.get('video', {}).get('sha256') not in (None, video['sha256']):
@@ -613,8 +675,10 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
             result['blockers'].append(message)
 
         # 3. an earlier container for this exact file and caption is resumed, never duplicated
+        # which cover the container carries: the local JPEG's sha256, or the URL when only a URL was given
+        cover_key = cover['sha256'] if cover else (f'url:{cover_provider.describe(None)}' if cover_provider else None)
         same_input = (state.get('video', {}).get('sha256') == video['sha256']
-                      and state.get('caption_sha256') == caption_sha)
+                      and state.get('caption_sha256') == caption_sha and state.get('cover_key') == cover_key)
         container_id = None
         old = state.get('container_id')
         if old:
@@ -644,6 +708,10 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
         state.update({'platform': 'instagram', 'account': {'username': identity['username'], 'ig_user_id': ig_id},
                       'video': {'path': video['path'], 'size': video['size'], 'sha256': video['sha256']},
                       'caption_sha256': caption_sha})
+        if cover_key:
+            state['cover_key'] = cover_key
+        else:
+            state.pop('cover_key', None)
         if live:
             save_state(state_path, state)
 
@@ -683,6 +751,9 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
                 body['is_ai_generated'] = True
             if thumb_offset_ms is not None:
                 body['thumb_offset'] = int(thumb_offset_ms)
+            if cover_provider is not None:
+                body['cover_url'] = _host_cover(steps, client, cover_provider, cover, state, state_path, live)
+                result['cover']['url'] = body['cover_url']
             names = resolve_collaborators(collaborators, expected_username)
             if names:   # Collab invite; each account must accept before the reel shows on its profile
                 body['collaborators'] = names
@@ -727,6 +798,25 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
         return result
     finally:
         client.close()
+
+
+def _host_cover(steps, client, provider, cover, state, state_path, live):
+    """Make the cover JPEG public (like the video) and HEAD-check it before Meta is asked to fetch it."""
+    local = Path(cover['path']) if cover else None
+    if live:
+        url = _check_public_url(provider.url_for(local), 'cover_url', 'host_cover')
+        state.update(cover_url=url, cover_url_provider=type(provider).__name__)
+        save_state(state_path, state)
+    else:
+        url = provider.describe(local)
+    steps.note('host_cover', 'HOST', provider=type(provider).__name__, url=url,
+               file_size=cover['size'] if cover else None, executed=live)
+    check = steps.note('check_cover_url', 'HEAD', url=url, headers={},
+                       expect={'status': 200, 'content_type': COVER_MIME, 'max_bytes': COVER_MAX_BYTES,
+                               'content_length': cover['size'] if cover else None}, executed=live)
+    if live:
+        check['result'] = client.check_public_cover(url, cover['size'] if cover else None)
+    return url
 
 
 def _archive_container(state, container_id, reason):

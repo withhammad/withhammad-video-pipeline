@@ -93,11 +93,22 @@ Never skip a gate.
 2. HeyGen avatar: 720p, the energetic voice settings and "Apply custom motion" from Owner preferences.
 3. Edit: Opus + Remotion + HyperFrames, voice chain, light music bed, burned-in captions + .srt. Run the critic and
    verification passes and check a contact sheet before showing the owner.
-4. Thumbnails and covers for every platform (owner rule 2026-10-17: "this is your work"; the stage is being built).
-5. Show the owner the video, the per-platform details (titles, captions, hashtags, AI labels) and the thumbnails.
-   Nothing is posted without the owner's explicit OK.
+4. Covers for every platform (owner rule 2026-10-17: "this is your work"). `app.reel build` makes them right after
+   final.mp4 (`--no-cover` skips). To build or rebuild them alone, from `studio/`:
+   `.venv/bin/python -m app.thumbnail build .local/jobs/<id>` (about 10 s; add `--pick 2` or `--pick 3` when the owner
+   chooses another face). It needs lesson.json "cover" {kicker <= 36, hook <= 18, pill_strong <= 8, pill_serif <= 12
+   characters}; the kicker states only facts verified in sources_checked. Output in the job folder:
+   cover_1080x1920.jpg (YouTube, Instagram, TikTok, Facebook), cover_720x1280.jpg (LinkedIn),
+   thumbs/cover_sheet.png (the 3 face picks with their 3:4, 4:5 and 1:1 grid crops) and cover.json.
+5. Show the owner the video, the per-platform details (titles, captions, hashtags, AI labels) and
+   thumbs/cover_sheet.png (send it with SendUserFile). Nothing is posted without the owner's explicit OK.
 6. Publish: YouTube Shorts, Instagram @with.hammad (a Collab with @hammadagentic.ai by default) and LinkedIn via the
-   APIs; TikTok and Facebook Reels via the owner's Chrome.
+   APIs; TikTok and Facebook Reels via the owner's Chrome. Covers: `publish_youtube.publish(...,
+   thumbnail_path=<job>/cover_1080x1920.jpg)`; `publish_instagram.publish(..., cover_url=<hosted like the video>,
+   cover_path=<job>/cover_1080x1920.jpg)`; `publish_linkedin.publish(..., thumbnail_path=<job>/cover_720x1280.jpg)`;
+   TikTok and Facebook: Edit cover > Upload cover with cover_1080x1920.jpg. A YouTube or LinkedIn thumbnail failure is
+   a warning, never a failed post; fix a Short later with `python -m app.publish_youtube thumbnail <video_id> <jpg>`
+   (dry run; `--live` sends it).
 7. Resource page on withhammad.com (withhammad-rebuild repo) live before the funnel goes on.
 8. ManyChat (Free plan): Quick Automation "Auto-DM links from comments" on that specific reel with the lesson keyword;
    the link DM goes to the resource page and invites a follow.
