@@ -19,24 +19,36 @@ CAN_RENDER = bool(shutil.which('npx') and (thumbnail.REMOTION / 'node_modules' /
                   and thumbnail.browser_executable())
 needs_remotion = pytest.mark.skipif(not CAN_RENDER, reason='npx, studio/remotion/node_modules or its browser missing')
 
-BLINK = (2.95, 3.65)   # eyes covered by "skin": the dark share in the eye box drops to ~0 (samples 3.0-3.6 s)
-COVER = {'kicker': 'REA + Claude Code · MIT licence', 'hook': 'Reverse-engineer', 'pill_strong': 'ANY',
+BLINK = (2.95, 3.65)   # lids closed: skin over both eyes and a dark lash line (samples 3.0-3.6 s)
+SMILES = ((1.0, 1.6), (4.2, 4.8), (6.6, 7.4))   # held smiles: the picks that are "at rest"
+SKIN = '0xB08A70'      # luma ~146: bright next to an iris, but below the teeth level
+COVER = {'kicker': 'Open-source REA · MIT licence', 'hook': 'Reverse-engineer', 'pill_strong': 'ANY',
          'pill_serif': 'feature'}
-# The blink is also a pause with a big bright "smile", so it would score high if blinks were not excluded.
+# The blink is also a pause with the biggest bright "smile", so it would score high if blinks were not excluded.
 CAPTIONS = [{'text': 'one', 'startMs': 0, 'endMs': 2800}, {'text': ' two', 'startMs': 3800, 'endMs': 8000}]
 
 
 @pytest.fixture(scope='module')
 def clip(tmp_path_factory):
-    """8 s, 720x1280, 25 fps: testsrc2 texture, two dark 'eyes', a blink at 3.0-3.6 s and a white 'smile' around it."""
+    """8 s, 720x1280, 25 fps: testsrc2 texture, a skin patch with brows and two open eyes (white sclera, dark iris),
+    a blink at 3.0-3.6 s (skin plus a lash line: horizontal dark bands like the brows), a big white 'smile' around
+    the blink and three smaller held smiles."""
     if not HAS_FFMPEG:
         pytest.skip('ffmpeg not installed')
     out = tmp_path_factory.mktemp('clip') / 'avatar.mp4'
     boxes = ','.join([
-        'drawbox=x=300:y=430:w=60:h=40:color=black:t=fill',
-        'drawbox=x=380:y=430:w=60:h=40:color=black:t=fill',
-        f"drawbox=x=290:y=425:w=160:h=55:color=0xE0C0A0:t=fill:enable='between(t,{BLINK[0]},{BLINK[1]})'",
-        "drawbox=x=310:y=560:w=120:h=80:color=white:t=fill:enable='between(t,2.9,3.7)'"])
+        f'drawbox=x=240:y=380:w=260:h=130:color={SKIN}:t=fill',      # around the eyes
+        f'drawbox=x=280:y=540:w=180:h=120:color={SKIN}:t=fill',      # around the mouth
+        'drawbox=x=296:y=404:w=72:h=12:color=black:t=fill',          # brows
+        'drawbox=x=376:y=404:w=72:h=12:color=black:t=fill',
+        'drawbox=x=298:y=436:w=64:h=32:color=white:t=fill',          # sclera
+        'drawbox=x=378:y=436:w=64:h=32:color=white:t=fill',
+        'drawbox=x=322:y=440:w=16:h=24:color=black:t=fill',          # iris
+        'drawbox=x=402:y=440:w=16:h=24:color=black:t=fill',
+        f"drawbox=x=290:y=430:w=160:h=44:color={SKIN}:t=fill:enable='between(t,{BLINK[0]},{BLINK[1]})'",
+        f"drawbox=x=298:y=450:w=144:h=4:color=black:t=fill:enable='between(t,{BLINK[0]},{BLINK[1]})'",
+        "drawbox=x=310:y=560:w=120:h=80:color=white:t=fill:enable='between(t,2.9,3.7)'",
+        *[f"drawbox=x=330:y=575:w=80:h=50:color=white:t=fill:enable='between(t,{a},{b})'" for a, b in SMILES]])
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc2=size=720x1280:rate=25:duration=8',
                     '-vf', boxes, '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-g', '25', str(out)], check=True, timeout=120)
     return out
@@ -75,11 +87,15 @@ def test_picker_returns_three_spread_picks_and_never_the_blink_or_the_edges(clip
     rows = {r['t']: r for r in picked['rows']}
     blinks = {t for t, r in rows.items() if r['blink']}
     assert blinks == {3.0, 3.2, 3.4, 3.6} and not blinks & set(times)
+    assert rows[3.2]['eyes_open'] == 0 and min(r['eyes_open'] for t, r in rows.items() if t not in blinks) > 20
     assert rows[3.2]['pause'] and not rows[1.0]['pause']
     # the trap is real: the blink frames are pauses with the brightest "smile" of the take
     assert min(rows[t]['teeth'] for t in blinks) >= max(r['teeth'] for r in picked['rows'])
     assert rows[0.0]['edge'] and rows[7.8]['edge'] and 'score' not in rows[3.2]
     assert picked['picks'] == sorted(picked['picks'], key=lambda p: -p['score'])
+    # one pick from each held smile: picks 2 and 3 must be at rest, never a talking face
+    assert sorted(next(i for i, (a, b) in enumerate(SMILES) if a <= t <= b) for t in times) == [0, 1, 2]
+    assert all(p['at_rest'] for p in picked['picks'][1:])
 
 
 @needs_ffmpeg
@@ -98,9 +114,10 @@ def test_head_geometry_and_face_layout():
     assert hair == pytest.approx(110 / 640) and centre == pytest.approx(0.5, abs=0.01)
     assert thumbnail.head_geometry(np.full((640, 360), 30, np.float32)) == (None, None)   # dark wall: no guess
 
-    assert thumbnail.face_layout(None, None) == {'faceTop': 453, 'faceScale': 0.75, 'faceShiftX': 0}
+    assert thumbnail.face_layout(None, None) == {'faceTop': thumbnail.DEFAULT_FACE_TOP, 'faceScale': 0.75,
+                                                 'faceShiftX': 0}
     centred = thumbnail.face_layout(hair, 0.5)
-    assert centred['faceShiftX'] == 0 and centred['faceTop'] == round(776 - hair * 2560 * 0.75)
+    assert centred['faceShiftX'] == 0 and centred['faceTop'] == round(thumbnail.HAIR_Y - hair * 2560 * 0.75)
     off = thumbnail.face_layout(0.2, 0.40)             # head 10 % left of centre: nudge capped at 24 px
     assert off['faceShiftX'] == 24
     width = 1440 * off['faceScale']
@@ -232,6 +249,20 @@ def test_reel_build_makes_the_cover_after_final_mp4_and_no_cover_skips_it(tmp_pa
     monkeypatch.setattr(thumbnail, 'build', no_copy)
     assert reel.build(job)['cover'] == {'error': 'lesson.json has no "cover" object'}   # the render is kept
 
+    def unexpected(job_dir):
+        raise OSError('disk full')
+    monkeypatch.setattr(thumbnail, 'build', unexpected)
+    result = reel.build(job)   # any other failure is reported too, and the reel result still comes back
+    assert result['cover'] == {'error': 'OSError: disk full'} and result['final'].endswith('final.mp4')
+
+
+@needs_ffmpeg
+def test_malformed_captions_json_is_a_cover_error(tmp_path, clip):
+    job = make_job(tmp_path, clip)
+    (job / 'captions.json').write_text('{not json')
+    with pytest.raises(thumbnail.CoverError, match='captions.json is not valid JSON'):
+        thumbnail.build(job, render=False, public_dir=tmp_path / 'public')
+
 
 # ---------------------------------------------------------------- real render (Node + Remotion)
 
@@ -264,17 +295,92 @@ def test_long_copy_shrinks_and_stays_inside_the_crop_safe_band(tmp_path):
     face = tmp_path / 'plain.png'   # a featureless light "face" so only the text is dark or blue
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=0xe9edf2:s=36x64', '-frames:v', '1',
                     str(face)], check=True, timeout=60)
-    props = tmp_path / 'props.json'
-    props.write_text(json.dumps({
-        'face': 'data:image/png;base64,' + base64.b64encode(face.read_bytes()).decode(), 'faceTop': 453,
-        'faceScale': 0.75, 'faceShiftX': 0, 'kicker': 'W' * 36, 'hook': 'W' * 18, 'pillStrong': 'W' * 8,
-        'pillSerif': 'm' * 12, 'dark': False}))
-    out = tmp_path / 'long.png'
-    thumbnail.render_stills([('Cover', props, out)])
-    image = rgb(out).astype(int)
+    base = {'face': 'data:image/png;base64,' + base64.b64encode(face.read_bytes()).decode(), 'faceTop': 467,
+            'faceScale': 0.75, 'faceShiftX': 0, 'dark': False}
+    jobs = []
+    for name, copy in (('long', {'kicker': 'W' * 36, 'hook': 'W' * 18, 'pillStrong': 'W' * 8, 'pillSerif': 'm' * 12}),
+                       # overhanging glyphs at both ends: the ink must stay inside the margins and centred
+                       ('overhang', {'kicker': 'Open-source REA · MIT licence', 'hook': 'Try Claude Code Ty',
+                                     'pillStrong': 'ANY', 'pillSerif': 'feature'})):
+        props = tmp_path / f'{name}.json'
+        props.write_text(json.dumps({**base, **copy}))
+        jobs.append(('Cover', props, tmp_path / f'{name}.png'))
+    thumbnail.render_stills(jobs)
+    image = rgb(tmp_path / 'long.png').astype(int)
     luma = image @ np.array([0.299, 0.587, 0.114])
     ink = (luma < 100) | (image[..., 2] - image[..., 0] > 150)   # black text/chip or the blue pill
     ys, xs = np.nonzero(ink)
     assert ys.size > 10_000
     assert xs.min() >= thumbnail.SIDE_MARGIN and xs.max() <= 1080 - thumbnail.SIDE_MARGIN
     assert ys.min() >= thumbnail.SAFE_TOP and ys.max() <= thumbnail.SAFE_BOTTOM
+    hook = rgb(tmp_path / 'overhang.png').astype(int)[510:654] @ np.array([0.299, 0.587, 0.114])
+    hook_xs = np.nonzero(hook < 128)[1]
+    left, right = int(hook_xs.min()), 1079 - int(hook_xs.max())
+    assert left >= thumbnail.SIDE_MARGIN and right >= thumbnail.SIDE_MARGIN and abs(left - right) <= 8, (left, right)
+
+
+# ---------------------------------------------------------------- picker units (no ffmpeg)
+
+def face(eyes='open', brow_y=200):
+    """A 360x640 analysis frame: skin, brows, and eyes that are open (sclera + iris), closed (lash line) or gone."""
+    frame = np.full((640, 360), 150, np.float32)
+    frame[brow_y:brow_y + 6, 148:184] = frame[brow_y:brow_y + 6, 188:224] = 20       # brows: horizontal bands
+    if eyes in ('open', 'narrow'):
+        frame[218:234, 149:181] = frame[218:234, 189:221] = 230                         # sclera
+        rows = slice(220, 232) if eyes == 'open' else slice(220, 223)                   # a squint shows less iris
+        frame[rows, 161:169] = frame[rows, 201:209] = 15                                # iris
+    elif eyes == 'closed':
+        frame[225:227, 149:221] = 15                                                     # lash line
+    return frame
+
+
+def test_eyes_open_counts_iris_not_brows_or_a_lash_line():
+    box = thumbnail.BOXES['eyes']
+    assert thumbnail.eyes_open(face('open'), box) > 20
+    assert thumbnail.eyes_open(face('closed'), box) == 0
+    assert thumbnail.eyes_open(face('none'), box) == 0
+    # the head moves: brows dip into the eye box or the eyes sit lower; the iris is still found
+    moved = np.roll(face('open', brow_y=212), 12, axis=0)
+    assert thumbnail.eyes_open(moved, box) == thumbnail.eyes_open(face('open'), box)
+
+
+def test_blink_is_judged_against_the_surrounding_second():
+    frames = [face('open') for _ in range(30)]
+    frames[7] = face('closed')                     # one blink at 1.4 s
+    for i in range(20, 30):                        # a 2 s squint later: a quarter of the iris, but the eyes are open
+        frames[i] = face('narrow')
+    times = [round(i / 5, 3) for i in range(30)]
+    counts = [thumbnail.eyes_open(f, thumbnail.BOXES['eyes']) for f in frames]
+    assert counts[25] < thumbnail.BLINK_RATIO * np.median(counts)   # a take-wide median would call the squint a blink
+    picked = thumbnail.pick_frames(None, sampled=(np.stack(frames), times))
+    assert [r['t'] for r in picked['rows'] if r['blink']] == [1.4]
+
+
+def test_without_a_pause_or_a_held_smile_only_the_best_frame_is_offered():
+    rng = np.random.default_rng(7)
+    frames = np.stack([face('open') + rng.normal(0, 4, (640, 360)).astype(np.float32) for _ in range(30)])
+    times = [round(i / 5, 3) for i in range(30)]
+    picked = thumbnail.pick_frames(None, sampled=(frames, times))   # no captions, no teeth anywhere
+    assert len(picked['picks']) == 1 and not any(r.get('at_rest') for r in picked['rows'])
+
+
+def test_a_stuck_tool_becomes_a_cover_error(monkeypatch):
+    def hang(cmd, **kw):
+        assert kw['timeout'] == thumbnail.FFMPEG_TIMEOUT_S
+        raise subprocess.TimeoutExpired(cmd, kw['timeout'])
+    monkeypatch.setattr(thumbnail.subprocess, 'run', hang)
+    with pytest.raises(thumbnail.CoverError, match='did not finish in 120 s'):
+        thumbnail._run(['ffmpeg', '-i', 'x'])
+
+
+@needs_ffmpeg
+def test_another_take_gets_no_caption_pauses_and_a_warning(tmp_path, clip, capsys):
+    job = make_job(tmp_path, clip)
+    other = tmp_path / 'raw_take.mp4'
+    shutil.copy2(clip, other)
+    result = thumbnail.build(job, take=other, render=False, public_dir=tmp_path / 'public')
+    assert result['warnings'] == ['caption pauses not used: captions.json is timed to avatar.mp4, not raw_take.mp4']
+    rows = json.loads((job / 'thumbs' / 'frames.json').read_text())['rows']
+    assert not any(r['pause'] for r in rows)
+    assert json.loads((job / 'cover.json').read_text())['warnings'] == result['warnings']
+    assert thumbnail.build(job, render=False, public_dir=tmp_path / 'public')['warnings'] == []

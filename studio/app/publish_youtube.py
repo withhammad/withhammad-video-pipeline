@@ -707,6 +707,13 @@ def _start_session(session, resource, video, notify_subscribers):
 
 # ---------------------------------------------------------------- custom thumbnail
 
+class _Thumbnail(dict):
+    """The checked cover: a plain dict for plans, results and state, plus `.data`, the exact bytes that were checked.
+    Those bytes are what thumbnails.set sends, so the sha256 in state always matches what YouTube received, even if
+    the file is re-exported or removed while the video uploads. dict(thumb) and JSON never carry the bytes."""
+    data = b''
+
+
 def validate_thumbnail(path):
     """The cover JPEG for thumbnails.set: a JPEG file of at most 2 MB (app.thumbnail exports cover_1080x1920.jpg)."""
     path = Path(path)
@@ -718,7 +725,10 @@ def validate_thumbnail(path):
     if len(data) > THUMBNAIL_MAX_BYTES:
         raise ThumbnailError(f'{path.name} is {len(data)} bytes; YouTube thumbnails must be at most 2 MB',
                              step='thumbnail')
-    return {'path': str(path), 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest(), 'mime_type': THUMBNAIL_MIME}
+    thumb = _Thumbnail(path=str(path), bytes=len(data), sha256=hashlib.sha256(data).hexdigest(),
+                       mime_type=THUMBNAIL_MIME)
+    thumb.data = data
+    return thumb
 
 
 def _thumbnail_request(video_id, thumb, token):
@@ -743,8 +753,9 @@ def _thumbnail_hint(video_id, thumb_path):
 
 
 def _set_thumbnail(session, video_id, thumb):
-    """POST the JPEG to thumbnails.set (one retry after a 401 token refresh). Returns the thumbnail URLs."""
-    data = Path(thumb['path']).read_bytes()
+    """POST the checked JPEG bytes to thumbnails.set (one retry after a 401 token refresh). Returns the thumbnail
+    URLs."""
+    data = getattr(thumb, 'data', None) or Path(thumb['path']).read_bytes()
     for attempt in range(2):
         url, headers = _thumbnail_request(video_id, thumb, session.token)
         response = session.http.request('set_thumbnail', 'POST', url, headers=headers, content=data,
@@ -755,8 +766,10 @@ def _set_thumbnail(session, video_id, thumb):
         if response.status_code != 200:
             hint = _thumbnail_hint(video_id, thumb['path']) if response.status_code == 403 else ''
             raise _api_error('thumbnails.set', response, session.secrets, ThumbnailError, hint=hint)
-        items = (_json(response, 'thumbnails.set', session.secrets).get('items') or [{}])[0]
-        return {size: (info or {}).get('url') for size, info in items.items() if isinstance(info, dict)}
+        payload = _json(response, 'thumbnails.set', session.secrets)
+        items = payload.get('items') if isinstance(payload, dict) else None
+        first = items[0] if isinstance(items, list) and items and isinstance(items[0], dict) else {}
+        return {size: info.get('url') for size, info in first.items() if isinstance(info, dict)}
     raise ThumbnailError('YouTube thumbnails.set kept answering HTTP 401', step='thumbnails.set', status=401)
 
 
@@ -769,9 +782,14 @@ def _apply_thumbnail(session, state_path, section, video_id, thumb, warnings):
     """Set the thumbnail after the upload; any failure becomes a warning because the Short is already live."""
     try:
         urls = _set_thumbnail(session, video_id, thumb)
-    except (YouTubePublishError, httpx.TransportError) as error:
-        message = session.secrets.text(str(error) if isinstance(error, YouTubePublishError)
-                                       else f'network error ({error.__class__.__name__})')
+    except Exception as error:   # whatever goes wrong here, the caller still gets the live Short's id and URL
+        if isinstance(error, YouTubePublishError):
+            message = str(error)
+        elif isinstance(error, httpx.TransportError):
+            message = f'network error ({error.__class__.__name__})'
+        else:
+            message = f'{error.__class__.__name__}: {_display_url_text(str(error))}'
+        message = session.secrets.text(message)
         warnings.append(f'Custom thumbnail not set: {message}')
         return {'status': 'failed', 'error': message, 'sha256': thumb['sha256'], 'path': thumb['path']}
     record = {'sha256': thumb['sha256'], 'set_at': _now(), 'path': thumb['path'], 'video_id': video_id}
@@ -816,9 +834,8 @@ def _thumbnail_on_published(state, state_path, thumb, dry_run, result, warnings,
             thumbnail = _apply_thumbnail(session, state_path, dict(state), video_id, thumb, warnings)
             result['requests_sent'] = session.http.sent
             return session.secrets.deep(thumbnail)
-    except IdentityMismatchError:
-        raise
-    except YouTubePublishError as error:   # the Short is live; the cover can be retried later
+    except YouTubePublishError as error:
+        # the Short is live and nothing was sent (an identity mismatch included): the cover can be retried later
         warnings.append(f'Custom thumbnail not set: {error}')
         return {'status': 'failed', 'error': str(error), 'sha256': thumb['sha256'], 'path': thumb['path']}
 

@@ -88,14 +88,18 @@ def build(job, take=None, render=True, cover=True):
                '-use_editlist', '0', str(job / 'final_ig.mp4')])
     result.update({'final': str(job / 'final.mp4'), 'final_ig': str(job / 'final_ig.mp4'), 'analysis': audio.analyze(job / 'final.mp4')})
     if cover:
-        # The reel is already rendered at this point, so a cover problem (e.g. lesson.json without "cover") is
-        # reported in the result instead of discarding the render; fix it and run app.thumbnail build alone.
+        # The reel is already rendered at this point, so any cover problem (lesson.json without "cover", a broken
+        # captions.json, a stuck render) is reported in the result instead of losing it; fix it and run
+        # app.thumbnail build alone.
         try:
             built = thumbnail.build(job)
             result['cover'] = {'chosen': built['chosen'], 'files': {k: v['path'] for k, v in built['files'].items()},
                                'picks': [{k: e[k] for k in ('n', 't', 'score')} for e in built['picks']]}
-        except thumbnail.CoverError as error:
-            result['cover'] = {'error': str(error)}
+            if built.get('warnings'):
+                result['cover']['warnings'] = built['warnings']
+        except Exception as error:   # the render must survive any cover failure
+            result['cover'] = {'error': str(error) if isinstance(error, thumbnail.CoverError)
+                               else f'{type(error).__name__}: {error}'}
     return result
 
 

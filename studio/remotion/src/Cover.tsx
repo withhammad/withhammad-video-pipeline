@@ -25,10 +25,13 @@ const TEXT_W = COVER_W - 2 * SIDE_MARGIN;
 export const FACE_W = 1440;
 export const FACE_H = 2560;
 
-// Vertical layout, all inside the safe band: kicker chip, hook line, blue pill, then the face from ~y 776.
-const KICKER = { top: 432, size: 30, padX: 22, padTop: 8, padBottom: 10 };
-const HOOK = { top: 496, size: 116, lineHeight: 1.1, tracking: -0.025 };
-const PILL = { top: 640, strong: 104, serif: 120, padX: 40, padTop: 2, padBottom: 12, radius: 22 };
+// Vertical layout, all inside the safe band: kicker chip, hook line, blue pill, then the face from ~y 790
+// (HAIR_Y in studio/app/thumbnail.py). The kicker is 42 px so it still reads at 25 % (the approval sheet tiles).
+const KICKER = { top: 432, size: 42, padX: 24, padTop: 8, padBottom: 10 };
+const HOOK = { top: 510, size: 116, lineHeight: 1.1, tracking: -0.025 };
+const PILL = { top: 654, strong: 104, serif: 120, padX: 40, padTop: 2, padBottom: 12, radius: 22 };
+// Glyphs such as "T" and "y" overhang their advance width, so the hook is fitted a little narrower than the band.
+const HOOK_FIT_W = TEXT_W - 8;
 
 export type CoverFit = { kickerSize: number; hookSize: number; pillScale: number };
 
@@ -47,10 +50,10 @@ export type CoverProps = {
 
 export const coverDefaults: CoverProps = {
   face: "job/cover_face_1.png",
-  faceTop: 453,
+  faceTop: 467,
   faceScale: 0.75,
   faceShiftX: 0,
-  kicker: "REA + Claude Code · MIT licence",
+  kicker: "Open-source REA · MIT licence",
   hook: "Reverse-engineer",
   pillStrong: "ANY",
   pillSerif: "feature",
@@ -74,7 +77,10 @@ const width100 = (text: string, font: string, fallbackEm: number): number => {
   return ctx.measureText(text).width;
 };
 
-const hookWidth100 = (hook: string) => width100(hook, "800 100px Inter", 0.62) + HOOK.tracking * 100 * hook.length;
+// Tracking counts between glyphs only: Chrome also adds it after the last glyph, and the hook's span cancels that
+// trailing space with a margin (see Cover), so the box is exactly the ink's advance width and centres on it.
+const hookWidth100 = (hook: string) =>
+  width100(hook, "800 100px Inter", 0.62) + HOOK.tracking * 100 * Math.max(0, hook.length - 1);
 
 const pillWidth = (strong: string, serif: string, scale: number) => {
   const strongW = (width100(strong ? `${strong} ` : "", "800 100px Inter", 0.66) * PILL.strong) / 100;
@@ -83,7 +89,7 @@ const pillWidth = (strong: string, serif: string, scale: number) => {
 };
 
 export const fitCover = (p: CoverProps): CoverFit => {
-  const hookSize = Math.min(HOOK.size, Math.floor((TEXT_W * 100) / Math.max(1, hookWidth100(p.hook))));
+  const hookSize = Math.min(HOOK.size, Math.floor((HOOK_FIT_W * 100) / Math.max(1, hookWidth100(p.hook))));
   const pillNatural = pillWidth(p.pillStrong, p.pillSerif, 1);
   const pillScale = Math.min(1, (TEXT_W - 2 * PILL.padX) / Math.max(1, pillNatural - 2 * PILL.padX));
   const kickerW = (width100(p.kicker, "600 100px Inter", 0.58) * KICKER.size) / 100;
@@ -162,7 +168,7 @@ export const Cover: React.FC<CoverProps> = (p) => {
             : "0 0 2px #fff, 0 0 18px rgba(255,255,255,.95), 0 0 36px rgba(255,255,255,.8)",
         }}
       >
-        {p.hook}
+        <span style={{ marginRight: `${-HOOK.tracking}em` }}>{p.hook}</span>
       </div>
       <div style={{ position: "absolute", top: PILL.top, left: SIDE_MARGIN, width: TEXT_W, display: "flex", justifyContent: "center" }}>
         <div

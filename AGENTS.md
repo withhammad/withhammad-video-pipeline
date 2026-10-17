@@ -97,18 +97,24 @@ Never skip a gate.
    final.mp4 (`--no-cover` skips). To build or rebuild them alone, from `studio/`:
    `.venv/bin/python -m app.thumbnail build .local/jobs/<id>` (about 10 s; add `--pick 2` or `--pick 3` when the owner
    chooses another face). It needs lesson.json "cover" {kicker <= 36, hook <= 18, pill_strong <= 8, pill_serif <= 12
-   characters}; the kicker states only facts verified in sources_checked. Output in the job folder:
+   characters}; the kicker states only facts verified in sources_checked, about the tool it names (e.g. "Open-source
+   REA · MIT licence", never a phrasing that pins one tool's licence or price on another). Output in the job folder:
    cover_1080x1920.jpg (YouTube, Instagram, TikTok, Facebook), cover_720x1280.jpg (LinkedIn),
-   thumbs/cover_sheet.png (the 3 face picks with their 3:4, 4:5 and 1:1 grid crops) and cover.json.
+   thumbs/cover_sheet.png (up to 3 face picks: the best frame, then held smiles or pauses, never a blink or a
+   mid-word face; each with its 3:4, 4:5 and 1:1 grid crops) and cover.json (read its "warnings").
 5. Show the owner the video, the per-platform details (titles, captions, hashtags, AI labels) and
    thumbs/cover_sheet.png (send it with SendUserFile). Nothing is posted without the owner's explicit OK.
 6. Publish: YouTube Shorts, Instagram @with.hammad (a Collab with @hammadagentic.ai by default) and LinkedIn via the
    APIs; TikTok and Facebook Reels via the owner's Chrome. Covers: `publish_youtube.publish(...,
    thumbnail_path=<job>/cover_1080x1920.jpg)`; `publish_instagram.publish(..., cover_url=<hosted like the video>,
    cover_path=<job>/cover_1080x1920.jpg)`; `publish_linkedin.publish(..., thumbnail_path=<job>/cover_720x1280.jpg)`;
-   TikTok and Facebook: Edit cover > Upload cover with cover_1080x1920.jpg. A YouTube or LinkedIn thumbnail failure is
-   a warning, never a failed post; fix a Short later with `python -m app.publish_youtube thumbnail <video_id> <jpg>`
-   (dry run; `--live` sends it).
+   TikTok and Facebook: Edit cover > Upload cover with cover_1080x1920.jpg. On every platform a cover failure is a
+   warning, never a failed post (decision 2026-10-18: the daily post must not wait on a cover host). Instagram drops a
+   cover that fails its checks, the hosting, the HEAD check or Meta's container (a 400, or a container ending ERROR,
+   gets one more container without it) and posts without it; pass `cover_required=True` only when the owner wants no
+   post without the cover. Read the result's warnings: an Instagram reel posted without its cover can only get one
+   in the app (Edit cover). Fix a Short later with `python -m app.publish_youtube thumbnail <video_id> <jpg>` (dry
+   run; `--live` sends it).
 7. Resource page on withhammad.com (withhammad-rebuild repo) live before the funnel goes on.
 8. ManyChat (Free plan): Quick Automation "Auto-DM links from comments" on that specific reel with the lesson keyword;
    the link DM goes to the resource page and invites a follow.

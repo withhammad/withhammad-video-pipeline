@@ -124,7 +124,8 @@ STRING_LIMITS = ('minLength', 'maxLength')
 
 def api_schema():
     """SCHEMA as sent with output_config.format: the cover is required for new lessons, and the string length
-    limits are left out because structured outputs do not support them; validate() still enforces them."""
+    limits are left out because structured outputs do not support them; generate() checks the answer against the
+    full SCHEMA (limits included) and asks once for a corrected lesson."""
     def strip(node):
         if isinstance(node, dict):
             return {k: strip(v) for k, v in node.items() if k not in STRING_LIMITS}
@@ -161,12 +162,26 @@ def reference_block(intake, transcript, target_language=None):
     return '\n'.join(parts) + '\n\n' + ask
 
 
+def schema_problem(package):
+    """None when the package passes the full SCHEMA (length limits included), else where and what is wrong."""
+    import jsonschema
+    try:
+        jsonschema.validate(package, SCHEMA)
+    except jsonschema.ValidationError as error:
+        where = '.'.join(str(part) for part in error.absolute_path) or 'the top level'
+        return f'{where}: {error.message}'
+    return None
+
+
 def generate(intake, transcript, client=None, target_language=None, model=None, effort=None):
-    """One lesson package from one reference. Handles pause_turn continuations and refusals."""
+    """One lesson package from one reference. Handles pause_turn continuations and refusals, and checks the answer
+    against the full SCHEMA (structured outputs cannot enforce string lengths, e.g. the cover hook's 18 characters):
+    one correction turn, then a clear failure at the lesson stage instead of a cover error after the render."""
     client = client or build_client()
     messages = [{'role': 'user', 'content': reference_block(intake, transcript, target_language)}]
     usage = {'input_tokens': 0, 'output_tokens': 0}
     served_by = None
+    corrected = False
     for _ in range(MAX_CONTINUATIONS + 1):
         with client.beta.messages.stream(
             model=model or MODEL,
@@ -196,6 +211,15 @@ def generate(intake, transcript, client=None, target_language=None, model=None, 
         if text is None:
             raise RuntimeError('No text block in Claude response')
         lesson = json.loads(text)
+        problem = schema_problem(lesson)
+        if problem and not corrected:
+            corrected = True
+            retry = (f'That JSON fails validation ({problem}). Send the complete lesson JSON again with that fixed '
+                     'and everything else unchanged.')
+            messages += [{'role': 'assistant', 'content': response.content}, {'role': 'user', 'content': retry}]
+            continue
+        if problem:
+            raise RuntimeError(f'The generated lesson does not match the schema after one correction: {problem}')
         searches = sum(1 for b in response.content if b.type == 'server_tool_use')
         return lesson, {'model': served_by, 'usage': usage, 'web_searches': searches,
                         'request_id': getattr(response, '_request_id', None)}

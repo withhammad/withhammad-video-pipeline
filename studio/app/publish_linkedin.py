@@ -12,7 +12,8 @@ Verified against Microsoft Learn (LinkedIn Marketing docs) on 2026-10-17. The ve
   PUT  <uploadUrl>  Content-Type: application/octet-stream, the part's bytes -> ETag response header.
        The docs' video upload sample sends no Authorization header; expired upload URLs answer 401.
   PUT  <thumbnailUploadUrl>  (returned when uploadThumbnail is true) Content-Type: application/octet-stream,
-       media-type-family: STILLIMAGE, the cover JPEG -> 201; sent before finalizeUpload. The video's own size and
+       media-type-family: STILLIMAGE, the cover JPEG -> 201 in the docs' sample (200 is accepted too, as for the
+       video parts on the same upload host); sent before finalizeUpload. The video's own size and
        aspect (cover_720x1280.jpg). A thumbnail failure is logged as a warning and never blocks the post.
   POST https://api.linkedin.com/rest/videos?action=finalizeUpload    {"finalizeUploadRequest": {video,
        uploadToken, uploadedPartIds: [ETag, ...] in upload-instruction order}}
@@ -376,7 +377,7 @@ class LinkedInClient:
         return etag
 
     def upload_thumbnail(self, url, data):
-        self.send('upload_thumbnail', 'PUT', url, headers=dict(THUMBNAIL_HEADERS), content=data, expect=(201,))
+        self.send('upload_thumbnail', 'PUT', url, headers=dict(THUMBNAIL_HEADERS), content=data, expect=(200, 201))
 
     def finalize_upload(self, body):
         self.send('finalize_upload', 'POST', FINALIZE_URL, headers=self.rest_headers(True), json_body=body,
@@ -408,6 +409,12 @@ def initialize_body(file_size, thumbnail=False):
                                         'uploadCaptions': False, 'uploadThumbnail': bool(thumbnail)}}
 
 
+class _Thumbnail(dict):
+    """The checked cover: a plain dict for plans, results and state, plus `.data`, the exact bytes that were checked
+    (and are sent), so thumbnail_sha256 always matches what LinkedIn received. JSON never carries the bytes."""
+    data = b''
+
+
 def validate_thumbnail(path):
     """The cover for the video (app.thumbnail's cover_720x1280.jpg): a JPEG file. Problems come back as text."""
     path = Path(path)
@@ -416,7 +423,9 @@ def validate_thumbnail(path):
     data = path.read_bytes()
     if not data.startswith(b'\xff\xd8\xff'):
         return None, f'{path.name} is not a JPEG'
-    return {'path': str(path), 'size': len(data), 'sha256': hashlib.sha256(data).hexdigest()}, None
+    thumb = _Thumbnail(path=str(path), size=len(data), sha256=hashlib.sha256(data).hexdigest())
+    thumb.data = data
+    return thumb, None
 
 
 def finalize_body(video_urn, upload_token, part_ids):
@@ -604,9 +613,10 @@ def _upload_thumbnail(client, state, state_path, upload, thumb, warnings):
                         '(no thumbnailUploadUrl), so LinkedIn picks the frame')
         return
     try:
-        client.upload_thumbnail(url, Path(thumb['path']).read_bytes())
-    except (LinkedInError, OSError) as error:
-        message = _redact(str(error), client._token, url)
+        client.upload_thumbnail(url, getattr(thumb, 'data', None) or Path(thumb['path']).read_bytes())
+    except Exception as error:   # never block the post: LinkedIn picks a frame instead
+        message = _redact(str(error) if isinstance(error, LinkedInError) else f'{type(error).__name__}: {error}',
+                          client._token, url)
         upload['thumbnail_error'] = message
         warnings.append(f'LinkedIn thumbnail not uploaded, posting without it: {message}')
     else:

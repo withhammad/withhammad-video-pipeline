@@ -1,6 +1,7 @@
 """YouTube publisher: every Google endpoint is faked with httpx.MockTransport; nothing leaves the machine."""
 import datetime
 import fcntl
+import hashlib
 import json
 import os
 import shutil
@@ -670,3 +671,80 @@ def test_thumbnail_cli_is_a_dry_run_unless_live(monkeypatch, cover, capsys):
     assert calls[0] == (('HClAkG74r6A', str(cover)), {'dry_run': True, 'state_path': None})
     assert calls[1] == (('HClAkG74r6A', str(cover)), {'dry_run': False, 'state_path': 'publish_youtube.json'})
     assert '"planned"' in capsys.readouterr().out
+
+
+def test_dry_run_on_a_published_short_with_a_new_cover_leaves_the_state_untouched(video, creds, cover, tmp_path):
+    state_path = tmp_path / 'state.json'
+    yt.save_state(state_path, {'status': 'published', 'video_id': 'vid123', 'channel_id': CHANNEL})
+    before = state_path.read_bytes()
+    server = FakeGoogle()
+    result = run(video, creds, server, dry_run=True, state_path=state_path, thumbnail_path=cover)
+    assert state_path.read_bytes() == before and result['thumbnail']['status'] == 'planned'
+    assert server.keys() == [('POST', 'token'), ('GET', 'channels')]   # token refresh + identity check only
+
+
+def test_thumbnail_401_refreshes_the_token_once_and_retries(video, creds, cover, tmp_path):
+    server = FakeGoogle()
+    server.on('thumbnail', lambda r, b: httpx.Response(401, json={'error': {'code': 401, 'message': 'expired'}}),
+              lambda r, b: httpx.Response(200, json={'items': [{'high': {'url': 'https://i.ytimg.com/h.jpg'}}]}))
+    result = run(video, creds, server, dry_run=False, state_path=tmp_path / 'state.json', thumbnail_path=cover)
+    assert server.keys()[-3:] == [('POST', 'thumbnail'), ('POST', 'token'), ('POST', 'thumbnail')]
+    assert result['thumbnail']['status'] == 'set'
+    assert result['thumbnail']['urls'] == {'high': 'https://i.ytimg.com/h.jpg'}
+    assert result['warnings'] == []
+
+
+@pytest.mark.parametrize('failure', ['raise', 'items-null'])
+def test_unexpected_thumbnail_failure_after_the_upload_only_warns(video, creds, cover, tmp_path, failure):
+    def boom(request, body):
+        raise RuntimeError(f'proxy exploded with {request.headers["authorization"]}')
+    server = FakeGoogle()
+    if failure == 'raise':
+        server.on('thumbnail', boom)
+    else:
+        server.on('thumbnail', lambda r, b: httpx.Response(200, json={'items': [None]}))
+    state_path = tmp_path / 'state.json'
+    result = run(video, creds, server, dry_run=False, state_path=state_path, thumbnail_path=cover)
+    assert result['status'] == 'published' and result['video_id'] == 'vid123'
+    if failure == 'raise':
+        assert result['thumbnail']['status'] == 'failed' and 'RuntimeError' in result['warnings'][0]
+    else:   # an odd but successful body: the thumbnail is set, there are just no URLs to report
+        assert result['thumbnail']['status'] == 'set' and result['thumbnail']['urls'] == {}
+    assert json.loads(state_path.read_text())['youtube']['status'] == 'published'
+    assert_no_secrets(json.dumps(result))
+
+
+def test_cover_changed_or_removed_during_the_upload_still_sends_the_checked_bytes(video, creds, cover, tmp_path):
+    original = cover.read_bytes()
+    server = FakeGoogle()
+
+    def finish(request, body):   # the cover is re-exported, then removed, while the video bytes upload
+        cover.write_bytes(b'\xff\xd8\xff different bytes')
+        cover.unlink()
+        return httpx.Response(201, json={'id': 'vid123', 'status': {'uploadStatus': 'uploaded'}})
+    server.on('session', finish)
+    state_path = tmp_path / 'state.json'
+    result = run(video, creds, server, dry_run=False, state_path=state_path, thumbnail_path=cover)
+    assert result['status'] == 'published' and result['thumbnail']['status'] == 'set'
+    assert server.calls[-1]['body'] == original
+    assert json.loads(state_path.read_text())['youtube']['thumbnail']['sha256'] == hashlib.sha256(original).hexdigest()
+
+
+def test_checked_thumbnail_serializes_without_its_bytes(cover):
+    thumb = yt.validate_thumbnail(cover)
+    assert thumb.data == cover.read_bytes()
+    assert json.loads(json.dumps(thumb)) == {'path': str(cover), 'bytes': cover.stat().st_size,
+                                             'sha256': hashlib.sha256(cover.read_bytes()).hexdigest(),
+                                             'mime_type': 'image/jpeg'}
+
+
+def test_identity_mismatch_on_a_published_short_only_warns(video, creds, cover, tmp_path):
+    state_path = tmp_path / 'state.json'
+    yt.save_state(state_path, {'status': 'published', 'video_id': 'vid123', 'channel_id': CHANNEL})
+    before = state_path.read_bytes()
+    server = FakeGoogle()
+    server.on('channels', lambda r, b: httpx.Response(200, json={'items': [{'id': 'UCsomeoneElse', 'snippet': {}}]}))
+    result = run(video, creds, server, dry_run=False, state_path=state_path, thumbnail_path=cover)
+    assert result['already_published'] is True and result['video_id'] == 'vid123'
+    assert result['thumbnail']['status'] == 'failed' and 'UCsomeoneElse' in result['warnings'][0]
+    assert 'thumbnail' not in [c['key'] for c in server.calls] and state_path.read_bytes() == before

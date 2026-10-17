@@ -137,7 +137,7 @@ def test_schema_is_strict_everywhere():
 
 def test_cover_is_optional_but_checked_when_present():
     lesson.validate(valid_package())   # an old lesson without a cover still validates
-    cover = {'kicker': 'REA + Claude Code · MIT licence', 'hook': 'Reverse-engineer', 'pill_strong': 'ANY',
+    cover = {'kicker': 'Open-source REA · MIT licence', 'hook': 'Reverse-engineer', 'pill_strong': 'ANY',
              'pill_serif': 'feature'}
     assert lesson.validate(valid_package(cover=cover))['cover']['hook'] == 'Reverse-engineer'
     import jsonschema
@@ -238,3 +238,21 @@ def test_agent_mode_rejects_invalid_lesson(env, monkeypatch):
     (tmp / 'jobs' / job_id / 'lesson.json').write_text(json.dumps(bad))
     assert worker.run_job(db.get_job(job_id), resume=True) == 'failed'
     assert 'does not match' in db.get_job(job_id)['error']
+
+
+def test_generate_enforces_the_length_limits_the_api_schema_leaves_out():
+    cover = {'kicker': 'Open-source REA · MIT licence', 'hook': 'Reverse-engineer any', 'pill_strong': 'ANY',
+             'pill_serif': 'feature'}   # hook is 20 characters, the limit is 18
+    fixed = dict(cover, hook='Reverse-engineer')
+    client = FakeClient([make_response('end_turn', [text_block(valid_package(cover=cover))]),
+                         make_response('end_turn', [text_block(valid_package(cover=fixed))])])
+    pkg, meta = REAL_GENERATE({}, 'words ' * 20, client=client)
+    assert pkg['cover']['hook'] == 'Reverse-engineer' and len(client.calls) == 2
+    retry = client.calls[1]['messages']
+    assert retry[1]['role'] == 'assistant' and 'cover.hook' in retry[2]['content']
+    assert 'is too long' in retry[2]['content'] and meta['usage']['output_tokens'] == 1000
+
+    still_long = FakeClient([make_response('end_turn', [text_block(valid_package(cover=cover))])] * 2)
+    with pytest.raises(RuntimeError, match='after one correction: cover.hook'):
+        REAL_GENERATE({}, 'words ' * 20, client=still_long)
+    assert len(still_long.calls) == 2

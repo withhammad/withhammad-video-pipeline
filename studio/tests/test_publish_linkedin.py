@@ -585,8 +585,10 @@ def test_thumbnail_is_uploaded_before_finalize_and_recorded(run, cover):
 
 @pytest.mark.parametrize('failure', [
     httpx.Response(400, json={'message': f'bad image at {THUMB_UPLOAD_URL}', 'status': 400}),
-    httpx.Response(200),                                   # anything but 201 counts as failed
-    httpx.ConnectError(f'reset while sending to {THUMB_UPLOAD_URL}')])
+    httpx.Response(500),
+    httpx.ConnectError(f'reset while sending to {THUMB_UPLOAD_URL}'),
+    httpx.InvalidURL(f'invalid URL {THUMB_UPLOAD_URL}'),   # not an httpx.HTTPError: still only a warning
+    ValueError(f'unexpected failure for {THUMB_UPLOAD_URL}')])
 def test_thumbnail_failure_never_blocks_the_post(run, cover, failure):
     fake = FakeLinkedIn(parts=1, fail={'putthumb': failure})
     result = run(fake, dry_run=False, thumbnail_path=cover)
@@ -620,3 +622,29 @@ def test_resumed_upload_started_without_thumbnail_warns_and_posts(run, cover):
     assert 'init' not in [k for _, k in fake.sequence()] and 'putthumb' not in [k for _, k in fake.sequence()]
     assert result['status'] == 'published'
     assert any('started without uploadThumbnail' in w for w in result['warnings'])
+
+
+def test_thumbnail_put_answered_200_counts_as_uploaded(run, cover):
+    fake = FakeLinkedIn(parts=1, fail={'putthumb': httpx.Response(200)})   # same upload host as the parts (200/201)
+    result = run(fake, dry_run=False, thumbnail_path=cover)
+    assert result['status'] == 'published' and result['warnings'] == []
+    upload = read_state(run.state)['upload']
+    assert upload['thumbnail_uploaded'] is True and 'thumbnail_error' not in upload
+
+
+def test_thumbnail_sends_the_bytes_that_were_checked(run, cover, monkeypatch):
+    original = cover.read_bytes()
+    checked = li.validate_thumbnail(cover)
+    assert json.loads(json.dumps(checked[0])) == {'path': str(cover), 'size': len(original),
+                                                  'sha256': hashlib.sha256(original).hexdigest()}   # no bytes in JSON
+    real_upload_part = li.LinkedInClient.upload_part
+
+    def upload_part(self, url, data, step='upload_part'):
+        cover.write_bytes(b'\xff\xd8\xff re-exported while the video uploads')   # a later cover build
+        return real_upload_part(self, url, data, step)
+    monkeypatch.setattr(li.LinkedInClient, 'upload_part', upload_part)
+    fake = FakeLinkedIn(parts=1)
+    run(fake, dry_run=False, thumbnail_path=cover)
+    put = next(r for r in fake.requests if fake.key(r) == 'putthumb')
+    assert put.content == original
+    assert read_state(run.state)['upload']['thumbnail_sha256'] == hashlib.sha256(original).hexdigest()
