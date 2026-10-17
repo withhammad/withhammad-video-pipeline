@@ -46,4 +46,8 @@ def fake_tools(tmp_path, monkeypatch):
          'resource_page': {'slug': 'topic', 'title': 'T', 'body_markdown': 'b'},
          'sources_checked': [], 'originality_note': 'n'},
         {'model': 'fake', 'usage': {'input_tokens': 0, 'output_tokens': 0}, 'web_searches': 0, 'request_id': None}))
+    from app import heygen
+    monkeypatch.setattr(heygen, 'render', lambda job_id, script, title, folder, client=None, resume_video_id=None: {
+        'video_id': 'vid_fake', 'look_id': 'look', 'look_name': 'Hammad Yousuf', 'voice_id': 'v', 'duration_s': 50.0,
+        'video': str(folder / 'avatar.mp4'), 'subtitles': None, 'thumbnail_url': None, 'video_page_url': None})
     return calls

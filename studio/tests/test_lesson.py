@@ -150,7 +150,7 @@ def test_lesson_stage_runs_in_worker_and_saves_files(env, monkeypatch):
     job_id = client.post('/jobs', data={'reference': 'https://www.instagram.com/reel/L1/'}, auth=AUTH).json()['id']
     assert worker.run_job(db.claim_next()) == 'done'
     job = db.get_job(job_id)
-    assert job['stage'] == 'lesson' and job['artifacts']['lesson']['manychat_keyword'] == 'BRIEFS'
+    assert job['stage'] == 'avatar' and job['artifacts']['lesson']['manychat_keyword'] == 'BRIEFS'
     assert job['artifacts']['lesson']['spoken_words'] == 24
     assert captured['intake']['platform'] == 'instagram' and 'hello world' in captured['transcript']
     folder = tmp / 'jobs' / job_id
@@ -165,3 +165,14 @@ def test_lesson_stage_rejects_image_jobs(env, monkeypatch):
     client, _ = env
     client.post('/jobs', files={'image': ('a.png', io.BytesIO(b'\x89PNG' + b'0' * 50), 'image/png')}, auth=AUTH)
     assert worker.run_job(db.claim_next()) == 'failed'
+
+
+def test_build_client_requires_a_real_key(monkeypatch):
+    monkeypatch.delenv('ANTHROPIC_API_KEY', raising=False)
+    monkeypatch.setenv('ANTHROPIC_AUTH_TOKEN', 'not-ours')
+    with pytest.raises(RuntimeError, match='ANTHROPIC_API_KEY is missing'):
+        lesson.build_client()
+    monkeypatch.setenv('ANTHROPIC_API_KEY', 'sk-ant-test')
+    monkeypatch.setenv('ANTHROPIC_BASE_URL', 'https://proxy.example')
+    client = lesson.build_client()
+    assert str(client.base_url).startswith('https://api.anthropic.com')

@@ -81,3 +81,17 @@ def test_migration_is_idempotent(tmp_path):
     db.migrate(p)
     with db.connect(p) as conn:
         assert conn.execute("SELECT value FROM meta WHERE key='schema_version'").fetchone()['value'] == '1'
+
+
+def test_resume_skips_stages_with_artifacts(client):
+    from app import db, worker
+    job_id = client.post('/jobs', data={'reference': 'https://www.youtube.com/watch?v=abc'}, auth=AUTH).json()['id']
+    assert worker.run_job(db.claim_next()) == 'done'
+    job = db.get_job(job_id)
+    with db.connect() as conn:  # drop the avatar artifact as `rerun --from avatar` would
+        kept = {k: v for k, v in job['artifacts'].items() if k != 'avatar'}
+        conn.execute("UPDATE jobs SET artifacts=?, status='running' WHERE id=?", (__import__('json').dumps(kept), job_id))
+    before = len(db.get_job(job_id)['events'])
+    assert worker.run_job(db.get_job(job_id), resume=True) == 'done'
+    events = db.get_job(job_id)['events'][before:]
+    assert all(e['stage'] == 'avatar' for e in events)  # intake/transcribe/lesson were not re-run

@@ -29,6 +29,8 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 ## Environment
 
 - macOS. Chrome is the browser for OAuth consents. The owner performs any password entry.
+- `run_local.sh` unsets `ANTHROPIC_BASE_URL/AUTH_TOKEN` on purpose: Claude Code exports those for its own
+  traffic and they must never reach the pipeline. The pipeline uses only `ANTHROPIC_API_KEY` from studio.env.
 - `mcp.mjs` imports the MCP SDK from `/Users/hammad/autonomous-marketing-os/node_modules`.
 - Python 3 standard library only in the helper scripts; keep it that way unless agreed.
 
@@ -37,6 +39,8 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 ```bash
 studio/run_local.sh run 'https://www.instagram.com/reel/…'   # or a local .mp4/.png
 studio/run_local.sh status
+studio/run_local.sh rerun <job_id> --from lesson                 # resume; earlier artifacts are kept
+studio/run_local.sh heygen-looks
 studio/run_local.sh serve                                     # optional UI at http://127.0.0.1:8080
 cd studio && .venv/bin/python -m pytest -q                    # tests before every commit
 ```

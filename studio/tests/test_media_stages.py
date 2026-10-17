@@ -29,7 +29,7 @@ def test_url_job_downloads_and_transcribes(env, fake_tools):
     job_id = client.post('/jobs', data={'reference': 'https://www.instagram.com/reel/X1/'}, auth=AUTH).json()['id']
     assert worker.run_job(db.claim_next()) == 'done'
     job = db.get_job(job_id)
-    assert job['status'] == 'done' and job['stage'] == 'lesson'
+    assert job['status'] == 'done' and job['stage'] == 'avatar'
     intake, transcript = job['artifacts']['intake'], job['artifacts']['transcribe']
     assert intake['platform'] == 'instagram' and intake['duration_s'] == 42.0 and intake['title'] == 'Ref'
     assert transcript['engine'] == 'faster-whisper:test' and transcript['words'] == 20

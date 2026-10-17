@@ -8,7 +8,7 @@ import time
 from pathlib import Path
 from urllib.parse import urlparse
 
-from . import db, lesson, media
+from . import db, heygen, lesson, media
 
 log = logging.getLogger('studio.worker')
 POLL_SECONDS = float(os.environ.get('STUDIO_POLL_SECONDS', '3'))
@@ -74,15 +74,32 @@ def stage_lesson(job):
             'resource_path': str(folder / 'resource.md')}
 
 
+def stage_avatar(job):
+    artifacts = db.get_job(job['id'])['artifacts']
+    lesson_art = artifacts.get('lesson')
+    if not lesson_art:
+        raise RuntimeError('avatar stage needs a lesson package')
+    package = json.loads(Path(lesson_art['path']).read_text())
+    script = '\n\n'.join(seg['spoken'] for seg in package['script']['segments'])
+    folder = media.job_dir(job['id'])
+    submission = folder / 'heygen_submission.json'
+    resume = json.loads(submission.read_text())['video_id'] if submission.exists() else None
+    return heygen.render(job['id'], script, package['topic_title'], folder, resume_video_id=resume)
+
+
 # Later milestones append here in order; a missing stage ends the chain as done.
-STAGE_RUNNERS = {'intake': stage_intake, 'transcribe': stage_transcribe, 'lesson': stage_lesson}
+STAGE_RUNNERS = {'intake': stage_intake, 'transcribe': stage_transcribe, 'lesson': stage_lesson,
+                 'avatar': stage_avatar}
 
 
-def run_job(job, path=None):
+def run_job(job, path=None, resume=False):
+    """Run the stage chain. With resume=True, stages that already have an artifact are skipped."""
     for stage in db.STAGES:
         runner = STAGE_RUNNERS.get(stage)
         if runner is None:
             break
+        if resume and stage in job.get('artifacts', {}):
+            continue
         db.record(job['id'], stage, 'started', path=path)
         try:
             result = runner(job)

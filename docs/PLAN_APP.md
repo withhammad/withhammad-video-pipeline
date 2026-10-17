@@ -47,7 +47,7 @@ Fastest to a working flow and free, but it is a workflow tool, not "an app"; UI 
 - S1 Scaffold — **done 2026-10-17** (`studio/`, deployed, 8 tests green): Docker Compose, FastAPI, job table, `/jobs` POST (URL or image), web UI list. Deploy behind Nginx at `studio.withhammad.com` (or a path) with basic auth.
 - S2 Intake + transcribe — **done 2026-10-17** (`app/media.py`, CLI `app.cli`, `run_local.sh`; Instagram/YouTube need a cookie file).
 - S3 Lesson generation — **code done 2026-10-17** (`app/lesson.py`: prompt + JSON schema fixed in repo; outputs `lesson.json`, `script.txt`, `resource.md`). Live validation pending `ANTHROPIC_API_KEY`.
-- S4 HeyGen render (stage 4) once API key + look are confirmed.
+- S4 HeyGen render — **code done 2026-10-17** (`app/heygen.py`, v3 API, verified against developers.heygen.com). Live render pending `HEYGEN_API_KEY`.
 - S5 Remotion animation (stage 5) — template + render sidecar.
 - S6 Publishers (stage 6): LinkedIn + YouTube first (already authorized), then Instagram ×2, then TikTok after app review.
 - S7 Resource page + deploy workflow for the website (stage 7).

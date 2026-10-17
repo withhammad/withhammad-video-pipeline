@@ -97,7 +97,12 @@ SCHEMA = {
 
 def build_client():
     import anthropic
-    return anthropic.Anthropic()
+    key = os.environ.get('ANTHROPIC_API_KEY', '').strip()
+    if not key.startswith('sk-ant-'):
+        raise RuntimeError('ANTHROPIC_API_KEY is missing from work/.secrets/studio.env (expected sk-ant-…)')
+    # Explicit key and default base URL: never pick up ANTHROPIC_AUTH_TOKEN / ANTHROPIC_BASE_URL
+    # that a host tool (e.g. Claude Code) exports for its own traffic.
+    return anthropic.Anthropic(api_key=key, base_url='https://api.anthropic.com')
 
 
 def reference_block(intake, transcript, target_language=None):
