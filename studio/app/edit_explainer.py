@@ -1001,9 +1001,9 @@ def master(in_video, out_video, lufs=-14.0, true_peak=-1.5, lra=11.0):
 
 def render(job_dir, props_path=None, out=None, scale=None):
     """npx remotion render Explainer with the job's props, then the loudness master. Returns the master stats."""
-    job_dir = Path(job_dir)
-    props_path = Path(props_path) if props_path else job_dir / 'edit_explainer.json'
-    out = Path(out) if out else job_dir / 'final_explainer.mp4'
+    job_dir = Path(job_dir).resolve()   # Remotion runs from studio/remotion, so every path must be absolute
+    props_path = Path(props_path).resolve() if props_path else job_dir / 'edit_explainer.json'
+    out = Path(out).resolve() if out else job_dir / 'final_explainer.mp4'
     raw = out.with_name(out.stem + '.raw.mp4')
     cmd = ['npx', 'remotion', 'render', 'Explainer', str(raw), f'--props={props_path}', '--log=error']
     if scale:

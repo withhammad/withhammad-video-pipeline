@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import pytest
 
@@ -371,3 +372,16 @@ def test_cli_reads_recording_plans_next_to_the_spec(tmp_path):
     assert ex.main(['build', str(job), '--no-music']) == 0
     props = json.loads((job / 'edit_explainer.json').read_text())
     assert props['scenes'] == build(make_caps(), music=False)['scenes']
+
+
+def test_render_passes_absolute_paths_to_remotion(tmp_path, monkeypatch):
+    from app import edit_explainer as ex
+    calls = []
+    monkeypatch.setattr(ex.subprocess, 'run', lambda cmd, **kw: calls.append((cmd, kw)))
+    monkeypatch.setattr(ex, 'master', lambda raw, out: {'I': -14.0})
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / 'job').mkdir()
+    ex.render('job', out='job/final.mp4')
+    cmd, kw = calls[0]
+    assert kw['cwd'] == ex.REMOTION
+    assert Path(cmd[4]).is_absolute() and cmd[5].startswith('--props=/')
