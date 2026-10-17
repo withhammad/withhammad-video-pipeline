@@ -128,9 +128,12 @@ const entranceOf = (s: Scene, prev: Scene | undefined): { entrance: Entrance; fr
 const faceOf = (s: Scene, edit: ExplainerProps): FaceBox | undefined =>
   edit.tail && s.startMs >= edit.tail.startMs - 40 ? edit.tail.faceBox : edit.avatar.faceBox;
 
+/** An overlay that outlasts its scene (a carried chip) renders in its own Sequence, not inside the scene's. */
+const carried = (s: Scene) => !!s.overlay && s.overlay.untilMs !== undefined && s.overlay.untilMs > s.endMs - s.startMs;
+
 const SceneView: React.FC<{ s: Scene; prev?: Scene; edit: ExplainerProps }> = ({ s, prev, edit }) => {
   const box = boxOf(s);
-  const overlay = s.overlay ? (
+  const overlay = s.overlay && !carried(s) ? (
     <AbsoluteFill style={{ zIndex: CAPTION_Z }}>
       <OverlayLayer o={s.overlay} card={box} face={faceOf(s, edit)} />
     </AbsoluteFill>
@@ -308,6 +311,17 @@ export const Explainer: React.FC<ExplainerProps> = (edit) => {
         return (
           <Sequence key={i} from={from} durationInFrames={Math.max(1, toFrame(s.endMs) - from)} layout="none" name={`${s.id ?? s.type} ${i}`}>
             <SceneView s={s} prev={scenes[i - 1]} edit={edit} />
+          </Sequence>
+        );
+      })}
+      {scenes.map((s, i) => {
+        if (!carried(s) || !s.overlay) return null;
+        const from = toFrame(s.startMs);
+        return (
+          <Sequence key={`ov${i}`} from={from} durationInFrames={Math.max(1, toFrame(s.startMs + (s.overlay.untilMs ?? 0)) - from)} layout="none" name={`overlay ${s.id ?? i}`}>
+            <AbsoluteFill style={{ zIndex: CAPTION_Z }}>
+              <OverlayLayer o={s.overlay} card={boxOf(s)} face={faceOf(s, edit)} />
+            </AbsoluteFill>
           </Sequence>
         );
       })}

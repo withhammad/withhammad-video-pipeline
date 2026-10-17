@@ -1,8 +1,10 @@
 import { useMemo } from "react";
 import { interpolate, spring, useCurrentFrame } from "remotion";
+import { flipState } from "./Avatar";
 import {
   buildPages,
   clamp,
+  clamp01,
   cleanWord,
   DEEP_GREEN,
   displayText,
@@ -12,13 +14,17 @@ import {
   FPS,
   H,
   HEADLINE_TOP,
+  hasNumeral,
   INK,
+  lerp,
   lineText,
+  NUMERAL_STYLE,
   Page,
   PEACH,
   PINK,
   SANS,
   SERIF,
+  smoothstep,
   toFrame,
   W,
 } from "./theme";
@@ -46,7 +52,28 @@ const sceneAt = (run: CaptionRun, abs: number) => run.scenes.find((s) => abs >= 
 
 const STROKE = "#141414";
 
-const HookCaption: React.FC<{ page: Page; abs: number }> = ({ page, abs }) => {
+/** The hook line once the presenter is upright (centre, fraction of H). */
+const HOOK_Y = 0.69;
+/** Reels header: the hook caption fades in below it while it rides the drop. */
+const HEADER_PX = 150;
+
+/**
+ * Where the hook caption sits (centre px) and how visible it is. Over the flip-in the presenter hangs upside-down,
+ * so his face covers the turned face box and the upright line (0.69H) would run across his eyes: the caption sits
+ * at flipCaptionY (above the inverted face, on the shirt), moves down with the drop as if it hung from him, and
+ * eases to 0.69H as the whip turns him past 90 degrees.
+ */
+export const hookCaptionPlace = (scene: Scene, abs: number): { cy: number; opacity: number } => {
+  const up = H * HOOK_Y;
+  if (!scene.flipIn || scene.flipCaptionY === undefined) return { cy: up, opacity: 1 };
+  const f = flipState(abs - toFrame(scene.startMs), toFrame(scene.flipHoldMs ?? 0));
+  const inverted = H * scene.flipCaptionY + f.y;
+  const u = smoothstep((f.rot - 60) / 60);
+  const cy = lerp(up, inverted, u);
+  return { cy, opacity: clamp01((cy - 30 - (HEADER_PX - 40)) / 40) };
+};
+
+const HookCaption: React.FC<{ page: Page; abs: number; cy: number; opacity: number }> = ({ page, abs, cy, opacity }) => {
   const since = abs + 1 - toFrame(page.startMs);
   const pop = spring({ frame: since, fps: FPS, config: { damping: 14, stiffness: 260, mass: 0.5 } });
   const texts = page.words.map((w) => displayText(w.text, "hook"));
@@ -57,9 +84,9 @@ const HookCaption: React.FC<{ page: Page; abs: number }> = ({ page, abs }) => {
     if (abs + 1 >= toFrame(w.startMs)) active = i;
   });
   const base: React.CSSProperties = {
-    position: "absolute", top: H * 0.69 - size * 0.6, left: 0, width: W, textAlign: "center", whiteSpace: "nowrap",
+    position: "absolute", top: cy - size * 0.6, left: 0, width: W, textAlign: "center", whiteSpace: "nowrap",
     fontFamily: SANS, fontWeight: 800, fontSize: size, letterSpacing: 0.6, lineHeight: 1.2,
-    transform: `scale(${0.9 + 0.1 * pop})`, opacity: interpolate(since, [0, 1], [0.4, 1], clamp),
+    transform: `scale(${0.9 + 0.1 * pop})`, opacity: interpolate(since, [0, 1], [0.4, 1], clamp) * opacity,
   };
   const spans = (fill: (i: number) => string) =>
     texts.map((t, i) => (
@@ -114,7 +141,9 @@ const ExplainerHeadline: React.FC<{ page: HeadlinePage; abs: number; top: number
       {page.lines.map((line, li) => {
         const texts = line.words.map((w, i) => lineText(displayText(w.text, "explainer"), i === line.words.length - 1));
         // One scale per line so mixed sans/serif lines keep the 1.15 ratio when they have to shrink.
-        const width = line.words.reduce((a, w, i) => a + (texts[i].length + 1) * (w.italic ? S2 * EM_SERIF : S1 * EM_SANS), 0);
+        // A numeral is never drawn in the italic serif ("11" read "ll"): it takes the heavy sans at ~0.95 x s2.
+        const numeral = line.words.map((w, i) => !!w.italic && hasNumeral(texts[i]));
+        const width = line.words.reduce((a, w, i) => a + (texts[i].length + 1) * (numeral[i] ? S2 * 0.95 * EM_SANS : w.italic ? S2 * EM_SERIF : S1 * EM_SANS), 0);
         const k = Math.min(1, (W * 0.88) / Math.max(1, width));
         const s1 = S1 * k;
         const s2 = S2 * k;
@@ -130,9 +159,11 @@ const ExplainerHeadline: React.FC<{ page: HeadlinePage; abs: number; top: number
                 text={texts[i]}
                 last={i === line.words.length - 1}
                 style={
-                  w.italic
-                    ? { fontFamily: SERIF, fontStyle: "italic", fontWeight: 400, fontSize: s2, color: INK, verticalAlign: "baseline" }
-                    : { fontFamily: SANS, fontWeight: 800, fontSize: s1, letterSpacing: -0.3, color: INK, verticalAlign: "baseline" }
+                  numeral[i]
+                    ? { ...NUMERAL_STYLE, fontSize: s2 * 0.95, color: INK, verticalAlign: "baseline" }
+                    : w.italic
+                      ? { fontFamily: SERIF, fontStyle: "italic", fontWeight: 400, fontSize: s2, color: INK, verticalAlign: "baseline" }
+                      : { fontFamily: SANS, fontWeight: 800, fontSize: s1, letterSpacing: -0.3, color: INK, verticalAlign: "baseline" }
                 }
               />
             ))}
@@ -256,7 +287,7 @@ const TalkCaption: React.FC<{ page: Page; abs: number; room: boolean; onCam: boo
       </div>
       {l2.length ? (
         <div style={{ position: "absolute", top: top1 + 48 * k, left: 0, width: W, textAlign: "center", whiteSpace: "nowrap", fontFamily: SERIF, fontStyle: "italic", fontSize: s2, lineHeight: 1.05, color: PEACH, textShadow: SHADOW }}>
-          {l2.map((w, i) => word(w, i, l2.length, {}))}
+          {l2.map((w, i) => word(w, i, l2.length, hasNumeral(w.text) ? { ...NUMERAL_STYLE, fontSize: "0.8em" } : {}))}
         </div>
       ) : null}
     </>
@@ -287,6 +318,6 @@ export const Captions: React.FC<Props> = ({ words, run, headlines, ctaKeyword })
   }
   const page = activeOf(pages, abs, 0);
   if (!page) return null;
-  if (system === "hook") return <HookCaption page={page} abs={abs} />;
+  if (system === "hook") return <HookCaption page={page} abs={abs} {...hookCaptionPlace(scene, abs)} />;
   return <TalkCaption page={page} abs={abs} room={run.room} onCam={scene.type === "split"} ctaKeyword={ctaKeyword} />;
 };

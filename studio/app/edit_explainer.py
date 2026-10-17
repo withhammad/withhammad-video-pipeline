@@ -37,7 +37,10 @@ Mapping, in order:
    (captions cover every word), then the card holds ENDCARD_MIN_MS. It also shows the site the tail names.
 9. Display words ("Wait!") never cover the face: each take may carry a face box (spec heygen.take_X.face_box,
    fractions x, y, w, h; default the upper middle), and place_display_word() moves the word above the head or
-   beside it, sized to fit.
+   beside it, sized to fit. The hook caption does the same while the presenter hangs upside-down (flip_caption_y:
+   an inverted face covers 1 - y - h).
+10. Fine print people must read (unit "overlay_hold_ms", e.g. the attribution chip) stays up that long: it runs on
+   over the next contiguous scenes without an overlay of their own, on each scene's chip line (_carry_overlays).
 Standard library only.
 """
 import argparse
@@ -100,6 +103,9 @@ CANVAS_W, CANVAS_H = 720, 1280
 DEFAULT_FACE_BOX = (0.28, 0.12, 0.44, 0.36)   # upper middle: where a talking head's face sits by default
 SAFE_TOP_PX = 150          # below the Reels header
 SAFE_LEFT, SAFE_RIGHT = 0.05, 0.86             # clear of the right action rail
+HOOK_CAPTION_Y = 0.69      # Captions.tsx HookCaption centre once the presenter is upright (the reference's line)
+HOOK_CAPTION_HALF_PX = 30  # half its height: 44 px Inter 800, line-height 1.2, plus the 5 px outline
+SAFE_BOTTOM = 0.79         # the Reels caption block and right rail live below this
 DISPLAY_MAX_PX, DISPLAY_MIN_PX = 120, 56
 DISPLAY_EM = 0.42          # average glyph width of the italic serif (Overlays.tsx BigText uses the same)
 FACE_MARGIN_PX = 14
@@ -587,6 +593,27 @@ def place_display_word(text, y=0.18, face=None):
     return {'x': 0.5, 'y': round((fb[3] + FACE_MARGIN_PX + 0.55 * size0) / CANVAS_H, 4), 'size': round(size0, 1)}
 
 
+def flip_caption_y(face=None):
+    """Centre (fraction of H) of the hook caption while the presenter hangs upside-down. A face box (x, y, w, h)
+    turned 180 degrees about the frame centre covers y' = 1 - y - h .. 1 - y: for the studio take 0.48-0.81H, so the
+    upright caption line (HOOK_CAPTION_Y) would run across the eyes. The caption sits above the inverted face (on the
+    shirt) instead, below the Reels header; under it if there is no room; HOOK_CAPTION_Y when that is already clear.
+    Captions.tsx moves it with the drop and eases it to HOOK_CAPTION_Y as the whip rights him."""
+    _, y, _, h = face or DEFAULT_FACE_BOX
+    top, bot = (1 - y - h) * CANVAS_H, (1 - y) * CANVAS_H
+    half, m = HOOK_CAPTION_HALF_PX, FACE_MARGIN_PX
+    cy = HOOK_CAPTION_Y * CANVAS_H
+    if cy + half + m <= top or cy - half - m >= bot:
+        return HOOK_CAPTION_Y
+    above = top - m - half
+    if above - half >= SAFE_TOP_PX:
+        return round(above / CANVAS_H, 4)
+    below = bot + m + half
+    if below + half <= SAFE_BOTTOM * CANVAS_H:
+        return round(below / CANVAS_H, 4)
+    return round(max(above, SAFE_TOP_PX + half) / CANVAS_H, 4)
+
+
 def _take_face(spec, take):
     """The face box of a take from spec heygen.take_A / take_B "face_box" ([x, y, w, h] fractions), else None."""
     box = (((spec.get('heygen') or {}).get(take) or {}).get('face_box'))
@@ -741,6 +768,7 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
                 if k == 0 and j == 0:
                     scene['flipIn'] = True
                     scene['flipHoldMs'] = FLIP_HOLD_MS
+                    scene['flipCaptionY'] = flip_caption_y(faces.get('avatar'))
             elif st != 'endcard':
                 scene['system'] = 'explainer'
             plan = _recording_plan(unit, durations, plans, highlights)
@@ -750,6 +778,10 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
             if re.search(r'slides? up from the bottom', text_all, re.I):
                 scene['cardSlide'] = 'up'
             ov = _overlay(unit, st)
+            if ov and unit.get('overlay_at_ms') is not None:
+                ov['atMs'] = int(unit['overlay_at_ms'])
+            if ov and unit.get('overlay_hold_ms'):
+                ov['_holdMs'] = int(unit['overlay_hold_ms'])
             if st == 'endcard':
                 pill = _quoted(unit.get('footage'))
                 ov = {'kind': 'chip', 'text': pill[0] if pill else 'FREE GUIDE'}
@@ -807,10 +839,12 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
         ov = s.get('overlay')
         if ov and ov['kind'] == 'chip' and '\n' in ov['text']:
             ov['itemsAtMs'] = _spoken_number_times(ov['text'], words, s)
-        elif ov and ov['kind'] == 'chip' and s['type'] != 'endcard':
+        elif ov and ov['kind'] == 'chip' and s['type'] != 'endcard' and s['_unit'].get('overlay_at_ms') is None:
             at = _spoken_chip_time(ov['text'], words, s)
             if at is not None:       # a chip naming a spoken word ("withhammad.com") pops as it is said
                 ov['atMs'] = at
+
+    _carry_overlays(scenes, tail_ms)
 
     cta = None
     cta_k = next((k for k, b in enumerate(beats) if 'cta' in b.get('name', '')), None)
@@ -868,6 +902,41 @@ def _spoken_chip_time(text, words, scene, lead_ms=80):
         if [t for t, _ in toks[i:i + len(want)]] == want:
             return max(0, toks[i][1]['startMs'] - scene['startMs'] - lead_ms)
     return None
+
+
+CHIP_AT_MS = 450            # Overlays.tsx DEFAULT_AT.chip
+
+
+def _carry_overlays(scenes, tail_ms=None):
+    """A chip whose unit sets overlay_hold_ms stays up that long after it pops (fine print that has to be read: 49
+    characters in 1 s is not readable, ~17 chars/s is), even past its own scene: it runs on over the next contiguous
+    scenes that carry no overlay of their own (never onto the end card, the hook or the second look), on each
+    scene's chip line (above the talk captions on a talking head, on the card's bottom edge on a card). Sets the
+    overlay's untilMs and moves ([{atMs, y}], scene-relative); fadeOutMs when it ends inside a scene."""
+    for i, s in enumerate(scenes):
+        ov = s.get('overlay')
+        hold = ov.pop('_holdMs', None) if ov else None
+        if not hold or ov['kind'] != 'chip':
+            continue
+        want = s['startMs'] + ov.get('atMs', CHIP_AT_MS) + hold
+        end, moves, y = s['endMs'], [], ov.get('y', CHIP_Y)
+        for n in scenes[i + 1:]:
+            if end >= want or abs(n['startMs'] - end) >= 40 or n['type'] == 'endcard' or n.get('overlay') or n.get('flipIn') \
+                    or (tail_ms is not None and s['startMs'] < tail_ms <= n['startMs']):
+                break
+            ny = CHIP_Y_TALK if n['type'] == 'avatar' else CHIP_Y
+            if ny != y:
+                moves.append({'atMs': n['startMs'] - s['startMs'], 'y': ny})
+                y = ny
+            end = n['endMs']
+        until = min(want, end)
+        if until <= s['endMs']:
+            continue
+        ov['untilMs'] = until - s['startMs']
+        if moves:
+            ov['moves'] = [m for m in moves if m['atMs'] < ov['untilMs']]
+        if until < end:
+            ov['fadeOutMs'] = 200
 
 
 def _cap_breathers(scenes, caps, tail_ms):

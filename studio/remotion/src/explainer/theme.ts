@@ -20,6 +20,11 @@ export const BACKDROP = "#E9E5E0";
 export const SANS = "'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif";
 export const SERIF = "'Instrument Serif', 'New York', 'Iowan Old Style', Georgia, serif";
 
+/** Instrument Serif italic draws "1" with no base serif and a hairline flag, so "11" reads "ll" and "21" reads "2l".
+ *  A word holding a digit is never set in it: it takes the heavy sans (still the emphasis, by weight and size). */
+export const hasNumeral = (t: string) => /\d/.test(t);
+export const NUMERAL_STYLE = { fontFamily: SANS, fontStyle: "normal", fontWeight: 800, letterSpacing: -0.5 } as const;
+
 export const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 export const EXPO_OUT = Easing.bezier(0.16, 1, 0.3, 1);
 export const IN_OUT = Easing.bezier(0.65, 0, 0.35, 1);

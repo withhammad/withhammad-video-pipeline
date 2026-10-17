@@ -36,6 +36,12 @@ export type Overlay = {
   atMs?: number;
   align?: "left" | "center" | "right";
   itemsAtMs?: number[];
+  /** A chip that must stay up longer than its scene (fine print people have to read): scene-relative end. It runs
+   *  on over the next scenes (edit_explainer._carry_overlays), moving to each scene's chip line (moves, scene-relative),
+   *  and fades out over fadeOutMs when it ends inside a scene. */
+  untilMs?: number;
+  moves?: { atMs: number; y: number }[];
+  fadeOutMs?: number;
 };
 
 export type Item = { label: string; sub?: string };
@@ -56,6 +62,9 @@ export type Scene = {
   flipIn?: boolean;
   /** ...after hanging upside-down this long (ms after the drop lands). */
   flipHoldMs?: number;
+  /** Hook caption centre (fraction of H) while the presenter is inverted: clear of the turned face box
+   *  (edit_explainer.flip_caption_y); it rides the drop and eases to the upright line as the whip rights him. */
+  flipCaptionY?: number;
   /** Caption system for this scene; defaults by type (avatar: talk, canvas scenes: explainer, endcard: none). */
   system?: CaptionSystem;
   /** Small command chip on the card's top-left edge (e.g. "/yt-script"). */

@@ -564,3 +564,42 @@ def test_load_cuts_reads_a_list_or_tighten_cuts_json(tmp_path):
     (tmp_path / 'a.json').write_text('[3120, 8720]')
     (tmp_path / 'b.json').write_text(json.dumps({'cuts': [{'at_ms': 3120.4}, {'at_ms': 8720}], 'av_offset_ms': -100}))
     assert ex.load_cuts(tmp_path / 'a.json') == ex.load_cuts(tmp_path / 'b.json') == [3120, 8720]
+
+
+def test_hook_caption_keeps_clear_of_the_inverted_face():
+    studio, full_body = [0.33, 0.19, 0.38, 0.33], [0.39, 0.105, 0.18, 0.14]
+    for face in (studio, None, full_body, [0.3, 0.05, 0.4, 0.8]):
+        y = ex.flip_caption_y(face)
+        fy, fh = (face or ex.DEFAULT_FACE_BOX)[1], (face or ex.DEFAULT_FACE_BOX)[3]
+        top, bot = (1 - fy - fh) * ex.CANVAS_H, (1 - fy) * ex.CANVAS_H          # the face turned 180 degrees
+        band = (y * ex.CANVAS_H - ex.HOOK_CAPTION_HALF_PX, y * ex.CANVAS_H + ex.HOOK_CAPTION_HALF_PX)
+        assert band[0] >= ex.SAFE_TOP_PX - 1
+        if face != [0.3, 0.05, 0.4, 0.8]:                                         # a face filling the frame: best effort
+            assert band[1] <= top or band[0] >= bot, (face, y)
+    assert ex.flip_caption_y(studio) < 0.48 - ex.HOOK_CAPTION_HALF_PX / ex.CANVAS_H   # above the chin, on the shirt
+    assert ex.flip_caption_y(full_body) == ex.HOOK_CAPTION_Y                          # 0.69H already clear: unchanged
+    spec = json.loads(json.dumps(SPEC))
+    spec['heygen'] = {'take_A': {'face_box': studio}}
+    u1 = scene(build(spec=spec), 'U1')
+    assert u1['flipIn'] and u1['flipCaptionY'] == ex.flip_caption_y(studio)
+
+
+def test_fine_print_chip_is_held_across_the_next_talking_head():
+    caps = make_caps()
+    spec = json.loads(json.dumps(SPEC))
+    u2 = spec['beats'][1]['units'][0]
+    u2.update(overlay='Small fine-print chip: "Community pack by A. Author (not the vendor)"', overlay_at_ms=200, overlay_hold_ms=9000)
+    p = build(caps, spec=spec)
+    s2, s3 = scene(p, 'U2'), scene(p, 'U3')
+    ov = s2['overlay']
+    assert ov['kind'] == 'chip' and ov['atMs'] == 200 and '_holdMs' not in ov
+    # runs on over the talking head (no overlay of its own) and stops before U4, which has its own stat + chip
+    assert ov['untilMs'] == s3['endMs'] - s2['startMs'] and 'fadeOutMs' not in ov
+    assert ov['moves'] == [{'atMs': s3['startMs'] - s2['startMs'], 'y': ex.CHIP_Y_TALK}]   # above the talk captions
+    u2['overlay_hold_ms'] = (s2['endMs'] - s2['startMs']) + 100                             # ends inside U3: fades there
+    ov = scene(build(caps, spec=spec), 'U2')['overlay']
+    assert ov['untilMs'] == 200 + (s2['endMs'] - s2['startMs']) + 100 and ov['fadeOutMs'] == 200   # pop + hold
+    u2['overlay_hold_ms'] = 300                                                             # fits its own scene
+    ov = scene(build(caps, spec=spec), 'U2')['overlay']
+    assert 'untilMs' not in ov and 'moves' not in ov
+    assert any(abs(x['atMs'] - (s2['startMs'] + 200)) <= ex.POP_SNAP_MS for x in p['sfx'] if 'pop' in x['src'])

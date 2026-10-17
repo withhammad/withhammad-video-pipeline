@@ -1,5 +1,5 @@
 import { interpolate, spring, useCurrentFrame } from "remotion";
-import { ARROW_RED, Box, CHIP_Y_MAX, clamp, DEEP_GREEN, DEFAULT_FACE_BOX, EXPO_OUT, FPS, H, IN_OUT, INK, placeDisplayWord, SAFE, SANS, SERIF, STAT_GREEN, toFrame, toMs, W } from "./theme";
+import { ARROW_RED, Box, CHIP_Y_MAX, clamp, DEEP_GREEN, DEFAULT_FACE_BOX, EXPO_OUT, FPS, H, hasNumeral, IN_OUT, INK, NUMERAL_STYLE, placeDisplayWord, SAFE, SANS, SERIF, STAT_GREEN, toFrame, toMs, W } from "./theme";
 import type { FaceBox, Overlay } from "./types";
 
 const DEFAULT_AT: Record<Overlay["kind"], number> = { stat: 150, chip: 450, arrow: 350, bigtext: 0 };
@@ -38,7 +38,10 @@ const Chips: React.FC<{ o: Overlay; ms: number; atDefault?: number }> = ({ o, ms
   const at = o.atMs ?? atDefault ?? DEFAULT_AT.chip;
   const align = o.align ?? "center";
   const gap = 58;
-  const y = Math.min(H * (o.y ?? 0.775), H * CHIP_Y_MAX - ((items.length - 1) * gap) / 2);
+  // A carried chip (untilMs) re-docks on each later scene's chip line at that scene's cut, and fades at its end.
+  const yFrac = (o.moves ?? []).reduce((y, m) => (ms >= m.atMs ? m.y : y), o.y ?? 0.775);
+  const out = o.untilMs !== undefined && o.fadeOutMs ? interpolate(ms, [o.untilMs - o.fadeOutMs, o.untilMs], [1, 0], clamp) : 1;
+  const y = Math.min(H * yFrac, H * CHIP_Y_MAX - ((items.length - 1) * gap) / 2);
   const top0 = y - ((items.length - 1) * gap) / 2 - 24;
   return (
     <>
@@ -62,7 +65,7 @@ const Chips: React.FC<{ o: Overlay; ms: number; atDefault?: number }> = ({ o, ms
             style={{
               position: "absolute", top: top0 + i * gap, ...side,
               ...(align === "center" ? {} : { transform: `translateX(${(1 - sp) * (align === "right" ? 60 : -60)}px) scale(${0.9 + 0.1 * sp})` }),
-              opacity: interpolate(f, [0, 2], [0, 1], clamp),
+              opacity: interpolate(f, [0, 2], [0, 1], clamp) * out,
               display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 20px 0 14px", borderRadius: 24,
               background: "rgba(255,255,255,0.97)", boxShadow: "0 10px 28px rgba(20,24,40,0.22)", whiteSpace: "nowrap",
               fontFamily: SANS, fontWeight: 600, fontSize, color: INK,
@@ -122,7 +125,7 @@ const BigText: React.FC<{ o: Overlay; ms: number; face?: FaceBox }> = ({ o, ms, 
   const top = Math.max(150, p.y - size * 0.55);
   const width = W;
   return (
-    <div style={{ position: "absolute", top, left: p.x - width / 2, width, textAlign: "center", whiteSpace: "nowrap", fontFamily: SERIF, fontStyle: "italic", fontSize: size, lineHeight: 1.1, color: o.color ?? DEEP_GREEN }}>
+    <div style={{ position: "absolute", top, left: p.x - width / 2, width, textAlign: "center", whiteSpace: "nowrap", fontFamily: SERIF, fontStyle: "italic", fontSize: size, lineHeight: 1.1, color: o.color ?? DEEP_GREEN, ...(hasNumeral(o.text) ? { ...NUMERAL_STYLE, fontSize: size * 0.8 } : {}) }}>
       {letters.map((ch, i) => {
         const p = interpolate(ms, [at + i * 35, at + i * 35 + 380], [0, 1], { ...clamp, easing: EXPO_OUT });
         return (
