@@ -1,0 +1,106 @@
+{
+  "timezone": "Asia/Dubai",
+  "daily_original_videos": {
+    "minimum": 2,
+    "target": 3
+  },
+  "scheduler_enabled": false,
+  "heygen": {
+    "connection_verified": true,
+    "avatar_group_id": "83caeb76d04d4e47a9c095e7453ff247",
+    "avatar_name": "Hammad Yousuf",
+    "consent_status": "accepted",
+    "training_status": "completed",
+    "available_look_count": 3,
+    "selected_look_id": null,
+    "assigned_default_voice_id": "0f7032b11fb743589cc81b721f4389b3",
+    "voice_compatibility_verified": false
+  },
+  "publishing": {
+    "proposed_provider": "Direct platform APIs through Codex MCP",
+    "connected": false,
+    "destinations": [
+      {
+        "key": "instagram_primary",
+        "handle": "with.hammad",
+        "account_id": "17841400507502327",
+        "profile_url": "https://www.instagram.com/with.hammad/",
+        "connection_status": "meta_app_registered_token_pending",
+        "provider": "instagram_direct_api"
+      },
+      {
+        "key": "instagram_secondary",
+        "handle": "hammadagentic.ai",
+        "account_id": "17841416366504874",
+        "profile_url": "https://www.instagram.com/hammadagentic.ai/",
+        "connection_status": "meta_app_registered_token_pending",
+        "provider": "instagram_direct_api"
+      },
+      {
+        "key": "youtube",
+        "handle": "with.hammad",
+        "account_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+        "profile_url": "https://www.youtube.com/@with.hammad",
+        "connection_status": "identity_and_scopes_verified",
+        "provider": "youtube_direct_api",
+        "channel_title": "HAMMAD YOUSUF",
+        "scopes": [
+          "youtube.readonly",
+          "youtube.upload"
+        ],
+        "video_publish_tested": false
+      },
+      {
+        "key": "tiktok",
+        "handle": "hammadyousuf01",
+        "account_id": null,
+        "profile_url": "https://www.tiktok.com/@hammadyousuf01",
+        "connection_status": "metricool_only_direct_auth_unverified",
+        "provider": "tiktok_direct_api"
+      },
+      {
+        "key": "linkedin",
+        "handle": "withhammad",
+        "account_id": "yWP7me7dep",
+        "profile_url": "https://www.linkedin.com/in/withhammad/",
+        "connection_status": "identity_and_scopes_verified",
+        "provider": "linkedin_direct_api",
+        "author_urn": "urn:li:person:yWP7me7dep",
+        "app_id": "265003310",
+        "client_id": "77twng0gocmtmg",
+        "app_name": "WithHammad Video Pipeline",
+        "scopes": [
+          "openid",
+          "profile",
+          "w_member_social"
+        ],
+        "expires_at": "2026-12-16T09:32:17+00:00",
+        "video_publish_tested": false
+      }
+    ],
+    "provider_connection_verified": true,
+    "additional_paid_plans_allowed": false,
+    "deleted_linkedin_app_id": "264437200",
+    "metricool_disabled_for_pipeline": true,
+    "instagram_app_id": "2225240621741205",
+    "instagram_publish_permission_added": true
+  },
+  "website": {
+    "url": "https://withhammad.com",
+    "tools_path": "/tools",
+    "write_connection_verified": false,
+    "repository": "https://github.com/withhammad/withhammad-next",
+    "local_checkout": "/Users/hammad/withhammad-next"
+  },
+  "manychat": {
+    "connected": false,
+    "workspace_url": "https://app.manychat.com/fb5064597/dashboard",
+    "flow_ids": {},
+    "followup_destination": null,
+    "connection_status": "browser_authenticated_api_plan_blocked",
+    "browser_session_verified": true,
+    "instagram_handle": "with.hammad",
+    "api_access_status": "upgrade_required"
+  },
+  "browser_preference": "Google Chrome"
+}
