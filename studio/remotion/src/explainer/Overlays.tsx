@@ -1,13 +1,13 @@
 import { interpolate, spring, useCurrentFrame } from "remotion";
-import { ARROW_RED, Box, clamp, DEEP_GREEN, EXPO_OUT, FPS, H, IN_OUT, INK, SANS, SERIF, STAT_GREEN, toFrame, toMs, W } from "./theme";
+import { ARROW_RED, Box, CHIP_Y_MAX, clamp, DEEP_GREEN, EXPO_OUT, FPS, H, IN_OUT, INK, SANS, SERIF, STAT_GREEN, toFrame, toMs, W } from "./theme";
 import type { Overlay } from "./types";
 
 const DEFAULT_AT: Record<Overlay["kind"], number> = { stat: 150, chip: 450, arrow: 350, bigtext: 0 };
 
-/** Giant light-green words sliding up word by word out of a mask line. */
+/** Giant light-green words sliding up word by word out of a mask line (~48-50% W like the reference). */
 const Stat: React.FC<{ o: Overlay; ms: number }> = ({ o, ms }) => {
   const words = o.text.split(/\s+/).filter(Boolean);
-  const size = Math.min(92, (W * 0.9) / Math.max(1, o.text.length * 0.6));
+  const size = Math.min(66, (W * 0.5) / Math.max(1, o.text.length * 0.6));
   const at = o.atMs ?? DEFAULT_AT.stat;
   return (
     <div style={{ position: "absolute", top: H * (o.y ?? 0.7) - size * 0.62, left: 0, width: W, display: "flex", justifyContent: "center", gap: size * 0.24 }}>
@@ -30,13 +30,14 @@ const Stat: React.FC<{ o: Overlay; ms: number }> = ({ o, ms }) => {
   );
 };
 
-/** White pill(s); several lines (split on "\n") stagger in, or pop on their own times (itemsAtMs). */
+/** White pill(s); several lines (split on "\n") stagger in, or pop on their own times (itemsAtMs). The stack's
+ *  lowest centre never goes below CHIP_Y_MAX (the Reels caption block and right rail live under it). */
 const Chips: React.FC<{ o: Overlay; ms: number; atDefault?: number }> = ({ o, ms, atDefault }) => {
   const items = o.text.split("\n").filter(Boolean);
   const at = o.atMs ?? atDefault ?? DEFAULT_AT.chip;
   const align = o.align ?? "center";
-  const y = H * (o.y ?? 0.86);
   const gap = 58;
+  const y = Math.min(H * (o.y ?? 0.775), H * CHIP_Y_MAX - ((items.length - 1) * gap) / 2);
   const top0 = y - ((items.length - 1) * gap) / 2 - 24;
   return (
     <>
@@ -103,13 +104,15 @@ const Arrow: React.FC<{ o: Overlay; ms: number; card: Box }> = ({ o, ms, card })
 
 const clampN = (t: number) => Math.min(1, Math.max(0, t));
 
-/** Giant serif display word (e.g. "Hold on."), scaling in through blur, letter by letter. */
+/** Giant serif display word (e.g. "Hold on.", ~45-48% W like the reference's "Wait,"), scaling in through blur,
+ *  letter by letter; its top stays below the Reels header (>= 150 px). */
 const BigText: React.FC<{ o: Overlay; ms: number }> = ({ o, ms }) => {
   const at = o.atMs ?? DEFAULT_AT.bigtext;
   const letters = Array.from(o.text);
-  const size = Math.min(170, (W * 0.88) / Math.max(1, letters.length * 0.42));
+  const size = Math.min(120, (W * 0.48) / Math.max(1, letters.length * 0.42));
+  const top = Math.max(150, H * (o.y ?? 0.18) - size * 0.6);
   return (
-    <div style={{ position: "absolute", top: H * (o.y ?? 0.14) - size * 0.6, left: 0, width: W, textAlign: "center", whiteSpace: "nowrap", fontFamily: SERIF, fontStyle: "italic", fontSize: size, lineHeight: 1.1, color: o.color ?? DEEP_GREEN }}>
+    <div style={{ position: "absolute", top, left: 0, width: W, textAlign: "center", whiteSpace: "nowrap", fontFamily: SERIF, fontStyle: "italic", fontSize: size, lineHeight: 1.1, color: o.color ?? DEEP_GREEN }}>
       {letters.map((ch, i) => {
         const p = interpolate(ms, [at + i * 35, at + i * 35 + 380], [0, 1], { ...clamp, easing: EXPO_OUT });
         return (

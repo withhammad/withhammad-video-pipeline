@@ -8,8 +8,9 @@
 export type CaptionSystem = "hook" | "explainer" | "talk";
 export type SceneType = "avatar" | "split" | "card" | "text" | "stat" | "endcard";
 
-/** A slow camera push into the recording (Remotion-side callout zoom), scene-relative. */
-export type PushIn = { atMs: number; scale: number; originX: number; originY: number; durMs?: number };
+/** A Remotion-side callout, scene-relative. mode "content" (default) pushes the camera into the recording;
+ *  mode "card" pops the whole card out (scale + orange outline) and leaves the recording at 1.0. */
+export type PushIn = { atMs: number; scale: number; originX: number; originY: number; durMs?: number; mode?: "content" | "card" };
 
 /** A real screen recording (1080x1350, 25 fps). inMs is the source in-point; durationMs (source length)
  *  lets the card freeze on the last frame instead of running out. */
@@ -52,9 +53,16 @@ export type Scene = {
   label?: string;
   /** Text card tiles (e.g. the eleven commands). */
   items?: Item[];
+  /** Spec beat name: explainer caption runs never cross a beat. */
+  beat?: string;
 };
 
 export type Word = { text: string; startMs: number; endMs: number; em?: boolean };
+
+/** A curated explainer headline page (spec on_screen_text): up to two lines; each word appears at startMs
+ *  (absolute) and is set in the italic serif when italic. Shown in explainer scenes from startMs to endMs. */
+export type HeadlineWord = { text: string; startMs: number; italic?: boolean };
+export type HeadlinePage = { startMs: number; endMs: number; lines: { italic?: boolean; words: HeadlineWord[] }[] };
 
 export type Music = { src: string; volume?: number; duckTo?: number; fadeOutMs?: number };
 export type Sfx = { src: string; atMs: number; volume?: number };
@@ -70,15 +78,21 @@ export type ExplainerProps = {
   tail?: TailSrc | null;
   scenes: Scene[];
   captions: { words: Word[] };
+  /** Curated headline pages; explainer runs without any fall back to pages built from the spoken words. */
+  headlines?: HeadlinePage[];
   music?: Music | null;
   sfx?: Sfx[];
   cta?: Cta | null;
   /** Defaults to the last scene's end. */
   durationMs?: number;
+  /** A missing asset stops the render (calculateMetadata lists them). With this set, missing music/SFX are
+   *  dropped instead; the presenter takes and recordings are always required. */
+  allowMissingAudio?: boolean;
 };
 
+/** Studio placeholder: no scenes, so nothing is required on disk; real renders pass the full props. */
 export const defaultExplainer: ExplainerProps = {
-  avatar: { src: "job/avatar_main.mp4" },
-  scenes: [{ type: "avatar", startMs: 0, endMs: 3000, flipIn: true, system: "hook" }],
+  avatar: { src: "" },
+  scenes: [],
   captions: { words: [] },
 };

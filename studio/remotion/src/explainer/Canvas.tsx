@@ -9,7 +9,7 @@ const Bloom: React.FC<{ size: number; x: number; y: number; rotate: number; opac
     width={size}
     height={size}
     viewBox="-100 -100 200 200"
-    style={{ position: "absolute", left: x - size / 2, top: y - size / 2, transform: `rotate(${rotate}deg)`, filter: "blur(14px)", opacity }}
+    style={{ position: "absolute", left: x - size / 2, top: y - size / 2, transform: `rotate(${rotate}deg)`, filter: "blur(22px)", opacity }}
   >
     {[0, 72, 144, 216, 288].map((a) => (
       <ellipse key={a} cx={0} cy={-46} rx={21} ry={52} fill="#6f6f74" transform={`rotate(${a})`} />
@@ -18,10 +18,12 @@ const Bloom: React.FC<{ size: number; x: number; y: number; rotate: number; opac
   </svg>
 );
 
-/** The explainer canvas: white with a faint grid, "+" marks on the intersections, a soft centre light and two
- *  big blurred shapes bleeding off opposite corners. Motion is a slow drift derived from the frame number. */
-export const Canvas: React.FC<{ style?: React.CSSProperties }> = ({ style }) => {
-  const frame = useCurrentFrame();
+/** The explainer canvas: white with a faint grid, "+" marks on the intersections, a soft centre light with grey
+ *  edges (the reference's spotlight vignette) and two big blurred shapes bleeding off opposite corners. Motion is
+ *  a slow drift of the ABSOLUTE frame (frameOffset = where the enclosing Sequence starts), so the canvas runs on
+ *  seamlessly across cuts between canvas scenes. */
+export const Canvas: React.FC<{ frameOffset: number; style?: React.CSSProperties }> = ({ frameOffset, style }) => {
+  const frame = useCurrentFrame() + frameOffset;
   const spin = frame * 0.12;
   return (
     <AbsoluteFill style={{ background: "#f6f6f5", overflow: "hidden", ...style }}>
@@ -36,8 +38,9 @@ export const Canvas: React.FC<{ style?: React.CSSProperties }> = ({ style }) => 
         <rect width={W} height={H} fill="url(#xgrid)" />
       </svg>
       <AbsoluteFill style={{ background: "radial-gradient(70% 46% at 50% 48%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 55%, rgba(225,225,225,0) 100%)" }} />
-      <Bloom size={430} x={W - 40} y={70} rotate={18 + spin} opacity={0.5} />
-      <Bloom size={470} x={30} y={H - 60} rotate={-24 - spin * 0.8} opacity={0.45} />
+      <AbsoluteFill style={{ background: "radial-gradient(75% 60% at 50% 48%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.22) 100%)" }} />
+      <Bloom size={430} x={W - 40} y={70} rotate={18 + spin} opacity={0.38} />
+      <Bloom size={470} x={30} y={H - 60} rotate={-24 - spin * 0.8} opacity={0.36} />
     </AbsoluteFill>
   );
 };

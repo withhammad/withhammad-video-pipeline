@@ -14,7 +14,9 @@ const Caret: React.FC<{ frame: number; solid: boolean; color?: string }> = ({ fr
 
 /**
  * Comment-composer CTA (inside a Sequence that starts at cta.atMs): the composer slides up, types the keyword,
- * presses "Post", then a DM notification slides in from the top: "<handle>: <reply>".
+ * presses "Post", then a DM notification slides in from the top: "<handle>: <reply>". Placement keeps clear of
+ * the Reels UI: the composer sits between the chin and the captions (top ~0.585H, x 0.05-0.82W, away from the
+ * right rail) and the notification starts below the header (top 150 px).
  */
 export const CommentCta: React.FC<{ cta: Cta }> = ({ cta }) => {
   const frame = useCurrentFrame();
@@ -34,10 +36,10 @@ export const CommentCta: React.FC<{ cta: Cta }> = ({ cta }) => {
     <>
       <div
         style={{
-          position: "absolute", left: 40, width: W - 80, top: H * 0.8 - 34, height: 68, borderRadius: 34,
+          position: "absolute", left: Math.round(W * 0.05), width: Math.round(W * 0.77), top: Math.round(H * 0.585), height: 68, borderRadius: 34,
           background: "rgba(255,255,255,0.98)", boxShadow: "0 16px 40px rgba(10,12,20,0.35)",
           display: "flex", alignItems: "center", padding: "0 10px 0 12px", gap: 14,
-          transform: `translateY(${(1 - inP) * 140}px)`, opacity: interpolate(frame, [0, 2], [0, 1], clamp),
+          transform: `translateY(${(1 - inP) * 90}px) scale(${0.94 + 0.06 * inP})`, opacity: interpolate(frame, [0, 2], [0, 1], clamp),
         }}
       >
         <div style={{ width: 46, height: 46, borderRadius: 23, background: "linear-gradient(135deg,#d6d9e0,#aab0bd)", flexShrink: 0 }} />
@@ -58,10 +60,10 @@ export const CommentCta: React.FC<{ cta: Cta }> = ({ cta }) => {
       {nf >= 0 ? (
         <div
           style={{
-            position: "absolute", left: 28, width: W - 56, top: 46, height: 92, borderRadius: 26,
+            position: "absolute", left: 28, width: W - 56, top: 150, height: 92, borderRadius: 26,
             background: "rgba(250,250,252,0.97)", boxShadow: "0 18px 44px rgba(10,12,20,0.32)",
             display: "flex", alignItems: "center", gap: 16, padding: "0 22px",
-            transform: `translateY(${(1 - notif) * -170}px)`,
+            transform: `translateY(${(1 - notif) * -280}px)`, opacity: interpolate(notif, [0, 0.25], [0, 1], clamp),
           }}
         >
           <div style={{ width: 56, height: 56, borderRadius: 28, flexShrink: 0, background: "linear-gradient(135deg,#ef5ab0,#f6a04d)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontFamily: SANS, fontWeight: 800, fontSize: 22 }}>
@@ -77,7 +79,8 @@ export const CommentCta: React.FC<{ cta: Cta }> = ({ cta }) => {
   );
 };
 
-/** End card over the blurred, green-tinted presenter: pill, "Comment KEYWORD", a comment box typing the keyword. */
+/** End card over the blurred presenter, light and frosted like the reference (dark "Comment", deep-green italic
+ *  serif keyword, green tint only in the lower third): pill, "Comment KEYWORD", a comment box typing the keyword. */
 export const EndCard: React.FC<{ keyword: string; pill?: string }> = ({ keyword, pill }) => {
   const frame = useCurrentFrame();
   const ms = toMs(frame);
@@ -96,25 +99,27 @@ export const EndCard: React.FC<{ keyword: string; pill?: string }> = ({ keyword,
   const draw = interpolate(ms, [700, 1050], [0, 1], { ...clamp, easing: EXPO_OUT });
   return (
     <>
-      <div style={{ position: "absolute", inset: 0, background: `rgba(64,98,22,${0.36 * tint})` }} />
-      <div style={{ position: "absolute", inset: 0, background: `linear-gradient(180deg, rgba(255,255,255,${0.32 * tint}) 0%, rgba(255,255,255,${0.12 * tint}) 100%)` }} />
+      <div style={{ position: "absolute", inset: 0, background: `rgba(255,255,255,${0.58 * tint})` }} />
+      <div style={{ position: "absolute", inset: 0, background: `linear-gradient(180deg, rgba(158,201,110,0) 0%, rgba(158,201,110,0) 64%, rgba(140,190,92,${0.42 * tint}) 100%)` }} />
+      {/* A soft frosted light behind the headline keeps it legible whatever the blurred take shows there. */}
+      <div style={{ position: "absolute", inset: 0, background: `radial-gradient(48% 9% at 50% ${((H * 0.355 + 50) / H) * 100}%, rgba(255,255,255,${0.88 * tint}) 0%, rgba(255,255,255,${0.6 * tint}) 55%, rgba(255,255,255,0) 100%)` }} />
       <div style={{ position: "absolute", top: H * 0.3, width: W, display: "flex", justifyContent: "center", opacity: pPill, transform: `translateY(${(1 - pPill) * 16}px)` }}>
-        <div style={{ padding: "8px 18px", borderRadius: 18, background: "rgba(255,255,255,0.92)", fontFamily: SANS, fontWeight: 800, fontSize: 16, letterSpacing: 2.4, color: DEEP_GREEN }}>
+        <div style={{ padding: "8px 18px", borderRadius: 18, background: "rgba(255,255,255,0.95)", border: "1px solid rgba(80,119,26,0.28)", boxShadow: "0 6px 16px rgba(40,60,20,0.14)", fontFamily: SANS, fontWeight: 800, fontSize: 16, letterSpacing: 2.4, color: DEEP_GREEN }}>
           {"• "}
           {(pill ?? "FREE GUIDE").toUpperCase()}
         </div>
       </div>
       <div style={{ position: "absolute", top: H * 0.355, width: W, textAlign: "center", whiteSpace: "nowrap" }}>
-        <span style={{ display: "inline-block", fontFamily: SANS, fontWeight: 800, fontSize: 60, color: "white", textShadow: "0 3px 18px rgba(0,0,0,0.35)", opacity: pHead, transform: `translateY(${(1 - pHead) * 20}px)` }}>
+        <span style={{ display: "inline-block", fontFamily: SANS, fontWeight: 800, fontSize: 60, color: INK, opacity: pHead, transform: `translateY(${(1 - pHead) * 20}px)` }}>
           Comment
         </span>{" "}
-        <span style={{ display: "inline-block", marginLeft: 16, fontFamily: SERIF, fontStyle: "italic", fontSize: 84, color: "#e9f7cf", textShadow: "0 3px 18px rgba(0,0,0,0.35)", opacity: pKey, transform: `translateY(${(1 - pKey) * 20}px) scale(${0.85 + 0.15 * pKey})` }}>
+        <span style={{ display: "inline-block", marginLeft: 16, fontFamily: SERIF, fontStyle: "italic", fontSize: 84, color: DEEP_GREEN, opacity: pKey, transform: `translateY(${(1 - pKey) * 20}px) scale(${0.85 + 0.15 * pKey})` }}>
           {keyword}
         </span>
       </div>
       <svg width={120} height={120} viewBox="0 0 120 120" style={{ position: "absolute", left: 70, top: H * 0.44, opacity: draw }}>
-        <path d="M 20 10 C 10 60, 40 90, 92 96" fill="none" stroke="white" strokeWidth={6} strokeLinecap="round" strokeDasharray={160} strokeDashoffset={160 * (1 - draw)} />
-        <path d="M 76 82 L 94 96 L 76 110" fill="none" stroke="white" strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" opacity={draw > 0.9 ? 1 : 0} />
+        <path d="M 20 10 C 10 60, 40 90, 92 96" fill="none" stroke={DEEP_GREEN} strokeWidth={6} strokeLinecap="round" strokeDasharray={160} strokeDashoffset={160 * (1 - draw)} />
+        <path d="M 76 82 L 94 96 L 76 110" fill="none" stroke={DEEP_GREEN} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" opacity={draw > 0.9 ? 1 : 0} />
       </svg>
       <div
         style={{

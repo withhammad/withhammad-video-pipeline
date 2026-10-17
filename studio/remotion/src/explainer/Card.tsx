@@ -15,12 +15,24 @@ const lastFrame = (rec: Recording) => {
   return Math.max(0, Math.floor(((rec.durationMs - rec.inMs) / 1000) * FPS / rate) - 2);
 };
 
-/** The push-in zoom a card shows at scene-relative ms (also used to freeze the previous card's last look). */
+const pushProgress = (rec: Recording | undefined, ms: number) => {
+  const push = rec?.pushIn;
+  if (!push) return 0;
+  return interpolate(ms, [push.atMs, push.atMs + (push.durMs ?? 520)], [0, 1], { ...clamp, easing: IN_OUT });
+};
+
+/** The push-in zoom a card's content shows at scene-relative ms (also used to freeze the previous card's last look). */
 export const pushZoom = (rec: Recording | undefined, ms: number) => {
   const push = rec?.pushIn;
-  if (!push) return 1;
-  return 1 + (push.scale - 1) * interpolate(ms, [push.atMs, push.atMs + (push.durMs ?? 520)], [0, 1], { ...clamp, easing: IN_OUT });
+  if (!push || push.mode === "card") return 1;
+  return 1 + (push.scale - 1) * pushProgress(rec, ms);
 };
+
+/** The card-level pop ("Remotion pops the box out"): the whole card scales, the recording stays at 1.0. */
+const cardPop = (rec: Recording | undefined, ms: number) => (rec?.pushIn?.mode === "card" ? 1 + (rec.pushIn.scale - 1) * pushProgress(rec, ms) : 1);
+
+/** Recording edges fade into the card (a scrolling window), so the 4:5 cover crop never slices a line of text. */
+const EDGE_FADE = "linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%)";
 export const pushOrigin = (rec: Recording | undefined) => (rec?.pushIn ? `${rec.pushIn.originX * 100}% ${rec.pushIn.originY * 100}%` : "50% 50%");
 
 const RecordingVideo: React.FC<{ rec: Recording; holdAt?: number }> = ({ rec, holdAt }) => {
@@ -82,7 +94,7 @@ export const RecordingCard: React.FC<{
 }> = ({ box, fromBox, rec, entrance, label, highlightMs, prev, children }) => {
   const frame = useCurrentFrame();
   const ms = toMs(frame);
-  const m = fromBox ? interpolate(ms, [0, 320], [0, 1], { ...clamp, easing: IN_OUT }) : 1;
+  const m = fromBox ? interpolate(ms, [0, 220], [0, 1], { ...clamp, easing: IN_OUT }) : 1;
   const b: Box = fromBox
     ? { left: lerp(fromBox.left, box.left, m), top: lerp(fromBox.top, box.top, m), width: lerp(fromBox.width, box.width, m), height: lerp(fromBox.height, box.height, m) }
     : box;
@@ -91,12 +103,15 @@ export const RecordingCard: React.FC<{
   // In-card swap: the new recording dissolves in over the previous card's frozen last frame (never an empty card).
   const swapT = entrance === "swap" ? interpolate(ms, [-60, 180], [0, 1], { ...clamp, easing: EXPO_OUT }) : 1;
   const glow = highlightMs !== undefined ? interpolate(ms, [highlightMs, highlightMs + 260], [0, 1], { ...clamp, easing: IN_OUT }) : 0;
+  const enter = entranceStyle(entrance, ms, b);
+  const pop = cardPop(rec, ms);
 
   return (
     <div
       style={{
         position: "absolute", left: b.left, top: b.top, width: b.width, height: b.height,
-        transformOrigin: "50% 50%", ...entranceStyle(entrance, ms, b),
+        transformOrigin: "50% 50%", ...enter,
+        transform: [enter.transform, pop !== 1 ? `scale(${pop.toFixed(4)})` : ""].filter(Boolean).join(" ") || undefined,
       }}
     >
       <div
@@ -106,23 +121,25 @@ export const RecordingCard: React.FC<{
           border: "1px solid rgba(255,255,255,0.06)",
         }}
       >
-        {entrance === "swap" && prev && swapT < 1 ? (
-          <div style={{ position: "absolute", inset: 0, transform: `scale(${prev.zoom})`, transformOrigin: prev.origin }}>
-            <RecordingVideo rec={prev.rec} holdAt={Math.max(0, prev.frames - 1)} />
-          </div>
-        ) : null}
-        {rec ? (
-          <div
-            style={{
-              position: "absolute", inset: 0,
-              transform: `scale(${zoom * (1.03 - 0.03 * swapT)})`,
-              transformOrigin: pushOrigin(rec),
-              opacity: swapT,
-            }}
-          >
-            <RecordingVideo rec={rec} />
-          </div>
-        ) : null}
+        <div style={{ position: "absolute", inset: 0, overflow: "hidden", WebkitMaskImage: EDGE_FADE, maskImage: EDGE_FADE }}>
+          {entrance === "swap" && prev && swapT < 1 ? (
+            <div style={{ position: "absolute", inset: 0, transform: `scale(${prev.zoom})`, transformOrigin: prev.origin }}>
+              <RecordingVideo rec={prev.rec} holdAt={Math.max(0, prev.frames - 1)} />
+            </div>
+          ) : null}
+          {rec ? (
+            <div
+              style={{
+                position: "absolute", inset: 0,
+                transform: `scale(${zoom * (1.03 - 0.03 * swapT)})`,
+                transformOrigin: pushOrigin(rec),
+                opacity: swapT,
+              }}
+            >
+              <RecordingVideo rec={rec} />
+            </div>
+          ) : null}
+        </div>
         {children}
       </div>
       {label ? (
