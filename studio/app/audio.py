@@ -36,22 +36,40 @@ VOICE_BAND = (1000.0, 4000.0)
 OCTAVE_BANDS = ((31, 63), (63, 125), (125, 250), (250, 500), (500, 1000),
                 (1000, 2000), (2000, 4000), (4000, 8000), (8000, 16000))
 
-# The HeyGen clone measured ~10 dB short of a natural voice at 1-2 kHz, ~5 dB short at 2-4 kHz
-# and ~5 dB heavy at 63-125 Hz (job 09a9d211fff0 vs the reference reel), so the chain trims the
-# boom, keeps the 125-250 Hz body (the warmth) and opens clarity/presence instead of adding lows.
-# Of five measured variants this one landed closest to the natural voice's octave balance
-# (mean deviation 6.4 dB -> 2.6 dB) without exceeding it in any band.
+# Voice chain C2b (2026-10-17, third voice complaint on job 09a9d211fff0; measured, not guessed).
+# - The old chain (C1) rested on a premise the measurements refuted ("HeyGen takes are +5 dB bright at 8-12 kHz";
+#   the raw take is 0.2 dB under the reference there): its 10 kHz cut left a -5.2 dB consonant hole at 6.3 kHz,
+#   its 1.2/3.5 kHz bells put 2.5 kHz +3.7 dB forward, its deesser changed nothing (0.00 dB at the 5th/50th/95th
+#   percentile), its 2.2:1 compressor left word-to-word jumps (word RMS SD 4.03 dB, reference 3.58) and its
+#   -20 dB room send blurred consonant onsets by 13 % (onset p95 10.16 -> 8.81 dB per 5 ms).
+# - C2 (brief) fixed the tonal balance (mean octave error 125 Hz-8 kHz 1.20 -> 0.63 dB, 6.3 kHz -5.2 -> -0.7 dB)
+#   and the dynamics (word RMS SD 3.40 dB, mix LRA 3.5 -> 1.8 LU with tightened pauses), but put 8-16 kHz
+#   +3.6 dB over the reference and its esses p99 +0.6 dB over it (voice_gates metrics).
+# - C2b = C2 + a 9 kHz -5 dB shelf + a working split-band de-esser. On the tightened REA take: 8-16 kHz -1.1 dB
+#   vs the reference (gate +-2), esses p99 -2.1 dB under it (gate <= 0), every octave 125 Hz-16 kHz within
+#   1.2 dB of the reference voice. 0.85 s for a 20 s take incl. the input-level pass (C1 with room: 0.68 s).
+# - Dry: no room send (VOICE_ROOM_DB None). Creator voices are dry, and the send cost consonant definition.
+# What remains is the source: TTS over-periodicity (HNR 11 vs ~7.5 dB) and a 15.6 kHz band limit. No filter fixes
+# those; the pace problem (13-20 % dead air) is fixed by app.tighten before this chain runs.
 VOICE_CHAIN = (
     'highpass=f=90:poles=2',
-    'lowshelf=f=160:g=-4:t=q:w=0.7',
-    'equalizer=f=300:t=q:w=1.2:g=-5.5',    # verified: 250-500 Hz still +1.8 dB boxy vs the reference at -4
-    'equalizer=f=1200:t=q:w=0.7:g=5',
-    'equalizer=f=3500:t=q:w=1.2:g=2',
-    'equalizer=f=10000:t=q:w=1:g=-5',      # verified: HeyGen takes are +5 dB bright at 8-12 kHz vs the reference
-    'deesser=i=0.3:m=0.5:f=0.5',
-    'acompressor=threshold=0.08:ratio=2.2:attack=15:release=180:knee=3',
+    'lowshelf=f=140:g=-4:t=q:w=0.7',
+    # dynamic de-mud: cuts at 320 Hz only while that band is loud (boxy vowels), else flat
+    'adynamicequalizer=dfrequency=320:dqfactor=1.4:tfrequency=320:tqfactor=1.4:mode=cutabove:ratio=3:range=5'
+    ':threshold=0.04:attack=5:release=100',
+    'equalizer=f=1100:t=q:w=1.0:g=6',       # fills the clone's 1-2 kHz hole without the 500-700 Hz honk
+    'equalizer=f=5500:t=q:w=1.2:g=4',       # consonant definition (the old 10 kHz cut dug a hole here)
+    'highshelf=f=9000:t=q:w=0.7:g=-5',      # keeps 8-16 kHz at the reference instead of +3.6 dB over it
+    # split-band de-esser: 4.8 kHz Linkwitz-Riley crossover, a fast 4:1 compressor on the top band only, summed
+    # back (magnitude-flat when idle). Measured on the REA take: esses (top 10 % of 5-9 kHz frames) -2.3 dB
+    # median and -4.5 dB on the loudest tenth, every other frame 0.0 dB. adynamicequalizer at 6.5 kHz managed only
+    # -0.5 to -1.6 dB on esses and started cutting other frames first. Labels dsl/dsh/dsc are reserved here.
+    'acrossover=split=4800:order=4th[dsl][dsh];[dsh]acompressor=threshold=0.025:ratio=4:attack=1:release=40:knee=2[dsc];'
+    '[dsl][dsc]amix=inputs=2:normalize=0',
+    'acompressor=threshold=0.063:ratio=3:attack=8:release=90:knee=4',   # 3:1 glue: evens TTS word-to-word jumps
 )
-VOICE_ROOM_DB = -20.0     # wet level of a 0.3 s small-room IR; None skips it (measured: no clarity cost)
+VOICE_ROOM_DB = None      # dry; a float adds a 0.3 s small-room send at that wet level (dB)
+CHAIN_INPUT_LUFS = -18.0  # input level the chain's dynamic stages are tuned at (HeyGen takes measure about -18)
 VOICE_CREST_DB = 12.0     # limiter ceiling above VOICE_LUFS, keeps master() in linear mode
 
 
@@ -715,15 +733,19 @@ def room_ir(path, rt60=0.32, predelay_s=0.006, seed=11, sr=SR):
 
 
 def enhance_voice(in_video, out_video, target_lufs=VOICE_LUFS, chain=VOICE_CHAIN, room_db=VOICE_ROOM_DB,
-                  crest_db=VOICE_CREST_DB):
-    """Warmer, clearer voice: VOICE_CHAIN (EQ, light de-ess, gentle compression), an optional
-    very low small-room send, a fixed gain to target_lufs (measured in a first pass) and a
-    lookahead limiter crest_db above it (latency-compensated, so sync is untouched).
-    Video stream copied untouched; audio AAC 48 kHz stereo."""
+                  crest_db=VOICE_CREST_DB, input_lufs=CHAIN_INPUT_LUFS):
+    """Clearer voice: a gain to input_lufs (so the chain's dynamic stages see the level they were tuned at),
+    VOICE_CHAIN (EQ, dynamic de-mud and de-ess, compression), an optional small-room send, a fixed gain to
+    target_lufs (measured in a first pass) and a lookahead limiter crest_db above it (latency-compensated,
+    so sync is untouched). Video stream copied untouched; audio AAC 48 kHz stereo."""
     Path(out_video).parent.mkdir(parents=True, exist_ok=True)
+    pre = 0.0
+    if input_lufs is not None:
+        measured = _ebur128(str(in_video))['lufs']
+        pre = max(-20.0, min(20.0, input_lufs - measured)) if math.isfinite(measured) else 0.0
     with tempfile.TemporaryDirectory() as tmp:
         inputs = ['-i', str(in_video)]
-        graph = '[0:a:0]' + ','.join(chain)
+        graph = '[0:a:0]' + ','.join(([f'volume={pre:.2f}dB'] if abs(pre) >= 0.05 else []) + list(chain))
         if room_db is not None:
             ir, ir_gain = room_ir(Path(tmp) / 'room.wav')
             inputs += ['-i', str(ir)]
@@ -739,7 +761,8 @@ def enhance_voice(in_video, out_video, target_lufs=VOICE_LUFS, chain=VOICE_CHAIN
         run(['ffmpeg', '-y', '-hide_banner', '-nostats', *inputs, '-filter_complex', final, '-map', '0:v?',
              '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-ac', '2',
              '-movflags', '+faststart', str(out_video)])
-    return {'gain_db': round(gain, 2), 'room_db': room_db, 'limit_dbfs': round(target_lufs + crest_db, 1),
+    return {'pre_gain_db': round(pre, 2), 'gain_db': round(gain, 2), 'room_db': room_db,
+            'limit_dbfs': round(target_lufs + crest_db, 1),
             'chain': ','.join(chain)}
 
 

@@ -108,3 +108,32 @@ def test_long_cue_splits_at_largest_pause():
         caps.append({'text': w, 'startMs': t, 'endMs': t + 250}); t += 280
     cues = [c.split('\n', 2)[2].replace('\n', ' ') for c in edit_plan.to_srt(caps).strip().split('\n\n')]
     assert cues[0].endswith('inspect') and cues[1].startswith('and it traces')
+
+
+def test_jump_cuts_hide_under_cutaways_first_and_alternate_punch_ins_on_the_rest():
+    # broll 'then' starts at 2500; a cut 100 ms before it pulls the broll onto the cut; 3000 is under the broll;
+    # 1200 and 4300 are on the avatar and alternate 1.06 / 1.00
+    cuts = [{'at_ms': at, 'removed_ms': 160} for at in (1200, 2400, 3000, 4300)]
+    e = edit_plan.build(CAPS, TEMPLATES, 7000, cuts=cuts)
+    s = e['scenes']
+    assert [x['startMs'] for x in s] == [0, 1000, 2400, 4000]
+    assert s[1]['endMs'] == 2400 and s[2]['type'] == 'broll'
+    assert e['jumpCuts'] == [{'atMs': 1200, 'scale': 1.06}, {'atMs': 4300, 'scale': 1.0}]
+    assert [x['atMs'] for x in e['sfx'] if 'whoosh' in x['src']] == [1000 - 270, 2400 - 270]
+    assert s[1]['highlight']['delayMs'] == 1000
+
+
+def test_a_cut_just_after_a_broll_ends_extends_the_broll_over_it():
+    cuts = [{'at_ms': 4080, 'removed_ms': 120}]              # broll ends at 4000: the avatar would jump 2 frames in
+    e = edit_plan.build(CAPS, TEMPLATES, 7000, cuts=cuts)
+    assert e['scenes'][2]['endMs'] == 4080 == e['scenes'][3]['startMs']
+    assert e['jumpCuts'] == []                               # the avatar comes back on the post-cut frame: hidden
+    plain = edit_plan.build(CAPS, TEMPLATES, 7000)
+    assert plain['scenes'][3]['startMs'] == 4000 and 'jumpCuts' not in plain
+
+
+def test_opaque_inserts_hide_cuts_but_alpha_overlays_do_not():
+    scenes = [{'type': 'split', 'startMs': 0, 'endMs': 5000}]
+    opaque = [{'startMs': 900, 'endMs': 1500, 'alpha': False}]
+    assert edit_plan.jump_cuts([1000, 2000], scenes, opaque) == [{'atMs': 2000, 'scale': 1.06}]
+    assert len(edit_plan.jump_cuts([1000, 2000], scenes, [dict(opaque[0], alpha=True)])) == 2
