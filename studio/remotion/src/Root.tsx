@@ -10,6 +10,7 @@ import {
   SHEET_W,
   sheetHeight,
 } from "./Cover";
+import { ExplainerComposition } from "./explainer/Explainer";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={coverSheetDefaults}
         calculateMetadata={calculateCoverSheetMetadata}
       />
+      <ExplainerComposition />
     </>
   );
 };
