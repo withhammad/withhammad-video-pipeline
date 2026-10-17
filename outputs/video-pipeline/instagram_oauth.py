@@ -92,6 +92,11 @@ def exchange(code, expected):
             'account_type': me.get('account_type'), 'expires_in': long.get('expires_in')}
 
 
+def note(message):
+    """Timestamped progress line for the log. Never pass codes, tokens or full callback URLs."""
+    print(time.strftime('%H:%M:%S ') + message, flush=True)
+
+
 def make_handler(state, expected, outcome):
     class Callback(BaseHTTPRequestHandler):
         def log_message(self, *_):
@@ -100,9 +105,16 @@ def make_handler(state, expected, outcome):
         def do_GET(self):
             parsed = urlparse(self.path)
             fields = parse_qs(parsed.query)
-            if parsed.path != '/instagram/callback' or fields.get('state', [''])[0] != state:
+            if parsed.path != '/instagram/callback':
+                note(f'Ignored a request for {parsed.path[:40]} (not the Instagram callback).')
                 self.send_error(400, 'Invalid callback')
                 return
+            if fields.get('state', [''])[0] != state:
+                note('Ignored a callback from an older login link (state mismatch). Use the newest link.')
+                self.respond(400, 'This login link is from an earlier attempt. Open the newest link and '
+                                  'authorize again.')
+                return
+            note('Callback for the current link received.')
             if 'error' in fields or 'error_reason' in fields:
                 outcome['error'] = str(fields.get('error_reason', fields.get('error')))
                 self.respond(400, 'Instagram authorization was declined.')
@@ -117,7 +129,12 @@ def make_handler(state, expected, outcome):
                 self.respond(200, f'Instagram @{expected} connected. You can close this tab.')
             except Exception as error:  # noqa: BLE001 - surfaced to the caller
                 outcome['error'] = str(error)
-                self.respond(400, 'Instagram connection failed: ' + str(error))
+                hint = ''
+                if 'Wrong Instagram account' in str(error):
+                    hint = (f' This browser window is signed in to another Instagram account. Log out of it here '
+                            f'(or use an Incognito window), log in as @{expected} by typing the username yourself, '
+                            f'and open a new login link.')
+                self.respond(400, 'Instagram connection failed: ' + str(error) + hint)
 
         def respond(self, status, message):
             body = ('<html><body><h2>' + message + '</h2></body></html>').encode()
@@ -127,6 +144,21 @@ def make_handler(state, expected, outcome):
             self.end_headers()
             self.wfile.write(body)
     return Callback
+
+
+class CallbackServer(HTTPServer):
+    """Logs TLS handshakes the browser abandons: that is the self-signed-certificate warning page."""
+    warned = False
+
+    def get_request(self):
+        try:
+            return super().get_request()
+        except ssl.SSLError:
+            if not self.warned:
+                note('The browser reached the listener and is showing the certificate warning: '
+                     'click Advanced, then Proceed to 127.0.0.1.')
+                self.warned = True
+            raise
 
 
 def main():
@@ -144,7 +176,7 @@ def main():
     ensure_cert()
     state = args.state or secrets.token_urlsafe(24)
     outcome = {}
-    server = HTTPServer(('127.0.0.1', 8766), make_handler(state, expected, outcome))
+    server = CallbackServer(('127.0.0.1', 8766), make_handler(state, expected, outcome))
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     context.load_cert_chain(str(CERT), str(KEY))
     server.socket = context.wrap_socket(server.socket, server_side=True)
@@ -157,7 +189,7 @@ def main():
         print(url, flush=True)
     else:
         subprocess.run(['open', '-a', 'Google Chrome', url], check=True)
-    print(f'Waiting for @{expected} authorization in Chrome.', flush=True)
+    note(f'Waiting for @{expected} authorization (listener open for {args.timeout} s).')
     deadline = time.monotonic() + args.timeout
     server.timeout = 5
     while 'result' not in outcome and 'error' not in outcome and time.monotonic() < deadline:
@@ -165,7 +197,7 @@ def main():
     if 'result' in outcome:
         print(json.dumps(outcome['result']), flush=True)
         return 0
-    print('Instagram authorization failed: ' + outcome.get('error', 'timed out'), flush=True)
+    note('Instagram authorization failed: ' + outcome.get('error', 'timed out'))
     return 1
 
 
