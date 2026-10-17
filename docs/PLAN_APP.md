@@ -37,7 +37,7 @@ Fastest to a working flow and free, but it is a workflow tool, not "an app"; UI 
 
 ## Milestones (each: code → tests → commit → push → deploy → verify on VPS)
 
-- S1 Scaffold: Docker Compose, FastAPI, job table, `/jobs` POST (URL or image), web UI list. Deploy behind Nginx at `studio.withhammad.com` (or a path) with basic auth.
+- S1 Scaffold — **done 2026-10-17** (`studio/`, deployed, 8 tests green): Docker Compose, FastAPI, job table, `/jobs` POST (URL or image), web UI list. Deploy behind Nginx at `studio.withhammad.com` (or a path) with basic auth.
 - S2 Intake + transcribe (stages 1–2) with job folder and artifacts.
 - S3 Lesson generation (stage 3) with Opus 5.5; prompt and output schema fixed in repo.
 - S4 HeyGen render (stage 4) once API key + look are confirmed.

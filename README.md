@@ -10,6 +10,7 @@ third-party scheduler sits in the publishing path.
 ## Layout
 
 ```
+studio/                       the self-hosted app (FastAPI + worker + SQLite, Docker Compose) — see docs/PLAN_APP.md
 outputs/video-pipeline/
   pipeline.py                 intake + readiness checker (status / enqueue)
   config.json                 connection state for every destination (no secrets)
