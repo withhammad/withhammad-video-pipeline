@@ -44,10 +44,10 @@ OCTAVE_BANDS = ((31, 63), (63, 125), (125, 250), (250, 500), (500, 1000),
 VOICE_CHAIN = (
     'highpass=f=90:poles=2',
     'lowshelf=f=160:g=-4:t=q:w=0.7',
-    'equalizer=f=300:t=q:w=1.2:g=-1.5',
+    'equalizer=f=300:t=q:w=1.2:g=-4',      # critic pass: 250-500 Hz read +2.6 dB boxy vs the reference
     'equalizer=f=1200:t=q:w=0.7:g=5',
     'equalizer=f=3500:t=q:w=1.2:g=2',
-    'highshelf=f=7500:g=3:t=q:w=0.7',
+    'highshelf=f=7500:g=1:t=q:w=0.7',      # critic pass: +3 dB exposed TTS hiss on earbuds
     'deesser=i=0.3:m=0.5:f=0.5',
     'acompressor=threshold=0.08:ratio=2.2:attack=15:release=180:knee=3',
 )
@@ -852,3 +852,42 @@ def main(argv=None):
 
 if __name__ == '__main__':
     main()
+
+
+# ----------------------------------------------------------------------------- voice activity
+
+def voice_activity(path, threshold_dbfs=-40.0, frame_ms=10, min_gap_ms=120, min_span_ms=60):
+    """Speech spans [(start_ms, end_ms)] from the voice track's 10 ms RMS. Whisper word times fold pauses
+    into the next word, so captions, ducking and SFX placement use these measured spans instead."""
+    x = decode(path, sr=16000, channels=1)
+    x = x.reshape(-1) if x.ndim > 1 else x
+    hop = int(16000 * frame_ms / 1000)
+    n = len(x) // hop
+    if n == 0:
+        return []
+    rms = np.sqrt(np.mean(x[: n * hop].reshape(n, hop) ** 2, axis=1) + 1e-12)
+    active = 20 * np.log10(rms) > threshold_dbfs
+    spans, start = [], None
+    for i, a in enumerate(active):
+        if a and start is None:
+            start = i
+        elif not a and start is not None:
+            spans.append([start * frame_ms, i * frame_ms]); start = None
+    if start is not None:
+        spans.append([start * frame_ms, n * frame_ms])
+    merged = []
+    for s0, s1 in spans:
+        if merged and s0 - merged[-1][1] < min_gap_ms:
+            merged[-1][1] = s1
+        else:
+            merged.append([s0, s1])
+    return [tuple(s) for s in merged if s[1] - s[0] >= min_span_ms]
+
+
+def trim_lead_in(in_video, out_video, keep_ms=40):
+    """Cut the silent lead-in (HeyGen starts ~300 ms before the first word) so the hook starts on frame 0."""
+    spans = voice_activity(in_video)
+    start_s = max(0.0, (spans[0][0] - keep_ms) / 1000) if spans else 0.0
+    run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{start_s:.3f}', '-i', str(in_video), '-c:v', 'libx264',
+         '-crf', '15', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', str(out_video)])
+    return start_s

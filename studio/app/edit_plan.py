@@ -8,7 +8,8 @@ import json
 import re
 from pathlib import Path
 
-WHOOSH_LEAD_MS = 100
+WHOOSH_LEAD_MS = 270      # the whoosh sample peaks ~210 ms in; this puts the peak on the cut, not the next word
+GAP_FOR_WHOOSH_MS = 150   # a cut inside continuous speech gets a soft tick instead of a whoosh
 RISER_MS = 1200
 
 
@@ -26,24 +27,35 @@ def find_word(captions, word, after_ms=0, occurrence=1):
     raise ValueError(f'anchor word {word!r} not found after {after_ms} ms')
 
 
-def build(captions, templates, duration_ms, *, emphasis=(), music=None, title_insert=None, sfx_volumes=None):
+def build(captions, templates, duration_ms, *, emphasis=(), music=None, title_insert=None, sfx_volumes=None,
+          speech=None, fps=30):
     """templates: [{'anchor': None|'word', 'occurrence': 1, 'scene': {...without startMs/endMs}}, ...]"""
-    vol = {'pop': 0.2, 'whoosh': 0.35, 'riser': 0.3, **(sfx_volumes or {})}
+    vol = {'pop': 0.2, 'whoosh': 0.2, 'tick': 0.15, 'riser': 0.3, **(sfx_volumes or {})}
     starts, cursor = [], 0
     for t in templates:
         start = 0 if t.get('anchor') is None else find_word(captions, t['anchor'], cursor, t.get('occurrence', 1))
         starts.append(start)
         cursor = start + 1
+    last_frame_end = -(-duration_ms * fps // 1000) * 1000 / fps + 1   # cover the composition's final frame
     scenes = []
     for i, t in enumerate(templates):
-        end = starts[i + 1] if i + 1 < len(templates) else duration_ms
-        scenes.append({**t['scene'], 'startMs': starts[i], 'endMs': end})
+        end = starts[i + 1] if i + 1 < len(templates) else round(last_frame_end)
+        scene = {**t['scene'], 'startMs': starts[i], 'endMs': end}
+        hl = scene.get('highlight')
+        if hl and 'atWord' in hl:   # draw the box as the word is spoken
+            hl = dict(hl)
+            at = find_word(captions, hl.pop('atWord'), starts[i])
+            hl['delayMs'] = max(0, at - starts[i] + hl.pop('offsetMs', 0))
+            scene['highlight'] = hl
+        scenes.append(scene)
     sfx = []
     for s in scenes:
         if s['type'] == 'title':
             sfx.append({'src': 'job/sfx_pop.wav', 'atMs': s['startMs'] + 160, 'volume': vol['pop']})
-        elif s['type'] == 'end':
+        elif s['type'] == 'end' and (s.get('word') or s.get('keyword')):
             sfx.append({'src': 'job/sfx_riser.wav', 'atMs': max(0, s['startMs'] - RISER_MS), 'volume': vol['riser']})
+        elif speech is not None and not _quiet_around(speech, s['startMs'], GAP_FOR_WHOOSH_MS):
+            sfx.append({'src': 'job/sfx_tick.wav', 'atMs': s['startMs'], 'volume': vol['tick']})
         else:
             sfx.append({'src': 'job/sfx_whoosh.wav', 'atMs': max(0, s['startMs'] - WHOOSH_LEAD_MS), 'volume': vol['whoosh']})
     inserts = []
@@ -54,24 +66,86 @@ def build(captions, templates, duration_ms, *, emphasis=(), music=None, title_in
             'durationMs': duration_ms, 'music': music, 'sfx': sfx, 'inserts': inserts}
 
 
-def to_srt(captions, max_words=7, max_gap_ms=600):
-    """Sentence-ish subtitle cues for platforms (accessibility): <=7 words, split at punctuation and pauses."""
+def _quiet_around(speech, at_ms, gap_ms):
+    """True when no speech span overlaps [at_ms - gap_ms, at_ms] (room for a whoosh before the cut)."""
+    return not any(s0 < at_ms and s1 > at_ms - gap_ms for s0, s1 in speech)
+
+
+def snap_onsets(captions, speech, max_shift_ms=900):
+    """Move each word start to the first measured voice onset at or after it (Whisper starts words early
+    after pauses), and end a word before a pause instead of across it."""
+    out = [dict(c) for c in captions]
+    for i, c in enumerate(out):
+        prev_end = out[i - 1]['endMs'] if i else 0
+        orphan = [s for s in speech if s[0] >= prev_end and s[1] <= c['startMs'] and s[1] - s[0] >= 200]
+        if orphan:   # speech nobody was assigned to precedes this word: the word starts there
+            c['endMs'] = max(c['endMs'] - (c['startMs'] - orphan[0][0]), orphan[0][0] + 80)
+            c['startMs'] = orphan[0][0]
+            continue
+        for s0, s1 in speech:
+            if s1 <= c['startMs']:
+                continue
+            onset = max(c['startMs'], s0)
+            if onset - c['startMs'] <= max_shift_ms and onset < c['endMs']:
+                c['startMs'] = onset
+            break
+        nxt = out[i + 1]['startMs'] if i + 1 < len(out) else None
+        for s0, s1 in speech:
+            if s0 <= c['startMs'] < s1:
+                if c['endMs'] > s1 and (nxt is None or nxt >= s1):
+                    c['endMs'] = max(c['startMs'] + 80, s1)
+                break
+        c['timestampMs'] = (c['startMs'] + c['endMs']) // 2
+    return out
+
+
+def to_srt(captions, duration_ms=None, max_chars=84, line_chars=42, min_cue_ms=800, max_gap_ms=250):
+    """Readable subtitle cues: always break at sentence ends and pauses, at commas once a cue has 3+ words,
+    wrap to two lines of at most 42 characters, merge cues shorter than 0.8 s, extend the last cue to the end."""
     cues, cur = [], []
     for c in captions:
-        if cur and (len(cur) >= max_words or c['startMs'] - cur[-1]['endMs'] > max_gap_ms):
-            cues.append(cur); cur = []
+        text = c['text'].strip()
+        if cur:
+            joined = ' '.join(x['text'].strip() for x in cur) + ' ' + text
+            if len(joined) > max_chars or c['startMs'] - cur[-1]['endMs'] > max_gap_ms:
+                cues.append(cur); cur = []
         cur.append(c)
-        if re.search(r'[.!?,]$', c['text'].strip()) and len(cur) >= 3:
+        if re.search(r'[.!?]$', text) or (text.endswith(',') and len(cur) >= 3):
             cues.append(cur); cur = []
     if cur:
         cues.append(cur)
+    merged = []
+    for cue in cues:
+        prev = merged[-1] if merged else None
+        short = cue[-1]['endMs'] - cue[0]['startMs'] < min_cue_ms
+        fits = prev is not None and len(' '.join(c['text'].strip() for c in prev + cue)) <= max_chars
+        sentence_end = prev is not None and re.search(r'[.!?]$', prev[-1]['text'].strip())
+        if short and fits and not sentence_end and cue[0]['startMs'] - prev[-1]['endMs'] <= 600:
+            merged[-1] = prev + cue
+        else:
+            merged.append(cue)
+    def wrap(text):
+        if len(text) <= line_chars:
+            return text
+        words, best = text.split(), None
+        for k in range(1, len(words)):
+            a, b = ' '.join(words[:k]), ' '.join(words[k:])
+            if len(a) <= line_chars and len(b) <= line_chars:
+                score = abs(len(a) - len(b))
+                best = (score, a, b) if best is None or score < best[0] else best
+        return f'{best[1]}\n{best[2]}' if best else text
     def ts(ms):
-        h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s, ms = divmod(ms, 1000)
+        ms = int(ms); h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s, ms = divmod(ms, 1000)
         return f'{h:02}:{m:02}:{s:02},{ms:03}'
     out = []
-    for i, cue in enumerate(cues, 1):
-        text = ' '.join(c['text'].strip() for c in cue)
-        out.append(f"{i}\n{ts(cue[0]['startMs'])} --> {ts(cue[-1]['endMs'])}\n{text}\n")
+    for i, cue in enumerate(merged, 1):
+        start = cue[0]['startMs']
+        if i < len(merged):   # short cues borrow display time from the following gap
+            end = max(cue[-1]['endMs'], min(start + min_cue_ms, merged[i][0]['startMs'] - 40))
+        else:
+            end = cue[-1]['endMs'] if duration_ms is None else max(cue[-1]['endMs'], duration_ms)
+        text = wrap(' '.join(c['text'].strip() for c in cue))
+        out.append(f"{i}\n{ts(cue[0]['startMs'])} --> {ts(end)}\n{text}\n")
     return '\n'.join(out)
 
 
@@ -79,4 +153,4 @@ def write(job_dir, edit, srt=True):
     job_dir = Path(job_dir)
     (job_dir / 'edit.json').write_text(json.dumps(edit, indent=1))
     if srt:
-        (job_dir / 'captions.srt').write_text(to_srt(edit['captions']))
+        (job_dir / 'captions.srt').write_text(to_srt(edit['captions'], duration_ms=edit['durationMs']))

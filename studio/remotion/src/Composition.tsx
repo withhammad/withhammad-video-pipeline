@@ -28,7 +28,6 @@ import {
   punchTriggers,
   sanitizeEdit,
   Scene,
-  sceneAt,
 } from "./edit";
 import type { Caption } from "@remotion/captions";
 import { fontsReady } from "./fonts";
@@ -38,6 +37,8 @@ const W = 720;
 const H = 1280;
 const BLUE = "#2f6bff";
 const BLUE_LIGHT = "#7ea4ff";
+/** Emphasis text on light scenes: BLUE fails 4.5:1 there; this measures 5.6–6.9:1. */
+const BLUE_TEXT = "#1e40af";
 const SANS = "'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif";
 const SERIF = "'Instrument Serif', 'New York', 'Iowan Old Style', Palatino, Georgia, 'Times New Roman', serif";
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
@@ -47,12 +48,16 @@ const FRAME_MS = 1000 / FPS;
 const IMG_ASPECT = 1280 / 800;
 
 /** The presenter sits this far down the frame while a card is on screen (split and title scenes). */
-const LOWERED_PX = Math.round(H * 0.36);
+/** Keeps the mouth above the bottom-20% platform UI band while cards sit on top. */
+const LOWERED_PX = Math.round(H * 0.32);
 /** Avatar zoom origin: the face (eye line of the HeyGen framing). */
 const FACE_ORIGIN = "50% 38%";
 
 const toMs = (frame: number, fps: number) => (frame / fps) * 1000;
 const toFrame = (ms: number, fps: number) => Math.round((ms / 1000) * fps);
+/** Same rounding as the scene Sequences, so layers never disagree for a frame at a cut. */
+const sceneAtFrame = (scenes: Scene[], frame: number, fps: number) =>
+  scenes.find((s) => frame >= toFrame(s.startMs, fps) && frame < toFrame(s.endMs, fps));
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 const clampN = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
@@ -116,7 +121,7 @@ const AvatarLayer: React.FC<{ edit: EditProps; punches: ReturnType<typeof punchT
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const ms = toMs(frame, fps);
-  const scene = sceneAt(edit.scenes, ms);
+  const scene = sceneAtFrame(edit.scenes, frame, fps);
   const lowered = scene?.type === "split" || scene?.type === "title";
   const since = scene ? ms - scene.startMs : 0;
   const push = 1 + 0.04 * clampN(ms / Math.max(1, edit.durationMs), 0, 1);
@@ -150,7 +155,7 @@ const BAR = 34;
 const SPLIT_BOX: Box = { left: 44, top: 66, width: 632, height: 456 };
 const TITLE_BOX: Box = { left: 74, top: 270, width: 572, height: 292 };
 /** Title card when the title text comes from an insert: clears the insert's chip row (ends ~y 300). */
-const TITLE_BOX_LOW: Box = { left: 74, top: 318, width: 572, height: 256 };
+const TITLE_BOX_LOW: Box = { left: 74, top: 368, width: 572, height: 206 };
 const BROLL_BOX: Box = { left: 34, top: 196, width: 652, height: 620 };
 
 /** Ken Burns for a screenshot inside a W x H window. With a highlight the camera settles on it. */
@@ -347,7 +352,7 @@ const TitleScene: React.FC<{ scene: Extract<Scene, { type: "title" }> }> = ({ sc
   const pillOpen = interpolate(ms, [140, 460], [0, 1], { ...clamp, easing: IN_OUT });
   const textPop = spring({ frame: frame - toFrame(320, fps), fps, config: { damping: 12, stiffness: 180, mass: 0.6 } });
   const shot = shotOf(scene);
-  if (scene.hideText) return shot && shot.image ? <Card box={TITLE_BOX_LOW} shot={shot} enter="whip" delayMs={420} /> : null;
+  if (scene.hideText) return shot && shot.image ? <Card box={TITLE_BOX_LOW} shot={shot} enter="whip" delayMs={120} /> : null;
   return (
     <>
       <div style={{ position: "absolute", top: 78, width: "100%", textAlign: "center", fontFamily: SANS, fontWeight: 800, fontSize: 58, color: "#111", letterSpacing: -1.2, whiteSpace: "nowrap" }}>
@@ -400,20 +405,37 @@ const stripUndefined = (v: View): View => {
   return out;
 };
 
-const EndWord: React.FC<{ word: string }> = ({ word }) => {
+const EndWord: React.FC<{ word: string; keyword?: string; keywordAtMs?: number }> = ({ word, keyword, keywordAtMs = 0 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  if (!word && !keyword) return null;
   const pop = spring({ frame: frame + 2, fps, config: { damping: 13, stiffness: 190, mass: 0.6 } });
+  const kPop = spring({ frame: frame - toFrame(keywordAtMs, fps) + 1, fps, config: { damping: 12, stiffness: 200, mass: 0.6 } });
   return (
-    <div
-      style={{
-        position: "absolute", top: 778, width: "100%", textAlign: "center", fontFamily: SERIF, fontStyle: "italic", fontSize: 96, color: "white",
-        textShadow: "0 4px 24px rgba(0,0,0,0.45)", opacity: interpolate(pop, [0, 0.35], [0, 1], clamp),
-        transform: `translateY(${(1 - pop) * 18}px) scale(${0.82 + 0.18 * pop})`,
-      }}
-    >
-      {word}
-    </div>
+    <>
+      {word ? (
+        <div
+          style={{
+            position: "absolute", top: keyword ? 742 : 778, width: "100%", textAlign: "center", fontFamily: SERIF, fontStyle: "italic",
+            fontSize: keyword ? 88 : 96, color: "white", textShadow: "0 0 3px rgba(0,0,0,0.85), 0 4px 24px rgba(0,0,0,0.45)",
+            opacity: interpolate(pop, [0, 0.35], [0, 1], clamp), transform: `translateY(${(1 - pop) * 18}px) scale(${0.82 + 0.18 * pop})`,
+          }}
+        >
+          {word}
+        </div>
+      ) : null}
+      {keyword ? (
+        <div
+          style={{
+            position: "absolute", top: 832, width: "100%", textAlign: "center", fontFamily: SANS, fontWeight: 800, fontSize: 64, letterSpacing: 1,
+            color: BLUE_LIGHT, textShadow: "0 0 3px rgba(0,0,0,0.85), 0 0 28px rgba(90,140,255,0.75), 0 4px 18px rgba(0,0,0,0.5)",
+            opacity: interpolate(kPop, [0, 0.35], [0, 1], clamp), transform: `translateY(${(1 - kPop) * 14}px) scale(${0.8 + 0.2 * kPop})`,
+          }}
+        >
+          {keyword}
+        </div>
+      ) : null}
+    </>
   );
 };
 
@@ -421,7 +443,7 @@ const EndWord: React.FC<{ word: string }> = ({ word }) => {
 // Captions: 1–2 words, each word pops in; emphasis in blue italic serif
 // =============================================================================================
 
-const CAPTION_TOP: Record<Scene["type"], number> = { title: 592, split: 548, broll: 860, end: 912 };
+const CAPTION_TOP: Record<Scene["type"], number> = { title: 572, split: 548, broll: 860, end: 912 };
 
 const Captions: React.FC<{ edit: EditProps; pages: CapPage[] }> = ({ edit, pages }) => {
   const frame = useCurrentFrame();
@@ -429,11 +451,11 @@ const Captions: React.FC<{ edit: EditProps; pages: CapPage[] }> = ({ edit, pages
   const ms = toMs(frame, fps);
   const page = pages.find((p) => ms >= p.startMs && ms < p.endMs);
   if (!page) return null;
-  const scene = sceneAt(edit.scenes, page.startMs) ?? sceneAt(edit.scenes, ms);
+  const scene = sceneAtFrame(edit.scenes, frame, fps);
   const type = scene?.type ?? "split";
   const dark = type === "broll" || type === "end";
-  const skip = scene?.type === "end" ? cleanWord(scene.word) : "";
-  const words = page.words.filter((w) => w.clean !== skip);
+  const skip = new Set(scene?.type === "end" ? [scene.word, scene.keyword ?? ""].flatMap((x) => x.split(/\s+/)).map(cleanWord).filter(Boolean) : []);
+  const words = page.words.filter((w) => !skip.has(w.clean));
   if (!words.length) return null;
   return (
     <div style={{ position: "absolute", top: CAPTION_TOP[type], left: 0, width: "100%", textAlign: "center", whiteSpace: "nowrap", lineHeight: 1.12 }}>
@@ -443,7 +465,7 @@ const Captions: React.FC<{ edit: EditProps; pages: CapPage[] }> = ({ edit, pages
         const visible = since >= 0;
         const sp = visible ? spring({ frame: since, fps, config: { damping: 13, stiffness: 230, mass: 0.55 } }) : 0;
         const blur = visible ? interpolate(since, [0, 3], [6, 0], clamp) : 0;
-        const color = w.em ? (dark ? BLUE_LIGHT : BLUE) : dark ? "white" : "#111";
+        const color = w.em ? (dark ? BLUE_LIGHT : BLUE_TEXT) : dark ? "white" : "#111";
         return (
           <span
             key={j}
@@ -456,9 +478,9 @@ const Captions: React.FC<{ edit: EditProps; pages: CapPage[] }> = ({ edit, pages
               fontSize: w.em ? 82 : 64,
               letterSpacing: w.em ? 0 : -1.2,
               color,
-              textShadow: w.em
-                ? dark ? "0 0 22px rgba(90,140,255,0.6), 0 3px 14px rgba(0,0,0,0.5)" : "0 2px 14px rgba(255,255,255,0.95)"
-                : dark ? "0 3px 16px rgba(0,0,0,0.55)" : "0 2px 14px rgba(255,255,255,0.9)",
+              textShadow: dark
+                ? w.em ? "0 0 22px rgba(90,140,255,0.6), 0 3px 14px rgba(0,0,0,0.5)" : "0 3px 16px rgba(0,0,0,0.55)"
+                : "0 0 2px #fff, 0 0 4px #fff, 0 0 8px rgba(255,255,255,0.9)",
               visibility: visible ? "visible" : "hidden",
               opacity: visible ? interpolate(since, [0, 2], [0.15, 1], clamp) : 0,
               transform: `translateY(${(1 - sp) * 16}px) scale(${0.8 + 0.2 * sp})`,
@@ -525,7 +547,13 @@ export const Reel: React.FC<EditProps> = (edit) => {
               <Card box={SPLIT_BOX} shot={shot} enter={contiguous ? "swap" : "whip"} prev={contiguous ? shotOf(prevScene) : undefined} />
             ) : null}
             {s.type === "broll" ? <BRollScene scene={s} /> : null}
-            {s.type === "end" ? <EndWord word={s.word} /> : null}
+            {s.type === "end" ? (
+              <EndWord
+                word={s.word}
+                keyword={s.keyword}
+                keywordAtMs={Math.max(0, (edit.captions.find((cap) => s.keyword && cleanWord(cap.text) === cleanWord(s.keyword) && cap.startMs >= s.startMs - 50)?.startMs ?? s.startMs) - s.startMs)}
+              />
+            ) : null}
           </Sequence>
         );
       })}

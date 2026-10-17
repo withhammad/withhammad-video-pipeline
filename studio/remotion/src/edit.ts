@@ -17,7 +17,8 @@ export type Scene =
   | (Timed & Shot & { type: "title"; line1: string; line2: string; image?: string; hideText?: boolean })
   | (Timed & Shot & { type: "split"; image: string; panY?: [number, number] })
   | (Timed & Shot & { type: "broll"; image: string })
-  | (Timed & { type: "end"; word: string });
+  /** keyword: the comment-to-DM word, held large under `word` until the last frame. */
+  | (Timed & { type: "end"; word: string; keyword?: string });
 
 /** Background music. volume = gain while the voice is silent, duckTo = gain while a word is spoken. */
 export type Music = { src: string; volume?: number; fadeInMs?: number; fadeOutMs?: number; duckTo?: number; loop?: boolean };
@@ -44,7 +45,7 @@ export const defaultEdit: EditProps = {
   durationMs: 5000,
 };
 
-export const MUSIC_DEFAULTS = { volume: 0.14, fadeInMs: 400, fadeOutMs: 1500, duckTo: 0.09 };
+export const MUSIC_DEFAULTS = { volume: 0.12, fadeInMs: 0, fadeOutMs: 300, duckTo: 0.12 };
 export const DUCK_RAMP_MS = 150;
 
 export const cleanWord = (w: string) => w.toLowerCase().replace(/[^a-z0-9']/g, "");

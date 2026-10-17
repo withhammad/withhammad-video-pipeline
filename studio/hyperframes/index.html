@@ -76,7 +76,7 @@
         left: 0;
         width: 720px;
         height: 512px;
-        padding-top: 66px;
+        padding-top: 116px; /* clears the platforms' top UI band (top 8% of 1280 px) */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -365,7 +365,7 @@
         tl.fromTo("#title-insert-stack", { y: 0 }, { y: -6, duration: 3.0, ease: "sine.inOut" }, 1.1);
 
         // 4) Spotlight cycles badge 1 -> 2 -> 3 (one lit, others dimmed).
-        const DIM = 0.42;
+        const DIM = 0.7; // dimmed badges keep ~6:1 label contrast
         const spot = (on, at) => {
           badges.forEach((b, i) => {
             const lit = i === on;
