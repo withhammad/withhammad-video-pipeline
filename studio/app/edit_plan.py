@@ -6,7 +6,9 @@ peaks on the end card. Used by the agent session after every new avatar take (ti
 
 Jump cuts (app.tighten, cuts.json): cutaways go over them first. A broll scene (full-screen card or screen
 recording) that starts or ends within CUTAWAY_SNAP_MS of a cut is moved onto the cut frame, so the head jump
-happens under it. Every cut still on the avatar gets a hard (0 ms) scale step that alternates 1.00 / 1.06
+happens under it. Any other scene change within SCENE_SNAP_FRAMES of a cut moves onto it too: scenes anchor on
+word onsets 20-40 ms after the cut, which showed the post-cut avatar for one frame before the layout changed (a
+visual double cut). Every cut still on the avatar gets a hard (0 ms) scale step that alternates 1.00 / 1.06
 (edit.json "jumpCuts"), the standard creator mask for a jump cut. Plan broll scenes on the words around cuts.
 """
 import json
@@ -18,6 +20,7 @@ WHOOSH_TAIL_MS = 60       # the whoosh window [cut-270, cut-60] must be free of 
 RISER_MS = 1200
 JUMP_SCALE = 1.06         # alternate 1.00 / 1.06 on visible jump cuts
 CUTAWAY_SNAP_MS = 120     # a broll edge this close to a jump cut moves onto it (3 frames at 25 fps)
+SCENE_SNAP_FRAMES = 2     # any scene change this close to a jump cut moves onto the cut frame
 
 
 def clean(word):
@@ -46,6 +49,7 @@ def build(captions, templates, duration_ms, *, emphasis=(), music=None, title_in
         cursor = start + 1
     if cuts:
         starts = snap_cutaways(starts, [t['scene']['type'] for t in templates], [c['at_ms'] for c in cuts])
+        starts = snap_scene_changes(starts, [c['at_ms'] for c in cuts], fps)
     last_frame_end = -(-duration_ms * fps // 1000) * 1000 / fps + 1   # cover the composition's final frame
     scenes = []
     for i, t in enumerate(templates):
@@ -96,6 +100,19 @@ def snap_cutaways(starts, types, cut_ms, snap_ms=CUTAWAY_SNAP_MS):
                 if 0 < at - out[i + 1] <= snap_ms and (i + 2 >= len(out) or at < out[i + 2]):
                     out[i + 1] = at
                     break
+    return out
+
+
+def snap_scene_changes(starts, cut_ms, fps, frames=SCENE_SNAP_FRAMES):
+    """Scene starts (after the first) that land within `frames` frames of a jump cut, moved onto the cut frame, so
+    the layout change and the head jump happen on the same frame. Order is kept (a start never passes a neighbour)."""
+    out = list(starts)
+    window = frames * 1000 / fps + 1e-6
+    for i in range(1, len(out)):
+        near = [at for at in cut_ms if 0 < abs(out[i] - at) <= window and at > out[i - 1]
+                and (i + 1 >= len(out) or at < out[i + 1])]
+        if near:
+            out[i] = min(near, key=lambda at: abs(out[i] - at))
     return out
 
 

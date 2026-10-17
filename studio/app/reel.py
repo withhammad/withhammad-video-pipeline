@@ -9,7 +9,8 @@ Steps: transcribe the take → tighten (jump-cut the dead air in picture and sou
 measure voice activity → snap word onsets → build edit.json + captions.srt → copy assets into
 studio/remotion/public/job → render → master to -14 LUFS → platform exports (final.mp4, final_ig.mp4 without edit
 lists, 128 kbps AAC) → voice gates table. plan.json "tighten": {...} passes options to app.tighten (e.g.
-{"speed": 1.05}); "strict_gates": true makes a failed voice gate stop the build.
+{"speed": 1.05}); "strict_gates": true makes a failed voice gate stop the build. The build stops if tighten's
+measured lip sync is off by 10 ms or more (20 ms with a speed-up) or audio and video lengths differ by a frame.
 """
 import argparse
 import json
@@ -45,6 +46,9 @@ def build(job, take=None, render=True):
     cut = tighten.tighten(take, job / 'avatar.mp4', transcribe_words(take, plan.get('whisper_prompt', '')),
                           **plan.get('tighten', {}))
     tighten.write_cuts(job, cut)
+    problem = tighten.sync_problem(cut.get('sync'), cut['fps'], 10.0 if cut['speed'] == 1.0 else tighten.SPEED_SYNC_MS)
+    if problem:   # never build a reel on a clip whose picture and sound drifted apart
+        raise RuntimeError(f'tighten: {problem} on {take.name} (see cuts.json sync rows)')
     # --
     audio.enhance_voice(job / 'avatar.mp4', job / 'avatar_enhanced.mp4')
     speech = audio.voice_activity(job / 'avatar_enhanced.mp4')

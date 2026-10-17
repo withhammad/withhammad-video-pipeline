@@ -134,12 +134,14 @@ export const punchTriggers = (scenes: Scene[], pages: CapPage[]): Punch[] => {
   return out;
 };
 
-/** Avatar scale from the jump cuts: the scale of the last cut at or before ms (1 before the first). A hard step on
- * the cut frame, alternating 1.00 / 1.06, turns the head jump of a pause cut into a deliberate punch-in. */
-export const jumpScale = (cuts: JumpCut[] | undefined, ms: number): number => {
+/** Avatar scale from the jump cuts: the scale of the last cut at or before this frame (1 before the first). A hard
+ * step on the cut frame, alternating 1.00 / 1.06, turns the head jump of a pause cut into a deliberate punch-in.
+ * Compared in frames with the same rounding as sceneAtFrame: (frame / fps) * 1000 falls just under exact cut times
+ * (frame 201 at 25 fps is 8039.999... ms), which put the step one frame late. */
+export const jumpScale = (cuts: JumpCut[] | undefined, frame: number, fps: number): number => {
   let scale = 1;
   for (const c of cuts ?? []) {
-    if (c.atMs > ms) break;
+    if (Math.round((c.atMs / 1000) * fps) > frame) break;
     scale = c.scale;
   }
   return scale;

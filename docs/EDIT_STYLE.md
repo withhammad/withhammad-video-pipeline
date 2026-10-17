@@ -23,9 +23,12 @@ another creator's script) and facts are verified.
 - Total length matches the reference (this one: ~31 s).
 - No dead air. The reference editor jump-cuts its pauses (2–4 % of the reel is pause, 262 wpm); HeyGen leaves
   250–640 ms at every full stop (our first reel: 13–20 % dead air, 196 wpm). `app.tighten` cuts them in picture and
-  sound together: ≤ 220 ms after a sentence end, ≤ 120 ms mid-sentence, word endings protected, no cut under 120 ms.
+  sound together: ≤ 220 ms after a sentence end, ≤ 120 ms mid-sentence (from the word's end), anything still audible
+  after a word (judged on the processed voice, including breath and weak fricatives) kept, no cut under 120 ms.
+  The REA reel after it: 4.2 % pause, 219 wpm.
 - Jump cuts are always masked: put a cutaway (screen recording, full-screen B-roll) over a cut first; every cut left on
-  the avatar gets a hard (0 ms) scale step alternating 1.00/1.06, so the head jump reads as a punch-in.
+  the avatar gets a hard (0 ms) scale step alternating 1.00/1.06, so the head jump reads as a punch-in. A layout
+  change never lands one or two frames after a cut (that reads as a double cut): it moves onto the cut frame.
 
 ## Script (for the HeyGen take)
 - Flowing sentences joined with "and", "so" and commas; no one-to-four-word fragments ("Free. Open source."): every

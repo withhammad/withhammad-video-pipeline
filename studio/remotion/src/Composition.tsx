@@ -130,7 +130,7 @@ const AvatarLayer: React.FC<{ edit: EditProps; punches: ReturnType<typeof punchT
   const push = 1 + 0.04 * clampN(ms / Math.max(1, edit.durationMs), 0, 1);
   const punch = 1 + 0.07 * punchAmount(punches, ms);
   const endZoom = scene?.type === "end" ? interpolate(since, [0, Math.max(1, scene.endMs - scene.startMs)], [1.12, 1.2], clamp) : 1;
-  const scale = push * punch * endZoom * jumpScale(edit.jumpCuts, ms);
+  const scale = push * punch * endZoom * jumpScale(edit.jumpCuts, frame, fps);
   const feather = lowered ? "linear-gradient(to bottom, transparent 0px, #000 110px)" : "none";
   return (
     <AbsoluteFill style={{ backgroundColor: "#eef2f5", overflow: "hidden" }}>

@@ -27,7 +27,7 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
   eyebrows raise on key words, quick confident nods, counts on fingers for lists, points at the camera on the CTA."
   Scripts (rule 2026-10-17, voice brief): FLOWING sentences joined with "and", "so" and commas, not one-to-four-word
   fragments ("It's called REA. Free. Open source." cost 1.04 s of pauses in 2.7 s): HeyGen puts a 250-640 ms pause
-  at every full stop. Exclamation on hook and CTA only. Budget ~80 words per 22 s (tightened pace ~227 wpm). Spell
+  at every full stop. Exclamation on hook and CTA only. Budget ~80 words per 22 s (tightened pace measured 219 wpm). Spell
   brand acronyms phonetically in the HeyGen script only (Whisper heard "REA" as "Ray"); captions and on-screen text
   keep the real spelling. Ask the owner how he says a new acronym (REA: "R-E-A" or "ree-ah" is still pending).
 - Accessibility: burned-in word captions (high contrast), an .srt uploaded to every platform that accepts one, alt text where
@@ -47,20 +47,36 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 - Funnel: comment keyword → ManyChat DM → ask to follow → deliver the resource link (withhammad.com page).
 - Editing stack: Opus (agent session) plans and writes the edit; HyperFrames for animated motion-graphic inserts;
   Remotion (`studio/remotion`, composition `Reel`) assembles avatar + cards + captions. After tightening HeyGen runs
-  ~227 wpm: ~80 words ≈ 22 s.
+  ~219 wpm (REA reel: 74 words in 20.2 s): ~80 words ≈ 22 s.
 - Stage 5 command: `.venv/bin/python -m app.reel build <job>` (from `studio/`). Order: Whisper once on the HeyGen take →
-  `app.tighten` jump-cuts the dead air (picture and sound cut on the same 25 fps frames; pauses keep ≤ 220 ms after a
-  sentence end and ≤ 120 ms mid-sentence; 150 ms after each word protected, late /t/ /p/ releases kept; no cut under
-  120 ms; lip-sync offset measured per segment, must be < 10 ms) → avatar.mp4 + `cuts.json` → voice chain C2b (dry,
+  `app.tighten` jump-cuts the dead air → avatar.mp4 + `cuts.json` → voice chain C2b (dry,
   split-band de-esser, 9 kHz -5 dB shelf) → captions.json / speech.json on the tightened clip → edit.json → Remotion →
   master → `app.voice_gates` table. Options in plan.json: `"tighten": {"speed": 1.05}` (synced speed-up, off by
   default), `"strict_gates": true`.
+- Tighten rules (`app/tighten.py` docstring has the measurements): a pause keeps ≤ 220 ms after a sentence end and
+  ≤ 120 ms mid-sentence, counted from the word's VAD end. "Audible" is judged on the take rendered through the voice
+  chain (broadband 30 dB under its p95, or 2.5-12 kHz 48 dB under it: calibrated on the music bed). Everything audible
+  that starts within 150 ms after a word is kept until it decays (+10 ms): vowel decay, a breath, a late /t/ /p/
+  release. Sentence ends also keep the full 150 ms and 60 ms of silence after a late release. Mid-sentence, silence
+  inside those 150 ms may be cut: the critic's literal "keep ≥ 150 ms" would leave every cut mid pause at 170-190 ms,
+  above the 120 ms cap and the 3-5 % target. This departure still needs the critic's sign-off; the clipped-endings
+  gate checks it on the processed audio. A next word's audible rise (HF too, e.g. the /f/ of "free") + 10 ms is kept.
+  No cut under 120 ms, and no cut for an excess under 60 ms over the cap. Both splices must be inaudible, nothing at
+  speech level is ever removed. The picture is cut on whole frames, and the sound by the same number of frames up to
+  half a frame away, at the quietest point. Any audio sample rate or start offset works (resampled to 48 kHz on the
+  presentation clock). Lip sync is measured per segment; `reel build` stops at ≥ 10 ms (20 ms with the speed-up)
+  or a length mismatch over one frame.
 - Jump cuts in the edit: cutaways first. Anchor broll scenes (screen recordings, full-screen cards) on the words around
-  the cuts in `cuts.json`; edit_plan snaps a broll edge within 120 ms of a cut onto it. Every cut still on the avatar
+  the cuts in `cuts.json`; edit_plan snaps a broll edge within 120 ms of a cut onto it, and any other scene change
+  within 2 frames of a cut onto the cut frame (no one-frame double cuts). Every cut still on the avatar
   gets a hard 0 ms scale step alternating 1.00/1.06 (edit.json `jumpCuts`); never leave a bare jump.
 - Voice gates (printed after the master; fix any FAIL before the owner hears it): pause share 3-5 % (pauses ≥ 150 ms
-  over the speech span; published REA reel 12-21 %, human reference 2-4 %), no clipped word endings, 8-16 kHz within
-  ±2 dB of the reference profile, esses (5-9 kHz p99) not above the reference. `python -m app.voice_gates <job>`.
+  over the speech span, in the brief's own metric: `audio.voice_activity` at -40 dBFS on the -19 LUFS stem, gaps
+  under 100 ms bridged; published REA reel 20.6 %, human reference 2-4 %). The share hangs on single pauses, so read
+  the per-pause decisions in `cuts.json` when it is near a bound. No clipped word endings: each splice on the voice
+  stem, and the audio removed after each word on the take through the same chain, broadband and 2.5-12 kHz. 8-16 kHz
+  within ±2 dB of the reference profile. Esses (5-9 kHz p99) not above the reference.
+  `python -m app.voice_gates <job>`.
   Old plan.json caption_overrides (measured before tightening) are remapped through the cuts automatically; new ones
   measured on the tightened avatar.mp4 need `"timeline": "tight"`.
   Check a contact sheet of final.mp4 before showing the owner. Nothing is posted without the owner's explicit OK.

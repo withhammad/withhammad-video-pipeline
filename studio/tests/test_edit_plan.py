@@ -137,3 +137,15 @@ def test_opaque_inserts_hide_cuts_but_alpha_overlays_do_not():
     opaque = [{'startMs': 900, 'endMs': 1500, 'alpha': False}]
     assert edit_plan.jump_cuts([1000, 2000], scenes, opaque) == [{'atMs': 2000, 'scale': 1.06}]
     assert len(edit_plan.jump_cuts([1000, 2000], scenes, [dict(opaque[0], alpha=True)])) == 2
+
+
+def test_a_scene_change_one_or_two_frames_after_a_cut_moves_onto_the_cut():
+    # REA job: the end scene started at 18.43 s, one frame after the jump cut at 18.40 s, so the post-cut avatar
+    # flashed for a frame in the old layout (a visual double cut). Any scene type snaps within 2 frames.
+    cuts = [{'at_ms': 960, 'removed_ms': 160}, {'at_ms': 4380, 'removed_ms': 200}]
+    e = edit_plan.build(CAPS, TEMPLATES, 7000, cuts=cuts, fps=25)
+    assert [x['startMs'] for x in e['scenes']] == [0, 960, 2500, 4000]   # split 1000 -> 960 (1 frame); 4000 is 3 away
+    assert e['scenes'][0]['endMs'] == 960
+    assert edit_plan.snap_scene_changes([0, 1000, 2500], [920], 25) == [0, 920, 2500]       # 2 frames early: snapped
+    assert edit_plan.snap_scene_changes([0, 1000, 2500], [880], 25) == [0, 1000, 2500]      # 3 frames: left alone
+    assert edit_plan.snap_scene_changes([0, 1000, 1040], [1040], 25) == [0, 1000, 1040]     # never past a neighbour

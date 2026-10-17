@@ -46,8 +46,12 @@ OCTAVE_BANDS = ((31, 63), (63, 125), (125, 250), (250, 500), (500, 1000),
 #   and the dynamics (word RMS SD 3.40 dB, mix LRA 3.5 -> 1.8 LU with tightened pauses), but put 8-16 kHz
 #   +3.6 dB over the reference and its esses p99 +0.6 dB over it (voice_gates metrics).
 # - C2b = C2 + a 9 kHz -5 dB shelf + a working split-band de-esser. On the tightened REA take: 8-16 kHz -1.1 dB
-#   vs the reference (gate +-2), esses p99 -2.1 dB under it (gate <= 0), every octave 125 Hz-16 kHz within
-#   1.2 dB of the reference voice. 0.85 s for a 20 s take incl. the input-level pass (C1 with room: 0.68 s).
+#   vs the reference (gate +-2), esses p99 -1.9 to -2.1 dB under it (gate <= 0), every octave 125 Hz-16 kHz within
+#   1.2 dB of the reference voice. 0.84 s for a 20 s take incl. the input-level pass (C1 with room: 0.68 s).
+#   The independent review's own STFT put 8-16 kHz at -1.8 dB (stem vs reference mix), near the dull edge of the
+#   gate: if a duller take fails it, ease the 9 kHz shelf to about -4 dB rather than adding treble EQ.
+# - app.tighten and app.voice_gates judge audibility on this chain's output (voice_chain_pcm): its compression lifts a
+#   quiet breath ~10 dB relative to the loud frames (REA: -32 dB re p95 on the raw take, -21 dB after the chain).
 # - Dry: no room send (VOICE_ROOM_DB None). Creator voices are dry, and the send cost consonant definition.
 # What remains is the source: TTS over-periodicity (HNR 11 vs ~7.5 dB) and a 15.6 kHz band limit. No filter fixes
 # those; the pace problem (13-20 % dead air) is fixed by app.tighten before this chain runs.
@@ -739,10 +743,7 @@ def enhance_voice(in_video, out_video, target_lufs=VOICE_LUFS, chain=VOICE_CHAIN
     target_lufs (measured in a first pass) and a lookahead limiter crest_db above it (latency-compensated,
     so sync is untouched). Video stream copied untouched; audio AAC 48 kHz stereo."""
     Path(out_video).parent.mkdir(parents=True, exist_ok=True)
-    pre = 0.0
-    if input_lufs is not None:
-        measured = _ebur128(str(in_video))['lufs']
-        pre = max(-20.0, min(20.0, input_lufs - measured)) if math.isfinite(measured) else 0.0
+    pre = _chain_pre_gain(in_video, input_lufs)
     with tempfile.TemporaryDirectory() as tmp:
         inputs = ['-i', str(in_video)]
         graph = '[0:a:0]' + ','.join(([f'volume={pre:.2f}dB'] if abs(pre) >= 0.05 else []) + list(chain))
@@ -764,6 +765,29 @@ def enhance_voice(in_video, out_video, target_lufs=VOICE_LUFS, chain=VOICE_CHAIN
     return {'pre_gain_db': round(pre, 2), 'gain_db': round(gain, 2), 'room_db': room_db,
             'limit_dbfs': round(target_lufs + crest_db, 1),
             'chain': ','.join(chain)}
+
+
+def _chain_pre_gain(in_media, input_lufs=CHAIN_INPUT_LUFS):
+    """dB that brings the input to input_lufs (the level the chain's dynamic stages are tuned at), +-20 dB."""
+    if input_lufs is None:
+        return 0.0
+    measured = _ebur128(str(in_media))['lufs']
+    return max(-20.0, min(20.0, input_lufs - measured)) if math.isfinite(measured) else 0.0
+
+
+def voice_chain_pcm(in_media, chain=VOICE_CHAIN, input_lufs=CHAIN_INPUT_LUFS, sr=SR):
+    """What the listener will hear: the input's first audio stream through the same pre-gain and chain as
+    enhance_voice() (no output gain or limiter), as mono float at sr, on the presentation clock (sample 0 = pts 0,
+    so it lines up with video frame 0 even when the audio stream starts late). app.tighten and app.voice_gates
+    judge audibility on this: the chain's compression lifts a quiet tail ~10 dB relative to the loud frames."""
+    pre = _chain_pre_gain(in_media, input_lufs)
+    graph = (f'[0:a:0]aresample={SR}:first_pts=0,' + ','.join(([f'volume={pre:.2f}dB'] if abs(pre) >= 0.05 else [])
+                                                               + list(chain)) + f',aresample={sr}[a]')
+    process = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(in_media), '-filter_complex', graph, '-map', '[a]',
+                              '-ac', '1', '-f', 'f32le', '-'], capture_output=True, timeout=300)
+    if process.returncode:
+        raise RuntimeError('ffmpeg voice chain failed: ' + process.stderr.decode(errors='replace')[-300:])
+    return np.frombuffer(process.stdout, '<f4').astype(np.float64)
 
 
 def _loudnorm_json(stderr):
