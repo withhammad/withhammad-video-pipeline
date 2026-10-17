@@ -43,6 +43,10 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
    web search before stating it; leave out what you cannot verify.
 3. `studio/run_local.sh rerun <id>` — validates the lesson and continues (avatar render, …).
 No Anthropic API key is involved; `STUDIO_LESSON_MODE=api` exists only for unattended runs.
+4. Avatar render: prefer HeyGen's MCP server (`.mcp.json` → `heygen`, OAuth, plan credits). Render the
+   script from `script.txt` with the selected look and voice, save the result as `avatar.mp4` in the job
+   folder, record the HeyGen video id in `heygen_submission.json`, then `rerun <id>`. The `HEYGEN_API_KEY`
+   path in `app/heygen.py` is the unattended fallback and is billed separately by HeyGen.
 
 ## Running the pipeline (local, the normal path)
 
