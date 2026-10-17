@@ -1,6 +1,6 @@
 # Video: "Reverse-engineer any feature with Claude Code" (keyword BLUEPRINT)
 
-Job `09a9d211fff0` · reference reel: instagram.com/reel/DecMXypvoMF (Nick Saraev, style only) · status: **awaiting owner approval**
+Job `09a9d211fff0` · reference reel: instagram.com/reel/DecMXypvoMF (Nick Saraev, style only) · status: **approved and published 2026-10-17** (Instagram + ManyChat pending)
 
 ## The file
 | | |
@@ -40,3 +40,14 @@ CTA routing: Instagram uses the ManyChat comment→DM funnel (docs/FUNNEL.md). Y
 2. Platforms + visibility (e.g. YouTube public vs unlisted first).
 3. ManyChat: upgrade to Essential ($17/mo, 14-day trial) — Free has ~9 DMs left this month.
 4. OK to publish the resource page on withhammad.com.
+
+## Published (2026-10-17)
+| Platform | Link | Notes |
+|---|---|---|
+| Resource page | https://withhammad.com/resources/reverse-engineer-features-with-claude-code | live, mobile-checked (375 px, no overflow) |
+| YouTube Shorts | https://www.youtube.com/shorts/HClAkG74r6A | public, API, containsSyntheticMedia, guide link in description; SRT not uploaded (needs youtube.force-ssl scope) |
+| LinkedIn | https://www.linkedin.com/feed/update/urn:li:ugcPost:7517235951950065666/ | API, guide link + AI-avatar note |
+| TikTok | https://www.tiktok.com/@hammadyousuf01/video/7697650231063710996 | Chrome, AI-generated label, public after review |
+| Facebook Reel | https://www.facebook.com/reel/2533097837199069/ | Chrome, public, AI label, English captions |
+| Instagram @with.hammad | — | owner posting from phone (Chrome session would not switch accounts); ManyChat BLUEPRINT automation attaches once the reel is visible |
+ManyChat stays on the Free plan (owner decision): ~9 DMs left this month; "next post" trigger is paid, so the automation is attached to the specific reel after it is live.
