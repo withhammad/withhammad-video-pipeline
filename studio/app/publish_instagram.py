@@ -45,6 +45,9 @@ EXPECTED_USERNAME = os.environ.get('STUDIO_IG_USERNAME', 'hammadagentic.ai')
 CREDENTIALS_FILE = Path(os.environ.get(
     'STUDIO_IG_CREDENTIALS',
     str(Path(__file__).resolve().parents[2] / 'work' / '.secrets' / 'instagram-hammadagentic-ai-oauth.json')))
+# Owner rule (2026-10-17): every reel goes out as a Collab between the owner's two accounts, so it shows on both.
+DEFAULT_COLLABORATORS = {'with.hammad': ('hammadagentic.ai',), 'hammadagentic.ai': ('with.hammad',)}
+MAX_COLLABORATORS = 3
 POLL_SECONDS = float(os.environ.get('STUDIO_IG_POLL_SECONDS', '20'))
 PROCESS_TIMEOUT = float(os.environ.get('STUDIO_IG_TIMEOUT', '600'))
 PUBLISH_SCOPE = 'instagram_business_content_publish'
@@ -510,13 +513,33 @@ class _Steps:
 
 # --- the publisher --------------------------------------------------------------------------------------------------
 
+def resolve_collaborators(collaborators, account):
+    """Collab invitees for a reel posted by `account`. None means the owner's standing default
+    (DEFAULT_COLLABORATORS); an empty list means explicitly no Collab. Handles are cleaned of '@',
+    deduplicated case-insensitively, and the posting account itself is dropped."""
+    account = str(account or '').lstrip('@').strip().lower()
+    if collaborators is None:
+        collaborators = DEFAULT_COLLABORATORS.get(account, ())
+    names, seen = [], {account}
+    for handle in collaborators:
+        name = str(handle).lstrip('@').strip()
+        if name and name.lower() not in seen:
+            seen.add(name.lower())
+            names.append(name)
+    if len(names) > MAX_COLLABORATORS:
+        raise InstagramPublishError(f'Instagram allows at most {MAX_COLLABORATORS} collaborators',
+                                    step='collaborators')
+    return names
+
+
 def publish(video_path, lesson, *, dry_run=True, state_path=None, **options):
     """Publish `video_path` as a Reel. Anything other than dry_run=False is a dry run: GETs only (identity, limit and,
     with a state file, the earlier container), and the return value lists every request that would be sent (tokens
     redacted). Progress is saved to state_path after every remote id, so a rerun resumes and never posts twice.
 
     options: url_provider, credentials_path, token, transport, probe, sleep, clock, expected_username, share_to_feed,
-    ai_generated, thumb_offset_ms, poll_seconds, timeout, api_version, collaborators."""
+    ai_generated, thumb_offset_ms, poll_seconds, timeout, api_version, collaborators (None = the
+    owner's default Collab for the posting account, [] = no Collab)."""
     live = dry_run is False
     if live and not state_path:
         raise InstagramPublishError('publishing needs a state_path: it records every remote id so a retry never '
@@ -660,11 +683,10 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
                 body['is_ai_generated'] = True
             if thumb_offset_ms is not None:
                 body['thumb_offset'] = int(thumb_offset_ms)
-            if collaborators:   # Collab invite; each account must accept before it shows on their profile
-                names = [str(u).lstrip('@').strip() for u in collaborators if str(u).strip()]
-                if len(names) > 3:
-                    raise InstagramPublishError('Instagram allows at most 3 collaborators', step='collaborators')
+            names = resolve_collaborators(collaborators, expected_username)
+            if names:   # Collab invite; each account must accept before the reel shows on its profile
                 body['collaborators'] = names
+            result['collaborators'] = names
             created = steps.post('create_container', client.path(ig_id, 'media'), body, file_size=video['size'])
             container_id = str(created['id']) if live else '<IG_CONTAINER_ID>'
             if live:

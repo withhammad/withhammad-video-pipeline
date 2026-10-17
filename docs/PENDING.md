@@ -1,12 +1,12 @@
 # Pending inputs — live checklist
 
 The one place to answer "what's pending". Update it whenever an item moves.
-Last update: 2026-10-17 23:00 — REA video v5 final (docs/videos/2026-10-17-rea-blueprint.md) awaiting approval; then publish, resource page, ManyChat. Previously: 2026-10-17 21:30 — first finished video (job 09a9d211fff0, final.mp4, 21.9 s) awaiting owner approval; next: publish, website page, ManyChat. Previously: 2026-10-17 21:00 (first real reel: lesson done, HeyGen render waiting on the accent choice). Previously: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real lesson produced; avatar render waits on HeyGen).
+Last update: 2026-10-17 22:05 — @with.hammad Instagram API connected; every reel now posts as a Collab with @hammadagentic.ai by default. The REA reel is held until the owner approves the profile fixes. Previously: 2026-10-17 23:00 — REA video v5 final awaiting approval. Previously: 2026-10-17 21:30 — first finished video (job 09a9d211fff0, final.mp4, 21.9 s) awaiting owner approval; next: publish, website page, ManyChat. Previously: 2026-10-17 21:00 (first real reel: lesson done, HeyGen render waiting on the accent choice). Previously: 2026-10-17 20:15 (lesson stage runs inside Claude Code; first real lesson produced; avatar render waits on HeyGen).
 
 | # | Item | Status | Who | How to finish |
 |---|------|--------|-----|---------------|
 | 1 | Instagram @hammadagentic.ai token | **Done 2026-10-17** — MEDIA_CREATOR, token to 2026-12-16 | — | Refresh before expiry with `instagram_oauth.py --account hammadagentic.ai`. |
-| 2 | Instagram @with.hammad token | Not started | Owner + agent | Same flow: `python3 instagram_oauth.py --account with.hammad --force-reauth`, log in as @with.hammad, Allow. |
+| 2 | Instagram @with.hammad token | **Done 2026-10-17** — MEDIA_CREATOR, token to 2026-12-16 | — | Refresh before expiry: run `instagram_oauth.py --account with.hammad`, sign in with "Log in with Facebook" (not the autofilled password), owner enters 2FA. |
 | 3 | TikTok user authorization | App created, not authorized | Agent, then owner consent | Build `tiktok_oauth.py` (Login Kit, scopes `user.info.basic`, `video.publish`); owner approves consent in Chrome. Public posting also needs TikTok app review (policy URLs + demo). |
 | 4 | HeyGen connection | **Switched to HeyGen's official MCP (OAuth, no API key)** — `.mcp.json` added 2026-10-17 | Owner (one-time) | Restart Claude Code in this folder, approve the `heygen` MCP server, and complete the HeyGen sign-in that opens in the browser. Uses existing HeyGen plan credits — no separate API billing (per heygen-com/skills README). The API-key path (`studio/set_secret.sh HEYGEN_API_KEY`) stays as a fallback for unattended runs. |
 | 5 | HeyGen look choice | Default wired: the look named "Hammad Yousuf" (black blazer) | Owner | To change: set `STUDIO_HEYGEN_LOOK_ID` in studio.env from `heygen-looks`. |

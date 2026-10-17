@@ -30,6 +30,13 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
   supported, no information conveyed by colour alone.
 - Distribution target: every video goes to YouTube Shorts, Instagram Reels, LinkedIn, TikTok and Facebook Reels with
   per-platform details, after the owner approves the final cut and the details.
+- Instagram login for @with.hammad: Chrome autofills the @hammadagentic.ai password on Instagram's login page, so a
+  password login authorizes the wrong account. Use "Log in with Facebook" (both accounts sit in one Accounts Center),
+  let the owner enter the 2FA code, then open the consent link without `force_reauth`.
+- Instagram Collab, every reel: a reel posted on @with.hammad invites @hammadagentic.ai as collaborator, and the
+  reverse, so it shows on both profiles (owner rule 2026-10-17). `publish_instagram.publish()` does this by default
+  (`DEFAULT_COLLABORATORS`); pass `collaborators=[]` only if the owner asks for a solo post. The invited account must
+  accept the invite before the reel appears on its grid.
 - Funnel: comment keyword → ManyChat DM → ask to follow → deliver the resource link (withhammad.com page).
 - Editing stack: Opus (agent session) plans and writes the edit; HyperFrames for animated motion-graphic inserts;
   Remotion (`studio/remotion`, composition `Reel`) assembles avatar + cards + captions. HeyGen speaks faster than

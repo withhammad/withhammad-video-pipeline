@@ -121,7 +121,8 @@ def test_dry_run_sends_only_gets_and_returns_the_ordered_plan(video, tmp_path):
     create = plan['requests'][4]
     assert create['url'] == f'https://graph.instagram.com/{V}/{IG_ID}/media'
     assert create['json'] == {'media_type': 'REELS', 'video_url': VIDEO_URL, 'caption': CAPTION,
-                              'share_to_feed': True, 'is_ai_generated': True}
+                              'share_to_feed': True, 'is_ai_generated': True,
+                              'collaborators': ['with.hammad']}
     assert create['headers']['Authorization'] == 'Bearer <redacted>' and create['file_size'] == video.stat().st_size
     assert plan['requests'][6]['json'] == {'creation_id': '<IG_CONTAINER_ID>'}
     assert plan['account'] == {'username': 'hammadagentic.ai', 'ig_user_id': IG_ID, 'account_type': 'MEDIA_CREATOR'}
@@ -164,7 +165,8 @@ def test_happy_path_sequence_bodies_and_state(video, tmp_path):
     assert 'authorization' not in reqs[2].headers  # the token never goes to the file host
     assert all('access_token' not in str(r.url) for r in reqs)
     assert json.loads(reqs[3].content) == {'media_type': 'REELS', 'video_url': VIDEO_URL, 'caption': CAPTION,
-                                           'share_to_feed': True, 'is_ai_generated': True}
+                                           'share_to_feed': True, 'is_ai_generated': True,
+                              'collaborators': ['with.hammad']}
     assert json.loads(reqs[6].content) == {'creation_id': 'C1'}
     assert dict(reqs[0].url.params) == {'fields': 'user_id,username,account_type'}
     assert dict(reqs[4].url.params) == {'fields': 'id,status,status_code'}
@@ -482,10 +484,30 @@ def test_corrupt_state_file_is_a_readable_error(video, tmp_path):
     assert not (tmp_path / 'ig_state.json.lock').exists()
 
 
-def test_collaborators_in_container_body_dry_run():
-    import json as _json
-    from app import publish_instagram as ig
-    import inspect
-    assert 'collaborators' in inspect.signature(ig._publish).parameters
-    src = inspect.getsource(ig._publish)
-    assert "body['collaborators'] = names" in src and 'at most 3 collaborators' in src
+def test_resolve_collaborators_defaults_to_the_other_owner_account():
+    assert ig.resolve_collaborators(None, 'with.hammad') == ['hammadagentic.ai']
+    assert ig.resolve_collaborators(None, '@Hammadagentic.ai') == ['with.hammad']
+    assert ig.resolve_collaborators(None, 'someone.else') == []
+
+
+def test_resolve_collaborators_explicit_lists_are_cleaned():
+    assert ig.resolve_collaborators([], 'with.hammad') == []          # explicit opt-out
+    assert ig.resolve_collaborators(['@a', ' A ', 'b', '', '@with.hammad'], 'with.hammad') == ['a', 'b']
+    with pytest.raises(ig.InstagramPublishError, match='at most 3 collaborators'):
+        ig.resolve_collaborators(['a', 'b', 'c', 'd'], 'with.hammad')
+
+
+def test_default_collab_lands_in_the_container_body(video):
+    meta, provider = FakeMeta(video.stat().st_size, username='with.hammad'), FakeProvider()
+    plan = run(video, meta, dry_run=True, url_provider=provider, expected_username='with.hammad')
+    create = next(r for r in plan['requests'] if r['step'] == 'create_container')
+    assert create['json']['collaborators'] == ['hammadagentic.ai']
+    assert plan['collaborators'] == ['hammadagentic.ai'] and meta.writes() == []
+
+
+def test_empty_collaborators_list_posts_without_collab(video):
+    meta, provider = FakeMeta(video.stat().st_size), FakeProvider()
+    plan = run(video, meta, dry_run=True, url_provider=provider, collaborators=[])
+    create = next(r for r in plan['requests'] if r['step'] == 'create_container')
+    assert 'collaborators' not in create['json'] and plan['collaborators'] == []
+

@@ -43,8 +43,21 @@
         "handle": "with.hammad",
         "account_id": "17841400507502327",
         "profile_url": "https://www.instagram.com/with.hammad/",
-        "connection_status": "meta_app_registered_token_pending",
-        "provider": "instagram_direct_api"
+        "connection_status": "identity_and_scopes_verified",
+        "provider": "instagram_login_api",
+        "ig_login_user_id": "38990711367182708",
+        "account_type": "MEDIA_CREATOR",
+        "scopes": [
+          "instagram_business_basic",
+          "instagram_business_content_publish"
+        ],
+        "token_expires_at": "2026-12-16",
+        "token_file": "work/.secrets/instagram-with-hammad-oauth.json",
+        "login_method": "Instagram \"Log in with Facebook\" in the owner Chrome (Accounts Center), owner enters 2FA; then the consent link without force_reauth",
+        "video_publish_tested": false,
+        "default_collaborators": [
+          "hammadagentic.ai"
+        ]
       },
       {
         "key": "instagram_secondary",
@@ -61,7 +74,10 @@
         ],
         "token_expires_at": "2026-12-16",
         "token_file": "work/.secrets/instagram-hammadagentic-ai-oauth.json",
-        "video_publish_tested": false
+        "video_publish_tested": false,
+        "default_collaborators": [
+          "with.hammad"
+        ]
       },
       {
         "key": "youtube",
