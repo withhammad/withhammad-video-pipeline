@@ -8,3 +8,4 @@ yt-dlp==2026.8.19
 faster-whisper==1.2.1
 anthropic==1.15.0
 jsonschema==4.25.1
+numpy==2.5.4

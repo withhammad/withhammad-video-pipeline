@@ -1,0 +1,12 @@
+{
+  "name": "withhammad-hyperframes",
+  "private": true,
+  "type": "module",
+  "description": "HyperFrames motion-graphic inserts (transparent overlays) for the Remotion Reel template. Main entry: render.sh <job_dir>.",
+  "scripts": {
+    "dev": "HYPERFRAMES_SKIP_SKILLS=1 HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 npx --yes hyperframes@0.8.155 preview",
+    "lint": "HYPERFRAMES_SKIP_SKILLS=1 HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 npx --yes hyperframes@0.8.155 lint",
+    "check": "HYPERFRAMES_SKIP_SKILLS=1 HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 npx --yes hyperframes@0.8.155 check",
+    "render": "HYPERFRAMES_SKIP_SKILLS=1 HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_NO_UPDATE_CHECK=1 npx --yes hyperframes@0.8.155 render --format webm --quality high --output out/title_insert.webm"
+  }
+}
