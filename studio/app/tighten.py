@@ -43,9 +43,17 @@ Rules (critic-reviewed on job 09a9d211fff0; every decision is logged per pause i
   audible rise (at least lead_ms); the tail after the last word stays.
 - Audio of any sample rate or start offset is resampled to 48 kHz on the presentation clock before trimming.
 - speed (default 1.0 = off) is an optional synced speed-up: setpts + atempo, 1.04-1.06 keeps the voice natural.
+- av_offset_ms (default 0) corrects a provider's own lip-sync error before anything else: the sound is moved by that
+  many ms against the picture (negative = the audio plays earlier). HeyGen takes come with the voice 85-125 ms
+  behind the lips (bilabial closures on job 9d2d68af60d4, both looks: the acoustic /p/ closure and burst land
+  ~100 ms after the frames where the lips seal and open), so PROVIDER_AV_OFFSET_MS['heygen'] = -100. Every
+  measurement (VAD, audibility, captions) runs on the corrected sound, so the cuts, captions and speech spans are
+  on the corrected clock; the result and cuts.json record av_offset_ms, and measure_sync() checks the residual
+  against it (0 = exactly the requested correction).
 Audio is written as FLAC inside the MP4, so tightening adds no lossy generation.
 
 CLI:  .venv/bin/python -m app.tighten <in.mp4> <out.mp4> [--captions captions.json] [--speed 1.05]
+                                      [--av-offset-ms -100 | --provider heygen]
 """
 import argparse
 import json
@@ -85,6 +93,10 @@ HF_FLOOR_MARGIN_DB = 8.0    # ... and at least this far over the band's own floo
 SYNC_SEARCH_MS = 250.0      # lip-sync search range (video and audio): a large error is reported as large
 SPEED_SYNC_MS = 20.0        # with a speed-up the picture is quantised to whole source frames (<= half a frame)
 SENTENCE_END = re.compile(r'[.!?]["\'”’)\]]*$')
+# Per-provider lip-sync correction (ms the sound moves against the picture; negative = earlier). Measured on
+# bilabial closures of both HeyGen looks of job 9d2d68af60d4 (Avatar V, 2026-10-18): the voice lags the lips by
+# 85-125 ms (median ~105); -100 leaves it a few ms late, the side viewers tolerate (audio leading is noticed first).
+PROVIDER_AV_OFFSET_MS = {'heygen': -100}
 
 
 # ----------------------------------------------------------------------------- measurement
@@ -141,6 +153,16 @@ def levels_db(x, frame_ms, sr=SR):
     hop = int(round(sr * frame_ms / 1000))
     n = len(x) // hop
     return 10 * np.log10(np.mean(x[:n * hop].reshape(n, hop) ** 2, axis=1) + 1e-20)
+
+
+def shift_pcm(x, offset_ms, sr=SR):
+    """x moved by offset_ms on its own clock, same length: negative drops the head and pads silence at the end
+    (the sound plays earlier), positive delays it."""
+    n = int(round(abs(offset_ms) * sr / 1000))
+    if not n:
+        return x
+    pad = np.zeros(min(n, len(x)), x.dtype)
+    return np.concatenate([x[n:], pad]) if offset_ms < 0 else np.concatenate([pad, x[:len(x) - n]])
 
 
 def band_levels(x, lo, hi, frame_ms, sr=SR, order=4):
@@ -389,13 +411,24 @@ def out_frames(segs, speed=1.0):
     return int(round(sum(s[1] - s[0] for s in segs) / speed))
 
 
-def filter_graph(segs, fps, sr=SR, speed=1.0, fade_ms=FADE_MS, v_start=0.0):
-    """One pass: the audio resampled to sr on the presentation clock (any input rate or start offset), split into
-    the kept runs by sample, the picture into the same runs by frame; each stream concatenated on its own (audio
-    runs may be a few ms longer or shorter than their frames; the totals match), 5 ms fades at the splices,
-    optional synced speed-up. segs: segments_from_cuts() rows."""
+def _shift_filter(av_offset_ms, sr=SR):
+    """ffmpeg filters (after aresample first_pts=0) that move the sound by av_offset_ms, keeping it long enough."""
+    n = int(round(abs(av_offset_ms) * sr / 1000))
+    if not n:
+        return ''
+    if av_offset_ms < 0:
+        return f',atrim=start_sample={n},asetpts=PTS-STARTPTS,apad=pad_len={n}'
+    return f',adelay=delays={n}S:all=1'
+
+
+def filter_graph(segs, fps, sr=SR, speed=1.0, fade_ms=FADE_MS, v_start=0.0, av_offset_ms=0.0):
+    """One pass: the audio resampled to sr on the presentation clock (any input rate or start offset), moved by
+    av_offset_ms against the picture, split into the kept runs by sample, the picture into the same runs by frame;
+    each stream concatenated on its own (audio runs may be a few ms longer or shorter than their frames; the totals
+    match), 5 ms fades at the splices, optional synced speed-up. segs: segments_from_cuts() rows."""
     n = len(segs)
-    parts = [f'[0:a:0]aresample={sr}:first_pts=0' + (f',asplit={n}' if n > 1 else '') + ''.join(f'[s{i}]' for i in range(n))]
+    parts = [f'[0:a:0]aresample={sr}:first_pts=0' + _shift_filter(av_offset_ms, sr) + (f',asplit={n}' if n > 1 else '')
+             + ''.join(f'[s{i}]' for i in range(n))]
     vl = al = ''
     fade = fade_ms / 1000
     for i, (a, b, ta, tb) in enumerate(segs):
@@ -422,14 +455,16 @@ def filter_graph(segs, fps, sr=SR, speed=1.0, fade_ms=FADE_MS, v_start=0.0):
 
 def tighten(in_video, out_video, captions_or_vad=None, end_cap_ms=END_CAP_MS, mid_cap_ms=MID_CAP_MS,
             tail_keep_ms=TAIL_KEEP_MS, min_cut_ms=MIN_CUT_MS, *, lead_ms=LEAD_MS, speed=1.0, measure=True,
-            crf=15, preset='medium', chain=audio.VOICE_CHAIN):
+            crf=15, preset='medium', chain=audio.VOICE_CHAIN, av_offset_ms=0.0):
     """Write a jump-cut copy of in_video (video H.264, audio FLAC 48 kHz: no extra lossy generation) and return
     {'cuts': [{'at_ms', 'removed_ms', 'kind', 'src_ms', 'audio_src_ms', ...}], 'time_map': [[src_a, src_b, dst_a]],
     'captions', 'pauses', 'sync', ...}.
 
     captions_or_vad: Whisper words on in_video's audio timeline ([{'text', 'startMs', 'endMs'}], classify sentence
     ends and get remapped), or speech spans [(start_ms, end_ms)] to use instead of the built-in VAD, or None.
-    chain: the voice chain audibility is judged through (None: the raw take, with the same relative lines)."""
+    chain: the voice chain audibility is judged through (None: the raw take, with the same relative lines).
+    av_offset_ms: the provider's lip-sync correction (PROVIDER_AV_OFFSET_MS; negative = the sound plays earlier).
+    Captions and spans are given on the take's own audio clock and come back on the corrected one."""
     t0 = time.time()
     in_video, out_video = Path(in_video), Path(out_video)
     pr = probe(in_video)
@@ -439,16 +474,20 @@ def tighten(in_video, out_video, captions_or_vad=None, end_cap_ms=END_CAP_MS, mi
     clock_ms = audio_clock_ms(in_video, len(x), pr)   # Whisper/VAD times (decoded from the first sample) -> video clock
     n_frames = min(n_frames, int(len(x) / SR * fps + 1e-6))   # never ask atrim for audio past the end
     xc = x if chain is None else audio.voice_chain_pcm(in_video, chain)[int(round(v_start * SR)):]
+    av_offset_ms = float(av_offset_ms or 0.0)
+    if av_offset_ms:     # every measurement below runs on the corrected sound
+        x, xc = shift_pcm(x, av_offset_ms), shift_pcm(xc, av_offset_ms)
+    word_shift = clock_ms + av_offset_ms     # caption / span times -> the corrected sound on the video clock
     aud = audibility(xc)
     lv5, lv10 = levels_db(x, 5), levels_db(x, 10)
     p95 = float(np.percentile(lv5, 95))
     silence_db = max(p95 + AUDIBLE_REL_DB, float(np.percentile(lv5, 10)) + 4.0)
     loud_db = max(p95 + LOUD_REL_DB, silence_db + 3.0)
     captions = captions_or_vad if _is_captions(captions_or_vad) else None
-    if captions and abs(clock_ms) > 0.5:
-        captions = [{**c, 'startMs': round(c['startMs'] + clock_ms), 'endMs': round(c['endMs'] + clock_ms)} for c in captions]
+    if captions and abs(word_shift) > 0.5:
+        captions = [{**c, 'startMs': round(c['startMs'] + word_shift), 'endMs': round(c['endMs'] + word_shift)} for c in captions]
     if captions_or_vad and not captions:
-        spans = [(round(a + clock_ms), round(b + clock_ms)) for a, b in captions_or_vad]
+        spans = [(round(a + word_shift), round(b + word_shift)) for a, b in captions_or_vad]
     else:
         spans = speech_spans(lv10, max(-48.0, min(-34.0, float(np.percentile(lv10, 95)) + VAD_REL_DB)))
     kinds = gap_kinds(spans, captions)
@@ -462,7 +501,8 @@ def tighten(in_video, out_video, captions_or_vad=None, end_cap_ms=END_CAP_MS, mi
         dst += (b - a) * frame_ms
     out_video.parent.mkdir(parents=True, exist_ok=True)
     audio.run(['ffmpeg', '-y', '-hide_banner', '-nostats', '-loglevel', 'error', '-i', in_video,
-               '-filter_complex', filter_graph(segs, fps, speed=speed, v_start=v_start), '-map', '[v]', '-map', '[a]',
+               '-filter_complex', filter_graph(segs, fps, speed=speed, v_start=v_start, av_offset_ms=av_offset_ms),
+               '-map', '[v]', '-map', '[a]',
                '-r', f'{fps:g}', '-c:v', 'libx264', '-crf', str(crf), '-preset', preset, '-pix_fmt', 'yuv420p',
                '-c:a', 'flac', '-ar', str(SR), '-ac', '2', '-movflags', '+faststart', out_video])
     cut_list = []
@@ -479,7 +519,9 @@ def tighten(in_video, out_video, captions_or_vad=None, end_cap_ms=END_CAP_MS, mi
         'duration_in_ms': round(n_frames * frame_ms),
         'duration_out_ms': round(out_frames(segs, speed) * frame_ms), 'removed_ms': round(n_frames * frame_ms - dst),
         'pauses': pauses, 'speech_src': [list(s) for s in spans], 'speech': [list(s) for s in remap_spans(spans, time_map, speed)],
-        'clock': {'v_start_s': v_start, 'a_start_s': pr['a_start'], 'a_sr': pr['a_sr'], 'shift_ms': round(clock_ms, 2)},
+        'av_offset_ms': av_offset_ms,
+        'clock': {'v_start_s': v_start, 'a_start_s': pr['a_start'], 'a_sr': pr['a_sr'], 'shift_ms': round(clock_ms, 2),
+                  'av_offset_ms': av_offset_ms},
         'thresholds_db': {'p95': round(p95, 1), 'loud': round(loud_db, 1), 'chain_p95': round(aud['p95'], 1),
                           'audible_bb': round(aud['bb_line'], 1), 'audible_hf': round(aud['hf_line'], 1)},
         'params': {'end_cap_ms': end_cap_ms, 'mid_cap_ms': mid_cap_ms, 'tail_keep_ms': tail_keep_ms,
@@ -489,7 +531,7 @@ def tighten(in_video, out_video, captions_or_vad=None, end_cap_ms=END_CAP_MS, mi
         result['captions'] = remap_captions(captions, time_map, speed)
     result['render_s'] = round(time.time() - t0, 2)
     if measure:
-        result['sync'] = measure_sync(in_video, out_video, time_map, fps, speed, v_start=v_start)
+        result['sync'] = measure_sync(in_video, out_video, time_map, fps, speed, v_start=v_start, av_offset_ms=av_offset_ms)
     return result
 
 
@@ -510,16 +552,17 @@ def _best_lag(ref_ext, seg, max_lag):
     return int(np.argmax(xc / np.sqrt(np.maximum(energy, 1e-20)))) - max_lag
 
 
-def measure_sync(src, out, time_map, fps=25.0, speed=1.0, sr=SR, search_ms=SYNC_SEARCH_MS, v_start=0.0):
+def measure_sync(src, out, time_map, fps=25.0, speed=1.0, sr=SR, search_ms=SYNC_SEARCH_MS, v_start=0.0, av_offset_ms=0.0):
     """Lip-sync check of a tightened clip against its source, per kept segment (+-search_ms both ways):
     video = which source frame the output really shows (frame matching), audio = where the output audio really
     comes from in the source (normalised cross-correlation; the segment interior at speed 1, 20 ms windows at the
     frame centres with a speed-up, where atempo copies short source chunks). A/V offset = audio position - picture
     position, in output ms; 0 means sound and picture still come from the same instant. With a speed-up the picture
-    is quantised to whole source frames (up to half a frame), and that error is included."""
+    is quantised to whole source frames (up to half a frame), and that error is included. av_offset_ms: the
+    correction tighten applied; the source sound is compared moved by it, so 0 still means "exactly as asked"."""
     frame_ms = 1000.0 / fps
     fs, fo = _gray_frames(src), _gray_frames(out)
-    xs, xo = decode_on_video_clock(src, v_start, sr), decode_on_video_clock(out, 0.0, sr)
+    xs, xo = shift_pcm(decode_on_video_clock(src, v_start, sr), av_offset_ms or 0.0, sr), decode_on_video_clock(out, 0.0, sr)
     max_f, lag = int(math.ceil(search_ms / frame_ms)), int(sr * search_ms / 1000)
     win, trim = int(0.02 * sr), 60.0
     rows = []
@@ -569,6 +612,7 @@ def measure_sync(src, out, time_map, fps=25.0, speed=1.0, sr=SR, search_ms=SYNC_
     streams = {s['codec_type']: s for s in json.loads(probe_out)['streams']}
     dv, da = (float(streams[k].get('duration', 'nan')) for k in ('video', 'audio'))
     return {'max_offset_ms': round(max(offsets), 2) if offsets else None, 'segments_measured': len(offsets),
+            'av_offset_ms': av_offset_ms or 0.0,
             'video_s': round(dv, 3), 'audio_s': round(da, 3), 'duration_diff_ms': round(abs(dv - da) * 1000, 1),
             'start_time_s': {k: float(v.get('start_time', 0)) for k, v in streams.items()}, 'rows': rows}
 
@@ -604,13 +648,17 @@ def main(argv=None):
     p.add_argument('--tail-keep-ms', type=int, default=TAIL_KEEP_MS)
     p.add_argument('--min-cut-ms', type=int, default=MIN_CUT_MS)
     p.add_argument('--speed', type=float, default=1.0)
+    p.add_argument('--av-offset-ms', type=float, help='move the sound against the picture (negative = earlier)')
+    p.add_argument('--provider', choices=sorted(PROVIDER_AV_OFFSET_MS), help='use that provider\'s measured A/V offset')
     p.add_argument('--json', help='write the full result here')
     a = p.parse_args(argv)
     caps = json.loads(Path(a.captions).read_text()) if a.captions else None
-    r = tighten(a.src, a.dst, caps, a.end_cap_ms, a.mid_cap_ms, a.tail_keep_ms, a.min_cut_ms, speed=a.speed)
+    offset = a.av_offset_ms if a.av_offset_ms is not None else PROVIDER_AV_OFFSET_MS.get(a.provider, 0.0)
+    r = tighten(a.src, a.dst, caps, a.end_cap_ms, a.mid_cap_ms, a.tail_keep_ms, a.min_cut_ms, speed=a.speed,
+                av_offset_ms=offset)
     if a.json:
         Path(a.json).write_text(json.dumps(r, indent=1))
-    print(json.dumps({k: r[k] for k in ('cuts', 'duration_in_ms', 'duration_out_ms', 'removed_ms', 'render_s')}
+    print(json.dumps({k: r[k] for k in ('cuts', 'duration_in_ms', 'duration_out_ms', 'removed_ms', 'av_offset_ms', 'render_s')}
                      | {'sync': {k: v for k, v in r['sync'].items() if k != 'rows'}}, indent=1))
 
 

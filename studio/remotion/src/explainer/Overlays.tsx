@@ -1,6 +1,6 @@
 import { interpolate, spring, useCurrentFrame } from "remotion";
-import { ARROW_RED, Box, CHIP_Y_MAX, clamp, DEEP_GREEN, EXPO_OUT, FPS, H, IN_OUT, INK, SANS, SERIF, STAT_GREEN, toFrame, toMs, W } from "./theme";
-import type { Overlay } from "./types";
+import { ARROW_RED, Box, CHIP_Y_MAX, clamp, DEEP_GREEN, DEFAULT_FACE_BOX, EXPO_OUT, FPS, H, IN_OUT, INK, placeDisplayWord, SAFE, SANS, SERIF, STAT_GREEN, toFrame, toMs, W } from "./theme";
+import type { FaceBox, Overlay } from "./types";
 
 const DEFAULT_AT: Record<Overlay["kind"], number> = { stat: 150, chip: 450, arrow: 350, bigtext: 0 };
 
@@ -31,7 +31,8 @@ const Stat: React.FC<{ o: Overlay; ms: number }> = ({ o, ms }) => {
 };
 
 /** White pill(s); several lines (split on "\n") stagger in, or pop on their own times (itemsAtMs). The stack's
- *  lowest centre never goes below CHIP_Y_MAX (the Reels caption block and right rail live under it). */
+ *  lowest centre never goes below CHIP_Y_MAX (the Reels caption block and right rail live under it). A centred chip
+ *  sits on the safe area's centre line and never runs past it (x 0.06-0.86W): a long line gets a smaller font. */
 const Chips: React.FC<{ o: Overlay; ms: number; atDefault?: number }> = ({ o, ms, atDefault }) => {
   const items = o.text.split("\n").filter(Boolean);
   const at = o.atMs ?? atDefault ?? DEFAULT_AT.chip;
@@ -47,8 +48,14 @@ const Chips: React.FC<{ o: Overlay; ms: number; atDefault?: number }> = ({ o, ms
         const sp = f >= 0 ? spring({ frame: f, fps: FPS, config: { damping: 15, stiffness: 210, mass: 0.6 } }) : 0;
         if (f < 0) return null;
         const num = /^(\d+)\s+(.*)$/.exec(t);
+        const label = num ? num[2] : t;
+        const fontSize = Math.min(21, (SAFE.right - SAFE.left - 64) / Math.max(1, label.length * 0.56));
         const side: React.CSSProperties =
-          align === "right" ? { right: 30 } : align === "left" ? { left: 30 } : { left: "50%", transform: `translateX(-50%) translateY(${(1 - sp) * 26}px) scale(${0.9 + 0.1 * sp})` };
+          align === "right"
+            ? { right: 30 }
+            : align === "left"
+              ? { left: 30 }
+              : { left: (SAFE.left + SAFE.right) / 2, transform: `translateX(-50%) translateY(${(1 - sp) * 26}px) scale(${0.9 + 0.1 * sp})` };
         return (
           <div
             key={i}
@@ -58,7 +65,7 @@ const Chips: React.FC<{ o: Overlay; ms: number; atDefault?: number }> = ({ o, ms
               opacity: interpolate(f, [0, 2], [0, 1], clamp),
               display: "flex", alignItems: "center", gap: 10, height: 48, padding: "0 20px 0 14px", borderRadius: 24,
               background: "rgba(255,255,255,0.97)", boxShadow: "0 10px 28px rgba(20,24,40,0.22)", whiteSpace: "nowrap",
-              fontFamily: SANS, fontWeight: 600, fontSize: 21, color: INK,
+              fontFamily: SANS, fontWeight: 600, fontSize, color: INK,
             }}
           >
             {num ? (
@@ -68,7 +75,7 @@ const Chips: React.FC<{ o: Overlay; ms: number; atDefault?: number }> = ({ o, ms
             ) : (
               <span style={{ width: 9, height: 9, borderRadius: 5, background: o.color ?? "#3a8f3a" }} />
             )}
-            {num ? num[2] : t}
+            {label}
           </div>
         );
       })}
@@ -104,15 +111,18 @@ const Arrow: React.FC<{ o: Overlay; ms: number; card: Box }> = ({ o, ms, card })
 
 const clampN = (t: number) => Math.min(1, Math.max(0, t));
 
-/** Giant serif display word (e.g. "Hold on.", ~45-48% W like the reference's "Wait,"), scaling in through blur,
- *  letter by letter; its top stays below the Reels header (>= 150 px). */
-const BigText: React.FC<{ o: Overlay; ms: number }> = ({ o, ms }) => {
+/** Giant serif display word (e.g. "Wait!", ~45-48% W like the reference's "Wait,"), scaling in through blur,
+ *  letter by letter; its top stays below the Reels header (>= 150 px). It never covers the face: the props place
+ *  it (x, y, size from edit_explainer.place_display_word) and placeDisplayWord re-checks against the take's face box. */
+const BigText: React.FC<{ o: Overlay; ms: number; face?: FaceBox }> = ({ o, ms, face }) => {
   const at = o.atMs ?? DEFAULT_AT.bigtext;
   const letters = Array.from(o.text);
-  const size = Math.min(120, (W * 0.48) / Math.max(1, letters.length * 0.42));
-  const top = Math.max(150, H * (o.y ?? 0.18) - size * 0.6);
+  const p = placeDisplayWord(o.text, o.y ?? 0.18, face ?? DEFAULT_FACE_BOX, o.x ?? 0.5, o.size);
+  const size = p.size;
+  const top = Math.max(150, p.y - size * 0.55);
+  const width = W;
   return (
-    <div style={{ position: "absolute", top, left: 0, width: W, textAlign: "center", whiteSpace: "nowrap", fontFamily: SERIF, fontStyle: "italic", fontSize: size, lineHeight: 1.1, color: o.color ?? DEEP_GREEN }}>
+    <div style={{ position: "absolute", top, left: p.x - width / 2, width, textAlign: "center", whiteSpace: "nowrap", fontFamily: SERIF, fontStyle: "italic", fontSize: size, lineHeight: 1.1, color: o.color ?? DEEP_GREEN }}>
       {letters.map((ch, i) => {
         const p = interpolate(ms, [at + i * 35, at + i * 35 + 380], [0, 1], { ...clamp, easing: EXPO_OUT });
         return (
@@ -125,10 +135,10 @@ const BigText: React.FC<{ o: Overlay; ms: number }> = ({ o, ms }) => {
   );
 };
 
-export const OverlayLayer: React.FC<{ o: Overlay; card: Box }> = ({ o, card }) => {
+export const OverlayLayer: React.FC<{ o: Overlay; card: Box; face?: FaceBox }> = ({ o, card, face }) => {
   const ms = toMs(useCurrentFrame());
   if (o.kind === "stat") return <Stat o={o} ms={ms} />;
   if (o.kind === "arrow") return <Arrow o={o} ms={ms} card={card} />;
-  if (o.kind === "bigtext") return <BigText o={o} ms={ms} />;
+  if (o.kind === "bigtext") return <BigText o={o} ms={ms} face={face} />;
   return <Chips o={o} ms={ms} />;
 };

@@ -12,9 +12,13 @@ export type SceneType = "avatar" | "split" | "card" | "text" | "stat" | "endcard
  *  mode "card" pops the whole card out (scale + orange outline) and leaves the recording at 1.0. */
 export type PushIn = { atMs: number; scale: number; originX: number; originY: number; durMs?: number; mode?: "content" | "card" };
 
+/** A push-in on one highlight box of the recording (scene-relative ms). box: [x, y, w, h] fractions of the
+ *  recording frame; the card aims the zoom so the whole box stays inside the card (scale capped to fit). */
+export type Zoom = { atMs: number; endMs: number; scale: number; box: [number, number, number, number] };
+
 /** A real screen recording (1080x1350, 25 fps). inMs is the source in-point; durationMs (source length)
  *  lets the card freeze on the last frame instead of running out. */
-export type Recording = { src: string; inMs: number; playbackRate?: number; pushIn?: PushIn; durationMs?: number };
+export type Recording = { src: string; inMs: number; playbackRate?: number; pushIn?: PushIn; durationMs?: number; zooms?: Zoom[] };
 
 /**
  * chip: white pill(s) (text split on "\n", staggered, optional per-item times in itemsAtMs);
@@ -26,6 +30,9 @@ export type Overlay = {
   text: string;
   color?: string;
   y?: number;
+  /** bigtext: centre x (fraction of W) and font size (px) placed clear of the face (edit_explainer.place_display_word). */
+  x?: number;
+  size?: number;
   atMs?: number;
   align?: "left" | "center" | "right";
   itemsAtMs?: number[];
@@ -47,6 +54,8 @@ export type Scene = {
   punch?: 1 | 1.06;
   /** The hook pattern interrupt: the avatar drops in upside-down and whips upright. */
   flipIn?: boolean;
+  /** ...after hanging upside-down this long (ms after the drop lands). */
+  flipHoldMs?: number;
   /** Caption system for this scene; defaults by type (avatar: talk, canvas scenes: explainer, endcard: none). */
   system?: CaptionSystem;
   /** Small command chip on the card's top-left edge (e.g. "/yt-script"). */
@@ -55,6 +64,9 @@ export type Scene = {
   items?: Item[];
   /** Spec beat name: explainer caption runs never cross a beat. */
   beat?: string;
+  /** End card: the site the tail names ("withhammad.com") and a note ("link in bio"). */
+  site?: string;
+  siteNote?: string;
 };
 
 export type Word = { text: string; startMs: number; endMs: number; em?: boolean };
@@ -64,14 +76,18 @@ export type Word = { text: string; startMs: number; endMs: number; em?: boolean 
 export type HeadlineWord = { text: string; startMs: number; italic?: boolean };
 export type HeadlinePage = { startMs: number; endMs: number; lines: { italic?: boolean; words: HeadlineWord[] }[] };
 
-export type Music = { src: string; volume?: number; duckTo?: number; fadeOutMs?: number };
+/** holdGapMs: word gaps shorter than this stay ducked (no swell between phrases); fadeInMs: bed fade-in. */
+export type Music = { src: string; volume?: number; duckTo?: number; fadeOutMs?: number; fadeInMs?: number; holdGapMs?: number };
 export type Sfx = { src: string; atMs: number; volume?: number };
 
 /** Comment-composer CTA: types the keyword at atMs, then a notification slides in. */
 export type Cta = { keyword: string; atMs: number; handle?: string; reply?: string };
 
-export type AvatarSrc = { src: string; loop?: boolean };
-export type TailSrc = { src: string; startMs: number; loop?: boolean };
+/** faceBox: [x, y, w, h] fractions of the frame where the take's face sits (display words keep clear of it). */
+export type FaceBox = [number, number, number, number];
+export type AvatarSrc = { src: string; loop?: boolean; faceBox?: FaceBox };
+/** durationMs: the take's length; past it the take holds its last frame (e.g. under a longer end card). */
+export type TailSrc = { src: string; startMs: number; loop?: boolean; faceBox?: FaceBox; durationMs?: number };
 
 export type ExplainerProps = {
   avatar: AvatarSrc;

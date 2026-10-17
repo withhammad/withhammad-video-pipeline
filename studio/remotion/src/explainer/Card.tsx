@@ -1,12 +1,22 @@
 import { Video } from "@remotion/media";
 import { Freeze, interpolate, staticFile, useCurrentFrame } from "remotion";
-import { Box, CARD_BG, clamp, EXPO_OUT, FPS, H, IN_OUT, lerp, SANS, toFrame, toMs } from "./theme";
+import { Box, CARD_BG, CARD_INSET, clamp, clampCardScale, EXPO_OUT, FPS, H, IN_OUT, lerp, SANS, toFrame, toMs, zoomAt } from "./theme";
 import type { Recording } from "./types";
 
 export type Entrance = "up" | "in" | "swap" | "none";
 
 /** What the previous contiguous card showed last: kept frozen under the incoming recording during a swap. */
 export type PrevShot = { rec: Recording; frames: number; zoom: number; origin: string };
+
+/** The content transform (push-in) of a recording at scene-relative ms inside an inner box of iw x ih px:
+ *  the highlight zooms when the recording has them, else the legacy content pushIn. */
+export const contentZoom = (rec: Recording | undefined, ms: number, iw: number, ih: number) => {
+  if (rec?.zooms?.length) {
+    const z = zoomAt(rec.zooms, ms, iw, ih);
+    return { scale: z.scale, origin: `${z.originX.toFixed(1)}px ${z.originY.toFixed(1)}px` };
+  }
+  return { scale: pushZoom(rec, ms), origin: pushOrigin(rec) };
+};
 
 /** Last source frame the recording can show for this scene (freeze there instead of running out). */
 const lastFrame = (rec: Recording) => {
@@ -28,11 +38,13 @@ export const pushZoom = (rec: Recording | undefined, ms: number) => {
   return 1 + (push.scale - 1) * pushProgress(rec, ms);
 };
 
-/** The card-level pop ("Remotion pops the box out"): the whole card scales, the recording stays at 1.0. */
-const cardPop = (rec: Recording | undefined, ms: number) => (rec?.pushIn?.mode === "card" ? 1 + (rec.pushIn.scale - 1) * pushProgress(rec, ms) : 1);
+/** The card-level pop ("Remotion pops the box out"): the whole card scales, the recording stays at 1.0. The
+ *  scale is clamped so the card never leaves the safe area (x 0.06-0.86W, bottom 0.79H). */
+const cardPop = (rec: Recording | undefined, ms: number, box: Box) =>
+  rec?.pushIn?.mode === "card" ? 1 + (clampCardScale(box, rec.pushIn.scale) - 1) * pushProgress(rec, ms) : 1;
 
 /** Recording edges fade into the card (a scrolling window), so the 4:5 cover crop never slices a line of text. */
-const EDGE_FADE = "linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%)";
+const EDGE_FADE = "linear-gradient(to bottom, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%)";
 export const pushOrigin = (rec: Recording | undefined) => (rec?.pushIn ? `${rec.pushIn.originX * 100}% ${rec.pushIn.originY * 100}%` : "50% 50%");
 
 const RecordingVideo: React.FC<{ rec: Recording; holdAt?: number }> = ({ rec, holdAt }) => {
@@ -99,12 +111,14 @@ export const RecordingCard: React.FC<{
     ? { left: lerp(fromBox.left, box.left, m), top: lerp(fromBox.top, box.top, m), width: lerp(fromBox.width, box.width, m), height: lerp(fromBox.height, box.height, m) }
     : box;
 
-  const zoom = pushZoom(rec, ms);
+  const iw = b.width - 2 * CARD_INSET;
+  const ih = b.height - 2 * CARD_INSET;
+  const zoom = contentZoom(rec, ms, iw, ih);
   // In-card swap: the new recording dissolves in over the previous card's frozen last frame (never an empty card).
   const swapT = entrance === "swap" ? interpolate(ms, [-60, 180], [0, 1], { ...clamp, easing: EXPO_OUT }) : 1;
   const glow = highlightMs !== undefined ? interpolate(ms, [highlightMs, highlightMs + 260], [0, 1], { ...clamp, easing: IN_OUT }) : 0;
   const enter = entranceStyle(entrance, ms, b);
-  const pop = cardPop(rec, ms);
+  const pop = cardPop(rec, ms, box);
 
   return (
     <div
@@ -121,7 +135,7 @@ export const RecordingCard: React.FC<{
           border: "1px solid rgba(255,255,255,0.06)",
         }}
       >
-        <div style={{ position: "absolute", inset: 0, overflow: "hidden", WebkitMaskImage: EDGE_FADE, maskImage: EDGE_FADE }}>
+        <div style={{ position: "absolute", inset: CARD_INSET, borderRadius: 12, overflow: "hidden", WebkitMaskImage: EDGE_FADE, maskImage: EDGE_FADE }}>
           {entrance === "swap" && prev && swapT < 1 ? (
             <div style={{ position: "absolute", inset: 0, transform: `scale(${prev.zoom})`, transformOrigin: prev.origin }}>
               <RecordingVideo rec={prev.rec} holdAt={Math.max(0, prev.frames - 1)} />
@@ -131,8 +145,8 @@ export const RecordingCard: React.FC<{
             <div
               style={{
                 position: "absolute", inset: 0,
-                transform: `scale(${zoom * (1.03 - 0.03 * swapT)})`,
-                transformOrigin: pushOrigin(rec),
+                transform: `scale(${zoom.scale * (1.03 - 0.03 * swapT)})`,
+                transformOrigin: zoom.origin,
                 opacity: swapT,
               }}
             >

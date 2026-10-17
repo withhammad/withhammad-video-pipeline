@@ -320,8 +320,10 @@ def test_headlines_follow_the_curated_text_and_our_word_times():
     assert [w['startMs'] for w in meet['lines'][1]['words']] == [start_of(caps, 'agent'), start_of(caps, 'skill.')]
     assert meet['lines'][1]['italic'] and not meet['lines'][0]['italic']
     assert open_['startMs'] == start_of(caps, 'Open') and open_['endMs'] == scene(p, 'U4')['endMs']
-    # "It's eleven separate skills": the page takes over at the clause start; "Eleven" shows from then on.
-    assert eleven['startMs'] == start_of(caps, "It's", 2) and eleven['lines'][0]['words'][0]['startMs'] == eleven['startMs']
+    # "It's eleven separate skills": the page takes over (the old one clears) at the clause start, but "Eleven" only
+    # shows when it is said, never ahead of the voice.
+    assert eleven['startMs'] == start_of(caps, "It's", 2)
+    assert eleven['lines'][0]['words'][0]['startMs'] == start_of(caps, 'eleven', 2) > eleven['startMs']
     assert eleven['lines'][0]['words'][1]['startMs'] == start_of(caps, 'separate')
 
 
@@ -385,3 +387,180 @@ def test_render_passes_absolute_paths_to_remotion(tmp_path, monkeypatch):
     cmd, kw = calls[0]
     assert kw['cwd'] == ex.REMOTION
     assert Path(cmd[4]).is_absolute() and cmd[5].startswith('--props=/')
+
+
+# ----------------------------------------------------------------------------------------------- verification round 1
+
+def tail_spec(endcard_t=16.0):
+    """SPEC with a second-setup tail: "Wait" on take B, then the site plug and an end card."""
+    spec = json.loads(json.dumps(SPEC))
+    spec['heygen'] = {'take_A': {'face_box': [0.33, 0.19, 0.38, 0.33]}, 'take_B': {'face_box': [0.39, 0.105, 0.18, 0.14]}}
+    spec['beats'].append({'name': 'tail', 'ref_window': [16.7, 22.0], 'line': 'Wait, all my free guides are on withhammad dot com, link in my bio.',
+                          'on_screen_text': 'Wait! | *withhammad.com* / link in bio', 'emphasis': ['free guides'],
+                          'units': [{'id': 'U8', 't': [16.7, 17.5], 'type': 'avatar full-frame (second setup)',
+                                     'overlay': 'Giant green serif "Wait!" behind or beside the head'},
+                                    {'id': 'U9', 't': [17.5, 18.5], 'type': 'avatar + overlay cards', 'overlay': 'Chip: "withhammad.com"'},
+                                    {'id': 'U10', 't': [18.5, 22.0], 'type': 'text card (end card)', 'footage': 'pill "FREE GUIDE"'}]})
+    return spec
+
+
+def tail_caps(spec):
+    return make_caps(words=' '.join(b['line'] for b in spec['beats']).replace('withhammad dot com', 'withhammad .com').split())
+
+
+def test_scene_cuts_land_on_the_jump_cut_and_short_bridges_stay_whole():
+    assert ex.COVER_PAD_MS == 0
+    spec = json.loads(json.dumps(SPEC))
+    spec['beats'][2]['line'] = "And no, it's not one big prompt. It's eleven separate skills."
+    caps = make_caps(words=' '.join(b['line'] for b in spec['beats']).split())
+    cut = start_of(caps, 'And', 2)                              # "source and MIT" is the first one
+    p = build(caps, spec=spec, cuts=[cut])
+    u4, u5 = scene(p, 'U4'), scene(p, 'U5')
+    assert u4['endMs'] == u5['startMs'] == cut                  # the recording reaches exactly to the cut
+    # "And no," alone would be a 0.5 s talking head: the bridge keeps the whole phrase on the face, no split
+    assert 'U6-split' not in [s['id'] for s in p['scenes']]
+    assert boundary_word(caps, u5['endMs']) == ' prompt.'
+
+
+def test_headline_pages_never_flash():
+    caps = make_caps()
+    first_words = lambda p: [h['lines'][0]['words'][0]['text'] for h in p['headlines']]
+    assert 'Meet' in first_words(build(caps))
+    # U3 pinned to "the": the U2 card is cut 200 ms after "Meet" appears, so that page would only flash: dropped
+    short = build(caps, anchors={'U3': 'the'})
+    assert scene(short, 'U2')['endMs'] - start_of(caps, 'Meet') < ex.HEADLINE_MIN_MS
+    assert 'Meet' not in first_words(short)
+    for h in short['headlines']:
+        assert h['endMs'] - min(w['startMs'] for ln in h['lines'] for w in ln['words']) >= ex.HEADLINE_MIN_MS
+
+
+def test_cta_keyword_keeps_the_spec_casing_and_a_split_domain_is_one_word():
+    words = ' '.join(b['line'] for b in SPEC['beats']).replace('Comment ELEVEN', 'Comment Eleven').split()
+    p = build(make_caps(words=words))
+    shown = [w['text'] for w in p['captions']['words']]
+    assert shown.count('ELEVEN') == 1 and shown[shown.index('ELEVEN') - 1] == 'Comment'   # only after "comment"
+    out = ex.display_words([{'text': ' on', 'startMs': 0, 'endMs': 100}, {'text': ' withhammad', 'startMs': 100, 'endMs': 500},
+                            {'text': ' .com', 'startMs': 500, 'endMs': 800}])
+    assert [w['text'] for w in out] == ['on', 'withhammad.com'] and out[1]['endMs'] == 800
+
+
+def test_end_card_waits_for_the_last_word_and_shows_the_site():
+    spec = tail_spec()
+    caps = tail_caps(spec)
+    p = ex.build_props('/nonexistent', spec, caps, durations=DURATIONS, plans=PLANS, tail='job/avatar_wait.mp4')
+    end, before = p['scenes'][-1], p['scenes'][-2]
+    last = caps[-1]['endMs']
+    assert end['type'] == 'endcard' and end['startMs'] == before['endMs'] == last + ex.ENDCARD_GAP_MS
+    assert end['endMs'] - last >= ex.ENDCARD_MIN_MS and p['durationMs'] == end['endMs']
+    assert end['site'] == 'withhammad.com' and end['siteNote'] == 'link in bio'
+    talk_words = [w for w in p['captions']['words'] if before['startMs'] <= w['startMs'] < before['endMs']]
+    assert talk_words[-1]['text'] == 'bio.'                    # every spoken word is captioned on the talking head
+    chip = before['overlay']
+    assert chip['kind'] == 'chip' and chip['y'] == ex.CHIP_Y_TALK
+    said = next(w for w in p['captions']['words'] if w['text'].startswith('withhammad.com'))
+    assert chip['atMs'] == said['startMs'] - before['startMs'] - 80   # pops as the site is said
+
+
+def test_display_word_is_placed_clear_of_the_face():
+    full_body = [0.39, 0.105, 0.18, 0.14]
+    for face in (full_body, None, [0.33, 0.19, 0.38, 0.33]):
+        for y in (0.18, 0.3):
+            pl = ex.place_display_word('Wait!', y, face)
+            size = pl['size']
+            box = ex._display_box('Wait!', size, pl['x'] * ex.CANVAS_W, pl['y'] * ex.CANVAS_H)
+            assert not ex._overlaps(box, ex.face_box_px(face)), (face, y, pl)
+            assert box[1] >= ex.SAFE_TOP_PX - 1 and box[2] <= ex.SAFE_RIGHT * ex.CANVAS_W + 1 and size >= ex.DISPLAY_MIN_PX
+    beside = ex.place_display_word('Wait!', 0.18, full_body)   # head at 0.10H: no room above, so beside the head
+    assert beside['x'] < 0.39 and 0.105 < beside['y'] < 0.245
+    clear = ex.place_display_word('Wait!', 0.6, full_body)     # asked-for place already clear: unchanged
+    assert clear['x'] == 0.5 and clear['y'] == 0.6
+
+
+def test_bigtext_on_the_tail_uses_the_tail_face_box():
+    spec = tail_spec()
+    p = ex.build_props('/nonexistent', spec, tail_caps(spec), durations=DURATIONS, plans=PLANS, tail='job/avatar_wait.mp4')
+    assert p['tail']['faceBox'] == [0.39, 0.105, 0.18, 0.14] and p['avatar']['faceBox'] == [0.33, 0.19, 0.38, 0.33]
+    ov = scene(p, 'U8')['overlay']
+    assert ov['kind'] == 'bigtext' and ov == {**ov, **ex.place_display_word('Wait!', 0.18, [0.39, 0.105, 0.18, 0.14])}
+
+
+def _frame_with_outline(w, h, box, extra=()):
+    """rgb24 frame: dark page, a rounded #FFD60A outline (2 px) around box (px), plus small gold specks."""
+    buf = bytearray(bytes((13, 17, 23)) * (w * h))
+
+    def put(x, y, c=(255, 214, 10)):
+        if 0 <= x < w and 0 <= y < h:
+            buf[3 * (y * w + x):3 * (y * w + x) + 3] = bytes(c)
+    x0, y0, x1, y1 = box
+    for x in range(x0 + 3, x1 - 2):
+        for t in range(2):
+            put(x, y0 + t)
+            put(x, y1 - t)
+    for y in range(y0 + 3, y1 - 2):
+        for t in range(2):
+            put(x0 + t, y)
+            put(x1 - t, y)
+    for ex_, ey in extra:                       # e.g. a gold "18" count: short runs only
+        for k in range(12):
+            put(ex_ + k, ey, (242, 204, 96))
+    return bytes(buf)
+
+
+def test_highlight_outline_is_found_and_small_yellow_marks_are_ignored():
+    w, h = 270, 338
+    rgb = _frame_with_outline(w, h, (30, 120, 220, 160), extra=[(200, 20), (200, 21), (40, 300)])
+    x, y, bw, bh = ex.yellow_box(rgb, w, h, min_run=20)
+    # the top and bottom edges give the box (inside the rounded corners: within 4 px)
+    assert abs(x * w - 30) <= 4 and abs(y * h - 120) <= 1 and abs((x + bw) * w - 221) <= 4 and abs((y + bh) * h - 161) <= 1
+    assert ex.yellow_box(_frame_with_outline(w, h, (0, 0, 0, 0))[:0] + bytes((13, 17, 23)) * (w * h), w, h) is None
+    assert ex.PUSH_MIN <= ex.push_scale([0.06, 0.6, 0.13, 0.046]) <= ex.PUSH_MAX   # one line of GitHub text
+    assert ex.push_scale(None) == 1.5
+
+
+def test_highlights_get_push_ins_inside_their_scene_and_keys_land_on_words():
+    hl = {'R1': [{'startMs': 1151, 'endMs': 2573, 'box': [0.24, 0.10, 0.23, 0.055]},
+                 {'startMs': 3201, 'endMs': 4519, 'box': [0.06, 0.60, 0.13, 0.046]},
+                 {'startMs': 5042, 'endMs': 6360, 'box': [0.02, 0.67, 0.15, 0.052]}]}
+    caps = make_caps()
+    p = build(caps, highlights=hl)
+    for sid in ('U2', 'U4'):
+        s = scene(p, sid)
+        dur = s['endMs'] - s['startMs']
+        for z in s['recording'].get('zooms', []):
+            assert 0 <= z['atMs'] < z['endMs'] <= dur + 400 and ex.PUSH_MIN <= z['scale'] <= ex.PUSH_MAX
+    spec = json.loads(json.dumps(SPEC))
+    spec['beats'][1]['units'][2]['key'] = {'highlight': 'b', 'word': 'MIT'}       # PLANS R1: highlight 'b' = 2nd box
+    p = build(caps, spec=spec, highlights=hl)
+    u4 = scene(p, 'U4')
+    rec = u4['recording']
+    k = ex._keyed_highlight({'highlight': 'b'}, PLANS['R1'], DURATIONS['R1'])
+    on_screen = u4['startMs'] + (k['startMs'] - rec['inMs']) / rec.get('playbackRate', 1.0)
+    assert abs(on_screen - (start_of(caps, 'MIT') - 100)) <= 2                  # the box is up as the word starts
+    assert any(abs(z['box'][1] - 0.60) < 1e-6 for z in rec['zooms'])
+    spec['beats'][1]['units'][2]['key'] = {'highlight': 1, 'end': True}
+    u4 = scene(build(caps, spec=spec, highlights=hl), 'U4')
+    k = ex._keyed_highlight({'highlight': 1}, PLANS['R1'], DURATIONS['R1'])
+    out = u4['recording']['inMs'] + (u4['endMs'] - u4['startMs']) * u4['recording'].get('playbackRate', 1.0)
+    assert abs(out - k['endMs']) <= 2                                             # the scene ends as the box fades
+
+
+def test_pops_go_into_word_gaps_or_play_softer():
+    spans = [(0, 500), (560, 900), (1300, 2000)]
+    assert ex.pop_time(520, spans) == (505, True)          # a 60 ms gap: the pop starts in it
+    assert ex.pop_time(1000, spans) == (1000, True)        # already in a gap and it fits
+    assert ex.pop_time(1600, spans) == (1600, False)       # mid-word, no gap within 150 ms: softer
+    p = build(make_caps())
+    for x in p['sfx']:
+        if 'pop' in x['src']:
+            assert x['volume'] in (ex.POP_VOLUME, ex.POP_VOLUME_ON_WORD)
+
+
+def test_music_ducks_and_holds_short_gaps():
+    m = build(make_caps())['music']
+    assert m['duckTo'] == 0.08 and m['holdGapMs'] == 500 and m['fadeInMs'] > 0
+
+
+def test_load_cuts_reads_a_list_or_tighten_cuts_json(tmp_path):
+    (tmp_path / 'a.json').write_text('[3120, 8720]')
+    (tmp_path / 'b.json').write_text(json.dumps({'cuts': [{'at_ms': 3120.4}, {'at_ms': 8720}], 'av_offset_ms': -100}))
+    assert ex.load_cuts(tmp_path / 'a.json') == ex.load_cuts(tmp_path / 'b.json') == [3120, 8720]

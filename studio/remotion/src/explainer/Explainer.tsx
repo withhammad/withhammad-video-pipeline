@@ -5,12 +5,18 @@ import { fontsReady } from "../fonts";
 import { AvatarLayer, CAPTION_Z } from "./Avatar";
 import { Canvas } from "./Canvas";
 import { CaptionRun, Captions } from "./Captions";
-import { Entrance, PrevShot, pushOrigin, pushZoom, RecordingCard } from "./Card";
+import { contentZoom, Entrance, PrevShot, RecordingCard } from "./Card";
 import { CommentCta, EndCard } from "./Cta";
 import { OverlayLayer } from "./Overlays";
 import { TextCard } from "./TextCard";
-import { BACKDROP, Box, boxOf, CARD_BOX, cleanWord, FPS, H, isCanvas, smoothstep, speechAmount, systemOf, toFrame, toMs, W, wordsBetween } from "./theme";
-import { defaultExplainer, ExplainerProps, Music, Scene, TailSrc, Word } from "./types";
+import { BACKDROP, Box, boxOf, CARD_BOX, CARD_INSET, cleanWord, FPS, H, isCanvas, smoothstep, speechAmount, systemOf, toFrame, toMs, W, wordsBetween } from "./theme";
+import { defaultExplainer, ExplainerProps, FaceBox, Music, Scene, TailSrc, Word } from "./types";
+
+/** Talking-head captions also take words that start up to this long before their run (a bridge word spoken on
+ *  the cut: "And no," / "Which means"), so they are captioned once, on the face. */
+const TALK_LEAD_MS = 150;
+/** A headline page on screen for less than this is not shown (never flash a word on a cut). */
+const HEADLINE_MIN_MS = 400;
 
 // =============================================================================================
 // Metadata: duration from props. A missing presenter take or recording stops the render with the list of
@@ -109,7 +115,8 @@ const entranceOf = (s: Scene, prev: Scene | undefined): { entrance: Entrance; fr
     const r = s.recording;
     const prevDur = prev.endMs - prev.startMs;
     if (pr && r && pr.src === r.src && Math.abs(r.inMs - (pr.inMs + prevDur * (pr.playbackRate ?? 1))) < 250) return { entrance: "none", fromBox };
-    const prevShot = pr ? { rec: pr, frames: toFrame(prev.endMs) - toFrame(prev.startMs), zoom: pushZoom(pr, prevDur), origin: pushOrigin(pr) } : undefined;
+    const pz = pr ? contentZoom(pr, prevDur, a.width - 2 * CARD_INSET, a.height - 2 * CARD_INSET) : undefined;
+    const prevShot = pr && pz ? { rec: pr, frames: toFrame(prev.endMs) - toFrame(prev.startMs), zoom: pz.scale, origin: pz.origin } : undefined;
     return { entrance: "swap", fromBox, prevShot };
   }
   if (s.cardSlide) return { entrance: s.cardSlide };
@@ -117,15 +124,19 @@ const entranceOf = (s: Scene, prev: Scene | undefined): { entrance: Entrance; fr
 };
 
 /** Scene visuals (captions run separately, per caption run). Overlays sit above the facecam (CAPTION_Z). */
+/** The face box of the take on screen in this scene (display words keep clear of it). */
+const faceOf = (s: Scene, edit: ExplainerProps): FaceBox | undefined =>
+  edit.tail && s.startMs >= edit.tail.startMs - 40 ? edit.tail.faceBox : edit.avatar.faceBox;
+
 const SceneView: React.FC<{ s: Scene; prev?: Scene; edit: ExplainerProps }> = ({ s, prev, edit }) => {
   const box = boxOf(s);
   const overlay = s.overlay ? (
     <AbsoluteFill style={{ zIndex: CAPTION_Z }}>
-      <OverlayLayer o={s.overlay} card={box} />
+      <OverlayLayer o={s.overlay} card={box} face={faceOf(s, edit)} />
     </AbsoluteFill>
   ) : null;
 
-  if (s.type === "endcard") return <EndCard keyword={edit.cta?.keyword ?? s.overlay?.text ?? ""} pill={s.overlay?.text} />;
+  if (s.type === "endcard") return <EndCard keyword={edit.cta?.keyword ?? s.overlay?.text ?? ""} pill={s.overlay?.text} site={s.site} siteNote={s.siteNote} />;
   if (s.type === "avatar") return overlay;
   if (s.type === "split") {
     // The split card always scales in: sliding up would carry it through the facecam circle.
@@ -189,10 +200,28 @@ const withoutDisplayWords = (words: Word[], scenes: Scene[]) => {
   return drop.size ? words.filter((w) => !drop.has(w)) : words;
 };
 
-const RunCaptions: React.FC<{ run: CaptionRun; words: Word[]; edit: ExplainerProps }> = ({ run, words, edit }) => {
-  const runWords = useMemo(() => wordsBetween(words, run.startMs, run.endMs), [words, run.startMs, run.endMs]);
+/** Where a run's words start: a talking head that follows a card (or opens the reel) also takes the words that
+ *  began up to TALK_LEAD_MS before it; a run right after another talking-head run does not (no word twice). */
+export const runWordsFrom = (run: CaptionRun, prev?: CaptionRun) =>
+  run.system !== "explainer" && (!prev || prev.system === "explainer" || Math.abs(prev.endMs - run.startMs) >= 40) ? run.startMs - TALK_LEAD_MS : run.startMs;
+
+/** When a headline page's first word appears (pages clear the old one at their clause start, words show when said). */
+const firstWordMs = (h: { startMs: number; lines: { words: { startMs: number }[] }[] }) => {
+  const ts = h.lines.flatMap((l) => l.words.map((w) => w.startMs));
+  return ts.length ? Math.min(...ts) : h.startMs;
+};
+
+const RunCaptions: React.FC<{ run: CaptionRun; prev?: CaptionRun; words: Word[]; edit: ExplainerProps }> = ({ run, prev, words, edit }) => {
+  const from = runWordsFrom(run, prev);
+  const runWords = useMemo(() => wordsBetween(words, from, run.endMs), [words, from, run.endMs]);
   const headlines = useMemo(
-    () => (run.system === "explainer" && edit.headlines ? edit.headlines.filter((h) => h.startMs >= run.startMs && h.startMs < run.endMs).map((h) => ({ ...h, endMs: Math.min(h.endMs, run.endMs) })) : undefined),
+    () =>
+      run.system === "explainer" && edit.headlines
+        ? edit.headlines
+            .filter((h) => h.startMs >= run.startMs && h.startMs < run.endMs)
+            .map((h) => ({ ...h, endMs: Math.min(h.endMs, run.endMs) }))
+            .filter((h) => h.endMs - firstWordMs(h) >= HEADLINE_MIN_MS)
+        : undefined,
     [run.system, run.startMs, run.endMs, edit.headlines],
   );
   return (
@@ -221,18 +250,23 @@ const LightLeak: React.FC<{ atMs: number }> = ({ atMs }) => {
   );
 };
 
+/** The bed ducks under EVERY spoken word (the unfiltered captions: a word shown as a display overlay is still
+ *  spoken), holds the duck across gaps under holdGapMs, fades in over fadeInMs and out over fadeOutMs. */
 const MusicTrack: React.FC<{ music: Music; words: Word[]; durationMs: number }> = ({ music, words, durationMs }) => {
   const volume = music.volume ?? 0.12;
   const duckTo = music.duckTo ?? 0.07;
   const fadeOut = Math.max(1, music.fadeOutMs ?? 500);
+  const fadeIn = Math.max(1, music.fadeInMs ?? 1);
+  const hold = music.holdGapMs ?? 0;
   return (
     <Audio
       src={staticFile(music.src)}
       name="music"
       volume={(f) => {
         const ms = toMs(f);
-        const g = volume + (duckTo - volume) * speechAmount(words, ms);
-        return Math.max(0, Math.min(1, g * Math.min(1, Math.max(0, (durationMs - ms) / fadeOut))));
+        const g = volume + (duckTo - volume) * speechAmount(words, ms, 150, hold);
+        const edge = Math.min(1, Math.max(0, (durationMs - ms) / fadeOut), Math.max(0, ms / fadeIn));
+        return Math.max(0, Math.min(1, g * edge));
       }}
     />
   );
@@ -281,7 +315,7 @@ export const Explainer: React.FC<ExplainerProps> = (edit) => {
         const from = toFrame(run.startMs);
         return (
           <Sequence key={`cap${i}`} from={from} durationInFrames={Math.max(1, toFrame(run.endMs) - from)} layout="none" name={`captions ${run.system} ${i}`}>
-            <RunCaptions run={run} words={words} edit={edit} />
+            <RunCaptions run={run} prev={runs[i - 1]} words={words} edit={edit} />
           </Sequence>
         );
       })}
@@ -291,7 +325,7 @@ export const Explainer: React.FC<ExplainerProps> = (edit) => {
         </Sequence>
       ) : null}
       {hookEnd !== undefined && hookEnd < durationMs ? <LightLeak atMs={hookEnd} /> : null}
-      {edit.music ? <MusicTrack music={edit.music} words={words} durationMs={durationMs} /> : null}
+      {edit.music ? <MusicTrack music={edit.music} words={edit.captions?.words ?? []} durationMs={durationMs} /> : null}
       {(edit.sfx ?? []).map((x, i) => (
         <Sequence key={`sfx${i}`} from={Math.max(0, toFrame(x.atMs))} layout="none" name={`sfx ${i}`}>
           <Audio src={staticFile(x.src)} volume={Math.min(1, Math.max(0, x.volume ?? 0.3))} />

@@ -152,10 +152,13 @@ const ExplainerHeadline: React.FC<{ page: HeadlinePage; abs: number; top: number
 
 const letterT = (abs: number, startFrame: number, j: number) => (abs + 1 - startFrame) * (1000 / FPS) - j * 22;
 
-const Letters: React.FC<{ text: string; startFrame: number; abs: number }> = ({ text, startFrame, abs }) => (
+/** grow: letters not yet started take no space, so a pill or emphasis box around them grows with the word
+ *  instead of showing an empty bar first. */
+const Letters: React.FC<{ text: string; startFrame: number; abs: number; grow?: boolean }> = ({ text, startFrame, abs, grow }) => (
   <>
     {Array.from(text).map((ch, j) => {
       const t = letterT(abs, startFrame, j);
+      if (grow && t < 0) return null;
       const p = interpolate(t, [0, 130], [0, 1], { ...clamp, easing: EXPO_OUT });
       return (
         <span
@@ -174,17 +177,28 @@ const Letters: React.FC<{ text: string; startFrame: number; abs: number }> = ({ 
 
 const SHADOW = "0 2px 10px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.5)";
 
+/** The CTA keyword after "comment" is shown the way people must type it (SKILL), whatever Whisper wrote. */
+const keywordText = (w: Word, prev: Word | undefined, ctaKeyword?: string) =>
+  ctaKeyword && prev && cleanWord(prev.text) === "comment" && cleanWord(w.text) === cleanWord(ctaKeyword) ? ctaKeyword : displayText(w.text, "talk");
+
+const ROOM_PILL = "rgba(14,14,16,0.8)";
+
 const TalkCaption: React.FC<{ page: Page; abs: number; room: boolean; onCam: boolean; ctaKeyword?: string }> = ({ page, abs, room, onCam, ctaKeyword }) => {
   const spoken = page.words.filter((w) => abs + 1 >= toFrame(w.startMs));
   if (!spoken.length) return null;
-  const word = (w: Word, i: number, n: number, style: React.CSSProperties) => (
-    <span key={i} style={{ display: "inline-block", marginRight: i < n - 1 ? "0.26em" : 0, ...style }}>
-      <Letters text={displayText(w.text, "talk")} startFrame={toFrame(w.startMs)} abs={abs} />
-    </span>
-  );
+  const word = (w: Word, i: number, n: number, style: React.CSSProperties) => {
+    const k = page.words.indexOf(w);
+    return (
+      <span key={i} style={{ display: "inline-block", marginRight: i < n - 1 ? "0.26em" : 0, ...style }}>
+        <Letters text={keywordText(w, k > 0 ? page.words[k - 1] : undefined, ctaKeyword)} startFrame={toFrame(w.startMs)} abs={abs} grow={room} />
+      </span>
+    );
+  };
   if (room) {
-    // Outro: up to two lines, the emphasis phrase in one deep-green rounded box on line 2 (else halves).
-    const at = page.line2At > 0 && page.line2At < page.words.length ? page.line2At : Math.ceil(page.words.length / 2);
+    // Outro (bright room): up to two lines, each on a dark pill so white text keeps >= 4.5:1 on the white floor;
+    // the emphasis phrase in one deep-green rounded box on line 2 (else halves); three words or fewer stay on one line.
+    const n = page.words.length;
+    const at = n <= 3 ? n : page.line2At > 0 && page.line2At < n ? page.line2At : Math.ceil(n / 2);
     const l1 = page.words.slice(0, at);
     const l2 = page.words.slice(at);
     const line = (ws: Word[], top: number) => {
@@ -195,8 +209,10 @@ const TalkCaption: React.FC<{ page: Page; abs: number; room: boolean; onCam: boo
         if (i > 0 && w.em && shown[i - 1].em) runs[runs.length - 1].push(w);
         else runs.push([w]);
       });
+      if (!shown.length) return null;
       return (
-        <div style={{ position: "absolute", top, left: 0, width: W, textAlign: "center", whiteSpace: "nowrap", fontFamily: SANS, fontWeight: 800, fontSize: 37, color: "white", textShadow: SHADOW }}>
+        <div style={{ position: "absolute", top, left: 0, width: W, textAlign: "center", whiteSpace: "nowrap", fontFamily: SANS, fontWeight: 800, fontSize: 37, color: "white" }}>
+          <span style={{ display: "inline-block", background: ROOM_PILL, borderRadius: 16, padding: "3px 14px 7px", boxShadow: "0 6px 18px rgba(0,0,0,0.18)" }}>
           {runs.map((run, r) => {
             if (!run[0].em) return word(run[0], r, runs.length, {});
             // The box grows in with its first letter, so it is never on screen empty.
@@ -214,13 +230,14 @@ const TalkCaption: React.FC<{ page: Page; abs: number; room: boolean; onCam: boo
               </span>
             );
           })}
+          </span>
         </div>
       );
     };
     return (
       <>
         {line(l1, H * 0.72)}
-        {page.words.length > 1 ? line(l2, H * 0.72 + 50) : null}
+        {l2.length ? line(l2, H * 0.72 + 56) : null}
       </>
     );
   }
@@ -257,7 +274,7 @@ export const Captions: React.FC<Props> = ({ words, run, headlines, ctaKeyword })
   const frame = useCurrentFrame();
   const abs = toFrame(run.startMs) + frame;
   const { system } = run;
-  const pages = useMemo(() => (system === "explainer" ? [] : buildPages(words, system, run.endMs)), [words, system, run.endMs]);
+  const pages = useMemo(() => (system === "explainer" ? [] : buildPages(words, system, run.endMs, ctaKeyword)), [words, system, run.endMs, ctaKeyword]);
   const heads = useMemo(
     () => (system !== "explainer" ? [] : headlines && headlines.length ? headlines : fallbackHeadlines(words, run.endMs)),
     [system, headlines, words, run.endMs],

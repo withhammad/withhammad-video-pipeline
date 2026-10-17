@@ -27,7 +27,17 @@ Mapping, in order:
    A recording longer than its scene plays up to FIT_RATE_MAX fast and loses its HEAD, so the scene ends on the
    proof (the last highlight or typed line of its screen recording plan), never mid-scroll.
 6. Explainer headlines come from each beat's curated on_screen_text ("|" page, "/" line, *italic serif*), each
-   shown word timed to its spoken match; they hold across contiguous canvas scenes of the beat.
+   shown word timed to its spoken match; they hold across contiguous canvas scenes of the beat. A page that would be
+   up for less than HEADLINE_MIN_MS is dropped (a bridge word flashing on the outgoing card).
+7. Legibility: every highlight box of a screen recording (found in the shot itself: the recorder's yellow outline)
+   gets a push-in while it is up (1.4-1.6x, aimed at the box; Card.tsx keeps the box inside the card). A unit can
+   pin its recording to the words with unit["key"]: {"highlight": "text=MIT license" | n, "word": "free"} lands that
+   highlight on the word, {"highlight": n, "end": true} ends the scene as it fades.
+8. The end card never starts before the last spoken word: the talking head before it runs on to the end of speech
+   (captions cover every word), then the card holds ENDCARD_MIN_MS. It also shows the site the tail names.
+9. Display words ("Wait!") never cover the face: each take may carry a face box (spec heygen.take_X.face_box,
+   fractions x, y, w, h; default the upper middle), and place_display_word() moves the word above the head or
+   beside it, sized to fit.
 Standard library only.
 """
 import argparse
@@ -49,7 +59,8 @@ BRIDGE_WHOLE_MAX_MS = 2600 # a bridge without a clause end stays whole up to thi
 MIN_UNIT_MS = 900          # units shorter than this are avoided when a boundary is chosen
 SPLIT_MIN_MS = 600         # a longer bridge overflow becomes a split (facecam + incoming card)
 COVER_MS = 700             # a jump cut this close to a recording scene is hidden by extending that recording
-COVER_PAD_MS = 120         # the recording reaches this far past the cut
+COVER_PAD_MS = 0           # ...exactly to the cut: the scene change IS the jump cut (a 120 ms pad flashed the bridge
+                           # word on the outgoing card and started the talking head after it)
 MIN_SCENE_MS = 400
 END_HOLD_MS = 900          # after the last word
 ENDCARD_MIN_MS = 3200      # the end card types the keyword (~1.4 s) and then holds it like the reference (~3.2 s)
@@ -66,8 +77,32 @@ WHOOSH_LEAD_MS = 270       # whoosh peak lands on the cut (same calibration as e
 WHOOSH_TAIL_MS = 60
 RISER_MS = 1200
 PUNCH = (1, 1.06)
+HEADLINE_MIN_MS = 400      # a headline page shorter than this is dropped (no flash on a cut)
+ENDCARD_GAP_MS = 120       # the end card starts this long after the last spoken word ends
+FLIP_HOLD_MS = 920         # the hook hangs upside-down this long after its drop (the reference stays inverted)
+POP_GAP_MIN_MS = 60        # a pop SFX goes into a word gap at least this long...
+POP_SNAP_MS = 150          # ...found within this distance of its card entrance
+POP_VOLUME, POP_VOLUME_ON_WORD = 0.16, 0.10
 
-CHIP_Y = 0.775             # chip centre: straddles the card's bottom edge (0.80H), above the Reels caption block
+CHIP_Y = 0.775             # chip centre: straddles the card's bottom edge (0.79H), above the Reels caption block
+CHIP_Y_TALK = 0.615        # on a talking head: above the caption block (0.69-0.72H) with >= 40 px between them
+
+# Push-ins on highlight boxes. Card.tsx: the recording sits CARD_INSET (14) px inside a CARD_BOX 576 px wide, so it is
+# drawn CARD_INNER_W px wide (keep in step with theme.ts).
+CARD_INNER_W = 548
+REC_W, REC_H = 1080, 1350
+PUSH_MIN, PUSH_MAX = 1.4, 1.6
+PUSH_TARGET_PX = 22        # highlighted text should render at least this tall at 720 w
+PUSH_LEAD_MS = 80          # the push starts this long after the box starts fading in
+
+# Display words (bigtext) and the face: canvas 720x1280, px.
+CANVAS_W, CANVAS_H = 720, 1280
+DEFAULT_FACE_BOX = (0.28, 0.12, 0.44, 0.36)   # upper middle: where a talking head's face sits by default
+SAFE_TOP_PX = 150          # below the Reels header
+SAFE_LEFT, SAFE_RIGHT = 0.05, 0.86             # clear of the right action rail
+DISPLAY_MAX_PX, DISPLAY_MIN_PX = 120, 56
+DISPLAY_EM = 0.42          # average glyph width of the italic serif (Overlays.tsx BigText uses the same)
+FACE_MARGIN_PX = 14
 
 STAT_GREEN = '#9EC96E'
 DEEP_GREEN = '#50771A'
@@ -128,13 +163,16 @@ def _word_value(core):
 
 def display_words(caps, keyword=''):
     """Caption words as shown on screen: numbers above ten become digits ("twenty-one" -> 21, "fifteen hundred"
-    -> 1,500); small numbers ("one job", "three rules") and the keyword after "comment" stay words."""
+    -> 1,500); small numbers ("one job", "three rules") stay words, and the CTA keyword after "comment" is shown
+    the way the spec writes it (Whisper's "Skill" -> SKILL, the word people must type)."""
     out, i, kw = [], 0, clean(keyword)
     while i < len(caps):
         c = caps[i]
         text = c['text'].strip()
         m = re.match(r"^(\W*)([A-Za-z][A-Za-z-]*)(\W*)$", text)
         keyword_use = kw and clean(m.group(2)) == kw and i > 0 and clean(caps[i - 1]['text']) == 'comment' if m else False
+        if keyword_use:
+            text = f'{m.group(1)}{keyword.strip()}{m.group(3)}'
         if m and not keyword_use:
             value = _word_value(m.group(2))
             nxt = caps[i + 1]['text'].strip() if i + 1 < len(caps) else ''
@@ -145,6 +183,11 @@ def display_words(caps, keyword=''):
                 continue
             if value is not None and value > 10:
                 text = f'{m.group(1)}{value}{m.group(3)}'
+        if out and re.match(r'^\.[a-z]{2,}\W*$', text, re.I) and not re.search(r'[.!?,]$', out[-1]['text']):
+            # Whisper splits a spoken domain ("withhammad" + ".com"): one caption word, "withhammad.com"
+            out[-1] = {**out[-1], 'text': out[-1]['text'] + text, 'endMs': c['endMs']}
+            i += 1
+            continue
         out.append({'text': text, 'startMs': c['startMs'], 'endMs': c['endMs'], '_i': i})
         i += 1
     return out
@@ -384,6 +427,22 @@ def key_action(plan, src_len=None):
     return round(a), round(b if kind == 'type' else min(b, a + KEY_READ_MS))
 
 
+def _keyed_highlight(key, plan, src_len=None):
+    """unit["key"] -> {'startMs', 'endMs' (the highlight on the recording's clock), 'word'?, 'occurrence', 'end'}:
+    key["highlight"] is the action's selector ("text=MIT license") or its 1-based number among the highlights."""
+    hls = [(a, b, act) for (kind, a, b), act in zip(plan_actions(plan, src_len), plan.get('actions') or []) if kind == 'highlight']
+    want = key.get('highlight', 1)
+    hit = None
+    if isinstance(want, int):
+        hit = hls[want - 1] if 0 < want <= len(hls) else None
+    else:
+        hit = next((h for h in hls if (h[2].get('highlight') or {}).get('selector') == want), None)
+    if not hit:
+        return None
+    return {'startMs': round(hit[0]), 'endMs': round(hit[1]), 'word': key.get('word'), 'occurrence': int(key.get('occurrence', 1)),
+            'end': bool(key.get('end')), 'leadMs': int(key.get('lead_ms', 100))}
+
+
 def recording_plans(job_dir, spec_path=None):
     """Screen recording plans by recording id: <job>/analysis/screenrec/plans/<id>.json, else next to the spec."""
     dirs = [Path(job_dir) / 'analysis' / 'screenrec' / 'plans']
@@ -400,9 +459,9 @@ def recording_plans(job_dir, spec_path=None):
     return out
 
 
-def _recording_plan(unit, durations, plans=None):
-    """{'src', 'inMs', 'fit', 'outMs', 'durationMs', 'key'?, 'pop'?} from the unit's screenrec id and its "use"
-    text (plus the key action from the screen recording plan when it is known)."""
+def _recording_plan(unit, durations, plans=None, highlights=None):
+    """{'src', 'inMs', 'fit', 'outMs', 'durationMs', 'key'?, 'pop'?, 'hl'?, 'keyOn'?} from the unit's screenrec id
+    and its "use" text (plus the key action and the highlight boxes from the screen recording plan when known)."""
     rid = unit.get('screenrec')
     if not rid:
         return None
@@ -411,6 +470,10 @@ def _recording_plan(unit, durations, plans=None):
     plan = {'src': f'job/shots/{rid}.mp4', 'inMs': 0, 'fit': None, 'outMs': None, 'durationMs': round(dur) if dur else None}
     if plans and plans.get(rid):
         plan['key'] = key_action(plans[rid], dur)
+    if highlights and highlights.get(rid):
+        plan['hl'] = highlights[rid]
+    if isinstance(unit.get('key'), dict) and plans and plans.get(rid):
+        plan['keyOn'] = _keyed_highlight(unit['key'], plans[rid], dur)
     rng = re.search(r'(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*s\b', use)
     frm = re.search(r'\bfrom (\d+(?:\.\d+)?)\s*s\b', use)
     if frm:
@@ -440,7 +503,8 @@ def _overlay(unit, scene_type):
     if numbered:
         return {'kind': 'chip', 'text': '\n'.join(numbered), 'y': 0.2, 'align': 'right'}
     if 'chip' in low and quoted:
-        return {'kind': 'chip', 'text': quoted[0], 'y': CHIP_Y}
+        # Over a talking head the chip sits above the caption block; on a card it straddles the card's bottom edge.
+        return {'kind': 'chip', 'text': quoted[0], 'y': CHIP_Y_TALK if scene_type == 'avatar' else CHIP_Y}
     return None
 
 
@@ -482,6 +546,134 @@ def recording_durations(job_dir, spec, probe=probe_ms):
     return out
 
 
+# ----------------------------------------------------------------------------------------------- display words
+
+def face_box_px(face=None):
+    """(left, top, right, bottom) px on the canvas of a face box given as fractions (x, y, w, h)."""
+    x, y, w, h = face or DEFAULT_FACE_BOX
+    return x * CANVAS_W, y * CANVAS_H, (x + w) * CANVAS_W, (y + h) * CANVAS_H
+
+
+def _display_box(text, size, cx, cy):
+    width, height = max(1, len(text)) * DISPLAY_EM * size, 1.1 * size
+    return cx - width / 2, cy - height / 2, cx + width / 2, cy + height / 2
+
+
+def _overlaps(a, b, margin=0.0):
+    return a[0] < b[2] + margin and a[2] > b[0] - margin and a[1] < b[3] + margin and a[3] > b[1] - margin
+
+
+def place_display_word(text, y=0.18, face=None):
+    """{'x', 'y' (centre fractions), 'size' (px)} for a giant display word that never covers the face: where it was
+    asked for if that is clear of the face box, else above the head (between the Reels header and the hair), else
+    beside the head on the wider side (clear of the right rail), sized to fit; last resort under the chin."""
+    n = max(1, len(text))
+    size0 = min(DISPLAY_MAX_PX, CANVAS_W * 0.48 / (n * DISPLAY_EM))
+    fb = face_box_px(face)
+    cy0 = max(y * CANVAS_H, SAFE_TOP_PX + 0.55 * size0)
+    want = _display_box(text, size0, CANVAS_W / 2, cy0)
+    if not _overlaps(want, fb, FACE_MARGIN_PX):
+        return {'x': 0.5, 'y': round(cy0 / CANVAS_H, 4), 'size': round(size0, 1)}
+    room = fb[1] - FACE_MARGIN_PX - SAFE_TOP_PX                       # above the head
+    size = min(size0, room / 1.1, CANVAS_W * 0.8 / (n * DISPLAY_EM))
+    if size >= DISPLAY_MIN_PX:
+        return {'x': 0.5, 'y': round((SAFE_TOP_PX + fb[1] - FACE_MARGIN_PX) / 2 / CANVAS_H, 4), 'size': round(size, 1)}
+    sides = [(SAFE_LEFT * CANVAS_W, fb[0] - FACE_MARGIN_PX), (fb[2] + FACE_MARGIN_PX, SAFE_RIGHT * CANVAS_W)]
+    lo, hi = max(sides, key=lambda b: b[1] - b[0])                     # beside the head, the wider side
+    size = min(size0, (hi - lo) / (n * DISPLAY_EM))
+    if size >= DISPLAY_MIN_PX:
+        cy = max((fb[1] + fb[3]) / 2, SAFE_TOP_PX + 0.55 * size)
+        return {'x': round((lo + hi) / 2 / CANVAS_W, 4), 'y': round(cy / CANVAS_H, 4), 'size': round(size, 1)}
+    return {'x': 0.5, 'y': round((fb[3] + FACE_MARGIN_PX + 0.55 * size0) / CANVAS_H, 4), 'size': round(size0, 1)}
+
+
+def _take_face(spec, take):
+    """The face box of a take from spec heygen.take_A / take_B "face_box" ([x, y, w, h] fractions), else None."""
+    box = (((spec.get('heygen') or {}).get(take) or {}).get('face_box'))
+    return [float(v) for v in box] if isinstance(box, (list, tuple)) and len(box) == 4 else None
+
+
+# ----------------------------------------------------------------------------------------------- highlight boxes
+
+HL_W, HL_H = 540, 675        # highlight detection works on half-resolution frames of the 1080x1350 recordings
+
+
+def _frame_rgb(path, t_ms, w=HL_W, h=HL_H):
+    try:
+        out = subprocess.run(['ffmpeg', '-v', 'error', '-ss', f'{max(0.0, t_ms) / 1000:.3f}', '-i', str(path), '-frames:v', '1',
+                              '-vf', f'scale={w}:{h}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'],
+                             capture_output=True, timeout=60)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    return out.stdout if out.returncode == 0 and len(out.stdout) == w * h * 3 else None
+
+
+def _yellow(rr, gg, bb):
+    """The outline's #FFD60A, also where it is anti-aliased into a dark or a white page."""
+    return rr > 190 and gg > 150 and rr - bb > 90 and gg - bb > 60
+
+
+def yellow_box(rgb, w=HL_W, h=HL_H, min_run=30, max_gap=4):
+    """Bounding box (x, y, w, h as fractions of the frame) of the recorder's highlight outline (#FFD60A, a rounded
+    rectangle) in one rgb24 frame, or None. The outline is found by its top and bottom edges: the first row holding
+    a long horizontal yellow run, and the last such row whose run overlaps it by 60 %+ (the cursor or a badge may
+    hide part of one edge), so small yellow things on the page (a gold count, a star icon) never count. Standard
+    library only."""
+    runs = {}
+    for y in range(h):
+        row = rgb[y * w * 3:(y + 1) * w * 3]
+        best, x0, last = None, None, -100
+        for x in range(w):
+            i = 3 * x
+            if _yellow(row[i], row[i + 1], row[i + 2]):
+                if x - last > max_gap + 1:
+                    x0 = x
+                last = x
+                if best is None or x - x0 > best[1] - best[0]:
+                    best = (x0, x)
+        if best and best[1] - best[0] + 1 >= min_run:
+            runs[y] = best
+    rows = sorted(runs)
+    for y_top in rows:
+        a0, a1 = runs[y_top]
+        same = [y for y in rows if y - y_top >= 8
+                and min(a1, runs[y][1]) - max(a0, runs[y][0]) >= 0.6 * min(a1 - a0, runs[y][1] - runs[y][0])]
+        if same:
+            y_bot = max(same)
+            x0 = min(a0, runs[y_bot][0])
+            x1 = max(a1, runs[y_bot][1])
+            return [round(x0 / w, 4), round(y_top / h, 4), round((x1 - x0 + 1) / w, 4), round((y_bot - y_top + 1) / h, 4)]
+    return None
+
+
+def highlight_boxes(video, plan, src_len=None, grab=_frame_rgb):
+    """[{'startMs', 'endMs', 'box'}] for every highlight action of a recording plan, on the recording's own clock
+    (plan_actions timing), box = the outline found in the shot halfway through it (None if not found)."""
+    out = []
+    for kind, a, b in plan_actions(plan, src_len):
+        if kind != 'highlight':
+            continue
+        box = None
+        if video and Path(video).exists():
+            rgb = grab(video, a + 0.45 * (b - a))
+            box = yellow_box(rgb) if rgb else None
+        out.append({'startMs': round(a), 'endMs': round(b), 'box': box})
+    return out
+
+
+def push_scale(box):
+    """Push-in for a highlight box: enough for its text to render PUSH_TARGET_PX tall at 720 w (estimated from the
+    box height: a GitHub line is ~1.5x its font, the outline adds 12 CSS px), within PUSH_MIN-PUSH_MAX."""
+    if not box:
+        return 1.5
+    rec_px = box[3] * REC_H                                   # outline height in recording px (1.8x CSS px)
+    css_h = rec_px / 1.8 - 12
+    lines = max(1, round(css_h / 24))
+    font_rec = css_h / lines / 1.5 * 1.8
+    shown = font_rec * CARD_INNER_W / REC_W
+    return round(min(PUSH_MAX, max(PUSH_MIN, PUSH_TARGET_PX / max(1.0, shown))), 2)
+
+
 # ----------------------------------------------------------------------------------------------- build
 
 def _load(x):
@@ -496,15 +688,18 @@ def _quiet(spans, a_ms, b_ms):
 
 def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/avatar_main.mp4', tail=None,
                 tail_start_ms=None, loop=False, anchors=None, durations=None, probe=probe_ms, music=True,
-                speech=None, duration_ms=None, plans=None):
+                speech=None, duration_ms=None, plans=None, highlights=None, face_boxes=None):
     """Props for the Explainer composition. spec_json / captions_json: paths or already-loaded objects.
     cuts: ms on our timeline where the take was spliced. tail: src of the second look (beats from the unit typed
     "second setup" on); tail_start_ms: where take B starts on the timeline (default: that beat's cut).
-    plans: screen recording plans by id (default: read from the job / next to the spec)."""
+    plans: screen recording plans by id (default: read from the job / next to the spec).
+    highlights: {recording id: highlight_boxes()} (default: found in <job>/shots/<id>.mp4).
+    face_boxes: {'avatar': [x, y, w, h], 'tail': [...]} fractions (default: spec heygen take_A / take_B face_box)."""
     job_dir = Path(job_dir)
     if plans is None:
         plans = recording_plans(job_dir, spec_json)
     spec = _load(spec_json)
+    faces = {'avatar': _take_face(spec, 'take_A'), 'tail': _take_face(spec, 'take_B'), **(face_boxes or {})}
     raw = _load(captions_json)
     raw = raw['words'] if isinstance(raw, dict) else raw
     caps = [c for c in raw if c['text'].strip()]
@@ -515,6 +710,10 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
     if durations is None:
         durations = recording_durations(job_dir, spec, probe)
     beats = spec['beats']
+    if highlights is None:
+        used = {u.get('screenrec') for b in beats for u in b.get('units', []) if u.get('screenrec')}
+        highlights = {rid: highlight_boxes(job_dir / 'shots' / f'{rid}.mp4', plans[rid], durations.get(rid))
+                      for rid in sorted(used) if plans.get(rid) and (job_dir / 'shots' / f'{rid}.mp4').exists()}
     spans = align_beats(beats, caps)
 
     last_end = caps[-1]['endMs']
@@ -541,9 +740,10 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
                 scene['system'] = 'hook' if k == 0 else 'talk'
                 if k == 0 and j == 0:
                     scene['flipIn'] = True
+                    scene['flipHoldMs'] = FLIP_HOLD_MS
             elif st != 'endcard':
                 scene['system'] = 'explainer'
-            plan = _recording_plan(unit, durations, plans)
+            plan = _recording_plan(unit, durations, plans, highlights)
             if plan and st in ('card', 'stat', 'split', 'text'):
                 scene['_rec'] = plan
             text_all = ' '.join(str(unit.get(x) or '') for x in ('use', 'footage'))
@@ -553,6 +753,7 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
             if st == 'endcard':
                 pill = _quoted(unit.get('footage'))
                 ov = {'kind': 'chip', 'text': pill[0] if pill else 'FREE GUIDE'}
+                scene.update(_endcard_site(unit, beat))
             if ov:
                 scene['overlay'] = ov
             if st == 'text':
@@ -572,16 +773,32 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
         if tail_start_ms is not None and tail_idx > 0:
             scenes[tail_idx - 1]['endMs'] = scenes[tail_idx]['startMs'] = ts
         tail_obj = {'src': tail, 'startMs': ts, **({'loop': True} if loop else {})}
+        tail_len = probe(job_dir / Path(tail).name) if tail.startswith('job/') else None
+        if tail_len:                 # the take freezes on its last frame under a longer end card
+            tail_obj['durationMs'] = round(tail_len)
+        if faces.get('tail'):
+            tail_obj['faceBox'] = faces['tail']
     tail_ms = tail_obj['startMs'] if tail_obj else None
 
     scenes = _cap_breathers(scenes, caps, tail_ms)
     scenes = _cover_cuts(scenes, sorted(cuts or []))
     if scenes[-1]['type'] == 'endcard':
-        # The end card types the keyword, then holds the finished card long enough to read (the reference ~3.2 s).
+        end = scenes[-1]
+        # Never over the voice: the scene before it (the talking head with captions) runs on to the last word.
+        if len(scenes) > 1 and end['startMs'] < last_end + ENDCARD_GAP_MS:
+            scenes[-2]['endMs'] = end['startMs'] = last_end + ENDCARD_GAP_MS
+        # The end card types the keyword, then holds the finished card long enough to read (the reference ~3.2 s),
+        # and at least ENDCARD_MIN_MS after the voice ends.
         typed_end = ENDCARD_TYPE_START_MS + len(keyword or 'x') * ENDCARD_CHAR_MS
-        scenes[-1]['endMs'] = max(scenes[-1]['endMs'], scenes[-1]['startMs'] + max(ENDCARD_MIN_MS, typed_end + ENDCARD_READ_MS))
+        end['endMs'] = max(end['endMs'], end['startMs'] + max(ENDCARD_MIN_MS, typed_end + ENDCARD_READ_MS),
+                           last_end + ENDCARD_MIN_MS)
     total = scenes[-1]['endMs']
-    _finish_recordings(scenes)
+    _finish_recordings(scenes, caps)
+    for s in scenes:                 # display words never cover the face of the take they sit on
+        ov = s.get('overlay')
+        if ov and ov['kind'] == 'bigtext':
+            face = faces.get('tail') if tail_ms is not None and s['startMs'] >= tail_ms - 40 else faces.get('avatar')
+            ov.update(place_display_word(ov['text'], ov.get('y', 0.18), face))
 
     words = display_words(caps, keyword)
     _flag_emphasis(words, beats, word_ranges)
@@ -590,6 +807,10 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
         ov = s.get('overlay')
         if ov and ov['kind'] == 'chip' and '\n' in ov['text']:
             ov['itemsAtMs'] = _spoken_number_times(ov['text'], words, s)
+        elif ov and ov['kind'] == 'chip' and s['type'] != 'endcard':
+            at = _spoken_chip_time(ov['text'], words, s)
+            if at is not None:       # a chip naming a spoken word ("withhammad.com") pops as it is said
+                ov['atMs'] = at
 
     cta = None
     cta_k = next((k for k, b in enumerate(beats) if 'cta' in b.get('name', '')), None)
@@ -601,12 +822,13 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
 
     spans_ms = speech if speech is not None else [(w['startMs'], w['endMs']) for w in words]
     props = {
-        'avatar': {'src': avatar, **({'loop': True} if loop else {})},
+        'avatar': {'src': avatar, **({'loop': True} if loop else {}), **({'faceBox': faces['avatar']} if faces.get('avatar') else {})},
         'tail': tail_obj,
         'scenes': [{k: v for k, v in s.items() if not k.startswith('_')} for s in scenes],
         'captions': {'words': [{k: v for k, v in w.items() if not k.startswith('_')} for w in words]},
         'headlines': headlines,
-        'music': {'src': 'job/music.wav', 'volume': 0.12, 'duckTo': 0.07, 'fadeOutMs': 600} if music else None,
+        # The bed ducks under every spoken word and holds the duck across gaps under 500 ms (no swell every 2 s).
+        'music': {'src': 'job/music.wav', 'volume': 0.12, 'duckTo': 0.08, 'holdGapMs': 500, 'fadeInMs': 40, 'fadeOutMs': 600} if music else None,
         'sfx': _sfx(scenes, cta, spans_ms),
         'cta': cta,
         'durationMs': total,
@@ -614,6 +836,38 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
                  'cuts': sorted(cuts or [])},
     }
     return props
+
+
+_DOMAIN = re.compile(r'\b([a-z0-9-]+\.(?:com|ai|io|dev|net|org|co))\b', re.I)
+
+
+def _endcard_site(unit, beat):
+    """{'site', 'siteNote'?} for the end card: unit text 'site "withhammad.com · link in bio"', else the first domain in
+    the beat's on-screen text (plus "link in bio" when the beat says bio). {} when the beat names none."""
+    text = ' '.join(str(unit.get(x) or '') for x in ('footage', 'overlay'))
+    m = re.search(r'\bsite "([^"]+)"', text)
+    if m:
+        site, _, note = m.group(1).partition('·')
+        return {'site': site.strip(), **({'siteNote': note.strip()} if note.strip() else {})}
+    d = _DOMAIN.search(beat.get('on_screen_text') or '')
+    if not d:
+        return {}
+    bio = re.search(r'\bbio\b', (beat.get('line') or '') + ' ' + (beat.get('on_screen_text') or ''), re.I)
+    return {'site': d.group(1), **({'siteNote': 'link in bio'} if bio else {})}
+
+
+def _spoken_chip_time(text, words, scene, lead_ms=80):
+    """Scene-relative ms at which a chip naming spoken words pops: its first two tokens said in that order inside
+    the scene (lead_ms early). None when the chip is not spoken there."""
+    want = tokens(text)[:2]
+    if not want:
+        return None
+    inside = [w for w in words if scene['startMs'] - 200 <= w['startMs'] < scene['endMs']]
+    toks = [(t, w) for w in inside for t in tokens(w['text'])]
+    for i in range(len(toks) - len(want) + 1):
+        if [t for t, _ in toks[i:i + len(want)]] == want:
+            return max(0, toks[i][1]['startMs'] - scene['startMs'] - lead_ms)
+    return None
 
 
 def _cap_breathers(scenes, caps, tail_ms):
@@ -641,7 +895,9 @@ def _cap_breathers(scenes, caps, tail_ms):
         cands = [(k, _cut_before(caps, k)) for k in range(1, len(caps))]
         cands = [(k, t) for k, t in cands if s['startMs'] + MIN_SCENE_MS <= t and words_after(t) >= 2]
         clause = [t for k, t in cands if ends_clause(caps[k - 1]['text'])]
-        early = [t for t in clause if t <= s['startMs'] + cap]
+        # A cut that leaves the talking head under MIN_UNIT_MS ("And no," alone) is worse than a bridge a little
+        # over its cap: such a clause end is not used, and the bridge stays whole up to BRIDGE_WHOLE_MAX_MS.
+        early = [t for t in clause if s['startMs'] + MIN_UNIT_MS <= t <= s['startMs'] + cap]
         late = [t for t in clause if s['startMs'] + cap < t <= s['startMs'] + BRIDGE_WHOLE_MAX_MS]
         talk = False
         if early:
@@ -724,15 +980,50 @@ def _source_out(scene):
     return rec['inMs'] + (scene['endMs'] - scene['startMs']) * rec.get('playbackRate', 1.0)
 
 
-def _finish_recordings(scenes):
+def _keyed_window(key, scene, caps, src_len):
+    """(in_ms, rate) that land a keyed highlight on its word (its box up lead_ms before the word starts) or, with
+    "end", end the scene as the highlight fades. None when the word is not spoken in the scene."""
+    dur = max(1, scene['endMs'] - scene['startMs'])
+    if key.get('end'):
+        rate = 1.0 if key['endMs'] >= dur else max(0.6, key['endMs'] / dur)
+        return max(0, round(key['endMs'] - dur * rate)), rate
+    hits = [c for c in caps or [] if clean(c['text']) == clean(key.get('word') or '') and scene['startMs'] <= c['startMs'] < scene['endMs']]
+    if len(hits) < key.get('occurrence', 1):
+        return None
+    at = max(0, hits[key.get('occurrence', 1) - 1]['startMs'] - scene['startMs'] - key.get('leadMs', 100))
+    rate = 1.0
+    if key['startMs'] < at * rate:            # the box comes too early in the source: play the head slower
+        rate = max(0.6, key['startMs'] / max(1, at))
+    return max(0, round(key['startMs'] - at * rate)), rate
+
+
+def _zooms(hl, in_ms, rate, dur):
+    """Push-ins (scene-relative) on every highlight box the scene shows: from PUSH_LEAD_MS after the box starts
+    fading in until it has faded, scale from push_scale(), aimed at the box (fractions of the recording frame)."""
+    out = []
+    for h in hl or []:
+        if not h.get('box'):
+            continue
+        a, b = (h['startMs'] + PUSH_LEAD_MS - in_ms) / rate, (h['endMs'] - in_ms) / rate
+        if b <= 150 or a >= dur - 150:
+            continue
+        # A box still up at the cut keeps the push through it (no zoom-out in the last frames of the scene).
+        end = dur + 400 if b >= dur - 200 else b
+        out.append({'atMs': round(max(0, a)), 'endMs': round(end), 'scale': push_scale(h['box']), 'box': h['box']})
+    return out
+
+
+def _finish_recordings(scenes, caps=None):
     """Recording in-points and speeds from the final scene lengths.
+    - unit["key"] wins: the keyed highlight lands on its word (or the scene ends as it fades);
     - "a-b s" plays that range in the scene; "speed to fit" / "whole" plays the rest of the recording;
     - a scene continuing the previous scene's recording (same source, contiguous, in-point where it left off, or
       the second half of a split scene) picks up exactly there, so the card never jumps;
     - the head of a recording that the next scene continues plays at 1x;
     - anything else longer than its scene plays up to FIT_RATE_MAX fast and is trimmed from the HEAD, so the scene
       ends TAIL_KEEP_MS before the source end, just after the last highlight or typed line, never mid-scroll;
-    - when the plan's key action is known, the window is moved (or, for a continuation, sped up) to reach it."""
+    - when the plan's key action is known, the window is moved (or, for a continuation, sped up) to reach it.
+    Every highlight box inside the final window gets a push-in (recording.zooms)."""
     for i, s in enumerate(scenes):
         plan = s.pop('_rec', None)
         if not plan:
@@ -741,11 +1032,14 @@ def _finish_recordings(scenes):
         src_len = plan.get('durationMs')
         prev = scenes[i - 1] if i else None
         pr = prev.get('recording') if prev else None
-        cont = bool(pr and pr['src'] == plan['src'] and abs(prev['endMs'] - s['startMs']) < 40
-                    and (plan.get('cont') or abs(_source_out(prev) - plan['inMs']) <= 300))
+        keyed = _keyed_window(plan['keyOn'], s, caps, src_len) if plan.get('keyOn') and not plan.get('lead') else None
+        cont = not keyed and bool(pr and pr['src'] == plan['src'] and abs(prev['endMs'] - s['startMs']) < 40
+                                  and (plan.get('cont') or abs(_source_out(prev) - plan['inMs']) <= 300))
         in_ms = round(_source_out(prev)) if cont else plan['inMs']
         key = plan.get('key')
-        if plan.get('lead'):
+        if keyed:
+            in_ms, rate = keyed
+        elif plan.get('lead'):
             rate = 1.0
         elif plan['fit'] == 'range' and plan['outMs'] and plan['outMs'] > in_ms:
             rate = (plan['outMs'] - in_ms) / dur
@@ -760,7 +1054,7 @@ def _finish_recordings(scenes):
         else:
             rate = 1.0
         rate = min(2.5, max(0.6, rate))
-        if key and src_len and not plan.get('lead') and plan['fit'] != 'range':
+        if key and src_len and not keyed and not plan.get('lead') and plan['fit'] != 'range':
             if not cont and in_ms > key[0] - 150:
                 # The head trim went past the moment the box appears: start just before it instead.
                 in_ms = max(plan['inMs'], min(in_ms, key[0] - 150))
@@ -775,9 +1069,13 @@ def _finish_recordings(scenes):
             rec['playbackRate'] = rate
         if src_len:
             rec['durationMs'] = src_len
+        zooms = _zooms(plan.get('hl'), in_ms, rate, dur)
+        if zooms:
+            rec['zooms'] = zooms
         if plan.get('pop'):
             # "Remotion pops the box out": the whole card scales with an orange outline when the box flashes;
-            # the content stays at 1.0 so nothing is cropped at the card edge.
+            # the content stays at 1.0 so nothing is cropped at the card edge (Card.tsx clamps the scale so the
+            # card stays inside the safe area).
             at = (key[0] - in_ms) / rate if key else dur * 0.55
             rec['pushIn'] = {'atMs': round(min(max(at, 200), max(200, dur - 450))), 'scale': CARD_POP,
                              'originX': 0.5, 'originY': 0.5, 'mode': 'card'}
@@ -816,9 +1114,10 @@ def _headline_pages(beats, words, word_ranges, beat_ends, scenes):
 
     Every shown word appears when its spoken match starts (difflib over normalised tokens; an unspoken one such
     as "+" or "video" rides with its neighbour). A page takes over at the start of the clause its phrase begins
-    in (at most two words back, so "and it ranks..." swaps at "and"); its first word shows from then on. Pages
+    in (at most two words back, so "and it ranks..." swaps at "and"), its first word when it is said. Pages
     hold until the next page and run across contiguous canvas scenes of the beat. Only pages that begin inside a
-    headline (explainer) scene are kept: the rest are spoken on the talking head, which has its own captions."""
+    headline (explainer) scene are kept: the rest are spoken on the talking head, which has its own captions; a page
+    on screen for less than HEADLINE_MIN_MS is dropped."""
     out = []
     for k, beat in enumerate(beats):
         pages = ost_pages(beat.get('on_screen_text'))
@@ -865,7 +1164,9 @@ def _headline_pages(beats, words, word_ranges, beat_ends, scenes):
                     times[q] = times[q + 1]
             lines, t = [[] for _ in page], t0
             for q, (li, j, text, it) in enumerate(seq):
-                t = t0 if q == 0 else max(t, times[q])
+                # The page takes over (the old one clears) at the clause start; even its first word only shows when
+                # it is said ("you just | give" no longer shows "Give" 300 ms early).
+                t = max(t, times[q] if times[q] is not None else t0)
                 lines[li].append({'text': text, 'startMs': t, **({'italic': True} if it else {})})
             built.append({'startMs': t0, 'lines': [{'italic': all(w.get('italic') for w in ln), 'words': ln} for ln in lines]})
             prev_last = max(matched)
@@ -880,7 +1181,8 @@ def _headline_pages(beats, words, word_ranges, beat_ends, scenes):
                    and scenes[end + 1]['beat'] == scenes[at]['beat'] and abs(scenes[end + 1]['startMs'] - scenes[end]['endMs']) < 40):
                 end += 1
             pg['endMs'] = min(pg['endMs'], scenes[end]['endMs'])
-            if pg['endMs'] > pg['startMs']:
+            first = min(w['startMs'] for ln in pg['lines'] for w in ln['words'])
+            if pg['endMs'] - first >= HEADLINE_MIN_MS:      # never flash a bridge word on the outgoing card
                 out.append(pg)
     return out
 
@@ -918,6 +1220,25 @@ def _spoken_number_times(text, words, scene):
     return out
 
 
+def pop_time(at, spans, pop_ms=90):
+    """(ms, in_gap): a pop SFX moved into the nearest word gap of at least POP_GAP_MIN_MS within POP_SNAP_MS of
+    `at`, so it never fills a consonant ("completely", the /f/ of "free"); (at, False) when there is none."""
+    spans = sorted((round(a), round(b)) for a, b in spans)
+    best = None
+    for (_, g0), (g1, _) in zip(spans, spans[1:]):
+        if g1 - g0 < POP_GAP_MIN_MS:
+            continue
+        hi = max(g0 + 5, g1 - pop_ms)
+        t = min(max(at, g0 + 5), hi)
+        if abs(t - at) <= POP_SNAP_MS and (best is None or abs(t - at) < abs(best - at)):
+            best = t
+    if best is None and spans and (at >= spans[-1][1] or at + pop_ms <= spans[0][0]):
+        return at, True                                    # before the first or after the last word
+    if best is None and not any(a < at + pop_ms and b > at for a, b in spans):
+        return at, True
+    return (best, True) if best is not None else (at, False)
+
+
 def _sfx(scenes, cta, spans):
     out = []
     for i, s in enumerate(scenes):
@@ -929,7 +1250,8 @@ def _sfx(scenes, cta, spans):
         ov = s.get('overlay')
         if ov and s['type'] != 'endcard':
             at = ov.get('atMs', {'stat': 150, 'chip': 450, 'arrow': 350, 'bigtext': 0}[ov['kind']])
-            out.append({'src': 'job/sfx_pop.wav', 'atMs': s['startMs'] + at, 'volume': 0.16})
+            t, in_gap = pop_time(s['startMs'] + at, spans)
+            out.append({'src': 'job/sfx_pop.wav', 'atMs': t, 'volume': POP_VOLUME if in_gap else POP_VOLUME_ON_WORD})
         if s['type'] == 'endcard':
             out.append({'src': 'job/sfx_riser.wav', 'atMs': max(0, s['startMs'] - RISER_MS), 'volume': 0.22})
     if cta:
@@ -1014,6 +1336,14 @@ def render(job_dir, props_path=None, out=None, scale=None):
     return stats
 
 
+def load_cuts(path):
+    """Jump-cut times (ms) from a cuts file: a plain list, or app.tighten's cuts.json ({'cuts': [{'at_ms'}, ...]})."""
+    data = json.loads(Path(path).read_text())
+    if isinstance(data, dict):
+        data = data.get('cuts') or []
+    return [round(c['at_ms']) if isinstance(c, dict) else round(c) for c in data]
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest='cmd', required=True)
@@ -1058,11 +1388,11 @@ def main(argv=None):
     job = Path(args.job).resolve()
     cuts = []
     if args.cuts and Path(args.cuts).exists():
-        cuts = json.loads(Path(args.cuts).read_text())
+        cuts = load_cuts(args.cuts)
     elif args.cuts:
         cuts = [int(x) for x in args.cuts.split(',') if x.strip()]
     elif (job / 'cuts.json').exists():
-        cuts = json.loads((job / 'cuts.json').read_text())
+        cuts = load_cuts(job / 'cuts.json')
     tail = args.tail or ('job/avatar_wait.mp4' if (job / 'avatar_wait.mp4').exists() else None)
     anchors = dict(a.split('=', 1) for a in args.anchor)
     speech_file = job / 'speech.json'

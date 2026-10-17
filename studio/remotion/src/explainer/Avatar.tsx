@@ -1,5 +1,5 @@
 import { Video } from "@remotion/media";
-import { AbsoluteFill, Easing, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Easing, Freeze, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { BACKDROP, clamp, FACECAM, FPS, H, sceneIndexAtFrame, toFrame, toMs, W } from "./theme";
 import type { ExplainerProps, Scene } from "./types";
 
@@ -16,17 +16,20 @@ const easeOutCubic = Easing.out(Easing.cubic);
 
 /**
  * Hook pattern interrupt (scene-relative frame): frames 0-12 the presenter hangs upside-down and drops in from
- * -60% H with a vertical smear, frames 12-24 a spring whips him upright (overshoot capped at 4 deg).
+ * -60% H with a vertical smear, then hangs there for `hold` frames (the reference stays inverted while the hook
+ * plays), then a spring whips him upright (overshoot capped at 4 deg).
  */
-export const flipState = (f: number) => {
+export const flipState = (f: number, hold = 0) => {
   const drop = (x: number) => interpolate(x, [0, 12], [0, 1], { ...clamp, easing: easeOutCubic });
   const y = (1 - drop(f)) * -0.6 * H;
   const vel = Math.abs(drop(f) - drop(f - 1)) * 0.6 * H;
-  const sp = f < 12 ? 0 : spring({ frame: f - 12, fps: FPS, config: { damping: 13, stiffness: 190, mass: 0.55 } });
+  const w0 = 12 + hold;
+  const sp = f < w0 ? 0 : spring({ frame: f - w0, fps: FPS, config: { damping: 13, stiffness: 190, mass: 0.55 } });
   const rot = Math.max(-4, 180 * (1 - sp));
-  const rotPrev = f - 1 < 12 ? 180 : Math.max(-4, 180 * (1 - spring({ frame: f - 13, fps: FPS, config: { damping: 13, stiffness: 190, mass: 0.55 } })));
+  const rotPrev = f - 1 < w0 ? 180 : Math.max(-4, 180 * (1 - spring({ frame: f - 1 - w0, fps: FPS, config: { damping: 13, stiffness: 190, mass: 0.55 } })));
   const spin = Math.abs(rot - rotPrev);
-  const land = interpolate(f, [11, 14, 22], [1, 1.05, 1], clamp);
+  const whipLand = hold > 0 ? interpolate(f, [w0 - 1, w0 + 2, w0 + 10], [1, 1.04, 1], clamp) : 1;
+  const land = interpolate(f, [11, 14, 22], [1, 1.05, 1], clamp) * whipLand;
   return { y, rot, smear: Math.min(26, vel * 0.22 + spin * 0.06), blur: Math.min(5, spin * 0.05), scale: land };
 };
 
@@ -59,8 +62,9 @@ const layerStyle = (s: Scene | undefined, local: number, cam: { r: number } | nu
     return { outer: {}, inner: { transformOrigin: FACE_ORIGIN, transform: `scale(${1 + 0.06 * t})`, filter: t > 0.01 ? `blur(${(18 * t).toFixed(2)}px)` : undefined }, smear: 0 };
   }
   const punch = s.punch ?? 1;
-  if (s.flipIn && local < 40) {
-    const f = flipState(local);
+  const hold = s.flipIn ? toFrame(s.flipHoldMs ?? 0) : 0;
+  if (s.flipIn && local < 40 + hold) {
+    const f = flipState(local, hold);
     return {
       outer: {},
       inner: {
@@ -72,6 +76,17 @@ const layerStyle = (s: Scene | undefined, local: number, cam: { r: number } | nu
     };
   }
   return { outer: {}, inner: { transformOrigin: FACE_ORIGIN, transform: punch !== 1 ? `scale(${punch})` : undefined }, smear: 0 };
+};
+
+/** The second take; past its last frame (an end card that outlasts it) it holds that frame instead of going blank. */
+const TailVideo: React.FC<{ src: string; loop: boolean; durationMs?: number }> = ({ src, loop, durationMs }) => {
+  const frame = useCurrentFrame();
+  const last = durationMs && !loop ? Math.max(0, Math.floor((durationMs / 1000) * FPS) - 2) : Infinity;
+  return (
+    <Freeze frame={Math.min(frame, last)} active={frame > last}>
+      <Video src={staticFile(src)} loop={loop} objectFit="cover" style={{ width: "100%", height: "100%" }} />
+    </Freeze>
+  );
 };
 
 /** z-index of the presenter while it is a facecam: above the canvas scenes (so it can shrink away over the next
@@ -109,7 +124,7 @@ export const AvatarLayer: React.FC<{ edit: ExplainerProps }> = ({ edit }) => {
           ) : null}
           {edit.tail?.src ? (
             <Sequence from={tailFrom} layout="none" name="avatar tail">
-              <Video src={staticFile(edit.tail.src)} loop={edit.tail.loop ?? false} objectFit="cover" style={{ width: "100%", height: "100%" }} />
+              <TailVideo src={edit.tail.src} loop={edit.tail.loop ?? false} durationMs={edit.tail.durationMs} />
             </Sequence>
           ) : null}
         </AbsoluteFill>

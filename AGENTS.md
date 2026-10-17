@@ -66,6 +66,13 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
   half a frame away, at the quietest point. Any audio sample rate or start offset works (resampled to 48 kHz on the
   presentation clock). Lip sync is measured per segment; `reel build` stops at ≥ 10 ms (20 ms with the speed-up)
   or a length mismatch over one frame.
+- HeyGen lip sync (measured 2026-10-18 on job 9d2d68af60d4, both looks, Avatar V): the voice comes ~100 ms behind
+  the lips (bilabial closures: the acoustic /p/ closure and burst land 85-125 ms after the frames where the lips seal
+  and open). Tighten every HeyGen take with `av_offset_ms=-100` (`tighten.PROVIDER_AV_OFFSET_MS['heygen']`; plan.json
+  `"tighten": {"av_offset_ms": -100}`; CLI `--provider heygen`; the default stays 0). It moves the sound before
+  anything is measured, so cuts, captions and speech spans are on the corrected clock; cuts.json (timeline.json for a
+  two-take job) records `av_offset_ms` and the sync check measures the residual against it. After a new HeyGen engine
+  or voice version, check a filmstrip of one /p/: the lips must be sealed during the acoustic closure.
 - Jump cuts in the edit: cutaways first. Anchor broll scenes (screen recordings, full-screen cards) on the words around
   the cuts in `cuts.json`; edit_plan snaps a broll edge within 120 ms of a cut onto it, and any other scene change
   within 2 frames of a cut onto the cut frame (no one-frame double cuts). Every cut still on the avatar

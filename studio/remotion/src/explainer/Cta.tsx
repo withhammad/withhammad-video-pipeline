@@ -80,8 +80,10 @@ export const CommentCta: React.FC<{ cta: Cta }> = ({ cta }) => {
 };
 
 /** End card over the blurred presenter, light and frosted like the reference (dark "Comment", deep-green italic
- *  serif keyword, green tint only in the lower third): pill, "Comment KEYWORD", a comment box typing the keyword. */
-export const EndCard: React.FC<{ keyword: string; pill?: string }> = ({ keyword, pill }) => {
+ *  serif keyword, green tint only in the lower third): pill, "Comment KEYWORD", a comment box typing the keyword
+ *  (centred at 0.14-0.80W, clear of the right rail), and the site the voice just named ("withhammad.com · link in
+ *  bio") so the spoken and the written call to action agree. */
+export const EndCard: React.FC<{ keyword: string; pill?: string; site?: string; siteNote?: string }> = ({ keyword, pill, site, siteNote }) => {
   const frame = useCurrentFrame();
   const ms = toMs(frame);
   const tint = interpolate(ms, [0, 320], [0, 1], clamp);
@@ -93,6 +95,7 @@ export const EndCard: React.FC<{ keyword: string; pill?: string }> = ({ keyword,
   const pHead = pop(240);
   const pKey = pop(420);
   const pBox = pop(600);
+  const pSite = pop(1100);
   const typeStart = 900;
   const text = typed(keyword, ms, typeStart);
   const ready = text.length === keyword.length && ms >= typeStart;
@@ -117,13 +120,13 @@ export const EndCard: React.FC<{ keyword: string; pill?: string }> = ({ keyword,
           {keyword}
         </span>
       </div>
-      <svg width={120} height={120} viewBox="0 0 120 120" style={{ position: "absolute", left: 70, top: H * 0.44, opacity: draw }}>
+      <svg width={120} height={120} viewBox="0 0 120 120" style={{ position: "absolute", left: 4, top: H * 0.425, opacity: draw }}>
         <path d="M 20 10 C 10 60, 40 90, 92 96" fill="none" stroke={DEEP_GREEN} strokeWidth={6} strokeLinecap="round" strokeDasharray={160} strokeDashoffset={160 * (1 - draw)} />
         <path d="M 76 82 L 94 96 L 76 110" fill="none" stroke={DEEP_GREEN} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" opacity={draw > 0.9 ? 1 : 0} />
       </svg>
       <div
         style={{
-          position: "absolute", left: 160, width: W - 220, top: H * 0.49, height: 74, borderRadius: 22,
+          position: "absolute", left: Math.round(W * 0.14), width: Math.round(W * 0.66), top: H * 0.49, height: 74, borderRadius: 22,
           background: "white", boxShadow: "0 18px 40px rgba(20,40,10,0.3)", display: "flex", alignItems: "center", padding: "0 10px 0 24px",
           opacity: pBox, transform: `translateY(${(1 - pBox) * 30}px) scale(${0.92 + 0.08 * pBox})`,
         }}
@@ -136,6 +139,15 @@ export const EndCard: React.FC<{ keyword: string; pill?: string }> = ({ keyword,
           Post
         </div>
       </div>
+      {site ? (
+        <div style={{ position: "absolute", top: H * 0.585, left: Math.round(W * 0.14), width: Math.round(W * 0.66), display: "flex", justifyContent: "center", opacity: pSite, transform: `translateY(${(1 - pSite) * 18}px)` }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, height: 56, padding: "0 22px", borderRadius: 28, background: INK, boxShadow: "0 12px 30px rgba(20,30,10,0.28)", whiteSpace: "nowrap" }}>
+            <span style={{ width: 12, height: 12, borderRadius: 6, background: "#9EC96E" }} />
+            <span style={{ fontFamily: SANS, fontWeight: 800, fontSize: 28, color: "white", letterSpacing: 0.2 }}>{site}</span>
+            {siteNote ? <span style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: 28, color: "#cfe6b4" }}>{siteNote}</span> : null}
+          </div>
+        </div>
+      ) : null}
     </>
   );
 };

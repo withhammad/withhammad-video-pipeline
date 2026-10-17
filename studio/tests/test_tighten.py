@@ -216,6 +216,42 @@ def test_a_late_audio_stream_keeps_lip_sync_and_caption_times(clip):
 
 
 @needs_ffmpeg
+@pytest.mark.parametrize('offset', [-100, 60])
+def test_provider_av_offset_moves_the_sound_against_the_picture(clip, tmp_path, offset):
+    # HeyGen takes come with the voice ~100 ms behind the lips: av_offset_ms moves the sound (negative = earlier)
+    # before anything is measured, so cuts, captions and the sync check all run on the corrected clock.
+    out = tmp_path / f'tight_{offset}.mp4'
+    r = tighten.tighten(clip['src'], out, clip['caps'], av_offset_ms=offset)
+    assert r['av_offset_ms'] == offset and r['clock']['av_offset_ms'] == offset
+    s = r['sync']
+    assert s['av_offset_ms'] == offset and s['max_offset_ms'] < 10 and s['duration_diff_ms'] <= 1.0
+    assert len(r['cuts']) >= 3
+    codes = [_read_code(f) for f in _frames(out)]
+    xs = tighten.decode_on_video_clock(clip['src'])
+    xo = tighten.decode_on_video_clock(out)
+    for a, b, d in r['time_map']:
+        for k in range(int(d) // 40, int(d + b - a) // 40):
+            assert codes[k] == int(a + k * 40 - d) // 40                 # the picture is untouched...
+        mid_o, mid_s = int((d + (b - a) / 2) * SR / 1000), int((a + (b - a) / 2 - offset) * SR / 1000)
+        seg_o, seg_s = xo[mid_o - 960:mid_o + 960], xs[mid_s - 960:mid_s + 960]
+        if np.std(seg_s) > 1e-3 and np.std(seg_o) > 1e-3:
+            assert np.corrcoef(seg_o, seg_s)[0, 1] > 0.99               # ...the sound comes from offset ms away
+    onsets = [a for a, _ in audio.voice_activity(out, min_gap_ms=50)]
+    for cap in r['captions']:                                            # captions follow the moved voice
+        assert min(abs(cap['startMs'] - o) for o in onsets) <= 15
+    keep = json.loads(tighten.write_cuts(tmp_path, r).read_text())
+    assert keep['av_offset_ms'] == offset
+
+
+def test_shift_pcm_keeps_the_length():
+    x = np.arange(10, dtype=float)
+    assert list(tighten.shift_pcm(x, -2, sr=1000)) == [2, 3, 4, 5, 6, 7, 8, 9, 0, 0]
+    assert list(tighten.shift_pcm(x, 3, sr=1000)) == [0, 0, 0, 0, 1, 2, 3, 4, 5, 6]
+    assert tighten.shift_pcm(x, 0) is x
+    assert tighten.PROVIDER_AV_OFFSET_MS['heygen'] < 0
+
+
+@needs_ffmpeg
 def test_optional_speed_up_keeps_sync(tmp_path):
     rng = np.random.default_rng(9)
     words = [(300, 900, 'One,'), (1400, 2000, 'two.'), (2700, 3300, 'Three.')]

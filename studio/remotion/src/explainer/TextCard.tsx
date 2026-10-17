@@ -19,14 +19,16 @@ const ICONS = [
   "M4 12l5 5L20 6", // check
 ];
 
-/** Light card on the canvas: tiles pop in one by one (120 ms stagger), then the card flushes pale pink. */
+/** Light card on the canvas: tiles pop in one by one (up to 120 ms stagger, all in by ~35% of the scene so the full
+ *  grid is up long enough to read), then the card flushes pale pink. */
 export const TextCard: React.FC<{ box: Box; items: Item[]; durMs: number }> = ({ box, items, durMs }) => {
   const frame = useCurrentFrame();
   const ms = toMs(frame);
   const enter = interpolate(ms, [-40, 300], [0, 1], { ...clamp, easing: (t) => 1 - Math.pow(1 - t, 3) });
-  // 120 ms stagger like the reference, tightened so every tile is in by ~55% of a short scene.
-  const stagger = Math.min(120, Math.max(40, (durMs * 0.55 - 200) / Math.max(1, items.length)));
-  const doneMs = 200 + items.length * stagger + 300;
+  // 120 ms stagger like the reference, tightened so every tile is in by ~35% of a short scene.
+  const first = 80;
+  const stagger = Math.min(120, Math.max(30, (durMs * 0.35 - first) / Math.max(1, items.length)));
+  const doneMs = first + items.length * stagger + 300;
   const flushAt = Math.max(doneMs, durMs * 0.62);
   const flush = interpolate(ms, [flushAt, flushAt + 420], [0, 1], clamp);
   const bg = `rgb(${Math.round(241 + (251 - 241) * flush)},${Math.round(239 + (218 - 239) * flush)},${Math.round(236 + (222 - 236) * flush)})`;
@@ -45,7 +47,7 @@ export const TextCard: React.FC<{ box: Box; items: Item[]; durMs: number }> = ({
       }}
     >
       {items.map((it, i) => {
-        const f = toFrame(ms - (200 + i * stagger));
+        const f = toFrame(ms - (first + i * stagger));
         const sp = f >= 0 ? spring({ frame: f, fps: FPS, config: { damping: 12, stiffness: 220, mass: 0.5 } }) : 0;
         const col = i % cols;
         const row = Math.floor(i / cols);
@@ -63,8 +65,8 @@ export const TextCard: React.FC<{ box: Box; items: Item[]; durMs: number }> = ({
             <svg width={40} height={40} viewBox="0 0 24 24">
               <path d={ICONS[i % ICONS.length]} fill="none" stroke={ORANGE} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 19, color: "#2b2b2b", letterSpacing: -0.2 }}>{it.label}</div>
-            {it.sub ? <div style={{ fontFamily: SANS, fontWeight: 600, fontSize: 14, color: "#6b6b6b", textAlign: "center", lineHeight: 1.15 }}>{it.sub}</div> : null}
+            <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 20, color: "#2b2b2b", letterSpacing: -0.2 }}>{it.label}</div>
+            {it.sub ? <div style={{ fontFamily: SANS, fontWeight: 700, fontSize: 17, color: "#4d4d4d", textAlign: "center", lineHeight: 1.12 }}>{it.sub}</div> : null}
           </div>
         );
       })}
