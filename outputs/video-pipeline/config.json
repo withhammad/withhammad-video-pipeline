@@ -12,9 +12,17 @@
     "consent_status": "accepted",
     "training_status": "completed",
     "available_look_count": 3,
+    "looks_seen_in_gallery_2026_10_17": [
+      {"name": "Hammad Yousuf", "note": "black blazer, studio; marked favourite in HeyGen", "proposed_default": true},
+      {"name": "Smiling person in grey shirt", "note": "casual, light background"},
+      {"name": "Hammad Yousuf - 1", "note": "webcam-style, marked New"}
+    ],
     "selected_look_id": null,
+    "selected_look_name_pending_owner_confirmation": "Hammad Yousuf",
     "assigned_default_voice_id": "0f7032b11fb743589cc81b721f4389b3",
-    "voice_compatibility_verified": false
+    "voice_name": "Hammad Yousuf (cloned from original audio)",
+    "voice_compatibility_verified": false,
+    "api_key_location": "work/.secrets/heygen-api-key.txt (not yet provided)"
   },
   "publishing": {
     "proposed_provider": "Direct platform APIs through Codex MCP",
