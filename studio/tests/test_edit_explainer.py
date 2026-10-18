@@ -603,3 +603,119 @@ def test_fine_print_chip_is_held_across_the_next_talking_head():
     ov = scene(build(caps, spec=spec), 'U2')['overlay']
     assert 'untilMs' not in ov and 'moves' not in ov
     assert any(abs(x['atMs'] - (s2['startMs'] + 200)) <= ex.POP_SNAP_MS for x in p['sfx'] if 'pop' in x['src'])
+
+
+# ----------------------------------------------------------------------------------------------- theme "harvest"
+
+HSPEC = {
+    'job': 'h', 'theme': 'harvest', 'keyword': 'HARVEST',
+    'beats': [
+        {'name': 'hook', 'ref_window': [0.0, 3.8], 'line': 'Astra can now wake up every morning and hand you a fresh list!',
+         'on_screen_text': 'ASTRA | CAN NOW WAKE UP / *every morning* | AND HAND | {teal}YOU A FRESH LIST',
+         'units': [
+             {'id': 'U1', 't': [0.0, 1.5], 'type': 'avatar + text card', 'card': {'kind': 'title', 'text': 'GPT-6', 'accent': 'ASTRA'}, 'tone': 'dark'},
+             {'id': 'U2', 't': [1.5, 3.8], 'type': 'recording full', 'screenrec': 'R1', 'anchor': 'and', 'use': 'R1 0.0-2.4 s', 'tone': 'light'},
+         ]},
+        {'name': 'proof', 'ref_window': [3.8, 6.6], 'line': 'It has over thirty-one thousand stars on GitHub.',
+         'on_screen_text': 'IT HAS OVER | {teal}31,000+ STARS | *on GitHub*',
+         'units': [
+             {'id': 'U3', 't': [3.8, 4.6], 'type': 'avatar full-frame'},
+             {'id': 'U4', 't': [4.6, 6.6], 'type': 'stat card', 'anchor': 'thirty-one', 'caption_y': 0.66,
+              'card': {'kind': 'stars', 'owner': 'o', 'repo': 'r', 'from': 31000, 'to': 31844}},
+         ]},
+        {'name': 'prompt', 'ref_window': [6.6, 12.5], 'line': 'Like, find me two hundred shops and put them in a sheet.',
+         'on_screen_text': '',
+         'units': [
+             {'id': 'U5', 't': [6.6, 6.9], 'type': 'avatar full-frame'},
+             {'id': 'U6', 't': [6.9, 12.5], 'type': 'recording + pip', 'screenrec': 'R3', 'anchor': 'find', 'crop_top': 0.28, 'use': 'R3 0.5-4.0 s'},
+         ]},
+        {'name': 'daily', 'ref_window': [12.5, 15.0], 'line': 'Then run it every morning on your own laptop.',
+         'on_screen_text': 'THEN RUN IT | {red}EVERY MORNING / {white}*on your own laptop*',
+         'units': [
+             {'id': 'U7', 't': [12.5, 15.0], 'type': 'avatar + recording', 'screenrec': 'R1', 'focus_y': 0.0, 'fx': {'check': True},
+              'mask': [{'box': [0, 0, 0.13, 0.075], 'color': '#000000'}], 'use': 'R1 2.4-6.0 s'},
+         ]},
+        {'name': 'cta_keyword', 'ref_window': [15.0, 16.7], 'line': "Comment harvest and I'll send it!", 'on_screen_text': '',
+         'units': [{'id': 'U8', 't': [15.0, 16.7], 'type': 'avatar full-frame'}]},
+    ],
+}
+
+
+def hcaps():
+    return make_caps(words=' '.join(b['line'] for b in HSPEC['beats']).split())
+
+
+def hbuild(caps=None, spec=None, **kw):
+    kw.setdefault('plans', PLANS)
+    kw.setdefault('probe', lambda p: None)
+    return ex.build_props('/nonexistent', spec or HSPEC, caps or hcaps(), durations=DURATIONS, **kw)
+
+
+def test_harvest_theme_reaches_the_props_and_the_default_stays_untouched():
+    p = hbuild()
+    assert p['theme'] == 'harvest' and p['meta']['theme'] == 'harvest'
+    assert p['headlines'] == [] and p['chunks'] and p['tail'] is None
+    assert not any(k.startswith('_') for s in p['scenes'] for k in s)
+    d = build()
+    assert 'theme' not in d and 'chunks' not in d and d['scenes'][0].get('flipIn') is True
+
+
+def test_harvest_units_map_to_reference_scene_types():
+    p = hbuild()
+    assert [s['type'] for s in p['scenes']] == ['split', 'card', 'avatar', 'stat', 'avatar', 'pip', 'split', 'avatar']
+    u1, u4, u6, u7 = (scene(p, x) for x in ('U1', 'U4', 'U6', 'U7'))
+    assert u1['card'] == {'kind': 'title', 'text': 'GPT-6', 'accent': 'ASTRA'} and u1['tone'] == 'dark' and 'recording' not in u1
+    assert u4['card']['kind'] == 'stars' and u4['captionY'] == 0.66 and 'recording' not in u4
+    assert u6['recording']['src'] == 'job/shots/R3.mp4' and u6['recording']['cropTop'] == 0.28
+    assert u7['recording']['focusY'] == 0.0 and u7['fx'] == {'check': True}
+    assert u7['recording']['masks'] == [{'box': [0.0, 0.0, 0.13, 0.075], 'color': '#000000'}]
+    assert not any(s.get('flipIn') for s in p['scenes'])                  # the reference opens on a split
+    assert 'focusY' not in (scene(build(), 'U2')['recording'])             # default specs carry no framing
+
+
+def test_harvest_chunks_hard_cut_on_our_words_with_colours_and_serif_lines():
+    caps = hcaps()
+    pages = ex.caption_pages('{teal}OF COMPANIES / *to reach out to* | {white}*website* | {red}NOT PAYING')
+    assert pages[0] == [{'words': ['OF', 'COMPANIES'], 'serif': False, 'color': 'teal'},
+                        {'words': ['to', 'reach', 'out', 'to'], 'serif': True, 'color': 'teal'}]
+    assert pages[1][0]['color'] == 'white' and pages[1][0]['serif'] and pages[2][0]['color'] == 'red'
+    p = hbuild(caps)
+    ch = p['chunks']
+    wake = next(c for c in ch if c['lines'][0]['text'] == 'CAN NOW WAKE UP')
+    assert wake['startMs'] == start_of(caps, 'can') and wake['lines'][1]['startMs'] == start_of(caps, 'every')   # serif joins later
+    assert wake['lines'][1]['serif'] and wake['lines'][1]['color'] == 'teal'
+    stars = next(c for c in ch if c['lines'][0]['text'] == '31,000+ STARS')
+    assert stars['startMs'] == start_of(caps, 'thirty-one')        # "31,000+" rides on the spoken number, not on "stars"
+    assert all(a['endMs'] <= b['startMs'] for a, b in zip(ch, ch[1:]))
+    for c in ch:                                                   # never stale: gone within the hold after its words
+        last = max(w['endMs'] for w in caps if w['startMs'] < c['endMs'])
+        assert c['endMs'] <= last + ex.CHUNK_HOLD_MS
+    assert not any(c['startMs'] < scene(p, 'U7')['endMs'] and c['endMs'] > scene(p, 'U7')['endMs'] for c in ch)   # beat end
+    assert all(c['endMs'] <= p['cta']['atMs'] for c in ch)         # the composer types the keyword: no captions
+    assert not any('find' in l['text'].lower() for c in ch for l in c['lines'])   # typed prompt: no burned captions
+
+
+def test_harvest_scene_changes_take_the_jump_cuts_and_the_cta_waits_for_the_close_up():
+    caps = hcaps()
+    base = hbuild(caps)
+    u3 = scene(base, 'U3')
+    c1 = u3['startMs'] + 70                                        # a cut just after a scene change: the change moves onto it
+    c2 = scene(base, 'U6')['startMs'] + 40                         # just after the PiP starts: "Like," joins the talking head
+    p = hbuild(caps, cuts=[c1, c2])
+    assert scene(p, 'U3')['startMs'] == c1 and scene(p, 'U6')['startMs'] == c2
+    talk = [{'id': 'A', 'type': 'avatar', 'startMs': 0, 'endMs': 900}, {'id': 'B', 'type': 'avatar', 'startMs': 900, 'endMs': 1240},
+            {'id': 'C', 'type': 'pip', 'startMs': 1240, 'endMs': 5000}]
+    merged = ex._snap_to_cuts(ex._merge_same_shots(talk), [1280])   # "like," (340 ms) is the same shot as the head before it
+    assert [(x['id'], x['startMs'], x['endMs']) for x in merged] == [('A', 0, 1280), ('C', 1280, 5000)]
+    assert all(a['endMs'] == b['startMs'] and b['endMs'] > b['startMs'] for a, b in zip(p['scenes'], p['scenes'][1:]))
+    p2 = hbuild(caps, cuts=[scene(base, 'U7')['startMs']])         # a cut exactly on a scene change: nothing to split
+    assert len(p2['scenes']) == len(base['scenes'])
+    assert p['cta']['keyword'] == 'HARVEST' and p['cta']['atMs'] == start_of(caps, 'Comment')
+
+
+def test_harvest_reel_never_runs_past_the_take():
+    caps = hcaps()
+    take = caps[-1]['endMs'] + 300
+    p = hbuild(caps, probe=lambda path: take if str(path).endswith('avatar_main.mp4') else None)
+    assert p['durationMs'] == take // 40 * 40 == p['scenes'][-1]['endMs']
+    assert hbuild(caps)['durationMs'] == caps[-1]['endMs'] + ex.END_HOLD_MS        # take length unknown: the usual hold

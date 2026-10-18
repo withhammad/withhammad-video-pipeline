@@ -41,6 +41,11 @@ Mapping, in order:
    an inverted face covers 1 - y - h).
 10. Fine print people must read (unit "overlay_hold_ms", e.g. the attribution chip) stays up that long: it runs on
    over the next contiguous scenes without an overlay of their own, on each scene's chip line (_carry_overlays).
+11. spec "theme": "harvest" (the Nate Herk format, reel #2) writes props.theme = "harvest": unit types "avatar + text
+   card" / "avatar + recording" (split), "recording + pip", "stat card" and "text card" with a designed "card";
+   per-unit tone, fx, caption_y, focus_y, crop_top and mask; chunk captions from on_screen_text ({teal}/{red}/
+   {white} line colours, *serif* keyword lines) instead of headlines; scene changes snap onto jump cuts; no end
+   card, so the reel ends with the take. Without "theme" nothing changes.
 Standard library only.
 """
 import argparse
@@ -385,9 +390,14 @@ def _scene_type(unit):
     if 'end card' in t:
         return 'endcard'
     if t.startswith('avatar +') or t.startswith('avatar+'):
-        return 'split' if unit.get('screenrec') else 'avatar'
+        # "avatar + recording" / "avatar + text card": the presenter under a recording or a designed card (split).
+        return 'split' if unit.get('screenrec') or unit.get('card') else 'avatar'
     if t.startswith('avatar'):
         return 'avatar'
+    if 'pip' in t:                    # "recording + pip": full-frame recording with the presenter in a small window
+        return 'pip'
+    if t.startswith('stat card'):     # a designed stat pop (e.g. a star counter rolling up)
+        return 'stat'
     if 'recording' in t and 'stat' in t:
         return 'stat'
     if 'recording' in t:
@@ -480,6 +490,15 @@ def _recording_plan(unit, durations, plans=None, highlights=None):
         plan['hl'] = highlights[rid]
     if isinstance(unit.get('key'), dict) and plans and plans.get(rid):
         plan['keyOn'] = _keyed_highlight(unit['key'], plans[rid], dur)
+    # Framing of the recording inside its box (theme "harvest"): focus_y aligns a cover crop (0 top, 1 bottom);
+    # crop_top cuts that fraction of the source off the top and fits the width; mask covers boxes of the source
+    # (fractions [x, y, w, h], e.g. a third-party logo in a page header).
+    if unit.get('focus_y') is not None:
+        plan['focusY'] = float(unit['focus_y'])
+    if unit.get('crop_top') is not None:
+        plan['cropTop'] = float(unit['crop_top'])
+    if unit.get('mask'):
+        plan['masks'] = [{'box': [float(v) for v in m['box']], 'color': m.get('color', '#000000')} for m in unit['mask']]
     rng = re.search(r'(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*s\b', use)
     frm = re.search(r'\bfrom (\d+(?:\.\d+)?)\s*s\b', use)
     if frm:
@@ -733,6 +752,8 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
     if not caps:
         raise ValueError('captions are empty')
     keyword = spec.get('keyword') or ''
+    theme = spec.get('theme') or 'default'
+    harvest = theme == 'harvest'
     anchors = dict(anchors or {})
     if durations is None:
         durations = recording_durations(job_dir, spec, probe)
@@ -745,6 +766,11 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
 
     last_end = caps[-1]['endMs']
     total = duration_ms or last_end + END_HOLD_MS
+    if harvest and not duration_ms and avatar.startswith('job/'):
+        # No end card: the reel ends on the CTA close-up, so it never runs past the take (no frozen last frame).
+        take_len = probe(job_dir / Path(avatar).name)
+        if take_len:
+            total = max(last_end + 40, min(total, int(take_len) // 40 * 40))
     starts = [0] + [_cut_before(caps, a) for a, _ in spans[1:]]
     ends = starts[1:] + [total]
     # Words between beats belong to the earlier beat: beat k covers caption indices [a_k, a_{k+1}).
@@ -771,8 +797,16 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
                     scene['flipCaptionY'] = flip_caption_y(faces.get('avatar'))
             elif st != 'endcard':
                 scene['system'] = 'explainer'
+            if harvest and st == 'avatar':
+                scene['system'] = 'talk'          # the reference opens on a split: no flip-in, one caption system
+                scene.pop('flipIn', None)
+                scene.pop('flipHoldMs', None)
+                scene.pop('flipCaptionY', None)
+            for key, out_key in (('card', 'card'), ('tone', 'tone'), ('fx', 'fx'), ('caption_y', 'captionY')):
+                if unit.get(key) is not None:     # designed cards and per-scene look (theme "harvest")
+                    scene[out_key] = unit[key]
             plan = _recording_plan(unit, durations, plans, highlights)
-            if plan and st in ('card', 'stat', 'split', 'text'):
+            if plan and st in ('card', 'stat', 'split', 'text', 'pip'):
                 scene['_rec'] = plan
             text_all = ' '.join(str(unit.get(x) or '') for x in ('use', 'footage'))
             if re.search(r'slides? up from the bottom', text_all, re.I):
@@ -813,6 +847,9 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
     tail_ms = tail_obj['startMs'] if tail_obj else None
 
     scenes = _cap_breathers(scenes, caps, tail_ms)
+    if harvest:
+        scenes = _merge_same_shots(scenes)
+        _snap_to_cuts(scenes, sorted(cuts or []))
     scenes = _cover_cuts(scenes, sorted(cuts or []))
     if scenes[-1]['type'] == 'endcard':
         end = scenes[-1]
@@ -834,7 +871,7 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
 
     words = display_words(caps, keyword)
     _flag_emphasis(words, beats, word_ranges)
-    headlines = _headline_pages(beats, words, word_ranges, ends, scenes)
+    headlines = [] if harvest else _headline_pages(beats, words, word_ranges, ends, scenes)
     for s in scenes:
         ov = s.get('overlay')
         if ov and ov['kind'] == 'chip' and '\n' in ov['text']:
@@ -855,6 +892,8 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
         cta = {'keyword': keyword, 'atMs': hit['startMs'], 'handle': 'with.hammad', 'reply': 'Here you go!'}
 
     spans_ms = speech if speech is not None else [(w['startMs'], w['endMs']) for w in words]
+    if harvest:
+        return _harvest_props(spec, scenes, words, beats, word_ranges, cta, spans_ms, total, avatar, faces, music, starts, ends, cuts)
     props = {
         'avatar': {'src': avatar, **({'loop': True} if loop else {}), **({'faceBox': faces['avatar']} if faces.get('avatar') else {})},
         'tail': tail_obj,
@@ -870,6 +909,193 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
                  'cuts': sorted(cuts or [])},
     }
     return props
+
+
+# ----------------------------------------------------------------------------------------------- theme "harvest"
+# The Nate Herk reference format (job f7da978d101e, analysis/visual.md): split screens (card on top, presenter
+# below), close-up punch-ins, recordings on a plain off-white canvas, a PiP composer, designed title/logo/stat
+# cards, chunk captions (white heavy sans + teal serif keyword line) and a comment-composer CTA. Remotion draws it
+# from props.theme = "harvest" (src/explainer/harvest); the default theme is untouched.
+
+SNAP_MS = 120              # a scene boundary this close to a jump cut moves onto it (the scene change IS the cut)
+CHUNK_HOLD_MS = 700        # a caption chunk clears this long after its last word (no stale text in a pause)
+CTA_TAP_MS = 900           # harvest/Cta.tsx: the hand taps send this long after "comment"...
+CTA_NOTIF_MS = 1100        # ...and the notification slides in here
+HARVEST_WHOOSH = 0.12      # softer than the default: the reference cuts hard
+HARVEST_PUSH = 0.5         # push-ins keep half their depth: harvest cards are 1.2-1.3x wider than the default card,
+                           # so the text is already larger, and a full push cropped the start of highlighted lines
+_CAP_COLOR = re.compile(r'^\{(teal|red|white)\}\s*')
+
+
+def _snap_to_cuts(scenes, cuts, snap_ms=SNAP_MS):
+    """Move the scene boundary nearest each jump cut onto the cut when it is within snap_ms, so no scene shows the
+    jump for a frame or two (both neighbours keep at least MIN_SCENE_MS)."""
+    for c in cuts:
+        best = None
+        for i in range(1, len(scenes)):
+            b = scenes[i]['startMs']
+            if scenes[i - 1]['endMs'] == b and abs(b - c) <= snap_ms and (best is None or abs(b - c) < abs(scenes[best]['startMs'] - c)):
+                best = i
+        if best is None or scenes[best]['startMs'] == c:
+            continue
+        a, b = scenes[best - 1], scenes[best]
+        if c - a['startMs'] >= MIN_SCENE_MS and b['endMs'] - c >= MIN_SCENE_MS:
+            a['endMs'] = b['startMs'] = c
+    return scenes
+
+
+def _merge_same_shots(scenes):
+    """Contiguous talking-head scenes with the same framing are one shot (a bridge word that opens the next beat,
+    "like," before the PiP): merged into the first, so a jump cut just after it can still take the scene change."""
+    out = []
+    for s in scenes:
+        p = out[-1] if out else None
+        if (p is not None and p['type'] == s['type'] == 'avatar' and p['endMs'] == s['startMs'] and not s.get('overlay')
+                and not p.get('overlay') and p.get('punch', 1) == s.get('punch', 1)):
+            p['endMs'] = s['endMs']
+            continue
+        out.append(s)
+    return out
+
+
+def caption_pages(text):
+    """A beat's on_screen_text as caption chunks: [[{'words', 'serif', 'color'}]] (pages of lines). "|" starts a
+    chunk, "/" a line; a line wrapped in *...* is the serif keyword line; a leading {teal} / {red} / {white} sets
+    the line's colour (default: sans white, serif teal)."""
+    pages = []
+    for raw in (text or '').split('|'):
+        lines = []
+        for line in raw.split('/'):
+            line = line.strip()
+            m = _CAP_COLOR.match(line)
+            color = m.group(1) if m else None
+            if m:
+                line = line[m.end():].strip()
+            serif = len(line) > 1 and line.startswith('*') and line.endswith('*')
+            if serif:
+                line = line[1:-1].strip()
+            words = line.replace('*', '').split()
+            if words:
+                lines.append({'words': words, 'serif': serif, 'color': color or ('teal' if serif else 'white')})
+        if lines:
+            pages.append(lines)
+    return pages
+
+
+def harvest_chunks(beats, words, word_ranges, cta_ms=None, hold_ms=CHUNK_HOLD_MS, beat_ends=None):
+    """Caption chunks timed on OUR words: [{'startMs', 'endMs', 'lines': [{'text', 'startMs', 'serif', 'color'}]}].
+    Each line hard-cuts on when its first word is said (the serif keyword joins under the sans line when the voice
+    reaches it, like the reference); a word the voice says differently ("31,000+" for "thirty-one thousand") takes
+    the next spoken word after the previous chunk. A chunk holds until the next one, at most hold_ms after its last
+    word, never past its beat's last scene (beat_ends: no caption on the next beat's logo card) and never into the
+    CTA (the composer types the keyword there)."""
+    out = []
+    for k, beat in enumerate(beats):
+        pages = caption_pages(beat.get('on_screen_text'))
+        lo, hi = word_ranges[k]
+        bw = [w for w in words if lo <= w['_i'] <= hi]
+        if not pages or not bw:
+            continue
+        disp, owner = [], []
+        for p, page in enumerate(pages):
+            for li, line in enumerate(page):
+                for j, text in enumerate(line['words']):
+                    for t in tokens(text):
+                        disp.append(t)
+                        owner.append((p, li, j))
+        cap, cap_owner = [], []
+        for n, w in enumerate(bw):
+            for t in tokens(w['text']):
+                cap.append(t)
+                cap_owner.append(n)
+        hit = {}
+        for a, b, size in difflib.SequenceMatcher(None, disp, cap, autojunk=False).get_matching_blocks():
+            for q in range(size):
+                hit.setdefault(owner[a + q], cap_owner[b + q])
+        built, last_n = [], -1
+        for p, page in enumerate(pages):
+            lines, page_last = [], last_n
+            for li, line in enumerate(page):
+                idx = [hit.get((p, li, j)) for j in range(len(line['words']))]
+                matched = [n for n in idx if n is not None]
+                start = min(matched) if matched else None
+                if start is None or (idx[0] is None and last_n + 1 < start):
+                    start = min(last_n + 1, len(bw) - 1) if start is None else last_n + 1
+                if start <= last_n and not matched:
+                    continue
+                lines.append({'text': ' '.join(line['words']), 'startMs': bw[start]['startMs'], 'serif': line['serif'],
+                              'color': line['color'], '_n': start})
+                page_last = max([page_last, start] + matched)
+            if not lines:
+                continue
+            t0 = min(x['startMs'] for x in lines)
+            if built and t0 <= built[-1]['startMs']:
+                t0 = built[-1]['startMs'] + 40
+            for x in lines:
+                x['startMs'] = max(x['startMs'], t0)
+            built.append({'startMs': t0, '_last': page_last, 'lines': lines})
+            last_n = page_last
+        for q, pg in enumerate(built):
+            nxt = built[q + 1]['startMs'] if q + 1 < len(built) else None
+            end = bw[pg['_last']]['endMs'] + hold_ms
+            pg['endMs'] = min(end, nxt) if nxt is not None else end
+            if cta_ms is not None and pg['startMs'] < cta_ms:
+                pg['endMs'] = min(pg['endMs'], cta_ms)
+            if beat_ends and beat_ends[k] is not None:
+                pg['endMs'] = min(pg['endMs'], beat_ends[k])
+        for pg in built:
+            if pg['endMs'] - pg['startMs'] >= 80 and (cta_ms is None or pg['startMs'] < cta_ms):
+                out.append({'startMs': pg['startMs'], 'endMs': pg['endMs'],
+                            'lines': [{kk: v for kk, v in x.items() if not kk.startswith('_')} for x in pg['lines']]})
+    for q in range(len(out) - 1):                 # chunks of neighbouring beats never overlap
+        out[q]['endMs'] = min(out[q]['endMs'], out[q + 1]['startMs'])
+    return out
+
+
+def _harvest_sfx(scenes, cta, spans):
+    """Whooshes into graphics (softer), a pop when a designed card lands, the tap and the notification of the CTA."""
+    out = [dict(x, volume=HARVEST_WHOOSH) if x['src'].endswith('whoosh.wav') else x for x in _sfx(scenes, None, spans)]
+    for s in scenes:
+        if (s.get('card') or {}).get('kind') in ('logo', 'stars', 'kinetic'):
+            t, in_gap = pop_time(s['startMs'] + 60, spans)
+            out.append({'src': 'job/sfx_pop.wav', 'atMs': t, 'volume': POP_VOLUME if in_gap else POP_VOLUME_ON_WORD})
+    if cta:
+        out.append({'src': 'job/sfx_tick.wav', 'atMs': cta['atMs'] + CTA_TAP_MS, 'volume': 0.16})
+        out.append({'src': 'job/sfx_pop.wav', 'atMs': cta['atMs'] + CTA_NOTIF_MS, 'volume': POP_VOLUME_ON_WORD})
+    return sorted(out, key=lambda x: x['atMs'])
+
+
+def _harvest_props(spec, scenes, words, beats, word_ranges, cta, spans_ms, total, avatar, faces, music, starts, ends, cuts):
+    if cta:
+        # The composer opens on the close-up: when "comment" is heard just before the cut into it, it waits for the cut.
+        k = next((i for i, s in enumerate(scenes) if s['startMs'] <= cta['atMs'] < s['endMs']), None)
+        if k is not None and scenes[k]['type'] != 'avatar' and k + 1 < len(scenes) and scenes[k + 1]['type'] == 'avatar' \
+                and scenes[k + 1]['startMs'] - cta['atMs'] <= 2 * SNAP_MS + 80:
+            cta = {**cta, 'atMs': scenes[k + 1]['startMs']}
+    beat_ends = []
+    for k, b in enumerate(beats):
+        mine = [s['endMs'] for s in scenes if s['_beat'] == b.get('name', str(k))]
+        beat_ends.append(max(mine) if mine else None)
+    chunks = harvest_chunks(beats, words, word_ranges, cta['atMs'] if cta else None, beat_ends=beat_ends)
+    for s in scenes:
+        for z in (s.get('recording') or {}).get('zooms') or []:
+            z['scale'] = round(1 + (z['scale'] - 1) * HARVEST_PUSH, 3)
+    return {
+        'theme': 'harvest',
+        'avatar': {'src': avatar, **({'faceBox': faces['avatar']} if faces.get('avatar') else {})},
+        'tail': None,
+        'scenes': [{k: v for k, v in s.items() if not k.startswith('_')} for s in scenes],
+        'captions': {'words': [{k: v for k, v in w.items() if not k.startswith('_')} for w in words]},
+        'chunks': chunks,
+        'headlines': [],
+        'music': {'src': 'job/music.wav', 'volume': 0.12, 'duckTo': 0.075, 'holdGapMs': 500, 'fadeInMs': 40, 'fadeOutMs': 500} if music else None,
+        'sfx': _harvest_sfx(scenes, cta, spans_ms),
+        'cta': cta,
+        'durationMs': total,
+        'meta': {'job': spec.get('job'), 'theme': 'harvest',
+                 'beats': [{'name': b.get('name'), 'startMs': starts[k], 'endMs': ends[k]} for k, b in enumerate(beats)],
+                 'cuts': sorted(cuts or [])},
+    }
 
 
 _DOMAIN = re.compile(r'\b([a-z0-9-]+\.(?:com|ai|io|dev|net|org|co))\b', re.I)
@@ -1004,8 +1230,8 @@ def _cover_cuts(scenes, cuts):
     """Hide jump cuts under recordings first; split the talking head (alternating punch) where none can reach."""
     for c in cuts:
         k = next((i for i, s in enumerate(scenes) if s['startMs'] <= c < s['endMs']), None)
-        if k is None or scenes[k]['type'] not in ('avatar', 'split'):
-            continue
+        if k is None or scenes[k]['type'] not in ('avatar', 'split') or scenes[k]['startMs'] == c:
+            continue                 # a cut on a scene change is already hidden (never a zero-length scene)
         s = scenes[k]
         prev = scenes[k - 1] if k > 0 else None
         nxt = scenes[k + 1] if k + 1 < len(scenes) else None
@@ -1138,6 +1364,9 @@ def _finish_recordings(scenes, caps=None):
             rec['playbackRate'] = rate
         if src_len:
             rec['durationMs'] = src_len
+        for k in ('focusY', 'cropTop', 'masks'):
+            if plan.get(k) is not None:
+                rec[k] = plan[k]
         zooms = _zooms(plan.get('hl'), in_ms, rate, dur)
         if zooms:
             rec['zooms'] = zooms

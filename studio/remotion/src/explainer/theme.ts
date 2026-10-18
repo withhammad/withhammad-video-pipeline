@@ -98,10 +98,11 @@ const REC_H = 1350;
 
 export type ZoomState = { scale: number; originX: number; originY: number };
 
-/** Where a recording point (fractions) is drawn inside an inner box of iw x ih px ("cover" fit). */
-const coverPoint = (fx: number, fy: number, iw: number, ih: number) => {
+/** Where a recording point (fractions) is drawn inside an inner box of iw x ih px ("cover" fit; focusY aligns the
+ *  vertical crop: 0 top, 0.5 centre, 1 bottom). */
+const coverPoint = (fx: number, fy: number, iw: number, ih: number, focusY = 0.5) => {
   const c = Math.max(iw / REC_W, ih / REC_H);
-  return { x: (iw - REC_W * c) / 2 + fx * REC_W * c, y: (ih - REC_H * c) / 2 + fy * REC_H * c, c };
+  return { x: (iw - REC_W * c) / 2 + fx * REC_W * c, y: (ih - REC_H * c) * focusY + fy * REC_H * c, c };
 };
 
 /** Scale and origin (px in the inner box) for a push-in on a highlight box: the box moves as near the middle as the
@@ -112,9 +113,9 @@ type Aim = ZoomState & { originXEnd: number };
 const ZOOM_MARGIN = 0.07;
 const PAN_MIN_HOLD_MS = 600;
 
-const aim = (z: Zoom, iw: number, ih: number): Aim => {
+const aim = (z: Zoom, iw: number, ih: number, focusY = 0.5): Aim => {
   const [bx, by, bw, bh] = z.box;
-  const p = coverPoint(bx + bw / 2, by + bh / 2, iw, ih);
+  const p = coverPoint(bx + bw / 2, by + bh / 2, iw, ih, focusY);
   const s = Math.max(1, Math.min(z.scale, (ih * 0.9) / Math.max(1, bh * REC_H * p.c)));
   if (s <= 1.001) return { scale: 1, originX: iw / 2, originY: ih / 2, originXEnd: iw / 2 };
   const o = (v: number, size: number) => Math.min(size, Math.max(0, (s * v - size / 2) / (s - 1)));
@@ -124,13 +125,13 @@ const aim = (z: Zoom, iw: number, ih: number): Aim => {
     const ox = o(p.x, iw);
     return { scale: s, originX: ox, originY: oy, originXEnd: ox };
   }
-  const left = coverPoint(bx, by, iw, ih).x;
-  const right = coverPoint(bx + bw, by, iw, ih).x;
+  const left = coverPoint(bx, by, iw, ih, focusY).x;
+  const right = coverPoint(bx + bw, by, iw, ih, focusY).x;
   const m = iw * ZOOM_MARGIN;
   return { scale: s, originX: clampX((s * left - m) / (s - 1)), originY: oy, originXEnd: clampX((s * right - (iw - m)) / (s - 1)) };
 };
 
-export const zoomAt = (zooms: Zoom[] | undefined, ms: number, iw: number, ih: number): ZoomState => {
+export const zoomAt = (zooms: Zoom[] | undefined, ms: number, iw: number, ih: number, focusY = 0.5): ZoomState => {
   const none = { scale: 1, originX: iw / 2, originY: ih / 2 };
   if (!zooms?.length) return none;
   const zs = [...zooms].sort((a, b) => a.atMs - b.atMs);
@@ -145,7 +146,7 @@ export const zoomAt = (zooms: Zoom[] | undefined, ms: number, iw: number, ih: nu
     const next = zs[i + 1];
     const linkedPrev = !!prev && z.atMs - prev.endMs < ZOOM_LINK_MS;
     const linkedNext = !!next && next.atMs - z.endMs < ZOOM_LINK_MS;
-    const a = aim(z, iw, ih);
+    const a = aim(z, iw, ih, focusY);
     if (ms >= z.atMs && ms <= z.endMs) {
       const kIn = linkedPrev ? 1 : smoothstep((ms - z.atMs) / ZOOM_IN_MS);
       const kOut = linkedNext ? 1 : 1 - smoothstep((ms - (z.endMs - ZOOM_OUT_MS)) / ZOOM_OUT_MS);
@@ -153,7 +154,7 @@ export const zoomAt = (zooms: Zoom[] | undefined, ms: number, iw: number, ih: nu
       return { scale: 1 + (a.scale - 1) * k, originX: panX(z, a, ms), originY: a.originY };
     }
     if (linkedNext && ms > z.endMs && ms < next.atMs) {
-      const b = aim(next, iw, ih);
+      const b = aim(next, iw, ih, focusY);
       const u = smoothstep((ms - z.endMs) / Math.max(1, next.atMs - z.endMs));
       return { scale: lerp(a.scale, b.scale, u), originX: lerp(panX(z, a, z.endMs), b.originX, u), originY: lerp(a.originY, b.originY, u) };
     }

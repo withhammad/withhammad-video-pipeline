@@ -1,4 +1,3 @@
-import { Audio } from "@remotion/media";
 import { useMemo } from "react";
 import { AbsoluteFill, CalculateMetadataFunction, Composition, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { fontsReady } from "../fonts";
@@ -8,9 +7,11 @@ import { CaptionRun, Captions } from "./Captions";
 import { contentZoom, Entrance, PrevShot, RecordingCard } from "./Card";
 import { CommentCta, EndCard } from "./Cta";
 import { OverlayLayer } from "./Overlays";
+import { HarvestExplainer } from "./harvest/HarvestExplainer";
+import { MusicTrack, SfxTracks } from "./Sound";
 import { TextCard } from "./TextCard";
-import { BACKDROP, Box, boxOf, CARD_BOX, CARD_INSET, cleanWord, FPS, H, isCanvas, smoothstep, speechAmount, systemOf, toFrame, toMs, W, wordsBetween } from "./theme";
-import { defaultExplainer, ExplainerProps, FaceBox, Music, Scene, TailSrc, Word } from "./types";
+import { BACKDROP, Box, boxOf, CARD_BOX, CARD_INSET, cleanWord, FPS, H, isCanvas, smoothstep, systemOf, toFrame, toMs, W, wordsBetween } from "./theme";
+import { defaultExplainer, ExplainerProps, FaceBox, Scene, TailSrc, Word } from "./types";
 
 /** Talking-head captions also take words that start up to this long before their run (a bridge word spoken on
  *  the cut: "And no," / "Which means"), so they are captioned once, on the face. */
@@ -51,7 +52,7 @@ export const checkExplainerAssets = async (p: ExplainerProps, exists: (src: stri
     if (!src) missing.push(`${label} (no src)`);
     else if (!(await has(src))) missing.push(`${label}: ${src}`);
   };
-  if (p.scenes.some((s) => s.type === "avatar" || s.type === "split" || s.type === "endcard")) await need("avatar", p.avatar?.src);
+  if (p.scenes.some((s) => s.type === "avatar" || s.type === "split" || s.type === "endcard" || s.type === "pip")) await need("avatar", p.avatar?.src);
   if (p.tail) await need("tail", p.tail.src);
   for (const [i, s] of p.scenes.entries()) if (s.recording) await need(`scene ${s.id ?? i} recording`, s.recording.src);
   const audioMissing: string[] = [];
@@ -253,29 +254,7 @@ const LightLeak: React.FC<{ atMs: number }> = ({ atMs }) => {
   );
 };
 
-/** The bed ducks under EVERY spoken word (the unfiltered captions: a word shown as a display overlay is still
- *  spoken), holds the duck across gaps under holdGapMs, fades in over fadeInMs and out over fadeOutMs. */
-const MusicTrack: React.FC<{ music: Music; words: Word[]; durationMs: number }> = ({ music, words, durationMs }) => {
-  const volume = music.volume ?? 0.12;
-  const duckTo = music.duckTo ?? 0.07;
-  const fadeOut = Math.max(1, music.fadeOutMs ?? 500);
-  const fadeIn = Math.max(1, music.fadeInMs ?? 1);
-  const hold = music.holdGapMs ?? 0;
-  return (
-    <Audio
-      src={staticFile(music.src)}
-      name="music"
-      volume={(f) => {
-        const ms = toMs(f);
-        const g = volume + (duckTo - volume) * speechAmount(words, ms, 150, hold);
-        const edge = Math.min(1, Math.max(0, (durationMs - ms) / fadeOut), Math.max(0, ms / fadeIn));
-        return Math.max(0, Math.min(1, g * edge));
-      }}
-    />
-  );
-};
-
-export const Explainer: React.FC<ExplainerProps> = (edit) => {
+const DefaultExplainer: React.FC<ExplainerProps> = (edit) => {
   const scenes = edit.scenes;
   const words = useMemo(() => withoutDisplayWords(edit.captions?.words ?? [], scenes), [edit.captions, scenes]);
   const runs = useMemo(() => captionRuns(scenes, edit.tail), [scenes, edit.tail]);
@@ -340,12 +319,11 @@ export const Explainer: React.FC<ExplainerProps> = (edit) => {
       ) : null}
       {hookEnd !== undefined && hookEnd < durationMs ? <LightLeak atMs={hookEnd} /> : null}
       {edit.music ? <MusicTrack music={edit.music} words={edit.captions?.words ?? []} durationMs={durationMs} /> : null}
-      {(edit.sfx ?? []).map((x, i) => (
-        <Sequence key={`sfx${i}`} from={Math.max(0, toFrame(x.atMs))} layout="none" name={`sfx ${i}`}>
-          <Audio src={staticFile(x.src)} volume={Math.min(1, Math.max(0, x.volume ?? 0.3))} />
-        </Sequence>
-      ))}
+      <SfxTracks sfx={edit.sfx ?? []} />
     </AbsoluteFill>
   );
 };
+
+/** The theme picks the format; the default theme is the original Explainer look. */
+export const Explainer: React.FC<ExplainerProps> = (edit) => (edit.theme === "harvest" ? <HarvestExplainer {...edit} /> : <DefaultExplainer {...edit} />);
 

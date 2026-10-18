@@ -1,0 +1,43 @@
+import { useCurrentFrame } from "remotion";
+import { RecordingVideo } from "../Card";
+import { toMs, zoomAt } from "../theme";
+import type { Recording } from "../types";
+
+const REC_W = 1080;
+const REC_H = 1350;
+
+/** Where the 1080x1350 source sits inside a w x h region: "cover" aligned by focusY, or (cropTop) the width fitted
+ *  and that fraction of the source cut off the top. */
+export const sourceRect = (rec: Recording, w: number, h: number) => {
+  if (rec.cropTop !== undefined) {
+    const c = w / REC_W;
+    return { c, x: 0, y: -rec.cropTop * REC_H * c };
+  }
+  const c = Math.max(w / REC_W, h / REC_H);
+  return { c, x: (w - REC_W * c) / 2, y: (h - REC_H * c) * (rec.focusY ?? 0.5) };
+};
+
+/**
+ * A real screen recording filling a w x h region (split top panel, card, PiP composer). Push-ins on the recorder's
+ * highlight boxes (rec.zooms) aim at the box with the same math as the default card; masks paint over boxes of the
+ * source and move with it. Everything is a function of the scene-relative frame.
+ */
+export const RegionRecording: React.FC<{ rec: Recording; w: number; h: number }> = ({ rec, w, h }) => {
+  const ms = toMs(useCurrentFrame());
+  const r = sourceRect(rec, w, h);
+  const z = rec.cropTop !== undefined ? { scale: 1, originX: w / 2, originY: h / 2 } : zoomAt(rec.zooms, ms, w, h, rec.focusY ?? 0.5);
+  const sw = REC_W * r.c;
+  const sh = REC_H * r.c;
+  return (
+    <div style={{ position: "absolute", left: 0, top: 0, width: w, height: h, overflow: "hidden" }}>
+      <div style={{ position: "absolute", inset: 0, transform: z.scale !== 1 ? `scale(${z.scale.toFixed(4)})` : undefined, transformOrigin: `${z.originX.toFixed(1)}px ${z.originY.toFixed(1)}px` }}>
+        <div style={{ position: "absolute", left: r.x, top: r.y, width: sw, height: sh }}>
+          <RecordingVideo rec={rec} />
+          {(rec.masks ?? []).map((m, i) => (
+            <div key={i} style={{ position: "absolute", left: m.box[0] * sw, top: m.box[1] * sh, width: m.box[2] * sw, height: m.box[3] * sh, background: m.color }} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};

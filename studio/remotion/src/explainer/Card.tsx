@@ -47,7 +47,7 @@ const cardPop = (rec: Recording | undefined, ms: number, box: Box) =>
 const EDGE_FADE = "linear-gradient(to bottom, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%)";
 export const pushOrigin = (rec: Recording | undefined) => (rec?.pushIn ? `${rec.pushIn.originX * 100}% ${rec.pushIn.originY * 100}%` : "50% 50%");
 
-const RecordingVideo: React.FC<{ rec: Recording; holdAt?: number }> = ({ rec, holdAt }) => {
+export const RecordingVideo: React.FC<{ rec: Recording; holdAt?: number }> = ({ rec, holdAt }) => {
   const frame = useCurrentFrame();
   const last = lastFrame(rec);
   // holdAt: show this scene-relative frame for good (the previous card's final frame under an in-card swap).

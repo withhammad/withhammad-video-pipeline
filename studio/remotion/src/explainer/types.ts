@@ -6,7 +6,8 @@
  */
 
 export type CaptionSystem = "hook" | "explainer" | "talk";
-export type SceneType = "avatar" | "split" | "card" | "text" | "stat" | "endcard";
+/** pip (theme "harvest"): a full-frame recording with the presenter in a small window above it. */
+export type SceneType = "avatar" | "split" | "card" | "text" | "stat" | "endcard" | "pip";
 
 /** A Remotion-side callout, scene-relative. mode "content" (default) pushes the camera into the recording;
  *  mode "card" pops the whole card out (scale + orange outline) and leaves the recording at 1.0. */
@@ -18,7 +19,20 @@ export type Zoom = { atMs: number; endMs: number; scale: number; box: [number, n
 
 /** A real screen recording (1080x1350, 25 fps). inMs is the source in-point; durationMs (source length)
  *  lets the card freeze on the last frame instead of running out. */
-export type Recording = { src: string; inMs: number; playbackRate?: number; pushIn?: PushIn; durationMs?: number; zooms?: Zoom[] };
+export type Recording = {
+  src: string;
+  inMs: number;
+  playbackRate?: number;
+  pushIn?: PushIn;
+  durationMs?: number;
+  zooms?: Zoom[];
+  /** Theme "harvest": vertical alignment of a cover crop (0 top, 0.5 centre, 1 bottom). */
+  focusY?: number;
+  /** Theme "harvest": fit the width and cut this fraction of the source off the top (the PiP composer). */
+  cropTop?: number;
+  /** Theme "harvest": boxes of the source ([x, y, w, h] fractions) painted over, e.g. a third-party logo. */
+  masks?: { box: [number, number, number, number]; color: string }[];
+};
 
 /**
  * chip: white pill(s) (text split on "\n", staggered, optional per-item times in itemsAtMs);
@@ -76,7 +90,26 @@ export type Scene = {
   /** End card: the site the tail names ("withhammad.com") and a note ("link in bio"). */
   site?: string;
   siteNote?: string;
+  /** Theme "harvest": a designed card (title, logo, stat counter, cost, kinetic type) instead of a recording. */
+  card?: HarvestCard;
+  /** Theme "harvest": canvas tone behind a full-frame card (dark for dark recordings), and the caption treatment. */
+  tone?: "light" | "dark";
+  /** Theme "harvest": extra motion on the scene (check: a green square morphs into a check box). */
+  fx?: { check?: boolean };
+  /** Theme "harvest": caption centre (fraction of H) when the default for the scene type does not fit. */
+  captionY?: number;
 };
+
+export type HarvestCard =
+  | { kind: "title"; text: string; accent?: string }
+  | { kind: "logo"; name: string }
+  | { kind: "stars"; owner: string; repo: string; about?: string; from: number; to: number; language?: string; license?: string; forks?: string }
+  | { kind: "cost"; label: string; value: string; note?: string }
+  | { kind: "kinetic"; small: string; big: string };
+
+/** Theme "harvest" caption chunk: up to two lines, each hard-cutting on at startMs (absolute ms). */
+export type ChunkLine = { text: string; startMs: number; serif?: boolean; color?: "white" | "teal" | "red" };
+export type CaptionChunk = { startMs: number; endMs: number; lines: ChunkLine[] };
 
 export type Word = { text: string; startMs: number; endMs: number; em?: boolean };
 
@@ -99,6 +132,10 @@ export type AvatarSrc = { src: string; loop?: boolean; faceBox?: FaceBox };
 export type TailSrc = { src: string; startMs: number; loop?: boolean; faceBox?: FaceBox; durationMs?: number };
 
 export type ExplainerProps = {
+  /** "harvest": the Nate Herk reference format (src/explainer/harvest). Default: the original Explainer look. */
+  theme?: "default" | "harvest";
+  /** Theme "harvest": caption chunks (edit_explainer.harvest_chunks). */
+  chunks?: CaptionChunk[];
   avatar: AvatarSrc;
   tail?: TailSrc | null;
   scenes: Scene[];
