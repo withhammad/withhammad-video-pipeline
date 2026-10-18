@@ -4,7 +4,7 @@
   "language": "Urdu/Hindi",
   "description": "A practical walkthrough: plan visuals in ChatGPT, use an equivalent editing skill in Claude, upload footage and captions, and review the finished motion-graphics edit. Presented using my AI avatar and cloned voice.\n\nWorkflow reference: https://youtu.be/HYbRdc_3_LQ\nFresh screen recordings and original narration. The reference creator’s private skill was unavailable; this tutorial uses an equivalent workflow. No five-minute completion claim.",
   "contains_synthetic_media": true,
-  "publication_status": "awaiting owner review",
+  "publication_status": "youtube_scheduled_linkedin_pending",
   "chapters": [
     {
       "seconds": 0.0,
@@ -42,5 +42,23 @@
       "seconds": 236.66666666666666,
       "title": "Review before publishing"
     }
-  ]
+  ],
+  "publishing_status": "youtube_scheduled_linkedin_pending",
+  "corrected_video": "full-tutorial-corrected.mp4",
+  "publication_receipts": {
+    "youtube": {
+      "id": "wWxiffPWv8E",
+      "status": "scheduled",
+      "publish_at": "2026-10-20T09:00:00+04:00",
+      "verification": "youtube-verification.json"
+    },
+    "linkedin": {
+      "status": "pending_native_scheduling_error",
+      "requested_publish_at": "2026-10-20T19:30:00+04:00"
+    },
+    "superseded_youtube": {
+      "id": "4AJFw_XpxEI",
+      "status": "private_unscheduled"
+    }
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "status": "ready_for_owner_review",
+  "status": "corrected_export_verified",
   "reference_url": "https://youtu.be/HYbRdc_3_LQ",
   "reference_title": "Claude Opus 5.5 Edited This ENTIRE Video In 5 Minutes 🔥",
   "reference_duration_seconds": 267,
@@ -129,7 +129,7 @@
   "speech_speed": 0.93,
   "claude_chat_url": "https://claude.ai/chat/a7bdc1ab-2cc7-4db8-bf25-3d0639fa0438",
   "actual_demo_export": "studio/.local/claude-edit-final/claude-output.mp4",
-  "publishing_status": "not_published",
+  "publishing_status": "youtube_scheduled_linkedin_pending",
   "implementation_notes": [
     "Owner-approved equivalent skill replaces unavailable private creator skill.",
     "Demo is the actual MP4 returned by Claude after the recorded request; Claude used a headless-browser fallback because its package registry was unavailable.",
@@ -146,5 +146,23 @@
   "final_video": "outputs/claude-video-editing-tutorial/full-tutorial.mp4",
   "thumbnail": "outputs/claude-video-editing-tutorial/thumbnail-youtube.jpg",
   "captions": "outputs/claude-video-editing-tutorial/full-tutorial.srt",
-  "verification": "outputs/claude-video-editing-tutorial/verification.json"
+  "verification": "outputs/claude-video-editing-tutorial/verification.json",
+  "publication_status": "youtube_scheduled_linkedin_pending",
+  "corrected_video": "full-tutorial-corrected.mp4",
+  "publication_receipts": {
+    "youtube": {
+      "id": "wWxiffPWv8E",
+      "status": "scheduled",
+      "publish_at": "2026-10-20T09:00:00+04:00",
+      "verification": "youtube-verification.json"
+    },
+    "linkedin": {
+      "status": "pending_native_scheduling_error",
+      "requested_publish_at": "2026-10-20T19:30:00+04:00"
+    },
+    "superseded_youtube": {
+      "id": "4AJFw_XpxEI",
+      "status": "private_unscheduled"
+    }
+  }
 }

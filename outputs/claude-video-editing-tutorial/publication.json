@@ -1,0 +1,32 @@
+{
+  "youtube_format": "long",
+  "language": "ur",
+  "captions": {
+    "youtube_title": "Claude AI Se Video Editing | Talking Video to Motion Graphics (Urdu/Hindi)",
+    "youtube_description": "Claude AI se talking video ko motion graphics ke saath edit karne ka practical workflow — Urdu/Hindi mein, real screen recordings aur finished example ke saath.\n\nIs tutorial mein ChatGPT se visual plan banayenge, Claude mein editing instructions aur source files upload karenge, phir exported video ko review karenge. Final example bhi poora dikhaya gaya hai.\n\nCHAPTERS\n0:00 Claude se video editing\n0:25 ChatGPT mein visual plan\n1:09 Equivalent editing workflow\n1:32 Claude: model, skill aur source files\n2:02 Editing instructions submit karein\n2:21 Preview, export aur file check\n3:06 Finished example: full playback\n3:56 Publish karne se pehle review\n\nAI workflows aur practical tutorials: https://withhammad.com/\nAise hands-on tutorials ke liye subscribe karein.\n\nProduction note: Presented with my AI avatar and cloned voice. Screen recordings show the real workflow. The reference creator's private editing skill was unavailable, so this tutorial demonstrates an equivalent workflow with original narration and fresh recordings. Results and processing time depend on the tools and source footage.\nWorkflow reference: https://youtu.be/HYbRdc_3_LQ\n\n#ClaudeAI #VideoEditing #AITutorial",
+    "linkedin": "Can Claude turn a talking video into a motion-graphics explainer?\n\nI recorded the workflow in Urdu/Hindi, from planning the visuals to checking the exported video. The full tutorial is 4 minutes, including playback of the finished example.\n\nHere is what it covers:\n• Use ChatGPT to plan the visual direction.\n• Give Claude an editing workflow, source footage and captions.\n• Submit clear instructions for the edit.\n• Preview the result, export it and check the file.\n\nFor teams making product explainers or educational content, the useful part is seeing how the brief becomes an actual video. The export still needs a review: readable text, accurate captions, sensible pacing and a clean ending.\n\nThe original creator's private editing skill was unavailable, so I built an equivalent workflow and recorded the steps. The presenter is my AI avatar with my cloned voice; the screen recordings show the actual process.\n\nWhich part of your video workflow takes the most time: planning, editing or reviewing?\n\n#ClaudeAI #VideoEditing"
+  },
+  "hashtags": [
+    "Claude AI",
+    "AI video editing",
+    "video editing Urdu",
+    "video editing Hindi",
+    "motion graphics",
+    "Claude tutorial",
+    "ChatGPT visual planning"
+  ],
+  "schedule": {
+    "timezone": "Asia/Dubai",
+    "youtube": "2026-10-20T09:00:00+04:00",
+    "linkedin": "2026-10-20T19:30:00+04:00",
+    "youtube_utc": "2026-10-20T05:00:00Z",
+    "linkedin_utc": "2026-10-20T15:30:00Z"
+  },
+  "thumbnail": "thumbnail-v2-youtube.jpg",
+  "subtitle": "full-tutorial.srt",
+  "subtitle_language": "ur",
+  "subtitle_name": "Urdu/Hindi — WithHammad",
+  "owner_authorization": "2026-10-18: Upload full video with thumbnail, subtitles, title and description; schedule both YouTube and LinkedIn for Tuesday.",
+  "video": "full-tutorial-corrected.mp4",
+  "correction": "Fresh screen recording uses personal Hammad name; no employer branding"
+}

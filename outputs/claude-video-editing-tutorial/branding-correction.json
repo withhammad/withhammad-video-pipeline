@@ -1,0 +1,15 @@
+{
+  "input_sha256": "c0cc0bb848fa986df4a908d9b366ce9bf74d2d171091c6d3c6a3ebdbe90691cc",
+  "output_sha256": "d51939385999a7bb7b0e8c1525b18e6265401e07b738145ab854312effe477c6",
+  "output": "full-tutorial-corrected.mp4",
+  "replacement_recording": "/Users/hammad/withhammad-video-pipeline/studio/.local/claude-edit-final/claude-clean-replacement.mp4",
+  "interval_seconds": [
+    92,
+    125
+  ],
+  "recording": "Fresh Chrome walkthrough after owner changed personal account name; sidebar hidden",
+  "audio": "unchanged",
+  "timing": "unchanged",
+  "status": "verified",
+  "privacy_verification": "privacy-verification.json"
+}

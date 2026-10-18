@@ -1,0 +1,177 @@
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "USJHKxi8Qw45oBld4WFKt1xya00",
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "xuQ0dx82moReddW5_dXhVugbOR8",
+      "id": "wWxiffPWv8E",
+      "snippet": {
+        "publishedAt": "2026-10-18T10:40:43Z",
+        "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+        "title": "Claude AI Se Video Editing | Talking Video to Motion Graphics (Urdu/Hindi)",
+        "description": "Claude AI se talking video ko motion graphics ke saath edit karne ka practical workflow \u2014 Urdu/Hindi mein, real screen recordings aur finished example ke saath.\n\nIs tutorial mein ChatGPT se visual plan banayenge, Claude mein editing instructions aur source files upload karenge, phir exported video ko review karenge. Final example bhi poora dikhaya gaya hai.\n\nCHAPTERS\n0:00 Claude se video editing\n0:25 ChatGPT mein visual plan\n1:09 Equivalent editing workflow\n1:32 Claude: model, skill aur source files\n2:02 Editing instructions submit karein\n2:21 Preview, export aur file check\n3:06 Finished example: full playback\n3:56 Publish karne se pehle review\n\nAI workflows aur practical tutorials: https://withhammad.com/\nAise hands-on tutorials ke liye subscribe karein.\n\nProduction note: Presented with my AI avatar and cloned voice. Screen recordings show the real workflow. The reference creator's private editing skill was unavailable, so this tutorial demonstrates an equivalent workflow with original narration and fresh recordings. Results and processing time depend on the tools and source footage.\nWorkflow reference: https://youtu.be/HYbRdc_3_LQ\n\n#ClaudeAI #VideoEditing #AITutorial",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/wWxiffPWv8E/default.jpg?sqp=CKzG0tYG&rs=AOn4CLDVfKfBgU0yVvroIwO2hwBVksa4fw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/wWxiffPWv8E/mqdefault.jpg?sqp=CKzG0tYG&rs=AOn4CLCJ8QJj246vigCQnc2h6u22rkeh6w",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/wWxiffPWv8E/hqdefault.jpg?sqp=CKzG0tYG&rs=AOn4CLDIvYX1Pc-Fi3H9233tXD6LulXEgQ",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i9.ytimg.com/vi/wWxiffPWv8E/sddefault.jpg?sqp=CKzG0tYG&rs=AOn4CLAaARRT9j7-pZ35KAo6EiFmwv32sQ",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i9.ytimg.com/vi/wWxiffPWv8E/maxresdefault.jpg?sqp=CKzG0tYG&rs=AOn4CLDxrpK-MqWZOnfPf9SfZBlOIqFuyQ",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "HAMMAD YOUSUF",
+        "tags": [
+          "AI video editing",
+          "ChatGPT visual planning",
+          "Claude AI",
+          "Claude tutorial",
+          "motion graphics",
+          "video editing Hindi",
+          "video editing Urdu"
+        ],
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "ur",
+        "localized": {
+          "title": "Claude AI Se Video Editing | Talking Video to Motion Graphics (Urdu/Hindi)",
+          "description": "Claude AI se talking video ko motion graphics ke saath edit karne ka practical workflow \u2014 Urdu/Hindi mein, real screen recordings aur finished example ke saath.\n\nIs tutorial mein ChatGPT se visual plan banayenge, Claude mein editing instructions aur source files upload karenge, phir exported video ko review karenge. Final example bhi poora dikhaya gaya hai.\n\nCHAPTERS\n0:00 Claude se video editing\n0:25 ChatGPT mein visual plan\n1:09 Equivalent editing workflow\n1:32 Claude: model, skill aur source files\n2:02 Editing instructions submit karein\n2:21 Preview, export aur file check\n3:06 Finished example: full playback\n3:56 Publish karne se pehle review\n\nAI workflows aur practical tutorials: https://withhammad.com/\nAise hands-on tutorials ke liye subscribe karein.\n\nProduction note: Presented with my AI avatar and cloned voice. Screen recordings show the real workflow. The reference creator's private editing skill was unavailable, so this tutorial demonstrates an equivalent workflow with original narration and fresh recordings. Results and processing time depend on the tools and source footage.\nWorkflow reference: https://youtu.be/HYbRdc_3_LQ\n\n#ClaudeAI #VideoEditing #AITutorial"
+        },
+        "defaultAudioLanguage": "ur"
+      },
+      "contentDetails": {
+        "duration": "PT4M12S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular",
+        "hasCustomThumbnail": true
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "private",
+        "publishAt": "2026-10-20T05:00:00Z",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false,
+        "selfDeclaredMadeForKids": false
+      },
+      "processingDetails": {
+        "processingStatus": "succeeded",
+        "fileDetailsAvailability": "available",
+        "processingIssuesAvailability": "available",
+        "tagSuggestionsAvailability": "inProgress",
+        "editorSuggestionsAvailability": "inProgress",
+        "thumbnailsAvailability": "available"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "gipHw7FOwurxvqQvgbwqjAv5mgI",
+      "id": "4AJFw_XpxEI",
+      "snippet": {
+        "publishedAt": "2026-10-18T10:08:35Z",
+        "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+        "title": "Claude AI Se Video Editing | Talking Video to Motion Graphics (Urdu/Hindi)",
+        "description": "Claude AI se talking video ko motion graphics ke saath edit karne ka practical workflow \u2014 Urdu/Hindi mein, real screen recordings aur finished example ke saath.\n\nIs tutorial mein ChatGPT se visual plan banayenge, Claude mein editing instructions aur source files upload karenge, phir exported video ko review karenge. Final example bhi poora dikhaya gaya hai.\n\nCHAPTERS\n0:00 Claude se video editing\n0:25 ChatGPT mein visual plan\n1:09 Equivalent editing workflow\n1:32 Claude: model, skill aur source files\n2:02 Editing instructions submit karein\n2:21 Preview, export aur file check\n3:06 Finished example: full playback\n3:56 Publish karne se pehle review\n\nAI workflows aur practical tutorials: https://withhammad.com/\nAise hands-on tutorials ke liye subscribe karein.\n\nProduction note: Presented with my AI avatar and cloned voice. Screen recordings show the real workflow. The reference creator's private editing skill was unavailable, so this tutorial demonstrates an equivalent workflow with original narration and fresh recordings. Results and processing time depend on the tools and source footage.\nWorkflow reference: https://youtu.be/HYbRdc_3_LQ\n\n#ClaudeAI #VideoEditing #AITutorial",
+        "thumbnails": {
+          "default": {
+            "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/default.jpg?sqp=CKzG0tYG&rs=AOn4CLC6XpVFOmZN-kdQ2IgnrSDMdRy8yw",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/mqdefault.jpg?sqp=CKzG0tYG&rs=AOn4CLD8oboFteg-uwrgOvHBbaflruyobQ",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/hqdefault.jpg?sqp=CKzG0tYG&rs=AOn4CLAttw2cgXjynCOAUDKjXx9iX4Mc-A",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/sddefault.jpg?sqp=CKzG0tYG&rs=AOn4CLDyM1dMl6jGzP24UXbX3nAk43A5jQ",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/maxresdefault.jpg?sqp=CKzG0tYG&rs=AOn4CLBJzRCfZyihi8qlCv535YvyaoDSbQ",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "HAMMAD YOUSUF",
+        "tags": [
+          "AI video editing",
+          "ChatGPT visual planning",
+          "Claude AI",
+          "Claude tutorial",
+          "motion graphics",
+          "video editing Hindi",
+          "video editing Urdu"
+        ],
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "ur",
+        "localized": {
+          "title": "Claude AI Se Video Editing | Talking Video to Motion Graphics (Urdu/Hindi)",
+          "description": "Claude AI se talking video ko motion graphics ke saath edit karne ka practical workflow \u2014 Urdu/Hindi mein, real screen recordings aur finished example ke saath.\n\nIs tutorial mein ChatGPT se visual plan banayenge, Claude mein editing instructions aur source files upload karenge, phir exported video ko review karenge. Final example bhi poora dikhaya gaya hai.\n\nCHAPTERS\n0:00 Claude se video editing\n0:25 ChatGPT mein visual plan\n1:09 Equivalent editing workflow\n1:32 Claude: model, skill aur source files\n2:02 Editing instructions submit karein\n2:21 Preview, export aur file check\n3:06 Finished example: full playback\n3:56 Publish karne se pehle review\n\nAI workflows aur practical tutorials: https://withhammad.com/\nAise hands-on tutorials ke liye subscribe karein.\n\nProduction note: Presented with my AI avatar and cloned voice. Screen recordings show the real workflow. The reference creator's private editing skill was unavailable, so this tutorial demonstrates an equivalent workflow with original narration and fresh recordings. Results and processing time depend on the tools and source footage.\nWorkflow reference: https://youtu.be/HYbRdc_3_LQ\n\n#ClaudeAI #VideoEditing #AITutorial"
+        },
+        "defaultAudioLanguage": "ur"
+      },
+      "contentDetails": {
+        "duration": "PT4M12S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular",
+        "hasCustomThumbnail": true
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "private",
+        "license": "youtube",
+        "embeddable": false,
+        "publicStatsViewable": false,
+        "madeForKids": false,
+        "selfDeclaredMadeForKids": false
+      },
+      "processingDetails": {
+        "processingStatus": "succeeded",
+        "fileDetailsAvailability": "available",
+        "processingIssuesAvailability": "available",
+        "tagSuggestionsAvailability": "inProgress",
+        "editorSuggestionsAvailability": "inProgress",
+        "thumbnailsAvailability": "available"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 2,
+    "resultsPerPage": 2
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "platform": "youtube",
+  "dry_run": false,
+  "status": "published",
+  "already_published": false,
+  "video_id": "4AJFw_XpxEI",
+  "url": "https://www.youtube.com/watch?v=4AJFw_XpxEI",
+  "watch_url": "https://www.youtube.com/watch?v=4AJFw_XpxEI",
+  "privacy_status": "private",
+  "upload_status": "uploaded",
+  "channel": {
+    "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+    "title": "HAMMAD YOUSUF",
+    "custom_url": "@with.hammad"
+  },
+  "title": "Claude AI Se Video Editing | Talking Video to Motion Graphics (Urdu/Hindi)",
+  "warnings": [],
+  "thumbnail": {
+    "sha256": "d9c1a65de847dcc8ceec60e3547e06b051cb8bbbf53fd58289ea6b5e1f5d878f",
+    "set_at": "2026-10-18T10:09:12Z",
+    "path": "/Users/hammad/withhammad-video-pipeline/outputs/claude-video-editing-tutorial/thumbnail-v2-youtube.jpg",
+    "video_id": "4AJFw_XpxEI",
+    "status": "set",
+    "urls": {
+      "default": "https://i9.ytimg.com/vi/4AJFw_XpxEI/default.jpg?sqp=CMyz0tYG&rs=AOn4CLCeMO-_cS8bF3U5Z9txQKGfb0ulKg",
+      "medium": "https://i9.ytimg.com/vi/4AJFw_XpxEI/mqdefault.jpg?sqp=CMyz0tYG&rs=AOn4CLDNAjiSsilX-vEkqrB4VJMuxygpgQ",
+      "high": "https://i9.ytimg.com/vi/4AJFw_XpxEI/hqdefault.jpg?sqp=CMyz0tYG&rs=AOn4CLB4K5DBkdy_9RnHqzudHxHDzdC-qQ",
+      "standard": "https://i9.ytimg.com/vi/4AJFw_XpxEI/sddefault.jpg?sqp=CMyz0tYG&rs=AOn4CLD9OFQYMgBqMRdM-W1owyj2PdyFBQ",
+      "maxres": "https://i9.ytimg.com/vi/4AJFw_XpxEI/maxresdefault.jpg?sqp=CMyz0tYG&rs=AOn4CLD8N6zB42OJxm8HLjlYa1SxBBI0dw"
+    }
+  },
+  "requests_sent": [
+    {
+      "step": "refresh_access_token",
+      "method": "POST",
+      "url": "https://oauth2.googleapis.com/token",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "form": {
+        "grant_type": "refresh_token",
+        "client_id": "***",
+        "client_secret": "***",
+        "refresh_token": "***"
+      },
+      "status": 200
+    },
+    {
+      "step": "channels.list (identity check)",
+      "method": "GET",
+      "url": "https://www.googleapis.com/youtube/v3/channels?part=id%2Csnippet&mine=true",
+      "headers": {
+        "Authorization": "Bearer ***"
+      },
+      "status": 200
+    },
+    {
+      "step": "videoCategories.list",
+      "method": "GET",
+      "url": "https://www.googleapis.com/youtube/v3/videoCategories?part=snippet&id=27",
+      "headers": {
+        "Authorization": "Bearer ***"
+      },
+      "status": 200
+    },
+    {
+      "step": "start_upload_session",
+      "method": "POST",
+      "url": "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet%2Cstatus&notifySubscribers=true",
+      "headers": {
+        "Authorization": "Bearer ***",
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": "1699",
+        "X-Upload-Content-Length": "28681004",
+        "X-Upload-Content-Type": "video/mp4"
+      },
+      "body": {
+        "snippet": {
+          "title": "Claude AI Se Video Editing | Talking Video to Motion Graphics (Urdu/Hindi)",
+          "description": "Claude AI se talking video ko motion graphics ke saath edit karne ka practical workflow \u2014 Urdu/Hindi mein, real screen recordings aur finished example ke saath.\n\nIs tutorial mein ChatGPT se visual plan banayenge, Claude mein editing instructions aur source files upload karenge, phir exported video ko review karenge. Final example bhi poora dikhaya gaya hai.\n\nCHAPTERS\n0:00 Claude se video editing\n0:25 ChatGPT mein visual plan\n1:09 Equivalent editing workflow\n1:32 Claude: model, skill aur source files\n2:02 Editing instructions submit karein\n2:21 Preview, export aur file check\n3:06 Finished example: full playback\n3:56 Publish karne se pehle review\n\nAI workflows aur practical tutorials: https://withhammad.com/\nAise hands-on tutorials ke liye subscribe karein.\n\nProduction note: Presented with my AI avatar and cloned voice. Screen recordings show the real workflow. The reference creator's private editing skill was unavailable, so this tutorial demonstrates an equivalent workflow with original narration and fresh recordings. Results and processing time depend on the tools and source footage.\nWorkflow reference: https://youtu.be/HYbRdc_3_LQ\n\n#ClaudeAI #VideoEditing #AITutorial",
+          "tags": [
+            "Claude AI",
+            "AI video editing",
+            "video editing Urdu",
+            "video editing Hindi",
+            "motion graphics",
+            "Claude tutorial",
+            "ChatGPT visual planning"
+          ],
+          "categoryId": "27",
+          "defaultLanguage": "ur",
+          "defaultAudioLanguage": "ur"
+        },
+        "status": {
+          "privacyStatus": "private",
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": true,
+          "publishAt": "2026-10-20T05:00:00Z"
+        }
+      },
+      "status": 200
+    },
+    {
+      "step": "upload_file",
+      "method": "PUT",
+      "url": "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet%2Cstatus&notifySubscribers=true&upload_id=%2A%2A%2A",
+      "headers": {
+        "Authorization": "Bearer ***",
+        "Content-Length": "28681004",
+        "Content-Type": "video/mp4"
+      },
+      "body": {
+        "file": "/Users/hammad/withhammad-video-pipeline/outputs/claude-video-editing-tutorial/full-tutorial.mp4",
+        "from_byte": 0,
+        "bytes": 28681004
+      },
+      "status": 200
+    },
+    {
+      "step": "set_thumbnail",
+      "method": "POST",
+      "url": "https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=4AJFw_XpxEI&uploadType=media",
+      "headers": {
+        "Authorization": "Bearer ***",
+        "Content-Type": "image/jpeg",
+        "Content-Length": "234186"
+      },
+      "body": {
+        "file": "/Users/hammad/withhammad-video-pipeline/outputs/claude-video-editing-tutorial/thumbnail-v2-youtube.jpg",
+        "bytes": 234186
+      },
+      "status": 200
+    }
+  ],
+  "state_path": "/Users/hammad/withhammad-video-pipeline/work/.secrets/claude-edit-youtube-upload.json"
+}
