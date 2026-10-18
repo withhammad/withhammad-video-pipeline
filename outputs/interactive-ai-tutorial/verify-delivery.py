@@ -15,6 +15,19 @@ assert audio['sample_rate'] == '48000' and audio['channels'] == 2
 assert abs(float(probe['format']['duration']) - manifest['duration_seconds']) < 0.5
 assert len(manifest['assets']) == 19, 'All 12 narrated sections and 7 presenter sections required'
 assert len(manifest.get('inserts', [])) == 2
+def seconds(value):
+    h, m, s = value.replace(',', '.').split(':')
+    return int(h) * 3600 + int(m) * 60 + float(s)
+caption_count = 0
+last_start = -1
+for block in (OUT / 'full-tutorial.srt').read_text().strip().split('\n\n'):
+    lines = block.splitlines()
+    start, end = [seconds(x) for x in lines[1].split(' --> ')]
+    assert start >= last_start and 0 <= start < end <= manifest['duration_seconds'] + 0.05
+    assert ''.join(lines[2:]).strip()
+    last_start = start
+    caption_count += 1
+assert caption_count > 500
 with (OUT / 'decode-check.log').open('w') as log:
     r = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(video), '-f', 'null', '-'],
                        stdout=log, stderr=log)
@@ -59,5 +72,6 @@ Mark realistic AI-generated presenter content in YouTube's upload disclosures.
     'video': '1920x1080 / 30 fps', 'audio': 'AAC / 48 kHz / stereo',
     'chapters': len(chapters), 'powerpoint_slides': len(slides),
     'toolkit_integrity': 'passed', 'published': False,
+    'caption_cues': caption_count, 'caption_timing': 'passed',
 }, indent=2))
 print('Delivery technical verification passed')

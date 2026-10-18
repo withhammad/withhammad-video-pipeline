@@ -1,0 +1,28 @@
+TITLE
+Build Useful AI Tools: 4 Practical Workflows You Can Test
+
+DESCRIPTION
+Turn a repeated task into a tool you can actually use. In this tutorial, I walk through a newsletter editor, a task board with a delegation draft, a revenue model, and a packaging concept. We also cover selecting ideas and preparing a presentation.
+
+Follow the screen demonstrations to see how inputs, calculations, previews and exports work, and how to test a result before relying on it. The examples use sample data and run locally. The video includes a brief recorded Claude build; the extended demonstrations use original tutorial tools.
+
+The presenter is an AI avatar of Hammad Yousuf, with his authorized cloned voice.
+
+CHAPTERS
+00:00 Build tools with AI
+02:11 Edit. Preview. Export.
+06:59 Decide what happens next
+11:41 Make assumptions visible
+16:42 Explore before production
+21:33 From ideas to decisions
+28:51 Build one useful tool
+
+Subscribe for practical AI workflows and step-by-step demonstrations.
+
+#AI #AITutorial #Productivity
+
+EDITOR NOTES (REMOVE BEFORE PUBLISHING)
+Attach the verified resource-page URL when it is live. The toolkit is currently delivered locally.
+Do not claim that Slack messages were sent or that the packaging concept is manufacturing-ready.
+Upload full-tutorial.srt as English captions, and thumbnail.png as the custom thumbnail.
+Mark realistic AI-generated presenter content in YouTube's upload disclosures.

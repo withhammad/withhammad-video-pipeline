@@ -1,0 +1,3611 @@
+1
+00:00:00,240 --> 00:00:01,120
+What if the answer from
+
+2
+00:00:01,160 --> 00:00:02,140
+your AI was something
+
+3
+00:00:02,180 --> 00:00:03,080
+you could actually use?
+
+4
+00:00:03,380 --> 00:00:04,060
+Instead of copying
+
+5
+00:00:04,100 --> 00:00:04,980
+another wall of text,
+
+6
+00:00:05,300 --> 00:00:06,100
+imagine editing your
+
+7
+00:00:06,160 --> 00:00:07,320
+newsletter, moving tasks
+
+8
+00:00:07,380 --> 00:00:08,320
+around, testing business
+
+9
+00:00:08,380 --> 00:00:09,380
+assumptions, and
+
+10
+00:00:09,420 --> 00:00:10,080
+reviewing a product
+
+11
+00:00:10,120 --> 00:00:10,840
+concept right on the
+
+12
+00:00:10,900 --> 00:00:11,220
+screen.
+
+13
+00:00:11,560 --> 00:00:12,320
+In this tutorial, I’m
+
+14
+00:00:12,360 --> 00:00:12,920
+going to walk you
+
+15
+00:00:12,940 --> 00:00:13,740
+through those workflows
+
+16
+00:00:14,060 --> 00:00:14,700
+using practical
+
+17
+00:00:14,760 --> 00:00:15,900
+examples, and I’ll show
+
+18
+00:00:15,940 --> 00:00:16,600
+you how to check that
+
+19
+00:00:16,640 --> 00:00:17,500
+the tools work before
+
+20
+00:00:17,540 --> 00:00:18,080
+you trust them.
+
+21
+00:00:18,400 --> 00:00:20,440
+Before we build anything, let's make the
+
+22
+00:00:20,440 --> 00:00:22,960
+workflow clear. A chat response is useful
+
+23
+00:00:22,960 --> 00:00:24,760
+when you need an explanation, a first
+
+24
+00:00:24,760 --> 00:00:27,100
+draft or a second opinion, but some
+
+25
+00:00:27,100 --> 00:00:28,900
+work becomes easier when the answer has
+
+26
+00:00:28,900 --> 00:00:30,860
+controls. If you keep asking for the
+
+27
+00:00:30,860 --> 00:00:32,960
+same calculation with a different number, that
+
+28
+00:00:32,960 --> 00:00:34,400
+number probably belongs in an input.
+
+29
+00:00:34,920 --> 00:00:36,000
+If you keep asking for the same
+
+30
+00:00:36,000 --> 00:00:38,520
+output in another format, that format probably
+
+31
+00:00:38,520 --> 00:00:39,660
+deserves an export button.
+
+32
+00:00:40,020 --> 00:00:41,440
+And if you keep copying an answer
+
+33
+00:00:41,440 --> 00:00:43,340
+somewhere else to finish the task, the
+
+34
+00:00:43,340 --> 00:00:44,820
+interface should help you reach that next
+
+35
+00:00:44,820 --> 00:00:47,160
+step. On screen, you can see four
+
+36
+00:00:47,160 --> 00:00:48,800
+examples I've prepared for this tutorial.
+
+37
+00:00:49,260 --> 00:00:51,600
+They use sample information and run locally
+
+38
+00:00:51,600 --> 00:00:52,100
+in the browser.
+
+39
+00:00:52,760 --> 00:00:54,720
+The first is a newsletter editor, the
+
+40
+00:00:54,720 --> 00:00:56,860
+second is a task organizer, the third
+
+41
+00:00:56,860 --> 00:00:58,560
+is a revenue model, and the fourth
+
+42
+00:00:58,560 --> 00:00:59,800
+is a packaging concept sheet.
+
+43
+00:01:00,360 --> 00:01:02,020
+These examples are separate from the AI
+
+44
+00:01:02,020 --> 00:01:04,360
+chat itself. The AI can help write
+
+45
+00:01:04,360 --> 00:01:06,120
+the code, and the browser runs the
+
+46
+00:01:06,120 --> 00:01:08,760
+resulting tool. That distinction matters because a
+
+47
+00:01:08,760 --> 00:01:11,000
+button that says send does not automatically
+
+48
+00:01:11,000 --> 00:01:12,400
+mean it has permission to send a
+
+49
+00:01:12,400 --> 00:01:14,220
+message, and a number on a dashboard
+
+50
+00:01:14,220 --> 00:01:15,560
+is only as good as the formula
+
+51
+00:01:15,560 --> 00:01:17,300
+behind it. We're going to work through
+
+52
+00:01:17,300 --> 00:01:17,980
+a simple pattern.
+
+53
+00:01:18,680 --> 00:01:20,540
+First, describe the task and the person
+
+54
+00:01:20,540 --> 00:01:21,200
+using the tool.
+
+55
+00:01:21,720 --> 00:01:24,060
+Second, specify the inputs and the output.
+
+56
+00:01:24,640 --> 00:01:26,800
+Third, identify the checks that would convince
+
+57
+00:01:26,800 --> 00:01:27,320
+us it works.
+
+58
+00:01:27,960 --> 00:01:29,820
+Then build a small version, use it,
+
+59
+00:01:29,980 --> 00:01:31,360
+and ask for targeted improvements.
+
+60
+00:01:32,060 --> 00:01:33,880
+For the newsletter, our input is a
+
+61
+00:01:33,880 --> 00:01:35,000
+subject line and a draft.
+
+62
+00:01:35,620 --> 00:01:37,180
+The output is something we can copy
+
+63
+00:01:37,180 --> 00:01:39,240
+or export. Our checks are straightforward.
+
+64
+00:01:39,240 --> 00:01:41,660
+The preview should match our text, the
+
+65
+00:01:41,660 --> 00:01:43,160
+word count should change as we type,
+
+66
+00:01:43,480 --> 00:01:45,300
+and the exported file should preserve what
+
+67
+00:01:45,300 --> 00:01:47,500
+we wrote. For the revenue model, the
+
+68
+00:01:47,500 --> 00:01:48,260
+checks are mathematical.
+
+69
+00:01:48,780 --> 00:01:50,260
+We'll use a simple example that we
+
+70
+00:01:50,260 --> 00:01:52,460
+can calculate ourselves, then compare it with
+
+71
+00:01:52,460 --> 00:01:54,320
+the screen. You don't need to request
+
+72
+00:01:54,320 --> 00:01:56,160
+a huge application to get value from
+
+73
+00:01:56,160 --> 00:01:58,640
+this approach. In fact, the first useful
+
+74
+00:01:58,640 --> 00:02:00,320
+version is often one page with a
+
+75
+00:02:00,320 --> 00:02:02,600
+few controls. Keep the scope small enough
+
+76
+00:02:02,600 --> 00:02:04,120
+that you can understand what happens when
+
+77
+00:02:04,120 --> 00:02:06,480
+you click, and add complexity only after
+
+78
+00:02:06,480 --> 00:02:07,740
+the basic workflow is reliable.
+
+79
+00:02:07,740 --> 00:02:09,900
+Let's use the newsletter to put that
+
+80
+00:02:09,900 --> 00:02:10,480
+into practice.
+
+81
+00:02:11,187 --> 00:02:11,847
+Let’s start with a
+
+82
+00:02:11,887 --> 00:02:12,647
+newsletter editor,
+
+83
+00:02:12,727 --> 00:02:13,527
+because it gives us a
+
+84
+00:02:13,567 --> 00:02:14,647
+simple way to understand
+
+85
+00:02:14,747 --> 00:02:15,887
+inputs, live feedback,
+
+86
+00:02:16,287 --> 00:02:17,307
+and a useful export.
+
+87
+00:02:17,833 --> 00:02:19,229
+Let’s start with the problem this editor
+
+88
+00:02:19,345 --> 00:02:21,750
+solves. You have a newsletter draft, and
+
+89
+00:02:21,789 --> 00:02:23,263
+you want to improve it without bouncing
+
+90
+00:02:23,341 --> 00:02:25,590
+between a chat, a document, a word
+
+91
+00:02:25,706 --> 00:02:27,385
+counter, and an export tool.
+
+92
+00:02:27,628 --> 00:02:29,025
+The point of the interface is to
+
+93
+00:02:29,064 --> 00:02:31,003
+put the repeated decisions in one place.
+
+94
+00:02:31,275 --> 00:02:32,865
+On the left, we change the subject
+
+95
+00:02:33,136 --> 00:02:35,037
+and body, and on the right, we
+
+96
+00:02:35,075 --> 00:02:35,708
+see the result.
+
+97
+00:02:35,993 --> 00:02:37,738
+The controls should be obvious enough that
+
+98
+00:02:37,776 --> 00:02:39,561
+somebody who never saw the original prompt
+
+99
+00:02:39,677 --> 00:02:40,899
+can still use the page.
+
+100
+00:02:41,267 --> 00:02:42,547
+Here is how I would describe this
+
+101
+00:02:42,625 --> 00:02:43,347
+to an AI.
+
+102
+00:02:43,604 --> 00:02:45,621
+Build a single-page newsletter editor with an
+
+103
+00:02:45,660 --> 00:02:48,297
+editable subject and body, a live preview,
+
+104
+00:02:48,453 --> 00:02:52,060
+word count, reading-time estimate, local autosave, and
+
+105
+00:02:52,137 --> 00:02:53,797
+downloads in useful formats.
+
+106
+00:02:54,061 --> 00:02:56,505
+Use sample text and keep it independent
+
+107
+00:02:56,582 --> 00:02:57,649
+of external services.
+
+108
+00:02:57,940 --> 00:02:59,452
+That is a much more useful request
+
+109
+00:02:59,646 --> 00:03:01,663
+than simply asking for an amazing newsletter
+
+110
+00:03:01,780 --> 00:03:04,223
+app, because each feature corresponds to something
+
+111
+00:03:04,378 --> 00:03:05,239
+we can inspect.
+
+112
+00:03:05,517 --> 00:03:06,952
+We can also tell the AI which
+
+113
+00:03:07,069 --> 00:03:08,543
+things it should not pretend to do,
+
+114
+00:03:08,659 --> 00:03:10,365
+such as sending the email or connecting
+
+115
+00:03:10,482 --> 00:03:11,529
+to our subscribers.
+
+116
+00:03:11,995 --> 00:03:14,012
+The recorded Claude build shows that process
+
+117
+00:03:14,322 --> 00:03:16,482
+from the prompt to a generated artifact.
+
+118
+00:03:16,780 --> 00:03:18,293
+The finished examples we use for the
+
+119
+00:03:18,332 --> 00:03:21,435
+detailed walkthrough are local tutorial files, so
+
+120
+00:03:21,474 --> 00:03:23,141
+you can inspect the same workflows without
+
+121
+00:03:23,296 --> 00:03:24,762
+needing a connected mailing list.
+
+122
+00:03:25,063 --> 00:03:27,235
+Different AI tools may produce different layouts
+
+123
+00:03:27,390 --> 00:03:28,786
+from the same brief, and that is
+
+124
+00:03:28,865 --> 00:03:31,385
+fine. What matters is whether the behavior
+
+125
+00:03:31,463 --> 00:03:32,316
+meets the brief.
+
+126
+00:03:32,588 --> 00:03:34,643
+A beautiful preview with broken downloads is
+
+127
+00:03:34,682 --> 00:03:35,857
+still an unfinished tool.
+
+128
+00:03:36,062 --> 00:03:37,807
+Start by changing the subject line.
+
+129
+00:03:38,040 --> 00:03:40,173
+Notice that this is ordinary editing, rather
+
+130
+00:03:40,290 --> 00:03:41,977
+than another instruction to the AI.
+
+131
+00:03:42,268 --> 00:03:44,401
+The preview responds immediately because the page
+
+132
+00:03:44,556 --> 00:03:46,349
+already knows how to handle that input.
+
+133
+00:03:46,589 --> 00:03:48,296
+Now change a sentence in the body.
+
+134
+00:03:48,567 --> 00:03:50,313
+Again, we do not need to send
+
+135
+00:03:50,391 --> 00:03:51,787
+the whole draft back to a model
+
+136
+00:03:51,942 --> 00:03:53,408
+merely to update the preview.
+
+137
+00:03:53,634 --> 00:03:55,574
+This is the useful division of labor:
+
+138
+00:03:55,806 --> 00:03:57,939
+the AI helps construct the tool, and
+
+139
+00:03:57,978 --> 00:04:00,228
+the tool handles the repeated mechanical work.
+
+140
+00:04:00,461 --> 00:04:02,109
+There is one important boundary here.
+
+141
+00:04:02,361 --> 00:04:04,533
+This editor does not automatically improve your
+
+142
+00:04:04,572 --> 00:04:06,800
+writing. It displays and exports what you
+
+143
+00:04:06,839 --> 00:04:08,817
+enter. If you want an AI rewrite
+
+144
+00:04:08,934 --> 00:04:10,950
+button, that becomes another feature with its
+
+145
+00:04:11,028 --> 00:04:14,247
+own connection, cost, privacy choices, and error
+
+146
+00:04:14,286 --> 00:04:16,691
+handling. We are deliberately starting with the
+
+147
+00:04:16,730 --> 00:04:18,145
+reliable local workflow.
+
+148
+00:04:18,319 --> 00:04:19,521
+You can ask an AI to help
+
+149
+00:04:19,598 --> 00:04:21,965
+revise a paragraph separately, paste the version
+
+150
+00:04:22,081 --> 00:04:23,904
+you prefer, and keep control of the
+
+151
+00:04:23,943 --> 00:04:26,580
+final wording. Before adding more features, ask
+
+152
+00:04:26,735 --> 00:04:28,597
+whether the current screen already removes a
+
+153
+00:04:28,636 --> 00:04:29,555
+step from your work.
+
+154
+00:04:29,775 --> 00:04:31,287
+If the answer is yes, you have
+
+155
+00:04:31,326 --> 00:04:32,645
+a useful first version.
+
+156
+00:04:32,995 --> 00:04:34,274
+The next step is to test the
+
+157
+00:04:34,313 --> 00:04:36,602
+feedback and exports, because those are what
+
+158
+00:04:36,640 --> 00:04:38,458
+make this more than a visual mockup.
+
+159
+00:04:38,872 --> 00:04:40,345
+Now we’ll check the editor using a
+
+160
+00:04:40,385 --> 00:04:41,703
+deliberately small example.
+
+161
+00:04:42,014 --> 00:04:43,934
+Replace the body with ten simple words,
+
+162
+00:04:44,108 --> 00:04:45,815
+and compare the displayed count with the
+
+163
+00:04:45,854 --> 00:04:48,138
+actual text. A tiny example is easier
+
+164
+00:04:48,332 --> 00:04:50,271
+to verify than a long article, and
+
+165
+00:04:50,310 --> 00:04:52,055
+it helps us separate a working feature
+
+166
+00:04:52,211 --> 00:04:54,092
+from a number that merely looks plausible.
+
+167
+00:04:54,383 --> 00:04:56,205
+The count in this tutorial uses words
+
+168
+00:04:56,361 --> 00:04:59,231
+separated by whitespace, so punctuation attached to
+
+169
+00:04:59,270 --> 00:05:00,472
+a word does not create an extra
+
+170
+00:05:00,627 --> 00:05:03,226
+word. More sophisticated editors may use different
+
+171
+00:05:03,420 --> 00:05:05,312
+rules, especially across languages.
+
+172
+00:05:05,575 --> 00:05:07,728
+The reading-time estimate is also transparent.
+
+173
+00:05:07,941 --> 00:05:09,609
+This version divides the word count by
+
+174
+00:05:09,648 --> 00:05:10,947
+two hundred words per minute.
+
+175
+00:05:11,238 --> 00:05:12,790
+That is a convenient assumption for the
+
+176
+00:05:12,828 --> 00:05:14,923
+demonstration, not a measurement of how every
+
+177
+00:05:15,001 --> 00:05:17,421
+subscriber reads. A technical newsletter may take
+
+178
+00:05:17,499 --> 00:05:19,322
+longer because the reader stops to think.
+
+179
+00:05:19,594 --> 00:05:21,882
+An image-heavy newsletter has information that a
+
+180
+00:05:21,921 --> 00:05:23,795
+simple word counter cannot capture.
+
+181
+00:05:24,041 --> 00:05:25,903
+Keep the assumption visible so the estimate
+
+182
+00:05:25,941 --> 00:05:27,958
+is useful without pretending to be exact.
+
+183
+00:05:28,307 --> 00:05:30,518
+Next, restore the sample draft and add
+
+184
+00:05:30,557 --> 00:05:32,012
+a short practical takeaway.
+
+185
+00:05:32,264 --> 00:05:33,912
+The preview should match what we typed,
+
+186
+00:05:34,086 --> 00:05:35,375
+including paragraph breaks.
+
+187
+00:05:35,653 --> 00:05:37,263
+Then check the local-save message.
+
+188
+00:05:37,670 --> 00:05:39,686
+Local autosave means the draft is stored
+
+189
+00:05:39,765 --> 00:05:41,394
+in this browser on this device.
+
+190
+00:05:41,665 --> 00:05:42,945
+It does not mean the draft has
+
+191
+00:05:42,984 --> 00:05:44,341
+been backed up to your account or
+
+192
+00:05:44,380 --> 00:05:45,807
+synchronized across a team.
+
+193
+00:05:46,072 --> 00:05:47,739
+If you clear browser storage or switch
+
+194
+00:05:47,855 --> 00:05:49,989
+profiles, the saved text may not follow
+
+195
+00:05:50,105 --> 00:05:52,665
+you. For anything important, use an export
+
+196
+00:05:52,743 --> 00:05:54,993
+as well. The plain-text output is useful
+
+197
+00:05:55,148 --> 00:05:56,997
+when you want the content without formatting.
+
+198
+00:05:57,256 --> 00:05:59,041
+Markdown is useful when your next tool
+
+199
+00:05:59,157 --> 00:06:01,698
+understands lightweight headings and paragraphs.
+
+200
+00:06:02,027 --> 00:06:04,238
+The HTML export is useful for inspecting
+
+201
+00:06:04,316 --> 00:06:06,295
+a formatted document, but you still need
+
+202
+00:06:06,333 --> 00:06:07,729
+to test it in the actual email
+
+203
+00:06:07,885 --> 00:06:09,280
+system you intend to use.
+
+204
+00:06:09,589 --> 00:06:11,373
+A browser page and an email client
+
+205
+00:06:11,451 --> 00:06:13,545
+do not necessarily render the same way.
+
+206
+00:06:13,855 --> 00:06:15,485
+The export is a starting point for
+
+207
+00:06:15,524 --> 00:06:17,928
+that handoff, not proof that every inbox
+
+208
+00:06:18,045 --> 00:06:19,247
+will display it perfectly.
+
+209
+00:06:19,635 --> 00:06:21,070
+We also need to test text that
+
+210
+00:06:21,109 --> 00:06:23,525
+resembles markup. If I type angle brackets
+
+211
+00:06:23,642 --> 00:06:25,814
+into a draft, the exported document should
+
+212
+00:06:25,853 --> 00:06:27,675
+display that text rather than treating it
+
+213
+00:06:27,714 --> 00:06:28,995
+as executable content.
+
+214
+00:06:29,382 --> 00:06:30,701
+This is why the brief asked for
+
+215
+00:06:30,739 --> 00:06:31,949
+escaping user content.
+
+216
+00:06:32,266 --> 00:06:33,663
+You do not need to memorize the
+
+217
+00:06:33,702 --> 00:06:36,029
+implementation to request the behavior and test
+
+218
+00:06:36,145 --> 00:06:38,976
+the result. Finally, think about one focused
+
+219
+00:06:39,170 --> 00:06:41,885
+improvement. Perhaps you need a subject-length indicator
+
+220
+00:06:42,118 --> 00:06:43,562
+or a second preview size.
+
+221
+00:06:43,842 --> 00:06:46,130
+Ask for that one change, explain the
+
+222
+00:06:46,169 --> 00:06:48,690
+expected result, and repeat the original checks
+
+223
+00:06:48,768 --> 00:06:51,483
+afterward. A revision can accidentally break something
+
+224
+00:06:51,638 --> 00:06:52,598
+that already worked.
+
+225
+00:06:52,899 --> 00:06:54,567
+The habit we want is simple: build
+
+226
+00:06:54,645 --> 00:06:56,448
+a small tool, use a small test,
+
+227
+00:06:56,662 --> 00:06:58,445
+and keep the useful behavior intact as
+
+228
+00:06:58,485 --> 00:06:59,253
+you improve it.
+
+229
+00:06:59,643 --> 00:07:00,643
+Now let’s apply the same
+
+230
+00:07:00,723 --> 00:07:01,743
+idea to a task list,
+
+231
+00:07:01,843 --> 00:07:02,603
+where the goal is to
+
+232
+00:07:02,663 --> 00:07:03,763
+decide what happens next
+
+233
+00:07:04,083 --> 00:07:04,983
+and make delegation
+
+234
+00:07:05,023 --> 00:07:05,343
+easier.
+
+235
+00:07:05,899 --> 00:07:07,644
+Our second example starts with a familiar
+
+236
+00:07:07,838 --> 00:07:10,088
+problem: a task list that keeps growing
+
+237
+00:07:10,321 --> 00:07:11,872
+even though nobody is clear about the
+
+238
+00:07:11,911 --> 00:07:14,005
+next action. A longer list does not
+
+239
+00:07:14,044 --> 00:07:15,661
+necessarily create more clarity.
+
+240
+00:07:15,920 --> 00:07:17,587
+We want an interface that forces a
+
+241
+00:07:17,626 --> 00:07:19,760
+useful decision, so this board has four
+
+242
+00:07:19,799 --> 00:07:23,748
+destinations: do now, schedule, delegate, and drop.
+
+243
+00:07:23,974 --> 00:07:26,088
+Those labels are choices for this demonstration,
+
+244
+00:07:26,262 --> 00:07:27,542
+and you can adapt them to the
+
+245
+00:07:27,581 --> 00:07:28,900
+way your team actually works.
+
+246
+00:07:29,171 --> 00:07:30,335
+Look at the sample tasks.
+
+247
+00:07:30,568 --> 00:07:32,546
+Reviewing a landing-page headline may be something
+
+248
+00:07:32,662 --> 00:07:33,533
+you can do now.
+
+249
+00:07:33,821 --> 00:07:35,567
+Planning a tutorial may need a deliberate
+
+250
+00:07:35,606 --> 00:07:36,381
+block of time.
+
+251
+00:07:36,653 --> 00:07:38,787
+Resizing campaign images may be appropriate to
+
+252
+00:07:38,825 --> 00:07:41,812
+delegate. Rebuilding a report nobody uses may
+
+253
+00:07:41,851 --> 00:07:43,480
+deserve a conversation about whether it should
+
+254
+00:07:43,519 --> 00:07:44,267
+happen at all.
+
+255
+00:07:44,550 --> 00:07:46,644
+The board makes those alternatives visible instead
+
+256
+00:07:46,761 --> 00:07:48,971
+of treating every task as equally urgent.
+
+257
+00:07:49,243 --> 00:07:50,911
+Each task also has an estimate in
+
+258
+00:07:50,950 --> 00:07:53,588
+minutes. These estimates are not promises, and
+
+259
+00:07:53,626 --> 00:07:54,945
+the app does not know how long
+
+260
+00:07:55,061 --> 00:07:56,192
+the work will really take.
+
+261
+00:07:56,471 --> 00:07:58,604
+Their purpose is to make capacity visible.
+
+262
+00:07:58,875 --> 00:08:00,504
+A column with ten tasks can look
+
+263
+00:08:00,582 --> 00:08:02,405
+manageable until you notice that it represents
+
+264
+00:08:02,561 --> 00:08:03,588
+six hours of work.
+
+265
+00:08:03,801 --> 00:08:05,470
+Adding the estimates gives you another way
+
+266
+00:08:05,508 --> 00:08:06,982
+to challenge the plan before you commit
+
+267
+00:08:07,060 --> 00:08:08,637
+to it. Now add a new task
+
+268
+00:08:08,831 --> 00:08:10,286
+with a clear action in its name.
+
+269
+00:08:10,538 --> 00:08:13,059
+Instead of writing website, write review the
+
+270
+00:08:13,098 --> 00:08:14,222
+homepage call to action.
+
+271
+00:08:14,455 --> 00:08:15,891
+A task should tell somebody what to
+
+272
+00:08:15,930 --> 00:08:18,101
+do, and ideally what result would count
+
+273
+00:08:18,218 --> 00:08:20,524
+as done. Enter an estimate, add it
+
+274
+00:08:20,562 --> 00:08:21,921
+to the board, and move it to
+
+275
+00:08:21,959 --> 00:08:22,910
+the right destination.
+
+276
+00:08:23,201 --> 00:08:24,791
+Watch the totals update as the task
+
+277
+00:08:24,946 --> 00:08:27,234
+changes columns. This is exactly the kind
+
+278
+00:08:27,351 --> 00:08:29,522
+of repetitive bookkeeping that a small interface
+
+279
+00:08:29,639 --> 00:08:30,621
+can handle for us.
+
+280
+00:08:30,906 --> 00:08:32,263
+There is a useful test here.
+
+281
+00:08:32,496 --> 00:08:34,785
+Move one thirty-minute task from do now
+
+282
+00:08:34,940 --> 00:08:37,073
+to delegate. The first total should go
+
+283
+00:08:37,112 --> 00:08:38,935
+down by thirty, and the second should
+
+284
+00:08:38,973 --> 00:08:39,895
+go up by thirty.
+
+285
+00:08:40,156 --> 00:08:42,134
+The overall amount of estimated work should
+
+286
+00:08:42,212 --> 00:08:43,725
+not change merely because we moved a
+
+287
+00:08:43,763 --> 00:08:46,032
+card. If those numbers do not agree,
+
+288
+00:08:46,246 --> 00:08:48,031
+stop and fix the tool before relying
+
+289
+00:08:48,185 --> 00:08:49,790
+on it for a real planning session.
+
+290
+00:08:50,075 --> 00:08:52,247
+This first version uses sample tasks and
+
+291
+00:08:52,286 --> 00:08:53,566
+keeps the workflow simple.
+
+292
+00:08:53,876 --> 00:08:55,893
+It does not synchronize with your project-management
+
+293
+00:08:55,931 --> 00:08:59,190
+system, invite teammates, or infer priorities from
+
+294
+00:08:59,229 --> 00:09:01,989
+private messages. Those would be separate integrations.
+
+295
+00:09:02,343 --> 00:09:04,167
+You can still get value immediately by
+
+296
+00:09:04,205 --> 00:09:05,679
+using the board to organize a short
+
+297
+00:09:05,796 --> 00:09:08,472
+planning conversation, then transferring the agreed actions
+
+298
+00:09:08,705 --> 00:09:10,681
+into the system your team already uses.
+
+299
+00:09:11,027 --> 00:09:12,734
+The important design question is what happens
+
+300
+00:09:12,928 --> 00:09:14,014
+after the sorting.
+
+301
+00:09:14,285 --> 00:09:15,914
+A board that only looks organized may
+
+302
+00:09:15,953 --> 00:09:16,936
+not change the work.
+
+303
+00:09:17,221 --> 00:09:18,811
+In the next step, we’ll take the
+
+304
+00:09:18,850 --> 00:09:20,478
+delegate column and turn it into a
+
+305
+00:09:20,517 --> 00:09:22,146
+clear message that a person can review
+
+306
+00:09:22,457 --> 00:09:23,222
+and send.
+
+307
+00:09:23,599 --> 00:09:25,344
+Let’s turn the delegated tasks into a
+
+308
+00:09:25,383 --> 00:09:27,555
+usable handoff. The first input is the
+
+309
+00:09:27,594 --> 00:09:29,863
+teammate, and the second is the deadline.
+
+310
+00:09:30,115 --> 00:09:31,481
+Neither should be guessed silently.
+
+311
+00:09:31,801 --> 00:09:33,391
+The person receiving the work needs to
+
+312
+00:09:33,430 --> 00:09:34,942
+know what you are asking, when it
+
+313
+00:09:34,981 --> 00:09:36,766
+is needed, and whether you expect them
+
+314
+00:09:36,843 --> 00:09:38,001
+to confirm capacity.
+
+315
+00:09:38,265 --> 00:09:40,398
+For this example, we are using Alex
+
+316
+00:09:40,631 --> 00:09:42,570
+and a Friday deadline, but these are
+
+317
+00:09:42,609 --> 00:09:44,703
+sample details rather than a message to
+
+318
+00:09:44,742 --> 00:09:45,663
+a real colleague.
+
+319
+00:09:45,925 --> 00:09:47,631
+When we build the message, the tool
+
+320
+00:09:47,709 --> 00:09:49,493
+takes the tasks currently in the delegate
+
+321
+00:09:49,571 --> 00:09:51,627
+column and lists them with their estimates.
+
+322
+00:09:51,899 --> 00:09:53,101
+Read the result carefully.
+
+323
+00:09:53,333 --> 00:09:54,885
+It is a draft, and nothing has
+
+324
+00:09:54,962 --> 00:09:55,924
+been sent to Slack.
+
+325
+00:09:56,228 --> 00:09:57,934
+The copy button makes it easier to
+
+326
+00:09:57,973 --> 00:09:59,252
+move the text to the place where
+
+327
+00:09:59,291 --> 00:10:01,658
+you normally communicate, but copying is different
+
+328
+00:10:01,851 --> 00:10:04,689
+from sending. Keeping that distinction visible prevents
+
+329
+00:10:04,806 --> 00:10:06,900
+the interface from suggesting an integration that
+
+330
+00:10:06,940 --> 00:10:07,831
+does not exist.
+
+331
+00:10:08,141 --> 00:10:10,430
+A useful delegation message should also describe
+
+332
+00:10:10,546 --> 00:10:11,611
+the desired outcome.
+
+333
+00:10:11,862 --> 00:10:13,297
+If the task is to resize campaign
+
+334
+00:10:13,531 --> 00:10:16,187
+images, you might specify the required sizes,
+
+335
+00:10:16,401 --> 00:10:18,146
+the source folder, and where the finished
+
+336
+00:10:18,262 --> 00:10:20,827
+exports belong. Our small example does not
+
+337
+00:10:20,904 --> 00:10:22,843
+contain all that context, so the person
+
+338
+00:10:23,038 --> 00:10:24,589
+sending the message should add it.
+
+339
+00:10:24,861 --> 00:10:26,878
+The app can reduce formatting work, but
+
+340
+00:10:26,916 --> 00:10:28,701
+it cannot replace the judgment needed to
+
+341
+00:10:28,740 --> 00:10:29,679
+make a good handoff.
+
+342
+00:10:29,958 --> 00:10:31,665
+Now move another task into the delegate
+
+343
+00:10:31,703 --> 00:10:33,565
+column and rebuild the draft.
+
+344
+00:10:33,914 --> 00:10:35,286
+Compare the message with the board.
+
+345
+00:10:35,493 --> 00:10:37,355
+Every listed task should be one you
+
+346
+00:10:37,393 --> 00:10:39,682
+actually intended to delegate, and a task
+
+347
+00:10:39,876 --> 00:10:41,544
+moved out of that column should disappear
+
+348
+00:10:41,661 --> 00:10:42,511
+when you rebuild.
+
+349
+00:10:42,818 --> 00:10:44,253
+This is an easy place for generated
+
+350
+00:10:44,370 --> 00:10:45,843
+tools to get something wrong if they
+
+351
+00:10:45,882 --> 00:10:47,201
+keep a stale copy of the task
+
+352
+00:10:47,356 --> 00:10:49,683
+list. Testing the change is more informative
+
+353
+00:10:49,761 --> 00:10:51,506
+than only testing the initial sample.
+
+354
+00:10:51,778 --> 00:10:53,143
+Also test the empty case.
+
+355
+00:10:53,384 --> 00:10:55,517
+If there are no delegated tasks, a
+
+356
+00:10:55,556 --> 00:10:56,952
+helpful tool should say so.
+
+357
+00:10:57,146 --> 00:10:59,008
+It should not generate an empty assignment
+
+358
+00:10:59,124 --> 00:11:00,284
+that looks ready to send.
+
+359
+00:11:00,512 --> 00:11:02,956
+Small empty states matter because real work
+
+360
+00:11:03,034 --> 00:11:04,508
+does not always arrive in the perfect
+
+361
+00:11:04,701 --> 00:11:06,311
+shape used in a demonstration.
+
+362
+00:11:06,719 --> 00:11:08,271
+If you later connect this workflow to
+
+363
+00:11:08,309 --> 00:11:10,520
+a messaging service, design a review step
+
+364
+00:11:10,636 --> 00:11:11,634
+before the send action.
+
+365
+00:11:11,895 --> 00:11:15,076
+Show the destination, recipient, and final text.
+
+366
+00:11:15,425 --> 00:11:17,830
+Make success and failure visible, and avoid
+
+367
+00:11:17,946 --> 00:11:19,614
+sending the same message twice if a
+
+368
+00:11:19,652 --> 00:11:20,687
+request times out.
+
+369
+00:11:20,984 --> 00:11:22,302
+Those are requirements you can put in
+
+370
+00:11:22,341 --> 00:11:23,505
+the brief even if you are not
+
+371
+00:11:23,621 --> 00:11:25,076
+writing the integration yourself.
+
+372
+00:11:25,483 --> 00:11:27,306
+For now, the useful result is a
+
+373
+00:11:27,345 --> 00:11:29,269
+reviewed draft. We have taken a vague
+
+374
+00:11:29,385 --> 00:11:31,712
+list, made decisions about the next actions,
+
+375
+00:11:31,984 --> 00:11:33,809
+and produced a concrete handoff.
+
+376
+00:11:34,121 --> 00:11:35,904
+That is the pattern to notice: the
+
+377
+00:11:35,943 --> 00:11:37,689
+interface should help the work move forward,
+
+378
+00:11:37,882 --> 00:11:39,279
+and it should be honest about where
+
+379
+00:11:39,318 --> 00:11:40,939
+the human decision still belongs.
+
+380
+00:11:41,239 --> 00:11:41,939
+Next, we’ll build a
+
+381
+00:11:41,979 --> 00:11:42,819
+transparent revenue
+
+382
+00:11:42,899 --> 00:11:43,859
+model, change the
+
+383
+00:11:43,899 --> 00:11:44,719
+assumptions, and check
+
+384
+00:11:44,759 --> 00:11:45,619
+the calculations with
+
+385
+00:11:45,659 --> 00:11:46,619
+numbers we can verify
+
+386
+00:11:46,679 --> 00:11:47,119
+ourselves.
+
+387
+00:11:47,709 --> 00:11:49,610
+The third example is a revenue model,
+
+388
+00:11:49,765 --> 00:11:51,879
+and here the priority is transparency.
+
+389
+00:11:52,209 --> 00:11:53,876
+A slider is only useful if we
+
+390
+00:11:53,915 --> 00:11:56,063
+understand what changes when we move it.
+
+391
+00:11:56,309 --> 00:11:58,442
+We will use sample business assumptions and
+
+392
+00:11:58,558 --> 00:12:01,293
+simple arithmetic, then check the results ourselves.
+
+393
+00:12:01,739 --> 00:12:03,252
+This is a teaching model, not a
+
+394
+00:12:03,291 --> 00:12:05,191
+forecast of a real business, and we
+
+395
+00:12:05,230 --> 00:12:06,665
+are not giving the numbers a confidence
+
+396
+00:12:06,859 --> 00:12:07,971
+score they have not earned.
+
+397
+00:12:08,229 --> 00:12:10,440
+Start with twenty thousand monthly visitors, a
+
+398
+00:12:10,479 --> 00:12:12,496
+two percent conversion rate, and an average
+
+399
+00:12:12,651 --> 00:12:13,970
+order value of two hundred and fifty
+
+400
+00:12:14,086 --> 00:12:16,452
+dirhams. Two percent of twenty thousand gives
+
+401
+00:12:16,569 --> 00:12:17,507
+four hundred orders.
+
+402
+00:12:17,747 --> 00:12:19,531
+Multiply four hundred by two hundred and
+
+403
+00:12:19,570 --> 00:12:21,704
+fifty, and the revenue is one hundred
+
+404
+00:12:21,897 --> 00:12:24,147
+thousand dirhams. Those are the first two
+
+405
+00:12:24,186 --> 00:12:25,893
+checks we can perform without trusting the
+
+406
+00:12:25,932 --> 00:12:28,169
+interface. Now add a gross margin of
+
+407
+00:12:28,207 --> 00:12:30,302
+sixty percent and fixed monthly costs of
+
+408
+00:12:30,341 --> 00:12:31,504
+thirty thousand dirhams.
+
+409
+00:12:31,815 --> 00:12:33,483
+Sixty percent of one hundred thousand is
+
+410
+00:12:33,522 --> 00:12:36,004
+sixty thousand, and subtracting the fixed costs
+
+411
+00:12:36,082 --> 00:12:37,119
+leaves thirty thousand.
+
+412
+00:12:37,458 --> 00:12:39,320
+The label on screen describes this as
+
+413
+00:12:39,514 --> 00:12:41,686
+contribution after fixed costs.
+
+414
+00:12:41,996 --> 00:12:43,858
+It is not a complete accounting statement,
+
+415
+00:12:44,130 --> 00:12:45,953
+because the simplified model may leave out
+
+416
+00:12:46,031 --> 00:12:49,638
+taxes, financing, returns, and other items that
+
+417
+00:12:49,676 --> 00:12:50,944
+matter to an actual business.
+
+418
+00:12:51,321 --> 00:12:52,834
+The benefit of the interface is that
+
+419
+00:12:52,912 --> 00:12:54,618
+we can change an assumption and immediately
+
+420
+00:12:54,774 --> 00:12:55,995
+see the mechanical effect.
+
+421
+00:12:56,247 --> 00:12:58,070
+Increase the conversion rate from two percent
+
+422
+00:12:58,342 --> 00:13:00,242
+to three percent while keeping everything else
+
+423
+00:13:00,320 --> 00:13:03,019
+the same. Orders become six hundred, revenue
+
+424
+00:13:03,058 --> 00:13:05,075
+becomes one hundred and fifty thousand, and
+
+425
+00:13:05,114 --> 00:13:06,549
+the result after the costs in this
+
+426
+00:13:06,626 --> 00:13:08,217
+model becomes sixty thousand.
+
+427
+00:13:08,566 --> 00:13:09,884
+That does not prove we can achieve
+
+428
+00:13:09,924 --> 00:13:11,332
+a three percent conversion rate.
+
+429
+00:13:11,575 --> 00:13:13,360
+It shows what the formula would produce
+
+430
+00:13:13,515 --> 00:13:14,873
+if that assumption were true.
+
+431
+00:13:15,183 --> 00:13:17,525
+Now reduce conversion to one percent.
+
+432
+00:13:17,850 --> 00:13:20,254
+Orders fall to two hundred, revenue falls
+
+433
+00:13:20,333 --> 00:13:22,660
+to fifty thousand, and sixty percent of
+
+434
+00:13:22,698 --> 00:13:25,220
+that revenue exactly covers the thirty thousand
+
+435
+00:13:25,414 --> 00:13:26,539
+in fixed costs.
+
+436
+00:13:26,850 --> 00:13:28,828
+This gives us a useful check: under
+
+437
+00:13:28,905 --> 00:13:31,504
+these particular assumptions, one percent is the
+
+438
+00:13:31,544 --> 00:13:33,754
+break-even conversion rate for the costs included
+
+439
+00:13:33,832 --> 00:13:36,120
+here. Change the costs or margin and
+
+440
+00:13:36,159 --> 00:13:38,006
+that break-even point will change too.
+
+441
+00:13:38,264 --> 00:13:40,126
+Notice how different this is from repeatedly
+
+442
+00:13:40,243 --> 00:13:42,531
+asking a chat to calculate another scenario.
+
+443
+00:13:42,764 --> 00:13:44,121
+Once the formula is in a working
+
+444
+00:13:44,276 --> 00:13:46,091
+tool, we can explore it directly.
+
+445
+00:13:46,393 --> 00:13:48,254
+The AI was useful for helping construct
+
+446
+00:13:48,332 --> 00:13:50,543
+the interface, but each slider movement is
+
+447
+00:13:50,582 --> 00:13:52,094
+just a calculation in the browser.
+
+448
+00:13:52,365 --> 00:13:54,208
+That makes the result easy to inspect,
+
+449
+00:13:54,383 --> 00:13:56,352
+repeat, and explain to somebody else.
+
+450
+00:13:56,653 --> 00:13:58,010
+Before using a model like this in
+
+451
+00:13:58,048 --> 00:14:00,143
+a meeting, write down where each assumption
+
+452
+00:14:00,298 --> 00:14:02,742
+came from. A real visitor count, a
+
+453
+00:14:02,781 --> 00:14:05,069
+historical conversion rate, and a guess about
+
+454
+00:14:05,147 --> 00:14:07,009
+future order value should not be presented
+
+455
+00:14:07,124 --> 00:14:08,006
+as equally certain.
+
+456
+00:14:08,267 --> 00:14:10,865
+The interface can make arithmetic faster, but
+
+457
+00:14:10,904 --> 00:14:13,038
+the evidence behind the inputs still determines
+
+458
+00:14:13,154 --> 00:14:14,585
+whether the discussion is useful.
+
+459
+00:14:14,966 --> 00:14:16,672
+Let’s look at the scenario table rather
+
+460
+00:14:16,750 --> 00:14:18,184
+than a single headline number.
+
+461
+00:14:18,492 --> 00:14:21,168
+In this example, the conservative scenario reduces
+
+462
+00:14:21,324 --> 00:14:23,845
+the conversion assumption by twenty-five percent, the
+
+463
+00:14:23,884 --> 00:14:25,939
+base case leaves it unchanged, and the
+
+464
+00:14:25,978 --> 00:14:28,286
+stretch scenario increases it by twenty-five percent.
+
+465
+00:14:28,577 --> 00:14:30,236
+We are changing only conversion.
+
+466
+00:14:30,498 --> 00:14:32,398
+The other inputs stay fixed so that
+
+467
+00:14:32,476 --> 00:14:33,988
+we can see exactly where the difference
+
+468
+00:14:34,105 --> 00:14:35,888
+comes from. With a base conversion rate
+
+469
+00:14:36,005 --> 00:14:38,332
+of two percent, those scenarios become one
+
+470
+00:14:38,371 --> 00:14:40,272
+and a half percent, two percent, and
+
+471
+00:14:40,310 --> 00:14:41,268
+two and a half percent.
+
+472
+00:14:41,605 --> 00:14:43,312
+That is a relative change of twenty-five
+
+473
+00:14:43,428 --> 00:14:45,678
+percent, not an increase or decrease of
+
+474
+00:14:45,717 --> 00:14:47,152
+twenty-five percentage points.
+
+475
+00:14:47,501 --> 00:14:49,867
+The distinction matters, because those two phrases
+
+476
+00:14:50,022 --> 00:14:51,834
+describe very different calculations.
+
+477
+00:14:52,171 --> 00:14:53,800
+A good interface should make this assumption
+
+478
+00:14:54,033 --> 00:14:56,011
+visible rather than hiding it behind attractive
+
+479
+00:14:56,206 --> 00:14:58,871
+scenario names. Using our sample visitor count
+
+480
+00:14:59,065 --> 00:15:01,276
+and order value, the revenue numbers become
+
+481
+00:15:01,508 --> 00:15:04,689
+seventy-five thousand, one hundred thousand, and one
+
+482
+00:15:04,728 --> 00:15:06,528
+hundred and twenty-five thousand dirhams.
+
+483
+00:15:06,815 --> 00:15:08,638
+After applying the same margin and fixed
+
+484
+00:15:08,716 --> 00:15:11,663
+costs, the corresponding results are fifteen thousand,
+
+485
+00:15:11,935 --> 00:15:14,185
+thirty thousand, and forty-five thousand.
+
+486
+00:15:14,456 --> 00:15:15,775
+Take a moment to compare the table
+
+487
+00:15:15,930 --> 00:15:17,082
+with those calculations.
+
+488
+00:15:17,458 --> 00:15:19,010
+We want the numbers to be boringly
+
+489
+00:15:19,165 --> 00:15:22,074
+consistent. Next, change the fixed costs while
+
+490
+00:15:22,152 --> 00:15:23,703
+leaving the sales assumptions alone.
+
+491
+00:15:23,898 --> 00:15:26,651
+Revenue should remain unchanged, because fixed costs
+
+492
+00:15:26,768 --> 00:15:28,446
+do not enter the revenue formula.
+
+493
+00:15:28,689 --> 00:15:30,513
+The amount left after costs should change
+
+494
+00:15:30,668 --> 00:15:32,413
+by exactly the amount we added or
+
+495
+00:15:32,452 --> 00:15:34,973
+removed. This is another valuable test because
+
+496
+00:15:35,012 --> 00:15:37,417
+it checks the relationship between controls, not
+
+497
+00:15:37,495 --> 00:15:38,717
+just one output value.
+
+498
+00:15:38,968 --> 00:15:39,938
+You can do the same with gross
+
+499
+00:15:40,016 --> 00:15:42,472
+margin. Moving the margin slider should affect
+
+500
+00:15:42,549 --> 00:15:44,566
+the result after costs, but it should
+
+501
+00:15:44,605 --> 00:15:46,236
+not change the number of orders.
+
+502
+00:15:46,548 --> 00:15:48,487
+If everything on a dashboard moves whenever
+
+503
+00:15:48,603 --> 00:15:50,658
+any slider changes, that may be a
+
+504
+00:15:50,698 --> 00:15:52,210
+sign that the model is not separating
+
+505
+00:15:52,365 --> 00:15:53,471
+its variables properly.
+
+506
+00:15:53,684 --> 00:15:55,701
+Understanding these relationships makes you a better
+
+507
+00:15:55,857 --> 00:15:57,283
+reviewer of generated tools.
+
+508
+00:15:57,546 --> 00:15:59,602
+The export button turns the scenario table
+
+509
+00:15:59,757 --> 00:16:01,483
+into a spreadsheet-friendly file.
+
+510
+00:16:01,736 --> 00:16:03,636
+Open that file and compare its rows
+
+511
+00:16:03,791 --> 00:16:05,353
+with the screen before sharing it.
+
+512
+00:16:05,597 --> 00:16:07,982
+Include the assumptions in the surrounding discussion,
+
+513
+00:16:08,273 --> 00:16:10,562
+because a table without context can easily
+
+514
+00:16:10,795 --> 00:16:12,344
+be mistaken for a forecast.
+
+515
+00:16:12,653 --> 00:16:13,894
+You may also want the tool to
+
+516
+00:16:13,933 --> 00:16:16,027
+export a timestamp and the input values
+
+517
+00:16:16,260 --> 00:16:18,122
+so a teammate can reproduce the calculation
+
+518
+00:16:18,278 --> 00:16:20,448
+later. One improvement I would request next
+
+519
+00:16:20,681 --> 00:16:23,629
+is sensitivity analysis: show which assumption has
+
+520
+00:16:23,668 --> 00:16:25,529
+the largest effect within a clearly defined
+
+521
+00:16:25,646 --> 00:16:27,376
+range. But I would not ask the
+
+522
+00:16:27,415 --> 00:16:29,354
+AI to invent a business stability score
+
+523
+00:16:29,470 --> 00:16:31,448
+without defining what the score means and
+
+524
+00:16:31,488 --> 00:16:32,670
+how it is validated.
+
+525
+00:16:33,039 --> 00:16:35,095
+More numbers do not automatically create more
+
+526
+00:16:35,133 --> 00:16:38,060
+insight. A small model with visible assumptions
+
+527
+00:16:38,177 --> 00:16:40,001
+is often more useful than a complicated
+
+528
+00:16:40,155 --> 00:16:42,482
+dashboard whose reasoning nobody can explain.
+
+529
+00:16:42,733 --> 00:16:43,693
+Our fourth example is a
+
+530
+00:16:43,753 --> 00:16:44,833
+packaging concept, where
+
+531
+00:16:44,893 --> 00:16:46,153
+a useful interface helps
+
+532
+00:16:46,213 --> 00:16:47,293
+us explore ideas and
+
+533
+00:16:47,353 --> 00:16:48,293
+prepare a clear review,
+
+534
+00:16:48,693 --> 00:16:49,553
+without pretending the
+
+535
+00:16:49,573 --> 00:16:50,373
+result is ready for
+
+536
+00:16:50,413 --> 00:16:50,993
+manufacturing.
+
+537
+00:16:51,543 --> 00:16:53,521
+Our fourth example moves from numbers to
+
+538
+00:16:53,560 --> 00:16:54,568
+a product concept.
+
+539
+00:16:54,918 --> 00:16:56,353
+Imagine that you need to discuss packaging
+
+540
+00:16:56,508 --> 00:16:58,408
+with a designer or supplier, but your
+
+541
+00:16:58,448 --> 00:17:00,387
+ideas are scattered across messages and rough
+
+542
+00:17:00,503 --> 00:17:03,582
+notes. A small interactive concept sheet can
+
+543
+00:17:03,620 --> 00:17:06,878
+bring the dimensions, material choice, color, and
+
+544
+00:17:06,918 --> 00:17:08,100
+review notes together.
+
+545
+00:17:08,469 --> 00:17:10,215
+The purpose is to improve the discussion,
+
+546
+00:17:10,408 --> 00:17:12,231
+not to pretend that a generated drawing
+
+547
+00:17:12,348 --> 00:17:13,519
+is ready to manufacture.
+
+548
+00:17:13,720 --> 00:17:15,078
+Start with the product name and the
+
+549
+00:17:15,117 --> 00:17:17,716
+three dimensions. We use millimetres throughout the
+
+550
+00:17:17,755 --> 00:17:19,849
+example, because mixing units is an easy
+
+551
+00:17:20,004 --> 00:17:21,235
+way to create confusion.
+
+552
+00:17:21,536 --> 00:17:23,242
+Change the width and watch both the
+
+553
+00:17:23,281 --> 00:17:25,977
+displayed specification and the drawing update.
+
+554
+00:17:26,345 --> 00:17:28,711
+The drawing is an illustrative unfolded arrangement
+
+555
+00:17:28,788 --> 00:17:31,038
+of panels, and it is intentionally labelled
+
+556
+00:17:31,078 --> 00:17:31,843
+as a concept.
+
+557
+00:17:32,221 --> 00:17:34,704
+It does not include every manufacturing detail
+
+558
+00:17:35,014 --> 00:17:36,953
+a real packaging engineer would need.
+
+559
+00:17:37,264 --> 00:17:38,770
+That limitation is important.
+
+560
+00:17:39,153 --> 00:17:41,441
+A production dieline may need material thickness,
+
+561
+00:17:41,636 --> 00:17:45,747
+fold allowances, glue tabs, tolerances, bleed, safety
+
+562
+00:17:45,941 --> 00:17:48,305
+margins, and supplier-specific requirements.
+
+563
+00:17:48,574 --> 00:17:50,203
+You cannot assume those details are correct
+
+564
+00:17:50,475 --> 00:17:52,337
+simply because a shape appears on screen.
+
+565
+00:17:52,647 --> 00:17:54,121
+The useful output here is a clear
+
+566
+00:17:54,198 --> 00:17:55,827
+starting point that makes it easier to
+
+567
+00:17:55,867 --> 00:17:58,065
+ask the right questions and compare alternatives.
+
+568
+00:17:58,363 --> 00:17:59,876
+Now try a different product name and
+
+569
+00:17:59,914 --> 00:18:01,892
+brand color. These are quick ways to
+
+570
+00:18:01,931 --> 00:18:03,987
+explore the visual direction without asking for
+
+571
+00:18:04,026 --> 00:18:05,592
+a new static image every time.
+
+572
+00:18:05,879 --> 00:18:08,206
+The interface gives you immediate feedback, and
+
+573
+00:18:08,245 --> 00:18:09,836
+you can keep the dimensions visible while
+
+574
+00:18:09,874 --> 00:18:12,124
+you experiment. That is helpful because a
+
+575
+00:18:12,162 --> 00:18:15,033
+design conversation often combines appearance and practical
+
+576
+00:18:15,149 --> 00:18:17,306
+constraints. The bill of materials is also
+
+577
+00:18:17,500 --> 00:18:20,060
+deliberately modest. It records the selected board
+
+578
+00:18:20,138 --> 00:18:22,698
+description, a simple print assumption, and an
+
+579
+00:18:22,737 --> 00:18:24,366
+insert that still needs to be specified
+
+580
+00:18:24,638 --> 00:18:27,038
+and tested. A placeholder is better than
+
+581
+00:18:27,078 --> 00:18:28,978
+an invented material specification.
+
+582
+00:18:29,327 --> 00:18:30,258
+If you do not know the answer
+
+583
+00:18:30,452 --> 00:18:32,701
+yet, make that uncertainty visible so somebody
+
+584
+00:18:32,896 --> 00:18:34,386
+can resolve it before production.
+
+585
+00:18:34,711 --> 00:18:36,496
+For a real project, I would add
+
+586
+00:18:36,573 --> 00:18:38,590
+constraints from the actual product and shipping
+
+587
+00:18:38,746 --> 00:18:40,724
+process. Does the package need to protect
+
+588
+00:18:40,957 --> 00:18:42,877
+fragile parts? Will it be stacked?
+
+589
+00:18:43,128 --> 00:18:44,137
+Does it need to fit a specific
+
+590
+00:18:44,331 --> 00:18:47,104
+mailing format? What is the expected quantity?
+
+591
+00:18:47,414 --> 00:18:49,548
+Those questions determine which features belong in
+
+592
+00:18:49,587 --> 00:18:50,867
+the next version of the tool.
+
+593
+00:18:51,138 --> 00:18:52,534
+They should come from the project rather
+
+594
+00:18:52,650 --> 00:18:54,124
+than from a model guessing what packaging
+
+595
+00:18:54,279 --> 00:18:55,199
+usually looks like.
+
+596
+00:18:55,460 --> 00:18:56,508
+The pattern is the same as the
+
+597
+00:18:56,547 --> 00:18:58,990
+earlier examples. We identify the inputs that
+
+598
+00:18:59,029 --> 00:19:01,667
+people keep changing, provide useful feedback, and
+
+599
+00:19:01,706 --> 00:19:03,257
+prepare an output that supports the next
+
+600
+00:19:03,373 --> 00:19:05,458
+action. In this case, the next action
+
+601
+00:19:05,653 --> 00:19:07,281
+is a review with the right person.
+
+602
+00:19:07,669 --> 00:19:08,988
+We will add a simple review state
+
+603
+00:19:09,144 --> 00:19:11,083
+and a printable handoff, while keeping the
+
+604
+00:19:11,121 --> 00:19:13,449
+boundary between concept review and production approval
+
+605
+00:19:13,604 --> 00:19:14,213
+explicit.
+
+606
+00:19:14,638 --> 00:19:16,247
+Let’s make the review step visible.
+
+607
+00:19:16,616 --> 00:19:18,555
+Enter the reviewer’s name and mark the
+
+608
+00:19:18,594 --> 00:19:20,223
+concept as reviewed for discussion.
+
+609
+00:19:20,456 --> 00:19:21,437
+The wording matters.
+
+610
+00:19:21,721 --> 00:19:23,815
+This checkbox records a small local state
+
+611
+00:19:23,931 --> 00:19:25,367
+in the example; it is not a
+
+612
+00:19:25,406 --> 00:19:28,121
+digital signature, a supplier approval, or an
+
+613
+00:19:28,160 --> 00:19:30,642
+audit trail. Calling it approved for production
+
+614
+00:19:30,875 --> 00:19:32,426
+would make a much stronger claim than
+
+615
+00:19:32,465 --> 00:19:33,425
+the tool can support.
+
+616
+00:19:33,764 --> 00:19:35,355
+Try checking the box without a reviewer
+
+617
+00:19:35,432 --> 00:19:37,837
+name. The status should remain pending, because
+
+618
+00:19:37,876 --> 00:19:39,699
+a review with no identified reviewer is
+
+619
+00:19:39,738 --> 00:19:40,921
+not a useful handoff.
+
+620
+00:19:41,251 --> 00:19:42,491
+Then enter a name and check the
+
+621
+00:19:42,531 --> 00:19:44,879
+status again. These simple conditions are part
+
+622
+00:19:44,918 --> 00:19:46,586
+of the behavior we asked for, and
+
+623
+00:19:46,625 --> 00:19:48,060
+they are worth testing before we show
+
+624
+00:19:48,099 --> 00:19:49,301
+the tool to somebody else.
+
+625
+00:19:49,611 --> 00:19:51,241
+There is another important edge case.
+
+626
+00:19:51,473 --> 00:19:53,335
+What should happen if the dimensions change
+
+627
+00:19:53,529 --> 00:19:54,239
+after the review?
+
+628
+00:19:54,522 --> 00:19:56,617
+In a production workflow, the previous review
+
+629
+00:19:56,811 --> 00:19:58,440
+should no longer imply approval of the
+
+630
+00:19:58,479 --> 00:20:00,573
+changed specification. You would want a revision
+
+631
+00:20:00,729 --> 00:20:02,823
+number, a review date, and a clear
+
+632
+00:20:02,901 --> 00:20:04,569
+way to invalidate the old review when
+
+633
+00:20:04,646 --> 00:20:05,857
+relevant inputs change.
+
+634
+00:20:06,137 --> 00:20:08,387
+Our simple concept tool demonstrates the starting
+
+635
+00:20:08,541 --> 00:20:10,365
+point, and those are the next requirements
+
+636
+00:20:10,481 --> 00:20:11,761
+I would add before relying on it
+
+637
+00:20:11,801 --> 00:20:12,479
+with a team.
+
+638
+00:20:12,809 --> 00:20:14,205
+The print button lets you use the
+
+639
+00:20:14,243 --> 00:20:16,105
+browser’s print workflow to save a concept
+
+640
+00:20:16,300 --> 00:20:18,723
+sheet. Check the resulting document rather than
+
+641
+00:20:18,762 --> 00:20:20,740
+assuming that a good screen layout guarantees
+
+642
+00:20:20,779 --> 00:20:22,021
+a good printed page.
+
+643
+00:20:22,447 --> 00:20:25,201
+Look for clipped labels, missing dimensions, tiny
+
+644
+00:20:25,317 --> 00:20:27,373
+text, and content that lands on an
+
+645
+00:20:27,451 --> 00:20:28,835
+unexpected second page.
+
+646
+00:20:29,134 --> 00:20:30,802
+A handoff is only useful if the
+
+647
+00:20:30,841 --> 00:20:32,392
+recipient can actually read it.
+
+648
+00:20:32,741 --> 00:20:33,982
+You can also use this moment to
+
+649
+00:20:34,021 --> 00:20:36,271
+simplify. Not every control needs to appear
+
+650
+00:20:36,349 --> 00:20:37,581
+in the exported sheet.
+
+651
+00:20:37,921 --> 00:20:40,171
+The recipient probably needs the product name,
+
+652
+00:20:40,403 --> 00:20:44,863
+dimensions, material notes, revision, review status, and
+
+653
+00:20:44,902 --> 00:20:45,988
+the concept drawing.
+
+654
+00:20:46,337 --> 00:20:47,928
+They do not necessarily need the editing
+
+655
+00:20:48,082 --> 00:20:49,828
+controls or the prompt used to build
+
+656
+00:20:49,906 --> 00:20:52,131
+the app. Good outputs are designed around
+
+657
+00:20:52,209 --> 00:20:53,566
+the person who receives them.
+
+658
+00:20:53,838 --> 00:20:55,079
+This is why I like asking for
+
+659
+00:20:55,118 --> 00:20:56,622
+the export requirements early.
+
+660
+00:20:56,924 --> 00:20:58,514
+If the eventual output is a printable
+
+661
+00:20:58,631 --> 00:21:01,462
+specification, that shapes the interface differently from
+
+662
+00:21:01,501 --> 00:21:02,820
+a tool whose output is a message
+
+663
+00:21:03,169 --> 00:21:04,139
+or a spreadsheet.
+
+664
+00:21:04,488 --> 00:21:06,233
+The final handoff should not feel like
+
+665
+00:21:06,311 --> 00:21:08,159
+an afterthought attached to a pretty page.
+
+666
+00:21:08,454 --> 00:21:10,549
+Before moving on, notice how the four
+
+667
+00:21:10,665 --> 00:21:12,370
+examples have different outputs.
+
+668
+00:21:12,677 --> 00:21:15,276
+The newsletter produces content files, the task
+
+669
+00:21:15,392 --> 00:21:17,681
+board produces a draft message, the model
+
+670
+00:21:17,836 --> 00:21:20,047
+produces a scenario table, and the packaging
+
+671
+00:21:20,202 --> 00:21:21,890
+tool produces a concept sheet.
+
+672
+00:21:22,181 --> 00:21:23,577
+They share a method, but they are
+
+673
+00:21:23,615 --> 00:21:24,654
+not all the same app.
+
+674
+00:21:24,917 --> 00:21:26,351
+Start from the work and choose the
+
+675
+00:21:26,391 --> 00:21:28,504
+interface that helps that work move forward.
+
+676
+00:21:28,795 --> 00:21:30,890
+Next, we’ll apply the same thinking to
+
+677
+00:21:30,929 --> 00:21:33,128
+choosing ideas and preparing a presentation.
+
+678
+00:21:33,346 --> 00:21:34,266
+Finally, we’ll look at
+
+679
+00:21:34,306 --> 00:21:35,306
+how to turn these small
+
+680
+00:21:35,406 --> 00:21:36,446
+tools into a repeatable
+
+681
+00:21:36,526 --> 00:21:37,106
+way of working,
+
+682
+00:21:37,586 --> 00:21:38,826
+including idea selection
+
+683
+00:21:38,846 --> 00:21:39,646
+and a presentation
+
+684
+00:21:39,686 --> 00:21:40,086
+handoff.
+
+685
+00:21:40,642 --> 00:21:42,349
+The bonus example is about making a
+
+686
+00:21:42,387 --> 00:21:43,862
+decision from a list of ideas.
+
+687
+00:21:44,249 --> 00:21:45,685
+A chat can give you many possible
+
+688
+00:21:45,878 --> 00:21:48,904
+titles, topics, or book concepts, but a
+
+689
+00:21:48,943 --> 00:21:50,339
+long list is not the same as
+
+690
+00:21:50,378 --> 00:21:52,492
+a choice. Once you have the candidates,
+
+691
+00:21:52,686 --> 00:21:54,004
+it can be more useful to give
+
+692
+00:21:54,082 --> 00:21:56,448
+each one a clear decision: keep it,
+
+693
+00:21:56,603 --> 00:21:58,329
+revisit it, or reject it.
+
+694
+00:21:58,543 --> 00:22:00,133
+The interface helps you compare the options
+
+695
+00:22:00,443 --> 00:22:01,646
+and keep a record of what you
+
+696
+00:22:01,685 --> 00:22:04,466
+decided. For this demonstration, the ideas are
+
+697
+00:22:04,505 --> 00:22:06,115
+sample entries that you can edit.
+
+698
+00:22:06,406 --> 00:22:07,996
+The local tool is not secretly calling
+
+699
+00:22:08,151 --> 00:22:09,429
+a model every time you click.
+
+700
+00:22:09,700 --> 00:22:11,329
+If you want fresh ideas, you can
+
+701
+00:22:11,367 --> 00:22:13,229
+ask an AI to generate candidates using
+
+702
+00:22:13,385 --> 00:22:16,992
+your audience, goals, constraints, and examples, then
+
+703
+00:22:17,069 --> 00:22:18,987
+bring the candidates into the decision tool.
+
+704
+00:22:19,235 --> 00:22:21,639
+Separating generation from selection makes it easier
+
+705
+00:22:21,872 --> 00:22:22,958
+to see which part of the process
+
+706
+00:22:23,191 --> 00:22:25,324
+needs improvement. Start with an idea that
+
+707
+00:22:25,363 --> 00:22:27,031
+has a specific audience and outcome.
+
+708
+00:22:27,225 --> 00:22:29,389
+A title like practical AI is broad.
+
+709
+00:22:29,653 --> 00:22:31,437
+A concept about helping a small service
+
+710
+00:22:31,593 --> 00:22:33,609
+business turn meeting notes into reviewed action
+
+711
+00:22:33,804 --> 00:22:35,898
+lists gives us more to evaluate.
+
+712
+00:22:36,169 --> 00:22:37,507
+We can ask who would use it,
+
+713
+00:22:37,644 --> 00:22:39,622
+what problem it addresses, and what evidence
+
+714
+00:22:39,855 --> 00:22:41,350
+we have that the problem matters.
+
+715
+00:22:41,643 --> 00:22:43,311
+The best choice is not necessarily the
+
+716
+00:22:43,350 --> 00:22:44,843
+one with the most dramatic title.
+
+717
+00:22:45,173 --> 00:22:47,074
+Now keep one idea, mark another for
+
+718
+00:22:47,112 --> 00:22:48,857
+later, and reject one that does not
+
+719
+00:22:48,936 --> 00:22:49,672
+fit the audience.
+
+720
+00:22:50,021 --> 00:22:51,953
+The selected list should update immediately.
+
+721
+00:22:52,256 --> 00:22:54,001
+You can use a swipe-style interaction if
+
+722
+00:22:54,039 --> 00:22:56,134
+it is convenient, but visible buttons are
+
+723
+00:22:56,212 --> 00:22:58,733
+important too. They make the choices understandable
+
+724
+00:22:58,888 --> 00:23:00,665
+and easier to use with a keyboard.
+
+725
+00:23:00,928 --> 00:23:02,868
+An interaction should help the decision rather
+
+726
+00:23:02,985 --> 00:23:04,807
+than making the tool harder to operate.
+
+727
+00:23:05,117 --> 00:23:06,475
+The useful next step is to add
+
+728
+00:23:06,514 --> 00:23:08,259
+a reason. Perhaps we kept an idea
+
+729
+00:23:08,570 --> 00:23:09,888
+because we can demonstrate it with real
+
+730
+00:23:09,967 --> 00:23:12,586
+examples. Perhaps we postponed another because the
+
+731
+00:23:12,625 --> 00:23:14,157
+supporting research is incomplete.
+
+732
+00:23:14,564 --> 00:23:16,426
+Those notes stop the shortlist from becoming
+
+733
+00:23:16,581 --> 00:23:18,947
+another unexplained list that somebody has to
+
+734
+00:23:18,986 --> 00:23:21,468
+interpret later. Export the shortlist so it
+
+735
+00:23:21,507 --> 00:23:22,289
+can leave the tool.
+
+736
+00:23:22,490 --> 00:23:23,847
+If the only copy of your decision
+
+737
+00:23:24,042 --> 00:23:25,826
+lives in a temporary page, you have
+
+738
+00:23:25,865 --> 00:23:26,989
+not finished the workflow.
+
+739
+00:23:27,184 --> 00:23:28,697
+A plain text export is enough for
+
+740
+00:23:28,735 --> 00:23:29,569
+a first version.
+
+741
+00:23:29,898 --> 00:23:31,683
+Later, you could add a more structured
+
+742
+00:23:31,760 --> 00:23:33,389
+format if it helps a real downstream
+
+743
+00:23:33,467 --> 00:23:36,425
+task. This idea-selection pattern works beyond content
+
+744
+00:23:36,697 --> 00:23:39,606
+planning. You could compare feature proposals, workshop
+
+745
+00:23:39,683 --> 00:23:42,215
+topics, or questions for customer interviews.
+
+746
+00:23:42,536 --> 00:23:44,553
+The categories and criteria should change with
+
+747
+00:23:44,591 --> 00:23:46,414
+the task, but the principle stays the
+
+748
+00:23:46,453 --> 00:23:48,547
+same: use the AI to help create
+
+749
+00:23:48,703 --> 00:23:51,224
+possibilities, then build a clear process for
+
+750
+00:23:51,263 --> 00:23:53,456
+evaluating them. In the next step, we’ll
+
+751
+00:23:53,495 --> 00:23:55,201
+take one selected idea and turn it
+
+752
+00:23:55,279 --> 00:23:56,986
+into a presentation that supports an actual
+
+753
+00:23:57,257 --> 00:23:57,879
+decision.
+
+754
+00:23:58,265 --> 00:24:00,127
+Once an idea is selected, the next
+
+755
+00:24:00,282 --> 00:24:02,396
+request should describe the presentation’s job.
+
+756
+00:24:02,609 --> 00:24:04,354
+Do not start with make a beautiful
+
+757
+00:24:04,548 --> 00:24:06,059
+deck and hope the story appears.
+
+758
+00:24:06,290 --> 00:24:08,074
+Start with the audience, the decision you
+
+759
+00:24:08,113 --> 00:24:09,587
+want them to make, the evidence you
+
+760
+00:24:09,626 --> 00:24:11,487
+have, and the information that is still
+
+761
+00:24:11,565 --> 00:24:13,776
+uncertain. Design can make that story easier
+
+762
+00:24:13,970 --> 00:24:16,103
+to understand, but it cannot supply missing
+
+763
+00:24:16,258 --> 00:24:18,686
+evidence. For this example, we use a
+
+764
+00:24:18,725 --> 00:24:22,584
+six-part structure. First, describe the audience’s problem.
+
+765
+00:24:22,914 --> 00:24:25,279
+Second, explain the proposed approach.
+
+766
+00:24:25,551 --> 00:24:27,781
+Third, show a concrete example.
+
+767
+00:24:28,111 --> 00:24:30,671
+Fourth, identify the evidence needed to judge
+
+768
+00:24:30,787 --> 00:24:33,609
+the proposal. Fifth, describe the next steps.
+
+769
+00:24:33,939 --> 00:24:35,956
+Finally, state the decision you are asking
+
+770
+00:24:36,112 --> 00:24:38,206
+for. This is a practical outline, not
+
+771
+00:24:38,245 --> 00:24:40,223
+a universal formula, and you should change
+
+772
+00:24:40,339 --> 00:24:41,503
+it if your audience needs a different
+
+773
+00:24:41,658 --> 00:24:44,198
+sequence. Take our selected idea about turning
+
+774
+00:24:44,315 --> 00:24:46,099
+meeting notes into reviewed actions.
+
+775
+00:24:46,565 --> 00:24:48,155
+The problem is not simply that meetings
+
+776
+00:24:48,232 --> 00:24:50,521
+exist. The problem is that decisions and
+
+777
+00:24:50,559 --> 00:24:53,013
+responsibilities can become unclear afterward.
+
+778
+00:24:53,255 --> 00:24:55,233
+The proposed approach is a small workflow
+
+779
+00:24:55,349 --> 00:24:57,327
+that extracts a draft, asks a person
+
+780
+00:24:57,483 --> 00:24:59,189
+to review it, and produces a usable
+
+781
+00:24:59,345 --> 00:25:01,625
+handoff. The example should show what that
+
+782
+00:25:01,664 --> 00:25:04,302
+handoff looks like, using sample information rather
+
+783
+00:25:04,418 --> 00:25:05,776
+than private meeting notes.
+
+784
+00:25:06,164 --> 00:25:07,754
+The evidence slide is where we resist
+
+785
+00:25:07,870 --> 00:25:09,916
+the temptation to invent a success story.
+
+786
+00:25:10,177 --> 00:25:11,766
+If we have not measured time saved
+
+787
+00:25:11,921 --> 00:25:13,628
+or error rates, those are things to
+
+788
+00:25:13,667 --> 00:25:15,877
+test. We can propose a small trial
+
+789
+00:25:15,994 --> 00:25:17,972
+and define what we would observe, but
+
+790
+00:25:18,011 --> 00:25:19,795
+we should not present imagined results as
+
+791
+00:25:19,835 --> 00:25:22,527
+facts. A credible proposal makes the boundary
+
+792
+00:25:22,604 --> 00:25:25,047
+between evidence and assumption easy to see.
+
+793
+00:25:25,358 --> 00:25:27,407
+The next steps should also be concrete.
+
+794
+00:25:27,711 --> 00:25:29,922
+Choose a small pilot, identify who reviews
+
+795
+00:25:30,000 --> 00:25:32,249
+the output, decide where the reviewed actions
+
+796
+00:25:32,482 --> 00:25:34,538
+go, and agree on how to evaluate
+
+797
+00:25:34,577 --> 00:25:36,658
+the result. Then the final decision can
+
+798
+00:25:36,697 --> 00:25:39,180
+be specific: approve the pilot, choose an
+
+799
+00:25:39,218 --> 00:25:41,487
+owner, or resolve a particular question.
+
+800
+00:25:41,895 --> 00:25:43,485
+A presentation that ends with a vague
+
+801
+00:25:43,640 --> 00:25:45,386
+thank you may leave the audience unsure
+
+802
+00:25:45,463 --> 00:25:46,386
+what happens next.
+
+803
+00:25:46,648 --> 00:25:48,472
+Our tutorial tool lets you inspect that
+
+804
+00:25:48,510 --> 00:25:50,256
+outline and export the content for a
+
+805
+00:25:50,295 --> 00:25:52,893
+presentation workflow. When a real slide file
+
+806
+00:25:52,971 --> 00:25:54,872
+is created, open it in the application
+
+807
+00:25:55,105 --> 00:25:56,500
+where it will be presented and check
+
+808
+00:25:56,539 --> 00:25:57,613
+the actual slides.
+
+809
+00:25:57,911 --> 00:25:59,734
+Confirm that the text is readable, the
+
+810
+00:25:59,773 --> 00:26:01,945
+content is editable where needed, and nothing
+
+811
+00:26:02,100 --> 00:26:03,187
+runs off the edges.
+
+812
+00:26:03,458 --> 00:26:05,320
+A successful export message is not a
+
+813
+00:26:05,358 --> 00:26:07,608
+visual review. The larger lesson is that
+
+814
+00:26:07,647 --> 00:26:09,400
+interfaces should connect steps.
+
+815
+00:26:09,718 --> 00:26:12,007
+Idea selection leads to a shortlist, the
+
+816
+00:26:12,046 --> 00:26:14,101
+shortlist leads to an outline, and the
+
+817
+00:26:14,140 --> 00:26:15,575
+outline leads to a decision.
+
+818
+00:26:15,847 --> 00:26:17,476
+You can automate parts of that chain
+
+819
+00:26:17,631 --> 00:26:19,454
+without surrendering the judgment that makes the
+
+820
+00:26:19,493 --> 00:26:21,761
+result useful. Keep the human review at
+
+821
+00:26:21,800 --> 00:26:24,709
+the points where context, evidence, and responsibility
+
+822
+00:26:24,903 --> 00:26:25,636
+matter most.
+
+823
+00:26:26,237 --> 00:26:27,671
+Let’s bring the method together so you
+
+824
+00:26:27,710 --> 00:26:29,146
+can use it on your own task.
+
+825
+00:26:29,495 --> 00:26:31,279
+Start by describing the repeated work in
+
+826
+00:26:31,318 --> 00:26:34,149
+plain language. Who performs it, what information
+
+827
+00:26:34,304 --> 00:26:36,011
+do they begin with, and what usable
+
+828
+00:26:36,166 --> 00:26:37,649
+result should exist at the end?
+
+829
+00:26:37,929 --> 00:26:39,790
+If you cannot answer those questions yet,
+
+830
+00:26:39,946 --> 00:26:42,040
+a more elaborate interface probably will not
+
+831
+00:26:42,079 --> 00:26:43,223
+solve the uncertainty.
+
+832
+00:26:43,552 --> 00:26:45,065
+A small written example is a good
+
+833
+00:26:45,104 --> 00:26:46,016
+place to start.
+
+834
+00:26:46,346 --> 00:26:48,390
+Then identify the inputs that change.
+
+835
+00:26:48,688 --> 00:26:50,724
+In our newsletter, the text changes.
+
+836
+00:26:51,054 --> 00:26:52,955
+In the task board, the assignments and
+
+837
+00:26:52,994 --> 00:26:55,320
+estimates change. In the revenue model, the
+
+838
+00:26:55,360 --> 00:26:57,997
+assumptions change. In the packaging concept, the
+
+839
+00:26:58,036 --> 00:27:00,099
+dimensions and material notes change.
+
+840
+00:27:00,377 --> 00:27:02,588
+Those variables are strong candidates for controls
+
+841
+00:27:02,781 --> 00:27:04,061
+because you are likely to adjust them
+
+842
+00:27:04,100 --> 00:27:07,010
+repeatedly. Next, specify the output.
+
+843
+00:27:07,242 --> 00:27:08,871
+Be concrete about the format and the
+
+844
+00:27:08,910 --> 00:27:09,905
+person receiving it.
+
+845
+00:27:10,164 --> 00:27:12,685
+A downloadable file, a reviewed message, a
+
+846
+00:27:12,724 --> 00:27:14,935
+scenario table, and a printable sheet have
+
+847
+00:27:15,012 --> 00:27:17,611
+different requirements. Ask for a working output,
+
+848
+00:27:17,728 --> 00:27:19,099
+then test the actual result.
+
+849
+00:27:19,421 --> 00:27:21,555
+This single habit catches many problems that
+
+850
+00:27:21,632 --> 00:27:23,068
+remain invisible when you only look at
+
+851
+00:27:23,106 --> 00:27:25,317
+the page. After that, write two or
+
+852
+00:27:25,356 --> 00:27:26,345
+three small checks.
+
+853
+00:27:26,636 --> 00:27:28,886
+Use examples whose answers you already know.
+
+854
+00:27:29,157 --> 00:27:31,004
+Ten words should count as ten words.
+
+855
+00:27:31,300 --> 00:27:33,588
+Moving a thirty-minute task should transfer thirty
+
+856
+00:27:33,705 --> 00:27:34,965
+minutes between columns.
+
+857
+00:27:35,257 --> 00:27:37,040
+Two percent of twenty thousand should produce
+
+858
+00:27:37,157 --> 00:27:39,251
+four hundred. A review without a reviewer
+
+859
+00:27:39,446 --> 00:27:40,310
+should stay pending.
+
+860
+00:27:40,592 --> 00:27:42,416
+These checks turn a vague judgment about
+
+861
+00:27:42,493 --> 00:27:44,083
+whether the app feels right into something
+
+862
+00:27:44,239 --> 00:27:46,566
+more concrete. When you request a change,
+
+863
+00:27:46,799 --> 00:27:48,932
+describe the current behavior and the desired
+
+864
+00:27:49,049 --> 00:27:51,356
+behavior. For example, say that the review
+
+865
+00:27:51,550 --> 00:27:53,877
+remains checked after the dimensions change, and
+
+866
+00:27:53,916 --> 00:27:55,952
+ask for changes to invalidate that review.
+
+867
+00:27:56,282 --> 00:27:57,639
+That is easier to act on than
+
+868
+00:27:57,679 --> 00:27:59,280
+saying make the app smarter.
+
+869
+00:27:59,486 --> 00:28:00,533
+If a build is going in the
+
+870
+00:28:00,572 --> 00:28:02,821
+wrong direction, steer it toward the requirement
+
+871
+00:28:02,900 --> 00:28:04,800
+you actually need instead of letting unnecessary
+
+872
+00:28:05,071 --> 00:28:07,166
+features accumulate. Keep a copy of the
+
+873
+00:28:07,205 --> 00:28:09,120
+working version before a major change.
+
+874
+00:28:09,445 --> 00:28:10,570
+You want to be able to compare
+
+875
+00:28:10,687 --> 00:28:12,568
+the new behavior with the previous result.
+
+876
+00:28:12,820 --> 00:28:14,565
+A local project with version history is
+
+877
+00:28:14,604 --> 00:28:16,466
+useful for this, while a web artifact
+
+878
+00:28:16,582 --> 00:28:18,250
+can be convenient for quickly exploring an
+
+879
+00:28:18,289 --> 00:28:20,405
+idea. Choose the environment according to the
+
+880
+00:28:20,444 --> 00:28:22,034
+work, and do not assume that a
+
+881
+00:28:22,073 --> 00:28:23,702
+workflow is better merely because it looks
+
+882
+00:28:23,819 --> 00:28:26,650
+more technical. Finally, decide when the tool
+
+883
+00:28:26,689 --> 00:28:28,383
+is good enough for its intended use.
+
+884
+00:28:28,642 --> 00:28:30,931
+A personal prototype with sample data has
+
+885
+00:28:30,970 --> 00:28:33,180
+different requirements from a team tool that
+
+886
+00:28:33,259 --> 00:28:35,746
+stores customer information or sends messages.
+
+887
+00:28:36,100 --> 00:28:39,087
+Add the necessary permissions, storage rules, error
+
+888
+00:28:39,126 --> 00:28:41,491
+handling, and review steps before expanding its
+
+889
+00:28:41,570 --> 00:28:44,944
+responsibility. Small useful tools are powerful precisely
+
+890
+00:28:45,060 --> 00:28:46,294
+because you can understand them.
+
+891
+00:28:46,519 --> 00:28:48,613
+Preserve that clarity as they grow, and
+
+892
+00:28:48,652 --> 00:28:50,320
+let the next real problem guide the
+
+893
+00:28:50,359 --> 00:28:51,290
+next improvement.
+
+894
+00:28:51,462 --> 00:28:52,622
+Pick one task you repeat
+
+895
+00:28:52,682 --> 00:28:53,682
+every week, give it a
+
+896
+00:28:53,722 --> 00:28:54,942
+clear input and a useful
+
+897
+00:28:55,042 --> 00:28:56,222
+output, and test the
+
+898
+00:28:56,282 --> 00:28:57,282
+smallest version first.
+
+899
+00:28:57,822 --> 00:28:58,842
+The working examples and
+
+900
+00:28:58,922 --> 00:28:59,782
+prompts will accompany
+
+901
+00:28:59,842 --> 00:29:00,702
+this tutorial, so you
+
+902
+00:29:00,742 --> 00:29:01,562
+can adapt them to your
+
+903
+00:29:01,602 --> 00:29:02,182
+own workflow.

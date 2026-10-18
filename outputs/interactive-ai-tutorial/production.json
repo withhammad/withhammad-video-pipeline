@@ -1,5 +1,5 @@
 {
-  "status": "review_draft_ready_waiting_for_narration_retry_approval",
+  "status": "complete_video_ready_for_owner_review",
   "reference_url": "https://www.youtube.com/watch?v=OayJ4FDbjUw",
   "reference_title": "Stop Using AI Chat Threads and Do This Instead",
   "reference_duration_seconds": 3020,
@@ -84,20 +84,29 @@
     "aspect_ratio": "9:16",
     "purpose": "presenter segments inside landscape tutorial"
   },
-  "missing_asset": "10-ideas narration: HeyGen timeout; user retry approval pending",
   "validation": {
     "repository_tests": {
-      "passed": 417,
-      "failed": 5,
-      "failure_file": "studio/tests/test_edit_deskreel.py",
-      "scope": "Failures are in concurrently modified deskreel code, not tutorial production files"
+      "passed": 465,
+      "failed": 0,
+      "warnings": 1
     },
     "opening_audio": {
       "integrated_lufs": -16.09,
       "true_peak_dbtp": -1.5
     },
     "powerpoint": "6 slides rendered and inspected",
-    "final_master": "pending missing narration",
+    "final_master": {
+      "full_decode": "passed",
+      "duration_seconds": 1742.453354,
+      "video": "1920x1080 / 30 fps",
+      "audio": "AAC / 48 kHz / stereo",
+      "chapters": 19,
+      "powerpoint_slides": 6,
+      "toolkit_integrity": "passed",
+      "published": false,
+      "caption_cues": 903,
+      "caption_timing": "passed"
+    },
     "review_draft": {
       "full_decode": "passed",
       "resolution": "1920x1080",
@@ -111,6 +120,19 @@
     "path": "review-draft-missing-ideas-chapter.mp4",
     "duration_seconds": 1604.732031,
     "includes": "AI Podcast Host, cloned voice, all completed Chrome demos, Remotion transitions, HyperFrames insert, captions",
-    "missing": "Idea-selection narration and corresponding chapter recording"
+    "status": "superseded_by_full-tutorial.mp4"
+  },
+  "narration_retry": {
+    "chapter": "10-ideas",
+    "attempts_this_turn": 1,
+    "approved_by_owner": true,
+    "status": "completed",
+    "duration_seconds": 137.69142857142856
+  },
+  "final_video": {
+    "path": "full-tutorial.mp4",
+    "duration_seconds": 1742.453354,
+    "resolution": "1920x1080",
+    "fps": 30
   }
 }

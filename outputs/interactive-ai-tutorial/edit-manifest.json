@@ -1,0 +1,4678 @@
+{
+  "duration_seconds": 1742.432031,
+  "order": [
+    "p-opening",
+    "01-introduction",
+    "p-newsletter",
+    "02-newsletter-build",
+    "03-newsletter-checks",
+    "p-tasks",
+    "04-task-board",
+    "05-delegation",
+    "p-revenue",
+    "06-revenue-model",
+    "07-scenarios",
+    "p-packaging",
+    "08-packaging",
+    "09-review-handoff",
+    "p-bonus",
+    "10-ideas",
+    "11-presentation",
+    "12-building-better",
+    "p-closing"
+  ],
+  "assets": {
+    "01-introduction": {
+      "name": "01-introduction",
+      "duration": 112.666667,
+      "title": "The workflow",
+      "captions": [
+        [
+          0.0,
+          2.04,
+          "Before we build anything, let's make the"
+        ],
+        [
+          2.04,
+          4.56,
+          "workflow clear. A chat response is useful"
+        ],
+        [
+          4.56,
+          6.36,
+          "when you need an explanation, a first"
+        ],
+        [
+          6.36,
+          8.7,
+          "draft or a second opinion, but some"
+        ],
+        [
+          8.7,
+          10.5,
+          "work becomes easier when the answer has"
+        ],
+        [
+          10.5,
+          12.46,
+          "controls. If you keep asking for the"
+        ],
+        [
+          12.46,
+          14.56,
+          "same calculation with a different number, that"
+        ],
+        [
+          14.56,
+          16.0,
+          "number probably belongs in an input."
+        ],
+        [
+          16.52,
+          17.6,
+          "If you keep asking for the same"
+        ],
+        [
+          17.6,
+          20.12,
+          "output in another format, that format probably"
+        ],
+        [
+          20.12,
+          21.26,
+          "deserves an export button."
+        ],
+        [
+          21.62,
+          23.04,
+          "And if you keep copying an answer"
+        ],
+        [
+          23.04,
+          24.94,
+          "somewhere else to finish the task, the"
+        ],
+        [
+          24.94,
+          26.42,
+          "interface should help you reach that next"
+        ],
+        [
+          26.42,
+          28.76,
+          "step. On screen, you can see four"
+        ],
+        [
+          28.76,
+          30.4,
+          "examples I've prepared for this tutorial."
+        ],
+        [
+          30.86,
+          33.2,
+          "They use sample information and run locally"
+        ],
+        [
+          33.2,
+          33.7,
+          "in the browser."
+        ],
+        [
+          34.36,
+          36.32,
+          "The first is a newsletter editor, the"
+        ],
+        [
+          36.32,
+          38.46,
+          "second is a task organizer, the third"
+        ],
+        [
+          38.46,
+          40.16,
+          "is a revenue model, and the fourth"
+        ],
+        [
+          40.16,
+          41.4,
+          "is a packaging concept sheet."
+        ],
+        [
+          41.96,
+          43.62,
+          "These examples are separate from the AI"
+        ],
+        [
+          43.62,
+          45.96,
+          "chat itself. The AI can help write"
+        ],
+        [
+          45.96,
+          47.72,
+          "the code, and the browser runs the"
+        ],
+        [
+          47.72,
+          50.36,
+          "resulting tool. That distinction matters because a"
+        ],
+        [
+          50.36,
+          52.6,
+          "button that says send does not automatically"
+        ],
+        [
+          52.6,
+          54.0,
+          "mean it has permission to send a"
+        ],
+        [
+          54.0,
+          55.82,
+          "message, and a number on a dashboard"
+        ],
+        [
+          55.82,
+          57.16,
+          "is only as good as the formula"
+        ],
+        [
+          57.16,
+          58.9,
+          "behind it. We're going to work through"
+        ],
+        [
+          58.9,
+          59.58,
+          "a simple pattern."
+        ],
+        [
+          60.28,
+          62.14,
+          "First, describe the task and the person"
+        ],
+        [
+          62.14,
+          62.8,
+          "using the tool."
+        ],
+        [
+          63.32,
+          65.66,
+          "Second, specify the inputs and the output."
+        ],
+        [
+          66.24,
+          68.4,
+          "Third, identify the checks that would convince"
+        ],
+        [
+          68.4,
+          68.92,
+          "us it works."
+        ],
+        [
+          69.56,
+          71.42,
+          "Then build a small version, use it,"
+        ],
+        [
+          71.58,
+          72.96000000000001,
+          "and ask for targeted improvements."
+        ],
+        [
+          73.66,
+          75.48,
+          "For the newsletter, our input is a"
+        ],
+        [
+          75.48,
+          76.6,
+          "subject line and a draft."
+        ],
+        [
+          77.22,
+          78.78,
+          "The output is something we can copy"
+        ],
+        [
+          78.78,
+          80.84,
+          "or export. Our checks are straightforward."
+        ],
+        [
+          80.84,
+          83.26,
+          "The preview should match our text, the"
+        ],
+        [
+          83.26,
+          84.76,
+          "word count should change as we type,"
+        ],
+        [
+          85.08,
+          86.9,
+          "and the exported file should preserve what"
+        ],
+        [
+          86.9,
+          89.1,
+          "we wrote. For the revenue model, the"
+        ],
+        [
+          89.1,
+          89.86,
+          "checks are mathematical."
+        ],
+        [
+          90.38,
+          91.86,
+          "We'll use a simple example that we"
+        ],
+        [
+          91.86,
+          94.06,
+          "can calculate ourselves, then compare it with"
+        ],
+        [
+          94.06,
+          95.92,
+          "the screen. You don't need to request"
+        ],
+        [
+          95.92,
+          97.75999999999999,
+          "a huge application to get value from"
+        ],
+        [
+          97.75999999999999,
+          100.24000000000001,
+          "this approach. In fact, the first useful"
+        ],
+        [
+          100.24000000000001,
+          101.92,
+          "version is often one page with a"
+        ],
+        [
+          101.92,
+          104.2,
+          "few controls. Keep the scope small enough"
+        ],
+        [
+          104.2,
+          105.72,
+          "that you can understand what happens when"
+        ],
+        [
+          105.72,
+          108.08,
+          "you click, and add complexity only after"
+        ],
+        [
+          108.08,
+          109.34,
+          "the basic workflow is reliable."
+        ],
+        [
+          109.34,
+          111.5,
+          "Let's use the newsletter to put that"
+        ],
+        [
+          111.5,
+          112.08,
+          "into practice."
+        ]
+      ]
+    },
+    "02-newsletter-build": {
+      "name": "02-newsletter-build",
+      "duration": 141.0,
+      "title": "Newsletter: build the editor",
+      "captions": [
+        [
+          0.233,
+          1.629,
+          "Let\u2019s start with the problem this editor"
+        ],
+        [
+          1.745,
+          4.15,
+          "solves. You have a newsletter draft, and"
+        ],
+        [
+          4.189,
+          5.663,
+          "you want to improve it without bouncing"
+        ],
+        [
+          5.741,
+          7.99,
+          "between a chat, a document, a word"
+        ],
+        [
+          8.106,
+          9.785,
+          "counter, and an export tool."
+        ],
+        [
+          10.028,
+          11.425,
+          "The point of the interface is to"
+        ],
+        [
+          11.464,
+          13.403,
+          "put the repeated decisions in one place."
+        ],
+        [
+          13.675,
+          15.265,
+          "On the left, we change the subject"
+        ],
+        [
+          15.536,
+          17.437,
+          "and body, and on the right, we"
+        ],
+        [
+          17.475,
+          18.108,
+          "see the result."
+        ],
+        [
+          18.393,
+          20.138,
+          "The controls should be obvious enough that"
+        ],
+        [
+          20.176,
+          21.961,
+          "somebody who never saw the original prompt"
+        ],
+        [
+          22.077,
+          23.299,
+          "can still use the page."
+        ],
+        [
+          23.667,
+          24.947,
+          "Here is how I would describe this"
+        ],
+        [
+          25.025,
+          25.747,
+          "to an AI."
+        ],
+        [
+          26.004,
+          28.021,
+          "Build a single-page newsletter editor with an"
+        ],
+        [
+          28.06,
+          30.697,
+          "editable subject and body, a live preview,"
+        ],
+        [
+          30.853,
+          34.46,
+          "word count, reading-time estimate, local autosave, and"
+        ],
+        [
+          34.537,
+          36.197,
+          "downloads in useful formats."
+        ],
+        [
+          36.461,
+          38.905,
+          "Use sample text and keep it independent"
+        ],
+        [
+          38.982,
+          40.049,
+          "of external services."
+        ],
+        [
+          40.34,
+          41.852,
+          "That is a much more useful request"
+        ],
+        [
+          42.046,
+          44.063,
+          "than simply asking for an amazing newsletter"
+        ],
+        [
+          44.18,
+          46.623,
+          "app, because each feature corresponds to something"
+        ],
+        [
+          46.778,
+          47.639,
+          "we can inspect."
+        ],
+        [
+          47.917,
+          49.352,
+          "We can also tell the AI which"
+        ],
+        [
+          49.469,
+          50.943,
+          "things it should not pretend to do,"
+        ],
+        [
+          51.059,
+          52.765,
+          "such as sending the email or connecting"
+        ],
+        [
+          52.882,
+          53.929,
+          "to our subscribers."
+        ],
+        [
+          54.395,
+          56.412,
+          "The recorded Claude build shows that process"
+        ],
+        [
+          56.722,
+          58.882,
+          "from the prompt to a generated artifact."
+        ],
+        [
+          59.18,
+          60.693,
+          "The finished examples we use for the"
+        ],
+        [
+          60.732,
+          63.835,
+          "detailed walkthrough are local tutorial files, so"
+        ],
+        [
+          63.874,
+          65.541,
+          "you can inspect the same workflows without"
+        ],
+        [
+          65.696,
+          67.162,
+          "needing a connected mailing list."
+        ],
+        [
+          67.463,
+          69.635,
+          "Different AI tools may produce different layouts"
+        ],
+        [
+          69.78999999999999,
+          71.186,
+          "from the same brief, and that is"
+        ],
+        [
+          71.265,
+          73.785,
+          "fine. What matters is whether the behavior"
+        ],
+        [
+          73.863,
+          74.716,
+          "meets the brief."
+        ],
+        [
+          74.988,
+          77.043,
+          "A beautiful preview with broken downloads is"
+        ],
+        [
+          77.082,
+          78.257,
+          "still an unfinished tool."
+        ],
+        [
+          78.462,
+          80.207,
+          "Start by changing the subject line."
+        ],
+        [
+          80.44,
+          82.57300000000001,
+          "Notice that this is ordinary editing, rather"
+        ],
+        [
+          82.69,
+          84.377,
+          "than another instruction to the AI."
+        ],
+        [
+          84.668,
+          86.801,
+          "The preview responds immediately because the page"
+        ],
+        [
+          86.956,
+          88.749,
+          "already knows how to handle that input."
+        ],
+        [
+          88.989,
+          90.696,
+          "Now change a sentence in the body."
+        ],
+        [
+          90.967,
+          92.713,
+          "Again, we do not need to send"
+        ],
+        [
+          92.791,
+          94.187,
+          "the whole draft back to a model"
+        ],
+        [
+          94.342,
+          95.80799999999999,
+          "merely to update the preview."
+        ],
+        [
+          96.03399999999999,
+          97.97399999999999,
+          "This is the useful division of labor:"
+        ],
+        [
+          98.206,
+          100.339,
+          "the AI helps construct the tool, and"
+        ],
+        [
+          100.378,
+          102.628,
+          "the tool handles the repeated mechanical work."
+        ],
+        [
+          102.86099999999999,
+          104.509,
+          "There is one important boundary here."
+        ],
+        [
+          104.761,
+          106.93299999999999,
+          "This editor does not automatically improve your"
+        ],
+        [
+          106.97200000000001,
+          109.2,
+          "writing. It displays and exports what you"
+        ],
+        [
+          109.239,
+          111.217,
+          "enter. If you want an AI rewrite"
+        ],
+        [
+          111.334,
+          113.35,
+          "button, that becomes another feature with its"
+        ],
+        [
+          113.428,
+          116.64699999999999,
+          "own connection, cost, privacy choices, and error"
+        ],
+        [
+          116.686,
+          119.09100000000001,
+          "handling. We are deliberately starting with the"
+        ],
+        [
+          119.13,
+          120.545,
+          "reliable local workflow."
+        ],
+        [
+          120.719,
+          121.921,
+          "You can ask an AI to help"
+        ],
+        [
+          121.998,
+          124.365,
+          "revise a paragraph separately, paste the version"
+        ],
+        [
+          124.481,
+          126.304,
+          "you prefer, and keep control of the"
+        ],
+        [
+          126.343,
+          128.98,
+          "final wording. Before adding more features, ask"
+        ],
+        [
+          129.135,
+          130.997,
+          "whether the current screen already removes a"
+        ],
+        [
+          131.036,
+          131.955,
+          "step from your work."
+        ],
+        [
+          132.175,
+          133.687,
+          "If the answer is yes, you have"
+        ],
+        [
+          133.726,
+          135.045,
+          "a useful first version."
+        ],
+        [
+          135.395,
+          136.674,
+          "The next step is to test the"
+        ],
+        [
+          136.713,
+          139.002,
+          "feedback and exports, because those are what"
+        ],
+        [
+          139.04,
+          140.858,
+          "make this more than a visual mockup."
+        ]
+      ]
+    },
+    "03-newsletter-checks": {
+      "name": "03-newsletter-checks",
+      "duration": 140.933333,
+      "title": "Newsletter: test and export",
+      "captions": [
+        [
+          0.272,
+          1.745,
+          "Now we\u2019ll check the editor using a"
+        ],
+        [
+          1.785,
+          3.103,
+          "deliberately small example."
+        ],
+        [
+          3.414,
+          5.334,
+          "Replace the body with ten simple words,"
+        ],
+        [
+          5.508,
+          7.215,
+          "and compare the displayed count with the"
+        ],
+        [
+          7.254,
+          9.538,
+          "actual text. A tiny example is easier"
+        ],
+        [
+          9.732,
+          11.671,
+          "to verify than a long article, and"
+        ],
+        [
+          11.71,
+          13.455,
+          "it helps us separate a working feature"
+        ],
+        [
+          13.611,
+          15.492,
+          "from a number that merely looks plausible."
+        ],
+        [
+          15.783,
+          17.605,
+          "The count in this tutorial uses words"
+        ],
+        [
+          17.761,
+          20.631,
+          "separated by whitespace, so punctuation attached to"
+        ],
+        [
+          20.67,
+          21.872,
+          "a word does not create an extra"
+        ],
+        [
+          22.027,
+          24.626,
+          "word. More sophisticated editors may use different"
+        ],
+        [
+          24.82,
+          26.712,
+          "rules, especially across languages."
+        ],
+        [
+          26.975,
+          29.128,
+          "The reading-time estimate is also transparent."
+        ],
+        [
+          29.341,
+          31.009,
+          "This version divides the word count by"
+        ],
+        [
+          31.048,
+          32.347,
+          "two hundred words per minute."
+        ],
+        [
+          32.638,
+          34.19,
+          "That is a convenient assumption for the"
+        ],
+        [
+          34.228,
+          36.323,
+          "demonstration, not a measurement of how every"
+        ],
+        [
+          36.401,
+          38.821,
+          "subscriber reads. A technical newsletter may take"
+        ],
+        [
+          38.899,
+          40.722,
+          "longer because the reader stops to think."
+        ],
+        [
+          40.994,
+          43.282,
+          "An image-heavy newsletter has information that a"
+        ],
+        [
+          43.321,
+          45.195,
+          "simple word counter cannot capture."
+        ],
+        [
+          45.441,
+          47.303,
+          "Keep the assumption visible so the estimate"
+        ],
+        [
+          47.341,
+          49.358,
+          "is useful without pretending to be exact."
+        ],
+        [
+          49.707,
+          51.918,
+          "Next, restore the sample draft and add"
+        ],
+        [
+          51.957,
+          53.412,
+          "a short practical takeaway."
+        ],
+        [
+          53.664,
+          55.312,
+          "The preview should match what we typed,"
+        ],
+        [
+          55.486,
+          56.775,
+          "including paragraph breaks."
+        ],
+        [
+          57.053,
+          58.663,
+          "Then check the local-save message."
+        ],
+        [
+          59.07,
+          61.086,
+          "Local autosave means the draft is stored"
+        ],
+        [
+          61.165,
+          62.794,
+          "in this browser on this device."
+        ],
+        [
+          63.065,
+          64.345,
+          "It does not mean the draft has"
+        ],
+        [
+          64.384,
+          65.741,
+          "been backed up to your account or"
+        ],
+        [
+          65.78,
+          67.207,
+          "synchronized across a team."
+        ],
+        [
+          67.472,
+          69.139,
+          "If you clear browser storage or switch"
+        ],
+        [
+          69.255,
+          71.389,
+          "profiles, the saved text may not follow"
+        ],
+        [
+          71.505,
+          74.065,
+          "you. For anything important, use an export"
+        ],
+        [
+          74.143,
+          76.393,
+          "as well. The plain-text output is useful"
+        ],
+        [
+          76.548,
+          78.39699999999999,
+          "when you want the content without formatting."
+        ],
+        [
+          78.656,
+          80.441,
+          "Markdown is useful when your next tool"
+        ],
+        [
+          80.557,
+          83.098,
+          "understands lightweight headings and paragraphs."
+        ],
+        [
+          83.42699999999999,
+          85.638,
+          "The HTML export is useful for inspecting"
+        ],
+        [
+          85.71600000000001,
+          87.695,
+          "a formatted document, but you still need"
+        ],
+        [
+          87.733,
+          89.129,
+          "to test it in the actual email"
+        ],
+        [
+          89.285,
+          90.68,
+          "system you intend to use."
+        ],
+        [
+          90.989,
+          92.773,
+          "A browser page and an email client"
+        ],
+        [
+          92.851,
+          94.945,
+          "do not necessarily render the same way."
+        ],
+        [
+          95.255,
+          96.88499999999999,
+          "The export is a starting point for"
+        ],
+        [
+          96.924,
+          99.328,
+          "that handoff, not proof that every inbox"
+        ],
+        [
+          99.445,
+          100.64699999999999,
+          "will display it perfectly."
+        ],
+        [
+          101.035,
+          102.47,
+          "We also need to test text that"
+        ],
+        [
+          102.509,
+          104.925,
+          "resembles markup. If I type angle brackets"
+        ],
+        [
+          105.042,
+          107.214,
+          "into a draft, the exported document should"
+        ],
+        [
+          107.253,
+          109.075,
+          "display that text rather than treating it"
+        ],
+        [
+          109.114,
+          110.39500000000001,
+          "as executable content."
+        ],
+        [
+          110.782,
+          112.101,
+          "This is why the brief asked for"
+        ],
+        [
+          112.13900000000001,
+          113.34899999999999,
+          "escaping user content."
+        ],
+        [
+          113.666,
+          115.063,
+          "You do not need to memorize the"
+        ],
+        [
+          115.102,
+          117.429,
+          "implementation to request the behavior and test"
+        ],
+        [
+          117.545,
+          120.376,
+          "the result. Finally, think about one focused"
+        ],
+        [
+          120.57,
+          123.285,
+          "improvement. Perhaps you need a subject-length indicator"
+        ],
+        [
+          123.518,
+          124.962,
+          "or a second preview size."
+        ],
+        [
+          125.242,
+          127.53,
+          "Ask for that one change, explain the"
+        ],
+        [
+          127.569,
+          130.09,
+          "expected result, and repeat the original checks"
+        ],
+        [
+          130.168,
+          132.883,
+          "afterward. A revision can accidentally break something"
+        ],
+        [
+          133.038,
+          133.998,
+          "that already worked."
+        ],
+        [
+          134.299,
+          135.967,
+          "The habit we want is simple: build"
+        ],
+        [
+          136.04500000000002,
+          137.848,
+          "a small tool, use a small test,"
+        ],
+        [
+          138.062,
+          139.845,
+          "and keep the useful behavior intact as"
+        ],
+        [
+          139.885,
+          140.653,
+          "you improve it."
+        ]
+      ]
+    },
+    "04-task-board": {
+      "name": "04-task-board",
+      "duration": 137.7,
+      "title": "Tasks: make the next action clear",
+      "captions": [
+        [
+          0.233,
+          1.978,
+          "Our second example starts with a familiar"
+        ],
+        [
+          2.172,
+          4.422,
+          "problem: a task list that keeps growing"
+        ],
+        [
+          4.655,
+          6.206,
+          "even though nobody is clear about the"
+        ],
+        [
+          6.245,
+          8.339,
+          "next action. A longer list does not"
+        ],
+        [
+          8.378,
+          9.995,
+          "necessarily create more clarity."
+        ],
+        [
+          10.254,
+          11.921,
+          "We want an interface that forces a"
+        ],
+        [
+          11.96,
+          14.094,
+          "useful decision, so this board has four"
+        ],
+        [
+          14.133,
+          18.082,
+          "destinations: do now, schedule, delegate, and drop."
+        ],
+        [
+          18.308,
+          20.422,
+          "Those labels are choices for this demonstration,"
+        ],
+        [
+          20.596,
+          21.876,
+          "and you can adapt them to the"
+        ],
+        [
+          21.915,
+          23.234,
+          "way your team actually works."
+        ],
+        [
+          23.505,
+          24.669,
+          "Look at the sample tasks."
+        ],
+        [
+          24.902,
+          26.88,
+          "Reviewing a landing-page headline may be something"
+        ],
+        [
+          26.996,
+          27.867,
+          "you can do now."
+        ],
+        [
+          28.155,
+          29.901,
+          "Planning a tutorial may need a deliberate"
+        ],
+        [
+          29.94,
+          30.715,
+          "block of time."
+        ],
+        [
+          30.987,
+          33.121,
+          "Resizing campaign images may be appropriate to"
+        ],
+        [
+          33.159,
+          36.146,
+          "delegate. Rebuilding a report nobody uses may"
+        ],
+        [
+          36.185,
+          37.814,
+          "deserve a conversation about whether it should"
+        ],
+        [
+          37.853,
+          38.601,
+          "happen at all."
+        ],
+        [
+          38.884,
+          40.978,
+          "The board makes those alternatives visible instead"
+        ],
+        [
+          41.095,
+          43.305,
+          "of treating every task as equally urgent."
+        ],
+        [
+          43.577,
+          45.245,
+          "Each task also has an estimate in"
+        ],
+        [
+          45.284,
+          47.922,
+          "minutes. These estimates are not promises, and"
+        ],
+        [
+          47.96,
+          49.279,
+          "the app does not know how long"
+        ],
+        [
+          49.395,
+          50.526,
+          "the work will really take."
+        ],
+        [
+          50.805,
+          52.938,
+          "Their purpose is to make capacity visible."
+        ],
+        [
+          53.209,
+          54.838,
+          "A column with ten tasks can look"
+        ],
+        [
+          54.916,
+          56.739,
+          "manageable until you notice that it represents"
+        ],
+        [
+          56.895,
+          57.922,
+          "six hours of work."
+        ],
+        [
+          58.135,
+          59.804,
+          "Adding the estimates gives you another way"
+        ],
+        [
+          59.842,
+          61.316,
+          "to challenge the plan before you commit"
+        ],
+        [
+          61.394,
+          62.971000000000004,
+          "to it. Now add a new task"
+        ],
+        [
+          63.165,
+          64.62,
+          "with a clear action in its name."
+        ],
+        [
+          64.872,
+          67.393,
+          "Instead of writing website, write review the"
+        ],
+        [
+          67.432,
+          68.556,
+          "homepage call to action."
+        ],
+        [
+          68.789,
+          70.225,
+          "A task should tell somebody what to"
+        ],
+        [
+          70.264,
+          72.435,
+          "do, and ideally what result would count"
+        ],
+        [
+          72.55199999999999,
+          74.858,
+          "as done. Enter an estimate, add it"
+        ],
+        [
+          74.896,
+          76.255,
+          "to the board, and move it to"
+        ],
+        [
+          76.293,
+          77.244,
+          "the right destination."
+        ],
+        [
+          77.535,
+          79.125,
+          "Watch the totals update as the task"
+        ],
+        [
+          79.28,
+          81.568,
+          "changes columns. This is exactly the kind"
+        ],
+        [
+          81.685,
+          83.856,
+          "of repetitive bookkeeping that a small interface"
+        ],
+        [
+          83.973,
+          84.955,
+          "can handle for us."
+        ],
+        [
+          85.24,
+          86.59700000000001,
+          "There is a useful test here."
+        ],
+        [
+          86.83,
+          89.119,
+          "Move one thirty-minute task from do now"
+        ],
+        [
+          89.274,
+          91.407,
+          "to delegate. The first total should go"
+        ],
+        [
+          91.446,
+          93.269,
+          "down by thirty, and the second should"
+        ],
+        [
+          93.307,
+          94.229,
+          "go up by thirty."
+        ],
+        [
+          94.49000000000001,
+          96.468,
+          "The overall amount of estimated work should"
+        ],
+        [
+          96.54599999999999,
+          98.059,
+          "not change merely because we moved a"
+        ],
+        [
+          98.09700000000001,
+          100.366,
+          "card. If those numbers do not agree,"
+        ],
+        [
+          100.58,
+          102.36500000000001,
+          "stop and fix the tool before relying"
+        ],
+        [
+          102.519,
+          104.124,
+          "on it for a real planning session."
+        ],
+        [
+          104.40899999999999,
+          106.581,
+          "This first version uses sample tasks and"
+        ],
+        [
+          106.62,
+          107.9,
+          "keeps the workflow simple."
+        ],
+        [
+          108.21000000000001,
+          110.227,
+          "It does not synchronize with your project-management"
+        ],
+        [
+          110.265,
+          113.524,
+          "system, invite teammates, or infer priorities from"
+        ],
+        [
+          113.563,
+          116.32300000000001,
+          "private messages. Those would be separate integrations."
+        ],
+        [
+          116.67699999999999,
+          118.501,
+          "You can still get value immediately by"
+        ],
+        [
+          118.539,
+          120.013,
+          "using the board to organize a short"
+        ],
+        [
+          120.13,
+          122.806,
+          "planning conversation, then transferring the agreed actions"
+        ],
+        [
+          123.039,
+          125.015,
+          "into the system your team already uses."
+        ],
+        [
+          125.361,
+          127.068,
+          "The important design question is what happens"
+        ],
+        [
+          127.262,
+          128.348,
+          "after the sorting."
+        ],
+        [
+          128.619,
+          130.248,
+          "A board that only looks organized may"
+        ],
+        [
+          130.287,
+          131.27,
+          "not change the work."
+        ],
+        [
+          131.555,
+          133.145,
+          "In the next step, we\u2019ll take the"
+        ],
+        [
+          133.184,
+          134.812,
+          "delegate column and turn it into a"
+        ],
+        [
+          134.851,
+          136.48,
+          "clear message that a person can review"
+        ],
+        [
+          136.791,
+          137.556,
+          "and send."
+        ]
+      ]
+    },
+    "05-delegation": {
+      "name": "05-delegation",
+      "duration": 137.733333,
+      "title": "Tasks: prepare a delegation draft",
+      "captions": [
+        [
+          0.233,
+          1.978,
+          "Let\u2019s turn the delegated tasks into a"
+        ],
+        [
+          2.017,
+          4.189,
+          "usable handoff. The first input is the"
+        ],
+        [
+          4.228,
+          6.497,
+          "teammate, and the second is the deadline."
+        ],
+        [
+          6.749,
+          8.115,
+          "Neither should be guessed silently."
+        ],
+        [
+          8.435,
+          10.025,
+          "The person receiving the work needs to"
+        ],
+        [
+          10.064,
+          11.576,
+          "know what you are asking, when it"
+        ],
+        [
+          11.615,
+          13.4,
+          "is needed, and whether you expect them"
+        ],
+        [
+          13.477,
+          14.635,
+          "to confirm capacity."
+        ],
+        [
+          14.899,
+          17.032,
+          "For this example, we are using Alex"
+        ],
+        [
+          17.265,
+          19.204,
+          "and a Friday deadline, but these are"
+        ],
+        [
+          19.243,
+          21.337,
+          "sample details rather than a message to"
+        ],
+        [
+          21.376,
+          22.297,
+          "a real colleague."
+        ],
+        [
+          22.559,
+          24.265,
+          "When we build the message, the tool"
+        ],
+        [
+          24.343,
+          26.127,
+          "takes the tasks currently in the delegate"
+        ],
+        [
+          26.205,
+          28.261,
+          "column and lists them with their estimates."
+        ],
+        [
+          28.533,
+          29.735,
+          "Read the result carefully."
+        ],
+        [
+          29.967,
+          31.519,
+          "It is a draft, and nothing has"
+        ],
+        [
+          31.596,
+          32.558,
+          "been sent to Slack."
+        ],
+        [
+          32.862,
+          34.568,
+          "The copy button makes it easier to"
+        ],
+        [
+          34.607,
+          35.886,
+          "move the text to the place where"
+        ],
+        [
+          35.925,
+          38.292,
+          "you normally communicate, but copying is different"
+        ],
+        [
+          38.485,
+          41.323,
+          "from sending. Keeping that distinction visible prevents"
+        ],
+        [
+          41.44,
+          43.534,
+          "the interface from suggesting an integration that"
+        ],
+        [
+          43.574,
+          44.465,
+          "does not exist."
+        ],
+        [
+          44.775,
+          47.064,
+          "A useful delegation message should also describe"
+        ],
+        [
+          47.18,
+          48.245,
+          "the desired outcome."
+        ],
+        [
+          48.496,
+          49.931,
+          "If the task is to resize campaign"
+        ],
+        [
+          50.165,
+          52.821,
+          "images, you might specify the required sizes,"
+        ],
+        [
+          53.035,
+          54.78,
+          "the source folder, and where the finished"
+        ],
+        [
+          54.896,
+          57.461,
+          "exports belong. Our small example does not"
+        ],
+        [
+          57.538,
+          59.477,
+          "contain all that context, so the person"
+        ],
+        [
+          59.672,
+          61.223,
+          "sending the message should add it."
+        ],
+        [
+          61.495,
+          63.512,
+          "The app can reduce formatting work, but"
+        ],
+        [
+          63.55,
+          65.335,
+          "it cannot replace the judgment needed to"
+        ],
+        [
+          65.374,
+          66.313,
+          "make a good handoff."
+        ],
+        [
+          66.592,
+          68.299,
+          "Now move another task into the delegate"
+        ],
+        [
+          68.337,
+          70.199,
+          "column and rebuild the draft."
+        ],
+        [
+          70.548,
+          71.92,
+          "Compare the message with the board."
+        ],
+        [
+          72.127,
+          73.989,
+          "Every listed task should be one you"
+        ],
+        [
+          74.027,
+          76.316,
+          "actually intended to delegate, and a task"
+        ],
+        [
+          76.51,
+          78.178,
+          "moved out of that column should disappear"
+        ],
+        [
+          78.295,
+          79.145,
+          "when you rebuild."
+        ],
+        [
+          79.452,
+          80.887,
+          "This is an easy place for generated"
+        ],
+        [
+          81.004,
+          82.477,
+          "tools to get something wrong if they"
+        ],
+        [
+          82.51599999999999,
+          83.83500000000001,
+          "keep a stale copy of the task"
+        ],
+        [
+          83.99,
+          86.31700000000001,
+          "list. Testing the change is more informative"
+        ],
+        [
+          86.395,
+          88.14,
+          "than only testing the initial sample."
+        ],
+        [
+          88.412,
+          89.777,
+          "Also test the empty case."
+        ],
+        [
+          90.018,
+          92.15100000000001,
+          "If there are no delegated tasks, a"
+        ],
+        [
+          92.19,
+          93.586,
+          "helpful tool should say so."
+        ],
+        [
+          93.78,
+          95.642,
+          "It should not generate an empty assignment"
+        ],
+        [
+          95.75800000000001,
+          96.918,
+          "that looks ready to send."
+        ],
+        [
+          97.146,
+          99.59,
+          "Small empty states matter because real work"
+        ],
+        [
+          99.668,
+          101.142,
+          "does not always arrive in the perfect"
+        ],
+        [
+          101.33500000000001,
+          102.945,
+          "shape used in a demonstration."
+        ],
+        [
+          103.35300000000001,
+          104.905,
+          "If you later connect this workflow to"
+        ],
+        [
+          104.943,
+          107.154,
+          "a messaging service, design a review step"
+        ],
+        [
+          107.27000000000001,
+          108.268,
+          "before the send action."
+        ],
+        [
+          108.529,
+          111.71000000000001,
+          "Show the destination, recipient, and final text."
+        ],
+        [
+          112.059,
+          114.464,
+          "Make success and failure visible, and avoid"
+        ],
+        [
+          114.58,
+          116.24799999999999,
+          "sending the same message twice if a"
+        ],
+        [
+          116.286,
+          117.321,
+          "request times out."
+        ],
+        [
+          117.618,
+          118.936,
+          "Those are requirements you can put in"
+        ],
+        [
+          118.975,
+          120.139,
+          "the brief even if you are not"
+        ],
+        [
+          120.255,
+          121.71,
+          "writing the integration yourself."
+        ],
+        [
+          122.117,
+          123.94,
+          "For now, the useful result is a"
+        ],
+        [
+          123.979,
+          125.903,
+          "reviewed draft. We have taken a vague"
+        ],
+        [
+          126.019,
+          128.346,
+          "list, made decisions about the next actions,"
+        ],
+        [
+          128.618,
+          130.443,
+          "and produced a concrete handoff."
+        ],
+        [
+          130.755,
+          132.538,
+          "That is the pattern to notice: the"
+        ],
+        [
+          132.577,
+          134.323,
+          "interface should help the work move forward,"
+        ],
+        [
+          134.516,
+          135.913,
+          "and it should be honest about where"
+        ],
+        [
+          135.952,
+          137.573,
+          "the human decision still belongs."
+        ]
+      ]
+    },
+    "06-revenue-model": {
+      "name": "06-revenue-model",
+      "duration": 147.333333,
+      "title": "Revenue: check the calculations",
+      "captions": [
+        [
+          0.31,
+          2.211,
+          "The third example is a revenue model,"
+        ],
+        [
+          2.366,
+          4.48,
+          "and here the priority is transparency."
+        ],
+        [
+          4.81,
+          6.477,
+          "A slider is only useful if we"
+        ],
+        [
+          6.516,
+          8.664,
+          "understand what changes when we move it."
+        ],
+        [
+          8.91,
+          11.043,
+          "We will use sample business assumptions and"
+        ],
+        [
+          11.159,
+          13.894,
+          "simple arithmetic, then check the results ourselves."
+        ],
+        [
+          14.34,
+          15.853,
+          "This is a teaching model, not a"
+        ],
+        [
+          15.892,
+          17.792,
+          "forecast of a real business, and we"
+        ],
+        [
+          17.831,
+          19.266,
+          "are not giving the numbers a confidence"
+        ],
+        [
+          19.46,
+          20.572,
+          "score they have not earned."
+        ],
+        [
+          20.83,
+          23.041,
+          "Start with twenty thousand monthly visitors, a"
+        ],
+        [
+          23.08,
+          25.097,
+          "two percent conversion rate, and an average"
+        ],
+        [
+          25.252,
+          26.571,
+          "order value of two hundred and fifty"
+        ],
+        [
+          26.687,
+          29.053,
+          "dirhams. Two percent of twenty thousand gives"
+        ],
+        [
+          29.17,
+          30.108,
+          "four hundred orders."
+        ],
+        [
+          30.348,
+          32.132,
+          "Multiply four hundred by two hundred and"
+        ],
+        [
+          32.171,
+          34.305,
+          "fifty, and the revenue is one hundred"
+        ],
+        [
+          34.498,
+          36.748,
+          "thousand dirhams. Those are the first two"
+        ],
+        [
+          36.787,
+          38.494,
+          "checks we can perform without trusting the"
+        ],
+        [
+          38.533,
+          40.77,
+          "interface. Now add a gross margin of"
+        ],
+        [
+          40.808,
+          42.903,
+          "sixty percent and fixed monthly costs of"
+        ],
+        [
+          42.942,
+          44.105,
+          "thirty thousand dirhams."
+        ],
+        [
+          44.416,
+          46.084,
+          "Sixty percent of one hundred thousand is"
+        ],
+        [
+          46.123,
+          48.605,
+          "sixty thousand, and subtracting the fixed costs"
+        ],
+        [
+          48.683,
+          49.72,
+          "leaves thirty thousand."
+        ],
+        [
+          50.059,
+          51.921,
+          "The label on screen describes this as"
+        ],
+        [
+          52.115,
+          54.287,
+          "contribution after fixed costs."
+        ],
+        [
+          54.597,
+          56.459,
+          "It is not a complete accounting statement,"
+        ],
+        [
+          56.731,
+          58.554,
+          "because the simplified model may leave out"
+        ],
+        [
+          58.632,
+          62.239,
+          "taxes, financing, returns, and other items that"
+        ],
+        [
+          62.277,
+          63.545,
+          "matter to an actual business."
+        ],
+        [
+          63.922,
+          65.435,
+          "The benefit of the interface is that"
+        ],
+        [
+          65.513,
+          67.219,
+          "we can change an assumption and immediately"
+        ],
+        [
+          67.375,
+          68.596,
+          "see the mechanical effect."
+        ],
+        [
+          68.848,
+          70.67099999999999,
+          "Increase the conversion rate from two percent"
+        ],
+        [
+          70.943,
+          72.843,
+          "to three percent while keeping everything else"
+        ],
+        [
+          72.92099999999999,
+          75.62,
+          "the same. Orders become six hundred, revenue"
+        ],
+        [
+          75.659,
+          77.676,
+          "becomes one hundred and fifty thousand, and"
+        ],
+        [
+          77.715,
+          79.15,
+          "the result after the costs in this"
+        ],
+        [
+          79.227,
+          80.818,
+          "model becomes sixty thousand."
+        ],
+        [
+          81.167,
+          82.485,
+          "That does not prove we can achieve"
+        ],
+        [
+          82.525,
+          83.93299999999999,
+          "a three percent conversion rate."
+        ],
+        [
+          84.176,
+          85.961,
+          "It shows what the formula would produce"
+        ],
+        [
+          86.116,
+          87.474,
+          "if that assumption were true."
+        ],
+        [
+          87.78399999999999,
+          90.126,
+          "Now reduce conversion to one percent."
+        ],
+        [
+          90.451,
+          92.85499999999999,
+          "Orders fall to two hundred, revenue falls"
+        ],
+        [
+          92.934,
+          95.261,
+          "to fifty thousand, and sixty percent of"
+        ],
+        [
+          95.299,
+          97.821,
+          "that revenue exactly covers the thirty thousand"
+        ],
+        [
+          98.015,
+          99.14,
+          "in fixed costs."
+        ],
+        [
+          99.451,
+          101.429,
+          "This gives us a useful check: under"
+        ],
+        [
+          101.506,
+          104.10499999999999,
+          "these particular assumptions, one percent is the"
+        ],
+        [
+          104.14500000000001,
+          106.35499999999999,
+          "break-even conversion rate for the costs included"
+        ],
+        [
+          106.43299999999999,
+          108.721,
+          "here. Change the costs or margin and"
+        ],
+        [
+          108.75999999999999,
+          110.607,
+          "that break-even point will change too."
+        ],
+        [
+          110.86500000000001,
+          112.727,
+          "Notice how different this is from repeatedly"
+        ],
+        [
+          112.844,
+          115.132,
+          "asking a chat to calculate another scenario."
+        ],
+        [
+          115.36500000000001,
+          116.72200000000001,
+          "Once the formula is in a working"
+        ],
+        [
+          116.87700000000001,
+          118.69200000000001,
+          "tool, we can explore it directly."
+        ],
+        [
+          118.994,
+          120.855,
+          "The AI was useful for helping construct"
+        ],
+        [
+          120.933,
+          123.144,
+          "the interface, but each slider movement is"
+        ],
+        [
+          123.18299999999999,
+          124.695,
+          "just a calculation in the browser."
+        ],
+        [
+          124.966,
+          126.809,
+          "That makes the result easy to inspect,"
+        ],
+        [
+          126.984,
+          128.953,
+          "repeat, and explain to somebody else."
+        ],
+        [
+          129.254,
+          130.611,
+          "Before using a model like this in"
+        ],
+        [
+          130.649,
+          132.744,
+          "a meeting, write down where each assumption"
+        ],
+        [
+          132.899,
+          135.343,
+          "came from. A real visitor count, a"
+        ],
+        [
+          135.382,
+          137.67000000000002,
+          "historical conversion rate, and a guess about"
+        ],
+        [
+          137.748,
+          139.61,
+          "future order value should not be presented"
+        ],
+        [
+          139.725,
+          140.607,
+          "as equally certain."
+        ],
+        [
+          140.868,
+          143.466,
+          "The interface can make arithmetic faster, but"
+        ],
+        [
+          143.505,
+          145.639,
+          "the evidence behind the inputs still determines"
+        ],
+        [
+          145.755,
+          147.186,
+          "whether the discussion is useful."
+        ]
+      ]
+    },
+    "07-scenarios": {
+      "name": "07-scenarios",
+      "duration": 147.9,
+      "title": "Revenue: compare scenarios",
+      "captions": [
+        [
+          0.233,
+          1.939,
+          "Let\u2019s look at the scenario table rather"
+        ],
+        [
+          2.017,
+          3.451,
+          "than a single headline number."
+        ],
+        [
+          3.759,
+          6.435,
+          "In this example, the conservative scenario reduces"
+        ],
+        [
+          6.591,
+          9.112,
+          "the conversion assumption by twenty-five percent, the"
+        ],
+        [
+          9.151,
+          11.206,
+          "base case leaves it unchanged, and the"
+        ],
+        [
+          11.245,
+          13.553,
+          "stretch scenario increases it by twenty-five percent."
+        ],
+        [
+          13.844,
+          15.503,
+          "We are changing only conversion."
+        ],
+        [
+          15.765,
+          17.665,
+          "The other inputs stay fixed so that"
+        ],
+        [
+          17.743,
+          19.255,
+          "we can see exactly where the difference"
+        ],
+        [
+          19.372,
+          21.155,
+          "comes from. With a base conversion rate"
+        ],
+        [
+          21.272,
+          23.599,
+          "of two percent, those scenarios become one"
+        ],
+        [
+          23.638,
+          25.539,
+          "and a half percent, two percent, and"
+        ],
+        [
+          25.577,
+          26.535,
+          "two and a half percent."
+        ],
+        [
+          26.872,
+          28.579,
+          "That is a relative change of twenty-five"
+        ],
+        [
+          28.695,
+          30.945,
+          "percent, not an increase or decrease of"
+        ],
+        [
+          30.984,
+          32.419,
+          "twenty-five percentage points."
+        ],
+        [
+          32.768,
+          35.134,
+          "The distinction matters, because those two phrases"
+        ],
+        [
+          35.289,
+          37.101,
+          "describe very different calculations."
+        ],
+        [
+          37.438,
+          39.067,
+          "A good interface should make this assumption"
+        ],
+        [
+          39.3,
+          41.278,
+          "visible rather than hiding it behind attractive"
+        ],
+        [
+          41.473,
+          44.138,
+          "scenario names. Using our sample visitor count"
+        ],
+        [
+          44.332,
+          46.543,
+          "and order value, the revenue numbers become"
+        ],
+        [
+          46.775,
+          49.956,
+          "seventy-five thousand, one hundred thousand, and one"
+        ],
+        [
+          49.995,
+          51.795,
+          "hundred and twenty-five thousand dirhams."
+        ],
+        [
+          52.082,
+          53.905,
+          "After applying the same margin and fixed"
+        ],
+        [
+          53.983,
+          56.93,
+          "costs, the corresponding results are fifteen thousand,"
+        ],
+        [
+          57.202,
+          59.452,
+          "thirty thousand, and forty-five thousand."
+        ],
+        [
+          59.723,
+          61.042,
+          "Take a moment to compare the table"
+        ],
+        [
+          61.197,
+          62.349000000000004,
+          "with those calculations."
+        ],
+        [
+          62.725,
+          64.277,
+          "We want the numbers to be boringly"
+        ],
+        [
+          64.432,
+          67.341,
+          "consistent. Next, change the fixed costs while"
+        ],
+        [
+          67.419,
+          68.97,
+          "leaving the sales assumptions alone."
+        ],
+        [
+          69.16499999999999,
+          71.918,
+          "Revenue should remain unchanged, because fixed costs"
+        ],
+        [
+          72.035,
+          73.713,
+          "do not enter the revenue formula."
+        ],
+        [
+          73.956,
+          75.78,
+          "The amount left after costs should change"
+        ],
+        [
+          75.935,
+          77.68,
+          "by exactly the amount we added or"
+        ],
+        [
+          77.719,
+          80.24,
+          "removed. This is another valuable test because"
+        ],
+        [
+          80.279,
+          82.684,
+          "it checks the relationship between controls, not"
+        ],
+        [
+          82.762,
+          83.98400000000001,
+          "just one output value."
+        ],
+        [
+          84.235,
+          85.205,
+          "You can do the same with gross"
+        ],
+        [
+          85.283,
+          87.739,
+          "margin. Moving the margin slider should affect"
+        ],
+        [
+          87.816,
+          89.833,
+          "the result after costs, but it should"
+        ],
+        [
+          89.872,
+          91.503,
+          "not change the number of orders."
+        ],
+        [
+          91.815,
+          93.75399999999999,
+          "If everything on a dashboard moves whenever"
+        ],
+        [
+          93.87,
+          95.925,
+          "any slider changes, that may be a"
+        ],
+        [
+          95.965,
+          97.477,
+          "sign that the model is not separating"
+        ],
+        [
+          97.632,
+          98.738,
+          "its variables properly."
+        ],
+        [
+          98.951,
+          100.968,
+          "Understanding these relationships makes you a better"
+        ],
+        [
+          101.124,
+          102.55,
+          "reviewer of generated tools."
+        ],
+        [
+          102.813,
+          104.869,
+          "The export button turns the scenario table"
+        ],
+        [
+          105.024,
+          106.75,
+          "into a spreadsheet-friendly file."
+        ],
+        [
+          107.003,
+          108.90299999999999,
+          "Open that file and compare its rows"
+        ],
+        [
+          109.05799999999999,
+          110.62,
+          "with the screen before sharing it."
+        ],
+        [
+          110.864,
+          113.249,
+          "Include the assumptions in the surrounding discussion,"
+        ],
+        [
+          113.53999999999999,
+          115.82900000000001,
+          "because a table without context can easily"
+        ],
+        [
+          116.062,
+          117.61099999999999,
+          "be mistaken for a forecast."
+        ],
+        [
+          117.92,
+          119.161,
+          "You may also want the tool to"
+        ],
+        [
+          119.2,
+          121.294,
+          "export a timestamp and the input values"
+        ],
+        [
+          121.527,
+          123.389,
+          "so a teammate can reproduce the calculation"
+        ],
+        [
+          123.545,
+          125.715,
+          "later. One improvement I would request next"
+        ],
+        [
+          125.94800000000001,
+          128.89600000000002,
+          "is sensitivity analysis: show which assumption has"
+        ],
+        [
+          128.935,
+          130.796,
+          "the largest effect within a clearly defined"
+        ],
+        [
+          130.913,
+          132.643,
+          "range. But I would not ask the"
+        ],
+        [
+          132.682,
+          134.621,
+          "AI to invent a business stability score"
+        ],
+        [
+          134.737,
+          136.715,
+          "without defining what the score means and"
+        ],
+        [
+          136.755,
+          137.937,
+          "how it is validated."
+        ],
+        [
+          138.306,
+          140.362,
+          "More numbers do not automatically create more"
+        ],
+        [
+          140.4,
+          143.327,
+          "insight. A small model with visible assumptions"
+        ],
+        [
+          143.444,
+          145.267,
+          "is often more useful than a complicated"
+        ],
+        [
+          145.422,
+          147.749,
+          "dashboard whose reasoning nobody can explain."
+        ]
+      ]
+    },
+    "08-packaging": {
+      "name": "08-packaging",
+      "duration": 143.133333,
+      "title": "Packaging: explore the concept",
+      "captions": [
+        [
+          0.31,
+          2.288,
+          "Our fourth example moves from numbers to"
+        ],
+        [
+          2.327,
+          3.335,
+          "a product concept."
+        ],
+        [
+          3.685,
+          5.12,
+          "Imagine that you need to discuss packaging"
+        ],
+        [
+          5.275,
+          7.175,
+          "with a designer or supplier, but your"
+        ],
+        [
+          7.215,
+          9.154,
+          "ideas are scattered across messages and rough"
+        ],
+        [
+          9.27,
+          12.349,
+          "notes. A small interactive concept sheet can"
+        ],
+        [
+          12.387,
+          15.645,
+          "bring the dimensions, material choice, color, and"
+        ],
+        [
+          15.685,
+          16.867,
+          "review notes together."
+        ],
+        [
+          17.236,
+          18.982,
+          "The purpose is to improve the discussion,"
+        ],
+        [
+          19.175,
+          20.998,
+          "not to pretend that a generated drawing"
+        ],
+        [
+          21.115,
+          22.286,
+          "is ready to manufacture."
+        ],
+        [
+          22.487,
+          23.845,
+          "Start with the product name and the"
+        ],
+        [
+          23.884,
+          26.483,
+          "three dimensions. We use millimetres throughout the"
+        ],
+        [
+          26.522,
+          28.616,
+          "example, because mixing units is an easy"
+        ],
+        [
+          28.771,
+          30.002,
+          "way to create confusion."
+        ],
+        [
+          30.303,
+          32.009,
+          "Change the width and watch both the"
+        ],
+        [
+          32.048,
+          34.744,
+          "displayed specification and the drawing update."
+        ],
+        [
+          35.112,
+          37.478,
+          "The drawing is an illustrative unfolded arrangement"
+        ],
+        [
+          37.555,
+          39.805,
+          "of panels, and it is intentionally labelled"
+        ],
+        [
+          39.845,
+          40.61,
+          "as a concept."
+        ],
+        [
+          40.988,
+          43.471,
+          "It does not include every manufacturing detail"
+        ],
+        [
+          43.781,
+          45.72,
+          "a real packaging engineer would need."
+        ],
+        [
+          46.031,
+          47.537,
+          "That limitation is important."
+        ],
+        [
+          47.92,
+          50.208,
+          "A production dieline may need material thickness,"
+        ],
+        [
+          50.403,
+          54.514,
+          "fold allowances, glue tabs, tolerances, bleed, safety"
+        ],
+        [
+          54.708,
+          57.072,
+          "margins, and supplier-specific requirements."
+        ],
+        [
+          57.341,
+          58.97,
+          "You cannot assume those details are correct"
+        ],
+        [
+          59.242,
+          61.104,
+          "simply because a shape appears on screen."
+        ],
+        [
+          61.414,
+          62.888,
+          "The useful output here is a clear"
+        ],
+        [
+          62.965,
+          64.594,
+          "starting point that makes it easier to"
+        ],
+        [
+          64.634,
+          66.832,
+          "ask the right questions and compare alternatives."
+        ],
+        [
+          67.13,
+          68.643,
+          "Now try a different product name and"
+        ],
+        [
+          68.681,
+          70.659,
+          "brand color. These are quick ways to"
+        ],
+        [
+          70.69800000000001,
+          72.754,
+          "explore the visual direction without asking for"
+        ],
+        [
+          72.793,
+          74.359,
+          "a new static image every time."
+        ],
+        [
+          74.646,
+          76.973,
+          "The interface gives you immediate feedback, and"
+        ],
+        [
+          77.012,
+          78.60300000000001,
+          "you can keep the dimensions visible while"
+        ],
+        [
+          78.64099999999999,
+          80.89099999999999,
+          "you experiment. That is helpful because a"
+        ],
+        [
+          80.929,
+          83.8,
+          "design conversation often combines appearance and practical"
+        ],
+        [
+          83.916,
+          86.07300000000001,
+          "constraints. The bill of materials is also"
+        ],
+        [
+          86.267,
+          88.827,
+          "deliberately modest. It records the selected board"
+        ],
+        [
+          88.905,
+          91.465,
+          "description, a simple print assumption, and an"
+        ],
+        [
+          91.504,
+          93.13300000000001,
+          "insert that still needs to be specified"
+        ],
+        [
+          93.405,
+          95.805,
+          "and tested. A placeholder is better than"
+        ],
+        [
+          95.845,
+          97.745,
+          "an invented material specification."
+        ],
+        [
+          98.094,
+          99.025,
+          "If you do not know the answer"
+        ],
+        [
+          99.219,
+          101.468,
+          "yet, make that uncertainty visible so somebody"
+        ],
+        [
+          101.663,
+          103.15299999999999,
+          "can resolve it before production."
+        ],
+        [
+          103.47800000000001,
+          105.263,
+          "For a real project, I would add"
+        ],
+        [
+          105.34,
+          107.357,
+          "constraints from the actual product and shipping"
+        ],
+        [
+          107.513,
+          109.491,
+          "process. Does the package need to protect"
+        ],
+        [
+          109.72399999999999,
+          111.644,
+          "fragile parts? Will it be stacked?"
+        ],
+        [
+          111.89500000000001,
+          112.904,
+          "Does it need to fit a specific"
+        ],
+        [
+          113.098,
+          115.87100000000001,
+          "mailing format? What is the expected quantity?"
+        ],
+        [
+          116.181,
+          118.315,
+          "Those questions determine which features belong in"
+        ],
+        [
+          118.354,
+          119.634,
+          "the next version of the tool."
+        ],
+        [
+          119.905,
+          121.301,
+          "They should come from the project rather"
+        ],
+        [
+          121.417,
+          122.891,
+          "than from a model guessing what packaging"
+        ],
+        [
+          123.046,
+          123.966,
+          "usually looks like."
+        ],
+        [
+          124.227,
+          125.275,
+          "The pattern is the same as the"
+        ],
+        [
+          125.314,
+          127.757,
+          "earlier examples. We identify the inputs that"
+        ],
+        [
+          127.796,
+          130.434,
+          "people keep changing, provide useful feedback, and"
+        ],
+        [
+          130.473,
+          132.024,
+          "prepare an output that supports the next"
+        ],
+        [
+          132.14,
+          134.225,
+          "action. In this case, the next action"
+        ],
+        [
+          134.42,
+          136.048,
+          "is a review with the right person."
+        ],
+        [
+          136.436,
+          137.755,
+          "We will add a simple review state"
+        ],
+        [
+          137.911,
+          139.85,
+          "and a printable handoff, while keeping the"
+        ],
+        [
+          139.888,
+          142.216,
+          "boundary between concept review and production approval"
+        ],
+        [
+          142.371,
+          142.98,
+          "explicit."
+        ]
+      ]
+    },
+    "09-review-handoff": {
+      "name": "09-review-handoff",
+      "duration": 138.9,
+      "title": "Packaging: review and handoff",
+      "captions": [
+        [
+          0.272,
+          1.881,
+          "Let\u2019s make the review step visible."
+        ],
+        [
+          2.25,
+          4.189,
+          "Enter the reviewer\u2019s name and mark the"
+        ],
+        [
+          4.228,
+          5.857,
+          "concept as reviewed for discussion."
+        ],
+        [
+          6.09,
+          7.071,
+          "The wording matters."
+        ],
+        [
+          7.355,
+          9.449,
+          "This checkbox records a small local state"
+        ],
+        [
+          9.565,
+          11.001,
+          "in the example; it is not a"
+        ],
+        [
+          11.04,
+          13.755,
+          "digital signature, a supplier approval, or an"
+        ],
+        [
+          13.794,
+          16.276,
+          "audit trail. Calling it approved for production"
+        ],
+        [
+          16.509,
+          18.06,
+          "would make a much stronger claim than"
+        ],
+        [
+          18.099,
+          19.059,
+          "the tool can support."
+        ],
+        [
+          19.398,
+          20.989,
+          "Try checking the box without a reviewer"
+        ],
+        [
+          21.066,
+          23.471,
+          "name. The status should remain pending, because"
+        ],
+        [
+          23.51,
+          25.333,
+          "a review with no identified reviewer is"
+        ],
+        [
+          25.372,
+          26.555,
+          "not a useful handoff."
+        ],
+        [
+          26.885,
+          28.125,
+          "Then enter a name and check the"
+        ],
+        [
+          28.165,
+          30.513,
+          "status again. These simple conditions are part"
+        ],
+        [
+          30.552,
+          32.22,
+          "of the behavior we asked for, and"
+        ],
+        [
+          32.259,
+          33.694,
+          "they are worth testing before we show"
+        ],
+        [
+          33.733,
+          34.935,
+          "the tool to somebody else."
+        ],
+        [
+          35.245,
+          36.875,
+          "There is another important edge case."
+        ],
+        [
+          37.107,
+          38.969,
+          "What should happen if the dimensions change"
+        ],
+        [
+          39.163,
+          39.873,
+          "after the review?"
+        ],
+        [
+          40.156,
+          42.251,
+          "In a production workflow, the previous review"
+        ],
+        [
+          42.445,
+          44.074,
+          "should no longer imply approval of the"
+        ],
+        [
+          44.113,
+          46.207,
+          "changed specification. You would want a revision"
+        ],
+        [
+          46.363,
+          48.457,
+          "number, a review date, and a clear"
+        ],
+        [
+          48.535,
+          50.203,
+          "way to invalidate the old review when"
+        ],
+        [
+          50.28,
+          51.491,
+          "relevant inputs change."
+        ],
+        [
+          51.771,
+          54.021,
+          "Our simple concept tool demonstrates the starting"
+        ],
+        [
+          54.175,
+          55.999,
+          "point, and those are the next requirements"
+        ],
+        [
+          56.115,
+          57.395,
+          "I would add before relying on it"
+        ],
+        [
+          57.435,
+          58.113,
+          "with a team."
+        ],
+        [
+          58.443,
+          59.839,
+          "The print button lets you use the"
+        ],
+        [
+          59.877,
+          61.739,
+          "browser\u2019s print workflow to save a concept"
+        ],
+        [
+          61.934,
+          64.357,
+          "sheet. Check the resulting document rather than"
+        ],
+        [
+          64.396,
+          66.374,
+          "assuming that a good screen layout guarantees"
+        ],
+        [
+          66.413,
+          67.655,
+          "a good printed page."
+        ],
+        [
+          68.081,
+          70.83500000000001,
+          "Look for clipped labels, missing dimensions, tiny"
+        ],
+        [
+          70.951,
+          73.007,
+          "text, and content that lands on an"
+        ],
+        [
+          73.08500000000001,
+          74.469,
+          "unexpected second page."
+        ],
+        [
+          74.768,
+          76.436,
+          "A handoff is only useful if the"
+        ],
+        [
+          76.475,
+          78.026,
+          "recipient can actually read it."
+        ],
+        [
+          78.375,
+          79.616,
+          "You can also use this moment to"
+        ],
+        [
+          79.655,
+          81.905,
+          "simplify. Not every control needs to appear"
+        ],
+        [
+          81.983,
+          83.215,
+          "in the exported sheet."
+        ],
+        [
+          83.555,
+          85.805,
+          "The recipient probably needs the product name,"
+        ],
+        [
+          86.037,
+          90.497,
+          "dimensions, material notes, revision, review status, and"
+        ],
+        [
+          90.536,
+          91.622,
+          "the concept drawing."
+        ],
+        [
+          91.971,
+          93.562,
+          "They do not necessarily need the editing"
+        ],
+        [
+          93.71600000000001,
+          95.462,
+          "controls or the prompt used to build"
+        ],
+        [
+          95.53999999999999,
+          97.765,
+          "the app. Good outputs are designed around"
+        ],
+        [
+          97.843,
+          99.2,
+          "the person who receives them."
+        ],
+        [
+          99.47200000000001,
+          100.713,
+          "This is why I like asking for"
+        ],
+        [
+          100.75200000000001,
+          102.256,
+          "the export requirements early."
+        ],
+        [
+          102.55799999999999,
+          104.148,
+          "If the eventual output is a printable"
+        ],
+        [
+          104.265,
+          107.096,
+          "specification, that shapes the interface differently from"
+        ],
+        [
+          107.13499999999999,
+          108.45400000000001,
+          "a tool whose output is a message"
+        ],
+        [
+          108.803,
+          109.773,
+          "or a spreadsheet."
+        ],
+        [
+          110.122,
+          111.86699999999999,
+          "The final handoff should not feel like"
+        ],
+        [
+          111.945,
+          113.793,
+          "an afterthought attached to a pretty page."
+        ],
+        [
+          114.088,
+          116.18299999999999,
+          "Before moving on, notice how the four"
+        ],
+        [
+          116.299,
+          118.00399999999999,
+          "examples have different outputs."
+        ],
+        [
+          118.311,
+          120.91,
+          "The newsletter produces content files, the task"
+        ],
+        [
+          121.026,
+          123.315,
+          "board produces a draft message, the model"
+        ],
+        [
+          123.47,
+          125.681,
+          "produces a scenario table, and the packaging"
+        ],
+        [
+          125.836,
+          127.524,
+          "tool produces a concept sheet."
+        ],
+        [
+          127.815,
+          129.211,
+          "They share a method, but they are"
+        ],
+        [
+          129.249,
+          130.288,
+          "not all the same app."
+        ],
+        [
+          130.551,
+          131.985,
+          "Start from the work and choose the"
+        ],
+        [
+          132.025,
+          134.138,
+          "interface that helps that work move forward."
+        ],
+        [
+          134.429,
+          136.524,
+          "Next, we\u2019ll apply the same thinking to"
+        ],
+        [
+          136.563,
+          138.762,
+          "choosing ideas and preparing a presentation."
+        ]
+      ]
+    },
+    "11-presentation": {
+      "name": "11-presentation",
+      "duration": 147.933333,
+      "title": "Bonus: prepare a presentation",
+      "captions": [
+        [
+          0.233,
+          2.095,
+          "Once an idea is selected, the next"
+        ],
+        [
+          2.25,
+          4.364,
+          "request should describe the presentation\u2019s job."
+        ],
+        [
+          4.577,
+          6.322,
+          "Do not start with make a beautiful"
+        ],
+        [
+          6.516,
+          8.027,
+          "deck and hope the story appears."
+        ],
+        [
+          8.258,
+          10.042,
+          "Start with the audience, the decision you"
+        ],
+        [
+          10.081,
+          11.555,
+          "want them to make, the evidence you"
+        ],
+        [
+          11.594,
+          13.455,
+          "have, and the information that is still"
+        ],
+        [
+          13.533,
+          15.744,
+          "uncertain. Design can make that story easier"
+        ],
+        [
+          15.938,
+          18.071,
+          "to understand, but it cannot supply missing"
+        ],
+        [
+          18.226,
+          20.654,
+          "evidence. For this example, we use a"
+        ],
+        [
+          20.693,
+          24.552,
+          "six-part structure. First, describe the audience\u2019s problem."
+        ],
+        [
+          24.882,
+          27.247,
+          "Second, explain the proposed approach."
+        ],
+        [
+          27.519,
+          29.749,
+          "Third, show a concrete example."
+        ],
+        [
+          30.079,
+          32.639,
+          "Fourth, identify the evidence needed to judge"
+        ],
+        [
+          32.755,
+          35.577,
+          "the proposal. Fifth, describe the next steps."
+        ],
+        [
+          35.907,
+          37.924,
+          "Finally, state the decision you are asking"
+        ],
+        [
+          38.08,
+          40.174,
+          "for. This is a practical outline, not"
+        ],
+        [
+          40.213,
+          42.191,
+          "a universal formula, and you should change"
+        ],
+        [
+          42.307,
+          43.471,
+          "it if your audience needs a different"
+        ],
+        [
+          43.626,
+          46.166,
+          "sequence. Take our selected idea about turning"
+        ],
+        [
+          46.283,
+          48.067,
+          "meeting notes into reviewed actions."
+        ],
+        [
+          48.533,
+          50.123,
+          "The problem is not simply that meetings"
+        ],
+        [
+          50.2,
+          52.489,
+          "exist. The problem is that decisions and"
+        ],
+        [
+          52.527,
+          54.981,
+          "responsibilities can become unclear afterward."
+        ],
+        [
+          55.223,
+          57.201,
+          "The proposed approach is a small workflow"
+        ],
+        [
+          57.317,
+          59.295,
+          "that extracts a draft, asks a person"
+        ],
+        [
+          59.451,
+          61.157,
+          "to review it, and produces a usable"
+        ],
+        [
+          61.313,
+          63.593,
+          "handoff. The example should show what that"
+        ],
+        [
+          63.632,
+          66.27,
+          "handoff looks like, using sample information rather"
+        ],
+        [
+          66.386,
+          67.744,
+          "than private meeting notes."
+        ],
+        [
+          68.132,
+          69.722,
+          "The evidence slide is where we resist"
+        ],
+        [
+          69.838,
+          71.884,
+          "the temptation to invent a success story."
+        ],
+        [
+          72.145,
+          73.734,
+          "If we have not measured time saved"
+        ],
+        [
+          73.889,
+          75.596,
+          "or error rates, those are things to"
+        ],
+        [
+          75.635,
+          77.845,
+          "test. We can propose a small trial"
+        ],
+        [
+          77.962,
+          79.94,
+          "and define what we would observe, but"
+        ],
+        [
+          79.979,
+          81.763,
+          "we should not present imagined results as"
+        ],
+        [
+          81.803,
+          84.495,
+          "facts. A credible proposal makes the boundary"
+        ],
+        [
+          84.572,
+          87.015,
+          "between evidence and assumption easy to see."
+        ],
+        [
+          87.326,
+          89.375,
+          "The next steps should also be concrete."
+        ],
+        [
+          89.679,
+          91.89,
+          "Choose a small pilot, identify who reviews"
+        ],
+        [
+          91.968,
+          94.217,
+          "the output, decide where the reviewed actions"
+        ],
+        [
+          94.45,
+          96.506,
+          "go, and agree on how to evaluate"
+        ],
+        [
+          96.545,
+          98.626,
+          "the result. Then the final decision can"
+        ],
+        [
+          98.66499999999999,
+          101.148,
+          "be specific: approve the pilot, choose an"
+        ],
+        [
+          101.186,
+          103.455,
+          "owner, or resolve a particular question."
+        ],
+        [
+          103.863,
+          105.453,
+          "A presentation that ends with a vague"
+        ],
+        [
+          105.608,
+          107.354,
+          "thank you may leave the audience unsure"
+        ],
+        [
+          107.431,
+          108.354,
+          "what happens next."
+        ],
+        [
+          108.616,
+          110.44,
+          "Our tutorial tool lets you inspect that"
+        ],
+        [
+          110.47800000000001,
+          112.22399999999999,
+          "outline and export the content for a"
+        ],
+        [
+          112.263,
+          114.86099999999999,
+          "presentation workflow. When a real slide file"
+        ],
+        [
+          114.939,
+          116.84,
+          "is created, open it in the application"
+        ],
+        [
+          117.07300000000001,
+          118.468,
+          "where it will be presented and check"
+        ],
+        [
+          118.507,
+          119.581,
+          "the actual slides."
+        ],
+        [
+          119.87899999999999,
+          121.702,
+          "Confirm that the text is readable, the"
+        ],
+        [
+          121.741,
+          123.913,
+          "content is editable where needed, and nothing"
+        ],
+        [
+          124.068,
+          125.155,
+          "runs off the edges."
+        ],
+        [
+          125.426,
+          127.288,
+          "A successful export message is not a"
+        ],
+        [
+          127.326,
+          129.576,
+          "visual review. The larger lesson is that"
+        ],
+        [
+          129.615,
+          131.368,
+          "interfaces should connect steps."
+        ],
+        [
+          131.686,
+          133.975,
+          "Idea selection leads to a shortlist, the"
+        ],
+        [
+          134.014,
+          136.069,
+          "shortlist leads to an outline, and the"
+        ],
+        [
+          136.108,
+          137.543,
+          "outline leads to a decision."
+        ],
+        [
+          137.815,
+          139.444,
+          "You can automate parts of that chain"
+        ],
+        [
+          139.599,
+          141.422,
+          "without surrendering the judgment that makes the"
+        ],
+        [
+          141.461,
+          143.72899999999998,
+          "result useful. Keep the human review at"
+        ],
+        [
+          143.768,
+          146.677,
+          "the points where context, evidence, and responsibility"
+        ],
+        [
+          146.871,
+          147.60399999999998,
+          "matter most."
+        ]
+      ]
+    },
+    "12-building-better": {
+      "name": "12-building-better",
+      "duration": 145.466667,
+      "title": "Build better tools",
+      "captions": [
+        [
+          0.272,
+          1.706,
+          "Let\u2019s bring the method together so you"
+        ],
+        [
+          1.745,
+          3.181,
+          "can use it on your own task."
+        ],
+        [
+          3.53,
+          5.314,
+          "Start by describing the repeated work in"
+        ],
+        [
+          5.353,
+          8.184,
+          "plain language. Who performs it, what information"
+        ],
+        [
+          8.339,
+          10.046,
+          "do they begin with, and what usable"
+        ],
+        [
+          10.201,
+          11.684,
+          "result should exist at the end?"
+        ],
+        [
+          11.964,
+          13.825,
+          "If you cannot answer those questions yet,"
+        ],
+        [
+          13.981,
+          16.075,
+          "a more elaborate interface probably will not"
+        ],
+        [
+          16.114,
+          17.258,
+          "solve the uncertainty."
+        ],
+        [
+          17.587,
+          19.1,
+          "A small written example is a good"
+        ],
+        [
+          19.139,
+          20.051,
+          "place to start."
+        ],
+        [
+          20.381,
+          22.425,
+          "Then identify the inputs that change."
+        ],
+        [
+          22.723,
+          24.759,
+          "In our newsletter, the text changes."
+        ],
+        [
+          25.089,
+          26.99,
+          "In the task board, the assignments and"
+        ],
+        [
+          27.029,
+          29.355,
+          "estimates change. In the revenue model, the"
+        ],
+        [
+          29.395,
+          32.032,
+          "assumptions change. In the packaging concept, the"
+        ],
+        [
+          32.071,
+          34.134,
+          "dimensions and material notes change."
+        ],
+        [
+          34.412,
+          36.623,
+          "Those variables are strong candidates for controls"
+        ],
+        [
+          36.816,
+          38.096,
+          "because you are likely to adjust them"
+        ],
+        [
+          38.135,
+          41.045,
+          "repeatedly. Next, specify the output."
+        ],
+        [
+          41.277,
+          42.906,
+          "Be concrete about the format and the"
+        ],
+        [
+          42.945,
+          43.94,
+          "person receiving it."
+        ],
+        [
+          44.199,
+          46.72,
+          "A downloadable file, a reviewed message, a"
+        ],
+        [
+          46.759,
+          48.97,
+          "scenario table, and a printable sheet have"
+        ],
+        [
+          49.047,
+          51.646,
+          "different requirements. Ask for a working output,"
+        ],
+        [
+          51.763,
+          53.134,
+          "then test the actual result."
+        ],
+        [
+          53.456,
+          55.59,
+          "This single habit catches many problems that"
+        ],
+        [
+          55.667,
+          57.103,
+          "remain invisible when you only look at"
+        ],
+        [
+          57.141,
+          59.352,
+          "the page. After that, write two or"
+        ],
+        [
+          59.391,
+          60.38,
+          "three small checks."
+        ],
+        [
+          60.671,
+          62.921,
+          "Use examples whose answers you already know."
+        ],
+        [
+          63.192,
+          65.039,
+          "Ten words should count as ten words."
+        ],
+        [
+          65.335,
+          67.623,
+          "Moving a thirty-minute task should transfer thirty"
+        ],
+        [
+          67.74,
+          69.0,
+          "minutes between columns."
+        ],
+        [
+          69.292,
+          71.075,
+          "Two percent of twenty thousand should produce"
+        ],
+        [
+          71.19200000000001,
+          73.286,
+          "four hundred. A review without a reviewer"
+        ],
+        [
+          73.481,
+          74.345,
+          "should stay pending."
+        ],
+        [
+          74.627,
+          76.451,
+          "These checks turn a vague judgment about"
+        ],
+        [
+          76.52799999999999,
+          78.118,
+          "whether the app feels right into something"
+        ],
+        [
+          78.274,
+          80.601,
+          "more concrete. When you request a change,"
+        ],
+        [
+          80.834,
+          82.967,
+          "describe the current behavior and the desired"
+        ],
+        [
+          83.084,
+          85.39099999999999,
+          "behavior. For example, say that the review"
+        ],
+        [
+          85.58500000000001,
+          87.912,
+          "remains checked after the dimensions change, and"
+        ],
+        [
+          87.951,
+          89.987,
+          "ask for changes to invalidate that review."
+        ],
+        [
+          90.31700000000001,
+          91.674,
+          "That is easier to act on than"
+        ],
+        [
+          91.714,
+          93.315,
+          "saying make the app smarter."
+        ],
+        [
+          93.521,
+          94.568,
+          "If a build is going in the"
+        ],
+        [
+          94.607,
+          96.856,
+          "wrong direction, steer it toward the requirement"
+        ],
+        [
+          96.935,
+          98.83500000000001,
+          "you actually need instead of letting unnecessary"
+        ],
+        [
+          99.106,
+          101.201,
+          "features accumulate. Keep a copy of the"
+        ],
+        [
+          101.24000000000001,
+          103.155,
+          "working version before a major change."
+        ],
+        [
+          103.47999999999999,
+          104.60499999999999,
+          "You want to be able to compare"
+        ],
+        [
+          104.72200000000001,
+          106.60300000000001,
+          "the new behavior with the previous result."
+        ],
+        [
+          106.85499999999999,
+          108.6,
+          "A local project with version history is"
+        ],
+        [
+          108.63900000000001,
+          110.501,
+          "useful for this, while a web artifact"
+        ],
+        [
+          110.61699999999999,
+          112.285,
+          "can be convenient for quickly exploring an"
+        ],
+        [
+          112.324,
+          114.44,
+          "idea. Choose the environment according to the"
+        ],
+        [
+          114.479,
+          116.069,
+          "work, and do not assume that a"
+        ],
+        [
+          116.108,
+          117.737,
+          "workflow is better merely because it looks"
+        ],
+        [
+          117.854,
+          120.685,
+          "more technical. Finally, decide when the tool"
+        ],
+        [
+          120.724,
+          122.418,
+          "is good enough for its intended use."
+        ],
+        [
+          122.677,
+          124.966,
+          "A personal prototype with sample data has"
+        ],
+        [
+          125.005,
+          127.215,
+          "different requirements from a team tool that"
+        ],
+        [
+          127.294,
+          129.781,
+          "stores customer information or sends messages."
+        ],
+        [
+          130.135,
+          133.122,
+          "Add the necessary permissions, storage rules, error"
+        ],
+        [
+          133.161,
+          135.526,
+          "handling, and review steps before expanding its"
+        ],
+        [
+          135.605,
+          138.97899999999998,
+          "responsibility. Small useful tools are powerful precisely"
+        ],
+        [
+          139.095,
+          140.329,
+          "because you can understand them."
+        ],
+        [
+          140.554,
+          142.648,
+          "Preserve that clarity as they grow, and"
+        ],
+        [
+          142.687,
+          144.355,
+          "let the next real problem guide the"
+        ],
+        [
+          144.394,
+          145.325,
+          "next improvement."
+        ]
+      ]
+    },
+    "p-opening": {
+      "name": "p-opening",
+      "duration": 18.4,
+      "title": "Build tools with AI",
+      "captions": [
+        [
+          0.24,
+          1.12,
+          "What if the answer from"
+        ],
+        [
+          1.16,
+          2.14,
+          "your AI was something"
+        ],
+        [
+          2.18,
+          3.08,
+          "you could actually use?"
+        ],
+        [
+          3.38,
+          4.06,
+          "Instead of copying"
+        ],
+        [
+          4.1,
+          4.98,
+          "another wall of text,"
+        ],
+        [
+          5.3,
+          6.1,
+          "imagine editing your"
+        ],
+        [
+          6.16,
+          7.32,
+          "newsletter, moving tasks"
+        ],
+        [
+          7.38,
+          8.32,
+          "around, testing business"
+        ],
+        [
+          8.38,
+          9.38,
+          "assumptions, and"
+        ],
+        [
+          9.42,
+          10.08,
+          "reviewing a product"
+        ],
+        [
+          10.12,
+          10.84,
+          "concept right on the"
+        ],
+        [
+          10.9,
+          11.22,
+          "screen."
+        ],
+        [
+          11.56,
+          12.32,
+          "In this tutorial, I\u2019m"
+        ],
+        [
+          12.36,
+          12.92,
+          "going to walk you"
+        ],
+        [
+          12.94,
+          13.74,
+          "through those workflows"
+        ],
+        [
+          14.06,
+          14.7,
+          "using practical"
+        ],
+        [
+          14.76,
+          15.9,
+          "examples, and I\u2019ll show"
+        ],
+        [
+          15.94,
+          16.6,
+          "you how to check that"
+        ],
+        [
+          16.64,
+          17.5,
+          "the tools work before"
+        ],
+        [
+          17.54,
+          18.08,
+          "you trust them."
+        ]
+      ]
+    },
+    "p-newsletter": {
+      "name": "p-newsletter",
+      "duration": 6.533008,
+      "title": "Edit. Preview. Export.",
+      "captions": [
+        [
+          0.12,
+          0.78,
+          "Let\u2019s start with a"
+        ],
+        [
+          0.82,
+          1.58,
+          "newsletter editor,"
+        ],
+        [
+          1.66,
+          2.46,
+          "because it gives us a"
+        ],
+        [
+          2.5,
+          3.58,
+          "simple way to understand"
+        ],
+        [
+          3.68,
+          4.82,
+          "inputs, live feedback,"
+        ],
+        [
+          5.22,
+          6.24,
+          "and a useful export."
+        ]
+      ]
+    },
+    "p-tasks": {
+      "name": "p-tasks",
+      "duration": 6.133008,
+      "title": "Decide what happens next",
+      "captions": [
+        [
+          0.11,
+          1.11,
+          "Now let\u2019s apply the same"
+        ],
+        [
+          1.19,
+          2.21,
+          "idea to a task list,"
+        ],
+        [
+          2.31,
+          3.07,
+          "where the goal is to"
+        ],
+        [
+          3.13,
+          4.23,
+          "decide what happens next"
+        ],
+        [
+          4.55,
+          5.45,
+          "and make delegation"
+        ],
+        [
+          5.49,
+          5.81,
+          "easier."
+        ]
+      ]
+    },
+    "p-revenue": {
+      "name": "p-revenue",
+      "duration": 6.3,
+      "title": "Make assumptions visible",
+      "captions": [
+        [
+          0.14,
+          0.84,
+          "Next, we\u2019ll build a"
+        ],
+        [
+          0.88,
+          1.72,
+          "transparent revenue"
+        ],
+        [
+          1.8,
+          2.76,
+          "model, change the"
+        ],
+        [
+          2.8,
+          3.62,
+          "assumptions, and check"
+        ],
+        [
+          3.66,
+          4.52,
+          "the calculations with"
+        ],
+        [
+          4.56,
+          5.52,
+          "numbers we can verify"
+        ],
+        [
+          5.58,
+          6.02,
+          "ourselves."
+        ]
+      ]
+    },
+    "p-packaging": {
+      "name": "p-packaging",
+      "duration": 8.6,
+      "title": "Explore before production",
+      "captions": [
+        [
+          0.1,
+          1.06,
+          "Our fourth example is a"
+        ],
+        [
+          1.12,
+          2.2,
+          "packaging concept, where"
+        ],
+        [
+          2.26,
+          3.52,
+          "a useful interface helps"
+        ],
+        [
+          3.58,
+          4.66,
+          "us explore ideas and"
+        ],
+        [
+          4.72,
+          5.66,
+          "prepare a clear review,"
+        ],
+        [
+          6.06,
+          6.92,
+          "without pretending the"
+        ],
+        [
+          6.94,
+          7.74,
+          "result is ready for"
+        ],
+        [
+          7.78,
+          8.36,
+          "manufacturing."
+        ]
+      ]
+    },
+    "p-bonus": {
+      "name": "p-bonus",
+      "duration": 7.066016,
+      "title": "From ideas to decisions",
+      "captions": [
+        [
+          0.08,
+          1.0,
+          "Finally, we\u2019ll look at"
+        ],
+        [
+          1.04,
+          2.04,
+          "how to turn these small"
+        ],
+        [
+          2.14,
+          3.18,
+          "tools into a repeatable"
+        ],
+        [
+          3.26,
+          3.84,
+          "way of working,"
+        ],
+        [
+          4.32,
+          5.56,
+          "including idea selection"
+        ],
+        [
+          5.58,
+          6.38,
+          "and a presentation"
+        ],
+        [
+          6.42,
+          6.82,
+          "handoff."
+        ]
+      ]
+    },
+    "p-closing": {
+      "name": "p-closing",
+      "duration": 11.0,
+      "title": "Build one useful tool",
+      "captions": [
+        [
+          0.03,
+          1.19,
+          "Pick one task you repeat"
+        ],
+        [
+          1.25,
+          2.25,
+          "every week, give it a"
+        ],
+        [
+          2.29,
+          3.51,
+          "clear input and a useful"
+        ],
+        [
+          3.61,
+          4.79,
+          "output, and test the"
+        ],
+        [
+          4.85,
+          5.85,
+          "smallest version first."
+        ],
+        [
+          6.39,
+          7.41,
+          "The working examples and"
+        ],
+        [
+          7.49,
+          8.35,
+          "prompts will accompany"
+        ],
+        [
+          8.41,
+          9.27,
+          "this tutorial, so you"
+        ],
+        [
+          9.31,
+          10.13,
+          "can adapt them to your"
+        ],
+        [
+          10.17,
+          10.75,
+          "own workflow."
+        ]
+      ]
+    },
+    "10-ideas": {
+      "name": "10-ideas",
+      "duration": 137.7,
+      "title": "Bonus: choose an idea",
+      "captions": [
+        [
+          0.31,
+          2.017,
+          "The bonus example is about making a"
+        ],
+        [
+          2.0554545454545456,
+          3.53,
+          "decision from a list of ideas."
+        ],
+        [
+          3.9172727272727275,
+          5.352727272727273,
+          "A chat can give you many possible"
+        ],
+        [
+          5.546363636363636,
+          8.571818181818182,
+          "titles, topics, or book concepts, but a"
+        ],
+        [
+          8.61090909090909,
+          10.007272727272726,
+          "long list is not the same as"
+        ],
+        [
+          10.046363636363637,
+          12.159999999999998,
+          "a choice. Once you have the candidates,"
+        ],
+        [
+          12.353636363636364,
+          13.672454545454546,
+          "it can be more useful to give"
+        ],
+        [
+          13.75,
+          16.116363636363637,
+          "each one a clear decision: keep it,"
+        ],
+        [
+          16.27090909090909,
+          17.997272727272726,
+          "revisit it, or reject it."
+        ],
+        [
+          18.21090909090909,
+          19.80090909090909,
+          "The interface helps you compare the options"
+        ],
+        [
+          20.11090909090909,
+          21.313636363636363,
+          "and keep a record of what you"
+        ],
+        [
+          21.35272727272727,
+          24.133636363636363,
+          "decided. For this demonstration, the ideas are"
+        ],
+        [
+          24.172727272727272,
+          25.78272727272727,
+          "sample entries that you can edit."
+        ],
+        [
+          26.073636363636364,
+          27.663636363636364,
+          "The local tool is not secretly calling"
+        ],
+        [
+          27.819090909090907,
+          29.097272727272724,
+          "a model every time you click."
+        ],
+        [
+          29.368181818181817,
+          30.996999999999996,
+          "If you want fresh ideas, you can"
+        ],
+        [
+          31.03545454545455,
+          32.89727272727272,
+          "ask an AI to generate candidates using"
+        ],
+        [
+          33.05272727272727,
+          36.66,
+          "your audience, goals, constraints, and examples, then"
+        ],
+        [
+          36.737272727272725,
+          38.654545454545456,
+          "bring the candidates into the decision tool."
+        ],
+        [
+          38.90272727272727,
+          41.307272727272725,
+          "Separating generation from selection makes it easier"
+        ],
+        [
+          41.54,
+          42.62627272727273,
+          "to see which part of the process"
+        ],
+        [
+          42.85909090909091,
+          44.992363636363635,
+          "needs improvement. Start with an idea that"
+        ],
+        [
+          45.03090909090909,
+          46.699090909090906,
+          "has a specific audience and outcome."
+        ],
+        [
+          46.89272727272727,
+          49.057272727272725,
+          "A title like practical AI is broad."
+        ],
+        [
+          49.32090909090909,
+          51.10545454545454,
+          "A concept about helping a small service"
+        ],
+        [
+          51.26090909090909,
+          53.277272727272724,
+          "business turn meeting notes into reviewed action"
+        ],
+        [
+          53.47181818181818,
+          55.56636363636363,
+          "lists gives us more to evaluate."
+        ],
+        [
+          55.837272727272726,
+          57.17545454545454,
+          "We can ask who would use it,"
+        ],
+        [
+          57.31181818181818,
+          59.289636363636355,
+          "what problem it addresses, and what evidence"
+        ],
+        [
+          59.522727272727266,
+          61.01818181818182,
+          "we have that the problem matters."
+        ],
+        [
+          61.310909090909085,
+          62.97909090909091,
+          "The best choice is not necessarily the"
+        ],
+        [
+          63.01818181818181,
+          64.5109090909091,
+          "one with the most dramatic title."
+        ],
+        [
+          64.8409090909091,
+          66.74163636363636,
+          "Now keep one idea, mark another for"
+        ],
+        [
+          66.78,
+          68.52545454545454,
+          "later, and reject one that does not"
+        ],
+        [
+          68.60363636363635,
+          69.34,
+          "fit the audience."
+        ],
+        [
+          69.68909090909091,
+          71.6209090909091,
+          "The selected list should update immediately."
+        ],
+        [
+          71.92363636363636,
+          73.66909090909091,
+          "You can use a swipe-style interaction if"
+        ],
+        [
+          73.70727272727272,
+          75.80181818181818,
+          "it is convenient, but visible buttons are"
+        ],
+        [
+          75.88,
+          78.40081818181818,
+          "important too. They make the choices understandable"
+        ],
+        [
+          78.55636363636364,
+          80.33272727272727,
+          "and easier to use with a keyboard."
+        ],
+        [
+          80.59636363636363,
+          82.53599999999999,
+          "An interaction should help the decision rather"
+        ],
+        [
+          82.65272727272728,
+          84.47545454545454,
+          "than making the tool harder to operate."
+        ],
+        [
+          84.78545454545454,
+          86.14327272727272,
+          "The useful next step is to add"
+        ],
+        [
+          86.18181818181817,
+          87.92727272727272,
+          "a reason. Perhaps we kept an idea"
+        ],
+        [
+          88.23818181818181,
+          89.55636363636363,
+          "because we can demonstrate it with real"
+        ],
+        [
+          89.63454545454545,
+          92.25363636363636,
+          "examples. Perhaps we postponed another because the"
+        ],
+        [
+          92.29272727272728,
+          93.82454545454544,
+          "supporting research is incomplete."
+        ],
+        [
+          94.23181818181818,
+          96.09363636363636,
+          "Those notes stop the shortlist from becoming"
+        ],
+        [
+          96.2490909090909,
+          98.61454545454545,
+          "another unexplained list that somebody has to"
+        ],
+        [
+          98.65363636363637,
+          101.13609090909091,
+          "interpret later. Export the shortlist so it"
+        ],
+        [
+          101.17454545454545,
+          101.95727272727272,
+          "can leave the tool."
+        ],
+        [
+          102.15818181818182,
+          103.51545454545455,
+          "If the only copy of your decision"
+        ],
+        [
+          103.71,
+          105.49363636363637,
+          "lives in a temporary page, you have"
+        ],
+        [
+          105.53272727272727,
+          106.65727272727271,
+          "not finished the workflow."
+        ],
+        [
+          106.85181818181819,
+          108.36454545454545,
+          "A plain text export is enough for"
+        ],
+        [
+          108.40272727272726,
+          109.23727272727272,
+          "a first version."
+        ],
+        [
+          109.56636363636363,
+          111.35090909090908,
+          "Later, you could add a more structured"
+        ],
+        [
+          111.42818181818181,
+          113.05727272727272,
+          "format if it helps a real downstream"
+        ],
+        [
+          113.13545454545454,
+          116.09272727272727,
+          "task. This idea-selection pattern works beyond content"
+        ],
+        [
+          116.36454545454545,
+          119.27354545454544,
+          "planning. You could compare feature proposals, workshop"
+        ],
+        [
+          119.35090909090908,
+          121.88272727272727,
+          "topics, or questions for customer interviews."
+        ],
+        [
+          122.20363636363636,
+          124.22063636363634,
+          "The categories and criteria should change with"
+        ],
+        [
+          124.2590909090909,
+          126.08245454545454,
+          "the task, but the principle stays the"
+        ],
+        [
+          126.1209090909091,
+          128.21545454545455,
+          "same: use the AI to help create"
+        ],
+        [
+          128.3709090909091,
+          130.89181818181817,
+          "possibilities, then build a clear process for"
+        ],
+        [
+          130.9309090909091,
+          133.12363636363636,
+          "evaluating them. In the next step, we\u2019ll"
+        ],
+        [
+          133.16272727272727,
+          134.8690909090909,
+          "take one selected idea and turn it"
+        ],
+        [
+          134.94727272727272,
+          136.65363636363634,
+          "into a presentation that supports an actual"
+        ],
+        [
+          136.92545454545453,
+          137.5472727272727,
+          "decision."
+        ]
+      ]
+    }
+  },
+  "inserts": [
+    "HyperFrames workflow animation",
+    "Recorded Claude build and completed artifact"
+  ]
+}

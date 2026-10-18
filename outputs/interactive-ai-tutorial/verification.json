@@ -1,0 +1,12 @@
+{
+  "full_decode": "passed",
+  "duration_seconds": 1742.453354,
+  "video": "1920x1080 / 30 fps",
+  "audio": "AAC / 48 kHz / stereo",
+  "chapters": 19,
+  "powerpoint_slides": 6,
+  "toolkit_integrity": "passed",
+  "published": false,
+  "caption_cues": 903,
+  "caption_timing": "passed"
+}

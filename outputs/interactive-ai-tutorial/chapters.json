@@ -1,0 +1,97 @@
+[
+  {
+    "start": 0,
+    "title": "Build tools with AI",
+    "asset": "p-opening"
+  },
+  {
+    "start": 18.4,
+    "title": "The workflow",
+    "asset": "01-introduction"
+  },
+  {
+    "start": 131.066667,
+    "title": "Edit. Preview. Export.",
+    "asset": "p-newsletter"
+  },
+  {
+    "start": 137.599675,
+    "title": "Newsletter: build the editor",
+    "asset": "02-newsletter-build"
+  },
+  {
+    "start": 278.599675,
+    "title": "Newsletter: test and export",
+    "asset": "03-newsletter-checks"
+  },
+  {
+    "start": 419.533008,
+    "title": "Decide what happens next",
+    "asset": "p-tasks"
+  },
+  {
+    "start": 425.666016,
+    "title": "Tasks: make the next action clear",
+    "asset": "04-task-board"
+  },
+  {
+    "start": 563.366016,
+    "title": "Tasks: prepare a delegation draft",
+    "asset": "05-delegation"
+  },
+  {
+    "start": 701.099349,
+    "title": "Make assumptions visible",
+    "asset": "p-revenue"
+  },
+  {
+    "start": 707.3993489999999,
+    "title": "Revenue: check the calculations",
+    "asset": "06-revenue-model"
+  },
+  {
+    "start": 854.732682,
+    "title": "Revenue: compare scenarios",
+    "asset": "07-scenarios"
+  },
+  {
+    "start": 1002.6326819999999,
+    "title": "Explore before production",
+    "asset": "p-packaging"
+  },
+  {
+    "start": 1011.232682,
+    "title": "Packaging: explore the concept",
+    "asset": "08-packaging"
+  },
+  {
+    "start": 1154.366015,
+    "title": "Packaging: review and handoff",
+    "asset": "09-review-handoff"
+  },
+  {
+    "start": 1293.2660150000002,
+    "title": "From ideas to decisions",
+    "asset": "p-bonus"
+  },
+  {
+    "start": 1300.3320310000001,
+    "title": "Bonus: choose an idea",
+    "asset": "10-ideas"
+  },
+  {
+    "start": 1438.0320310000002,
+    "title": "Bonus: prepare a presentation",
+    "asset": "11-presentation"
+  },
+  {
+    "start": 1585.9653640000001,
+    "title": "Build better tools",
+    "asset": "12-building-better"
+  },
+  {
+    "start": 1731.432031,
+    "title": "Build one useful tool",
+    "asset": "p-closing"
+  }
+]
