@@ -172,8 +172,11 @@ Never skip a gate.
 4b. SEO + CTA (owner rule 2026-10-18): run the `seo-pack` workflow (args {job}); it researches real search data per
    platform and writes seo/seo.json with titles, descriptions, captions, hashtags, tags, alt text and a strong
    primary + follow CTA per channel. Publish with that copy.
-5. Owner standing instruction 2026-10-17: "post it now ... it's for every time": publish as soon as verification
-   passes, and send him the final video, the per-platform details and the cover sheet at the same time. If he asks
+5. Owner rule 2026-10-18 (replaces "post it now"): ONE reel per day, scheduled. Each verified reel takes the next free
+   day in the queue (docs/SCHEDULE.md) at the best posting time per platform, measured from the owner's own audience
+   data (TikTok follower activity, Meta audience 'most active times', YouTube views by publish hour) plus current
+   benchmarks for a Dubai/GST audience; never two reels on one day. SEO, thumbnail and avatar must be perfect before a
+   reel enters the queue. Send him the final video, the per-platform details and the cover sheet when it is queued. If he asks
    to see a reel first, wait for his OK. Show the owner the video, the per-platform details (titles, captions, hashtags, AI labels) and
    thumbs/cover_sheet.png (send them with SendUserFile).
 6. Publish: YouTube Shorts, Instagram @with.hammad (a Collab with @hammadagentic.ai by default) and LinkedIn via the
@@ -224,6 +227,35 @@ character no vendored face draws). Fact-check every on-screen number and stat-ca
 stills are AI images of the owner, so every platform's AI label and X's "AI avatar of me" still apply. With no
 voice there are no captions, .srt or voice gates; add alt text where supported. publish_instagram's audio-bitrate
 check allows the AAC overhead a short reel measures (about 135 kbps for 128k).
+
+## News split-screen reels (Explainer theme "seam")
+
+A reference cut at a fixed seam (recording on top, presenter below, flipping for proof beats, LED captions on the
+seam: job 91ac50635d3d, analysis/visual.md) is built with `app.edit_explainer` from a units spec whose top level says
+`"theme": "seam"`. The fields are documented in `seam_normalise()` (spec, beat, unit) and `_seam_overlays()` (overlay
+kinds); `.local/jobs/91ac50635d3d/seam.smoke.json` uses every feature on the real take. From `studio/`:
+1. Record every panel at its exact size (layout A top panel 1080x840, layout B bottom panel 1080x1080; build warns on
+   any other aspect) and keep `shots/recordings.json` (measured highlight times, `highlight_ms`) next to the shots.
+2. Write the spec: every unit after a beat's first gets an "anchor" word; "layout": "B" on the proof flips; beat
+   "captions" (1-3 word phrase chunks, at most 20 characters) with "emphasis" for the yellow ones; "overlays" timed on
+   spoken words ("at") or the recording's clock ("at_rec_ms", a marker's "highlight": n). No third-party logos as
+   images, no other people's likeness: name pills are text.
+3. `.venv/bin/python -m app.edit_explainer build .local/jobs/<id> --stage` (it reads cuts_final.json before cuts.json)
+   until it prints no warnings, then `... render .local/jobs/<id> --out .local/jobs/<id>/final.mp4` and check frames
+   at every flip, overlay and CTA beat. Doto 500 (captions: 900 merged the LED dots into blocky strokes) and Inter 900
+   are vendored OFL fonts (public/fonts, metrics in app/seam_fonts.json). Per unit, "crop_top" (a fraction of the
+   recording) hides a page header strip and "push" adds a slow push-in; per pill, "y" (canvas px) moves it onto
+   blank page space. Never a pill or the hook box over a line of page text, never a third-party wordmark in frame.
+4. Scene changes snap onto a jump cut within 280 ms (SEAM_SNAP_MS), so every cut that lands near a unit start hides
+   under the swap or flip. Voice gates for a sped-up take with no avatar_enhanced.mp4 (job 91ac50635d3d): pause
+   share, HF and esses on the final stem (`app.voice_gates --voice <job>/avatar_main.mp4 --master <job>/final.mp4
+   --captions <job>/captions.json`), clipped endings on the tightened take (`--voice <job>/avatar_main_tight.mp4
+   --cuts <job>/cuts.json`; the gate now shifts the source by cuts.json "av_offset_ms").
+5. Covers: a job with `cover_layout.json` ({"layout": "stacked", "t_s", "box1", "box2", "kicker", "badge", ...},
+   see `app.thumbnail.stack_layout`) gets the reference's stacked-box cover (`remotion/src/CoverStack.tsx`: teal
+   vignette, drawn notes and bronze media icons, steel-blue and yellow caps boxes with an avatar badge, kicker under
+   them) from the same `app.thumbnail build` command; captions.json counts for avatar_main.mp4 when the job has
+   timeline.json and no avatar.mp4.
 
 ## Running the pipeline (local, the normal path)
 
