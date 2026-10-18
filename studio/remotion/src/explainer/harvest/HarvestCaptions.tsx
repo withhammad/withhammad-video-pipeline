@@ -35,7 +35,7 @@ const Line: React.FC<{ l: ChunkLine; cy: number; pill: string | null }> = ({ l, 
         style={{
           display: "inline-block", whiteSpace: "nowrap", color: colorOf(l), lineHeight: 1.18, fontSize: size,
           ...(serif
-            ? { fontFamily: SERIF, fontStyle: "italic", fontWeight: 400, letterSpacing: 0.2 }
+            ? { fontFamily: `"Bodoni 72", "Didot", ${SERIF}`, fontStyle: "normal", fontWeight: 700, letterSpacing: 0.2 }  // upright bold display serif like the reference; macOS system fonts, no download
             : l.serif
               ? { ...NUMERAL_STYLE, fontSize: size * 0.82 }
               : { fontFamily: SANS, fontWeight: 800, letterSpacing: 0.4 }),
