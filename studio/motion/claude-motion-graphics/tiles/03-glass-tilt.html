@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>03 Glass → tilt</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script>
+<style>
+  .blob { position: absolute; border-radius: 50%; filter: blur(34px); }
+  .b1 { width: 260px; height: 220px; background: #7232f1; left: 70px; top: 70px; opacity: .85; }
+  .b2 { width: 200px; height: 200px; background: #ff6118; left: 330px; top: 270px; opacity: .9; }
+  .b3 { width: 170px; height: 150px; background: #f44bcc; left: 250px; top: 150px; opacity: .7; }
+  .scene { position: absolute; inset: 0; perspective: 900px; }
+  .card { position: absolute; left: 120px; top: 135px; width: 320px; height: 200px; border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255,255,255,.26), rgba(255,255,255,.08));
+    border: 1.5px solid rgba(255,255,255,.42); backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.5); overflow: hidden; }
+  .chip { position: absolute; left: 26px; top: 30px; width: 46px; height: 34px; border-radius: 7px;
+    background: linear-gradient(135deg, #ffe08a, #e0a93a); box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+  .nfc { position: absolute; right: 28px; top: 30px; color: rgba(255,255,255,.9); font-size: 22px; font-weight: 600; letter-spacing: -2px; }
+  .num { position: absolute; left: 26px; bottom: 34px; color: #fff; font: 500 21px var(--mono); letter-spacing: .12em; }
+  .exp { position: absolute; right: 26px; bottom: 36px; color: rgba(255,255,255,.85); font: 500 15px var(--mono); }
+  .sweep { position: absolute; top: -40%; width: 90px; height: 180%; transform: rotate(18deg);
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0)); }
+</style></head>
+<body class="dark"><div class="stage">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="scene"><div class="card">
+    <div class="chip"></div><div class="nfc">)))</div>
+    <div class="num">•••• 4242</div><div class="exp">12/29</div><div class="sweep"></div>
+  </div></div>
+</div>
+<script>
+// Scene line: "Glass -> tilt: a frosted glass card over two colour glows, tilting in 3D while one sweep of light crosses it."
+const { ease, seg, run } = Motion;
+const card = document.querySelector('.card'), sweep = document.querySelector('.sweep');
+const [b1, b2, b3] = document.querySelectorAll('.blob');
+const TAU = Math.PI * 2;
+run((t) => {
+  const a = TAU * t / 6;
+  card.style.transform = `rotateX(${8 * Math.sin(a)}deg) rotateY(${-16 * Math.cos(a)}deg) translateZ(0)`;
+  // the light sweep crosses once, from 1.2 s to 2.6 s
+  const k = ease.inOut(seg(t, 1.2, 2.6));
+  sweep.style.left = `${-140 + 560 * k}px`;
+  sweep.style.opacity = k > 0 && k < 1 ? 1 : 0;
+  b1.style.transform = `translate(${20 * Math.cos(a)}px, ${14 * Math.sin(a)}px)`;
+  b2.style.transform = `translate(${-18 * Math.sin(a)}px, ${16 * Math.cos(a)}px)`;
+  b3.style.transform = `translate(${24 * Math.sin(2 * a)}px, ${-10 * Math.cos(a)}px)`;
+});
+</script></body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Claude Motion Graphics</title>
+<link rel="stylesheet" href="../tokens.css"><script src="scenes.js"></script>
+<style>
+  /* 1080x1350 LinkedIn image post: title, byline, 4x4 grid of live tiles (the reference post's layout). */
+  html, body { width: 1080px; height: 1350px; }
+  body { position: relative; background: #f8f6fc; overflow: hidden;
+    background-image: linear-gradient(rgba(120,100,180,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(120,100,180,.07) 1px, transparent 1px);
+    background-size: 54px 54px; background-position: -1px 26px; }
+  .rays { position: absolute; width: 640px; height: 640px; top: -330px; border-radius: 50%;
+    background: repeating-conic-gradient(from 3deg, rgba(255,160,175,.16) 0deg 6deg, transparent 6deg 20deg);
+    -webkit-mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%);
+            mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%); }
+  .rays.l { left: -380px; } .rays.r { right: -380px; }
+  h1 { position: absolute; left: 0; right: 0; top: 44px; text-align: center; font-size: 78px; font-weight: 800;
+    letter-spacing: -.055em; color: #0b0b12; line-height: 1; }
+  h1 em { font-style: normal; background: linear-gradient(90deg, #ff3fc6, #c13bff 55%, #8a3cff);
+    -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .04em; }
+  .by { position: absolute; left: 0; right: 0; top: 136px; display: flex; justify-content: center; align-items: center; gap: 16px;
+    font-size: 26px; color: #6b6880; letter-spacing: -.015em; }
+  .by img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px #fff, 0 3px 10px rgba(40,20,90,.18); }
+  .by b { color: #121019; font-weight: 700; font-size: 24px; margin-left: -6px; }
+  .grid { position: absolute; left: 32px; top: 200px; display: grid; grid-template-columns: repeat(4, 242px); gap: 14px 16px; }
+  .card { width: 242px; height: 262px; background: #fff; border-radius: 18px; border: 1px solid #ebe7f3;
+    box-shadow: 0 2px 10px rgba(40,20,90,.05); position: relative; }
+  .media { position: absolute; left: 8px; top: 8px; width: 224px; height: 200px; border-radius: 12px; overflow: hidden; background: #eef; }
+  .media iframe { width: 224px; height: 200px; border: 0; display: block; }
+  .label { position: absolute; left: 16px; top: 222px; display: flex; align-items: baseline; gap: 9px; font-size: 21px;
+    font-weight: 600; color: #17151f; letter-spacing: -.02em; white-space: nowrap; }
+  .label .n { font: 500 14px var(--mono); color: #a39fb3; letter-spacing: 0; }
+  .label .ar { color: #9a96aa; font-weight: 500; }
+</style></head>
+<body>
+  <div class="rays l"></div><div class="rays r"></div>
+  <h1>Claude <em>Motion</em> Graphics</h1>
+  <div class="by"><span>16 premium animations, ready to clone.</span><img src="assets/hammad.jpg" alt=""><b>Hammad Yousuf</b></div>
+  <div class="grid"></div>
+<script>
+const grid = document.querySelector('.grid');
+for (const s of SCENES) {
+  const card = document.createElement('div'); card.className = 'card';
+  card.innerHTML = `<div class="media"><iframe src="tiles/${s.slug}.html" scrolling="no" title="${s.object} to ${s.change}"></iframe></div>
+    <div class="label"><span class="n">${s.n}</span><span>${s.object}</span><span class="ar">→</span><span>${s.change}</span></div>`;
+  grid.appendChild(card);
+}
+// capture.mjs drives every tile from one clock; opened by hand, each tile plays on its own
+window.__seek = (t) => { for (const f of document.querySelectorAll('iframe')) f.contentWindow.__seek(t); };
+</script></body></html>

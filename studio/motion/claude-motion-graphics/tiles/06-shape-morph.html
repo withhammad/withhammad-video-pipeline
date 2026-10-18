@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>06 Shape → morph</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script>
+<style>
+  .name { position: absolute; left: 0; right: 0; top: 34px; text-align: center; font: 600 15px var(--font);
+    letter-spacing: .32em; color: #6f6a86; }
+</style></head>
+<body class="light"><div class="stage"><div class="name">CIRCLE</div></div>
+<script>
+// Scene line: "Shape -> morph: one gradient shape melts from circle to square to star to blob and back, its name above."
+const { ease, seg, canvas, run, lerp } = Motion;
+const stage = document.querySelector('.stage'), name = document.querySelector('.name');
+const { ctx } = canvas(stage);
+stage.appendChild(name);
+const CX = 280, CY = 240, R = 118, N = 240, TAU = Math.PI * 2;
+const SHAPES = {
+  CIRCLE: () => 1,
+  SQUARE: (a) => .93 / Math.pow(Math.pow(Math.abs(Math.cos(a)), 5) + Math.pow(Math.abs(Math.sin(a)), 5), 1 / 5),
+  STAR: (a) => .78 + .26 * Math.cos(5 * (a + Math.PI / 2)) ** 3 + .06 * Math.cos(5 * (a + Math.PI / 2)),
+  BLOB: (a) => 1 + .1 * Math.sin(3 * a + .6) + .07 * Math.sin(5 * a + 2.1) + .04 * Math.cos(2 * a),
+};
+// [shape, arrive by] — each morph takes .55 s; the loop ends where it began
+const PLAN = [['CIRCLE', 0], ['SQUARE', 1.45], ['STAR', 2.95], ['BLOB', 4.45], ['CIRCLE', 5.95]];
+run((t) => {
+  let i = PLAN.length - 2;
+  while (i > 0 && t < PLAN[i][1] - .55) i--;
+  const [from] = PLAN[i], [to, by] = PLAN[i + 1];
+  const k = ease.inOut(seg(t, by - .55, by));
+  name.textContent = k < .5 ? from : to;
+  name.style.opacity = 1 - Math.sin(Math.PI * k) * .9;
+  const spin = .25 * Math.sin(TAU * t / 6);
+  const pts = [];
+  for (let j = 0; j < N; j++) {
+    const a = (j / N) * TAU;
+    const r = R * lerp(SHAPES[from](a), SHAPES[to](a), k);
+    pts.push([CX + Math.cos(a + spin) * r, CY + Math.sin(a + spin) * r]);
+  }
+  ctx.clearRect(0, 0, 560, 500);
+  const sh = ctx.createRadialGradient(CX, 420, 4, CX, 420, 120);
+  sh.addColorStop(0, 'rgba(60,40,120,.22)'); sh.addColorStop(1, 'rgba(60,40,120,0)');
+  ctx.fillStyle = sh; ctx.beginPath(); ctx.ellipse(CX, 420, 120, 16, 0, 0, TAU); ctx.fill();
+  const g = ctx.createLinearGradient(CX - R, CY - R, CX + R, CY + R);
+  g.addColorStop(0, '#ffb000'); g.addColorStop(.3, '#ff6118'); g.addColorStop(.62, '#ee30fb'); g.addColorStop(1, '#7232f1');
+  ctx.save();
+  ctx.shadowColor = 'rgba(114,50,241,.35)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 18;
+  ctx.fillStyle = g; ctx.beginPath(); pts.forEach((p, j) => j ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.closePath(); ctx.fill();
+  ctx.restore();
+  // soft top-left light on the surface
+  ctx.save(); ctx.clip();
+  const hl = ctx.createRadialGradient(CX - 50, CY - 60, 4, CX - 50, CY - 60, 120);
+  hl.addColorStop(0, 'rgba(255,255,255,.35)'); hl.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = hl; ctx.fillRect(0, 0, 560, 500); ctx.restore();
+});
+</script></body></html>

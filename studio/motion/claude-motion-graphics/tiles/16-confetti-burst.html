@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>16 Confetti → burst</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script>
+<style>
+  .badge { position: absolute; left: 280px; top: 232px; width: 120px; height: 120px; margin: -60px; border-radius: 50%;
+    background: linear-gradient(135deg, #ffb000, #ff6118 28%, #f44bcc 62%, #7232f1);
+    box-shadow: 0 22px 40px -14px rgba(244,75,204,.65), inset 0 2px 0 rgba(255,255,255,.4); display: grid; place-items: center; }
+  .badge svg { width: 58px; height: 58px; }
+  .live { position: absolute; left: 0; right: 0; top: 320px; text-align: center; font-size: 25px; font-weight: 600; color: var(--ink); }
+</style></head>
+<body class="light"><div class="stage">
+  <div class="badge"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="live">You're live</div>
+</div>
+<script>
+// Scene line: "Confetti -> burst: a gradient tick pops and 160 pieces of confetti burst out, tumble and fall away."
+const { ease, seg, canvas, run, rng } = Motion;
+const stage = document.querySelector('.stage');
+const { ctx } = canvas(stage);
+stage.prepend(stage.querySelector('canvas'));
+const badge = document.querySelector('.badge'), tickPath = badge.querySelector('path');
+const COLORS = ['#ffd601', '#ff6118', '#f44bcc', '#ee30fb', '#7232f1', '#533afd', '#00d66f', '#7f7dfc'];
+const rand = rng(16), BURST = .7;
+const bits = Array.from({ length: 160 }, () => {
+  const a = -Math.PI / 2 + (rand() - .5) * Math.PI * 1.7, v = 260 + rand() * 420;
+  return { vx: Math.cos(a) * v, vy: Math.sin(a) * v, c: COLORS[Math.floor(rand() * COLORS.length)], w: 5 + rand() * 7,
+    h: 3 + rand() * 4, spin: (rand() - .5) * 16, flip: 4 + rand() * 9, ph: rand() * 6.28, round: rand() < .3 };
+});
+const len = tickPath.getTotalLength();
+tickPath.style.strokeDasharray = len;
+run((t) => {
+  ctx.clearRect(0, 0, 560, 500);
+  const pop = t > BURST ? 1 + .16 * Math.sin(Math.PI * seg(t, BURST, BURST + .35)) : 1;
+  const idle = 1 + .015 * Math.sin(2 * Math.PI * t / 3);
+  badge.style.transform = `scale(${pop * idle})`;
+  tickPath.style.strokeDashoffset = len * (1 - ease.out(seg(t, .15, .6))) + len * ease.inOut(seg(t, 5.5, 5.95));
+  const u = t - BURST;
+  if (u <= 0) return;
+  for (const b of bits) {
+    // a fast burst slowed by air drag, then gravity; pieces tumble and fade by 4.6 s
+    const drag = (1 - Math.exp(-3.2 * u)) / 3.2;
+    const x = 280 + b.vx * drag, y = 232 + b.vy * drag + 110 * u * u;
+    const alpha = 1 - seg(u, 2.6, 3.9);
+    if (alpha <= 0) continue;
+    ctx.save(); ctx.globalAlpha = alpha; ctx.translate(x, y); ctx.rotate(b.ph + b.spin * u);
+    ctx.scale(1, Math.cos(b.ph + b.flip * u));
+    ctx.fillStyle = b.c;
+    if (b.round) { ctx.beginPath(); ctx.arc(0, 0, b.h * .9, 0, 6.283); ctx.fill(); } else ctx.fillRect(-b.w / 2, -b.h / 2, b.w, b.h);
+    ctx.restore();
+  }
+});
+</script></body></html>

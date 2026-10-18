@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>14 Words → kinetic</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script>
+<style>
+  body.light { background: #fff; }
+  .words { position: absolute; left: 44px; top: 66px; font-weight: 900; font-size: 84px; line-height: .92; letter-spacing: -.045em; color: #0b0b12; }
+  .line { overflow: hidden; height: 80px; }
+  .line span { display: inline-block; }
+  .hot { background: linear-gradient(90deg, #ff9a00, #ff6118 30%, #f44bcc 75%, #b14cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .bar { position: absolute; left: 44px; bottom: 62px; width: 150px; height: 5px; border-radius: 3px; background: #eef0f6; overflow: hidden; }
+  .bar i { position: absolute; inset: 0; background: linear-gradient(90deg, #ff6118, #ee30fb, #7232f1); transform-origin: 0 50%; }
+  .count { position: absolute; right: 44px; bottom: 54px; font: 500 16px var(--mono); color: #8a8fa3; }
+</style></head>
+<body class="light"><div class="stage">
+  <div class="words"></div>
+  <div class="bar"><i></i></div><div class="count">01/02</div>
+</div>
+<script>
+// Scene line: "Words -> kinetic: three heavy words slide up one at a time, the last in the gradient; then the next phrase."
+const { ease, seg, run } = Motion;
+const PHRASES = [['MAKE', 'IT', 'MOVE.'], ['SHIP', 'IT', 'TODAY.']];
+const words = document.querySelector('.words'), bar = document.querySelector('.bar i'), count = document.querySelector('.count');
+const lines = [0, 1, 2].map(() => { const l = document.createElement('div'); l.className = 'line'; const s = document.createElement('span'); l.appendChild(s); words.appendChild(l); return s; });
+run((t) => {
+  const p = t < 3 ? 0 : 1, u = t - p * 3;              // each phrase owns 3 s
+  lines.forEach((s, i) => {
+    s.textContent = PHRASES[p][i];
+    s.className = i === 2 ? 'hot' : '';
+    const inK = ease.out(seg(u, .1 + i * .14, .6 + i * .14));
+    const outK = ease.inOut(seg(u, 2.45 + i * .06, 2.85 + i * .06));
+    s.style.transform = `translateY(${(1 - inK) * 90 - outK * 90}px)`;
+  });
+  bar.style.transform = `scaleX(${(p + ease.inOut(seg(u, 0, 3))) / 2})`;
+  count.textContent = `0${p + 1}/02`;
+});
+</script></body></html>

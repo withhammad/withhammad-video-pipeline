@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Claude Motion Graphics — reel</title>
+<link rel="stylesheet" href="../tokens.css"><script src="../motion.js"></script><script src="scenes.js"></script>
+<style>
+  /* 1080x1920, 29.25 s on an 80 bpm grid (beat 0.75 s: every feed cut lands on a beat). No presenter, no voice: on-screen text and a music bed.
+     A 0-3 s   poster grid + hook        B 3-15 s  16 tiles, 0.75 s each, sliding like a feed
+     C 15-25.5 s the 6 steps (style file, scene line, browser)      D 25.5-29.25 s grid returns + comment CTA */
+  html, body { width: 1080px; height: 1920px; }
+  body { position: relative; overflow: hidden; background: #f8f6fc;
+    background-image: linear-gradient(rgba(120,100,180,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(120,100,180,.07) 1px, transparent 1px);
+    background-size: 54px 54px; }
+  .rays { position: absolute; width: 760px; height: 760px; top: -380px; border-radius: 50%;
+    background: repeating-conic-gradient(from 3deg, rgba(255,160,175,.16) 0deg 6deg, transparent 6deg 20deg);
+    -webkit-mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%); mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%); }
+  .rays.l { left: -420px; } .rays.r { right: -420px; }
+  .abs { position: absolute; }
+  .grad { background: linear-gradient(90deg, #ff3fc6, #c13bff 55%, #8a3cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hook { left: 0; right: 0; top: 150px; text-align: center; font-weight: 800; letter-spacing: -.05em; color: #0b0b12; line-height: 1.02; }
+  .hook .a { font-size: 72px; } .hook .b { font-size: 88px; }
+  .byline { left: 0; right: 0; top: 1592px; display: flex; justify-content: center; align-items: center; gap: 16px; font-size: 30px; color: #6b6880; letter-spacing: -.015em; }
+  .byline img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 3px #fff, 0 3px 10px rgba(40,20,90,.18); }
+  .byline b { color: #121019; font-weight: 700; }
+  .card { position: absolute; background: #fff; border: 1px solid #ebe7f3; box-shadow: 0 2px 10px rgba(40,20,90,.06); will-change: transform; }
+  .media { position: absolute; overflow: hidden; background: #eef; }
+  .media iframe { width: 860px; height: 768px; border: 0; display: block; transform-origin: 0 0; }
+  .label { position: absolute; display: flex; align-items: baseline; font-weight: 600; color: #17151f; letter-spacing: -.02em; white-space: nowrap; }
+  .label .n { font-family: var(--mono); font-weight: 500; color: #a39fb3; letter-spacing: 0; }
+  .label .ar { color: #9a96aa; font-weight: 500; }
+  .count { right: 60px; top: 300px; font: 500 34px var(--mono); color: #8a86a0; }
+  .made { left: 60px; top: 292px; padding: 10px 20px; border-radius: 30px; background: #fff; box-shadow: 0 0 0 1px #ebe7f3, 0 4px 14px rgba(40,20,90,.08);
+    font-size: 30px; font-weight: 600; color: #17151f; }
+  .made i { font-style: normal; color: #7232f1; }
+  .h2 { left: 72px; top: 230px; font-size: 84px; font-weight: 800; letter-spacing: -.05em; color: #0b0b12; }
+  .h2 .pill { display: inline-block; vertical-align: middle; margin-left: 18px; padding: 8px 22px; border-radius: 40px; font-size: 34px; letter-spacing: -.01em;
+    font-weight: 700; color: #fff; background: linear-gradient(90deg, #ff6118, #f44bcc 50%, #7232f1); transform: translateY(-8px); }
+  .steps { left: 72px; top: 400px; }
+  .step { display: flex; align-items: center; gap: 30px; height: 150px; font-size: 48px; font-weight: 600; letter-spacing: -.025em; color: #17151f; }
+  .step .num { flex: none; width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 42px; font-weight: 800;
+    background: linear-gradient(135deg, #ff9a00, #ff6118 25%, #f44bcc 60%, #7232f1); box-shadow: 0 10px 22px -8px rgba(244,75,204,.6); }
+  .step em { font-style: normal; color: #7232f1; }
+  .code { left: 72px; top: 900px; width: 936px; border-radius: 26px; background: #061b31; color: #cfe0ff; padding: 30px 38px 36px;
+    font: 500 29px/1.75 var(--mono); box-shadow: 0 40px 70px -30px rgba(6,27,49,.6); }
+  .code .bar { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; font-family: var(--font); font-size: 28px; font-weight: 600; color: #8ea6c9; }
+  .code .bar i { width: 16px; height: 16px; border-radius: 50%; background: #ff5f57; display: inline-block; }
+  .code .bar i:nth-child(2) { background: #febc2e; } .code .bar i:nth-child(3) { background: #28c840; margin-right: 14px; }
+  .code .k { color: #ff8fd8; } .code .sw { display: inline-block; width: 26px; height: 26px; border-radius: 6px; vertical-align: -4px; margin-right: 6px; }
+  .line { left: 72px; top: 900px; width: 936px; border-radius: 26px; background: #fff; padding: 30px 38px; font-size: 38px; line-height: 1.38; font-weight: 500;
+    letter-spacing: -.02em; color: #17151f; box-shadow: 0 0 0 1px #ebe7f3, 0 24px 50px -24px rgba(40,20,90,.3); }
+  .line b { font-weight: 700; } .line .caret { display: inline-block; width: 3px; height: 40px; background: #7232f1; vertical-align: -6px; margin-left: 3px; }
+  .browser { left: 220px; top: 1150px; width: 640px; border-radius: 22px; background: #fff; box-shadow: 0 0 0 1px #e3def0, 0 40px 70px -30px rgba(40,20,90,.45); overflow: hidden; }
+  .browser .top { height: 58px; background: #f1eff7; display: flex; align-items: center; gap: 10px; padding: 0 22px; }
+  .browser .top i { width: 14px; height: 14px; border-radius: 50%; background: #ff5f57; } .browser .top i:nth-child(2) { background: #febc2e; } .browser .top i:nth-child(3) { background: #28c840; }
+  .browser .url { margin-left: 18px; flex: 1; height: 34px; border-radius: 17px; background: #fff; font: 500 20px var(--mono); color: #6b6880; display: flex; align-items: center; padding: 0 18px; }
+  .browser .view { height: 572px; }
+  .cta { left: 0; right: 0; top: 140px; text-align: center; font-weight: 800; letter-spacing: -.05em; color: #0b0b12; line-height: 1; }
+  .cta .a { font-size: 70px; } .cta .b { font-size: 170px; margin-top: 6px; }
+  .cta2 { left: 70px; right: 70px; top: 1590px; text-align: center; font-size: 38px; font-weight: 600; letter-spacing: -.02em; color: #17151f; line-height: 1.3; }
+  .cta2 span { color: #7232f1; }
+</style></head>
+<body>
+  <div class="rays l"></div><div class="rays r"></div>
+  <div class="abs hook" id="hook"><div class="a">Yes, Claude can make</div><div class="b"><span class="grad">real motion graphics.</span></div></div>
+  <div class="abs byline" id="byline"><img src="assets/hammad.jpg" alt=""><b>Hammad Yousuf</b><span>· 16 animations, 1 style file</span></div>
+  <div class="abs made" id="made">Made in <i>Claude Code</i></div>
+  <div class="abs count" id="count">01 / 16</div>
+
+  <div class="abs h2" id="h2a">Clone the look<span class="pill">once</span></div>
+  <div class="abs steps" id="stepsA">
+    <div class="step"><div class="num">1</div><div>Get my free <em>style-file prompt</em></div></div>
+    <div class="step"><div class="num">2</div><div>Point Claude Code at a brand's site</div></div>
+    <div class="step"><div class="num">3</div><div>It reads the CSS → <em>one style file</em></div></div>
+  </div>
+  <div class="abs code" id="code"><div class="bar"><i></i><i></i><i></i>style.md</div><div id="codeBody"></div></div>
+
+  <div class="abs h2" id="h2b">Then animate</div>
+  <div class="abs steps" id="stepsB">
+    <div class="step"><div class="num">4</div><div>Paste the <em>motion brief</em> under it</div></div>
+    <div class="step"><div class="num">5</div><div>Add one line: <em>one object, one change</em></div></div>
+    <div class="step"><div class="num">6</div><div>Open the HTML file in your browser</div></div>
+  </div>
+  <div class="abs line" id="line"></div>
+  <div class="abs browser" id="browser"><div class="top"><i></i><i></i><i></i><div class="url">15-button-pay.html</div></div><div class="view"></div></div>
+
+  <div class="abs cta" id="cta"><div class="a">Comment</div><div class="b"><span class="grad">MOTION</span></div></div>
+  <div class="abs cta2" id="cta2">I'll send you the <span>style file</span>, the <span>brief</span><br>and all <span>16 scene lines</span>. Free.</div>
+<script>
+const { ease, seg, lerp, clamp } = Motion;
+const CODE = [
+  ['k', '# Stripe-style motion (from stripe.com CSS)'],
+  ['', 'colour    <span class="sw" style="background:#635bff"></span>#635bff  <span class="sw" style="background:#061b31"></span>#061b31'],
+  ['', 'gradient  <span class="sw" style="background:linear-gradient(90deg,#ffd601,#ff6118,#f44bcc,#7232f1)"></span>yellow→orange→pink→violet'],
+  ['', 'corners   4px · 6px · pills'],
+  ['', 'shadow    0 27px 40px -27px rgba(50,50,93,.25)'],
+  ['', 'easing    cubic-bezier(.25, 1, .5, 1)'],
+  ['', 'type      Inter 400/600 · no logo'],
+];
+const LINE = '<b>Button → pay:</b> a cursor clicks Pay, the button shrinks to a spinner, ticks green and opens into Paid.';
+const LINE_TEXT = LINE.replace(/<[^>]+>/g, '');
+
+// --- the 16 cards: one live tile each, moved between the grid, the feed and the browser ---
+const cards = SCENES.map((s) => {
+  const card = document.createElement('div'); card.className = 'card';
+  card.innerHTML = `<div class="media"><iframe src="tiles/${s.slug}.html" scrolling="no" title="${s.object} to ${s.change}"></iframe></div>
+    <div class="label"><span class="n">${s.n}</span><span>${s.object}</span><span class="ar">→</span><span>${s.change}</span></div>`;
+  document.body.appendChild(card);
+  return { el: card, media: card.querySelector('.media'), frame: card.querySelector('iframe'), label: card.querySelector('.label'),
+    parts: [...card.querySelectorAll('.label span')] };
+});
+// where each tile's most telling 0.75 s starts (tile seconds). Every tile runs on its own clock t + OFF[i] for the
+// whole reel, so it lands on that moment during its feed slot and never jumps in time when it changes place.
+const PEAK = [2.45, 0, 1.5, 1.5, 2.6, 2.3, 0, .1, 2.55, 0, 1.2, .75, 0, 0, 2.6, .6];
+const OFF = PEAK.map((p, i) => p - (3 + .75 * i));
+const GRID = (i) => ({ x: 32 + (i % 4) * 258, y: 468 + Math.floor(i / 4) * 276, w: 242, lab: 21 });
+const FEED = { x: 60, y: 404, w: 960, lab: 56 };
+const BROWSER = { x: 220, y: 1208, w: 640, lab: 0 };
+function place(c, r, opacity = 1) {
+  if (opacity <= 0.001 || r.y > 2000 || r.y < -1100) { c.el.style.visibility = 'hidden'; return false; }
+  const pad = r.lab ? r.w * .033 : 0, mw = r.w - 2 * pad, mh = mw * 200 / 224, lh = r.lab * 2.35;
+  Object.assign(c.el.style, { visibility: 'visible', left: r.x + 'px', top: r.y + 'px', width: r.w + 'px', height: (pad + mh + lh) + 'px',
+    borderRadius: (r.lab ? r.w * .074 : 0) + 'px', opacity, background: r.lab ? '#fff' : 'transparent', borderColor: r.lab ? '#ebe7f3' : 'transparent',
+    boxShadow: r.lab ? '' : 'none' });
+  Object.assign(c.media.style, { left: pad + 'px', top: pad + 'px', width: mw + 'px', height: mh + 'px', borderRadius: (r.lab ? mw * .054 : 0) + 'px' });
+  c.frame.style.transform = `scale(${mw / 860})`;
+  Object.assign(c.label.style, { left: (pad + r.lab * .4) + 'px', top: (pad + mh + r.lab * .62) + 'px', fontSize: r.lab + 'px', gap: (r.lab * .42) + 'px',
+    display: r.lab ? 'flex' : 'none' });
+  c.parts[0].style.fontSize = (r.lab * .68) + 'px';
+  return true;
+}
+const mixRect = (a, b, k) => ({ x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k), w: lerp(a.w, b.w, k), lab: lerp(a.lab, b.lab, k) });
+const show = (id, o, dy = 0) => { const e = document.getElementById(id); e.style.opacity = o; e.style.visibility = o > 0.001 ? 'visible' : 'hidden';
+  e.style.transform = `translateY(${dy}px)`; };
+const steps = (id, t0) => [...document.getElementById(id).children].forEach((s, i) => {
+  const k = ease.out(seg(T, t0 + i * 1.0, t0 + i * 1.0 + .45)); s.style.opacity = k; s.style.transform = `translateX(${(1 - k) * -40}px)`; });
+let T = 0;
+
+window.__seek = (t) => {
+  T = t;
+  // A -> B: the hook lifts away while the grid flies into the feed
+  const toFeed = ease.inOut(seg(t, 2.65, 3.15));
+  const back = ease.out(seg(t, 25.0, 25.9));                 // D: the grid comes back
+  show('hook', (1 - seg(t, 2.6, 2.95)), -60 * ease.inOut(seg(t, 2.6, 3.0)));
+  show('byline', (1 - seg(t, 2.6, 2.9)));
+  const inFeed = t > 2.95 && t < 15.3;
+  show('made', ease.out(seg(t, 3.0, 3.3)) * (1 - seg(t, 14.85, 15.1)));
+  show('count', ease.out(seg(t, 3.0, 3.3)) * (1 - seg(t, 14.85, 15.1)));
+  // B: tile n owns [3 + .75n, 3 + .75(n+1)); the feed slides up during the last .2 s of each slot
+  const f = clamp((t - 3) / .75, 0, 16), n = Math.floor(f), u = f - n;
+  const pos = Math.min(16, n + ease.inOut(seg(u, .73, 1)));
+  document.getElementById('count').textContent = String(Math.min(16, Math.round(pos) + 1)).padStart(2, '0') + ' / 16';
+  // C
+  show('h2a', ease.out(seg(t, 15.1, 15.5)) * (1 - seg(t, 20.0, 20.3)), (1 - ease.out(seg(t, 15.1, 15.5))) * 30);
+  show('stepsA', t > 15 && t < 20.3 ? 1 - seg(t, 20.0, 20.3) : 0); steps('stepsA', 15.4);
+  show('code', ease.out(seg(t, 16.9, 17.3)) * (1 - seg(t, 20.0, 20.3)), (1 - ease.out(seg(t, 16.9, 17.3))) * 80);
+  const typed = Math.floor(seg(t, 17.2, 18.9) * CODE.length * 1.0001);
+  document.getElementById('codeBody').innerHTML = CODE.map(([cls, s], i) => i < typed ? `<div class="${cls}">${s}</div>` : '<div>&nbsp;</div>').join('');
+  show('h2b', ease.out(seg(t, 20.35, 20.75)) * (1 - seg(t, 25.3, 25.55)), (1 - ease.out(seg(t, 20.35, 20.75))) * 30);
+  show('stepsB', t > 20.25 && t < 25.6 ? 1 - seg(t, 25.3, 25.55) : 0); steps('stepsB', 20.65);
+  const lineK = ease.out(seg(t, 21.35, 21.65)) * (1 - seg(t, 25.3, 25.55));
+  show('line', lineK, (1 - ease.out(seg(t, 21.35, 21.65))) * 60);
+  const chars = Math.floor(seg(t, 21.55, 22.65) * LINE_TEXT.length);
+  let left = chars;
+  const html = LINE.split(/(<[^>]+>)/).map((part) => { if (part.startsWith('<')) return part; const s = part.slice(0, Math.max(0, left)); left -= part.length; return s; }).join('');
+  document.getElementById('line').innerHTML = html + '<span class="caret"></span>';
+  const browserK = ease.out(seg(t, 22.4, 22.8)) * (1 - seg(t, 25.3, 25.55));
+  show('browser', browserK, (1 - ease.out(seg(t, 22.4, 22.8))) * 60);
+  // D
+  show('cta', ease.out(seg(t, 25.8, 26.2)), (1 - ease.out(seg(t, 25.8, 26.2))) * -40);
+  show('cta2', ease.out(seg(t, 26.3, 26.7)));
+
+  cards.forEach((c, i) => {
+    let r = GRID(i), op = 1, local = t + OFF[i];
+    if (t >= 2.65 && t < 25.5) {
+      const feed = { ...FEED, y: FEED.y + (i - pos) * 1080 };
+      const k = ease.inOut(seg(t, 2.65 + i * .012, 3.15 + i * .012));
+      r = mixRect(GRID(i), feed, k);
+      if (i === 14 && t >= 15.3) { r = { ...BROWSER, y: BROWSER.y + (1 - browserK) * 60 }; op = browserK; local = .3 + Math.max(0, t - 22.4) * 1.35; }  // click -> Paid in 2.3 s, then a short hold
+      else if (t >= 15.3) op = 0;
+      else if (t >= 3.15) op = clamp(1 - (pos - i) * 2.5);    // a tile that has scrolled past fades as it leaves
+    }
+    if (t >= 25.5) {
+      // D: tiles rise back into the grid from below, row by row
+      const k = ease.out(seg(t, 25.5 + Math.floor(i / 4) * .08 + (i % 4) * .03, 26.3 + Math.floor(i / 4) * .08 + (i % 4) * .03));
+      r = { ...GRID(i), y: GRID(i).y + (1 - k) * 900 }; op = k;
+    }
+    if (place(c, r, op)) c.frame.contentWindow.__seek(local);
+  });
+};
+</script></body></html>

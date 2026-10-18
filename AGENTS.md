@@ -228,6 +228,28 @@ stills are AI images of the owner, so every platform's AI label and X's "AI avat
 voice there are no captions, .srt or voice gates; add alt text where supported. publish_instagram's audio-bitrate
 check allows the AAC overhead a short reel measures (about 135 kbps for 128k).
 
+## Motion-graphics reels and image posts (no presenter, no voice)
+
+A reference that is pure motion graphics (job fef5b7f3b5af: a LinkedIn GIF grid of 16 brand-style loops) is built as
+HTML in `studio/motion/` and recorded frame by frame; no HeyGen, no Remotion. Owner decision 2026-10-18: "this
+doesn't need avatar". Layout per project: `studio/motion/<project>/` with `style.md` (the brand style file),
+`brief.md`, `scenes.js` (one object, one change per tile), `tiles/*.html`, `poster.html` (feed image post),
+`reel.html` (9:16 timeline) and `sound.json`; shared `tokens.css`, `motion.js`, `fonts/` (OFL only).
+- Every page draws a frame from the time alone and exposes `window.__seek(t)` (motion.js). Loops are exactly 6 s and
+  the last frame matches the first: check the seam (mean frame diff 0->last below the median frame-to-frame diff).
+- From `studio/motion/`: `node capture.mjs <project>/poster.html --size 1080x1350 --scale 2 --seconds 6 --out <job>/poster.mp4`,
+  the same with `reel.html --size 1080x1920 --scale 1 --seconds <len> --out <job>/reel_silent.mp4`; `--still x.png --at s`
+  for one frame. Then from `studio/`: `.venv/bin/python motion/mix.py motion/<project>/sound.json <silent> <job>/final.mp4`
+  (original music + SFX from app.audio, -14 LUFS / -1 dBTP) and `python -m app.exports <job>/final.mp4`.
+- LinkedIn image post = the poster as a GIF under 5 MB (10 fps, 160 colours, bayer 5 for 1080x1350 x 60 frames). The
+  Images API takes GIFs up to 250 frames; publish_linkedin.py posts video only, so a GIF post goes out by hand.
+- Resource download: `python3 studio/motion/pack.py studio/motion/<project> <zip>` (flat folder, opens by double-click).
+- Copy a brand's colours, corners and motion only: never its logo, name or paid font. Covers come from the reel's first
+  frame (`--still --at 0.9`), not app.thumbnail (there is no face).
+- If `ffmpeg` fails with "Library not loaded: libx265", Homebrew upgraded x265 under it. Fix: `brew reinstall ffmpeg`.
+  Stopgap for motion renders only: `/opt/homebrew/opt/ffmpeg-full/bin` first on PATH (ffmpeg 9.0 moves
+  test_tighten's speed-up sync to 22.95 ms, over the 20 ms gate; with 8.1 all 528 studio tests pass).
+
 ## News split-screen reels (Explainer theme "seam")
 
 A reference cut at a fixed seam (recording on top, presenter below, flipping for proof beats, LED captions on the

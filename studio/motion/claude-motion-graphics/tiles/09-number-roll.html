@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>09 Number → roll</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script>
+<style>
+  .lbl { position: absolute; left: 44px; top: 50px; font-size: 19px; font-weight: 500; color: var(--ink-soft); display: flex; align-items: center; gap: 10px; }
+  .lbl i { width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block; }
+  .num { position: absolute; left: 40px; top: 86px; display: flex; font-size: 66px; font-weight: 600; letter-spacing: -.03em;
+    color: var(--ink); height: 80px; line-height: 80px; font-variant-numeric: tabular-nums; }
+  .col { width: .62em; height: 80px; overflow: hidden; position: relative; text-align: center; }
+  .col .strip { position: absolute; left: 0; right: 0; top: 0; }
+  .col .strip div { height: 80px; }
+  .fix { padding: 0 .02em; }
+  .cur { font-size: 36px; font-weight: 600; margin-right: 10px; color: var(--ink-soft); align-self: flex-end; line-height: 64px; letter-spacing: 0; }
+  .pill { position: absolute; left: 44px; top: 188px; padding: 6px 12px; border-radius: 8px; background: #dcfbe9;
+    color: var(--green-ink); font-size: 16px; font-weight: 600; transform-origin: 0 50%; }
+  .bars { position: absolute; left: 44px; right: 44px; bottom: 44px; height: 150px; display: flex; align-items: flex-end; gap: 10px; }
+  .bars div { flex: 1; border-radius: 6px 6px 3px 3px; background: #d9d4ff; transform-origin: 50% 100%; }
+  .bars div:last-child { background: linear-gradient(180deg, #ff6118, #ee30fb 55%, #7232f1); }
+</style></head>
+<body class="light"><div class="stage">
+  <div class="lbl">Revenue this year <i></i></div>
+  <div class="num"><span class="cur">AED</span></div>
+  <div class="pill">+24% year on year</div>
+  <div class="bars"></div>
+</div>
+<script>
+// Scene line: "Number -> roll: a revenue figure rolls up digit by digit like an odometer while the bars grow under it."
+const { ease, seg, run } = Motion;
+const TARGET = '1,285,070', num = document.querySelector('.num'), pill = document.querySelector('.pill');
+const cols = [];
+[...TARGET].forEach((ch, i) => {
+  if (ch === ',') { const s = document.createElement('span'); s.className = 'fix'; s.textContent = ','; num.appendChild(s); return; }
+  const col = document.createElement('div'); col.className = 'col';
+  const strip = document.createElement('div'); strip.className = 'strip';
+  for (let r = 0; r < 40; r++) { const d = document.createElement('div'); d.textContent = r % 10; strip.appendChild(d); }
+  col.appendChild(strip); num.appendChild(col);
+  cols.push({ strip, digit: +ch, spins: 1 + i % 3 });
+});
+const bars = document.querySelector('.bars');
+const H = [.3, .38, .34, .46, .5, .44, .58, .62, .7, .66, .8, 1];
+H.forEach(() => bars.appendChild(document.createElement('div')));
+run((t) => {
+  const up = seg(t, .5, 2.9), down = ease.inOut(seg(t, 4.9, 5.7));
+  cols.forEach((c, i) => {
+    // later (smaller) digits spin longer and land last
+    const k = ease.out(seg(up, i * .05, .62 + i * .05));
+    const v = (c.digit + 10 * c.spins) * k * (1 - down);
+    c.strip.style.transform = `translateY(${-v * 80}px)`;
+    const speed = Math.abs(ease.out(seg(up, i * .05 + .02, .64 + i * .05)) - k) * 60;
+    c.strip.style.filter = speed > .3 ? `blur(${Math.min(2.5, speed)}px)` : 'none';
+  });
+  [...bars.children].forEach((b, i) => {
+    const k = ease.out(seg(t, .5 + i * .12, 1.3 + i * .12)) * (1 - ease.inOut(seg(t, 4.9 + i * .02, 5.6)));
+    b.style.height = `${H[i] * 100}%`; b.style.transform = `scaleY(${k})`;
+  });
+  const pk = ease.back(seg(t, 2.9, 3.25)) * (1 - ease.inOut(seg(t, 4.7, 5.0)));
+  pill.style.transform = `scale(${pk})`; pill.style.opacity = Math.min(1, pk * 1.4);
+});
+</script></body></html>

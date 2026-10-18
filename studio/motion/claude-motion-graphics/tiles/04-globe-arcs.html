@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>04 Globe → arcs</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script></head>
+<body class="dark"><div class="stage"></div>
+<script>
+// Scene line: "Globe -> arcs: a dotted globe turns once per loop while payment arcs fly out of Dubai."
+const { ease, seg, canvas, run, clamp } = Motion;
+const { ctx } = canvas(document.querySelector('.stage'));
+const CX = 280, CY = 250, R = 185, TAU = Math.PI * 2, RAD = Math.PI / 180;
+// rough continents as lat/lon ellipses (a stylised map, not a survey)
+const LAND = [
+  [50, -100, 22, 32], [62, -110, 12, 40], [20, -100, 10, 14], [-12, -58, 20, 16], [-35, -64, 12, 8],
+  [50, 15, 12, 22], [62, 20, 8, 16], [8, 20, 22, 20], [-20, 25, 14, 12], [25, 45, 10, 14],
+  [50, 90, 18, 50], [30, 100, 14, 22], [20, 78, 9, 8], [5, 110, 6, 14], [-25, 134, 10, 16], [72, -40, 7, 14],
+  [38, -95, 14, 22], [0, -65, 14, 14], [-5, 18, 14, 14], [30, 15, 6, 22], [58, 40, 10, 30], [62, 120, 10, 30], [35, 135, 8, 6],
+];
+const isLand = (lat, lon) => LAND.some(([a, b, ra, rb]) => {
+  let d = lon - b; d = ((d + 540) % 360) - 180;
+  return ((lat - a) / ra) ** 2 + (d / rb) ** 2 < 1;
+});
+const DOTS = [];
+for (let lat = -78; lat <= 80; lat += 2.5) {
+  const step = 2.5 / Math.max(.25, Math.cos(lat * RAD));
+  for (let lon = -180; lon < 180; lon += step) if (isLand(lat, lon)) DOTS.push([lat, lon]);
+}
+const CITIES = { dxb: [25.2, 55.3], lon: [51.5, -.1], sin: [1.35, 103.8], nyc: [40.7, -74], jnb: [-26.2, 28], syd: [-33.9, 151.2],
+  gru: [-23.5, -46.6], tyo: [35.7, 139.7], bom: [19.1, 72.9], los: [6.5, 3.4], sfo: [37.8, -122.4], par: [48.9, 2.4] };
+const PAIRS = [['dxb', 'lon'], ['dxb', 'sin'], ['dxb', 'jnb'], ['dxb', 'bom'], ['dxb', 'par'], ['lon', 'nyc'], ['nyc', 'gru'],
+  ['sfo', 'nyc'], ['sin', 'syd'], ['tyo', 'sin'], ['los', 'lon'], ['sfo', 'tyo'], ['bom', 'sin'], ['par', 'nyc']];
+const vec = ([lat, lon]) => [Math.cos(lat * RAD) * Math.cos(lon * RAD), Math.sin(lat * RAD), Math.cos(lat * RAD) * Math.sin(lon * RAD)];
+let rot = 0;
+const TILT = 18 * RAD;
+const rotAt = (t) => TAU * t / 6 + 1.2;
+const project = ([x, y, z], h = 1) => {
+  // turn the globe around its axis, then tilt it toward the viewer
+  const c = Math.cos(rot), s = Math.sin(rot);
+  const x1 = x * c - z * s, z1 = x * s + z * c;
+  const y2 = y * Math.cos(TILT) - z1 * Math.sin(TILT), z2 = y * Math.sin(TILT) + z1 * Math.cos(TILT);
+  return [CX + x1 * R * h, CY - y2 * R * h, z2];
+};
+const slerp = (a, b, k) => {
+  const d = Math.acos(clamp(a[0] * b[0] + a[1] * b[1] + a[2] * b[2], -1, 1)), s = Math.sin(d) || 1;
+  const wa = Math.sin((1 - k) * d) / s, wb = Math.sin(k * d) / s;
+  return [a[0] * wa + b[0] * wb, a[1] * wa + b[1] * wb, a[2] * wa + b[2] * wb];
+};
+// each arc slot takes the route whose two cities face the viewer best while it flies, Dubai routes first
+const ROUTES = [.15, 1.35, 2.55, 3.75, 4.95].map((start) => {
+  const facing = ([a, b]) => { rot = rotAt(start + .8); return Math.min(project(vec(CITIES[a]))[2], project(vec(CITIES[b]))[2]); };
+  const best = PAIRS.map((p) => [p, facing(p) + (p[0] === 'dxb' ? .15 : 0)]).sort((x, y) => y[1] - x[1])[0][0];
+  return [best[0], best[1], start];
+});
+run((t) => {
+  ctx.clearRect(0, 0, 560, 500);
+  rot = rotAt(t);
+  const g = ctx.createRadialGradient(CX - 60, CY - 70, 20, CX, CY, R * 1.08);
+  g.addColorStop(0, '#1d3a63'); g.addColorStop(.75, '#0f2747'); g.addColorStop(1, 'rgba(15,39,71,0)');
+  ctx.fillStyle = g; ctx.beginPath(); ctx.arc(CX, CY, R * 1.08, 0, TAU); ctx.fill();
+  ctx.strokeStyle = 'rgba(160,150,255,.35)'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(CX, CY, R, 0, TAU); ctx.stroke();
+  for (const d of DOTS) {
+    const [x, y, z] = project(vec(d));
+    if (z < -.05) continue;
+    ctx.fillStyle = `rgba(${Math.round(160 + 80 * z)},${Math.round(120 + 40 * z)},255,${.25 + .7 * z})`;
+    ctx.beginPath(); ctx.arc(x, y, 1.5 + 1.1 * z, 0, TAU); ctx.fill();
+  }
+  for (const [from, to, start] of ROUTES) {
+    const draw = ease.out(seg(t, start, start + 1.1)), fade = 1 - seg(t, start + 1.6, start + 2.2);
+    const life = ((t - start) % 6 + 6) % 6;
+    if (life > 2.2) continue;
+    const a = vec(CITIES[from]), b = vec(CITIES[to]);
+    ctx.lineWidth = 2.6; ctx.lineCap = 'round';
+    let prev = null;
+    for (let i = 0; i <= 48 * draw; i++) {
+      const k = i / 48, p = project(slerp(a, b, k), 1 + .22 * Math.sin(Math.PI * k));
+      if (prev && p[2] > -.2 && prev[2] > -.2) {
+        ctx.strokeStyle = `rgba(244,75,204,${fade * (.4 + .6 * k)})`;
+        ctx.beginPath(); ctx.moveTo(prev[0], prev[1]); ctx.lineTo(p[0], p[1]); ctx.stroke();
+      }
+      prev = p;
+    }
+    for (const [p, on] of [[project(a), 1], [project(b), draw >= 1 ? 1 : 0]]) {
+      if (!on || p[2] < 0) continue;
+      ctx.fillStyle = `rgba(255,255,255,${fade})`; ctx.beginPath(); ctx.arc(p[0], p[1], 3.2, 0, TAU); ctx.fill();
+      ctx.strokeStyle = `rgba(244,75,204,${fade * .8})`; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(p[0], p[1], 7 + 4 * Math.sin(t * 6.283), 0, TAU); ctx.stroke();
+    }
+  }
+});
+</script></body></html>

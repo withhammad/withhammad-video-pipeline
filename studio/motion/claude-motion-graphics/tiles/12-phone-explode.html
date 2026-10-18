@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>12 Phone → explode</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script>
+<style>
+  .shadow { position: absolute; left: 150px; top: 360px; width: 260px; height: 80px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(50,40,110,.3), rgba(50,40,110,0)); }
+  .iso { position: absolute; left: 280px; top: 300px; transform-style: preserve-3d; transform: rotateX(60deg) rotateZ(-40deg); }
+  .plate { position: absolute; left: -80px; top: -140px; width: 160px; height: 280px; border-radius: 22px; transform-style: preserve-3d; }
+  .body { background: linear-gradient(135deg, #22385a, #061b31); box-shadow: 0 0 0 3px #2c4466 inset, 0 30px 40px rgba(6,27,49,.35); }
+  .screen { background: #fff; box-shadow: 0 0 0 1px #dfe5f0, 0 18px 30px -8px rgba(40,30,100,.25); }
+  .glass { background: rgba(255,255,255,.72); box-shadow: 0 0 0 1px rgba(200,205,230,.9), 0 18px 30px -10px rgba(40,30,100,.22); }
+  .card { position: absolute; left: 12px; top: 18px; width: 136px; height: 80px; border-radius: 12px;
+    background: linear-gradient(120deg, #ffb000, #ff6118 30%, #f44bcc 62%, #7232f1); }
+  .row { position: absolute; left: 12px; width: 136px; height: 26px; border-radius: 8px; background: #eef1f8; }
+  .row::before { content: ''; position: absolute; left: 8px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: #c9c3ff; }
+  .row::after { content: ''; position: absolute; left: 28px; top: 10px; width: 68px; height: 6px; border-radius: 3px; background: #cdd5e4; }
+  .pay { position: absolute; left: 12px; top: 226px; width: 136px; height: 34px; border-radius: 17px;
+    background: linear-gradient(180deg, #7f7dfc, #533afd); }
+</style></head>
+<body class="light"><div class="stage">
+  <div class="shadow"></div>
+  <div class="iso">
+    <div class="plate body"></div>
+    <div class="plate screen"></div>
+    <div class="plate glass"><div class="card"></div></div>
+    <div class="plate glass"><div class="row" style="top:116px"></div><div class="row" style="top:150px"></div><div class="row" style="top:184px"></div></div>
+    <div class="plate glass"><div class="pay"></div></div>
+  </div>
+</div>
+<script>
+// Scene line: "Phone -> explode: an isometric phone lifts its screen, card, list and button apart into layers, then snaps shut."
+const { ease, seg, run } = Motion;
+const plates = [...document.querySelectorAll('.plate')], shadow = document.querySelector('.shadow');
+const GAP = [0, 46, 100, 152, 204];   // exploded height of each plate
+run((t) => {
+  const float = 5 * Math.sin(2 * Math.PI * t / 6);
+  plates.forEach((p, i) => {
+    const k = ease.out(seg(t, .6 + i * .09, 1.6 + i * .09)) * (1 - ease.inOut(seg(t, 4.0 + (4 - i) * .07, 5.1 + (4 - i) * .06)));
+    p.style.transform = `translateZ(${i * 3 + GAP[i] * k + float * (i / 4) * k}px)`;
+    // collapsed, the glass plates are only their contents, sitting on the screen
+    if (i > 1) p.style.background = `rgba(255,255,255,${.72 * k})`, p.style.boxShadow = k < .05 ? 'none' : '';
+  });
+  const k = ease.out(seg(t, .6, 1.8)) * (1 - ease.inOut(seg(t, 4.0, 5.3)));
+  shadow.style.transform = `scale(${1 + .18 * k})`; shadow.style.opacity = 1 - .35 * k;
+});
+</script></body></html>

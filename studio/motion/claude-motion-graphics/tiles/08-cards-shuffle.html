@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>08 Cards → shuffle</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script>
+<style>
+  .deck { position: absolute; left: 280px; top: 250px; perspective: 1000px; }
+  .c { position: absolute; left: -150px; top: -95px; width: 300px; height: 190px; border-radius: 16px;
+    box-shadow: 0 24px 40px -18px rgba(30,20,80,.45); transform-origin: 50% 50%; }
+  .c .chip { position: absolute; left: 24px; top: 28px; width: 40px; height: 30px; border-radius: 6px; background: linear-gradient(135deg,#ffe08a,#e0a93a); }
+  .c .num { position: absolute; left: 24px; bottom: 26px; font: 500 17px var(--mono); letter-spacing: .12em; }
+  .g { background: linear-gradient(120deg, #ffb000, #ff6118 30%, #f44bcc 62%, #7232f1); color: #fff; }
+  .n { background: linear-gradient(135deg, #1a2c44, #061b31); color: #cfd7e6; }
+  .p { background: linear-gradient(135deg, #7f7dfc, #533afd); color: #fff; }
+  .w { background: #fff; color: #50617a; box-shadow: 0 24px 40px -18px rgba(30,20,80,.35), 0 0 0 1px #e5edf5; }
+  .b { background: linear-gradient(135deg, #2b2b33, #0b0b10); color: #d8d8e0; }
+</style></head>
+<body class="light"><div class="stage"><div class="deck">
+  <div class="c g"><div class="chip"></div><div class="num">•••• 4242</div></div>
+  <div class="c n"><div class="chip"></div><div class="num">•••• 1881</div></div>
+  <div class="c p"><div class="chip"></div><div class="num">•••• 5100</div></div>
+  <div class="c w"><div class="chip"></div><div class="num">•••• 3007</div></div>
+  <div class="c b"><div class="chip"></div><div class="num">•••• 0424</div></div>
+</div></div>
+<script>
+// Scene line: "Cards -> shuffle: five payment cards in a fanned deck; the front card flicks out and slides to the back, five times."
+const { ease, seg, run, lerp } = Motion;
+const cards = [...document.querySelectorAll('.c')];
+const N = cards.length, STEP = 6 / N;            // one shuffle every 1.2 s, the deck returns to its start each loop
+const slot = (i) => ({ x: i * 22, y: -i * 16, r: -14 + i * 2.5, s: 1 - i * .045, z: N - i });
+run((t) => {
+  const n = Math.floor(t / STEP), u = (t - n * STEP) / STEP;
+  const k = ease.inOut(seg(u, .15, .85));
+  cards.forEach((card, idx) => {
+    const pos = ((idx - n) % N + N) % N;           // 0 = front
+    let x, y, r, s, z;
+    if (pos === 0) {
+      // front card: swings out to the right and up, then tucks in behind the deck
+      const a = slot(0), b = slot(N - 1), lift = Math.sin(Math.PI * k);
+      x = lerp(a.x, b.x, k) + 230 * lift; y = lerp(a.y, b.y, k) - 60 * lift; r = lerp(a.r, b.r, k) + 22 * lift;
+      s = lerp(a.s, b.s, k); z = k < .5 ? N + 1 : 0;
+    } else {
+      const a = slot(pos), b = slot(pos - 1);
+      x = lerp(a.x, b.x, k); y = lerp(a.y, b.y, k); r = lerp(a.r, b.r, k); s = lerp(a.s, b.s, k); z = a.z;
+    }
+    card.style.transform = `translate(${x - 40}px, ${y + 24}px) rotate(${r}deg) scale(${s})`;
+    card.style.zIndex = z;
+  });
+});
+</script></body></html>

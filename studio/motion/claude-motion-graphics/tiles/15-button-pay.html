@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>15 Button → pay</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script>
+<style>
+  .btn { position: absolute; left: 280px; top: 250px; height: 76px; border-radius: 38px; display: flex; align-items: center;
+    justify-content: center; gap: 12px; color: #fff; font-size: 27px; font-weight: 600; white-space: nowrap; overflow: hidden;
+    transform: translate(-50%, -50%); }
+  .pay { background: linear-gradient(180deg, #7f7dfc, #533afd); box-shadow: 0 18px 34px -12px rgba(83,58,253,.7), inset 0 1px 0 rgba(255,255,255,.35); }
+  .paid { background: linear-gradient(180deg, #2ee68a, #0bbf62); box-shadow: 0 18px 34px -12px rgba(11,191,98,.6), inset 0 1px 0 rgba(255,255,255,.35); }
+  .lock { width: 18px; height: 15px; border-radius: 3px; background: #fff; position: relative; margin-top: 6px; }
+  .lock::before { content: ''; position: absolute; left: 3px; top: -10px; width: 8px; height: 10px; border: 2.5px solid #fff; border-bottom: 0; border-radius: 7px 7px 0 0; }
+  .spin { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px; border-radius: 50%;
+    border: 4px solid rgba(255,255,255,.3); border-top-color: #fff; }
+  .tick { width: 30px; height: 30px; }
+  .ring { position: absolute; left: 280px; top: 250px; width: 76px; height: 76px; margin: -38px; border-radius: 50%; border: 3px solid #12d16f; opacity: 0; }
+  .cursor { position: absolute; width: 34px; height: 34px; filter: drop-shadow(0 3px 4px rgba(0,0,0,.3)); }
+</style></head>
+<body class="light"><div class="stage">
+  <div class="ring"></div><div class="ring"></div>
+  <div class="btn pay"></div>
+  <svg class="cursor" viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="#111" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+</div>
+<script>
+// Scene line: "Button -> pay: a cursor clicks Pay, the button shrinks to a spinner, ticks green and opens into Paid."
+const { ease, seg, run, lerp } = Motion;
+const btn = document.querySelector('.btn'), cursor = document.querySelector('.cursor'), rings = document.querySelectorAll('.ring');
+const PAY = '<div class="lock"></div><span>Pay AED 175.00</span>';
+const TICK = '<svg class="tick" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const PAID = TICK + '<span>Paid AED 175.00</span>';
+const FULL = 330;
+let state = '';
+const set = (cls, html) => { if (state !== cls + html) { btn.className = 'btn ' + cls; btn.innerHTML = html; state = cls + html; } };
+run((t) => {
+  // cursor glides in, clicks at 0.9 s, leaves after the result
+  const inK = ease.out(seg(t, .1, .85)), outK = ease.inOut(seg(t, 3.6, 4.4));
+  cursor.style.left = `${lerp(lerp(470, 300, inK), 520, outK)}px`;
+  cursor.style.top = `${lerp(lerp(440, 262, inK), 470, outK)}px`;
+  const press = 1 - .06 * Math.sin(Math.PI * seg(t, .85, 1.05));
+  const shrink = ease.inOut(seg(t, 1.05, 1.45)), grow = ease.out(seg(t, 3.0, 3.45)), back = ease.inOut(seg(t, 5.2, 5.8));
+  let w = lerp(FULL, 76, shrink);
+  if (t < 2.55) {
+    set('pay', t < 1.3 ? PAY : '<div class="spin"></div>');
+    const spin = btn.querySelector('.spin'); if (spin) spin.style.transform = `rotate(${(t - 1.3) * 540}deg)`;
+  } else if (t < 5.2) {
+    set('paid', grow > .35 ? PAID : TICK);
+    w = lerp(76, FULL + 14, grow);
+  } else {
+    set(back < .5 ? 'paid' : 'pay', back < .5 ? PAID : PAY);
+    w = FULL + 14 * (1 - back);
+  }
+  const pop = t >= 2.55 && t < 3.0 ? 1 + .14 * Math.sin(Math.PI * seg(t, 2.55, 2.95)) : 1;
+  btn.style.width = `${w}px`;
+  btn.style.transform = `translate(-50%, -50%) scale(${press * pop})`;
+  btn.style.opacity = t >= 5.2 ? 1 - .35 * Math.sin(Math.PI * back) : 1;
+  rings.forEach((r, i) => {
+    const k = seg(t, 2.6 + i * .18, 3.5 + i * .18);
+    r.style.opacity = k > 0 && k < 1 ? (1 - k) * .8 : 0;
+    r.style.transform = `scale(${1 + k * 1.6})`;
+  });
+});
+</script></body></html>

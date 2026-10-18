@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>01 Particles → logo</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script></head>
+<body class="dark"><div class="stage"></div>
+<script>
+// Scene line: "Particles -> logo: 1,100 particles hold a diamond mark, burst into a slow ring, and snap back."
+const { ease, seg, loud, rng, lerp, canvas, run } = Motion;
+const stage = document.querySelector('.stage');
+const { ctx } = canvas(stage);
+const CX = 280, CY = 250, N = 1500, rand = rng(7);
+const dots = Array.from({ length: N }, () => {
+  // home: inside a rounded diamond, denser toward the edge
+  let x, y;
+  do { x = rand() * 2 - 1; y = rand() * 2 - 1; } while (Math.abs(x) + Math.abs(y) * 1.12 > 1 || (rand() < .35 && Math.abs(x) + Math.abs(y) * 1.12 < .55));
+  const a = rand() * Math.PI * 2, r = 120 + rand() * 120;
+  return { hx: CX + x * 158, hy: CY + y * 146, a, r, s: 1.2 + rand() * 1.9, k: (x + 1) / 2, w: rand() * 6.283, d: rand() * .25 };
+});
+run((t) => {
+  ctx.clearRect(0, 0, 560, 500);
+  const out = ease.out(seg(t, 2.5, 3.3));
+  const back = ease.inOut(seg(t, 4.3, 5.6));
+  const spin = (t - 2.5) * .5;
+  // glow under the mark, brighter while the ring is out
+  const g = ctx.createRadialGradient(CX, CY, 0, CX, CY, 230);
+  g.addColorStop(0, `rgba(244,75,204,${.18 + .22 * out * (1 - back)})`); g.addColorStop(1, 'rgba(83,58,253,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, 560, 500);
+  ctx.globalCompositeOperation = 'lighter';
+  for (const p of dots) {
+    const kOut = ease.out(seg(t, 2.5 + p.d * .6, 3.3 + p.d * .6)) * (1 - ease.inOut(seg(t, 4.3 + p.d, 5.4 + p.d * .7)));
+    const ang = p.a + spin * (1 - .3 * p.d);
+    const rx = CX + Math.cos(ang) * p.r * 1.15, ry = CY + Math.sin(ang) * p.r * .82;
+    const shimmer = 1.4 * Math.sin(t * 2.0944 + p.w);  // 2π/3: two shimmers per loop, so it loops cleanly
+    const x = lerp(p.hx + shimmer, rx, kOut), y = lerp(p.hy + shimmer * .6, ry, kOut);
+    ctx.fillStyle = loud(.15 + p.k * .75);
+    ctx.globalAlpha = .85 - .35 * kOut * p.d * 3;
+    ctx.beginPath(); ctx.arc(x, y, p.s * (1 - .25 * kOut), 0, 6.283); ctx.fill();
+  }
+  ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+});
+</script></body></html>

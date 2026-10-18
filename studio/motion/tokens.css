@@ -1,0 +1,48 @@
+/* Stripe-style tokens, read from stripe.com's public CSS on 2026-10-18 (see claude-motion-graphics/style.md).
+   Colours, corners, shadow and easing only: never Stripe's logo, never its paid Söhne font (Inter instead). */
+@font-face { font-family: 'Inter'; font-weight: 400; src: url('fonts/inter-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 500; src: url('fonts/inter-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('fonts/inter-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 700; src: url('fonts/inter-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 800; src: url('fonts/inter-latin-800-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 900; src: url('fonts/inter-latin-900-normal.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-weight: 500; src: url('fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2'); }
+
+:root {
+  --blurple: #635bff;
+  --brand: #533afd;
+  --brand-400: #7f7dfc;
+  --brand-700: #4032c8;
+  --yellow: #ffd601;
+  --amber: #ffcf5e;
+  --orange: #ff6118;
+  --magenta: #f44bcc;
+  --pink: #ee30fb;
+  --violet: #7232f1;
+  --navy: #061b31;
+  --navy-2: #0d253d;
+  --navy-3: #1a2c44;
+  --ink: #061b31;
+  --ink-soft: #50617a;
+  --paper: #ffffff;
+  --mist: #f6f9fc;
+  --line: #e5edf5;
+  --green: #00d66f;
+  --green-ink: #0a8a4a;
+  --loud: linear-gradient(120deg, #ffd601 0%, #ff6118 30%, #f44bcc 58%, #7232f1 82%, #533afd 100%);
+  --shadow: 0 27px 40.5px -27px rgba(50, 50, 93, .25), 0 16.2px 32.4px -16.2px rgba(0, 0, 0, .1);
+  --shadow-soft: 0 6px 22px rgba(50, 50, 93, .12);
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-card: 12px;
+  --ease: cubic-bezier(.25, 1, .5, 1);
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; }
+body { font-family: var(--font); color: var(--ink); -webkit-font-smoothing: antialiased; letter-spacing: -.01em; }
+body.dark { background: radial-gradient(120% 100% at 50% 40%, #0f2a47 0%, var(--navy) 70%); color: #fff; }
+body.light { background: radial-gradient(120% 100% at 50% 30%, #ffffff 0%, #f3f1fb 100%); }
+.stage { position: absolute; left: 0; top: 0; width: 560px; height: 500px; transform-origin: 0 0; }

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>05 Line → draw</title>
+<link rel="stylesheet" href="../../tokens.css"><script src="../../motion.js"></script>
+<style>
+  .card { position: absolute; left: 34px; top: 34px; width: 492px; height: 400px; background: #fff; border-radius: 14px;
+    box-shadow: var(--shadow), 0 0 0 1px rgba(6,27,49,.05); overflow: hidden; }
+  .lbl { position: absolute; left: 30px; top: 30px; font-size: 17px; font-weight: 500; color: var(--ink-soft); }
+  .val { position: absolute; left: 28px; top: 56px; font-size: 44px; font-weight: 600; letter-spacing: -.02em; color: var(--ink);
+    font-variant-numeric: tabular-nums; }
+  .pill { position: absolute; right: 26px; top: 26px; padding: 7px 13px; border-radius: 9px; background: var(--navy);
+    color: #fff; font-size: 17px; font-weight: 600; transform-origin: 80% 50%; }
+</style></head>
+<body class="light"><div class="stage">
+  <div class="card"><div class="lbl">Monthly revenue</div><div class="val">AED 0</div><div class="pill">+128%</div></div>
+</div>
+<script>
+// Scene line: "Line -> draw: a revenue card counts up while its line draws in left to right, then a +128% badge pops."
+const { ease, seg, canvas, run, lerp } = Motion;
+const card = document.querySelector('.card'), val = document.querySelector('.val'), pill = document.querySelector('.pill');
+const { ctx } = canvas(card, 492, 400);
+card.append(...card.querySelectorAll('div'));
+// points of the line (x 0..1, y 0..1 from the bottom): a dip, a rise, a wobble, a strong finish
+const P = [[0, .18], [.12, .26], [.24, .22], [.36, .34], [.47, .29], [.58, .44], [.68, .40], [.78, .58], [.88, .66], [1, .93]];
+const X0 = 26, X1 = 466, Y0 = 372, Y1 = 128;
+const at = (k) => {
+  // smooth curve through P (Catmull-Rom), k in 0..1
+  const n = P.length - 1, f = Math.min(n - 1e-6, k * n), i = Math.floor(f), u = f - i;
+  const p0 = P[Math.max(0, i - 1)], p1 = P[i], p2 = P[i + 1], p3 = P[Math.min(n, i + 2)];
+  const cr = (a, b, c, d) => .5 * (2 * b + (-a + c) * u + (2 * a - 5 * b + 4 * c - d) * u * u + (-a + 3 * b - 3 * c + d) * u * u * u);
+  return [X0 + (X1 - X0) * cr(p0[0], p1[0], p2[0], p3[0]), Y0 - (Y0 - Y1) * cr(p0[1], p1[1], p2[1], p3[1])];
+};
+run((t) => {
+  ctx.clearRect(0, 0, 492, 400);
+  const draw = ease.inOut(seg(t, .4, 3.0));
+  const wipe = ease.inOut(seg(t, 4.9, 5.6));
+  const shown = Math.max(0, draw - wipe);
+  val.textContent = 'AED ' + Math.round(48240 * ease.out(seg(t, .4, 3.0)) * (1 - wipe)).toLocaleString('en-US');
+  const pk = ease.back(seg(t, 3.0, 3.4)) * (1 - ease.inOut(seg(t, 4.7, 5.0)));
+  pill.style.transform = `scale(${pk})`; pill.style.opacity = Math.min(1, pk * 1.5);
+  // faint guide lines
+  ctx.strokeStyle = '#eef1f7'; ctx.lineWidth = 1; ctx.setLineDash([4, 6]);
+  for (const y of [190, 250, 310]) { ctx.beginPath(); ctx.moveTo(X0, y); ctx.lineTo(X1, y); ctx.stroke(); }
+  ctx.setLineDash([]);
+  if (shown <= 0) return;
+  const start = wipe, end = draw, steps = 120, pts = [];
+  for (let i = 0; i <= steps; i++) pts.push(at(lerp(start, end, i / steps)));
+  const area = ctx.createLinearGradient(0, Y1 - 40, 0, Y0);
+  area.addColorStop(0, 'rgba(244,75,204,.32)'); area.addColorStop(1, 'rgba(244,75,204,0)');
+  ctx.fillStyle = area; ctx.beginPath(); ctx.moveTo(pts[0][0], Y0 + 20);
+  for (const p of pts) ctx.lineTo(p[0], p[1]);
+  ctx.lineTo(pts[pts.length - 1][0], Y0 + 20); ctx.closePath(); ctx.fill();
+  const line = ctx.createLinearGradient(X0, 0, X1, 0);
+  line.addColorStop(0, '#7232f1'); line.addColorStop(.6, '#ee30fb'); line.addColorStop(1, '#ff6118');
+  ctx.strokeStyle = line; ctx.lineWidth = 4.5; ctx.lineJoin = ctx.lineCap = 'round';
+  ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.stroke();
+  const [hx, hy] = pts[pts.length - 1];
+  ctx.fillStyle = 'rgba(244,75,204,.25)'; ctx.beginPath(); ctx.arc(hx, hy, 12, 0, 6.283); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.strokeStyle = '#ee30fb'; ctx.lineWidth = 3.5;
+  ctx.beginPath(); ctx.arc(hx, hy, 6, 0, 6.283); ctx.fill(); ctx.stroke();
+});
+</script></body></html>
