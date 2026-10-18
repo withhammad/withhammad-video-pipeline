@@ -806,6 +806,13 @@ def master(in_video, out_video, I=MASTER_TARGET['I'], TP=MASTER_TARGET['TP'], LR
                             '-af', base + ':print_format=json', '-f', 'null', '-']).stderr)
     codec = (['-c:a', 'pcm_s16le'] if str(out_video).endswith('.wav')
              else ['-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart'])
+    if not math.isfinite(float(m['input_i'])):
+        # a silent track (a DeskReel with no music or SFX): there is nothing to normalise, and loudnorm refuses a
+        # measured_I of -inf, so the silence is kept as it is
+        run(['ffmpeg', '-y', '-hide_banner', '-nostats', '-i', in_video, '-map', '0:v?', '-map', '0:a:0', '-c:v', 'copy',
+             '-ar', '48000', *codec, out_video])
+        return {'input': m, 'normalization_type': 'silent', 'tp_target_used': TP,
+                'output': {'lufs': None, 'lra': 0.0, 'true_peak_dbtp': None}}
     tp_target, stats, after = TP, {}, {}
     for _ in range(2):
         second = (f'loudnorm=I={I}:TP={tp_target}:LRA={LRA}:measured_I={m["input_i"]}:measured_TP={m["input_tp"]}'

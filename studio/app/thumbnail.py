@@ -24,6 +24,12 @@
 The copy comes from lesson.json "cover" ({kicker, hook, pill_strong, pill_serif}, see app/lesson.py SCHEMA). The
 kicker must be factually accurate: only claims the lesson verified in sources_checked. plan.json "cover_dark": true
 picks the dark variant for reels that open dark.
+
+Stills reels (app.edit_deskreel: no video take): `--still <png>` (up to 3, in pick order), or deskreel.json
+"cover_still" (a path or a list, job-relative) when the job has no take, makes each still a pick: no frame scoring,
+each still is cover-cropped to 1440x2560 like a take frame and its head placed by the same hair-line rule. The copy
+then comes from lesson.json "cover", or from deskreel.json "cover" when the lesson has none. The take path is
+unchanged.
 """
 import argparse
 import hashlib
@@ -386,21 +392,83 @@ def _default_take(job, plan):
     raise CoverError(f'no take found in {job}: expected avatar.mp4 (run app.reel build first) or pass --take')
 
 
-def build(job, take=None, pick=1, *, render=True, remotion=REMOTION, public_dir=None):
-    """Pick faces, render the covers and the approval sheet, export the chosen cover. Returns the cover.json dict."""
+def still_gray(png):
+    """A still as one 360x640 grayscale frame in the cover geometry of the take frames (for head_geometry)."""
+    process = _run(['ffmpeg', '-v', 'error', '-i', str(png), '-frames:v', '1', '-vf',
+                    f'scale={ANALYSIS_W}:{ANALYSIS_H}:force_original_aspect_ratio=increase:flags=area,'
+                    f'crop={ANALYSIS_W}:{ANALYSIS_H}', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'])
+    frame = np.frombuffer(process.stdout, np.uint8)
+    if frame.size != ANALYSIS_W * ANALYSIS_H:
+        raise CoverError(f'could not decode {png}')
+    return frame.reshape(ANALYSIS_H, ANALYSIS_W).astype(np.float32)
+
+
+def extract_still_face(png, out_png):
+    """A still cover-cropped to 1440x2560 with the same lanczos + unsharp as extract_face."""
+    out_png.parent.mkdir(parents=True, exist_ok=True)
+    _run(['ffmpeg', '-v', 'error', '-y', '-i', str(png), '-frames:v', '1', '-vf',
+          f'scale={FACE_W}:{FACE_H}:force_original_aspect_ratio=increase:flags=lanczos,crop={FACE_W}:{FACE_H},'
+          'unsharp=5:5:0.6:5:5:0', str(out_png)])
+    return out_png
+
+
+def _still_path(job, p):
+    """An absolute path as is; a relative one against the job folder (the deskreel.json form), or against the
+    current directory when only that exists (`--still .local/jobs/<id>/stills/x.png` typed from studio/)."""
+    p = Path(p)
+    if p.is_absolute():
+        return p
+    if not (job / p).is_file() and p.is_file():
+        return p.resolve()
+    return job / p
+
+
+def cover_stills(job, stills=None):
+    """The stills to offer as cover picks: the explicit list, else deskreel.json "cover_still" (str or list).
+    Paths are absolute, job-relative or relative to the current directory (_still_path); at most PICKS."""
+    if not stills:
+        spec = _load_json(job / 'deskreel.json', {}) or {}
+        stills = spec.get('cover_still') or []
+        stills = [stills] if isinstance(stills, str) else list(stills)
+    paths = [_still_path(job, p) for p in stills][:PICKS]
+    for path in paths:
+        if not path.is_file():
+            raise CoverError(f'cover still not found: {path}')
+    return [path.resolve() for path in paths]
+
+
+def _has_take(job, plan):
+    return (job / 'avatar.mp4').is_file() or bool(plan.get('take') and (job / plan['take']).is_file())
+
+
+def build(job, take=None, pick=1, *, render=True, remotion=REMOTION, public_dir=None, stills=None):
+    """Pick faces, render the covers and the approval sheet, export the chosen cover. Returns the cover.json dict.
+    stills: cover from these images instead of a take (a stills reel; see the module docstring)."""
     started = time.monotonic()
     job = Path(job).resolve()
     if not job.is_dir():
         raise CoverError(f'job folder not found: {job}')
     lesson = _load_json(job / 'lesson.json')
+    plan = _load_json(job / 'plan.json', {}) or {}
+    still_paths = cover_stills(job, stills) if stills or (not take and not _has_take(job, plan)) else []
+    if still_paths and not (lesson or {}).get('cover'):
+        lesson = {'cover': (_load_json(job / 'deskreel.json', {}) or {}).get('cover')}   # a stills reel's own copy
     if lesson is None:
         raise CoverError(f'{job / "lesson.json"} not found')
-    plan = _load_json(job / 'plan.json', {}) or {}
     copy = cover_copy(lesson, dark=plan.get('cover_dark', False))
+    warnings = []
+    if still_paths:
+        if not 1 <= int(pick) <= len(still_paths):
+            raise CoverError(f'--pick {pick} is not available: {len(still_paths)} cover still(s) given')
+        picks = [{'n': n, 'still': str(path), 'label': f'Pick {n} - {path.name}',
+                  'extract': (lambda out, path=path: extract_still_face(path, out)),
+                  'frame': (lambda path=path: still_gray(path))} for n, path in enumerate(still_paths, 1)]
+        meta = {'stills': [str(path) for path in still_paths]}
+        return _finish(job, picks, meta, copy, pick, warnings, started, render=render, remotion=remotion,
+                       public_dir=public_dir)
     take = Path(take).resolve() if take else _default_take(job, plan).resolve()
     if not take.is_file():
         raise CoverError(f'take not found: {take}')
-    warnings = []
     captions = _load_json(job / 'captions.json', []) or []
     if captions and take != (job / 'avatar.mp4').resolve():
         # captions.json is timed to the trimmed avatar.mp4; on any other file its pauses point at the wrong frames
@@ -410,45 +478,55 @@ def build(job, take=None, pick=1, *, render=True, remotion=REMOTION, public_dir=
 
     frames, times = sample_frames(take)
     picked = pick_frames(take, captions, boxes=boxes, sampled=(frames, times))
-    picks = picked['picks']
-    if not 1 <= int(pick) <= len(picks):
-        raise CoverError(f'--pick {pick} is not available: the picker found {len(picks)} pick(s)')
-    t_pick = time.monotonic()
+    if not 1 <= int(pick) <= len(picked['picks']):
+        raise CoverError(f'--pick {pick} is not available: the picker found {len(picked["picks"])} pick(s)')
+    picks = [{'n': n, 't': row['t'], 'score': row['score'],
+              'metrics': {k: row[k] for k in ('sharpness', 'motion', 'teeth', 'eyes_open', 'pause', 'at_rest')},
+              'label': f'Pick {n} - {row["t"]:.1f} s - score {row["score"]:.2f}',
+              'extract': (lambda out, t=row['t']: extract_face(take, t, out)),
+              'frame': (lambda t=row['t']: frames[times.index(t)])} for n, row in enumerate(picked['picks'], 1)]
+    meta = {'take': str(take), 'duration_s': picked['duration_s'], 'sample_fps': picked['fps']}
+    return _finish(job, picks, meta, copy, pick, warnings, started, render=render, remotion=remotion,
+                   public_dir=public_dir, frames_json=picked)
 
+
+def _finish(job, picks, meta, copy, pick, warnings, started, *, render, remotion, public_dir, frames_json=None):
+    """Shared tail of build(): faces into public/job, Cover props per pick, the sheet, the render and the exports."""
+    t_pick = time.monotonic()
     thumbs = job / 'thumbs'
     thumbs.mkdir(parents=True, exist_ok=True)
-    (thumbs / 'frames.json').write_text(json.dumps(picked, indent=1))
+    if frames_json is not None:
+        (thumbs / 'frames.json').write_text(json.dumps(frames_json, indent=1))
     public_root = (Path(remotion) / 'public').resolve()
     public_dir = Path(public_dir).resolve() if public_dir else public_root / 'job'
     if render and not public_dir.is_relative_to(public_root):
         raise CoverError(f'public_dir {public_dir} must be inside {public_root}: Remotion serves the faces from there')
     stills, entries = [], []
-    for n, row in enumerate(picks, 1):
-        face_png = extract_face(take, row['t'], public_dir / f'cover_face_{n}.png')
-        hair, centre = head_geometry(frames[times.index(row['t'])])
+    for row in picks:
+        n = row['n']
+        face_png = row['extract'](public_dir / f'cover_face_{n}.png')
+        hair, centre = head_geometry(row['frame']())
         face = face_png.relative_to(public_root).as_posix() if face_png.is_relative_to(public_root) else str(face_png)
         props = {'face': face, **face_layout(hair, centre), **copy}
         props_path = thumbs / f'cover_{n}.json'
         props_path.write_text(json.dumps(props, indent=1, ensure_ascii=False))
-        entry = {'n': n, 't': row['t'], 'score': row['score'],
-                 'metrics': {k: row[k] for k in ('sharpness', 'motion', 'teeth', 'eyes_open', 'pause', 'at_rest')},
-                 'face': str(face_png), 'props_path': str(props_path), 'props': props}
+        entry = {k: row[k] for k in ('n', 't', 'score', 'metrics', 'still') if k in row}
+        entry.update({'face': str(face_png), 'props_path': str(props_path), 'props': props})
         if n == int(pick):   # each still costs ~3 s; the sheet already shows the other picks, so only this one renders
             entry['png'] = str(thumbs / f'cover_{n}.png')
             stills.append(('Cover', props_path, Path(entry['png'])))
-        entries.append(entry)
-    others = ' or '.join(f'"cover {e["n"]}"' for e in entries if e['n'] != int(pick))
+        entries.append((entry, row['label']))
+    others = ' or '.join(f'"cover {e["n"]}"' for e, _ in entries if e['n'] != int(pick))
     sheet_props = {'title': f'Cover picks - {job.name}',
                    'subtitle': f'Pick {int(pick)} is exported.' + (f' Reply {others} to switch.' if others else ''),
-                   'items': [{'label': f'Pick {e["n"]} - {e["t"]:.1f} s - score {e["score"]:.2f}'
-                                       + ('  (chosen)' if e['n'] == int(pick) else ''), 'cover': e['props']}
-                             for e in entries]}
+                   'items': [{'label': label + ('  (chosen)' if e['n'] == int(pick) else ''), 'cover': e['props']}
+                             for e, label in entries]}
     sheet_props_path = thumbs / 'cover_sheet.json'
     sheet_props_path.write_text(json.dumps(sheet_props, indent=1, ensure_ascii=False))
     sheet = thumbs / 'cover_sheet.png'
     result = {'version': 1, 'built_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'job': str(job),
-              'take': str(take), 'duration_s': picked['duration_s'], 'sample_fps': picked['fps'],
-              'chosen': int(pick), 'copy': copy, 'picks': entries, 'files': {}, 'warnings': warnings}
+              **meta, 'chosen': int(pick), 'copy': copy, 'picks': [e for e, _ in entries], 'files': {},
+              'warnings': warnings}
     if render:
         render_stills(stills + [('CoverSheet', sheet_props_path, sheet)], remotion)
         t_render = time.monotonic()
@@ -473,13 +551,17 @@ def main(argv=None):
     b.add_argument('--take', help='video to pick faces from (default: <job>/avatar.mp4; another file gets no caption '
                                   'pause bonus, because captions.json is timed to avatar.mp4)')
     b.add_argument('--pick', type=int, default=1, choices=(1, 2, 3), help='which pick to export (default 1)')
+    b.add_argument('--still', action='append', default=[],
+                   help='a stills reel: cover from this image instead of a take (repeat for picks 2 and 3; '
+                        'default deskreel.json "cover_still" when the job has no take). Absolute, job-relative '
+                        '(stills/x.png) or relative to the current directory')
     args = parser.parse_args(argv)
     try:
-        result = build(args.job, args.take, args.pick)
+        result = build(args.job, args.take, args.pick, stills=args.still or None)
     except CoverError as error:
         print(f'cover: {error}', file=sys.stderr)
         return 1
-    summary = {'chosen': result['chosen'], 'picks': [{k: e[k] for k in ('n', 't', 'score')} for e in result['picks']],
+    summary = {'chosen': result['chosen'], 'picks': [{k: e[k] for k in ('n', 't', 'score', 'still') if k in e} for e in result['picks']],
                'files': {k: v['path'] for k, v in result['files'].items()}, 'timings_s': result['timings_s'],
                'warnings': result['warnings'], 'cover_json': str(Path(result['job']) / 'cover.json')}
     print(json.dumps(summary, indent=2))

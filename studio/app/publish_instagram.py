@@ -67,6 +67,7 @@ MAX_AUDIO_HZ = 48_000
 COVER_MAX_BYTES = 8 * 1000 * 1000
 COVER_MIME = 'image/jpeg'
 SPEC_AUDIO_BPS = 128_000
+AUDIO_OVERHEAD_BPS = 8_000      # container/priming overhead ffprobe adds on top of the 128k encode (short clips)
 TARGET_ASPECT, ASPECT_TOLERANCE = 9 / 16, 0.01
 CAPTION_MAX, HASHTAG_MAX, MENTION_MAX = 2200, 30, 20
 HASHTAG_RE = re.compile(r'(?<![\w&])#\w+')
@@ -303,7 +304,9 @@ def validate_video(video_path, probe=None):
             problems.append(f"audio sample rate {summary['audio_sample_rate']} Hz is over 48 kHz")
         if summary['audio_channels'] not in (1, 2):
             problems.append(f"audio has {summary['audio_channels']} channels; Reels take mono or stereo")
-        if int(a.get('bit_rate') or 0) > SPEC_AUDIO_BPS * 1.05:
+        # app.exports encodes AAC at exactly 128k, yet ffprobe's bit_rate counts the priming and packet overhead,
+        # which weighs more on a short clip (an 8-10 s reel measures ~135 kbps, a 49 s one ~132 kbps): allow 8 kbps
+        if int(a.get('bit_rate') or 0) > SPEC_AUDIO_BPS + AUDIO_OVERHEAD_BPS:
             warnings.append(f"audio bitrate {int(a['bit_rate']) // 1000} kbps is above the 128 kbps in Meta's spec")
     try:
         order, edit_lists = _mp4_layout(path)

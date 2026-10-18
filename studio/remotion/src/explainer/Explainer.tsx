@@ -25,7 +25,7 @@ const HEADLINE_MIN_MS = 400;
 // music/SFX are dropped only when the props say allowMissingAudio.
 // =============================================================================================
 
-const assetExists = async (src: string): Promise<boolean> => {
+export const assetExists = async (src: string): Promise<boolean> => {
   try {
     const url = staticFile(src);
     const head = await fetch(url, { method: "HEAD" });

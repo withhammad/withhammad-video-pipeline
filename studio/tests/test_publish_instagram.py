@@ -895,3 +895,12 @@ def test_cli_is_a_dry_run_and_live_only_stops_after_the_container(monkeypatch, t
     with pytest.raises(SystemExit):
         ig.main(base + ['--live'])   # the command line never posts a reel
     assert len(calls) == 2 and '"planned"' in capsys.readouterr().out
+
+
+def test_short_reel_aac_overhead_is_not_an_audio_bitrate_warning(tmp_path):
+    # app.exports encodes AAC at 128k; ffprobe reports ~135 kbps on a 10 s reel (priming and packet overhead)
+    short = ig.validate_video(write_mp4(tmp_path / 'short.mp4'),
+                              probe=probe_ok(audio={'bit_rate': '134916'}, format={'duration': '10.5'}))
+    assert not any('audio bitrate' in w for w in short['warnings'])
+    loud = ig.validate_video(write_mp4(tmp_path / 'loud.mp4'), probe=probe_ok(audio={'bit_rate': '192000'}))
+    assert any('audio bitrate 192 kbps' in w for w in loud['warnings'])

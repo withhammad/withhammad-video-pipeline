@@ -168,7 +168,10 @@ Never skip a gate.
 6. Publish: YouTube Shorts, Instagram @with.hammad (a Collab with @hammadagentic.ai by default) and LinkedIn via the
    APIs; TikTok, Facebook Reels and X (owner rule 2026-10-18: "twitter missed"; @HammadYous32321, x.com/compose/post,
    final_social.mp4, a post of at most 280 characters with URLs counted as 23, the resource link and "AI avatar of me")
-   via the owner's Chrome. Covers: `publish_youtube.publish(...,
+   via the owner's Chrome. final_ig.mp4 (Instagram) and final_social.mp4 (TikTok, Facebook, X) come from
+   `app.reel build`, `app.edit_deskreel render` and `app.edit_explainer render --out .local/jobs/<id>/final.mp4`; for
+   any other final.mp4 run `.venv/bin/python -m app.exports .local/jobs/<id>/final.mp4` (from studio/) before
+   publishing. Covers: `publish_youtube.publish(...,
    thumbnail_path=<job>/cover_1080x1920.jpg)`; `publish_instagram.publish(..., cover_url=<hosted like the video>,
    cover_path=<job>/cover_1080x1920.jpg)`; `publish_linkedin.publish(..., thumbnail_path=<job>/cover_720x1280.jpg)`;
    TikTok and Facebook: Edit cover > Upload cover with cover_1080x1920.jpg. On every platform a cover failure is a
@@ -184,6 +187,32 @@ Never skip a gate.
 9. Owner accepts the Collab on @hammadagentic.ai in the Instagram app.
 10. Record the links in docs/videos/<date>-<slug>.md and the job's published.json, update docs/PENDING.md, commit
     and push.
+
+## Desk b-roll reels (animated stills)
+
+A silent desk b-roll reference (the techwithprateek format: no voice, text over the creator at a desk, music bed) is
+made from animated HeyGen stills of the owner instead of a take. It is the Remotion composition `DeskReel`
+(`studio/remotion/src/deskreel`, props in `types.ts`), driven by `app.edit_deskreel` (its docstring has the spec
+format). The style source is `analysis/visual.md` of jobs 6cff0a62569f and 6f8f4ad316a3; the smoke spec
+`.local/jobs/6cff0a62569f/deskreel.smoke.json` uses every feature. From `studio/`:
+1. Generate stills for the format: one fixed camera per shot (every pose of a shot from the same viewpoint, or the
+   background jumps at each swap), the head top at about 33 % (hook) to 45 % (list shots) of the height with clear
+   wall above it, never a collage. Then write `<job>/deskreel.json` in the types.ts shape, with job-relative paths,
+   absolute ms and a `face` box (still px: hair top to chin, ear to ear) on every still.
+2. `.venv/bin/python -m app.edit_deskreel align <job> <ref_still> <still>...` for each shot; drop any fit it flags
+   (low match or a residual above 4 px) and give that pose its own shot, or hide the swap under a whip.
+3. `... check <job>` until it reports no errors (windows, gaps, corners, text fit, glyphs, fades, overlays over the
+   head) and read its warnings (view jumps). Then `... build <job>` and `... render <job>`, which write final.mp4
+   (-14 LUFS; YouTube, LinkedIn), final_ig.mp4 (Instagram) and final_social.mp4 (TikTok, Facebook, X). Look at
+   frames every 250 ms before the owner sees it.
+4. Covers: `.venv/bin/python -m app.thumbnail build .local/jobs/<id>`. It reads deskreel.json "cover_still", or
+   take up to 3 `--still <png>` (absolute, job-relative or relative to studio/). The copy stays in lesson.json "cover".
+Rules: chips are text wordmarks in our fonts, never a logo image. Image overlays are our own graphics only. Use only
+the vendored OFL fonts (public/fonts with OFL-*.txt; emoji come from Noto Color Emoji, and check refuses any
+character no vendored face draws). Fact-check every on-screen number and stat-card source like a spoken claim. The
+stills are AI images of the owner, so every platform's AI label and X's "AI avatar of me" still apply. With no
+voice there are no captions, .srt or voice gates; add alt text where supported. publish_instagram's audio-bitrate
+check allows the AAC overhead a short reel measures (about 135 kbps for 128k).
 
 ## Running the pipeline (local, the normal path)
 

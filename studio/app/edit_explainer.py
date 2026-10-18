@@ -2035,7 +2035,9 @@ def master(in_video, out_video, lufs=-14.0, true_peak=-1.5, lra=11.0):
 
 
 def render(job_dir, props_path=None, out=None, scale=None):
-    """npx remotion render Explainer with the job's props, then the loudness master. Returns the master stats."""
+    """npx remotion render Explainer with the job's props, then the loudness master. Returns the master stats.
+    Rendered straight to final.mp4 (--out <job>/final.mp4), it also writes final_ig.mp4 and final_social.mp4
+    (app.exports); for any other name run `python -m app.exports <job>/final.mp4` once final.mp4 is chosen."""
     job_dir = Path(job_dir).resolve()   # Remotion runs from studio/remotion, so every path must be absolute
     props_path = Path(props_path).resolve() if props_path else job_dir / 'edit_explainer.json'
     out = Path(out).resolve() if out else job_dir / 'final_explainer.mp4'
@@ -2046,6 +2048,9 @@ def render(job_dir, props_path=None, out=None, scale=None):
     subprocess.run(cmd, cwd=REMOTION, check=True)
     stats = master(raw, out)
     raw.unlink(missing_ok=True)
+    if out.name == 'final.mp4':
+        from . import exports
+        stats = {**stats, 'exports': exports.platform_exports(out)}
     return stats
 
 
@@ -2080,7 +2085,8 @@ def main(argv=None):
     r = sub.add_parser('render', help='render <job>/edit_explainer.json and master it to -14 LUFS')
     r.add_argument('job')
     r.add_argument('--props', help='default <job>/edit_explainer.json')
-    r.add_argument('--out', help='default <job>/final_explainer.mp4')
+    r.add_argument('--out', help='default <job>/final_explainer.mp4; <job>/final.mp4 also writes final_ig.mp4 and '
+                                 'final_social.mp4 (app.exports)')
     r.add_argument('--scale', type=float)
     m = sub.add_parser('master', help='loudness master of a rendered video (-14 LUFS, -1.5 dBTP)')
     m.add_argument('input')

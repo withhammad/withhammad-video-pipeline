@@ -10,6 +10,7 @@ import {
   SHEET_W,
   sheetHeight,
 } from "./Cover";
+import { DeskReelComposition } from "./deskreel/DeskReel";
 import { ExplainerComposition } from "./explainer/Explainer";
 
 export const RemotionRoot: React.FC = () => {
@@ -33,6 +34,7 @@ export const RemotionRoot: React.FC = () => {
         calculateMetadata={calculateCoverSheetMetadata}
       />
       <ExplainerComposition />
+      <DeskReelComposition />
     </>
   );
 };

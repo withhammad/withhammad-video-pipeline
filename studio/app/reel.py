@@ -21,7 +21,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from . import audio, edit_plan, media, thumbnail, tighten, voice_gates
+from . import audio, edit_plan, exports, media, thumbnail, tighten, voice_gates
 
 STUDIO = Path(__file__).resolve().parents[1]
 REMOTION = STUDIO / 'remotion'
@@ -93,13 +93,10 @@ def build(job, take=None, render=True, cover=True):
     subprocess.run(['npx', 'remotion', 'render', 'Reel', str(raw), f'--props={job / "edit.json"}', '--codec=h264', '--crf=18'],
                    cwd=REMOTION, check=True, capture_output=True, text=True)
     audio.master(raw, job / 'final.mp4')
-    # Instagram/Facebook spec: no edit lists, AAC <= 128 kbps, moov at the front.
-    # Re-encode without B-frames so the first video pts is 0 (with -c:v copy, dropping the edit list exposed a
-    # 67 ms B-frame delay and the picture lagged the audio by ~45 ms).
-    audio.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(job / 'final.mp4'), '-c:v', 'libx264', '-crf', '17', '-preset', 'slow',
-               '-bf', '0', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k', '-ar', '48000', '-movflags', '+faststart',
-               '-use_editlist', '0', str(job / 'final_ig.mp4')])
-    result.update({'final': str(job / 'final.mp4'), 'final_ig': str(job / 'final_ig.mp4'), 'analysis': audio.analyze(job / 'final.mp4')})
+    # final_ig.mp4 (Instagram spec: no edit lists, no B-frames, AAC 128 kbps, moov first) and final_social.mp4 (the
+    # same at a capped bit rate: TikTok, Facebook, X): app.exports has the reasons.
+    result.update({'final': str(job / 'final.mp4'), **exports.platform_exports(job / 'final.mp4'),
+                   'analysis': audio.analyze(job / 'final.mp4')})
     # -- voice gates: measured on the finished job; prints a pass/fail table, stops the build only if strict
     result['voice_gates_failed'] = voice_gates.check_job(job, strict=plan.get('strict_gates', False))['failed']
     # --

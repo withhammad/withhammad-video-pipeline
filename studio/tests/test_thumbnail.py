@@ -223,7 +223,7 @@ def test_reel_build_makes_the_cover_after_final_mp4_and_no_cover_skips_it(tmp_pa
     monkeypatch.setattr(audio, 'make_music', lambda preset, duration_s, out_wav: touch(out_wav))
     monkeypatch.setattr(audio, 'make_sfx', lambda kind, out_wav: touch(out_wav))
     monkeypatch.setattr(audio, 'master', lambda raw, out: touch(out, 'master'))
-    monkeypatch.setattr(audio, 'run', lambda cmd: touch(cmd[-1], 'final_ig'))
+    monkeypatch.setattr(audio, 'run', lambda cmd: touch(cmd[-1], Path(cmd[-1]).stem))   # the platform exports
     monkeypatch.setattr(audio, 'analyze', lambda path: {})
     monkeypatch.setattr(reel, 'transcribe_words', lambda video, prompt='': [])
     from app import tighten, voice_gates   # the voice quick win runs before the edit; stub it like the rest
@@ -240,11 +240,12 @@ def test_reel_build_makes_the_cover_after_final_mp4_and_no_cover_skips_it(tmp_pa
 
     def fake_cover(job_dir):
         order.append('cover')
-        assert (Path(job_dir) / 'final.mp4').exists() and (Path(job_dir) / 'final_ig.mp4').exists()
+        assert all((Path(job_dir) / f).exists() for f in ('final.mp4', 'final_ig.mp4', 'final_social.mp4'))
         return {'chosen': 1, 'files': {'cover_1080x1920': {'path': 'c.jpg'}}, 'picks': [{'n': 1, 't': 6.0, 'score': 4.5}]}
     monkeypatch.setattr(thumbnail, 'build', fake_cover)
     result = reel.build(job)
-    assert order == ['render', 'master', 'final_ig', 'cover']
+    assert order == ['render', 'master', 'final_ig', 'final_social', 'cover']   # final_social: TikTok, Facebook, X
+    assert result['final_social'].endswith('final_social.mp4')
     assert result['cover'] == {'chosen': 1, 'files': {'cover_1080x1920': 'c.jpg'}, 'picks': [{'n': 1, 't': 6.0, 'score': 4.5}]}
 
     order.clear()

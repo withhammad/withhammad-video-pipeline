@@ -381,12 +381,20 @@ def test_render_passes_absolute_paths_to_remotion(tmp_path, monkeypatch):
     calls = []
     monkeypatch.setattr(ex.subprocess, 'run', lambda cmd, **kw: calls.append((cmd, kw)))
     monkeypatch.setattr(ex, 'master', lambda raw, out: {'I': -14.0})
+    from app import exports
+    exported = []
+    monkeypatch.setattr(exports, 'platform_exports', lambda final: exported.append(final) or {'final_social': 'x'})
     monkeypatch.chdir(tmp_path)
     (tmp_path / 'job').mkdir()
-    ex.render('job', out='job/final.mp4')
+    stats = ex.render('job', out='job/final.mp4')
     cmd, kw = calls[0]
     assert kw['cwd'] == ex.REMOTION
     assert Path(cmd[4]).is_absolute() and cmd[5].startswith('--props=/')
+    # rendered as final.mp4, it also writes final_ig.mp4 and final_social.mp4 (X, TikTok, Facebook upload that one)
+    assert exported == [tmp_path.resolve() / 'job' / 'final.mp4'] and stats['exports'] == {'final_social': 'x'}
+    exported.clear()
+    ex.render('job')                                   # final_explainer.mp4: not the published file, no exports
+    assert exported == []
 
 
 # ----------------------------------------------------------------------------------------------- verification round 1
