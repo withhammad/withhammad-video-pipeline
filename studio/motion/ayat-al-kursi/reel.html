@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Ayat al-Kursi — the centre</title>
+<script src="../motion.js"></script><script src="verse.js"></script>
+<style>
+  /* 1080x1920, 88 s, no voice. Beats as the reference (job 50bd2b67399d, analysis/visual.md), our own wording.
+     Arabic: the verified Uthmani text (verse.js, from api.quran.com), never retyped. English: Pickthall (1930, public
+     domain). Amiri Quran is a colour font; the palettes below force one colour per line (dimming uses opacity). */
+  @font-face { font-family: 'Amiri Quran'; src: url('../fonts/amiri-quran-arabic-400-normal.woff2') format('woff2'); }
+  @font-face { font-family: 'Space Grotesk'; font-weight: 400; src: url('../fonts/space-grotesk-latin-400-normal.woff2') format('woff2'); }
+  @font-face { font-family: 'Space Grotesk'; font-weight: 500; src: url('../fonts/space-grotesk-latin-500-normal.woff2') format('woff2'); }
+  @font-face { font-family: 'Space Grotesk'; font-weight: 400; unicode-range: U+0100-024F, U+1E00-1EFF; src: url('../fonts/space-grotesk-latin-ext-400-normal.woff2') format('woff2'); }
+  @font-face { font-family: 'Source Serif'; src: url('../fonts/source-serif-4-latin-400-normal.woff2') format('woff2'); }
+  @font-face { font-family: 'JetBrains Mono'; font-weight: 500; src: url('../fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2'); }
+  @font-palette-values --ink { font-family: 'Amiri Quran'; override-colors: 0 #f6efe7, 1 #f6efe7, 2 #f6efe7, 3 #f6efe7, 4 #f6efe7, 5 #f6efe7, 6 #f6efe7, 7 #f6efe7, 8 #f6efe7, 9 #f6efe7; }
+  @font-palette-values --ember { font-family: 'Amiri Quran'; override-colors: 0 #e8834a, 1 #e8834a, 2 #e8834a, 3 #e8834a, 4 #e8834a, 5 #e8834a, 6 #e8834a, 7 #e8834a, 8 #e8834a, 9 #e8834a; }
+  @font-palette-values --dark { font-family: 'Amiri Quran'; override-colors: 0 #1a0f08, 1 #1a0f08, 2 #1a0f08, 3 #1a0f08, 4 #1a0f08, 5 #1a0f08, 6 #1a0f08, 7 #1a0f08, 8 #1a0f08, 9 #1a0f08; }
+  :root { --ember: #e8834a; --ink: #f6efe7; --dim: #8d847d; --grey: #6b635d; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #060505; color: var(--ink); font-family: 'Space Grotesk', sans-serif; }
+  .abs { position: absolute; }
+  em { font-style: normal; color: var(--ember); }
+  .label { left: 72px; top: 205px; font-size: 26px; font-weight: 500; color: rgba(246,239,231,.82); letter-spacing: -.005em; }
+  .label::before { content: ''; display: inline-block; width: 26px; height: 3px; background: var(--ember); vertical-align: middle; margin-right: 14px; transform: translateY(-3px); }
+  .head { left: 72px; right: 60px; top: 250px; font-size: 56px; line-height: 1.18; letter-spacing: -.02em; }
+  .sub { left: 72px; right: 60px; top: 330px; font-size: 34px; color: rgba(246,239,231,.72); }
+  .mono { font-family: 'JetBrains Mono', monospace; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; }
+  .pair { left: 72px; top: 352px; font-size: 21px; color: var(--grey); }
+  .pair b { font-weight: 500; color: var(--ember); margin-left: 22px; letter-spacing: .2em; }
+  .lines { right: 70px; top: 430px; width: 860px; direction: rtl; font-family: 'Amiri Quran'; font-size: 50px; }
+  .lines div { position: absolute; right: 0; height: 92px; line-height: 92px; white-space: nowrap; }
+  .ink { font-palette: --ink; color: var(--ink); } .ember { font-palette: --ember; color: var(--ember); }
+  .nums div { position: absolute; left: 150px; font-family: 'JetBrains Mono'; font-size: 19px; color: var(--grey); }
+  .tr { left: 72px; right: 70px; top: 1330px; font-family: 'Source Serif'; font-size: 31px; line-height: 1.38; color: rgba(246,239,231,.86); }
+  .tr div { display: flex; gap: 22px; margin-bottom: 16px; }
+  .tr span.n { font-family: 'JetBrains Mono'; font-size: 19px; color: var(--ember); padding-top: 9px; flex: none; }
+  .source { left: 72px; top: 1572px; font-size: 21px; color: var(--grey); }
+  .para { left: 90px; right: 90px; top: 1150px; direction: rtl; text-align: center; font-family: 'Amiri Quran'; font-size: 40px; line-height: 1.95; }
+  .answer { left: 72px; top: 1360px; font-size: 36px; color: rgba(246,239,231,.9); }
+  svg { position: absolute; left: 0; top: 0; overflow: visible; }
+  .ringtext { font-family: 'Amiri Quran'; font-size: 28px; }
+  .core { left: 540px; top: 960px; width: 0; height: 0; }
+  .centre { left: 340px; width: 400px; top: 827px; direction: rtl; text-align: center; font-family: 'Amiri Quran'; font-size: 36px; line-height: 1.45; }
+  .count { left: 0; right: 0; top: 1372px; text-align: center; font-size: 22px; color: var(--grey); }
+  .count em { color: var(--ember); }
+  .lift { left: 0; right: 0; top: 356px; text-align: center; direction: rtl; font-family: 'Amiri Quran'; font-size: 42px; }
+  .end { left: 0; right: 0; top: 1384px; text-align: center; }
+  .end .handle { font-size: 26px; color: var(--ember); letter-spacing: .24em; }
+  .end .src { margin-top: 18px; font-size: 21px; line-height: 1.6; color: var(--dim); }
+  .ruler-num { left: 640px; top: 855px; font-family: 'JetBrains Mono'; font-size: 44px; color: var(--ember); letter-spacing: .05em; }
+</style></head>
+<body>
+<canvas id="stars" class="abs" width="1080" height="1920"></canvas>
+<div id="glow" class="abs" style="left:0;top:0;width:1080px;height:1920px"></div>
+<canvas id="ruler" class="abs" width="1080" height="1920"></canvas>
+<div id="rulerNum" class="abs ruler-num">2:1</div>
+
+<div id="label" class="abs label"></div>
+<div id="head" class="abs head"></div>
+<div id="sub" class="abs sub"></div>
+<div id="pair" class="abs pair mono"></div>
+<div id="answer" class="abs answer"></div>
+
+<div id="para" class="abs para ink"></div>
+<svg id="brackets" width="1080" height="1920"></svg>
+<div id="nums" class="abs nums"></div>
+<div id="lines" class="abs lines"></div>
+<div id="tr" class="abs tr"></div>
+
+<svg id="rings" width="1080" height="1920"></svg>
+<div id="centre" class="abs centre"></div>
+<div id="lift" class="abs lift ink"></div>
+<div id="count" class="abs count mono"></div>
+<div id="end" class="abs end"><div class="handle mono" id="handle"></div><div class="src" id="endsrc"></div></div>
+<div id="source" class="abs source"></div>
+<script>
+const { ease, seg, lerp, clamp, rng } = Motion;
+const ACCOUNT = '';   // the separate account's handle for the end card, e.g. '@name' (owner to confirm)
+const L = VERSE.lines;            // 9 Uthmani segments, split at the mushaf's pause marks
+const EN = VERSE.pickthall;       // the same 9 segments in Pickthall's words
+const $ = (id) => document.getElementById(id);
+const CX = 540, CY = 880;
+
+// ---------- text cues: [in, out, html]; fades .35 s in and .3 s out with a small rise ----------
+function track(id, cues, { rise = 18 } = {}) {
+  const el = $(id); let last = null;
+  return (t) => {
+    const c = cues.find(([a, b]) => t >= a - .001 && t < b);
+    if (!c) { el.style.opacity = 0; return; }
+    if (last !== c) { el.innerHTML = c[2]; last = c; }
+    const k = ease.out(seg(t, c[0], c[0] + .45)) * (1 - ease.inOut(seg(t, c[1] - .3, c[1])));
+    el.style.opacity = k; el.style.transform = `translateY(${(1 - ease.out(seg(t, c[0], c[0] + .45))) * rise}px)`;
+  };
+}
+const PAIR_T = [18, 26, 34, 42];  // pair scenes, 8 s each
+const tracks = [
+  track('head', [
+    [0.3, 3.9, 'Ayat al-Kursi<br><span style="color:rgba(246,239,231,.75)">is built around a <em>centre.</em></span>'],
+    [4.3, 11.9, 'The Prophet <span style="font-family:Amiri Quran;font-palette:--ink">ﷺ</span> asked a companion:<br>which verse is the <em>greatest?</em>'],
+    [12.3, 17.9, 'You may know it by heart.<br>Have you seen its <em>shape?</em>'],
+    [18.6, 25.9, 'Pair the first line with the <em>last.</em>'],
+    [26.3, 33.9, 'Then the second with the <em>eighth.</em>'],
+    [34.3, 41.9, 'The third with the <em>seventh.</em>'],
+    [42.3, 49.9, 'The fourth with the <em>sixth.</em>'],
+    [50.3, 57.9, 'One line has <em>no pair.</em>'],
+    [58.3, 63.9, 'Even the centre is a <em>pair.</em>'],
+    [64.3, 73.9, 'Ibn Kathir counted <em>ten</em> sentences.'],
+    [74.3, 79.9, 'Around it: &nbsp;<span id="w1">His life.</span> &nbsp;<span id="w2">His power.</span><br><span id="w3">His dominion.</span> &nbsp;<span id="w4">His will.</span>'],
+    [80.3, 88.0, 'Who arranges a verse <em>like this?</em>'],
+  ]),
+  track('label', [[18.3, 52.9, 'Ayat al-Kursi, line by line'], [53.0, 80.0, 'Ayat al-Kursi, folded into rings']], { rise: 0 }),
+  track('sub', [[54.6, 57.9, 'It sits at the centre.'], [78.0, 79.9, 'At its heart: <em>He knows.</em>']]),
+  track('pair', [
+    [18.9, 25.9, 'Pair 01 ⟷ 09<b>He + two names</b>'], [26.6, 33.9, 'Pair 02 ⟷ 08<b>No sleep · no weariness</b>'],
+    [34.6, 41.9, 'Pair 03 ⟷ 07<b>The heavens · the earth</b>'], [42.6, 49.9, 'Pair 04 ⟷ 06<b>Only as He allows</b>'],
+  ], { rise: 0 }),
+  track('answer', [[8.2, 11.9, 'He asked twice. Ubayy ibn Kaʿb<br>answered with <em>this one.</em>']]),
+  track('source', [
+    [8.4, 11.9, 'Source: Sahih Muslim 810'], [18.9, 52.9, 'Al-Baqarah 2:255 · translation: M. Pickthall (1930)'],
+    [54.6, 63.9, 'Ring reading: R. Farrin (2014) · M. Azaiez (2013)'], [64.6, 73.9, 'Source: Tafsir Ibn Kathir, on Al-Baqarah 2:255'],
+    [74.3, 79.9, 'Ring reading: R. Farrin (2014) · M. Azaiez (2013)'],
+  ], { rise: 0 }),
+  track('count', [[66.2, 73.9, '10 sentences &nbsp;·&nbsp; centre <em>06</em>']], { rise: 0 }),
+];
+// accent words inside each translation (Pickthall's own words)
+const ACC = {
+  1: ['the Alive, the Eternal'], 9: ['He is the Sublime, the Tremendous'], 2: ['overtaketh Him'], 8: ['never weary'],
+  3: ['the heavens', 'the earth'], 7: ['the heavens and the earth'], 4: ['save by His leave'], 6: ['save what He will'],
+  5: ['in front of them', 'behind them'],
+};
+const accent = (n) => ACC[n].reduce((s, w) => s.replace(w, `<em>${w}</em>`), EN[n - 1]);
+const trCues = [[1, 9], [2, 8], [3, 7], [4, 6]].map(([a, b], i) => [PAIR_T[i] + 1.4, PAIR_T[i] + 7.9,
+  `<div><span class="n">0${a}</span><span>${accent(a)}</span></div><div><span class="n">0${b}</span><span>${accent(b)}</span></div>`]);
+trCues.push([55.0, 63.9, `<div><span class="n">05</span><span>${accent(5)}</span></div>`]);
+tracks.push(track('tr', trCues));
+
+// ---------- the nine lines and their numbers ----------
+const LY = (i) => 430 + i * 92;  // top of line i (0-based) inside .lines
+const lineEls = L.map((txt, i) => { const d = document.createElement('div'); d.textContent = txt; d.style.top = (i * 92) + 'px'; $('lines').appendChild(d); return d; });
+const numEls = L.map((_, i) => { const d = document.createElement('div'); d.textContent = String(i + 1).padStart(2, '0'); d.style.top = (LY(i) + 34) + 'px'; $('nums').appendChild(d); return d; });
+$('para').textContent = L.join(' ۚ ');
+$('para').textContent = VERSE.full;
+const NS = 'http://www.w3.org/2000/svg';
+const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+// a bracket joins the numbers of a pair: vertical rule at x=86, ticks out to the numbers
+const brackets = [[1, 9], [2, 8], [3, 7], [4, 6]].map(([a, b], i) => {
+  const ya = LY(a - 1) + 46, yb = LY(b - 1) + 46, x = 86 + i * 12;
+  return el('path', { d: `M 140 ${ya} H ${x} V ${yb} H 140`, fill: 'none', stroke: '#e8834a', 'stroke-width': 2.5, 'stroke-linecap': 'round' }, $('brackets'));
+});
+brackets.forEach((p) => { const n = p.getTotalLength(); p.style.strokeDasharray = n; p.dataset.len = n; });
+
+// ---------- rings ----------
+const R = [0, 210, 272, 334, 396];            // ring k carries line 5-k on top and 5+k at the bottom
+const FRAME = 438;
+const rings = $('rings');
+const ringGroup = el('g', {}, rings);
+const glowCore = el('circle', { cx: CX, cy: CY, r: 152, fill: 'url(#coreGrad)' }, ringGroup);
+const defs = el('defs', {}, rings);
+defs.innerHTML = `<radialGradient id="coreGrad"><stop offset="0" stop-color="#ffb27a" stop-opacity=".95"/><stop offset=".45" stop-color="#e8834a" stop-opacity=".75"/><stop offset="1" stop-color="#e8834a" stop-opacity="0"/></radialGradient>`;
+const star = el('path', { d: starPath(CX, CY, 104, 38, 8), fill: 'none', stroke: '#ffd2b0', 'stroke-width': 1.6, opacity: .7 }, ringGroup);
+function starPath(cx, cy, ro, ri, n) { let d = ''; for (let i = 0; i < n * 2; i++) { const a = -Math.PI / 2 + i * Math.PI / n, r = i % 2 ? ri : ro; d += (i ? 'L' : 'M') + (cx + Math.cos(a) * r).toFixed(1) + ' ' + (cy + Math.sin(a) * r).toFixed(1) + ' '; } return d + 'Z'; }
+const circles = R.map((r, k) => k ? el('circle', { cx: CX, cy: CY, r, fill: 'none', stroke: '#e8834a', 'stroke-width': 1.3, opacity: .55 }, ringGroup) : null);
+const frame = el('circle', { cx: CX, cy: CY, r: FRAME, fill: 'none', stroke: '#e8834a', 'stroke-width': 2.2 }, ringGroup);
+const ticks = el('g', {}, ringGroup);
+for (let i = 0; i < 72; i++) { const a = i * Math.PI / 36, l = i % 6 ? 8 : 16;
+  el('line', { x1: CX + Math.cos(a) * FRAME, y1: CY + Math.sin(a) * FRAME, x2: CX + Math.cos(a) * (FRAME + l), y2: CY + Math.sin(a) * (FRAME + l), stroke: '#e8834a', 'stroke-width': 1.6 }, ticks); }
+[frame, ...circles.filter(Boolean)].forEach((c) => { const n = 2 * Math.PI * +c.getAttribute('r'); c.style.strokeDasharray = n; c.dataset.len = n; });
+// ring texts: top arcs left->right over the top, bottom arcs under the bottom, so Arabic stays upright
+const ringText = {};
+for (let k = 1; k <= 4; k++) for (const top of [true, false]) {
+  const n = top ? 5 - k : 5 + k, r = R[k] + (top ? 10 : -10), id = `arc${n}`;
+  el('path', { id, d: top ? `M ${CX - r} ${CY} A ${r} ${r} 0 0 1 ${CX + r} ${CY}` : `M ${CX - r} ${CY} A ${r} ${r} 0 0 0 ${CX + r} ${CY}`, fill: 'none' }, defs);
+  const t = el('text', { class: 'ringtext', direction: 'rtl', 'dominant-baseline': top ? 'auto' : 'hanging' }, ringGroup);
+  const tp = el('textPath', { href: '#' + id, startOffset: '50%', 'text-anchor': 'middle' }, t);
+  tp.textContent = L[n - 1];
+  ringText[n] = t;
+}
+$('centre').innerHTML = L[4].replace(' وَمَا', '<br>وَمَا');
+// the centre pair (S6): arrows from the core to two mono labels
+const arrows = el('g', { opacity: 0 }, rings);
+for (const dir of [-1, 1]) {
+  el('line', { x1: CX, y1: CY + dir * 84, x2: CX, y2: CY + dir * 262, stroke: '#e8834a', 'stroke-width': 2 }, arrows);
+  el('path', { d: `M ${CX - 9} ${CY + dir * 248} L ${CX} ${CY + dir * 264} L ${CX + 9} ${CY + dir * 248}`, fill: 'none', stroke: '#e8834a', 'stroke-width': 2 }, arrows);
+  const g = el('g', {}, arrows);
+  el('rect', { x: CX - 190, y: CY + dir * 296 - 24, width: 380, height: 46, fill: '#060505' }, g);
+  const tx = el('text', { x: CX, y: CY + dir * 296 + 8, 'text-anchor': 'middle', fill: '#e8834a', 'font-family': 'JetBrains Mono', 'font-size': 21, 'letter-spacing': '.22em' }, g);
+  tx.textContent = dir < 0 ? 'IN FRONT OF THEM' : 'BEHIND THEM';
+}
+// end: one dot per ring (S9)
+const dots = [1, 2, 3, 4].map((k) => el('circle', { r: 7, fill: '#e8834a', opacity: 0 }, rings));
+$('handle').textContent = ACCOUNT;
+$('endsrc').innerHTML = 'Al-Baqarah 2:255 (tr. Pickthall, 1930) · Sahih Muslim 810 · Tafsir Ibn Kathir<br>Ring reading: R. Farrin (2014) · M. Azaiez (2013)';
+// Ibn Kathir's split, by word position (words 1-5 / 6-7) so the Arabic is never retyped
+const W1 = L[0].split(' '), LIFT = W1.slice(0, 5).join(' '), HAYY = W1.slice(5).join(' ');
+$('lift').textContent = LIFT;
+
+// ---------- background ----------
+const sctx = $('stars').getContext('2d'), rand = rng(255);
+const STARS = Array.from({ length: 260 }, () => [rand() * 1080, rand() * 1920, .4 + rand() * 1.1, rand() * 6.28]);
+const rctx = $('ruler').getContext('2d');
+
+function drawStars(t) {
+  sctx.clearRect(0, 0, 1080, 1920);
+  for (const [x, y, s, p] of STARS) { sctx.globalAlpha = .18 + .22 * (.5 + .5 * Math.sin(t * .9 + p)); sctx.fillStyle = '#fff'; sctx.fillRect(x, y, s, s); }
+  sctx.globalAlpha = 1;
+}
+function drawRuler(t) {
+  rctx.clearRect(0, 0, 1080, 1920);
+  const vis = ease.out(seg(t, 4.4, 5.0)) * (1 - ease.inOut(seg(t, 11.6, 12.1)));
+  $('rulerNum').style.opacity = vis;
+  if (vis <= 0) return;
+  // verses scroll past a fixed centre line, slowing onto 255
+  const v = lerp(1, 255, ease.inOut(seg(t, 4.6, 8.0)));
+  $('rulerNum').textContent = '2:' + Math.round(v);
+  rctx.globalAlpha = vis;
+  for (let i = Math.floor(v) - 14; i <= Math.floor(v) + 14; i++) {
+    if (i < 1 || i > 286) continue;
+    const y = CY + (i - v) * 26, long = i % 10 === 0 || i === 255, w = i === Math.round(v) ? 300 : long ? 170 : 110;
+    const fade = 1 - Math.min(1, Math.abs(y - CY) / 380);
+    rctx.strokeStyle = i === 255 && t > 7.8 ? '#e8834a' : `rgba(246,239,231,${.12 + .55 * fade})`;
+    rctx.lineWidth = i === Math.round(v) ? 2.4 : 1.2;
+    rctx.beginPath(); rctx.moveTo(CX - w / 2 - 60, y); rctx.lineTo(CX + w / 2 - 60, y); rctx.stroke();
+  }
+  rctx.globalAlpha = 1;
+}
+function glowAt(x, y, r, a) { $('glow').style.background = `radial-gradient(circle ${r}px at ${x}px ${y}px, rgba(232,131,74,${a}), rgba(232,131,74,0) 100%)`; }
+
+// ---------- the frame ----------
+window.__seek = (t) => {
+  drawStars(t);
+  drawRuler(t);
+  tracks.forEach((f) => f(t));
+  // S1 hook ring (reuses the ring frame), S5+ full rings
+  const hook = ease.out(seg(t, 0.2, 1.6)) * (1 - ease.inOut(seg(t, 3.6, 4.2)));
+  const fold = ease.inOut(seg(t, 52.8, 54.6));
+  const ringsOn = Math.max(hook, fold * (t < 88 ? 1 : 0));
+  rings.style.opacity = Math.max(hook, fold);
+  frame.style.strokeDashoffset = +frame.dataset.len * (1 - Math.max(ease.inOut(seg(t, 0.2, 1.8)) * (t < 4.2 ? 1 : 0), ease.inOut(seg(t, 53.0, 54.4))));
+  ticks.style.opacity = Math.max(hook, fold);
+  circles.forEach((c, k) => { if (!c) return; c.style.strokeDashoffset = +c.dataset.len * (1 - ease.inOut(seg(t, 53.2 + (4 - k) * .12, 54.6 + (4 - k) * .12))); c.style.opacity = t < 4.2 ? 0 : .55; });
+  const coreK = Math.max(hook * .55, ease.out(seg(t, 54.2, 55.4)));
+  glowCore.setAttribute('opacity', coreK); star.setAttribute('opacity', .75 * coreK);
+  star.setAttribute('transform', `rotate(${t * 6} ${CX} ${CY})`);
+  // ring texts appear ring by ring, inner first
+  for (let n = 1; n <= 9; n++) {
+    if (n === 5) continue;
+    const k = Math.abs(5 - n), on = ease.out(seg(t, 53.6 + k * .18, 54.6 + k * .18));
+    let o = on * .9, ember = false;
+    if (t >= 58.3 && t < 64) o = on * .3;                                  // S6: only the centre counts
+    if (t >= 74 && t < 80) {                                                // S8: each word lights its ring
+      const w = [0, 74.6, 75.6, 76.6, 77.6][5 - k], lit = seg(t, w, w + .5);
+      ember = t >= w; o = on * (ember ? 1 : .45) * (t >= 78 ? .6 : 1);
+    }
+    const tx = ringText[n];
+    tx.setAttribute('opacity', o);
+    tx.setAttribute('fill', ember ? '#e8834a' : '#f6efe7');
+    tx.style.fontPalette = ember ? '--ember' : '--ink';
+  }
+  // S7: line 01 splits; "Allah, no god but He" lifts above the frame, "al-Hayy al-Qayyum" stays on the ring
+  const split = ease.inOut(seg(t, 66.0, 67.2)) * (1 - ease.inOut(seg(t, 73.6, 74.2)));
+  $('lift').style.opacity = split; $('lift').style.transform = `translateY(${(1 - split) * 60}px)`;
+  ringText[1].querySelector('textPath').textContent = split > .5 ? HAYY : L[0];
+  $('tr').style.top = (t >= 50 ? 1388 : 1330) + 'px';
+  // the centre line inside the core
+  const cen = ease.out(seg(t, 54.4, 55.4));
+  $('centre').style.opacity = cen; $('centre').className = 'abs centre ' + (t >= 55.4 && t < 88 ? 'ink' : 'ink');
+  $('centre').style.color = '#1a0f08'; $('centre').style.fontPalette = '--dark';
+  arrows.setAttribute('opacity', ease.out(seg(t, 58.6, 59.3)) * (1 - seg(t, 63.6, 64.0)));
+  // S8 headline words light one by one
+  [1, 2, 3, 4].forEach((i) => { const w = $('w' + i); if (w) { const k = seg(t, 74.6 + (i - 1), 75.0 + (i - 1)); w.style.opacity = .25 + .75 * k; w.style.color = k >= 1 ? '#f6efe7' : ''; } });
+  // S9: slow turn and a dot on each ring
+  const turn = ease.inOut(seg(t, 80.0, 88.0));
+  ringGroup.setAttribute('transform', `rotate(${turn * 14} ${CX} ${CY})`);
+  dots.forEach((d, i) => { const k = i + 1, a = -Math.PI / 2 + turn * .24 * k + .14 * k; d.setAttribute('cx', CX + Math.cos(a) * R[k]); d.setAttribute('cy', CY + Math.sin(a) * R[k]); d.setAttribute('opacity', ease.out(seg(t, 80.6 + i * .25, 81.1 + i * .25))); });
+  $('end').style.opacity = ease.out(seg(t, 83.6, 84.4));
+  // S3: paragraph, then the nine lines
+  const para = ease.out(seg(t, 12.6, 13.4)) * (1 - ease.inOut(seg(t, 14.8, 15.6)));
+  $('para').style.opacity = para; $('para').style.filter = `blur(${seg(t, 14.8, 15.6) * 6}px)`;
+  const linesOut = ease.inOut(seg(t, 52.4, 53.2));
+  lineEls.forEach((d, i) => {
+    const inK = ease.out(seg(t, 15.2 + i * .12, 15.9 + i * .12));
+    let o = inK * (1 - linesOut), cls = 'ink';
+    const p = PAIR_T.findIndex((s) => t >= s && t < s + 8);
+    if (p >= 0) { const [a, b] = [[1, 9], [2, 8], [3, 7], [4, 6]][p]; const on = i + 1 === a || i + 1 === b;
+      const k = ease.out(seg(t, PAIR_T[p] + .5, PAIR_T[p] + 1.1)); o *= on ? 1 : lerp(1, .26, k); cls = on && k > .5 ? 'ember' : 'ink';
+      // lines already paired stay ember, quieter
+      if (!on && [[1, 9], [2, 8], [3, 7], [4, 6]].slice(0, p).flat().includes(i + 1)) { cls = 'ember'; o = inK * .42; }
+    }
+    if (t >= 50 && t < 53.2) { cls = i === 4 ? 'ink' : 'ember'; o = inK * (i === 4 ? 1 : .32) * (1 - linesOut); }
+    if (t >= 12 && t < 15.2) o = 0;
+    d.className = cls; d.style.opacity = o; d.style.transform = `translateY(${(1 - inK) * 18}px)`;
+    numEls[i].style.opacity = o > 0 ? Math.min(1, o + .2) : 0;
+  });
+  brackets.forEach((b, i) => {
+    const start = PAIR_T[i] + .4, draw = ease.inOut(seg(t, start, start + .9));
+    b.style.strokeDashoffset = +b.dataset.len * (1 - draw);
+    b.style.opacity = t < start ? 0 : (t < PAIR_T[i] + 8 ? 1 : .35) * (1 - linesOut) * (t < 50 ? 1 : 0);
+  });
+  // glow follows the focus
+  if (t < 4.2) glowAt(CX, CY, 420, .10 * hook);
+  else if (t < 12) glowAt(CX - 60, CY, 380, .07);
+  else if (t < 53) glowAt(700, 860, 520, .05);
+  else glowAt(CX, CY, 520, .07 + .1 * fold);
+};
+window.__ready = document.fonts.ready;
+</script></body></html>

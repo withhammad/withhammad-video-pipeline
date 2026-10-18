@@ -18,7 +18,7 @@ style file, brief, scene lines and copy. No presenter, no voice.
 | `final_ig.mp4` / `final_social.mp4` | Instagram / TikTok, Facebook, X exports (`app.exports`) | 9.1 MB / 4.2 MB |
 | `cover_1080x1920.jpg`, `cover_720x1280.jpg` | covers from the reel's first frame (hook + grid) | |
 | `lesson.json` | captions for every platform, keyword MOTION, sources, cover copy | schema-valid |
-| `seo/seo.json` | the seo-pack workflow's per-platform copy | see below |
+| `seo/seo.json`, `seo/seo.md` | seo-pack workflow: copy for YouTube, Instagram, TikTok, LinkedIn, Facebook, X; primary keyword "claude code motion graphics" (YouTube autocomplete) | 56/57 checks pass; the one fail is the resource page (404 until merged) |
 
 Source: `studio/motion/claude-motion-graphics/` (README.md has the rebuild commands). Sound: original `glow` bed at
 80 bpm (every feed cut on a beat) + whoosh, ticks, riser, pops, all synthesized by app.audio.
@@ -39,7 +39,14 @@ Inter is OFL; LinkedIn Images API GIF limits. The reference's gated files were n
 withhammad-rebuild (style-file prompt, style file, brief, 16 scene lines, zip download, sources). Not merged: it goes
 live only with the owner's OK.
 
+## Disclosures
+The reel's byline headshot is the HeyGen base-look photo (docs/X_PROFILE.md), so every platform's copy says it is an
+AI avatar of Hammad; Claude wrote the animation code; no voice; synthesized music. The SEO pack separates this from
+Anthropic's "Claude Motion" feature (support.claude.com article 17454997), which this reel does not use.
+
 ## Open decisions (owner)
+0. Which account: the "don't upload, separate account" note came right after the next reference was queued, so it is
+   read as about that reel (DednHCnNgTy). Confirm MOTION goes to the main accounts with the withhammad.com funnel.
 1. Approve the reel and the LinkedIn GIF post (or list changes).
 2. OK to merge the resource page (makes it live).
 3. Queue date: the next free day in docs/SCHEDULE.md is 2026-10-23 (Fri).
