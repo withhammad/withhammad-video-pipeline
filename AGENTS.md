@@ -180,7 +180,7 @@ Never skip a gate.
    to see a reel first, wait for his OK. Show the owner the video, the per-platform details (titles, captions, hashtags, AI labels) and
    thumbs/cover_sheet.png (send them with SendUserFile).
 6. Publish: YouTube Shorts, Instagram @with.hammad (a Collab with @hammadagentic.ai by default) and LinkedIn via the
-   APIs; TikTok, Facebook Reels and X (owner rule 2026-10-18: "twitter missed"; @HammadYous32321, x.com/compose/post,
+   APIs; TikTok, Facebook Reels and X (owner rule 2026-10-18: "twitter missed"; @HammadYousufAI, x.com/compose/post,
    final_social.mp4, a post of at most 280 characters with URLs counted as 23, the resource link and "AI avatar of me")
    via the owner's Chrome. final_ig.mp4 (Instagram) and final_social.mp4 (TikTok, Facebook, X) come from
    `app.reel build`, `app.edit_deskreel render` and `app.edit_explainer render --out .local/jobs/<id>/final.mp4`; for

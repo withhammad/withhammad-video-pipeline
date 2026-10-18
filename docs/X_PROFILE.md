@@ -1,4 +1,4 @@
-# X @HammadYous32321 profile
+# X @HammadYousufAI profile (was @HammadYous32321)
 
 Edited in the owner's Chrome (x.com/settings/profile) on 2026-10-18, owner approved ("set up the X profile like
 Instagram option A ... keep the handle for now"). Handle unchanged.
@@ -18,5 +18,6 @@ The bio leaves out Instagram's "comment a keyword" line: ManyChat DMs only work 
 
 Checked in x.com/settings/screen_name without saving: @withhammad is taken (account "HAMMAD", last visible post Oct
 2021, possibly an old account of the owner's), @with_hammad is taken; @withhammadai, @HammadYousufAI and @hammadagentic
-show no "taken" error. Waiting for the owner's pick. Old post URLs keep working after a handle change (X resolves
+show no "taken" error. Owner picked @HammadYousufAI (2026-10-18); changed and verified at https://x.com/HammadYousufAI, both posts intact.
+Pinned post (owner OK): the SKILL reel, https://x.com/HammadYousufAI/status/2111673313701597275. Old post URLs keep working after a handle change (X resolves
 /status/<id> under any handle).

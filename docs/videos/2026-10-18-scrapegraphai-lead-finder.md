@@ -22,7 +22,7 @@ format, reworded, facts checked) · status: **published 2026-10-18** on all six 
 | LinkedIn | https://www.linkedin.com/feed/update/urn:li:ugcPost:7517403083589668864/ | API, thumbnail |
 | TikTok | https://www.tiktok.com/@hammadyousuf01/video/7697822104573463829 | Chrome, Everyone, AI-generated label, custom cover; content review cleared |
 | Facebook Reels | https://www.facebook.com/reel/1120507510915919/ | Chrome, public, AI label ("AI content" shows on the reel), custom cover |
-| X | https://x.com/HammadYous32321/status/2111673687820906762 | Chrome, posted 2026-10-18 after the owner flagged X as missing; "AI avatar of me" in the text; X picks the thumbnail frame |
+| X | https://x.com/HammadYousufAI/status/2111673687820906762 | Chrome, posted 2026-10-18 after the owner flagged X as missing; "AI avatar of me" in the text; X picks the thumbnail frame |
 | Resource page | https://withhammad.com/resources/scrapegraphai-lead-finder | live |
 
 ManyChat: Quick Automation on DenjOCCDiB_, keywords HARVEST/Harvest/harvest, public replies, opening DM, link DM with

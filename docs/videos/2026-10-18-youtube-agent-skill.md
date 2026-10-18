@@ -22,7 +22,7 @@ claims corrected) · status: **published 2026-10-18** on all six platforms (X ad
 | LinkedIn | https://www.linkedin.com/feed/update/urn:li:ugcPost:7517366933990748161/ | API, thumbnail |
 | TikTok | https://www.tiktok.com/@hammadyousuf01/video/7697785183365238037 | Chrome, AI-generated label, custom cover |
 | Facebook Reels | https://www.facebook.com/reel/2276748663718007/ | Chrome, public, AI label, custom cover |
-| X | https://x.com/HammadYous32321/status/2111673313701597275 | Chrome, posted 2026-10-18 after the owner flagged X as missing; "AI avatar of me" in the text; X picks the thumbnail frame |
+| X | https://x.com/HammadYousufAI/status/2111673313701597275 | Chrome, posted 2026-10-18 after the owner flagged X as missing; "AI avatar of me" in the text; X picks the thumbnail frame |
 | Resource page | https://withhammad.com/resources/youtube-agent-skill-claude | live |
 
 ManyChat: Quick Automation on DenS-_ADJS4, keywords SKILL/Skill/skill, public replies, opening DM + "Send me the link",

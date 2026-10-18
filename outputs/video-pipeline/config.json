@@ -131,14 +131,16 @@
       },
       {
         "key": "x",
-        "handle": "HammadYous32321",
-        "profile_url": "https://x.com/HammadYous32321",
+        "handle": "HammadYousufAI",
+        "profile_url": "https://x.com/HammadYousufAI",
         "connection_status": "chrome_session_logged_in",
         "provider": "owner_chrome",
         "video_publish_tested": true,
-        "first_publish": "https://x.com/HammadYous32321/status/2111673313701597275",
+        "first_publish": "https://x.com/HammadYousufAI/status/2111673313701597275",
         "note": "No API (paid plans not approved). Post via the owner Chrome: x.com/compose/post, upload final_social.mp4, paste the X copy (<= 280 chars, URLs count 23). Profile set up 2026-10-18 (docs/X_PROFILE.md).",
-        "display_name": "Hammad Yousuf | AI Agents for Marketers"
+        "display_name": "Hammad Yousuf | AI Agents for Marketers",
+        "previous_handle": "HammadYous32321",
+        "pinned_post": "https://x.com/HammadYousufAI/status/2111673313701597275"
       }
     ],
     "provider_connection_verified": true,
