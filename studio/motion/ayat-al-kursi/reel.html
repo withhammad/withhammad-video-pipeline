@@ -260,6 +260,7 @@ window.__seek = (t) => {
   $('lift').style.opacity = split; $('lift').style.transform = `translateY(${(1 - split) * 60}px)`;
   ringText[1].querySelector('textPath').textContent = split > .5 ? HAYY : L[0];
   $('tr').style.top = (t >= 50 ? 1388 : 1330) + 'px';
+  $('sub').style.top = (t >= 74 ? 388 : 330) + 'px';   // S8's headline has two lines: its sub goes below them
   // the centre line inside the core
   const cen = ease.out(seg(t, 54.4, 55.4));
   $('centre').style.opacity = cen; $('centre').className = 'abs centre ' + (t >= 55.4 && t < 88 ? 'ink' : 'ink');

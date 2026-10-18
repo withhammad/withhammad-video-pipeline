@@ -8,6 +8,13 @@ for the owner to review. Owner rule (2026-10-18): this one is for a separate acc
 (Al-Baqarah 2:255) shown line by line, its lines paired first-with-last, then folded into rings around the line that
 has no pair, "He knows what is before them and what is behind them". Source: `studio/motion/ayat-al-kursi/`.
 
+## The files (all in `studio/.local/jobs/50bd2b67399d/`)
+| File | What | Checked |
+|---|---|---|
+| `final.mp4` | 1080x1920, 25 fps, 88.0 s, H.264/AAC | −14.0 LUFS, −1.1 dBTP; contact sheet every 2 s read, text overlaps fixed |
+| `final_ig.mp4` / `final_social.mp4` | Instagram / TikTok, Facebook, X exports | 10.1 MB / 11.9 MB |
+| `cover_1080x1920.jpg` | the opening frame: "Ayat al-Kursi is built around a centre." + the ring | |
+
 ## Accuracy (analysis/facts.md in the job)
 - Arabic: the Uthmani text from api.quran.com, split at the mushaf's 8 pause marks into 9 lines; generated into
   verse.js, never retyped.
