@@ -1,0 +1,112 @@
+{
+  "source": "claude-edit/source-avatar.mp4",
+  "seconds": 42.096,
+  "scenes": [
+    {
+      "start": 0,
+      "end": 5.6,
+      "title": "A clear campaign plan",
+      "subtitle": "Give every decision a place",
+      "items": [
+        "OUTCOME",
+        "AUDIENCE",
+        "MESSAGE"
+      ]
+    },
+    {
+      "start": 5.6,
+      "end": 8.4,
+      "title": "Start with the outcome",
+      "subtitle": "What should this campaign achieve?",
+      "items": [
+        "Define the goal",
+        "Choose a useful measure"
+      ]
+    },
+    {
+      "start": 8.4,
+      "end": 11.8,
+      "title": "Who needs to hear this?",
+      "subtitle": "Connect the audience to the message",
+      "items": [
+        "Audience",
+        "Relevant message"
+      ]
+    },
+    {
+      "start": 11.8,
+      "end": 14.34,
+      "title": "Four different jobs",
+      "subtitle": "Organize the plan before the edit",
+      "items": [
+        "New customers",
+        "Creative tests",
+        "Review performers",
+        "Existing customers"
+      ]
+    },
+    {
+      "start": 14.34,
+      "end": 16.6,
+      "title": "Reach new customers",
+      "subtitle": "Explain the value clearly",
+      "items": [
+        "Who is it for?",
+        "Why should they care?"
+      ]
+    },
+    {
+      "start": 16.6,
+      "end": 18.65,
+      "title": "Test new creative",
+      "subtitle": "Compare a deliberate change",
+      "items": [
+        "Version A",
+        "Version B"
+      ]
+    },
+    {
+      "start": 18.65,
+      "end": 21.3,
+      "title": "Review strong performers",
+      "subtitle": "Use real evidence",
+      "items": [
+        "Objective",
+        "Results",
+        "Next decision"
+      ]
+    },
+    {
+      "start": 21.3,
+      "end": 24.24,
+      "title": "Reconnect with customers",
+      "subtitle": "Choose a relevant follow-up",
+      "items": [
+        "Existing customer",
+        "Useful next step"
+      ]
+    },
+    {
+      "start": 24.24,
+      "end": 39.02,
+      "title": "A diagram is not a result",
+      "subtitle": "Illustration only \u2014 no performance guarantee",
+      "items": [
+        "Plan",
+        "Test",
+        "Review"
+      ]
+    },
+    {
+      "start": 39.02,
+      "end": 42.096,
+      "title": "Build. Review. Improve.",
+      "subtitle": "A clear process, supported by real data",
+      "items": [
+        "Structure",
+        "Evidence",
+        "Iteration"
+      ]
+    }
+  ]
+}

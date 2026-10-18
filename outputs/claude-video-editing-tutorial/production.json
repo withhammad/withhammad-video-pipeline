@@ -1,7 +1,7 @@
 {
-  "status": "waiting_for_owner_choices",
+  "status": "ready_for_owner_review",
   "reference_url": "https://youtu.be/HYbRdc_3_LQ",
-  "reference_title": "Claude Opus 5.5 Edited This ENTIRE Video In 5 Minutes \ud83d\udd25",
+  "reference_title": "Claude Opus 5.5 Edited This ENTIRE Video In 5 Minutes 🔥",
   "reference_duration_seconds": 267,
   "replaces": "https://youtu.be/1HtydHmdhrQ",
   "requirements": [
@@ -15,12 +15,12 @@
   "avatar_id": "c0c91d44e16140028f05656df6f8a027",
   "voice_id": "0f7032b11fb743589cc81b721f4389b3",
   "credits_checked": 137,
-  "language": "English default; optional owner language reply pending",
+  "language": "Urdu/Hindi as explicitly selected",
   "assets": {
     "reference_local": "studio/.local/reference-HYbRdc_3_LQ/source.mp4",
     "published_prompt_local": "studio/.local/reference-HYbRdc_3_LQ/prompts.txt"
   },
-  "coverage_status": "awaiting_transcript_and_detailed_frame_review",
+  "coverage_status": "full_tutorial_exported_and_checked",
   "coverage": [
     {
       "reference_seconds": [
@@ -28,7 +28,7 @@
         67
       ],
       "action": "Explain goal and show before/after; original introduction with Hammad",
-      "status": "planned"
+      "status": "included_in_full_edit"
     },
     {
       "reference_seconds": [
@@ -36,7 +36,7 @@
         94
       ],
       "action": "Introduce editing demonstration without claiming creator employment history",
-      "status": "planned"
+      "status": "included_in_full_edit"
     },
     {
       "reference_seconds": [
@@ -44,7 +44,7 @@
         115
       ],
       "action": "ChatGPT: describe topic, source footage, desired style and at least ten timed graphics",
-      "status": "needs_live_recording"
+      "status": "included_in_full_edit"
     },
     {
       "reference_seconds": [
@@ -52,7 +52,7 @@
         125
       ],
       "action": "Compare visual storyboard options and choose a coherent direction",
-      "status": "needs_original_storyboards"
+      "status": "included_in_full_edit"
     },
     {
       "reference_seconds": [
@@ -60,7 +60,7 @@
         133
       ],
       "action": "Transfer final editing prompt to Claude and choose Opus 5.5",
-      "status": "needs_browser_access_check"
+      "status": "included_in_full_edit"
     },
     {
       "reference_seconds": [
@@ -68,7 +68,7 @@
         148
       ],
       "action": "Inspect plus menu, editing skill and source upload",
-      "status": "needs_skill_availability_check"
+      "status": "included_in_full_edit"
     },
     {
       "reference_seconds": [
@@ -76,7 +76,7 @@
         169
       ],
       "action": "Show actual transcription, edit preparation and generated output",
-      "status": "awaiting_source_clip_and_execution"
+      "status": "included_in_full_edit"
     },
     {
       "reference_seconds": [
@@ -84,7 +84,7 @@
         220
       ],
       "action": "Play the edited approximately 50-second clip and inspect graphics synchronization",
-      "status": "awaiting_execution"
+      "status": "included_in_full_edit"
     },
     {
       "reference_seconds": [
@@ -92,7 +92,7 @@
         238
       ],
       "action": "Download edited result and verify file",
-      "status": "awaiting_execution"
+      "status": "included_in_full_edit"
     },
     {
       "reference_seconds": [
@@ -100,19 +100,51 @@
         267
       ],
       "action": "Explain limitations and conclude; no invented agency history or unsupported timing promises",
-      "status": "planned"
+      "status": "included_in_full_edit"
     }
   ],
   "reference_transcription": "studio/.local/reference-HYbRdc_3_LQ/transcript.json",
-  "blockers": [
-    "Reference custom Claude editing skill is not installed; owner choice pending: provide link or build equivalent",
-    "HeyGen create request rejected HTTP 400: expressiveness unsupported with avatar_v; no video ID created; corrected submission approval pending"
-  ],
+  "blockers": [],
   "prepared": [
     "timestamped coverage checklist",
     "original 112-word source clip script",
     "ten original storyboard PNGs and contact sheet"
   ],
-  "completed_recordings": [],
-  "generated_video_ids": []
+  "completed_recordings": [
+    "chatgpt-final.mov",
+    "claude-setup.mov",
+    "claude-generation.mov",
+    "export-review.mov"
+  ],
+  "generated_video_ids": [
+    "3180ed002abe9eaaaddd90873eecc295",
+    "996d8fef006c8b5bca588355856b7982"
+  ],
+  "workflow_choice": "Owner authorized building an equivalent editing workflow",
+  "source_duration_seconds": 42.096,
+  "skill_installed_in_claude": true,
+  "duration_seconds": 251.3333333333,
+  "speech_request_id": "23b0050737c94304862e5320a79a853b",
+  "speech_language": "hi (Hindi script, conversational Urdu/Hindi)",
+  "speech_speed": 0.93,
+  "claude_chat_url": "https://claude.ai/chat/a7bdc1ab-2cc7-4db8-bf25-3d0639fa0438",
+  "actual_demo_export": "studio/.local/claude-edit-final/claude-output.mp4",
+  "publishing_status": "not_published",
+  "implementation_notes": [
+    "Owner-approved equivalent skill replaces unavailable private creator skill.",
+    "Demo is the actual MP4 returned by Claude after the recorded request; Claude used a headless-browser fallback because its package registry was unavailable.",
+    "Full tutorial is assembled with Remotion using original avatar narration and real Chrome screen recordings.",
+    "Natural narration pace retained; no automatic speed-up.",
+    "Mixed Urdu and Hindi-script captions match the two authorized narration generation formats."
+  ],
+  "audio_finish": {
+    "voice_target_lufs": -17,
+    "music_target_lufs": -36,
+    "music": "Existing original procedural lo-fi bed, low-pass filtered, fade-in/out",
+    "speed_changes": false
+  },
+  "final_video": "outputs/claude-video-editing-tutorial/full-tutorial.mp4",
+  "thumbnail": "outputs/claude-video-editing-tutorial/thumbnail-youtube.jpg",
+  "captions": "outputs/claude-video-editing-tutorial/full-tutorial.srt",
+  "verification": "outputs/claude-video-editing-tutorial/verification.json"
 }
