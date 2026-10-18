@@ -1,0 +1,118 @@
+{
+  "status": "waiting_for_owner_choices",
+  "reference_url": "https://youtu.be/HYbRdc_3_LQ",
+  "reference_title": "Claude Opus 5.5 Edited This ENTIRE Video In 5 Minutes \ud83d\udd25",
+  "reference_duration_seconds": 267,
+  "replaces": "https://youtu.be/1HtydHmdhrQ",
+  "requirements": [
+    "Complete demonstration coverage with fresh recordings",
+    "Original narration, same teaching workflow",
+    "AI Podcast Host with Hammad cloned voice",
+    "Natural speech speed and regular visible presenter",
+    "Review real editing result; no fabricated UI or output",
+    "No publication without approval"
+  ],
+  "avatar_id": "c0c91d44e16140028f05656df6f8a027",
+  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "credits_checked": 137,
+  "language": "English default; optional owner language reply pending",
+  "assets": {
+    "reference_local": "studio/.local/reference-HYbRdc_3_LQ/source.mp4",
+    "published_prompt_local": "studio/.local/reference-HYbRdc_3_LQ/prompts.txt"
+  },
+  "coverage_status": "awaiting_transcript_and_detailed_frame_review",
+  "coverage": [
+    {
+      "reference_seconds": [
+        0,
+        67
+      ],
+      "action": "Explain goal and show before/after; original introduction with Hammad",
+      "status": "planned"
+    },
+    {
+      "reference_seconds": [
+        67,
+        94
+      ],
+      "action": "Introduce editing demonstration without claiming creator employment history",
+      "status": "planned"
+    },
+    {
+      "reference_seconds": [
+        94,
+        115
+      ],
+      "action": "ChatGPT: describe topic, source footage, desired style and at least ten timed graphics",
+      "status": "needs_live_recording"
+    },
+    {
+      "reference_seconds": [
+        115,
+        125
+      ],
+      "action": "Compare visual storyboard options and choose a coherent direction",
+      "status": "needs_original_storyboards"
+    },
+    {
+      "reference_seconds": [
+        125,
+        133
+      ],
+      "action": "Transfer final editing prompt to Claude and choose Opus 5.5",
+      "status": "needs_browser_access_check"
+    },
+    {
+      "reference_seconds": [
+        133,
+        148
+      ],
+      "action": "Inspect plus menu, editing skill and source upload",
+      "status": "needs_skill_availability_check"
+    },
+    {
+      "reference_seconds": [
+        148,
+        169
+      ],
+      "action": "Show actual transcription, edit preparation and generated output",
+      "status": "awaiting_source_clip_and_execution"
+    },
+    {
+      "reference_seconds": [
+        169,
+        220
+      ],
+      "action": "Play the edited approximately 50-second clip and inspect graphics synchronization",
+      "status": "awaiting_execution"
+    },
+    {
+      "reference_seconds": [
+        220,
+        238
+      ],
+      "action": "Download edited result and verify file",
+      "status": "awaiting_execution"
+    },
+    {
+      "reference_seconds": [
+        238,
+        267
+      ],
+      "action": "Explain limitations and conclude; no invented agency history or unsupported timing promises",
+      "status": "planned"
+    }
+  ],
+  "reference_transcription": "studio/.local/reference-HYbRdc_3_LQ/transcript.json",
+  "blockers": [
+    "Reference custom Claude editing skill is not installed; owner choice pending: provide link or build equivalent",
+    "HeyGen create request rejected HTTP 400: expressiveness unsupported with avatar_v; no video ID created; corrected submission approval pending"
+  ],
+  "prepared": [
+    "timestamped coverage checklist",
+    "original 112-word source clip script",
+    "ten original storyboard PNGs and contact sheet"
+  ],
+  "completed_recordings": [],
+  "generated_video_ids": []
+}

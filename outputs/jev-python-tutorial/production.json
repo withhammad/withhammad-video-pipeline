@@ -1,0 +1,84 @@
+{
+  "status": "cancelled_by_owner",
+  "reference": {
+    "url": "https://www.youtube.com/watch?v=JpfLID19QnQ",
+    "title": "Jev Explained for Python Developers",
+    "creator": "Dave Ebbelaar",
+    "duration_seconds": 1010
+  },
+  "presenter": {
+    "look_id": "c0c91d44e16140028f05656df6f8a027",
+    "name": "AI Podcast Host",
+    "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+    "verified": "2026-10-18",
+    "visibility": "continuous picture-in-picture during demos; full presenter for introduction and conclusions; move only to preserve code readability",
+    "delivery": "natural conversational pace and expression; no automatic speed-up"
+  },
+  "requirements": [
+    "Record every demonstrated workflow before assembling the video",
+    "Actual Python execution and real API responses; no invented benchmark outputs",
+    "Original narration covering the same concepts and sequence",
+    "Readable code and terminal output; no credentials in recordings",
+    "Timestamped evidence for each covered action",
+    "Thumbnail, captions and motion graphics after recordings and narration are verified",
+    "Do not publish without owner approval"
+  ],
+  "coverage": [
+    {
+      "start": 0,
+      "end": 360,
+      "topic": "Jev and your first Python request",
+      "status": "awaiting_detailed_transcript_review",
+      "recordings": []
+    },
+    {
+      "start": 360,
+      "end": 613,
+      "topic": "Choice, Score, and Noul",
+      "status": "awaiting_detailed_transcript_review",
+      "recordings": []
+    },
+    {
+      "start": 613,
+      "end": 716,
+      "topic": "Speed and cost compared with Claude",
+      "status": "awaiting_detailed_transcript_review",
+      "recordings": []
+    },
+    {
+      "start": 716,
+      "end": 873,
+      "topic": "Combining questions in one API call",
+      "status": "awaiting_detailed_transcript_review",
+      "recordings": []
+    },
+    {
+      "start": 873,
+      "end": 1010,
+      "topic": "My verdict and deployment considerations",
+      "status": "awaiting_detailed_transcript_review",
+      "recordings": []
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "TypeSafe API account/key",
+      "status": "owner_signing_in; onboarding seen in Chrome; no credential stored"
+    },
+    {
+      "name": "Anthropic API account/key",
+      "status": "owner confirms access; credential not yet configured"
+    },
+    {
+      "name": "Avatar credit budget",
+      "status": "not_yet_verified"
+    }
+  ],
+  "artifacts": {
+    "reference_video": "studio/.local/reference-JpfLID19QnQ/source.mp4",
+    "visual_overview": "studio/.local/reference-JpfLID19QnQ/overview.jpg",
+    "reference_code_url": "https://github.com/daveebbelaar/ai-cookbook/tree/main/models/jev"
+  },
+  "publication_authorized": false,
+  "stop_reason": "Owner explicitly stopped this video on 2026-10-18. Do not resume or generate."
+}

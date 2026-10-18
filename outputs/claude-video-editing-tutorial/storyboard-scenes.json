@@ -1,0 +1,108 @@
+[
+  {
+    "scene": 1,
+    "title": "A clear campaign plan",
+    "subheading": "Give every decision a place",
+    "elements": [
+      "OUTCOME",
+      "AUDIENCE",
+      "MESSAGE"
+    ],
+    "timing_status": "pending measured source audio"
+  },
+  {
+    "scene": 2,
+    "title": "Start with the outcome",
+    "subheading": "What should this campaign achieve?",
+    "elements": [
+      "Define the goal",
+      "Choose a useful measure"
+    ],
+    "timing_status": "pending measured source audio"
+  },
+  {
+    "scene": 3,
+    "title": "Who needs to hear this?",
+    "subheading": "Connect the audience to the message",
+    "elements": [
+      "Audience",
+      "Relevant message"
+    ],
+    "timing_status": "pending measured source audio"
+  },
+  {
+    "scene": 4,
+    "title": "Four different jobs",
+    "subheading": "Organize the plan before the edit",
+    "elements": [
+      "New customers",
+      "Creative tests",
+      "Review performers",
+      "Existing customers"
+    ],
+    "timing_status": "pending measured source audio"
+  },
+  {
+    "scene": 5,
+    "title": "Reach new customers",
+    "subheading": "Explain the value clearly",
+    "elements": [
+      "Who is it for?",
+      "Why should they care?"
+    ],
+    "timing_status": "pending measured source audio"
+  },
+  {
+    "scene": 6,
+    "title": "Test new creative",
+    "subheading": "Compare a deliberate change",
+    "elements": [
+      "Version A",
+      "Version B"
+    ],
+    "timing_status": "pending measured source audio"
+  },
+  {
+    "scene": 7,
+    "title": "Review strong performers",
+    "subheading": "Use real evidence",
+    "elements": [
+      "Objective",
+      "Results",
+      "Next decision"
+    ],
+    "timing_status": "pending measured source audio"
+  },
+  {
+    "scene": 8,
+    "title": "Reconnect with customers",
+    "subheading": "Choose a relevant follow-up",
+    "elements": [
+      "Existing customer",
+      "Useful next step"
+    ],
+    "timing_status": "pending measured source audio"
+  },
+  {
+    "scene": 9,
+    "title": "A diagram is not a result",
+    "subheading": "Illustration only \u2014 no performance guarantee",
+    "elements": [
+      "Plan",
+      "Test",
+      "Review"
+    ],
+    "timing_status": "pending measured source audio"
+  },
+  {
+    "scene": 10,
+    "title": "Build. Review. Improve.",
+    "subheading": "A clear process, supported by real data",
+    "elements": [
+      "Structure",
+      "Evidence",
+      "Iteration"
+    ],
+    "timing_status": "pending measured source audio"
+  }
+]
