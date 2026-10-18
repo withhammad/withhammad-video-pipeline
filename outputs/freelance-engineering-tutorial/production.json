@@ -1,0 +1,50 @@
+{
+  "reference": "https://youtu.be/1HtydHmdhrQ",
+  "reference_title": "What Companies Hire Freelance Engineers For in 2026",
+  "reference_duration_seconds": 1086,
+  "target_date": "2026-10-19",
+  "timezone": "Asia/Dubai",
+  "language": "Urdu/Hindi",
+  "avatar_id": "c0c91d44e16140028f05656df6f8a027",
+  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "format": "short avatar introduction, cloned voice over freshly recorded visual presentation",
+  "owner_approved_format": true,
+  "credits_checked": 39,
+  "status": "awaiting_credits_for_remaining_narration",
+  "publication_status": "not_uploaded",
+  "privacy_requirement": "No employer or corporate workspace branding in any narration, recording, visual or publication metadata; use Hammad branding only.",
+  "coverage": [
+    "contract versus project work",
+    "year-long workload and sales gaps",
+    "enterprise skills and contractor fit",
+    "small business buyers",
+    "back-office tasks",
+    "automation versus assistant architecture",
+    "outcome-focused sales",
+    "background services and skill/MCP delivery",
+    "illustrative project categories",
+    "combining contract and project work",
+    "starting alongside employment",
+    "maintenance retainers",
+    "building owned software",
+    "practical next step"
+  ],
+  "source_attribution_rule": "Do not turn the reference creator's personal history, revenue claims, client case studies, product ownership or event promotion into Hammad's claims. Use clearly identified illustrative examples and a personal-brand CTA.",
+  "intro_video_id": "46c581cbaa1fad642fc103a55538b537",
+  "narration_completed": [
+    "01-two-models",
+    "02-enterprise-and-buyers"
+  ],
+  "narration_blocked": "03-business-automation: insufficient_credit (402), no retry submitted",
+  "script_words": 2988,
+  "visuals": {
+    "status": "complete_verified",
+    "slide_count": 33,
+    "deck": "slides/index.html",
+    "coverage_map": "slides/slides.json",
+    "design": "Dark 16:9 cards, comparisons, workflows and timelines with Hammad branding",
+    "narration_status": "Only chapters 1 and 2 generated; remaining chapters require credits",
+    "png_directory": "slides/png",
+    "verification": "slides/verification.json"
+  }
+}
