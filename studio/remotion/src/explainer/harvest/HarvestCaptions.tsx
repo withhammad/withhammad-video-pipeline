@@ -1,7 +1,9 @@
 import { useCurrentFrame } from "remotion";
 import { H, hasNumeral, NUMERAL_STYLE, SANS, sceneIndexAtFrame, SERIF, toFrame, W } from "../theme";
 import type { CaptionChunk, ChunkLine, Scene } from "../types";
-import { CAP_MAX_W, CAP_SANS, CAP_SERIF, CAP_SHADOW, captionPill, captionYOf, RED, TEAL, TEAL_SERIF } from "./layout";
+import {
+  CAP_MAX_W, CAP_SANS, CAP_SERIF, CAP_SHADOW, captionPill, captionYOf, DARK_SCRIM, PILL_DARK, PILL_DARK_RIM, RED_GLOW, RED_ON_VIDEO, TEAL, TEAL_SERIF,
+} from "./layout";
 
 /**
  * The reference's caption system (visual.md section 4): 1-3 word chunks in a heavy uppercase sans, an optional
@@ -14,7 +16,7 @@ import { CAP_MAX_W, CAP_SANS, CAP_SERIF, CAP_SHADOW, captionPill, captionYOf, RE
 const SANS_EM = 0.7;
 const SERIF_EM = 0.44;
 
-const colorOf = (l: ChunkLine) => (l.color === "red" ? RED : l.color === "teal" ? (l.serif ? TEAL_SERIF : TEAL) : "white");
+const colorOf = (l: ChunkLine) => (l.color === "red" ? RED_ON_VIDEO : l.color === "teal" ? (l.serif ? TEAL_SERIF : TEAL) : "white");
 
 const sizeOf = (l: ChunkLine) => {
   const base = l.serif ? CAP_SERIF : CAP_SANS;
@@ -38,8 +40,8 @@ const Line: React.FC<{ l: ChunkLine; cy: number; pill: string | null }> = ({ l, 
               ? { ...NUMERAL_STYLE, fontSize: size * 0.82 }
               : { fontFamily: SANS, fontWeight: 800, letterSpacing: 0.4 }),
           ...(pill
-            ? { background: pill, borderRadius: 12, padding: serif ? "0 16px 4px" : "2px 15px 4px" }
-            : { textShadow: CAP_SHADOW }),
+            ? { background: pill, borderRadius: 12, padding: serif ? "0 16px 4px" : "2px 15px 4px", ...(pill === PILL_DARK ? { boxShadow: PILL_DARK_RIM } : {}) }
+            : { textShadow: l.color === "red" ? `${RED_GLOW}, ${CAP_SHADOW}` : CAP_SHADOW }),
         }}
       >
         {text}
@@ -62,13 +64,28 @@ export const HarvestCaptions: React.FC<{ chunks: CaptionChunk[]; scenes: Scene[]
   if (!lines.length) return null;
   const pill = captionPill(s);
   // The first line sits on the scene's caption line; the next hangs under it (it never moves the first one).
+  const centres: number[] = [];
   let cy = y * H;
+  lines.forEach((l, i) => {
+    if (i > 0) cy += (sizeOf(lines[i - 1]) * 1.18) / 2 + (sizeOf(l) * 1.18) / 2 + (pill ? 10 : 0);
+    centres.push(cy);
+  });
+  // Over a dark recording a soft darkening band sits behind the caption lines only (the page stays readable).
+  const top = centres[0] - (sizeOf(lines[0]) * 1.18) / 2 - 26;
+  const bottom = centres[centres.length - 1] + (sizeOf(lines[lines.length - 1]) * 1.18) / 2 + 26;
   return (
     <>
-      {lines.map((l, i) => {
-        if (i > 0) cy += (sizeOf(lines[i - 1]) * 1.18) / 2 + (sizeOf(l) * 1.18) / 2 + (pill ? 10 : 0);
-        return <Line key={i} l={l} cy={cy} pill={pill} />;
-      })}
+      {pill === PILL_DARK ? (
+        <div
+          style={{
+            position: "absolute", left: 0, width: W, top, height: bottom - top,
+            background: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, ${DARK_SCRIM} 28%, ${DARK_SCRIM} 72%, rgba(0,0,0,0) 100%)`,
+          }}
+        />
+      ) : null}
+      {lines.map((l, i) => (
+        <Line key={i} l={l} cy={centres[i]} pill={pill} />
+      ))}
     </>
   );
 };

@@ -83,7 +83,7 @@ const CheckFx: React.FC = () => {
 const CardScene: React.FC<{ s: Scene }> = ({ s }) => {
   const ms = toMs(useCurrentFrame());
   const dark = s.tone === "dark";
-  const settle = interpolate(ms, [0, 280], [1.025, 1], { ...clamp, easing: EXPO_OUT });
+  const settle = s.swap ? 1 : interpolate(ms, [0, 280], [1.025, 1], { ...clamp, easing: EXPO_OUT });
   return (
     <AbsoluteFill style={{ background: dark ? DARK_BG : LIGHT_BG }}>
       <div

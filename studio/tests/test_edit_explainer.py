@@ -682,10 +682,13 @@ def test_harvest_chunks_hard_cut_on_our_words_with_colours_and_serif_lines():
     p = hbuild(caps)
     ch = p['chunks']
     wake = next(c for c in ch if c['lines'][0]['text'] == 'CAN NOW WAKE UP')
-    assert wake['startMs'] == start_of(caps, 'can') and wake['lines'][1]['startMs'] == start_of(caps, 'every')   # serif joins later
+    # "ASTRA" alone is said in 220 ms: it holds CHUNK_MIN_MS and the next chunk starts that much later
+    assert wake['startMs'] == max(start_of(caps, 'can'), start_of(caps, 'Astra') + ex.CHUNK_MIN_MS)
+    assert wake['lines'][1]['startMs'] == start_of(caps, 'every')                 # the serif joins later
     assert wake['lines'][1]['serif'] and wake['lines'][1]['color'] == 'teal'
     stars = next(c for c in ch if c['lines'][0]['text'] == '31,000+ STARS')
-    assert stars['startMs'] == start_of(caps, 'thirty-one')        # "31,000+" rides on the spoken number, not on "stars"
+    # "31,000+" rides on the spoken number, not on "stars", and starts with its scene (snapped onto the cut 20 ms before)
+    assert stars['startMs'] == scene(p, 'U4')['startMs'] and 0 < start_of(caps, 'thirty-one') - stars['startMs'] <= ex.CHUNK_SNAP_MS
     assert all(a['endMs'] <= b['startMs'] for a, b in zip(ch, ch[1:]))
     for c in ch:                                                   # never stale: gone within the hold after its words
         last = max(w['endMs'] for w in caps if w['startMs'] < c['endMs'])
@@ -719,3 +722,106 @@ def test_harvest_reel_never_runs_past_the_take():
     p = hbuild(caps, probe=lambda path: take if str(path).endswith('avatar_main.mp4') else None)
     assert p['durationMs'] == take // 40 * 40 == p['scenes'][-1]['endMs']
     assert hbuild(caps)['durationMs'] == caps[-1]['endMs'] + ex.END_HOLD_MS        # take length unknown: the usual hold
+
+
+def test_harvest_content_swap_splits_a_recording_scene_at_its_word():
+    caps = hcaps()
+    spec = json.loads(json.dumps(HSPEC))
+    u7 = spec['beats'][3]['units'][0]
+    u7['swap'] = {'at': 'every', 'focus_y': 1.0}                  # same recording: the 2.4-6.0 s range is shared
+    p = hbuild(caps, spec=spec)
+    a, b = scene(p, 'U7'), scene(p, 'U7b')
+    assert a['endMs'] == b['startMs'] == cut_before(caps, 'every', 2) and b['swap'] is True and 'swap' not in a
+    assert a['type'] == b['type'] == 'split' and 'fx' not in b and a['fx'] == {'check': True}   # the check plays once
+    assert b['recording']['src'] == a['recording']['src'] and b['recording']['focusY'] == 1.0 and a['recording']['focusY'] == 0.0
+    out_a = a['recording']['inMs'] + (a['endMs'] - a['startMs']) * a['recording'].get('playbackRate', 1.0)
+    assert abs(out_a - b['recording']['inMs']) <= 2                # the second part picks up where the first left off
+    assert a['recording']['inMs'] == 2400 and abs(window(b)[1] - 6000) <= 2
+    u7['swap'] = {'at': 'every', 'screenrec': 'R3', 'use': 'R3 1.0-3.0 s', 'tone': 'dark'}   # another recording
+    p = hbuild(caps, spec=spec)
+    a, b = scene(p, 'U7'), scene(p, 'U7b')
+    assert b['recording']['src'] == 'job/shots/R3.mp4' and b['recording']['inMs'] == 1000 and b['tone'] == 'dark'
+    assert abs(window(a)[1] - 6000) <= 2 and abs(window(b)[1] - 3000) <= 2
+    assert not any(x['src'].endswith('whoosh.wav') and abs(x['atMs'] + ex.WHOOSH_LEAD_MS - b['startMs']) < 5 for x in p['sfx'])
+    u7['swap'] = {'at': 'banana'}                                  # not said in the scene: nothing changes
+    assert [s['id'] for s in hbuild(caps, spec=spec)['scenes']] == [s['id'] for s in hbuild(caps)['scenes']]
+
+
+def test_harvest_short_chunks_hold_or_merge_and_snap_onto_scene_changes():
+    line = lambda text, t, **kw: {'text': text, 'startMs': t, 'serif': False, 'color': 'white', **kw}
+    chunks = [{'startMs': 0, 'endMs': 250, 'lines': [line('RUN IT', 0)]},
+              {'startMs': 250, 'endMs': 900, 'lines': [line('EVERY DAY', 250)]},
+              {'startMs': 900, 'endMs': 1160, 'lines': [line('AND BECAUSE', 900)]},
+              {'startMs': 1160, 'endMs': 1900, 'lines': [line('IT CAN RUN', 1160), line('locally', 1400, serif=True, color='teal')]}]
+    out = ex.hold_short_chunks(chunks)
+    assert out[0]['lines'][0]['text'] == 'RUN IT EVERY DAY' and out[0]['endMs'] == 900      # fits one line: merged
+    held, nxt = out[1], out[2]
+    assert held['lines'][0]['text'] == 'AND BECAUSE' and held['endMs'] == 900 + ex.CHUNK_MIN_MS == nxt['startMs']
+    assert nxt['lines'][0]['startMs'] == nxt['startMs'] and nxt['lines'][1]['startMs'] == 1400  # the serif keeps its word
+    assert all(c['endMs'] - c['startMs'] >= ex.CHUNK_MIN_MS for c in out)
+    # Snap: an edge within 3 frames of a scene change moves onto it, with the line that opened the chunk.
+    snapped = ex.snap_chunks([{'startMs': 1000, 'endMs': 1560, 'lines': [line('A', 1000)]},
+                              {'startMs': 1560, 'endMs': 2400, 'lines': [line('B', 1560), line('c', 1900, serif=True)]}], [1480, 2000])
+    assert [(c['startMs'], c['endMs']) for c in snapped] == [(1000, 1480), (1480, 2400)]
+    assert snapped[1]['lines'][0]['startMs'] == 1480 and snapped[1]['lines'][1]['startMs'] == 1900
+    one = ex.snap_chunks([{'startMs': 1900, 'endMs': 2150, 'lines': [line('X', 1900)]}], [2000])
+    assert [(c['startMs'], c['endMs']) for c in one] == [(2000, 2150)]                       # keeps its larger side
+    short = ex.snap_chunks([{'startMs': 0, 'endMs': 700, 'lines': [line('A', 0)]},
+                            {'startMs': 700, 'endMs': 1100, 'lines': [line('B', 700)]},
+                            {'startMs': 1100, 'endMs': 1800, 'lines': [line('C', 1100)]}], [1010])
+    assert short[1]['startMs'] == 1010 - ex.CHUNK_MIN_MS and short[1]['endMs'] == 1010 == short[2]['startMs']
+    assert short[0]['endMs'] == short[1]['startMs'] and short[1]['lines'][0]['startMs'] == short[1]['startMs']
+
+
+def test_harvest_chunks_never_flash_across_a_cut_or_under_the_minimum():
+    caps = hcaps()
+    p = hbuild(caps)
+    bounds = [s['startMs'] for s in p['scenes'][1:]]
+    for c in p['chunks']:
+        assert c['endMs'] - c['startMs'] >= ex.CHUNK_MIN_MS or any(c['endMs'] == b for b in bounds)
+        assert min(l['startMs'] for l in c['lines']) == c['startMs']          # never an empty first frame
+        for b in bounds:
+            assert not (c['startMs'] < b < c['endMs'] and min(b - c['startMs'], c['endMs'] - b) <= ex.CHUNK_SNAP_MS)
+
+
+def test_harvest_zooms_never_crop_into_the_page_content():
+    w, h = 100, 60
+    bg, ink = (13, 17, 23), (230, 237, 243)
+    buf = bytearray(bytes(bg) * (w * h))
+    for y in range(20, 40):
+        for x in list(range(8, 30)) + list(range(50, 91)):
+            buf[3 * (y * w + x):3 * (y * w + x) + 3] = bytes(ink)
+    assert ex.content_span(bytes(buf), w, h) == [0.08, 0.91]
+    assert ex.content_span(bytes(buf), w, h, 0.0, 0.3) is None or ex.content_span(bytes(buf), w, h, 0.0, 0.3) == [0.08, 0.91]
+    assert ex.content_span(bytes(buf), w, h, 0.7, 1.0) is None
+    zs = ex.harvest_zooms([{'atMs': 0, 'endMs': 900, 'scale': 1.6, 'box': [0.3, 0.4, 0.2, 0.05], 'content': [0.08, 0.91]},
+                           {'atMs': 0, 'endMs': 900, 'scale': 1.6, 'box': [0.3, 0.4, 0.2, 0.05], 'content': [0.02, 0.99]},
+                           {'atMs': 0, 'endMs': 900, 'scale': 1.4, 'box': [0.3, 0.4, 0.2, 0.05]}])
+    assert len(zs) == 2
+    assert zs[0]['scale'] == round(1 / (0.83 + 2 * ex.CONTENT_PAD), 3) and zs[0]['content'] == [0.08, 0.91]
+    assert zs[1]['scale'] == round(1 + 0.4 * ex.HARVEST_PUSH, 3)        # no span known: the usual half depth
+    plan = {'actions': [{'highlight': {'selector': 'x', 'ms': 1000}}]}
+    plain = bytes((13, 17, 23)) * (ex.HL_W * ex.HL_H)
+    hl = ex.highlight_boxes(__file__, plan, grab=lambda v, t: plain)
+    assert hl[0]['box'] is None and 'content' not in hl[0]              # no outline: no zoom, no span
+    framed = _frame_with_outline(ex.HL_W, ex.HL_H, (100, 300, 300, 340))
+    hl = ex.highlight_boxes(__file__, plan, grab=lambda v, t: framed)
+    x0, x1 = hl[0]['content']
+    assert hl[0]['box'] and x0 <= 100 / ex.HL_W + 0.01 and x1 >= 300 / ex.HL_W - 0.01   # the span holds the box
+
+
+def test_harvest_sfx_keeps_pops_off_words_and_the_cta_tick_under_the_voice():
+    caps = hcaps()
+    p = hbuild(caps)
+    words = [(c['startMs'], c['endMs']) for c in caps]
+    for x in p['sfx']:
+        if x['src'].endswith('pop.wav') and x['volume'] == ex.POP_VOLUME:
+            assert not any(a < x['atMs'] < b for a, b in words)
+    tick = next(x for x in p['sfx'] if x['src'].endswith('tick.wav'))
+    assert tick['volume'] == ex.CTA_TICK_VOLUME == 0.12 and tick['atMs'] == p['cta']['atMs'] + ex.CTA_TAP_MS
+    scenes = [{'id': 'A', 'type': 'avatar', 'startMs': 0, 'endMs': 1000},
+              {'id': 'B', 'type': 'stat', 'startMs': 1000, 'endMs': 3000, 'card': {'kind': 'stars'}}]
+    on_word = ex._harvest_sfx(scenes, None, [(0, 2000)])                 # the card lands mid-word: no pop at all
+    assert not any(x['src'].endswith('pop.wav') for x in on_word)
+    in_gap = ex._harvest_sfx(scenes, None, [(0, 950), (1300, 2000)])
+    assert [x['volume'] for x in in_gap if x['src'].endswith('pop.wav')] == [ex.POP_VOLUME]

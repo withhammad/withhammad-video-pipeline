@@ -111,18 +111,27 @@ const coverPoint = (fx: number, fy: number, iw: number, ih: number, focusY = 0.5
  *  so every highlighted line is read from its start, at the larger size. */
 type Aim = ZoomState & { originXEnd: number };
 const ZOOM_MARGIN = 0.07;
+/** Margin kept around a zoom's content span (fraction of the recording width; edit_explainer.CONTENT_PAD). */
+const CONTENT_PAD = 0.01;
 const PAN_MIN_HOLD_MS = 600;
 
 const aim = (z: Zoom, iw: number, ih: number, focusY = 0.5): Aim => {
   const [bx, by, bw, bh] = z.box;
   const p = coverPoint(bx + bw / 2, by + bh / 2, iw, ih, focusY);
-  const s = Math.max(1, Math.min(z.scale, (ih * 0.9) / Math.max(1, bh * REC_H * p.c)));
+  // z.content: the page's content span [x0, x1] (fractions of the recording width). The push never crops into it:
+  // the scale is capped so the span fits, and the origin keeps the whole span in view (the crop lands in margins).
+  const cl = z.content ? coverPoint(z.content[0] - CONTENT_PAD, 0, iw, ih, focusY).x : null;
+  const cr = z.content ? coverPoint(z.content[1] + CONTENT_PAD, 0, iw, ih, focusY).x : null;
+  let s = Math.max(1, Math.min(z.scale, (ih * 0.9) / Math.max(1, bh * REC_H * p.c)));
+  if (cl !== null && cr !== null) s = Math.min(s, iw / Math.max(1, cr - cl));
   if (s <= 1.001) return { scale: 1, originX: iw / 2, originY: ih / 2, originXEnd: iw / 2 };
   const o = (v: number, size: number) => Math.min(size, Math.max(0, (s * v - size / 2) / (s - 1)));
-  const clampX = (v: number) => Math.min(iw, Math.max(0, v));
+  // The visible window starts at origin * (1 - 1/s): keep [cl, cr] inside it.
+  const keep = (v: number) => (cl === null || cr === null ? v : Math.min(cl / (1 - 1 / s), Math.max((cr - iw / s) / (1 - 1 / s), v)));
+  const clampX = (v: number) => Math.min(iw, Math.max(0, keep(v)));
   const oy = o(p.y, ih);
   if (bw * REC_W * p.c * s <= iw * (1 - 2 * ZOOM_MARGIN)) {
-    const ox = o(p.x, iw);
+    const ox = clampX(o(p.x, iw));
     return { scale: s, originX: ox, originY: oy, originXEnd: ox };
   }
   const left = coverPoint(bx, by, iw, ih, focusY).x;

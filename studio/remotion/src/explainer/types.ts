@@ -15,7 +15,15 @@ export type PushIn = { atMs: number; scale: number; originX: number; originY: nu
 
 /** A push-in on one highlight box of the recording (scene-relative ms). box: [x, y, w, h] fractions of the
  *  recording frame; the card aims the zoom so the whole box stays inside the card (scale capped to fit). */
-export type Zoom = { atMs: number; endMs: number; scale: number; box: [number, number, number, number] };
+export type Zoom = {
+  atMs: number;
+  endMs: number;
+  scale: number;
+  box: [number, number, number, number];
+  /** The page's content span [x0, x1] (fractions of the recording width): the push keeps it in view, so the crop
+   *  only ever lands in the page's margins (edit_explainer.content_span). */
+  content?: [number, number];
+};
 
 /** A real screen recording (1080x1350, 25 fps). inMs is the source in-point; durationMs (source length)
  *  lets the card freeze on the last frame instead of running out. */
@@ -98,6 +106,8 @@ export type Scene = {
   fx?: { check?: boolean };
   /** Theme "harvest": caption centre (fraction of H) when the default for the scene type does not fit. */
   captionY?: number;
+  /** Theme "harvest": a soft content swap (the recording changes, the presenter and the canvas run on): no settle. */
+  swap?: boolean;
 };
 
 export type HarvestCard =

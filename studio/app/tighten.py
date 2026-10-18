@@ -50,10 +50,18 @@ Rules (critic-reviewed on job 09a9d211fff0; every decision is logged per pause i
   measurement (VAD, audibility, captions) runs on the corrected sound, so the cuts, captions and speech spans are
   on the corrected clock; the result and cuts.json record av_offset_ms, and measure_sync() checks the residual
   against it (0 = exactly the requested correction).
+- speed_up() applies the same synced speed-up to a clip that is already tightened (no new cuts): a take whose
+  length must come down to the reference's after the edit is built. The 25 fps picture shows whole source frames,
+  so its sync error is up to half a source frame plus atempo's few ms; av_offset_ms there centres that band
+  (job f7da978d101e at 1.1x: picture ~4 ms late on average, atempo ~3 ms early, -6 ms -> max 18 ms). Its sync is
+  measured against the source as it plays, so the centring shift counts against it. Jump cuts move to the first
+  output frame that shows a source frame at or after them (frame matching, not arithmetic).
 Audio is written as FLAC inside the MP4, so tightening adds no lossy generation.
 
 CLI:  .venv/bin/python -m app.tighten <in.mp4> <out.mp4> [--captions captions.json] [--speed 1.05]
                                       [--av-offset-ms -100 | --provider heygen]
+      .venv/bin/python -m app.tighten <tight.mp4> <out.mp4> --speed-only --speed 1.1 [--av-offset-ms -6]
+                                      [--captions captions.json] [--cuts cuts.json] [--json result.json]
 """
 import argparse
 import json
@@ -617,6 +625,49 @@ def measure_sync(src, out, time_map, fps=25.0, speed=1.0, sr=SR, search_ms=SYNC_
             'start_time_s': {k: float(v.get('start_time', 0)) for k, v in streams.items()}, 'rows': rows}
 
 
+def speed_up(in_video, out_video, speed, av_offset_ms=0.0, *, captions=None, cuts=None, window_ms=2000.0,
+             measure=True, crf=15, preset='medium'):
+    """A uniform, pitch-preserving, synced speed-up of a whole clip (no pause cuts): the filter tighten() uses for
+    its speed option on a single segment. Returns {'source', 'speed', 'fps', 'time_map', 'av_offset_ms',
+    'duration_in_ms', 'duration_out_ms', 'captions'?, 'cuts'?, 'sync'?}. captions are remapped by the speed; cuts
+    (ms on the input) move to the first output frame showing a source frame at or after each cut; sync is measured
+    in window_ms pieces against the input as it plays (av_offset_ms included)."""
+    in_video, out_video = Path(in_video), Path(out_video)
+    pr = probe(in_video)
+    fps, n, v_start = pr['fps'], pr['frames'], pr['v_start']
+    frame_ms = 1000.0 / fps
+    segs = [(0, n, 0.0, n * frame_ms)]
+    out_video.parent.mkdir(parents=True, exist_ok=True)
+    audio.run(['ffmpeg', '-y', '-hide_banner', '-nostats', '-loglevel', 'error', '-i', in_video,
+               '-filter_complex', filter_graph(segs, fps, speed=speed, v_start=v_start, av_offset_ms=av_offset_ms),
+               '-map', '[v]', '-map', '[a]', '-r', f'{fps:g}', '-c:v', 'libx264', '-crf', str(crf), '-preset', preset,
+               '-pix_fmt', 'yuv420p', '-c:a', 'flac', '-ar', str(SR), '-ac', '2', '-movflags', '+faststart', out_video])
+    length = n * frame_ms
+    time_map = [[0.0, round(length, 3), 0.0]]
+    result = {'source': str(in_video), 'speed': speed, 'fps': fps, 'time_map': time_map, 'av_offset_ms': float(av_offset_ms or 0.0),
+              'duration_in_ms': round(length), 'duration_out_ms': round(out_frames(segs, speed) * frame_ms)}
+    if captions is not None:
+        result['captions'] = remap_captions(captions, time_map, speed)
+    if cuts:
+        fs, fo = _gray_frames(in_video), _gray_frames(out_video)
+        moved = []
+        for c in cuts:
+            f = int(round(c / frame_ms))
+            k0 = int(round(f / speed))
+            hit = None
+            for k in range(max(0, k0 - 3), min(len(fo), k0 + 4)):
+                j = min(range(max(0, f - 8), min(len(fs), f + 8)), key=lambda jj: float(np.mean((fo[k] - fs[jj]) ** 2)))
+                if j >= f:
+                    hit = k
+                    break
+            moved.append(round((hit if hit is not None else k0) * frame_ms))
+        result['cuts'] = moved
+    if measure:
+        windows = [[float(a), float(min(length, a + window_ms)), float(a)] for a in np.arange(0.0, length, window_ms)]
+        result['sync'] = measure_sync(in_video, out_video, windows, fps, speed, v_start=v_start)
+    return result
+
+
 def sync_problem(sync, fps=25.0, limit_ms=10.0):
     """None when the measured sync is good, else why not (reel.build stops on it)."""
     if not sync:
@@ -651,9 +702,25 @@ def main(argv=None):
     p.add_argument('--av-offset-ms', type=float, help='move the sound against the picture (negative = earlier)')
     p.add_argument('--provider', choices=sorted(PROVIDER_AV_OFFSET_MS), help='use that provider\'s measured A/V offset')
     p.add_argument('--json', help='write the full result here')
+    p.add_argument('--speed-only', action='store_true', help='speed up an already tightened clip (no pause cuts)')
+    p.add_argument('--cuts', help='with --speed-only: jump cuts on the input (a JSON list of ms or cuts.json) to move')
     a = p.parse_args(argv)
     caps = json.loads(Path(a.captions).read_text()) if a.captions else None
     offset = a.av_offset_ms if a.av_offset_ms is not None else PROVIDER_AV_OFFSET_MS.get(a.provider, 0.0)
+    if a.speed_only:
+        cuts = json.loads(Path(a.cuts).read_text()) if a.cuts else None
+        if isinstance(cuts, dict):
+            cuts = [c['at_ms'] for c in cuts.get('cuts') or []]
+        r = speed_up(a.src, a.dst, a.speed, offset, captions=caps, cuts=cuts)
+        if a.json:
+            Path(a.json).write_text(json.dumps(r, indent=1))
+        print(json.dumps({k: r[k] for k in ('speed', 'duration_in_ms', 'duration_out_ms', 'av_offset_ms') if k in r}
+                         | {'cuts': r.get('cuts'), 'sync': {k: v for k, v in r['sync'].items() if k != 'rows'}}, indent=1))
+        problem = sync_problem(r['sync'], r['fps'], SPEED_SYNC_MS)
+        if problem:
+            print(f'sync: {problem}', file=sys.stderr)
+            return 1
+        return 0
     r = tighten(a.src, a.dst, caps, a.end_cap_ms, a.mid_cap_ms, a.tail_keep_ms, a.min_cut_ms, speed=a.speed,
                 av_offset_ms=offset)
     if a.json:

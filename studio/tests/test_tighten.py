@@ -448,3 +448,23 @@ def test_reel_build_stops_when_tighten_breaks_lip_sync(clip, tmp_path, monkeypat
     with pytest.raises(RuntimeError, match='lip-sync offset 134.0 ms'):
         reel.build(job, render=False)
     assert not (job / 'avatar_enhanced.mp4').exists()                       # nothing built on the drifted clip
+
+
+@needs_ffmpeg
+def test_speed_up_of_a_tightened_clip_keeps_sync_and_moves_cuts_to_their_frames(tmp_path):
+    rng = np.random.default_rng(13)
+    words = [(300, 900, 'One,'), (1400, 2000, 'two.'), (2700, 3300, 'Three.')]
+    sig = rng.normal(0, 3e-4, int(SR * 3800 / 1000))
+    for a, b, _ in words:
+        sig[int(a * SR / 1000):int(b * SR / 1000)] += _noise_word(b - a, rng)
+    src = _make_clip(tmp_path, 'tight', sig, 3800)
+    out = tmp_path / 'fast.mp4'
+    r = tighten.speed_up(src, out, 1.1, captions=_caps(words), cuts=[1000, 2400])
+    s = r['sync']
+    assert s['segments_measured'] >= 1 and s['max_offset_ms'] < tighten.SPEED_SYNC_MS and s['duration_diff_ms'] <= 1.0
+    assert r['duration_out_ms'] == round(round(3800 / 40 / 1.1) * 40) == round(s['video_s'] * 1000)
+    assert r['captions'][1]['startMs'] == round(1400 / 1.1)
+    frames = _frames(out)
+    for c, at in zip([1000, 2400], r['cuts']):
+        k = at // 40                              # the first output frame at or after the source frame of the cut
+        assert _read_code(frames[k]) >= c // 40 and _read_code(frames[k - 1]) < c // 40

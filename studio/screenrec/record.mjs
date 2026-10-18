@@ -12,7 +12,7 @@
 //   {"move": {"selector": "css", "ms": 600}}                       visible cursor glides to an element
 //   {"click": {"selector": "css", "navigate": false}}              cursor ripple; real click when navigate=true
 //   {"type": {"selector": "css", "text": "...", "cps": 14}}        types into an input, char by char
-//   {"highlight": {"selector": "css", "ms": 1200}}                 soft yellow box around an element
+//   {"highlight": {"selector": "css", "ms": 1200}}                 yellow box (soft fill; outline only on dark pages)
 //   {"remove": ["css", ...]}                                       hide banners/popups before recording
 //   {"goto": "https://..."}                                        navigate mid-recording
 //   {"zoom": {"scale": 1.25, "originSelector": "css", "ms": 900}}  CSS zoom toward an element (1 = reset)
@@ -92,8 +92,15 @@ const HELPERS = `
       Object.assign(d.style, {position:'fixed', left:(pos.x-18)+'px', top:(pos.y-18)+'px', width:'36px', height:'36px', borderRadius:'50%', background:'rgba(255,214,10,.55)', zIndex:2147483646, pointerEvents:'none', transition:'transform .45s ease-out, opacity .45s ease-out'});
       document.documentElement.appendChild(d); requestAnimationFrame(() => { d.style.transform = 'scale(2.2)'; d.style.opacity = '0'; });
       return new Promise((r) => setTimeout(() => { d.remove(); r(); }, 480)); },
-    highlight: (sel, ms) => { const r = el(sel).getBoundingClientRect(); const b = document.createElement('div');
-      Object.assign(b.style, {position:'absolute', left:(r.left+scrollX-8)+'px', top:(r.top+scrollY-6)+'px', width:(r.width+16)+'px', height:(r.height+12)+'px', borderRadius:'10px', background:'rgba(255,214,10,.28)', outline:'3px solid #FFD60A', zIndex:2147483645, pointerEvents:'none', opacity:'0', transition:'opacity .25s'});
+    // On a dark page (code blocks, dark docs) a yellow fill turns olive and muddies the text: there the box is an
+    // outline with a faint tint; on light pages it keeps the soft fill.
+    pageDark: (e) => { for (let n = e; n && n.nodeType === 1; n = n.parentElement) {
+        const m = getComputedStyle(n).backgroundColor.match(/[\d.]+/g);
+        if (m && (m.length < 4 || +m[3] > 0.5)) return (0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]) / 255 < 0.35; }
+      return matchMedia('(prefers-color-scheme: dark)').matches; },
+    highlight: (sel, ms) => { const e = el(sel); const r = e.getBoundingClientRect(); const b = document.createElement('div');
+      const fill = window.__rec.pageDark(e) ? 'rgba(255,214,10,.08)' : 'rgba(255,214,10,.28)';
+      Object.assign(b.style, {position:'absolute', left:(r.left+scrollX-8)+'px', top:(r.top+scrollY-6)+'px', width:(r.width+16)+'px', height:(r.height+12)+'px', borderRadius:'10px', background:fill, outline:'3px solid #FFD60A', zIndex:2147483645, pointerEvents:'none', opacity:'0', transition:'opacity .25s'});
       document.body.appendChild(b); requestAnimationFrame(() => b.style.opacity = '1');
       return new Promise((r) => setTimeout(() => { b.style.opacity = '0'; setTimeout(() => { b.remove(); r(); }, 260); }, ms)); },
     type: async (sel, text, cps) => { const e = el(sel); e.focus();

@@ -1,4 +1,4 @@
-import { interpolate, spring, useCurrentFrame } from "remotion";
+import { Easing, interpolate, spring, useCurrentFrame } from "remotion";
 import { clamp, EXPO_OUT, FPS, H, SANS, toFrame, toMs, W } from "../theme";
 import type { HarvestCard } from "../types";
 import { DARK_BG, PAPER } from "./layout";
@@ -69,11 +69,13 @@ const LogoCard: React.FC<{ card: Extract<HarvestCard, { kind: "logo" }>; ms: num
 
 const commas = (n: number) => Math.round(n).toLocaleString("en-US");
 
-/** Scene 6: the repo card on the off-white canvas; the star counter rolls up, then the count box turns black and
- *  the star gold (the reference's stat pop), with the verified numbers. */
-const StarsCard: React.FC<{ card: Extract<HarvestCard, { kind: "stars" }>; ms: number }> = ({ card, ms }) => {
-  const rollEnd = 1900;
-  const k = interpolate(ms, [250, rollEnd], [0, 1], { ...clamp, easing: EXPO_OUT });
+/** Scene 6: the repo card on the off-white canvas; the star counter rolls up across the whole scene (it lands
+ *  ~0.4 s before the cut, so the card never sits static), then the count box turns black and the star gold (the
+ *  reference's stat pop), with the verified numbers. */
+const STARS_LAND_BEFORE_END_MS = 420;
+const StarsCard: React.FC<{ card: Extract<HarvestCard, { kind: "stars" }>; ms: number; durMs: number }> = ({ card, ms, durMs }) => {
+  const rollEnd = Math.max(1500, durMs - STARS_LAND_BEFORE_END_MS);
+  const k = interpolate(ms, [200, rollEnd], [0, 1], { ...clamp, easing: Easing.out(Easing.cubic) });
   const value = card.from + (card.to - card.from) * k;
   const done = ms >= rollEnd + 60;
   const enter = interpolate(ms, [0, 380], [0, 1], { ...clamp, easing: EXPO_OUT });
@@ -199,7 +201,7 @@ export const HarvestCardView: React.FC<{ card: HarvestCard; w?: number; h?: numb
   const ms = toMs(useCurrentFrame());
   if (card.kind === "title") return <TitleCard card={card} w={w} h={h} ms={ms} durMs={durMs} />;
   if (card.kind === "logo") return <LogoCard card={card} ms={ms} />;
-  if (card.kind === "stars") return <StarsCard card={card} ms={ms} />;
+  if (card.kind === "stars") return <StarsCard card={card} ms={ms} durMs={durMs} />;
   if (card.kind === "cost") return <CostCard card={card} w={w} h={h} ms={ms} />;
   return <KineticCard card={card} ms={ms} />;
 };

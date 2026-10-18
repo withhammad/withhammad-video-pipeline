@@ -40,8 +40,16 @@ export const CAP_MAX_W = Math.round(W * 0.66);
 export const TEAL = "#11E2C0";
 export const TEAL_SERIF = "#17DDBA";
 export const RED = "#E10006";
+/** The money line: the reference's red lifted to ~5:1 on near-black (#E10006 is ~3.8:1 there), with a thin light
+ *  glow over video so it holds on the dark seam and dark hair. */
+export const RED_ON_VIDEO = "#FF2B2B";
+export const RED_GLOW = "0 0 1px rgba(255,255,255,0.9), 0 0 7px rgba(255,255,255,0.4)";
 export const PILL_LIGHT = "rgba(58,58,58,0.88)";
-export const PILL_DARK = "rgba(12,12,12,0.9)";
+/** Over a dark recording (code on #0d1117) a near-black pill vanished into the page: opaque black with a light rim,
+ *  on a soft darkening band, so the page's text never runs through the caption. */
+export const PILL_DARK = "rgba(0,0,0,0.92)";
+export const PILL_DARK_RIM = "0 0 0 1.5px rgba(255,255,255,0.2)";
+export const DARK_SCRIM = "rgba(0,0,0,0.42)";
 export const CAP_SHADOW = "0 2px 4px rgba(0,0,0,0.6), 0 0 2px rgba(0,0,0,0.4)";
 
 /** Caption centre (fraction of H) per scene: on the seam for splits, on the chest for close-ups, under the card

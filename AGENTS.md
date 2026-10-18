@@ -66,6 +66,11 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
   half a frame away, at the quietest point. Any audio sample rate or start offset works (resampled to 48 kHz on the
   presentation clock). Lip sync is measured per segment; `reel build` stops at ≥ 10 ms (20 ms with the speed-up)
   or a length mismatch over one frame.
+- A cut that runs long against the reference (reel #2: 54.3 s vs 43.5 s) gets a uniform synced speed-up of the
+  tightened take after the edit is planned: `python -m app.tighten <job>/avatar_main_tight.mp4 <out.mp4> --speed-only
+  --speed 1.1 --av-offset-ms -6 --cuts <job>/cuts.json --captions <job>/captions.json --json <result.json>` (pitch kept;
+  the -6 ms centres the 25 fps frame quantisation, max 18 ms; jump cuts move to their real frames), then the voice
+  chain and the VAD on the result. Reel #2 at 1.1x: 49.4 s, 251 wpm (ref 262), every voice gate PASS.
 - HeyGen lip sync (measured 2026-10-18 on job 9d2d68af60d4, both looks, Avatar V): the voice comes ~100 ms behind
   the lips (bilabial closures: the acoustic /p/ closure and burst land 85-125 ms after the frames where the lips seal
   and open). Tighten every HeyGen take with `av_offset_ms=-100` (`tighten.PROVIDER_AV_OFFSET_MS['heygen']`; plan.json

@@ -45,7 +45,12 @@ Mapping, in order:
    card" / "avatar + recording" (split), "recording + pip", "stat card" and "text card" with a designed "card";
    per-unit tone, fx, caption_y, focus_y, crop_top and mask; chunk captions from on_screen_text ({teal}/{red}/
    {white} line colours, *serif* keyword lines) instead of headlines; scene changes snap onto jump cuts; no end
-   card, so the reel ends with the take. Without "theme" nothing changes.
+   card, so the reel ends with the take. Without "theme" nothing changes. In this theme a caption chunk is up at
+   least CHUNK_MIN_MS (a shorter one joins the next or holds) and its edges snap onto a scene change within
+   CHUNK_SNAP_MS (no caption jumping position for a frame or two); unit "swap" ({"at": word, "screenrec"?, "use"?,
+   "focus_y"?}) is a soft content swap inside a long recording scene; push-ins never crop into the page's content
+   span (content_span); card pops play only in a word gap and the CTA tap stays at CTA_TICK_VOLUME.
+12. An "a-b s" range that would play faster than RATE_MAX in its scene keeps its end (the proof) and loses its head.
 Standard library only.
 """
 import argparse
@@ -76,6 +81,7 @@ ENDCARD_READ_MS = 1500     # the finished end card stays up at least this long a
 ENDCARD_TYPE_START_MS = 900  # Cta.tsx EndCard: typing starts here...
 ENDCARD_CHAR_MS = 85         # ...one character every 85 ms
 FIT_RATE_MAX = 1.6         # a recording longer than its scene plays at most this fast...
+RATE_MAX = 2.5             # no recording ever plays faster (an "a-b s" range that would loses its head instead)
 TAIL_KEEP_MS = 300         # ...and is trimmed from the head so the scene ends this far before the source end
 KEY_READ_MS = 600          # the last highlight must be on screen this long inside the scene
 RECORDER_TAIL_MS = 250     # screenrec/record.mjs keeps recording this long after the last action
@@ -642,6 +648,7 @@ def _take_face(spec, take):
 # ----------------------------------------------------------------------------------------------- highlight boxes
 
 HL_W, HL_H = 540, 675        # highlight detection works on half-resolution frames of the 1080x1350 recordings
+ZOOM_BAND = 0.45             # rows within this much (fraction of the height) of a box centre can show in its push-in
 
 
 def _frame_rgb(path, t_ms, w=HL_W, h=HL_H):
@@ -692,18 +699,48 @@ def yellow_box(rgb, w=HL_W, h=HL_H, min_run=30, max_gap=4):
     return None
 
 
+def content_span(rgb, w=HL_W, h=HL_H, y0=0.0, y1=1.0, min_ink=2, tol=48):
+    """[x0, x1] (fractions of the width) of the page's content in rows y0..y1 (fractions) of one rgb24 frame: the
+    columns holding at least min_ink pixels that differ from the page background (the frame's most common colour,
+    summed channel difference over tol). A push-in that keeps this span in view crops only the page's margins,
+    never a word. None when the band holds no content."""
+    if not rgb or len(rgb) < w * h * 3:
+        return None
+    counts = {}
+    for i in range(0, w * h * 3, 3 * 7):                         # every 7th pixel is plenty for the background
+        key = (rgb[i] >> 3, rgb[i + 1] >> 3, rgb[i + 2] >> 3)
+        counts[key] = counts.get(key, 0) + 1
+    br, bg_, bb = (8 * v + 4 for v in max(counts, key=counts.get))
+    r0, r1 = max(0, int(y0 * h)), min(h, int(round(y1 * h)))
+    ink = [0] * w
+    for y in range(r0, r1):
+        row = rgb[y * w * 3:(y + 1) * w * 3]
+        for x in range(w):
+            i = 3 * x
+            if abs(row[i] - br) + abs(row[i + 1] - bg_) + abs(row[i + 2] - bb) > tol:
+                ink[x] += 1
+    cols = [x for x in range(w) if ink[x] >= min_ink]
+    if not cols:
+        return None
+    return [round(cols[0] / w, 4), round((cols[-1] + 1) / w, 4)]
+
+
 def highlight_boxes(video, plan, src_len=None, grab=_frame_rgb):
-    """[{'startMs', 'endMs', 'box'}] for every highlight action of a recording plan, on the recording's own clock
-    (plan_actions timing), box = the outline found in the shot halfway through it (None if not found)."""
+    """[{'startMs', 'endMs', 'box', 'content'?}] for every highlight action of a recording plan, on the recording's
+    own clock (plan_actions timing), box = the outline found in the shot halfway through it (None if not found);
+    content = content_span() of the rows a push-in on the box can show (theme "harvest" keeps it in view)."""
     out = []
     for kind, a, b in plan_actions(plan, src_len):
         if kind != 'highlight':
             continue
-        box = None
+        box, content = None, None
         if video and Path(video).exists():
             rgb = grab(video, a + 0.45 * (b - a))
             box = yellow_box(rgb) if rgb else None
-        out.append({'startMs': round(a), 'endMs': round(b), 'box': box})
+            if box:
+                cy = box[1] + box[3] / 2
+                content = content_span(rgb, y0=cy - ZOOM_BAND, y1=cy + ZOOM_BAND)
+        out.append({'startMs': round(a), 'endMs': round(b), 'box': box, **({'content': content} if content else {})})
     return out
 
 
@@ -862,6 +899,8 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
         end['endMs'] = max(end['endMs'], end['startMs'] + max(ENDCARD_MIN_MS, typed_end + ENDCARD_READ_MS),
                            last_end + ENDCARD_MIN_MS)
     total = scenes[-1]['endMs']
+    if harvest:
+        scenes = _content_swaps(scenes, caps, durations, plans, highlights)
     _finish_recordings(scenes, caps)
     for s in scenes:                 # display words never cover the face of the take they sit on
         ov = s.get('overlay')
@@ -924,6 +963,14 @@ CTA_NOTIF_MS = 1100        # ...and the notification slides in here
 HARVEST_WHOOSH = 0.12      # softer than the default: the reference cuts hard
 HARVEST_PUSH = 0.5         # push-ins keep half their depth: harvest cards are 1.2-1.3x wider than the default card,
                            # so the text is already larger, and a full push cropped the start of highlighted lines
+ZOOM_MIN_SCALE = 1.04      # ...and never crop into the page's content: a push the content span allows less than this
+CONTENT_PAD = 0.01         # is dropped (the reference cuts hard and never zooms into its recordings mid-word)
+CHUNK_SNAP_MS = 120        # a caption chunk edge within 3 frames of a scene change moves onto it (no 1-2 frame jump
+                           # of the caption to the next scene's position)
+CHUNK_MIN_MS = 350         # a chunk is up at least this long (the reference changes chunks every 0.35-0.6 s)
+CHUNK_MERGE_CHARS = 16     # ...a shorter one joins the next chunk's sans line when the two fit one line, else holds
+CTA_TICK_VOLUME = 0.12     # the CTA tap (reel #1 level): it lands on the CTA line, so it stays under the voice
+CTA_NOTIF_VOLUME_ON_WORD = 0.07
 _CAP_COLOR = re.compile(r'^\{(teal|red|white)\}\s*')
 
 
@@ -1052,16 +1099,163 @@ def harvest_chunks(beats, words, word_ranges, cta_ms=None, hold_ms=CHUNK_HOLD_MS
     return out
 
 
+def hold_short_chunks(chunks, min_ms=CHUNK_MIN_MS, merge_chars=CHUNK_MERGE_CHARS):
+    """No chunk flickers by: one up for less than min_ms joins the next chunk when it directly follows and the two
+    sans lines fit one line ("AND BECAUSE" + "IT CAN RUN" is too long, "RUN IT" + "EVERY MORNING" fits), else it
+    holds min_ms and the next chunk starts that much later (its lines with it), as long as the next one keeps
+    min_ms itself. Returns new chunk dicts."""
+    out = [{**c, 'lines': [dict(l) for l in c['lines']]} for c in chunks]
+    q = 0
+    while q < len(out):
+        c = out[q]
+        nxt = out[q + 1] if q + 1 < len(out) else None
+        if c['endMs'] - c['startMs'] >= min_ms:
+            q += 1
+            continue
+        joined = nxt is not None and nxt['startMs'] - c['endMs'] <= 40
+        a, b = c['lines'], (nxt or {}).get('lines') or []
+        if (joined and len(a) == 1 and not a[0].get('serif') and b and not b[0].get('serif')
+                and a[0].get('color') == b[0].get('color') and len(a[0]['text']) + 1 + len(b[0]['text']) <= merge_chars):
+            first = {**a[0], 'text': f"{a[0]['text']} {b[0]['text']}"}
+            out[q] = {'startMs': c['startMs'], 'endMs': nxt['endMs'], 'lines': [first] + b[1:]}
+            del out[q + 1]
+            continue                      # the merged chunk is checked again
+        want = c['startMs'] + min_ms
+        if nxt is None:
+            c['endMs'] = max(c['endMs'], want)
+        elif nxt['startMs'] >= want:
+            c['endMs'] = want             # a gap follows: hold into it
+        elif nxt['endMs'] - want >= min_ms and joined:
+            c['endMs'] = want
+            nxt['startMs'] = want
+            for l in nxt['lines']:
+                l['startMs'] = max(l['startMs'], want)
+        else:
+            c['endMs'] = max(c['endMs'], min(want, nxt['startMs']))
+        q += 1
+    return out
+
+
+def snap_chunks(chunks, boundaries, snap_ms=CHUNK_SNAP_MS):
+    """Chunk edges within snap_ms of a scene change move onto it, so each chunk lives in one scene (no frame or two
+    of a caption jumping to the next scene's caption position); lines never start before their chunk."""
+    bs = sorted(boundaries)
+
+    def snap(t):
+        near = min(bs, key=lambda b: abs(b - t), default=None)
+        return near if near is not None and abs(near - t) <= snap_ms else t
+
+    out = []
+    for c in chunks:
+        c = {**c, 'lines': [dict(l) for l in c['lines']]}
+        s0, e0 = c['startMs'], c['endMs']
+        ns, ne = snap(s0), snap(e0)
+        if ne - ns < 80:                  # a short chunk around one cut: it keeps the side it mostly sits on
+            b = ns
+            ns, ne = (b, e0) if e0 - b >= b - s0 else (s0, b)
+        c['startMs'], c['endMs'] = ns, ne
+        for l in c['lines']:          # the lines that opened the chunk open it on the cut (no empty first frame)
+            l['startMs'] = ns if l['startMs'] <= s0 else max(l['startMs'], ns)
+        if c['endMs'] - c['startMs'] >= 80:
+            out.append(c)
+    for q in range(len(out) - 1):
+        out[q]['endMs'] = min(out[q]['endMs'], out[q + 1]['startMs'])
+    out = [c for c in out if c['endMs'] - c['startMs'] >= 80]
+    # A chunk the snap left a little under CHUNK_MIN_MS takes the rest from a contiguous neighbour in its scene
+    # (an edge that is not a scene change moves), as long as that neighbour keeps CHUNK_MIN_MS.
+    edges = set(bs)
+    for q, c in enumerate(out):
+        need = CHUNK_MIN_MS - (c['endMs'] - c['startMs'])
+        if need <= 0:
+            continue
+        nxt = out[q + 1] if q + 1 < len(out) else None
+        prv = out[q - 1] if q else None
+        if nxt and nxt['startMs'] == c['endMs'] and c['endMs'] not in edges and nxt['endMs'] - (c['endMs'] + need) >= CHUNK_MIN_MS:
+            c['endMs'] += need
+            nxt['startMs'] = c['endMs']
+            for l in nxt['lines']:
+                l['startMs'] = max(l['startMs'], nxt['startMs'])
+        elif prv and prv['endMs'] == c['startMs'] and c['startMs'] not in edges and (c['startMs'] - need) - prv['startMs'] >= CHUNK_MIN_MS:
+            old = c['startMs']
+            c['startMs'] -= need
+            prv['endMs'] = c['startMs']
+            for l in c['lines']:
+                if l['startMs'] <= old:
+                    l['startMs'] = c['startMs']
+    return out
+
+
+def harvest_zooms(zooms, depth=HARVEST_PUSH):
+    """Push-ins for the harvest cards: half depth, and never deeper than the page's content span allows (the crop
+    lands in the page's margins, never mid-word; the composition keeps that span in view). A push the content
+    allows less than ZOOM_MIN_SCALE of is dropped."""
+    out = []
+    for z in zooms or []:
+        scale = 1 + (z['scale'] - 1) * depth
+        c = z.get('content')
+        if c:
+            scale = min(scale, 1 / max(0.05, c[1] - c[0] + 2 * CONTENT_PAD))
+        if scale >= ZOOM_MIN_SCALE:
+            out.append({**z, 'scale': round(scale, 3)})
+    return out
+
+
+def _content_swaps(scenes, caps, durations, plans=None, highlights=None):
+    """unit["swap"] (theme "harvest"): a soft content swap inside a long recording scene, like the reference's at
+    7.97 s and 39.57 s: the recording changes at a spoken word while the presenter runs on (a split keeps its
+    framing, so only the top half cuts). {"at": word | {"word", "occurrence"}, "screenrec"?, "use"?, "focus_y"?,
+    "tone"?}. Without a screenrec of its own the second part continues the same recording, and a "a-b s" range is
+    shared between the two parts in proportion to their lengths."""
+    out = []
+    for s in scenes:
+        sw = s['_unit'].get('swap')
+        if not isinstance(sw, dict) or not s.get('_rec') or s['type'] not in ('split', 'card') or s.get('swap'):
+            out.append(s)
+            continue
+        at = sw.get('at')
+        word, occ = (at.get('word'), int(at.get('occurrence', 1))) if isinstance(at, dict) else (at, 1)
+        hits = [i for i, c in enumerate(caps) if clean(c['text']) == clean(word or '')
+                and s['startMs'] + MIN_SCENE_MS <= _cut_before(caps, i) <= s['endMs'] - MIN_SCENE_MS]
+        if len(hits) < occ:
+            out.append(s)
+            continue
+        t = _cut_before(caps, hits[occ - 1])
+        unit2 = {**s['_unit'], 'id': f"{s['id']}b", **{k: v for k, v in sw.items() if k in ('screenrec', 'use', 'focus_y', 'tone', 'mask')}}
+        unit2.pop('swap', None)
+        if not sw.get('screenrec'):
+            unit2['screenrec'] = s['_unit'].get('screenrec')
+        plan2 = _recording_plan(unit2, durations, plans, highlights)
+        first = {**s, 'endMs': t}
+        second = {**s, 'id': f"{s['id']}b", 'startMs': t, 'swap': True, '_unit': unit2, '_rec': plan2}
+        second.pop('fx', None)            # one-shot motion (the check) stays with the first part
+        second.pop('overlay', None)
+        if sw.get('tone'):
+            second['tone'] = sw['tone']
+        plan1 = s['_rec']
+        if not sw.get('screenrec') and not sw.get('use') and plan1.get('fit') == 'range' and plan1.get('outMs'):
+            f = (t - s['startMs']) / max(1, s['endMs'] - s['startMs'])
+            mid = round(plan1['inMs'] + (plan1['outMs'] - plan1['inMs']) * f)
+            first['_rec'] = {**plan1, 'outMs': mid}
+            second['_rec'] = {**plan2, 'inMs': mid, 'outMs': plan1['outMs'], 'fit': 'range'}
+        out += [first, second]
+    return out
+
+
 def _harvest_sfx(scenes, cta, spans):
-    """Whooshes into graphics (softer), a pop when a designed card lands, the tap and the notification of the CTA."""
-    out = [dict(x, volume=HARVEST_WHOOSH) if x['src'].endswith('whoosh.wav') else x for x in _sfx(scenes, None, spans)]
+    """Whooshes into graphics (softer; none on a soft content swap), a pop when a designed card lands (only in a
+    word gap: never on a syllable), the tap and the notification of the CTA (under the voice they land on)."""
+    keep = {i for i, s in enumerate(scenes) if not s.get('swap')}
+    base = _sfx([s for i, s in enumerate(scenes) if i in keep], None, spans)
+    out = [dict(x, volume=HARVEST_WHOOSH) if x['src'].endswith('whoosh.wav') else x for x in base]
     for s in scenes:
         if (s.get('card') or {}).get('kind') in ('logo', 'stars', 'kinetic'):
             t, in_gap = pop_time(s['startMs'] + 60, spans)
-            out.append({'src': 'job/sfx_pop.wav', 'atMs': t, 'volume': POP_VOLUME if in_gap else POP_VOLUME_ON_WORD})
+            if in_gap:
+                out.append({'src': 'job/sfx_pop.wav', 'atMs': t, 'volume': POP_VOLUME})
     if cta:
-        out.append({'src': 'job/sfx_tick.wav', 'atMs': cta['atMs'] + CTA_TAP_MS, 'volume': 0.16})
-        out.append({'src': 'job/sfx_pop.wav', 'atMs': cta['atMs'] + CTA_NOTIF_MS, 'volume': POP_VOLUME_ON_WORD})
+        out.append({'src': 'job/sfx_tick.wav', 'atMs': cta['atMs'] + CTA_TAP_MS, 'volume': CTA_TICK_VOLUME})
+        t, in_gap = pop_time(cta['atMs'] + CTA_NOTIF_MS, spans)
+        out.append({'src': 'job/sfx_pop.wav', 'atMs': t, 'volume': POP_VOLUME_ON_WORD if in_gap else CTA_NOTIF_VOLUME_ON_WORD})
     return sorted(out, key=lambda x: x['atMs'])
 
 
@@ -1077,9 +1271,17 @@ def _harvest_props(spec, scenes, words, beats, word_ranges, cta, spans_ms, total
         mine = [s['endMs'] for s in scenes if s['_beat'] == b.get('name', str(k))]
         beat_ends.append(max(mine) if mine else None)
     chunks = harvest_chunks(beats, words, word_ranges, cta['atMs'] if cta else None, beat_ends=beat_ends)
+    chunks = snap_chunks(hold_short_chunks(chunks), [x['startMs'] for x in scenes[1:]])
+    if cta:
+        chunks = [c for c in chunks if c['startMs'] < cta['atMs']]
+        for c in chunks:
+            c['endMs'] = min(c['endMs'], cta['atMs'])
     for s in scenes:
-        for z in (s.get('recording') or {}).get('zooms') or []:
-            z['scale'] = round(1 + (z['scale'] - 1) * HARVEST_PUSH, 3)
+        rec = s.get('recording') or {}
+        if rec.get('zooms'):
+            rec['zooms'] = harvest_zooms(rec['zooms'])
+            if not rec['zooms']:
+                rec.pop('zooms')
     return {
         'theme': 'harvest',
         'avatar': {'src': avatar, **({'faceBox': faces['avatar']} if faces.get('avatar') else {})},
@@ -1304,7 +1506,10 @@ def _zooms(hl, in_ms, rate, dur):
             continue
         # A box still up at the cut keeps the push through it (no zoom-out in the last frames of the scene).
         end = dur + 400 if b >= dur - 200 else b
-        out.append({'atMs': round(max(0, a)), 'endMs': round(end), 'scale': push_scale(h['box']), 'box': h['box']})
+        z = {'atMs': round(max(0, a)), 'endMs': round(end), 'scale': push_scale(h['box']), 'box': h['box']}
+        if h.get('content'):
+            z['content'] = h['content']
+        out.append(z)
     return out
 
 
@@ -1338,6 +1543,9 @@ def _finish_recordings(scenes, caps=None):
             rate = 1.0
         elif plan['fit'] == 'range' and plan['outMs'] and plan['outMs'] > in_ms:
             rate = (plan['outMs'] - in_ms) / dur
+            if rate > RATE_MAX and not cont:
+                # Too much range for the scene: keep its end (the proof the range was chosen for), lose the head.
+                in_ms, rate = round(plan['outMs'] - dur * RATE_MAX), RATE_MAX
         elif plan['fit'] == 'whole' and src_len:
             rate = (src_len - in_ms) / dur
         elif src_len and src_len - in_ms > dur:
@@ -1348,7 +1556,7 @@ def _finish_recordings(scenes, caps=None):
             rate = (src_len - in_ms) / dur     # shorter than the scene: slow down (the card freezes on its last frame)
         else:
             rate = 1.0
-        rate = min(2.5, max(0.6, rate))
+        rate = min(RATE_MAX, max(0.6, rate))
         if key and src_len and not keyed and not plan.get('lead') and plan['fit'] != 'range':
             if not cont and in_ms > key[0] - 150:
                 # The head trim went past the moment the box appears: start just before it instead.
