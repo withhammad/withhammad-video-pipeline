@@ -130,7 +130,8 @@
         "provider": "owner_chrome",
         "video_publish_tested": true,
         "first_publish": "https://x.com/HammadYous32321/status/2111673313701597275",
-        "note": "No API (paid plans not approved). Post via the owner Chrome: x.com/compose/post, upload final_social.mp4, paste the X copy (<= 280 chars, URLs count 23). Profile has no photo/bio yet."
+        "note": "No API (paid plans not approved). Post via the owner Chrome: x.com/compose/post, upload final_social.mp4, paste the X copy (<= 280 chars, URLs count 23). Profile set up 2026-10-18 (docs/X_PROFILE.md).",
+        "display_name": "Hammad Yousuf | AI Agents for Marketers"
       }
     ],
     "provider_connection_verified": true,
