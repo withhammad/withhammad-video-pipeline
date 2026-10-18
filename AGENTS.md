@@ -14,6 +14,17 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 
 ## Owner preferences (fixed)
 
+- Latest owner correction (2026-10-18, after the full tutorial was published): applies to NEW videos only;
+  do not re-edit or replace the already published tutorial. Prioritize a natural, human-like introduction,
+  expression, gestures and conversational voice pace. Do not automatically speed up speech or force the older
+  high-energy/219-wpm target when it sounds rushed. Keep Hammad visibly present throughout the lesson with
+  recurring presenter shots and picture-in-picture during demonstrations where controls remain readable,
+  rather than restricting him to the opening and ending. Consider quiet, slow background music under the voice.
+  Follow the new reference's actual workflow, important steps, actions, sequence and screen recordings closely;
+  do not silently substitute simplified local examples for the demonstrated platform workflow or omit steps.
+  Re-record the actions with original narration and appropriate assets, retaining factual checks and copyright
+  boundaries. The owner will provide a new reference for the next task; do not start a new video without it.
+
 - HeyGen renders: **720p, portrait (9:16)**, cloned voice "Hammad Yousuf", engine Avatar V. Look: the owner rejected the
   dark black-blazer look on 2026-10-17; he wants a bright, casual creator look like the reference reel (black tee, daylight
   room, white chair). New looks are made in HeyGen Look Studio (Avatar → Create new look → Generate with AI, portrait).
