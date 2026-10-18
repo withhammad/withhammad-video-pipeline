@@ -51,6 +51,15 @@ Mapping, in order:
    "focus_y"?}) is a soft content swap inside a long recording scene; push-ins never crop into the page's content
    span (content_span); card pops play only in a word gap and the CTA tap stays at CTA_TICK_VOLUME.
 12. An "a-b s" range that would play faster than RATE_MAX in its scene keeps its end (the proof) and loses its head.
+13. Word onsets: Whisper often opens a word at the end of the word before it, so the pause after a comma ("...AI, and
+   it already...") belongs to the next word and a caption or a cut placed on it lands 0.3-0.5 s early.
+   refine_word_starts() reads the take's voice envelope (voice_envelope(): 10 ms RMS of the avatar's audio) and moves
+   such a word's start to the measured onset after the pause, so captions, unit boundaries and cuts follow the voice.
+14. Theme "harvest" extras: unit "layout": "bleed" fills the whole frame with the recording (the reference's
+   full-screen CRM, scene 2; a 9:16 recording fits exactly, its size is probed) with a slow push-in to unit "push"
+   (end scale) and the caption pill at 0.50H; unit "caption_pill" ("dark" | "light" | "none") overrides the pill of
+   one scene (a dark split over dense page text); the CTA's timing (typing, hand, tap, shrink, morph, notification)
+   is computed once here (cta_timing) and drives both Remotion and the tap/notification SFX.
 Standard library only.
 """
 import argparse
@@ -97,6 +106,18 @@ FLIP_HOLD_MS = 920         # the hook hangs upside-down this long after its drop
 POP_GAP_MIN_MS = 60        # a pop SFX goes into a word gap at least this long...
 POP_SNAP_MS = 150          # ...found within this distance of its card entrance
 POP_VOLUME, POP_VOLUME_ON_WORD = 0.16, 0.10
+POP_HEAD_MS = 20           # a pop's energy sits in its first 20 ms: on the cut frame only its tail may meet a word...
+POP_HEAD_OVERLAP_MS = 10   # ...(its head may touch the next word's onset by at most this much)
+FRAME_MS = 40              # 25 fps: harvest SFX start on whole frames, floored (never rounded later onto a word)
+
+# Word onsets (refine_word_starts): a pause is ONSET_SIL_DB under the voice level (the 75th percentile of the voiced
+# 10 ms frames), at least ONSET_MIN_SIL_MS long and starting within ONSET_RUN_START_MS of the word's caption start.
+ONSET_HOP_MS = 10
+ONSET_SIL_DB = 16
+ONSET_MIN_SIL_MS = 120
+ONSET_RUN_START_MS = 200
+ONSET_MIN_SHIFT_MS = 80
+ONSET_LEAD_MS = 30
 
 CHIP_Y = 0.775             # chip centre: straddles the card's bottom edge (0.79H), above the Reels caption block
 CHIP_Y_TALK = 0.615        # on a talking head: above the caption block (0.69-0.72H) with >= 40 px between them
@@ -577,6 +598,129 @@ def recording_durations(job_dir, spec, probe=probe_ms):
     return out
 
 
+def probe_size(path):
+    """(width, height) of a video's first stream, or None."""
+    try:
+        out = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height',
+                              '-of', 'csv=p=0', str(path)], capture_output=True, text=True, timeout=60)
+        w, h = (int(x) for x in out.stdout.strip().split(',')[:2])
+        return w, h
+    except (OSError, ValueError, subprocess.TimeoutExpired):
+        return None
+
+
+def recording_sizes(job_dir, probe=probe_size):
+    """Pixel size per recording id in <job>/shots (most are 1080x1350; a full-bleed recording is 9:16)."""
+    shots = Path(job_dir) / 'shots'
+    out = {}
+    if shots.is_dir():
+        for f in shots.glob('*.mp4'):
+            size = probe(f)
+            if size:
+                out[f.stem] = tuple(size)
+    return out
+
+
+def voice_envelope(path, hop_ms=ONSET_HOP_MS, rate=16000):
+    """RMS level (dBFS) of a video's or audio file's sound per hop_ms, from ffmpeg's 16 kHz mono PCM; None when the
+    file has no audio. Standard library only (array + math)."""
+    import array
+    import math
+    try:
+        out = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(path), '-vn', '-ac', '1', '-ar', str(rate), '-f', 's16le', '-'],
+                             capture_output=True, timeout=300)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    if out.returncode != 0 or not out.stdout:
+        return None
+    pcm = array.array('h')
+    pcm.frombytes(out.stdout[:len(out.stdout) // 2 * 2])
+    if sys.byteorder == 'big':
+        pcm.byteswap()
+    n = rate * hop_ms // 1000
+    env = []
+    for i in range(0, len(pcm) - n + 1, n):
+        frame = pcm[i:i + n]
+        env.append(round(10 * math.log10(sum(x * x for x in frame) / n / 32768.0 ** 2 + 1e-12), 1))
+    return env
+
+
+def voice_level(env, floor_db=-60.0):
+    """The voice's level: the 75th percentile of the voiced frames (above floor_db)."""
+    voiced = sorted(x for x in env if x > floor_db)
+    return voiced[int(0.75 * (len(voiced) - 1))] if voiced else None
+
+
+def clause_starts(beats, caps):
+    """Caption indices of the words that open a clause: the word before them ends in , ; : . ! ? in the script (the
+    beats' lines, aligned to the captions word by word) or in the captions. Whisper drops many commas ("ScrapeGraph
+    AI and it already"), so the script is the better cue for where the voice pauses."""
+    out = {i for i in range(1, len(caps)) if ends_clause(caps[i - 1]['text'])}
+    words = [wd for beat in beats for wd in (beat.get('line') or '').split()]
+    script, owner = [], []
+    for k, wd in enumerate(words):
+        for t in tokens(wd):
+            script.append(t)
+            owner.append(k)
+    cap_toks, cap_owner = [], []
+    for i, c in enumerate(caps):
+        for t in tokens(c['text']):
+            cap_toks.append(t)
+            cap_owner.append(i)
+    first_cap = {}
+    for a, b, n in difflib.SequenceMatcher(None, script, cap_toks, autojunk=False).get_matching_blocks():
+        for q in range(n):
+            first_cap.setdefault(owner[a + q], cap_owner[b + q])
+    for k in range(len(words) - 1):
+        if ends_clause(words[k]) and first_cap.get(k + 1):
+            out.add(first_cap[k + 1])
+    return out
+
+
+def refine_word_starts(caps, env, candidates=None, hop_ms=ONSET_HOP_MS):
+    """Caption words with their starts moved onto the measured onset when Whisper opened them on the pause before
+    them: from the word's start the level only decays (the previous word's tail, never a new rise), drops into a pause
+    of at least ONSET_MIN_SIL_MS within ONSET_RUN_START_MS, and the voice comes back after it. The word then starts
+    ONSET_LEAD_MS before that onset (never after the next word's start) and keeps at least 60 ms. Only the caption
+    indices in `candidates` are looked at (clause_starts(): words after a comma or a full stop; None = every word),
+    so a short word said right before a pause is never pushed onto the next one. Returns
+    (new caps, [(index, old start, new start)])."""
+    out = [dict(c) for c in caps]
+    level = voice_level(env or [])
+    if level is None:
+        return out, []
+    sil = level - ONSET_SIL_DB
+    moved = []
+    for i, w in enumerate(out):
+        if candidates is not None and i not in candidates:
+            continue
+        nxt = out[i + 1]['startMs'] if i + 1 < len(out) else w['endMs'] + 300
+        f0, f1 = int(w['startMs'] // hop_ms), int(nxt // hop_ms)
+        if f0 >= len(env) or f1 <= f0:
+            continue
+        start_level, run = env[f0], None
+        for k in range(f0, min(f1, f0 + ONSET_RUN_START_MS // hop_ms + 1, len(env))):
+            if env[k] < sil:
+                run = k
+                break
+            if env[k] > start_level + 3:              # a rise: the word really starts here
+                break
+        if run is None:
+            continue
+        k = run
+        while k < min(len(env), f1 + 100 // hop_ms) and env[k] < sil:
+            k += 1
+        if (k - run) * hop_ms < ONSET_MIN_SIL_MS or k >= len(env):
+            continue
+        new = min(k * hop_ms, nxt) - ONSET_LEAD_MS
+        if new - w['startMs'] < ONSET_MIN_SHIFT_MS:
+            continue
+        moved.append((i, w['startMs'], new))
+        w['startMs'] = new
+        w['endMs'] = max(w['endMs'], min(nxt, new + 60))
+    return out, moved
+
+
 # ----------------------------------------------------------------------------------------------- display words
 
 def face_box_px(face=None):
@@ -771,8 +915,11 @@ def _quiet(spans, a_ms, b_ms):
 
 def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/avatar_main.mp4', tail=None,
                 tail_start_ms=None, loop=False, anchors=None, durations=None, probe=probe_ms, music=True,
-                speech=None, duration_ms=None, plans=None, highlights=None, face_boxes=None):
+                speech=None, duration_ms=None, plans=None, highlights=None, face_boxes=None, envelope=None, sizes=None):
     """Props for the Explainer composition. spec_json / captions_json: paths or already-loaded objects.
+    envelope: the take's voice level per ONSET_HOP_MS (voice_envelope; default: measured on <job>/<avatar> when it
+    exists, False skips) moves word starts that sit on a pause onto the voice (refine_word_starts).
+    sizes: {recording id: (w, h)} (default: probed in <job>/shots); a recording that is not 1080x1350 carries its size.
     cuts: ms on our timeline where the take was spliced. tail: src of the second look (beats from the unit typed
     "second setup" on); tail_start_ms: where take B starts on the timeline (default: that beat's cut).
     plans: screen recording plans by id (default: read from the job / next to the spec).
@@ -788,6 +935,13 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
     caps = [c for c in raw if c['text'].strip()]
     if not caps:
         raise ValueError('captions are empty')
+    if envelope is None and avatar.startswith('job/') and (job_dir / Path(avatar).name).exists():
+        envelope = voice_envelope(job_dir / Path(avatar).name)
+    onsets_moved = []
+    if envelope:
+        caps, onsets_moved = refine_word_starts(caps, envelope, clause_starts(spec['beats'], caps))
+    if sizes is None:
+        sizes = recording_sizes(job_dir)
     keyword = spec.get('keyword') or ''
     theme = spec.get('theme') or 'default'
     harvest = theme == 'harvest'
@@ -839,9 +993,12 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
                 scene.pop('flipIn', None)
                 scene.pop('flipHoldMs', None)
                 scene.pop('flipCaptionY', None)
-            for key, out_key in (('card', 'card'), ('tone', 'tone'), ('fx', 'fx'), ('caption_y', 'captionY')):
+            for key, out_key in (('card', 'card'), ('tone', 'tone'), ('fx', 'fx'), ('caption_y', 'captionY'),
+                                 ('caption_pill', 'pill'), ('push', 'push')):
                 if unit.get(key) is not None:     # designed cards and per-scene look (theme "harvest")
                     scene[out_key] = unit[key]
+            if unit.get('layout') == 'bleed' and st == 'card':
+                scene['bleed'] = True             # the recording fills the frame (the reference's full-screen UI)
             plan = _recording_plan(unit, durations, plans, highlights)
             if plan and st in ('card', 'stat', 'split', 'text', 'pip'):
                 scene['_rec'] = plan
@@ -902,6 +1059,11 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
     if harvest:
         scenes = _content_swaps(scenes, caps, durations, plans, highlights)
     _finish_recordings(scenes, caps)
+    for s in scenes:                 # a recording that is not 4:5 carries its size (HarvestRecording fits it)
+        rec = s.get('recording')
+        size = (sizes or {}).get(Path(rec['src']).stem) if rec else None
+        if size and tuple(size) != (REC_W, REC_H):
+            rec['size'] = [int(size[0]), int(size[1])]
     for s in scenes:                 # display words never cover the face of the take they sit on
         ov = s.get('overlay')
         if ov and ov['kind'] == 'bigtext':
@@ -932,7 +1094,9 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
 
     spans_ms = speech if speech is not None else [(w['startMs'], w['endMs']) for w in words]
     if harvest:
-        return _harvest_props(spec, scenes, words, beats, word_ranges, cta, spans_ms, total, avatar, faces, music, starts, ends, cuts)
+        props = _harvest_props(spec, scenes, words, beats, word_ranges, cta, spans_ms, total, avatar, faces, music, starts, ends, cuts)
+        props['meta']['onsets'] = [{'word': caps[i]['text'].strip(), 'fromMs': a, 'toMs': b} for i, a, b in onsets_moved]
+        return props
     props = {
         'avatar': {'src': avatar, **({'loop': True} if loop else {}), **({'faceBox': faces['avatar']} if faces.get('avatar') else {})},
         'tail': tail_obj,
@@ -958,8 +1122,18 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
 
 SNAP_MS = 120              # a scene boundary this close to a jump cut moves onto it (the scene change IS the cut)
 CHUNK_HOLD_MS = 700        # a caption chunk clears this long after its last word (no stale text in a pause)
-CTA_TAP_MS = 900           # harvest/Cta.tsx: the hand taps send this long after "comment"...
-CTA_NOTIF_MS = 1100        # ...and the notification slides in here
+# The CTA (harvest/HarvestCta.tsx reads props.cta.timing; measured on the reference at 30 fps, 41.8-42.9 s): the
+# keyword types fast, the hand rises from below the pill as the typing ends, taps 60 ms after it arrives, the
+# composer shrinks for 100 ms and smears sideways into the notification, which lands ~0.9 s after the composer
+# opened, overshoots to 1.04 and settles over 150 ms.
+CTA_TYPE_START_MS = 40
+CTA_CHAR_MS = 45
+CTA_HAND_RISE_MS = 300
+CTA_TAP_AFTER_MS = 60      # the tap, after the hand arrives
+CTA_SHRINK_AFTER_MS = 80   # the shrink starts this long after the tap...
+CTA_SHRINK_MS = 100        # ...and lasts this long (pill and avatar to 0.9)
+CTA_MORPH_MS = 100         # the sideways smear: composer out, notification in (2-3 frames)
+CTA_SETTLE_MS = 150        # the notification's overshoot (1.04) settles to 1.0 over this long
 HARVEST_WHOOSH = 0.12      # softer than the default: the reference cuts hard
 HARVEST_PUSH = 0.5         # push-ins keep half their depth: harvest cards are 1.2-1.3x wider than the default card,
                            # so the text is already larger, and a full push cropped the start of highlighted lines
@@ -972,6 +1146,18 @@ CHUNK_MERGE_CHARS = 16     # ...a shorter one joins the next chunk's sans line w
 CTA_TICK_VOLUME = 0.12     # the CTA tap (reel #1 level): it lands on the CTA line, so it stays under the voice
 CTA_NOTIF_VOLUME_ON_WORD = 0.07
 _CAP_COLOR = re.compile(r'^\{(teal|red|white)\}\s*')
+
+
+def cta_timing(keyword):
+    """The CTA's beats in ms after cta.atMs (the composer opens): typing, hand rise, tap, shrink, morph, notification.
+    The hand starts rising when the last character lands; a 7-letter keyword puts the notification at ~0.9 s."""
+    type_end = CTA_TYPE_START_MS + max(1, len(keyword or '')) * CTA_CHAR_MS
+    hand_at = type_end + CTA_HAND_RISE_MS
+    tap = hand_at + CTA_TAP_AFTER_MS
+    shrink = tap + CTA_SHRINK_AFTER_MS
+    notif = shrink + CTA_SHRINK_MS
+    return {'typeStartMs': CTA_TYPE_START_MS, 'charMs': CTA_CHAR_MS, 'handStartMs': type_end, 'handAtMs': hand_at,
+            'tapMs': tap, 'shrinkMs': shrink, 'notifMs': notif, 'morphMs': CTA_MORPH_MS, 'settleMs': CTA_SETTLE_MS}
 
 
 def _snap_to_cuts(scenes, cuts, snap_ms=SNAP_MS):
@@ -1241,21 +1427,38 @@ def _content_swaps(scenes, caps, durations, plans=None, highlights=None):
     return out
 
 
+def card_pop_time(card_ms, spans, head_ms=POP_HEAD_MS):
+    """When a designed card's pop plays, or None: in the word gap pop_time() finds near the card's entrance, but never
+    before the card (no sound leading the picture). A gap that ends before the cut moves the pop onto the cut frame
+    when only its tail meets the next word (its first head_ms touch speech by at most POP_HEAD_OVERLAP_MS)."""
+    t, in_gap = pop_time(card_ms + 60, spans)
+    if not in_gap:
+        return None
+    if t < card_ms:
+        head = sum(max(0, min(b, card_ms + head_ms) - max(a, card_ms)) for a, b in spans)
+        return card_ms if head <= POP_HEAD_OVERLAP_MS else None
+    return t
+
+
 def _harvest_sfx(scenes, cta, spans):
     """Whooshes into graphics (softer; none on a soft content swap), a pop when a designed card lands (only in a
-    word gap: never on a syllable), the tap and the notification of the CTA (under the voice they land on)."""
+    word gap, never before its card), the CTA tap (under the voice it lands on, in sync with the hand) and the
+    notification pop only in a word gap. Every SFX starts on a whole frame, floored."""
     keep = {i for i, s in enumerate(scenes) if not s.get('swap')}
     base = _sfx([s for i, s in enumerate(scenes) if i in keep], None, spans)
     out = [dict(x, volume=HARVEST_WHOOSH) if x['src'].endswith('whoosh.wav') else x for x in base]
     for s in scenes:
         if (s.get('card') or {}).get('kind') in ('logo', 'stars', 'kinetic'):
-            t, in_gap = pop_time(s['startMs'] + 60, spans)
-            if in_gap:
+            t = card_pop_time(s['startMs'], spans)
+            if t is not None:
                 out.append({'src': 'job/sfx_pop.wav', 'atMs': t, 'volume': POP_VOLUME})
     if cta:
-        out.append({'src': 'job/sfx_tick.wav', 'atMs': cta['atMs'] + CTA_TAP_MS, 'volume': CTA_TICK_VOLUME})
-        t, in_gap = pop_time(cta['atMs'] + CTA_NOTIF_MS, spans)
-        out.append({'src': 'job/sfx_pop.wav', 'atMs': t, 'volume': POP_VOLUME_ON_WORD if in_gap else CTA_NOTIF_VOLUME_ON_WORD})
+        timing = cta.get('timing') or cta_timing(cta.get('keyword'))
+        out.append({'src': 'job/sfx_tick.wav', 'atMs': cta['atMs'] + timing['tapMs'], 'volume': CTA_TICK_VOLUME})
+        t, in_gap = pop_time(cta['atMs'] + timing['notifMs'], spans)
+        if in_gap:                        # on a word it was masked anyway: the slide-in reads without it
+            out.append({'src': 'job/sfx_pop.wav', 'atMs': t, 'volume': CTA_NOTIF_VOLUME_ON_WORD})
+    out = [dict(x, atMs=int(x['atMs']) // FRAME_MS * FRAME_MS) for x in out]
     return sorted(out, key=lambda x: x['atMs'])
 
 
@@ -1266,6 +1469,8 @@ def _harvest_props(spec, scenes, words, beats, word_ranges, cta, spans_ms, total
         if k is not None and scenes[k]['type'] != 'avatar' and k + 1 < len(scenes) and scenes[k + 1]['type'] == 'avatar' \
                 and scenes[k + 1]['startMs'] - cta['atMs'] <= 2 * SNAP_MS + 80:
             cta = {**cta, 'atMs': scenes[k + 1]['startMs']}
+    if cta:
+        cta = {**cta, 'timing': cta_timing(cta['keyword'])}
     beat_ends = []
     for k, b in enumerate(beats):
         mine = [s['endMs'] for s in scenes if s['_beat'] == b.get('name', str(k))]
@@ -1290,7 +1495,9 @@ def _harvest_props(spec, scenes, words, beats, word_ranges, cta, spans_ms, total
         'captions': {'words': [{k: v for k, v in w.items() if not k.startswith('_')} for w in words]},
         'chunks': chunks,
         'headlines': [],
-        'music': {'src': 'job/music.wav', 'volume': 0.12, 'duckTo': 0.075, 'holdGapMs': 500, 'fadeInMs': 40, 'fadeOutMs': 500} if music else None,
+        # duckTo 0.08 (reel #1's level): the bed sits ~19.5 LU under the voice (0.075 left it 20.1 LU under, barely
+        # audible on a phone speaker).
+        'music': {'src': 'job/music.wav', 'volume': 0.12, 'duckTo': 0.08, 'holdGapMs': 500, 'fadeInMs': 40, 'fadeOutMs': 500} if music else None,
         'sfx': _harvest_sfx(scenes, cta, spans_ms),
         'cta': cta,
         'durationMs': total,

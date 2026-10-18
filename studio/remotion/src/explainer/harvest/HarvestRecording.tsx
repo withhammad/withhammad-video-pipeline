@@ -6,15 +6,19 @@ import type { Recording } from "../types";
 const REC_W = 1080;
 const REC_H = 1350;
 
-/** Where the 1080x1350 source sits inside a w x h region: "cover" aligned by focusY, or (cropTop) the width fitted
- *  and that fraction of the source cut off the top. */
+/** Source size: 1080x1350 unless the recording says otherwise (a 9:16 full-bleed recording). */
+export const sourceSize = (rec: Recording): [number, number] => rec.size ?? [REC_W, REC_H];
+
+/** Where the source sits inside a w x h region: "cover" aligned by focusY, or (cropTop) the width fitted and that
+ *  fraction of the source cut off the top. */
 export const sourceRect = (rec: Recording, w: number, h: number) => {
+  const [sw, sh] = sourceSize(rec);
   if (rec.cropTop !== undefined) {
-    const c = w / REC_W;
-    return { c, x: 0, y: -rec.cropTop * REC_H * c };
+    const c = w / sw;
+    return { c, x: 0, y: -rec.cropTop * sh * c };
   }
-  const c = Math.max(w / REC_W, h / REC_H);
-  return { c, x: (w - REC_W * c) / 2, y: (h - REC_H * c) * (rec.focusY ?? 0.5) };
+  const c = Math.max(w / sw, h / sh);
+  return { c, x: (w - sw * c) / 2, y: (h - sh * c) * (rec.focusY ?? 0.5) };
 };
 
 /**
@@ -26,8 +30,9 @@ export const RegionRecording: React.FC<{ rec: Recording; w: number; h: number }>
   const ms = toMs(useCurrentFrame());
   const r = sourceRect(rec, w, h);
   const z = rec.cropTop !== undefined ? { scale: 1, originX: w / 2, originY: h / 2 } : zoomAt(rec.zooms, ms, w, h, rec.focusY ?? 0.5);
-  const sw = REC_W * r.c;
-  const sh = REC_H * r.c;
+  const [srcW, srcH] = sourceSize(rec);
+  const sw = srcW * r.c;
+  const sh = srcH * r.c;
   return (
     <div style={{ position: "absolute", left: 0, top: 0, width: w, height: h, overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, transform: z.scale !== 1 ? `scale(${z.scale.toFixed(4)})` : undefined, transformOrigin: `${z.originX.toFixed(1)}px ${z.originY.toFixed(1)}px` }}>

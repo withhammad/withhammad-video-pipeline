@@ -14,14 +14,17 @@ const pop = (ms: number, delay = 0, config = { damping: 13, stiffness: 210, mass
   return f >= 0 ? spring({ frame: f, fps: FPS, config }) : 0;
 };
 
-/** Our own glyph: three linked nodes (a graph), not the ScrapeGraphAI spider. */
-const GraphGlyph: React.FC<{ size: number; color?: string }> = ({ size, color = "#B79CFF" }) => (
-  <svg width={size} height={size} viewBox="0 0 48 48">
-    <path d="M14 33 L24 14 L34 33 Z" fill="none" stroke={color} strokeWidth={3} strokeLinejoin="round" />
-    <circle cx={24} cy={14} r={5.5} fill={color} />
-    <circle cx={14} cy={33} r={5.5} fill={color} />
-    <circle cx={34} cy={33} r={5.5} fill={color} />
-  </svg>
+/** A neutral monogram (the name's first letter) where a brand mark would sit: no invented logo passed off as the
+ *  project's own, and no third-party logo either. */
+const Monogram: React.FC<{ name: string; size: number; radius: number; fontSize: number }> = ({ name, size, radius, fontSize }) => (
+  <div
+    style={{
+      width: size, height: size, borderRadius: radius, background: "#E9E9EC", color: "#3A3A42", display: "flex", alignItems: "center",
+      justifyContent: "center", fontFamily: SANS, fontWeight: 800, fontSize, lineHeight: 1, flexShrink: 0,
+    }}
+  >
+    {(name.trim()[0] ?? "?").toUpperCase()}
+  </div>
 );
 
 /** Scene 1 top panel: near-black with a deep maroon glow, "GPT-6" white + "ASTRA" hot pink, settling slowly. */
@@ -44,24 +47,24 @@ const TitleCard: React.FC<{ card: Extract<HarvestCard, { kind: "title" }>; w: nu
   );
 };
 
-/** Scene 5: off-white canvas, a white app tile with our glyph and the wordmark pops in and settles. */
+/** Scene 5: off-white canvas, a white tile with the project's name as a wordmark (no glyph: we do not draw its
+ *  logo, and an invented one would pass for it) pops in and settles. */
 const LogoCard: React.FC<{ card: Extract<HarvestCard, { kind: "logo" }>; ms: number }> = ({ card, ms }) => {
   // Present on the cut frame (never a blank canvas), popping in from 0.8.
   const p = pop(ms, -40, { damping: 12, stiffness: 190, mass: 0.6 });
-  const size = 300;
+  const w = 520;
+  const h = 210;
+  const fontSize = Math.min(66, (w - 70) / Math.max(1, card.name.length * 0.6));
   return (
     <div style={{ position: "absolute", inset: 0, background: PAPER }}>
       <div
         style={{
-          position: "absolute", left: W / 2 - size / 2, top: H * 0.44 - size / 2, width: size, height: size, borderRadius: 66, background: "white",
-          boxShadow: "0 24px 60px rgba(30,30,40,0.14), 0 3px 10px rgba(30,30,40,0.08)", display: "flex", flexDirection: "column",
-          alignItems: "center", justifyContent: "center", gap: 22, transform: `scale(${(0.8 + 0.2 * p).toFixed(4)})`,
+          position: "absolute", left: W / 2 - w / 2, top: H * 0.44 - h / 2, width: w, height: h, borderRadius: 54, background: "white",
+          boxShadow: "0 24px 60px rgba(30,30,40,0.14), 0 3px 10px rgba(30,30,40,0.08)", display: "flex",
+          alignItems: "center", justifyContent: "center", transform: `scale(${(0.8 + 0.2 * p).toFixed(4)})`,
         }}
       >
-        <div style={{ width: 118, height: 118, borderRadius: 30, background: "#141218", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <GraphGlyph size={78} />
-        </div>
-        <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 31, color: "#141414", letterSpacing: -0.4 }}>{card.name}</div>
+        <div style={{ fontFamily: SANS, fontWeight: 800, fontSize, color: "#141414", letterSpacing: -1, whiteSpace: "nowrap" }}>{card.name}</div>
       </div>
     </div>
   );
@@ -91,9 +94,7 @@ const StarsCard: React.FC<{ card: Extract<HarvestCard, { kind: "stars" }>; ms: n
         }}
       >
         <div style={{ position: "absolute", left: 30, top: 30, right: 30, height: 40, display: "flex", alignItems: "center", gap: 14 }}>
-          <div style={{ width: 38, height: 38, borderRadius: 10, background: "#141218", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <GraphGlyph size={26} />
-          </div>
+          <Monogram name={card.owner} size={38} radius={10} fontSize={21} />
           <div style={{ fontSize: 25, color: "#57606A", fontWeight: 600, whiteSpace: "nowrap" }}>
             {card.owner} / <span style={{ color: "#1F2328", fontWeight: 800 }}>{card.repo}</span>
           </div>

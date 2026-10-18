@@ -79,10 +79,26 @@ const CheckFx: React.FC = () => {
   );
 };
 
+/** A full-bleed recording (the reference's scene 2: the screen fills the frame edge to edge) with a slow linear
+ *  push-in to s.push over the whole scene. */
+const BleedScene: React.FC<{ s: Scene }> = ({ s }) => {
+  const ms = toMs(useCurrentFrame());
+  const k = interpolate(ms, [0, Math.max(1, s.endMs - s.startMs)], [1, s.push ?? 1], clamp);
+  return (
+    <AbsoluteFill style={{ background: s.tone === "dark" ? DARK_BG : "white", overflow: "hidden" }}>
+      <AbsoluteFill style={{ transform: k !== 1 ? `scale(${k.toFixed(4)})` : undefined, transformOrigin: "50% 35%" }}>
+        {s.recording ? <RegionRecording rec={s.recording} w={W} h={H} /> : null}
+      </AbsoluteFill>
+      {s.fx?.check ? <CheckFx /> : null}
+    </AbsoluteFill>
+  );
+};
+
 /** A full-frame recording: a plain card on a plain canvas, settling in over 280 ms after the hard cut. */
 const CardScene: React.FC<{ s: Scene }> = ({ s }) => {
   const ms = toMs(useCurrentFrame());
   const dark = s.tone === "dark";
+  if (s.bleed) return <BleedScene s={s} />;
   const settle = s.swap ? 1 : interpolate(ms, [0, 280], [1.025, 1], { ...clamp, easing: EXPO_OUT });
   return (
     <AbsoluteFill style={{ background: dark ? DARK_BG : LIGHT_BG }}>

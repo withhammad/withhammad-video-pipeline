@@ -53,10 +53,12 @@ export const DARK_SCRIM = "rgba(0,0,0,0.42)";
 export const CAP_SHADOW = "0 2px 4px rgba(0,0,0,0.6), 0 0 2px rgba(0,0,0,0.4)";
 
 /** Caption centre (fraction of H) per scene: on the seam for splits, on the chest for close-ups, under the card
- *  over UI; null where the reference shows none (the typed prompt, the logo card). */
+ *  over UI, mid-frame over a full-bleed screen (the reference's scene 2 pill at ~0.50H); null where the reference
+ *  shows none (the typed prompt, the logo card). */
 export const captionYOf = (s: Scene): number | null => {
   if (s.type === "pip" || s.type === "endcard") return null;
   if (s.captionY !== undefined) return s.captionY;
+  if (s.bleed) return 0.5;
   if (s.type === "split") return 0.46;
   if (s.type === "avatar") return 0.58;
   if (s.card?.kind === "logo") return null;
@@ -64,8 +66,13 @@ export const captionYOf = (s: Scene): number | null => {
   return 0.7;
 };
 
-/** Over UI the reference puts each caption line on a dark pill; over video (and dark splits) only a soft shadow. */
+/** Over UI the reference puts each caption line on a dark pill; over video (and dark splits) only a soft shadow.
+ *  scene.pill overrides it (a dark split over dense page text takes the opaque dark pill, like the reference's
+ *  scene 10). */
 export const captionPill = (s: Scene): string | null => {
+  if (s.pill === "none") return null;
+  if (s.pill === "dark") return PILL_DARK;
+  if (s.pill === "light") return PILL_LIGHT;
   if (s.type === "avatar") return null;
   if (s.type === "split") return s.tone === "dark" ? null : PILL_LIGHT;
   return s.tone === "dark" ? PILL_DARK : PILL_LIGHT;

@@ -818,10 +818,119 @@ def test_harvest_sfx_keeps_pops_off_words_and_the_cta_tick_under_the_voice():
         if x['src'].endswith('pop.wav') and x['volume'] == ex.POP_VOLUME:
             assert not any(a < x['atMs'] < b for a, b in words)
     tick = next(x for x in p['sfx'] if x['src'].endswith('tick.wav'))
-    assert tick['volume'] == ex.CTA_TICK_VOLUME == 0.12 and tick['atMs'] == p['cta']['atMs'] + ex.CTA_TAP_MS
+    tap = p['cta']['atMs'] + p['cta']['timing']['tapMs']
+    assert tick['volume'] == ex.CTA_TICK_VOLUME == 0.12 and tick['atMs'] == tap // ex.FRAME_MS * ex.FRAME_MS
     scenes = [{'id': 'A', 'type': 'avatar', 'startMs': 0, 'endMs': 1000},
               {'id': 'B', 'type': 'stat', 'startMs': 1000, 'endMs': 3000, 'card': {'kind': 'stars'}}]
     on_word = ex._harvest_sfx(scenes, None, [(0, 2000)])                 # the card lands mid-word: no pop at all
     assert not any(x['src'].endswith('pop.wav') for x in on_word)
     in_gap = ex._harvest_sfx(scenes, None, [(0, 950), (1300, 2000)])
     assert [x['volume'] for x in in_gap if x['src'].endswith('pop.wav')] == [ex.POP_VOLUME]
+
+
+def test_harvest_cta_timing_matches_the_reference_motion_and_drives_the_sfx():
+    t = ex.cta_timing('HARVEST')
+    type_end = t['typeStartMs'] + 7 * t['charMs']
+    assert t['charMs'] <= 50 and type_end <= 400                       # typed in ~0.33 s like the reference
+    assert t['handStartMs'] == type_end and t['handAtMs'] - t['handStartMs'] == 300   # the hand rises as typing ends
+    assert t['tapMs'] - t['handAtMs'] == 60                            # no parked hand before the tap
+    assert t['notifMs'] - t['shrinkMs'] == ex.CTA_SHRINK_MS and t['shrinkMs'] > t['tapMs']
+    assert 850 <= t['notifMs'] <= 950                                  # the notification lands ~0.9 s after the composer
+    assert ex.cta_timing('GO')['notifMs'] < t['notifMs']               # a shorter keyword types faster
+    p = hbuild()
+    assert p['cta']['timing'] == t
+    at = p['cta']['atMs']
+    # Speech runs on through the notification: its pop is dropped (masked anyway); in a gap it plays there.
+    on_word = ex._harvest_sfx([], p['cta'], [(at - 500, at + 3000)])
+    assert [x['src'] for x in on_word] == ['job/sfx_tick.wav']
+    in_gap = ex._harvest_sfx([], p['cta'], [(at - 500, at + t['notifMs'] - 100), (at + t['notifMs'] + 200, at + 3000)])
+    pops = [x for x in in_gap if x['src'].endswith('pop.wav')]
+    assert len(pops) == 1 and abs(pops[0]['atMs'] - (at + t['notifMs'])) <= ex.POP_SNAP_MS
+
+
+def test_harvest_card_pop_never_plays_before_its_card_and_sfx_start_on_frames():
+    # The gap before the next word ends 10 ms after the cut: the pop moves onto the cut frame (its tail meets the word).
+    assert ex.card_pop_time(8760, [(8000, 8600), (8770, 9500)]) == 8760
+    # ...but not when the word starts right on the cut (the pop's head would sit on it).
+    assert ex.card_pop_time(8760, [(8000, 8600), (8755, 9500)]) is None
+    assert ex.card_pop_time(1000, [(0, 950), (1300, 2000)]) >= 1000   # a gap after the cut: as before
+    scenes = [{'id': 'A', 'type': 'avatar', 'startMs': 0, 'endMs': 8760},
+              {'id': 'B', 'type': 'text', 'startMs': 8760, 'endMs': 10000, 'card': {'kind': 'logo', 'name': 'X'}},
+              {'id': 'C', 'type': 'avatar', 'startMs': 10000, 'endMs': 35895},
+              {'id': 'D', 'type': 'text', 'startMs': 35895, 'endMs': 37000, 'card': {'kind': 'kinetic', 'small': 'a', 'big': 'b'}}]
+    sfx = ex._harvest_sfx(scenes, None, [(0, 8600), (8770, 35700), (35910, 37000)])
+    pops = [x['atMs'] for x in sfx if x['src'].endswith('pop.wav')]
+    assert pops[0] == 8760 and all(x['atMs'] % ex.FRAME_MS == 0 for x in sfx)
+    assert pops[1] == 35880 and pops[1] + ex.POP_HEAD_MS <= 35910       # floored onto a frame, never later
+
+
+def _env_from(spans, total_ms, loud=-18.0, quiet=-70.0, hop=ex.ONSET_HOP_MS):
+    env = [quiet] * (total_ms // hop)
+    for a, b in spans:
+        for k in range(a // hop, min(len(env), b // hop)):
+            env[k] = loud
+    return env
+
+
+def test_refine_word_starts_moves_words_whisper_opened_on_the_pause():
+    caps = [{'text': ' AI,', 'startMs': 0, 'endMs': 500}, {'text': ' and', 'startMs': 500, 'endMs': 1170},
+            {'text': ' it', 'startMs': 1170, 'endMs': 1300}]
+    env = _env_from([(0, 520), (870, 1300)], 1500)                     # the voice pauses 520-870 after "AI,"
+    out, moved = ex.refine_word_starts(caps, env)
+    assert out[1]['startMs'] == 870 - ex.ONSET_LEAD_MS and out[1]['endMs'] == 1170 and moved == [(1, 500, 840)]
+    assert caps[1]['startMs'] == 500                                   # the input is not touched
+    # Whisper put the word on the previous word's tail and left the pause after it: it moves into the pause's end.
+    caps2 = [{'text': ' seven,', 'startMs': 0, 'endMs': 480}, {'text': ' and', 'startMs': 480, 'endMs': 520},
+             {'text': ' keep', 'startMs': 1000, 'endMs': 1300}]
+    out2, _ = ex.refine_word_starts(caps2, _env_from([(0, 520), (950, 1300)], 1500))
+    assert out2[1]['startMs'] == 920 and out2[1]['endMs'] == 980 and out2[2]['startMs'] == 1000
+    # A word that really starts on its time (a rise) or a stop-consonant gap (< ONSET_MIN_SIL_MS) stays.
+    caps3 = [{'text': ' pages,', 'startMs': 0, 'endMs': 400}, {'text': ' and', 'startMs': 600, 'endMs': 800},
+             {'text': ' keep', 'startMs': 800, 'endMs': 1100}]
+    assert ex.refine_word_starts(caps3, _env_from([(0, 400), (600, 1100)], 1500))[1] == []
+    assert ex.refine_word_starts(caps, _env_from([(0, 520), (600, 1300)], 1500))[1] == []
+    # Only clause openers are candidates: "and" after "AI," in the script (Whisper dropped the comma).
+    beats = [{'line': 'It is called ScrapeGraph AI, and it already has stars.'}]
+    words = [{'text': f' {w}', 'startMs': 100 * i, 'endMs': 100 * i + 90} for i, w in enumerate('It is called ScrapeGraph AI and it already has stars.'.split())]
+    assert ex.clause_starts(beats, words) == {5}
+    assert ex.refine_word_starts(caps, env, candidates={2})[1] == []
+
+
+def test_harvest_captions_and_cuts_follow_the_measured_onset():
+    real = hcaps()
+    i = next(k for k, c in enumerate(real) if ex.clean(c['text']) == 'and')
+    for c in real[i:]:                                                 # the voice pauses 420 ms before "and"
+        c['startMs'] += 400
+        c['endMs'] += 400
+    env = _env_from([(c['startMs'], c['endMs'] + 20) for c in real], real[-1]['endMs'] + 500)
+    whisper = [dict(c) for c in real]
+    whisper[i]['startMs'] = whisper[i - 1]['endMs']                    # Whisper opens "and" on the pause
+    spec = json.loads(json.dumps(HSPEC))
+    spec['beats'][0]['line'] = 'Astra can now wake up every morning, and hand you a fresh list!'
+    plain = hbuild(whisper, spec=spec, envelope=False)
+    p = hbuild(whisper, spec=spec, envelope=env)
+    onset = real[i]['startMs'] - ex.ONSET_LEAD_MS
+    assert p['meta']['onsets'] == [{'word': 'and', 'fromMs': whisper[i]['startMs'], 'toMs': onset}]
+    u2 = scene(p, 'U2')
+    assert u2['startMs'] >= onset - ex.LEAD_MS and u2['startMs'] - scene(plain, 'U2')['startMs'] >= 300
+    chunk = next(c for c in p['chunks'] if c['lines'][0]['text'].startswith('AND HAND'))
+    assert chunk['startMs'] == u2['startMs']                           # the caption still changes on the cut
+    before = next(c for c in p['chunks'] if c['endMs'] == chunk['startMs'])
+    assert before['lines'][0]['text'] == 'CAN NOW WAKE UP'             # the previous chunk holds until then
+
+
+def test_harvest_full_bleed_screen_pill_override_and_recording_size():
+    spec = json.loads(json.dumps(HSPEC))
+    u2 = spec['beats'][0]['units'][1]
+    u2.update({'layout': 'bleed', 'push': 1.04})
+    spec['beats'][3]['units'][0]['caption_pill'] = 'dark'
+    p = hbuild(spec=spec, sizes={'R1': (1080, 1920), 'R3': (1080, 1350)})
+    s2, s6, s7 = scene(p, 'U2'), scene(p, 'U6'), scene(p, 'U7')
+    assert s2['bleed'] is True and s2['push'] == 1.04 and s2['recording']['size'] == [1080, 1920]
+    assert 'size' not in s6['recording']                               # the usual 4:5 recordings carry no size
+    assert s7['pill'] == 'dark' and 'pill' not in s2
+    assert not any('bleed' in s for s in hbuild()['scenes'])
+    split = json.loads(json.dumps(HSPEC))
+    split['beats'][3]['units'][0]['layout'] = 'bleed'                  # only a full-frame recording can bleed
+    assert 'bleed' not in scene(hbuild(spec=split), 'U7')
+    assert hbuild()['music']['duckTo'] == 0.08

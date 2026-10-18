@@ -40,6 +40,8 @@ export type Recording = {
   cropTop?: number;
   /** Theme "harvest": boxes of the source ([x, y, w, h] fractions) painted over, e.g. a third-party logo. */
   masks?: { box: [number, number, number, number]; color: string }[];
+  /** Source pixel size when it is not 1080x1350 (e.g. a 9:16 full-bleed recording). Highlight zooms assume 4:5. */
+  size?: [number, number];
 };
 
 /**
@@ -108,6 +110,12 @@ export type Scene = {
   captionY?: number;
   /** Theme "harvest": a soft content swap (the recording changes, the presenter and the canvas run on): no settle. */
   swap?: boolean;
+  /** Theme "harvest": the recording fills the whole frame (no card, no margins), like the reference's scene 2. */
+  bleed?: boolean;
+  /** Theme "harvest": a slow push-in over the whole scene to this scale (e.g. 1.04). */
+  push?: number;
+  /** Theme "harvest": the caption pill of this scene, overriding the default for its type and tone. */
+  pill?: "dark" | "light" | "none";
 };
 
 export type HarvestCard =
@@ -132,8 +140,21 @@ export type HeadlinePage = { startMs: number; endMs: number; lines: { italic?: b
 export type Music = { src: string; volume?: number; duckTo?: number; fadeOutMs?: number; fadeInMs?: number; holdGapMs?: number };
 export type Sfx = { src: string; atMs: number; volume?: number };
 
+/** Theme "harvest" CTA beats, ms after cta.atMs (edit_explainer.cta_timing; the SFX use the same numbers). */
+export type CtaTiming = {
+  typeStartMs: number;
+  charMs: number;
+  handStartMs: number;
+  handAtMs: number;
+  tapMs: number;
+  shrinkMs: number;
+  notifMs: number;
+  morphMs: number;
+  settleMs: number;
+};
+
 /** Comment-composer CTA: types the keyword at atMs, then a notification slides in. */
-export type Cta = { keyword: string; atMs: number; handle?: string; reply?: string };
+export type Cta = { keyword: string; atMs: number; handle?: string; reply?: string; timing?: CtaTiming };
 
 /** faceBox: [x, y, w, h] fractions of the frame where the take's face sits (display words keep clear of it). */
 export type FaceBox = [number, number, number, number];
