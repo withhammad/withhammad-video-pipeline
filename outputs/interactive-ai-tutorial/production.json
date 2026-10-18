@@ -1,5 +1,5 @@
 {
-  "status": "demo_capture_complete_narration_in_production",
+  "status": "selected_presenter_rendering",
   "reference_url": "https://www.youtube.com/watch?v=OayJ4FDbjUw",
   "reference_title": "Stop Using AI Chat Threads and Do This Instead",
   "reference_duration_seconds": 3020,
@@ -60,8 +60,28 @@
   "avatar_format": "Owner approved: opening and chapter transitions only; cloned voice over full-screen demos",
   "avatar_render": {
     "video_id": "4d17643987de3e980c78988aac194703",
-    "status": "waiting",
+    "status": "rejected_by_owner_do_not_use",
     "engine": "avatar_v",
     "avatar_id": "f0d7cc382e5f42398e2a5a1104b4d183"
+  },
+  "replacement_look": {
+    "id": "cefe83302c79302d9a4bc7e987dcc8b6",
+    "status": "rejected_by_owner_do_not_use",
+    "description": "Ivory casual top, sage home office, eye-level close framing, black microphone"
+  },
+  "selected_look": {
+    "id": "c0c91d44e16140028f05656df6f8a027",
+    "name": "AI Podcast Host",
+    "status": "completed",
+    "consent": "accepted",
+    "engine": "avatar_v",
+    "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+    "selection": "owner_gallery_selection"
+  },
+  "selected_presenter_render": {
+    "video_id": "5a8eddef49fed66c98a54986cad5b4f2",
+    "status": "waiting",
+    "aspect_ratio": "9:16",
+    "purpose": "presenter segments inside landscape tutorial"
   }
 }

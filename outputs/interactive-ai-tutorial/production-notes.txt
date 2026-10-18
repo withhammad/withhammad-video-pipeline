@@ -9,7 +9,11 @@ Completed assets
 - Four functioning local examples in demo/index.html.
 - 35-second initial demonstration capture in demo/demo-recording.mp4.
 - Original opening/transition script in avatar-script.txt.
-- HeyGen avatar submission 4d17643987de3e980c78988aac194703; submitted, completion not yet verified.
+- Original render 4d17643987de3e980c78988aac194703 was rejected by the owner; never use it.
+- Generated casual look cefe83302c79302d9a4bc7e987dcc8b6 was also rejected; never use it.
+- Owner selected AI Podcast Host (c0c91d44e16140028f05656df6f8a027) in the gallery.
+- Current availability, accepted group consent, cloned voice and Avatar V support verified.
+- Replacement presenter render 5a8eddef49fed66c98a54986cad5b4f2 submitted; completion not yet verified.
 - First narration generated with Hammad Yousuf voice: 112.666 seconds.
   Editing source: studio/.local/jobs/fdb2463f9d21/narration/01-introduction.wav.
 - Full reference transcript and source retained in ignored job fdb2463f9d21 for analysis.
