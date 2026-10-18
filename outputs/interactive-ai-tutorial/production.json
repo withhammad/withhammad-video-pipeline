@@ -1,5 +1,5 @@
 {
-  "status": "selected_presenter_rendering",
+  "status": "review_draft_ready_waiting_for_narration_retry_approval",
   "reference_url": "https://www.youtube.com/watch?v=OayJ4FDbjUw",
   "reference_title": "Stop Using AI Chat Threads and Do This Instead",
   "reference_duration_seconds": 3020,
@@ -43,7 +43,7 @@
   ],
   "presenter": "Hammad Yousuf HeyGen avatar",
   "voice_id": "0f7032b11fb743589cc81b721f4389b3",
-  "screen_capture": "Fresh Chrome recordings of working demonstrations, full-screen with avatar picture-in-picture where useful",
+  "screen_capture": "Fresh Chrome recordings of original local tools plus a recorded Claude build excerpt. Avatar in opening and chapter transitions.",
   "deliverables": [
     "Full-length MP4",
     "Caption SRT",
@@ -80,8 +80,37 @@
   },
   "selected_presenter_render": {
     "video_id": "5a8eddef49fed66c98a54986cad5b4f2",
-    "status": "waiting",
+    "status": "completed",
     "aspect_ratio": "9:16",
     "purpose": "presenter segments inside landscape tutorial"
+  },
+  "missing_asset": "10-ideas narration: HeyGen timeout; user retry approval pending",
+  "validation": {
+    "repository_tests": {
+      "passed": 417,
+      "failed": 5,
+      "failure_file": "studio/tests/test_edit_deskreel.py",
+      "scope": "Failures are in concurrently modified deskreel code, not tutorial production files"
+    },
+    "opening_audio": {
+      "integrated_lufs": -16.09,
+      "true_peak_dbtp": -1.5
+    },
+    "powerpoint": "6 slides rendered and inspected",
+    "final_master": "pending missing narration",
+    "review_draft": {
+      "full_decode": "passed",
+      "resolution": "1920x1080",
+      "fps": 30,
+      "audio": "48 kHz stereo",
+      "duration_seconds": 1604.753354,
+      "sampled_frames": "presenter, newsletter, Claude insert, motion insert, revenue, packaging and presentation visually checked"
+    }
+  },
+  "review_draft": {
+    "path": "review-draft-missing-ideas-chapter.mp4",
+    "duration_seconds": 1604.732031,
+    "includes": "AI Podcast Host, cloned voice, all completed Chrome demos, Remotion transitions, HyperFrames insert, captions",
+    "missing": "Idea-selection narration and corresponding chapter recording"
   }
 }

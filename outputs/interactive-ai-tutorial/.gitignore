@@ -1,0 +1,4 @@
+# Locally delivered video masters and generated verification logs.
+*.mp4
+*.log
+__pycache__/

@@ -1,0 +1,13 @@
+The bonus example is about making a decision from a list of ideas. A chat can give you many possible titles, topics, or book concepts, but a long list is not the same as a choice. Once you have the candidates, it can be more useful to give each one a clear decision: keep it, revisit it, or reject it. The interface helps you compare the options and keep a record of what you decided.
+
+For this demonstration, the ideas are sample entries that you can edit. The local tool is not secretly calling a model every time you click. If you want fresh ideas, you can ask an AI to generate candidates using your audience, goals, constraints, and examples, then bring the candidates into the decision tool. Separating generation from selection makes it easier to see which part of the process needs improvement.
+
+Start with an idea that has a specific audience and outcome. A title like practical AI is broad. A concept about helping a small service business turn meeting notes into reviewed action lists gives us more to evaluate. We can ask who would use it, what problem it addresses, and what evidence we have that the problem matters. The best choice is not necessarily the one with the most dramatic title.
+
+Now keep one idea, mark another for later, and reject one that does not fit the audience. The selected list should update immediately. You can use a swipe-style interaction if it is convenient, but visible buttons are important too. They make the choices understandable and easier to use with a keyboard. An interaction should help the decision rather than making the tool harder to operate.
+
+The useful next step is to add a reason. Perhaps we kept an idea because we can demonstrate it with real examples. Perhaps we postponed another because the supporting research is incomplete. Those notes stop the shortlist from becoming another unexplained list that somebody has to interpret later.
+
+Export the shortlist so it can leave the tool. If the only copy of your decision lives in a temporary page, you have not finished the workflow. A plain text export is enough for a first version. Later, you could add a more structured format if it helps a real downstream task.
+
+This idea-selection pattern works beyond content planning. You could compare feature proposals, workshop topics, or questions for customer interviews. The categories and criteria should change with the task, but the principle stays the same: use the AI to help create possibilities, then build a clear process for evaluating them. In the next step, we’ll take one selected idea and turn it into a presentation that supports an actual decision.

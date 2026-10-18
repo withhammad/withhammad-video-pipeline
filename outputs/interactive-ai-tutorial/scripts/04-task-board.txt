@@ -1,0 +1,13 @@
+Our second example starts with a familiar problem: a task list that keeps growing even though nobody is clear about the next action. A longer list does not necessarily create more clarity. We want an interface that forces a useful decision, so this board has four destinations: do now, schedule, delegate, and drop. Those labels are choices for this demonstration, and you can adapt them to the way your team actually works.
+
+Look at the sample tasks. Reviewing a landing-page headline may be something you can do now. Planning a tutorial may need a deliberate block of time. Resizing campaign images may be appropriate to delegate. Rebuilding a report nobody uses may deserve a conversation about whether it should happen at all. The board makes those alternatives visible instead of treating every task as equally urgent.
+
+Each task also has an estimate in minutes. These estimates are not promises, and the app does not know how long the work will really take. Their purpose is to make capacity visible. A column with ten tasks can look manageable until you notice that it represents six hours of work. Adding the estimates gives you another way to challenge the plan before you commit to it.
+
+Now add a new task with a clear action in its name. Instead of writing website, write review the homepage call to action. A task should tell somebody what to do, and ideally what result would count as done. Enter an estimate, add it to the board, and move it to the right destination. Watch the totals update as the task changes columns. This is exactly the kind of repetitive bookkeeping that a small interface can handle for us.
+
+There is a useful test here. Move one thirty-minute task from do now to delegate. The first total should go down by thirty, and the second should go up by thirty. The overall amount of estimated work should not change merely because we moved a card. If those numbers do not agree, stop and fix the tool before relying on it for a real planning session.
+
+This first version uses sample tasks and keeps the workflow simple. It does not synchronize with your project-management system, invite teammates, or infer priorities from private messages. Those would be separate integrations. You can still get value immediately by using the board to organize a short planning conversation, then transferring the agreed actions into the system your team already uses.
+
+The important design question is what happens after the sorting. A board that only looks organized may not change the work. In the next step, we’ll take the delegate column and turn it into a clear message that a person can review and send.

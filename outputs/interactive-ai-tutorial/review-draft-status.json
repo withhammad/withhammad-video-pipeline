@@ -1,0 +1,26 @@
+{
+  "status": "review_draft_not_complete",
+  "duration_seconds": 1604.732031,
+  "missing": "Idea-selection chapter: narration generation timed out; retry approval pending",
+  "order": [
+    "p-opening",
+    "01-introduction-finished",
+    "p-newsletter",
+    "02-newsletter-build-finished",
+    "03-newsletter-checks",
+    "p-tasks",
+    "04-task-board",
+    "05-delegation",
+    "p-revenue",
+    "06-revenue-model",
+    "07-scenarios",
+    "p-packaging",
+    "08-packaging",
+    "09-review-handoff",
+    "p-bonus",
+    "11-presentation",
+    "12-building-better",
+    "p-closing"
+  ],
+  "published": false
+}

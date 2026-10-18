@@ -1,0 +1,13 @@
+Once an idea is selected, the next request should describe the presentation’s job. Do not start with make a beautiful deck and hope the story appears. Start with the audience, the decision you want them to make, the evidence you have, and the information that is still uncertain. Design can make that story easier to understand, but it cannot supply missing evidence.
+
+For this example, we use a six-part structure. First, describe the audience’s problem. Second, explain the proposed approach. Third, show a concrete example. Fourth, identify the evidence needed to judge the proposal. Fifth, describe the next steps. Finally, state the decision you are asking for. This is a practical outline, not a universal formula, and you should change it if your audience needs a different sequence.
+
+Take our selected idea about turning meeting notes into reviewed actions. The problem is not simply that meetings exist. The problem is that decisions and responsibilities can become unclear afterward. The proposed approach is a small workflow that extracts a draft, asks a person to review it, and produces a usable handoff. The example should show what that handoff looks like, using sample information rather than private meeting notes.
+
+The evidence slide is where we resist the temptation to invent a success story. If we have not measured time saved or error rates, those are things to test. We can propose a small trial and define what we would observe, but we should not present imagined results as facts. A credible proposal makes the boundary between evidence and assumption easy to see.
+
+The next steps should also be concrete. Choose a small pilot, identify who reviews the output, decide where the reviewed actions go, and agree on how to evaluate the result. Then the final decision can be specific: approve the pilot, choose an owner, or resolve a particular question. A presentation that ends with a vague thank you may leave the audience unsure what happens next.
+
+Our tutorial tool lets you inspect that outline and export the content for a presentation workflow. When a real slide file is created, open it in the application where it will be presented and check the actual slides. Confirm that the text is readable, the content is editable where needed, and nothing runs off the edges. A successful export message is not a visual review.
+
+The larger lesson is that interfaces should connect steps. Idea selection leads to a shortlist, the shortlist leads to an outline, and the outline leads to a decision. You can automate parts of that chain without surrendering the judgment that makes the result useful. Keep the human review at the points where context, evidence, and responsibility matter most.

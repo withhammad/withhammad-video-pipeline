@@ -1,0 +1,14 @@
+WITHHAMMAD — BUILD TOOLS WITH AI
+
+Open demo/index.html in Chrome to use the six local example views.
+Read prompts.txt for the build briefs and small verification examples.
+Open demo/meeting-actions.pptx for the sample presentation.
+
+The examples use sample data and run locally. The newsletter uses browser-local storage; export important drafts. The task board produces a message draft, not a sent Slack message. The revenue model illustrates arithmetic, not a business forecast. The packaging sheet is a concept for discussion, not a manufacturing dieline or supplier approval. The idea selector uses editable sample ideas; it does not make AI calls.
+
+The tutorial uses Hammad's selected AI Podcast Host avatar and cloned voice. Its screen recordings demonstrate the local tools, with a brief recorded Claude build example. Narration and demonstrations are original.
+
+Reference inspiration: Allie K Miller, Stop Using AI Chat Threads and Do This Instead
+https://www.youtube.com/watch?v=OayJ4FDbjUw
+
+The video, captions, thumbnail, and chapter list are separate delivery files.

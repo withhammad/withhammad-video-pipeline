@@ -1,0 +1,13 @@
+Our fourth example moves from numbers to a product concept. Imagine that you need to discuss packaging with a designer or supplier, but your ideas are scattered across messages and rough notes. A small interactive concept sheet can bring the dimensions, material choice, color, and review notes together. The purpose is to improve the discussion, not to pretend that a generated drawing is ready to manufacture.
+
+Start with the product name and the three dimensions. We use millimetres throughout the example, because mixing units is an easy way to create confusion. Change the width and watch both the displayed specification and the drawing update. The drawing is an illustrative unfolded arrangement of panels, and it is intentionally labelled as a concept. It does not include every manufacturing detail a real packaging engineer would need.
+
+That limitation is important. A production dieline may need material thickness, fold allowances, glue tabs, tolerances, bleed, safety margins, and supplier-specific requirements. You cannot assume those details are correct simply because a shape appears on screen. The useful output here is a clear starting point that makes it easier to ask the right questions and compare alternatives.
+
+Now try a different product name and brand color. These are quick ways to explore the visual direction without asking for a new static image every time. The interface gives you immediate feedback, and you can keep the dimensions visible while you experiment. That is helpful because a design conversation often combines appearance and practical constraints.
+
+The bill of materials is also deliberately modest. It records the selected board description, a simple print assumption, and an insert that still needs to be specified and tested. A placeholder is better than an invented material specification. If you do not know the answer yet, make that uncertainty visible so somebody can resolve it before production.
+
+For a real project, I would add constraints from the actual product and shipping process. Does the package need to protect fragile parts? Will it be stacked? Does it need to fit a specific mailing format? What is the expected quantity? Those questions determine which features belong in the next version of the tool. They should come from the project rather than from a model guessing what packaging usually looks like.
+
+The pattern is the same as the earlier examples. We identify the inputs that people keep changing, provide useful feedback, and prepare an output that supports the next action. In this case, the next action is a review with the right person. We will add a simple review state and a printable handoff, while keeping the boundary between concept review and production approval explicit.

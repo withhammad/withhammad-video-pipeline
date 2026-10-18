@@ -1,0 +1,13 @@
+Let’s make the review step visible. Enter the reviewer’s name and mark the concept as reviewed for discussion. The wording matters. This checkbox records a small local state in the example; it is not a digital signature, a supplier approval, or an audit trail. Calling it approved for production would make a much stronger claim than the tool can support.
+
+Try checking the box without a reviewer name. The status should remain pending, because a review with no identified reviewer is not a useful handoff. Then enter a name and check the status again. These simple conditions are part of the behavior we asked for, and they are worth testing before we show the tool to somebody else.
+
+There is another important edge case. What should happen if the dimensions change after the review? In a production workflow, the previous review should no longer imply approval of the changed specification. You would want a revision number, a review date, and a clear way to invalidate the old review when relevant inputs change. Our simple concept tool demonstrates the starting point, and those are the next requirements I would add before relying on it with a team.
+
+The print button lets you use the browser’s print workflow to save a concept sheet. Check the resulting document rather than assuming that a good screen layout guarantees a good printed page. Look for clipped labels, missing dimensions, tiny text, and content that lands on an unexpected second page. A handoff is only useful if the recipient can actually read it.
+
+You can also use this moment to simplify. Not every control needs to appear in the exported sheet. The recipient probably needs the product name, dimensions, material notes, revision, review status, and the concept drawing. They do not necessarily need the editing controls or the prompt used to build the app. Good outputs are designed around the person who receives them.
+
+This is why I like asking for the export requirements early. If the eventual output is a printable specification, that shapes the interface differently from a tool whose output is a message or a spreadsheet. The final handoff should not feel like an afterthought attached to a pretty page.
+
+Before moving on, notice how the four examples have different outputs. The newsletter produces content files, the task board produces a draft message, the model produces a scenario table, and the packaging tool produces a concept sheet. They share a method, but they are not all the same app. Start from the work and choose the interface that helps that work move forward. Next, we’ll apply the same thinking to choosing ideas and preparing a presentation.

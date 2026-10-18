@@ -1,0 +1,13 @@
+Let’s turn the delegated tasks into a usable handoff. The first input is the teammate, and the second is the deadline. Neither should be guessed silently. The person receiving the work needs to know what you are asking, when it is needed, and whether you expect them to confirm capacity. For this example, we are using Alex and a Friday deadline, but these are sample details rather than a message to a real colleague.
+
+When we build the message, the tool takes the tasks currently in the delegate column and lists them with their estimates. Read the result carefully. It is a draft, and nothing has been sent to Slack. The copy button makes it easier to move the text to the place where you normally communicate, but copying is different from sending. Keeping that distinction visible prevents the interface from suggesting an integration that does not exist.
+
+A useful delegation message should also describe the desired outcome. If the task is to resize campaign images, you might specify the required sizes, the source folder, and where the finished exports belong. Our small example does not contain all that context, so the person sending the message should add it. The app can reduce formatting work, but it cannot replace the judgment needed to make a good handoff.
+
+Now move another task into the delegate column and rebuild the draft. Compare the message with the board. Every listed task should be one you actually intended to delegate, and a task moved out of that column should disappear when you rebuild. This is an easy place for generated tools to get something wrong if they keep a stale copy of the task list. Testing the change is more informative than only testing the initial sample.
+
+Also test the empty case. If there are no delegated tasks, a helpful tool should say so. It should not generate an empty assignment that looks ready to send. Small empty states matter because real work does not always arrive in the perfect shape used in a demonstration.
+
+If you later connect this workflow to a messaging service, design a review step before the send action. Show the destination, recipient, and final text. Make success and failure visible, and avoid sending the same message twice if a request times out. Those are requirements you can put in the brief even if you are not writing the integration yourself.
+
+For now, the useful result is a reviewed draft. We have taken a vague list, made decisions about the next actions, and produced a concrete handoff. That is the pattern to notice: the interface should help the work move forward, and it should be honest about where the human decision still belongs.

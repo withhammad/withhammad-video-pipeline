@@ -1,37 +1,46 @@
-WORKING PRODUCTION — NOT A FINISHED VIDEO
+YOUTUBE TUTORIAL — 26:45 REVIEW DRAFT READY, ONE CHAPTER PENDING
 
-Reference: https://www.youtube.com/watch?v=OayJ4FDbjUw
-Reference duration: 50:20. Output: landscape YouTube tutorial.
-Use original explanations, fresh demonstrations, Hammad's avatar and cloned voice.
-Owner approved avatar only for opening and chapter transitions; cloned narration over demos.
+Reference: https://www.youtube.com/watch?v=OayJ4FDbjUw (50:20).
+Original narration and examples; current edit approximately 29 minutes.
+Output: 1920x1080, 30 fps, Hammad's cloned voice, burned-in captions and SRT.
 
-Completed assets
-- Four functioning local examples in demo/index.html.
-- 35-second initial demonstration capture in demo/demo-recording.mp4.
-- Original opening/transition script in avatar-script.txt.
-- Original render 4d17643987de3e980c78988aac194703 was rejected by the owner; never use it.
-- Generated casual look cefe83302c79302d9a4bc7e987dcc8b6 was also rejected; never use it.
-- Owner selected AI Podcast Host (c0c91d44e16140028f05656df6f8a027) in the gallery.
-- Current availability, accepted group consent, cloned voice and Avatar V support verified.
-- Replacement presenter render 5a8eddef49fed66c98a54986cad5b4f2 submitted; completion not yet verified.
-- First narration generated with Hammad Yousuf voice: 112.666 seconds.
-  Editing source: studio/.local/jobs/fdb2463f9d21/narration/01-introduction.wav.
-- Full reference transcript and source retained in ignored job fdb2463f9d21 for analysis.
+Confirmed presenter
+AI Podcast Host: c0c91d44e16140028f05656df6f8a027.
+Completed HeyGen render: 5a8eddef49fed66c98a54986cad5b4f2.
+Used only for opening, chapter transitions and closing, as requested.
+Rejected looks and their renders are never used.
 
-Still required
-- Record and verify Claude builds, iterations, exports and error checks for all chapters.
-- Finish original chapter narration after matching the recorded actions.
-- Generate remaining narration once scripts are final; no repeated auditions.
-- Retrieve completed presenter render and split at chapter boundaries using transcript timings.
-- Assemble 16:9 master with full-screen demonstrations, chapter graphics and readable captions.
-- Prepare original YouTube thumbnail, description, accurate chapters and resource package.
-- Verify complete master before publication or attaching a ManyChat automation.
+Assets prepared
+- Original scripts for 12 narration sections; 11 narration WAVs ready.
+- Chapter 10 (idea selection) timed out in HeyGen. Retry approval is pending.
+- Fresh Chrome recordings of functional original local examples, timed to narration.
+- Short genuine Claude build excerpt, clearly distinguished from local examples.
+- Remotion presenter layouts and HyperFrames workflow insert.
+- Original YouTube thumbnail with selected avatar appearance.
+- Six-slide editable PowerPoint, rendered and visually checked.
+- Companion toolkit with prompts, standalone tools and PowerPoint.
 
-Accuracy requirements
-- Distinguish local example apps from Claude's generated artifacts in narration.
-- Delegation creates a draft, not a sent Slack message.
-- Revenue example is arithmetic, not a forecast or validated stability score.
-- Packaging drawing is conceptual, not a production dieline or formal approval system.
-- Do not promise a resource is live before its website URL is verified.
-- Chapter timestamps must come from the final edit, not the reference timeline.
-- Do not stretch the initial demo capture to fill a long tutorial.
+Production commands (from repository root)
+python3 outputs/interactive-ai-tutorial/prepare-audio.py
+python3 outputs/interactive-ai-tutorial/record-final.py
+<bundled-python-with-Pillow> outputs/interactive-ai-tutorial/assemble-final.py
+python3 outputs/interactive-ai-tutorial/finish-inserts.py
+
+The recorder has an exclusive capture lock. Do not run duplicate workers.
+Authoritative intermediate folders: job fdb2463f9d21/recordings-final and edit-final.
+Older recordings, recordings-v2 and edit directories are not final sources.
+The assembler requires every chapter; it does not silently omit missing assets.
+Verify the final file by full decode, sampled frames, duration, caption timing and loudness.
+
+Accuracy boundaries
+- Demonstrations are original local examples, not all generated in the recorded Claude session.
+- Delegation creates a message draft; no Slack message is sent.
+- Revenue example shows arithmetic, not a financial forecast.
+- Packaging is a concept, not a manufacturing dieline or formal approval system.
+- The downloadable toolkit is local; website resource and ManyChat funnel are not yet live.
+- Do not publish until the owner has seen the finished video.
+
+Review draft: review-draft-missing-ideas-chapter.mp4, 1604.73 seconds.
+All available chapters are fully encoded. Idle workers stopped cleanly.
+Resume after explicit retry approval by generating only script 10-ideas.txt, saving its metadata and WAV, then running the commands above. The assembler reuses completed chapter encodes.
+Repository tests: 417 passed, 5 failed in concurrently modified test_edit_deskreel.py; tutorial code syntax checks passed.

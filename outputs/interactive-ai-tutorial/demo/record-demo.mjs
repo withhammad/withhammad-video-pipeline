@@ -117,6 +117,7 @@ async function run() {
   const cdp = new CDP(ws);
   await cdp.send('Page.enable');
   await cdp.send('Runtime.enable');
+  if(plan.downloadDir){mkdirSync(plan.downloadDir,{recursive:true});await cdp.send('Browser.setDownloadBehavior',{behavior:'allow',downloadPath:plan.downloadDir});}
   await cdp.send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: SCALE, mobile: false });
   await cdp.send('Page.addScriptToEvaluateOnNewDocument', { source: HELPERS });
   // Headless Chrome announces itself as HeadlessChrome; some sites then serve a different page.
@@ -128,6 +129,8 @@ async function run() {
     await loaded; await sleep(plan.settleMs ?? 1500); await evalJs(HELPERS); };
 
   await navigate(plan.url);
+  if (plan.setup) await evalJs(plan.setup);
+  if (plan.assertions) for (const expr of plan.assertions) { if (!await evalJs(expr)) throw new Error('Verification failed: '+expr); }
   if (plan.remove) await evalJs(`__rec.remove(${JSON.stringify(plan.remove)})`);
   if (plan.debug) {   // what the recorder actually sees: title, URL, a PNG, and whether each selector matches
     const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });
@@ -151,8 +154,11 @@ async function run() {
     || a.zoom?.originSelector || (typeof a.scroll?.to === 'string' ? a.scroll.to : null);
   for (const a of plan.actions || []) {
     const sel = selOf(a); if (sel) await evalJs(`__rec.waitFor(${JSON.stringify(sel)}, ${plan.selectorTimeoutMs || 6000})`);
-    if (a.set) { await evalJs(`(() => {const e=document.querySelector(${JSON.stringify(a.set.selector)});e.value=${JSON.stringify(a.set.value)};e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}));})()`); await sleep(a.set.ms || 800); }
-    else if (a.activate) { await evalJs(`document.querySelector(${JSON.stringify(a.activate)}).click()`); await sleep(800); }
+    if (a.at !== undefined) { const remaining=a.at*1000-(Date.now()/1000-t0)*1000; if(remaining>0) await sleep(remaining); }
+    if(a.pdf){const pdf=await cdp.send('Page.printToPDF',{printBackground:true,landscape:true,preferCSSPageSize:true});writeFileSync(a.pdf,Buffer.from(pdf.data,'base64'));}
+    else if (a.eval) { await evalJs(a.eval); await sleep(200); }
+    else if (a.set) { await evalJs(`document.querySelector(${JSON.stringify(a.set.selector)}).scrollIntoView({block:'nearest'})`); await evalJs(`__rec.move(${JSON.stringify(a.set.selector)},400)`); await evalJs(`(() => {const e=document.querySelector(${JSON.stringify(a.set.selector)});e.value=${JSON.stringify(a.set.value)};e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}));})()`); await sleep(a.set.ms || 800); }
+    else if (a.activate) { await evalJs(`document.querySelector(${JSON.stringify(a.activate)}).scrollIntoView({block:'center'})`); await evalJs(`__rec.move(${JSON.stringify(a.activate)},500)`); await evalJs('__rec.ripple()'); await evalJs(`document.querySelector(${JSON.stringify(a.activate)}).click()`); await sleep(800); }
     else if ('wait' in a) await sleep(a.wait);
     else if (a.scroll) await evalJs(typeof a.scroll.to === 'string'
       ? `__rec.scrollToSel(${JSON.stringify(a.scroll.to)}, ${a.scroll.ms || 2000}, ${a.scroll.offset ?? -120})`
@@ -170,6 +176,7 @@ async function run() {
     else throw new Error('unknown action ' + JSON.stringify(a));
   }
   await sleep(250);
+  const lastShot=await cdp.send('Page.captureScreenshot',{format:'png'});writeFileSync(OUT.replace(/\.mp4$/,'.final.png'),Buffer.from(lastShot.data,'base64'));
   await cdp.send('Page.stopScreencast');
   const total = Date.now() / 1000 - t0;
   ws.close(); killAll();
@@ -184,7 +191,7 @@ async function run() {
   writeFileSync(join(work, 'list.txt'), lines.join('\n'));
   mkdirSync(dirname(OUT), { recursive: true });
   const ff = spawnSync('ffmpeg', ['-y', '-hide_banner', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', join(work, 'list.txt'),
-    '-vf', `fps=${FPS},scale=${W * SCALE}:${H * SCALE}:flags=lanczos,format=yuv420p`, '-c:v', 'libx264', '-crf', '17', '-preset', 'medium',
+    '-vf', `fps=${FPS},scale=${W * SCALE}:${H * SCALE}:flags=lanczos,format=yuv420p`, '-c:v', 'libx264', '-crf', '17', '-preset', 'ultrafast', '-threads', '2',
     '-movflags', '+faststart', OUT], { stdio: 'inherit' });
   if (ff.status !== 0) throw new Error('ffmpeg failed');
   console.log(JSON.stringify({ out: OUT, frames: frames.length, seconds: Number(total.toFixed(2)), width: W * SCALE, height: H * SCALE, fps: FPS }));
