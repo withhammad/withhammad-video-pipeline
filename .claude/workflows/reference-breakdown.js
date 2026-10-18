@@ -65,6 +65,7 @@ Write the replication spec for our ORIGINAL version (save ${A.job}/analysis/spec
 - For each beat: our own draft line (original wording, verified facts only, no verbatim copying), the matching visual (avatar full-frame / split avatar+recording / recording full / text card), the exact footage: for a SCREEN RECORDING give url + an action list for app/screenrec.py (move/highlight/scroll/type/zoom with 'text=' or CSS selectors, durations in ms) matching what the creator does at that moment; for a still give url + what to capture. Plus caption emphasis words.
 - CTA: comment keyword (reuse the reference keyword only if it is generic; otherwise propose ours) and the DM resource.
 - Cover/thumbnail spec mirroring the reference cover layout with the owner's avatar.
+- Polish (owner rule 2026-10-18: "I know he's not using the perfect video, but you should make a perfect"): list the reference's production flaws (low-res or blurry inserts, shaky or badly framed shots, stock footage that doesn't fit, typos, mislabeled steps, captions covering faces, weak audio) and specify our improved version of each beat; keep the flow, beat the quality.
 - List every asset with URL.`, { label: 'spec', phase: 'Spec', schema: {
   type: 'object',
   properties: {
@@ -75,6 +76,7 @@ Write the replication spec for our ORIGINAL version (save ${A.job}/analysis/spec
     cover_spec: { type: 'string' },
     assets: { type: 'array', items: { type: 'object', properties: { what: { type: 'string' }, url: { type: 'string' } }, required: ['what'] } },
     caption_style_to_match: { type: 'string' },
+    reference_flaws_and_fixes: { type: 'array', items: { type: 'string' } },
   },
   required: ['target_seconds', 'beats', 'keyword', 'cover_spec', 'assets', 'caption_style_to_match'],
 } })

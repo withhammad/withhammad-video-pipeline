@@ -121,6 +121,16 @@
         ],
         "expires_at": "2026-12-16T09:32:17+00:00",
         "video_publish_tested": false
+      },
+      {
+        "key": "x",
+        "handle": "HammadYous32321",
+        "profile_url": "https://x.com/HammadYous32321",
+        "connection_status": "chrome_session_logged_in",
+        "provider": "owner_chrome",
+        "video_publish_tested": true,
+        "first_publish": "https://x.com/HammadYous32321/status/2111673313701597275",
+        "note": "No API (paid plans not approved). Post via the owner Chrome: x.com/compose/post, upload final_social.mp4, paste the X copy (<= 280 chars, URLs count 23). Profile has no photo/bio yet."
       }
     ],
     "provider_connection_verified": true,
