@@ -1,0 +1,62 @@
+{
+  "_source": "docs/BEST_TIMES.md (decided 2026-10-18 from the owner's own audience data; next review 2026-11-03). Edit both together.",
+  "timezone": "Asia/Dubai",
+  "utc_offset": "+04:00",
+  "weekend": ["sat", "sun"],
+  "late_grace_minutes": 60,
+  "late_limit_hours": 6,
+  "youtube_min_lead_minutes": 30,
+  "rule": "One reel per GST day: that day the same reel goes to all six platforms, each at its own slot. Two reels never share a day.",
+  "order": ["youtube", "linkedin", "instagram", "tiktok", "facebook", "x"],
+  "platforms": {
+    "youtube": {
+      "label": "YouTube Shorts",
+      "via": "api_publish_at",
+      "how": "Uploaded at queue time with privacyStatus private + publishAt = slot; YouTube makes it public itself.",
+      "times": {"default": "12:00", "fri": "10:00"},
+      "backup": {"default": "14:00", "fri": "09:00"},
+      "confidence": "medium",
+      "note": "Friday prayer 12:45: nothing 12:15-14:00 GST on a Friday."
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "via": "api_run_due",
+      "how": "Posted by `app.publish_reel run-due --live` at the slot (the Mac must be awake).",
+      "times": {"weekday": "16:00", "weekend": "10:00"},
+      "backup": {"weekday": "11:00"},
+      "confidence": "low"
+    },
+    "instagram": {
+      "label": "Instagram Reels (Collab)",
+      "via": "api_run_due",
+      "how": "Posted by `app.publish_reel run-due --live` at the slot (no API scheduling; the Mac must be awake); video and cover hosted on withhammad.com/media.",
+      "times": {"default": "17:00"},
+      "backup": {"default": "20:00"},
+      "confidence": "medium"
+    },
+    "tiktok": {
+      "label": "TikTok",
+      "via": "composer",
+      "how": "Scheduled with the composer's own Schedule option in the owner's Chrome (Asia/Dubai, so GST as written).",
+      "times": {"default": "17:00"},
+      "backup": {"default": "20:00"},
+      "confidence": "low"
+    },
+    "facebook": {
+      "label": "Facebook Reels",
+      "via": "composer",
+      "how": "Scheduled with the composer's own Schedule option in the owner's Chrome (Asia/Dubai, so GST as written).",
+      "times": {"default": "17:00"},
+      "backup": {"default": "20:00"},
+      "confidence": "low"
+    },
+    "x": {
+      "label": "X",
+      "via": "composer",
+      "how": "Scheduled at x.com/compose/post in the owner's Chrome (@HammadYousufAI, final_social.mp4, at most 280 weighted characters).",
+      "times": {"default": "18:00"},
+      "backup": {"default": "09:00"},
+      "confidence": "low"
+    }
+  }
+}

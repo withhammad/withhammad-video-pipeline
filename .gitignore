@@ -4,3 +4,8 @@ work/.secrets/
 
 # raw audience analytics and screenshots (private; summary lives in docs/BEST_TIMES.md)
 work/timing/
+
+# website clone used by app.publish_reel to host Instagram media (its own repo)
+work/site/
+# publish_reel's lock beside the tracked schedule
+outputs/video-pipeline/.schedule.json.lock

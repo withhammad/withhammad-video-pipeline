@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "_about": "Source of truth for the daily reel queue (owner rule 2026-10-18: one reel per GST day). Written by studio/app/publish_reel.py; docs/SCHEDULE.md is rendered from it (render-md). Slots: studio/app/slots.json (from docs/BEST_TIMES.md). Times: slot_utc is what the APIs use, local_time is GST.",
+  "timezone": "Asia/Dubai",
+  "rule": "One reel per GST day: that day the same reel goes to all six platforms, each at its own slot. Two reels never share a day.",
+  "slots": "studio/app/slots.json (from docs/BEST_TIMES.md)",
+  "order_note": "Queue order chosen by the owner 2026-10-18: FDE, STACK, 100 Dreams, MCP.",
+  "history": [
+    {
+      "date": "2026-10-18",
+      "title": "SKILL + HARVEST (posted before the rule)",
+      "jobs": ["9d2d68af60d4", "f7da978d101e"],
+      "keyword": "SKILL / HARVEST",
+      "status": "published"
+    }
+  ],
+  "queue": [
+    {
+      "date": "2026-10-19",
+      "job": "6cff0a62569f",
+      "title": "Forward Deployed Engineer 6-week roadmap",
+      "keyword": "ROADMAP",
+      "status": "planned",
+      "note": "in verification"
+    },
+    {
+      "date": "2026-10-20",
+      "job": "6f8f4ad316a3",
+      "title": "AI startup stack: 14 tools, real costs",
+      "keyword": "STACK",
+      "status": "planned",
+      "note": "in verification"
+    },
+    {
+      "date": "2026-10-21",
+      "job": "91ac50635d3d",
+      "title": "UAE 100 Dreams: $10K for 100 media ideas",
+      "keyword": "PITCH",
+      "status": "planned",
+      "note": "in verification"
+    },
+    {
+      "date": "2026-10-22",
+      "job": "c366de480853",
+      "title": "5 MCP servers for Claude Code",
+      "keyword": null,
+      "status": "planned",
+      "note": "breakdown"
+    }
+  ]
+}
