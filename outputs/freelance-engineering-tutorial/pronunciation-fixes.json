@@ -1,0 +1,21 @@
+{
+  "s13-00": {
+    "replacements": {
+      "ग्राहक के लिए कोटेशन तैयार करना": "क्लाइंट के लिए कीमत का प्रस्ताव तैयार करना",
+      "साप्ताहिक रिपोर्ट बनाना": "हर हफ़्ते की रिपोर्ट बनाना"
+    },
+    "reason": "Simpler spoken wording for clearer local Hindi pronunciation; same teaching content."
+  },
+  "s19-00": {
+    "replacements": {
+      "कर्मचारियों का इस्तेमाल करना सीखना": "कर्मचारियों को सिस्टम का इस्तेमाल करना सिखाना"
+    },
+    "reason": "Correct the staff-training sentence without changing the lesson."
+  },
+  "s27-00": {
+    "replacements": {
+      "लेकिन इसे केवल खाली जगह में और काम भरने की रणनीति न समझें।": "लेकिन खाली समय देखकर हर नया काम लेना ठीक नहीं है।"
+    },
+    "reason": "Clearer sentence ending; the first take produced an unstable transcript ending."
+  }
+}

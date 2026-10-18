@@ -1,10 +1,12 @@
 """Export clean 1920×1080 slide PNGs using isolated headless Google Chrome."""
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
-import subprocess,tempfile,json
+import subprocess,tempfile,json,sys
 P=Path(__file__).resolve().parent
 CHROME='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 slides=json.loads((P/'slides/slides.json').read_text())
+selection=next((set(map(int,a.split('=',1)[1].split(','))) for a in sys.argv if a.startswith('--only=')),None)
+if selection:slides=[s for s in slides if s['id'] in selection]
 out=P/'slides/png';out.mkdir(exist_ok=True)
 def render(s):
  target=out/f"{s['id']:02d}.png"

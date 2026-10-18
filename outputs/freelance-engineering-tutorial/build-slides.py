@@ -14,7 +14,7 @@ spec=[
 ('Why a team hires a contractor','cards',['Fill a capability gap','Add delivery capacity','Work within an existing system']),
 ('Examples of engineering work','grid',['Software features','Data pipelines','Deployment and monitoring','LLM integration and evaluation']),
 ('A document-search feature','flow',['Access-controlled documents','Retrieval and answer generation','Sources and evaluation']),
-('The smaller business buyer','compare',['Repeated manual work','A usable end-to-end solution']),
+('Different buyers, different needs','compare',['Engineering team: add specialist capacity','Small business: deliver a working solution']),
 ('Start with a small test','flow',['Observe the current process','Use safe examples','Agree on one limited trial']),
 ('Speak to the buyer','compare',['Technical team: design and tests','Business owner: workflow and results'])]),
 ('03-business-automation',[

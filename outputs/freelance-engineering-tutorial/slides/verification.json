@@ -1,137 +1,146 @@
 {
   "slides_checked": 33,
+  "additional_assets_checked": 2,
   "restricted_matches": 0,
   "results": [
     {
-      "slide": "01.png",
+      "file": "slides/png/01.png",
       "restricted_match": false
     },
     {
-      "slide": "02.png",
+      "file": "slides/png/02.png",
       "restricted_match": false
     },
     {
-      "slide": "03.png",
+      "file": "slides/png/03.png",
       "restricted_match": false
     },
     {
-      "slide": "04.png",
+      "file": "slides/png/04.png",
       "restricted_match": false
     },
     {
-      "slide": "05.png",
+      "file": "slides/png/05.png",
       "restricted_match": false
     },
     {
-      "slide": "06.png",
+      "file": "slides/png/06.png",
       "restricted_match": false
     },
     {
-      "slide": "07.png",
+      "file": "slides/png/07.png",
       "restricted_match": false
     },
     {
-      "slide": "08.png",
+      "file": "slides/png/08.png",
       "restricted_match": false
     },
     {
-      "slide": "09.png",
+      "file": "slides/png/09.png",
       "restricted_match": false
     },
     {
-      "slide": "10.png",
+      "file": "slides/png/10.png",
       "restricted_match": false
     },
     {
-      "slide": "11.png",
+      "file": "slides/png/11.png",
       "restricted_match": false
     },
     {
-      "slide": "12.png",
+      "file": "slides/png/12.png",
       "restricted_match": false
     },
     {
-      "slide": "13.png",
+      "file": "slides/png/13.png",
       "restricted_match": false
     },
     {
-      "slide": "14.png",
+      "file": "slides/png/14.png",
       "restricted_match": false
     },
     {
-      "slide": "15.png",
+      "file": "slides/png/15.png",
       "restricted_match": false
     },
     {
-      "slide": "16.png",
+      "file": "slides/png/16.png",
       "restricted_match": false
     },
     {
-      "slide": "17.png",
+      "file": "slides/png/17.png",
       "restricted_match": false
     },
     {
-      "slide": "18.png",
+      "file": "slides/png/18.png",
       "restricted_match": false
     },
     {
-      "slide": "19.png",
+      "file": "slides/png/19.png",
       "restricted_match": false
     },
     {
-      "slide": "20.png",
+      "file": "slides/png/20.png",
       "restricted_match": false
     },
     {
-      "slide": "21.png",
+      "file": "slides/png/21.png",
       "restricted_match": false
     },
     {
-      "slide": "22.png",
+      "file": "slides/png/22.png",
       "restricted_match": false
     },
     {
-      "slide": "23.png",
+      "file": "slides/png/23.png",
       "restricted_match": false
     },
     {
-      "slide": "24.png",
+      "file": "slides/png/24.png",
       "restricted_match": false
     },
     {
-      "slide": "25.png",
+      "file": "slides/png/25.png",
       "restricted_match": false
     },
     {
-      "slide": "26.png",
+      "file": "slides/png/26.png",
       "restricted_match": false
     },
     {
-      "slide": "27.png",
+      "file": "slides/png/27.png",
       "restricted_match": false
     },
     {
-      "slide": "28.png",
+      "file": "slides/png/28.png",
       "restricted_match": false
     },
     {
-      "slide": "29.png",
+      "file": "slides/png/29.png",
       "restricted_match": false
     },
     {
-      "slide": "30.png",
+      "file": "slides/png/30.png",
       "restricted_match": false
     },
     {
-      "slide": "31.png",
+      "file": "slides/png/31.png",
       "restricted_match": false
     },
     {
-      "slide": "32.png",
+      "file": "slides/png/32.png",
       "restricted_match": false
     },
     {
-      "slide": "33.png",
+      "file": "slides/png/33.png",
+      "restricted_match": false
+    },
+    {
+      "file": "slides/intro.png",
+      "restricted_match": false
+    },
+    {
+      "file": "thumbnail.jpg",
       "restricted_match": false
     }
   ]

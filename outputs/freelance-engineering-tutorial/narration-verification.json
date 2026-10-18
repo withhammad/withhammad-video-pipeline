@@ -1,0 +1,14 @@
+{
+  "local_segments": 56,
+  "asr_audited_segments": 56,
+  "minimum_script_match": 0.7368421052631579,
+  "mean_script_match": 0.8797090737266062,
+  "speaker_similarity_min": 0.9080606698989868,
+  "corrected_segments": [
+    "s13-00",
+    "s19-00",
+    "s27-00"
+  ],
+  "note": "Automated transcription and speaker checks; not a guarantee of identical voice or flawless pronunciation. Lower text matches reviewed for phonetic spelling variations.",
+  "caption_cues": 460
+}

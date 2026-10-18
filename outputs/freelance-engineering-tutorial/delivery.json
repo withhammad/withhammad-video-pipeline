@@ -1,0 +1,17 @@
+{
+  "status": "finished_ready_for_review",
+  "video": "full-video.mp4",
+  "duration_seconds": 999.68,
+  "resolution": "1920x1080",
+  "voice": "Hammad existing cloned narration plus local Chatterbox clone in Urdu/Hindi",
+  "avatar": "Existing AI Podcast Host introduction reused",
+  "slides": 33,
+  "captions": "460 burned-in cues plus full-video.srt",
+  "music": "Quiet background music",
+  "thumbnail": "thumbnail.jpg",
+  "new_paid_plan": false,
+  "new_heygen_generation_after_skip": false,
+  "publication_status": "not_uploaded",
+  "verification": "final-verification.json",
+  "next_reference": "next-reference.json"
+}

@@ -1,0 +1,224 @@
+{
+  "status": "passed",
+  "video": "full-video.mp4",
+  "duration_seconds": 999.68,
+  "size_bytes": 43048581,
+  "sha256": "c268f22ae6064c799d2a502f2a643daefd22826d1297015edca3dc50a8849809",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": "25/1",
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "integrated_loudness_lufs": -17.34,
+  "true_peak_dbtp": -3.96,
+  "decoded_full_video": true,
+  "decoded_full_audio": true,
+  "frames_ocr_checked": 50,
+  "restricted_brand_matches": 0,
+  "caption_cues": 460,
+  "expected_duration_seconds": 999.749387755102,
+  "checks": [
+    {
+      "frame": "0001.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0002.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0003.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0004.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0005.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0006.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0007.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0008.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0009.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0010.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0011.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0012.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0013.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0014.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0015.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0016.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0017.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0018.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0019.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0020.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0021.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0022.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0023.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0024.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0025.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0026.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0027.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0028.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0029.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0030.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0031.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0032.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0033.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0034.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0035.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0036.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0037.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0038.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0039.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0040.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0041.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0042.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0043.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0044.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0045.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0046.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0047.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0048.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0049.jpg",
+      "restricted_match": false
+    },
+    {
+      "frame": "0050.jpg",
+      "restricted_match": false
+    }
+  ]
+}

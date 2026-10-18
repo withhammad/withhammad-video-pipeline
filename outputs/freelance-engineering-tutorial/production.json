@@ -10,7 +10,7 @@
   "format": "short avatar introduction, cloned voice over freshly recorded visual presentation",
   "owner_approved_format": true,
   "credits_checked": 39,
-  "status": "awaiting_credits_for_remaining_narration",
+  "status": "finished_ready_for_review",
   "publication_status": "not_uploaded",
   "privacy_requirement": "No employer or corporate workspace branding in any narration, recording, visual or publication metadata; use Hammad branding only.",
   "coverage": [
@@ -33,9 +33,12 @@
   "intro_video_id": "46c581cbaa1fad642fc103a55538b537",
   "narration_completed": [
     "01-two-models",
-    "02-enterprise-and-buyers"
+    "02-enterprise-and-buyers",
+    "03-business-automation",
+    "04-delivery-and-examples",
+    "05-combining-and-retainers"
   ],
-  "narration_blocked": "03-business-automation: insufficient_credit (402), no retry submitted",
+  "narration_blocked": null,
   "script_words": 2988,
   "visuals": {
     "status": "complete_verified",
@@ -46,5 +49,18 @@
     "narration_status": "Only chapters 1 and 2 generated; remaining chapters require credits",
     "png_directory": "slides/png",
     "verification": "slides/verification.json"
-  }
+  },
+  "voice_engine_remaining": "Chatterbox multilingual v3 on local Apple Silicon",
+  "paid_plan_added": false,
+  "voice_sample": "Existing Hammad cloned narration; local conditioning only",
+  "next_task": "next-reference.json",
+  "local_voice_documentation": "https://blaizzy.github.io/mlx-audio/models/tts/chatterbox/",
+  "avatar_reused_existing": true,
+  "new_heygen_generations": 0,
+  "duration_seconds": 999.68,
+  "final_video": "full-video.mp4",
+  "subtitle": "full-video.srt",
+  "thumbnail": "thumbnail.jpg",
+  "verification": "final-verification.json",
+  "tests": "528 passed; default ffmpeg 8 retained for pipeline compatibility; caption export uses ffmpeg-full separately"
 }
