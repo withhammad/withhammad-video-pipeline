@@ -40,5 +40,6 @@ The finished adaptation is shorter; the source footage is not reproduced.
 Fresh Chrome recordings demonstrate local tools, with a brief genuine Claude
 build excerpt. Delegation creates a draft, not a sent Slack message. Revenue
 is illustrative arithmetic; packaging is conceptual, not manufacturing-ready.
-The video is not published. Website resource page and ManyChat funnel remain
-separate pending deliverables; do not claim that those are live.
+YouTube upload and LinkedIn publication completed on 2026-10-18. See the published
+JSON records and youtube-status.json for processing state. Website resource page
+and ManyChat funnel remain pending; do not claim that those are live.

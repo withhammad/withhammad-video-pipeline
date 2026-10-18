@@ -2,6 +2,7 @@
 import json
 import os
 import secrets
+import sys
 import subprocess
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
@@ -15,6 +16,8 @@ EXPECTED_CHANNEL = 'UCJtrEDGg1R3kNe7t7PQFiEw'
 STATE = secrets.token_urlsafe(32)
 SCOPES = ['https://www.googleapis.com/auth/youtube.readonly',
           'https://www.googleapis.com/auth/youtube.upload']
+if '--captions' in sys.argv:
+    SCOPES.append('https://www.googleapis.com/auth/youtube.force-ssl')
 
 
 def curl(url, *, post=None, bearer=None):

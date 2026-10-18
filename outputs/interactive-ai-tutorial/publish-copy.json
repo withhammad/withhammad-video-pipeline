@@ -1,0 +1,19 @@
+{
+  "youtube_format": "long",
+  "topic_title": "Build Useful AI Tools: 4 Practical Workflows You Can Test",
+  "language": "en",
+  "captions": {
+    "youtube_title": "Build Useful AI Tools: 4 Practical Workflows You Can Test",
+    "youtube_description": "Turn a repeated task into a tool you can actually use. In this tutorial, I walk through a newsletter editor, a task board with a delegation draft, a revenue model, and a packaging concept. We also cover selecting ideas and preparing a presentation.\n\nFollow the screen demonstrations to see how inputs, calculations, previews and exports work, and how to test a result before relying on it. The examples use sample data and run locally. The video includes a brief recorded Claude build; the extended demonstrations use original tutorial tools.\n\nThe presenter is an AI avatar of Hammad Yousuf, with his authorized cloned voice.\n\nCHAPTERS\n00:00 Build tools with AI\n02:11 Edit. Preview. Export.\n06:59 Decide what happens next\n11:41 Make assumptions visible\n16:42 Explore before production\n21:33 From ideas to decisions\n28:51 Build one useful tool\n\nSubscribe for practical AI workflows and step-by-step demonstrations.\n\n#AI #AITutorial #Productivity\n\nReference inspiration: Allie K Miller, \u201cStop Using AI Chat Threads and Do This Instead\u201d: https://www.youtube.com/watch?v=OayJ4FDbjUw\nOriginal narration and tutorial examples by WithHammad.",
+    "linkedin": "AI tools become useful when you can test what they actually do.\n\nIn this 29-minute walkthrough, I demonstrate four practical workflows:\n\n\u2022 A newsletter editor with previews and exports\n\u2022 A task board that prepares a delegation message\n\u2022 A revenue model with visible assumptions and calculations\n\u2022 A packaging concept for discussion and review\n\nThere are also examples of selecting ideas and preparing a presentation.\n\nThe screen recordings use original local tools and sample data, with a brief recorded Claude build. The task board creates a draft message; it does not send to Slack. The revenue model illustrates arithmetic, and the packaging example is a concept\u2014not a manufacturing specification.\n\nWatch one workflow, try it on a small task, and check the result before relying on it.\n\nWhich repeated task would you turn into a tool first?\n\nFollow me for more practical AI walkthroughs.\n\nAI disclosure: the presenter is an AI avatar of me, Hammad Yousuf, using my authorized cloned voice.\n\n#AI #AIWorkflows #Productivity"
+  },
+  "hashtags": [
+    "AI tools",
+    "AI workflows",
+    "Claude",
+    "AI tutorial",
+    "productivity"
+  ],
+  "caption_file": "/Users/hammad/withhammad-video-pipeline/outputs/interactive-ai-tutorial/full-tutorial.srt",
+  "video_format": "long"
+}

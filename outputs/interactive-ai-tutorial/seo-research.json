@@ -1,0 +1,72 @@
+{
+  "source": "Google YouTube autocomplete",
+  "queries": [
+    {
+      "query": "AI tools tutorial",
+      "suggestions": [
+        "ai tools tutorials",
+        "ai tools tutorial",
+        "ai tools tutorial bangla",
+        "ai tools tutorial for beginners",
+        "ai tools tutorial for beginners in hindi",
+        "ai tools tutorial tamil",
+        "ai tools tutorial malayalam",
+        "ai tools tutorial in telugu",
+        "ai tools tutorial channel",
+        "canva ai tools tutorial"
+      ]
+    },
+    {
+      "query": "AI workflows",
+      "suggestions": [
+        "ai workflows",
+        "ai workflows for beginners",
+        "ai workflows to sell",
+        "ai workflows curso",
+        "ai workflows curso de ia gratis",
+        "ai workflows n8n",
+        "ai workflows explained",
+        "ai workflows dia 1",
+        "ai workflows for small business",
+        "ai workflows for marketing"
+      ]
+    },
+    {
+      "query": "Claude artifacts tutorial",
+      "suggestions": [
+        "claude artifacts tutorial"
+      ]
+    },
+    {
+      "query": "build tools with AI",
+      "suggestions": [
+        "build tools with ai",
+        "build app with ai tools",
+        "build ios app with ai tools",
+        "build tools using ai"
+      ]
+    },
+    {
+      "query": "AI productivity tools",
+      "suggestions": [
+        "ai productivity tools for work",
+        "ai productivity tools",
+        "ai productivity tools 2026",
+        "ai productivity tools 2025",
+        "best ai productivity tools",
+        "ai tools & productivity hacks",
+        "free ai productivity tools"
+      ]
+    },
+    {
+      "query": "AI workflow for business",
+      "suggestions": [
+        "ai workflow automation business",
+        "ai workflow business",
+        "ai workflow for small business"
+      ]
+    }
+  ],
+  "primary_keyword": "AI tools",
+  "copy_rule": "Only describe demonstrated workflows; no invented time savings, rankings, live resource link, or automation claims."
+}

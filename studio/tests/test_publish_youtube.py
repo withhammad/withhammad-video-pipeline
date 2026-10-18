@@ -748,3 +748,15 @@ def test_identity_mismatch_on_a_published_short_only_warns(video, creds, cover, 
     assert result['already_published'] is True and result['video_id'] == 'vid123'
     assert result['thumbnail']['status'] == 'failed' and 'UCsomeoneElse' in result['warnings'][0]
     assert 'thumbnail' not in [c['key'] for c in server.calls] and state_path.read_bytes() == before
+
+
+def test_long_video_accepts_landscape_and_preserves_normal_title(video):
+    probe = probe_result(video={'width': 1920, 'height': 1080}, format={'duration': '1742.453'})
+    checked = yt.validate_video(video, probe, long_form=True)
+    assert checked['duration_s'] == 1742.453
+    with pytest.raises(yt.VideoValidationError):
+        yt.validate_video(video, probe)
+    resource, _ = yt.build_video_resource(dict(LESSON, youtube_format='long'))
+    assert resource['snippet']['title'] == LESSON['captions']['youtube_title']
+    with pytest.raises(yt.VideoValidationError, match='12 hours'):
+        yt.validate_video(video, probe_result(format={'duration': '43201'}), long_form=True)

@@ -182,7 +182,7 @@ def _ratio(value, default=1.0):
         return default
 
 
-def validate_video(path, info):
+def validate_video(path, info, *, long_form=False):
     """Check the probe against LinkedIn's limits and our 9:16 reel format; raise with every problem at once."""
     path = Path(path)
     if not path.is_file():
@@ -213,7 +213,9 @@ def validate_video(path, info):
             problems.append('video stream has no dimensions')
         else:
             aspect = width * _ratio(video.get('sample_aspect_ratio')) / height
-            if abs(aspect - ASPECT) / ASPECT > ASPECT_TOLERANCE:
+            if long_form and abs(aspect - 16 / 9) / (16 / 9) <= ASPECT_TOLERANCE:
+                pass
+            elif abs(aspect - ASPECT) / ASPECT > ASPECT_TOLERANCE:
                 problems.append(f'aspect ratio must be 9:16 portrait (got {width}x{height}, {aspect:.3f})')
     if not audios:
         problems.append('no audio stream (the reel needs its voice track)')
@@ -404,9 +406,9 @@ def author_urn():
     return f'urn:li:person:{OWNER_SUB}'
 
 
-def initialize_body(file_size, thumbnail=False):
+def initialize_body(file_size, thumbnail=False, captions=False):
     return {'initializeUploadRequest': {'owner': author_urn(), 'fileSizeBytes': file_size,
-                                        'uploadCaptions': False, 'uploadThumbnail': bool(thumbnail)}}
+                                        'uploadCaptions': bool(captions), 'uploadThumbnail': bool(thumbnail)}}
 
 
 class _Thumbnail(dict):
@@ -445,7 +447,7 @@ def _upload_usable(upload, now_ms):
     return bool(upload) and (upload.get('expires_at_ms') or 0) - UPLOAD_URL_MARGIN_MS > now_ms
 
 
-def _plan(client, state, video, commentary, title, now_ms, poll_seconds, processing_timeout, thumb=None):
+def _plan(client, state, video, commentary, title, now_ms, poll_seconds, processing_timeout, thumb=None, captions_path=None):
     """The ordered write-side requests a real run would send from this state (tokens redacted)."""
     rest_json, rest_get = _public_headers(client.rest_headers(True)), _public_headers(client.rest_headers())
     plan, upload, size = [], state.get('upload'), video['size']
@@ -462,7 +464,7 @@ def _plan(client, state, video, commentary, title, now_ms, poll_seconds, process
     elif not finalized:
         video_urn, token = '<video URN from initializeUpload>', '<uploadToken from initializeUpload>'
         plan.append({'step': 'initialize_upload', 'method': 'POST', 'url': INITIALIZE_URL, 'headers': rest_json,
-                     'json': initialize_body(size, thumbnail=thumb)})
+                     'json': initialize_body(size, thumbnail=thumb, captions=captions_path)})
         thumbnail_url = '<thumbnailUploadUrl from initializeUpload>' if thumb else None
         count = max(1, math.ceil(size / PART_SIZE))
         parts = [{'url': f'<uploadInstructions[{i}].uploadUrl>', 'first': i * PART_SIZE,
@@ -482,6 +484,9 @@ def _plan(client, state, video, commentary, title, now_ms, poll_seconds, process
             plan.append({'step': 'upload_thumbnail', 'method': 'PUT', 'url': thumbnail_url,
                          'headers': dict(THUMBNAIL_HEADERS), 'size': thumb['size'], 'source': thumb['path'],
                          'expect': '201; a failure is a warning and the post still goes out'})
+        if captions_path and not state.get('captions_uploaded'):
+            plan.append({'step': 'upload_captions', 'method': 'POST', 'url': '<captionsUploadUrl from initializeUpload>',
+                         'source': str(captions_path), 'format': 'SRT', 'language': 'en'})
         part_ids = [d or f'<ETag of part {i + 1}>' for i, d in enumerate(done)]
         plan.append({'step': 'finalize_upload', 'method': 'POST', 'url': FINALIZE_URL, 'headers': rest_json,
                      'json': finalize_body(video_urn, token, part_ids)})
@@ -531,9 +536,12 @@ def _publish(video_path, lesson, dry, state_path, credentials_path, transport, p
                 'published_at': state.get('published_at'), 'state_path': str(state_path), 'warnings': warnings,
                 'requests': []}
 
+    captions_path = Path(lesson['caption_file']) if lesson.get('caption_file') else None
+    if captions_path and (not captions_path.is_file() or captions_path.suffix.lower() != '.srt'):
+        raise LinkedInError('caption_file must be an existing English SRT file')
     commentary = build_commentary(lesson)
     title = str((lesson or {}).get('topic_title') or '').strip() or None
-    video = validate_video(video_path, (probe or ffprobe)(video_path))
+    video = validate_video(video_path, (probe or ffprobe)(video_path), long_form=lesson.get('video_format') == 'long')
     digest = _sha256(video_path)
     if state.get('author') and state['author'] != author_urn():
         raise StateError(f"State file {state_path.name} belongs to {state['author']}, not {author_urn()}")
@@ -555,7 +563,7 @@ def _publish(video_path, lesson, dry, state_path, credentials_path, transport, p
         notes = [f'LinkedIn thumbnail skipped: {problem}'] if problem else []
         if dry:
             plan = _plan(client, state, video, commentary, title, now() * 1000, poll_seconds, processing_timeout,
-                         thumb)
+                         thumb, captions_path)
             return {'platform': 'linkedin', 'dry_run': True, 'status': 'planned', 'author': author_urn(),
                     'identity': {'sub': identity.get('sub'), 'name': identity.get('name'), 'verified': True},
                     'token_expires_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(credentials['expires_at_unix'])),
@@ -568,7 +576,7 @@ def _publish(video_path, lesson, dry, state_path, credentials_path, transport, p
         state['author'] = author_urn()
         state['video_path'], state['video_sha256'], state['video_size'] = str(video_path), digest, video['size']
         result = _execute(client, state, state_path, video_path, video, commentary, title, now, poll_seconds,
-                          processing_timeout, sleep, clock, status_forbidden_wait, thumb)
+                          processing_timeout, sleep, clock, status_forbidden_wait, thumb, captions_path)
         result['warnings'] = notes + result['warnings']
         result['requests'] = client.log[len(checks):]
         result['checks_performed'] = checks
@@ -627,7 +635,7 @@ def _upload_thumbnail(client, state, state_path, upload, thumb, warnings):
 
 
 def _execute(client, state, state_path, video_path, video, commentary, title, now, poll_seconds,
-             processing_timeout, sleep, clock, status_forbidden_wait=STATUS_FORBIDDEN_WAIT, thumb=None):
+             processing_timeout, sleep, clock, status_forbidden_wait=STATUS_FORBIDDEN_WAIT, thumb=None, captions_path=None):
     warnings = []
     upload = state.get('upload')
     if upload and not state.get('finalized'):
@@ -646,7 +654,7 @@ def _execute(client, state, state_path, video_path, video, commentary, title, no
             elif status == 'PROCESSING_FAILED':
                 _abandon_upload(state, state_path, 'LinkedIn reported PROCESSING_FAILED')
     if not state.get('upload'):
-        value = client.initialize_upload(initialize_body(video['size'], thumbnail=thumb))
+        value = client.initialize_upload(initialize_body(video['size'], thumbnail=thumb, captions=captions_path))
         instructions = [{'url': p['uploadUrl'], 'first': int(p['firstByte']), 'last': int(p['lastByte'])}
                         for p in value.get('uploadInstructions') or []]
         if not instructions:
@@ -654,6 +662,8 @@ def _execute(client, state, state_path, video_path, video, commentary, title, no
         state['upload'] = {'video_urn': value['video'], 'upload_token': value.get('uploadToken', ''),
                            'expires_at_ms': value.get('uploadUrlsExpireAt') or 0, 'instructions': instructions,
                            'etags': [None] * len(instructions)}
+        if captions_path:
+            state['upload']['captions_url'] = value.get('captionsUploadUrl')
         if thumb:
             state['upload']['thumbnail_url'] = value.get('thumbnailUploadUrl')
         state['finalized'] = False
@@ -675,6 +685,20 @@ def _execute(client, state, state_path, video_path, video, commentary, title, no
                         _abandon_upload(state, state_path, f'upload URL rejected (HTTP {error.status})')
                     raise
                 _save_state(state_path, state)
+        if captions_path and not state.get('captions_uploaded'):
+            url = upload.get('captions_url')
+            if not url:
+                raise LinkedInError('LinkedIn did not return the requested captions upload URL')
+            metadata = {'format': 'SRT', 'formattedForEasyReader': True, 'largeText': True,
+                        'source': 'USER_PROVIDED', 'locale': {'variant': 'AMERICAN', 'country': 'US', 'language': 'EN'},
+                        'transcriptType': 'CLOSED_CAPTION'}
+            request = httpx.Request('POST', url, data={'metadata': json.dumps(metadata)},
+                                    files={'file': (captions_path.name, captions_path.read_bytes(), 'text/plain')})
+            data = request.read()
+            client.send('upload_captions', 'POST', url,
+                        headers={'Content-Type': request.headers['content-type']}, content=data, expect=(200, 201))
+            state['captions_uploaded'] = True
+            _save_state(state_path, state)
         if thumb:
             _upload_thumbnail(client, state, state_path, upload, thumb, warnings)
         try:

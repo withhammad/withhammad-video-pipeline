@@ -33,8 +33,8 @@ Last update: 2026-10-18 (later) — cover review fixes: Instagram covers only wa
 
 - Instagram @with.hammad: Instagram Login API, scopes basic + content_publish, token to 2026-12-16 (identity confirmed by `app.instagram_tokens status`, 2026-10-17). Publishing verified (DemtmtXn_AT). @hammadagentic.ai: token invalidated (item 1).
 
-- LinkedIn: personal profile `urn:li:person:yWP7me7dep`, scopes openid/profile/w_member_social, token valid to 2026-12-16. Publish not yet tested.
-- YouTube: channel UCJtrEDGg1R3kNe7t7PQFiEw, readonly + upload scopes, refresh token stored. Publish not yet tested.
+- LinkedIn: personal profile `urn:li:person:yWP7me7dep`, scopes openid/profile/w_member_social, token valid to 2026-12-16. Long video publishing with thumbnail and English SRT verified on 2026-10-18.
+- YouTube: channel UCJtrEDGg1R3kNe7t7PQFiEw, readonly + upload + force-ssl scopes, refresh token stored. Long video upload, custom thumbnail and English SRT verified on 2026-10-18.
 - First real reel (2026-10-17): job `09a9d211fff0` (Nick Saraev reel on REA) → verified, original lesson 'Reverse-engineer a feature with Claude Code, the right way', keyword BLUEPRINT, 157 words ≈ 72 s; script loaded in HeyGen (720p portrait, black-blazer look).
 - First real lesson (2026-10-17): job `dae18cbf0d11` ('Me at the zoo') → original lesson 'Your first video only has to exist', keyword FIRST, 7 segments, 136 words ≈ 63 s, captions ×5, resource page with 3 prompts — written in the Claude Code session, schema-validated by the pipeline.
 - Studio S4 (2026-10-17): avatar stage against HeyGen API v3 (`POST /v3/videos` type avatar, 9:16 1080p, SRT captions, idempotency key, resume from a persisted video_id). `rerun <job> --from <stage>` resumes jobs without re-downloading. 32 tests green; live render pending the HeyGen key.
@@ -48,3 +48,9 @@ Last update: 2026-10-18 (later) — cover review fixes: Instagram covers only wa
 - The YouTube OAuth *client secret* (desktop-app type, low sensitivity) was displayed once in an
   agent tool output on 2026-10-17. Rotate it in Google Cloud Console → Credentials when convenient,
   then re-run `youtube_oauth.py`.
+
+## Long tutorial, 2026-10-18
+
+- YouTube upload complete; provider processing pending: https://www.youtube.com/watch?v=u4J1oQqQoTM
+- LinkedIn published: https://www.linkedin.com/feed/update/urn:li:ugcPost:7517491828477276160/
+- Website resource page and ManyChat funnel for this tutorial remain pending; no resource-delivery claims were published.

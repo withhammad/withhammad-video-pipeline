@@ -55,7 +55,7 @@
   ],
   "short_job": "fd7218f0a2e4",
   "long_job": "fdb2463f9d21",
-  "publication_status": "not_published",
+  "publication_status": "youtube_uploaded_processing_linkedin_published",
   "funnel_status": "not_enabled",
   "avatar_format": "Owner approved: opening and chapter transitions only; cloned voice over full-screen demos",
   "avatar_render": {
@@ -134,5 +134,13 @@
     "duration_seconds": 1742.453354,
     "resolution": "1920x1080",
     "fps": 30
+  },
+  "published_urls": {
+    "youtube": "https://www.youtube.com/watch?v=u4J1oQqQoTM",
+    "linkedin": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7517491828477276160/"
+  },
+  "captions_status": {
+    "youtube": "serving",
+    "linkedin": "uploaded_before_finalization"
   }
 }

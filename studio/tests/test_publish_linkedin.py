@@ -648,3 +648,41 @@ def test_thumbnail_sends_the_bytes_that_were_checked(run, cover, monkeypatch):
     put = next(r for r in fake.requests if fake.key(r) == 'putthumb')
     assert put.content == original
     assert read_state(run.state)['upload']['thumbnail_sha256'] == hashlib.sha256(original).hexdigest()
+
+
+def test_captions_uploaded_before_finalize_and_post(run, tmp_path):
+    caption = tmp_path / 'en.srt'
+    caption.write_text('1\n00:00:00,000 --> 00:00:01,000\nHello\n')
+    class CaptionsFake(FakeLinkedIn):
+        def __call__(self, request):
+            if request.url.path.endswith('/captions'):
+                self.requests.append(request)
+                assert request.method == 'POST'
+                assert b'Hello' in request.content and b'USER_PROVIDED' in request.content
+                assert 'multipart/form-data' in request.headers['content-type']
+                return httpx.Response(201)
+            response = super().__call__(request)
+            if self.key(request) == 'init':
+                body = response.json()
+                assert json.loads(request.content)['initializeUploadRequest']['uploadCaptions']
+                body['value']['captionsUploadUrl'] = 'https://www.linkedin.com/dms-mpf-uploads/captions'
+                return httpx.Response(200, json=body)
+            return response
+    fake = CaptionsFake(parts=1)
+    result = run(fake, dry_run=False, lesson=dict(LESSON, caption_file=str(caption)))
+    assert result['status'] == 'published'
+    assert read_state(run.state)['captions_uploaded']
+    steps = [fake.key(r) for r in fake.requests]
+    assert steps.index('putcaptions') < steps.index('finalize') < steps.index('post')
+
+
+def test_long_form_landscape_is_explicit(video):
+    info = json.loads(json.dumps(PROBE))
+    info['streams'][0].update(width=1920, height=1080)
+    info['format']['duration'] = '1742.453'
+    assert li.validate_video(video, info, long_form=True)['duration_s'] == 1742.453
+    with pytest.raises(li.VideoValidationError):
+        li.validate_video(video, info)
+    info['format']['duration'] = '1801'
+    with pytest.raises(li.VideoValidationError, match='duration'):
+        li.validate_video(video, info, long_form=True)

@@ -1,4 +1,4 @@
-"""Publish a vertical Short to the verified YouTube channel (YouTube Data API v3, resumable upload).
+"""Publish a Short or explicitly marked long video to the verified YouTube channel (YouTube Data API v3, resumable upload).
 
 Verified against the official documentation on 2026-10-17 (developers.google.com pages "Last updated 2026-10-15"):
   POST https://oauth2.googleapis.com/token  (form) grant_type=refresh_token, client_id, client_secret, refresh_token
@@ -269,8 +269,8 @@ def _sha256(path):
     return digest.hexdigest()
 
 
-def validate_video(video_path, probe=None):
-    """ffprobe the file: MP4, H.264 video, AAC audio, 9:16, 0 < duration <= 180 s (the Shorts limit)."""
+def validate_video(video_path, probe=None, *, long_form=False):
+    """Validate codecs and duration; long_form opts into regular YouTube video limits."""
     path = Path(video_path)
     if not path.is_file():
         raise VideoValidationError(f'Video not found: {path}')
@@ -304,7 +304,7 @@ def validate_video(video_path, probe=None):
     if abs(_rotation(stream)) % 180 == 90:
         shown_w, shown_h = shown_h, shown_w
     aspect = shown_w / shown_h
-    if abs(aspect - 9 / 16) > 0.01:
+    if not long_form and abs(aspect - 9 / 16) > 0.01:
         raise VideoValidationError(f'Frame is {width}x{height} (aspect {aspect:.3f}); a Short here must be 9:16 vertical')
     try:
         duration = float(fmt.get('duration') or stream.get('duration') or 0)
@@ -312,7 +312,9 @@ def validate_video(video_path, probe=None):
         duration = 0.0
     if duration <= 0:
         raise VideoValidationError('ffprobe reported no duration')
-    if duration > SHORTS_MAX_SECONDS:
+    if long_form and duration > 12 * 60 * 60:
+        raise VideoValidationError("YouTube videos may not exceed 12 hours")
+    if not long_form and duration > SHORTS_MAX_SECONDS:
         raise VideoValidationError(f'Video is {duration:.1f} s; YouTube Shorts allow at most {SHORTS_MAX_SECONDS:.0f} s')
     return {'path': str(path), 'size_bytes': size, 'duration_s': round(duration, 3), 'width': width, 'height': height,
             'video_codec': 'h264', 'audio_codec': 'aac', 'fps': stream.get('r_frame_rate'),
@@ -362,7 +364,7 @@ def build_video_resource(lesson, *, privacy_status='private', category_id=CATEGO
     if len(title) > TITLE_MAX_CHARS:
         raise MetadataError(f'captions.youtube_title is {len(title)} characters; YouTube allows {TITLE_MAX_CHARS}')
     warnings = []
-    if '#shorts' not in title.lower():
+    if lesson.get('youtube_format') != 'long' and '#shorts' not in title.lower():
         if len(title) + len(' #Shorts') <= TITLE_MAX_CHARS:
             title += ' #Shorts'
         else:
@@ -883,7 +885,9 @@ def publish(video_path, lesson, *, dry_run=True, state_path=None, privacy_status
             contains_synthetic_media=True, made_for_kids=False, publish_at=None, notify_subscribers=True,
             expected_channel_id=EXPECTED_CHANNEL_ID, oauth_file=None, restart_expired_session=False,
             transport=None, probe=None, sleep=time.sleep, max_retries=5, thumbnail_path=None):
-    """Upload video_path as a Short. dry_run=True (default): token refresh + read-only GETs, returns the plan.
+    """Upload a Short, or a regular video when lesson.youtube_format is "long".
+
+    dry_run=True (default): token refresh + read-only GETs, returns the plan.
 
     thumbnail_path (the reel's cover_1080x1920.jpg) is set with thumbnails.set right after the upload. A thumbnail
     problem is only a warning: the Short is live either way, and a rerun with the same state file sets the cover
@@ -909,7 +913,7 @@ def publish(video_path, lesson, *, dry_run=True, state_path=None, privacy_status
 def _publish(video_path, lesson, *, dry_run, state_path, privacy_status, category_id, contains_synthetic_media,
              made_for_kids, publish_at, notify_subscribers, expected_channel_id, oauth_file, restart_expired_session,
              transport, probe, sleep, max_retries, thumbnail_path=None):
-    video = validate_video(video_path, probe)
+    video = validate_video(video_path, probe, long_form=lesson.get('youtube_format') == 'long')
     resource, warnings = build_video_resource(lesson, privacy_status=privacy_status, category_id=category_id,
                                               contains_synthetic_media=contains_synthetic_media,
                                               made_for_kids=made_for_kids, publish_at=publish_at)
@@ -984,6 +988,8 @@ def _publish(video_path, lesson, *, dry_run, state_path, privacy_status, categor
         if not video_id:
             raise ApiError('YouTube finished the upload without returning a video id', step='upload')
         short_url, watch_url = _urls(video_id)
+        if lesson.get('youtube_format') == 'long':
+            short_url = watch_url
         uploaded_status = uploaded.get('status') or {}
         section.pop('upload_url', None)
         section.update(status='published', video_id=video_id, url=short_url, watch_url=watch_url,

@@ -1,0 +1,29 @@
+{
+  "platform": "youtube",
+  "status": "published",
+  "video_id": "u4J1oQqQoTM",
+  "url": "https://www.youtube.com/watch?v=u4J1oQqQoTM",
+  "watch_url": "https://www.youtube.com/watch?v=u4J1oQqQoTM",
+  "privacy_status": "public",
+  "channel": {
+    "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+    "title": "HAMMAD YOUSUF",
+    "custom_url": "@with.hammad"
+  },
+  "title": "Build Useful AI Tools: 4 Practical Workflows You Can Test",
+  "warnings": [],
+  "thumbnail": {
+    "sha256": "2fbcbaf1ad3cee8e2099fad6879122aa122329c8c2221c1b729f9d9e11d9f08a",
+    "set_at": "2026-10-18T07:44:53Z",
+    "path": "/Users/hammad/withhammad-video-pipeline/outputs/interactive-ai-tutorial/thumbnail.jpg",
+    "video_id": "u4J1oQqQoTM",
+    "status": "set",
+    "urls": {
+      "default": "https://i.ytimg.com/vi/u4J1oQqQoTM/default.jpg",
+      "medium": "https://i.ytimg.com/vi/u4J1oQqQoTM/mqdefault.jpg",
+      "high": "https://i.ytimg.com/vi/u4J1oQqQoTM/hqdefault.jpg",
+      "standard": "https://i.ytimg.com/vi/u4J1oQqQoTM/sddefault.jpg",
+      "maxres": "https://i.ytimg.com/vi/u4J1oQqQoTM/maxresdefault.jpg"
+    }
+  }
+}
