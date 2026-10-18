@@ -1,0 +1,146 @@
+{
+  "platform": "youtube",
+  "dry_run": true,
+  "status": "planned",
+  "channel": {
+    "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+    "title": "HAMMAD YOUSUF",
+    "custom_url": "@with.hammad"
+  },
+  "category": {
+    "id": "27",
+    "title": "Education"
+  },
+  "video": {
+    "path": "/Users/hammad/withhammad-video-pipeline/outputs/freelance-engineering-tutorial/full-video.mp4",
+    "size_bytes": 43048581,
+    "duration_s": 999.68,
+    "width": 1920,
+    "height": 1080,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "fps": "25/1",
+    "container": "mov,mp4,m4a,3gp,3g2,mj2",
+    "mime_type": "video/mp4",
+    "sha256": "c268f22ae6064c799d2a502f2a643daefd22826d1297015edca3dc50a8849809"
+  },
+  "metadata": {
+    "snippet": {
+      "title": "Freelance AI Engineer: Clients Kis Kaam Ke Paise Dete Hain? (Urdu/Hindi)",
+      "description": "Freelance engineering mein clients kis kaam ke liye hire karte hain? Is Urdu/Hindi tutorial mein contracts, defined projects, business automation, assistants, delivery aur maintenance retainers ko visual examples ke saath samajhiye.\n\nTopics: team contracts versus project outcomes; technical and business buyers; back-office automation; assistants and MCP connections; project examples; working alongside employment; support and retainers.\n\nPractical AI workflows: https://withhammad.com/\n\nPresented with my AI avatar and cloned voice. The short intro and first two narration chapters reuse existing generated assets. Remaining narration uses a local voice-cloning model. Slides and narration are original; project categories are illustrative, not claims about my own clients or earnings.\n\nReference: What Companies Hire Freelance Engineers For in 2026, Dave Ebbelaar \u2014 https://youtu.be/1HtydHmdhrQ\n\n#Freelancing #AIEngineering #Automation\n\nCHAPTERS\n0:00 What clients hire you for\n0:18 Contracts versus projects\n3:26 Engineering teams and business buyers\n6:30 Business automation and assistants\n9:50 Delivery and project examples\n13:09 Contracts, retainers and next steps",
+      "tags": [],
+      "categoryId": "27",
+      "defaultLanguage": "hi",
+      "defaultAudioLanguage": "hi"
+    },
+    "status": {
+      "privacyStatus": "private",
+      "selfDeclaredMadeForKids": false,
+      "containsSyntheticMedia": true,
+      "publishAt": "2026-10-19T05:00:00Z"
+    }
+  },
+  "warnings": [],
+  "preflight_requests": [
+    {
+      "step": "refresh_access_token",
+      "method": "POST",
+      "url": "https://oauth2.googleapis.com/token",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "form": {
+        "grant_type": "refresh_token",
+        "client_id": "***",
+        "client_secret": "***",
+        "refresh_token": "***"
+      },
+      "status": 200
+    },
+    {
+      "step": "channels.list (identity check)",
+      "method": "GET",
+      "url": "https://www.googleapis.com/youtube/v3/channels?part=id%2Csnippet&mine=true",
+      "headers": {
+        "Authorization": "Bearer ***"
+      },
+      "status": 200
+    },
+    {
+      "step": "videoCategories.list",
+      "method": "GET",
+      "url": "https://www.googleapis.com/youtube/v3/videoCategories?part=snippet&id=27",
+      "headers": {
+        "Authorization": "Bearer ***"
+      },
+      "status": 200
+    }
+  ],
+  "plan": [
+    {
+      "step": "start_upload_session",
+      "method": "POST",
+      "url": "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet%2Cstatus&notifySubscribers=true",
+      "headers": {
+        "Authorization": "Bearer ***",
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": "1538",
+        "X-Upload-Content-Length": "43048581",
+        "X-Upload-Content-Type": "video/mp4"
+      },
+      "json": {
+        "snippet": {
+          "title": "Freelance AI Engineer: Clients Kis Kaam Ke Paise Dete Hain? (Urdu/Hindi)",
+          "description": "Freelance engineering mein clients kis kaam ke liye hire karte hain? Is Urdu/Hindi tutorial mein contracts, defined projects, business automation, assistants, delivery aur maintenance retainers ko visual examples ke saath samajhiye.\n\nTopics: team contracts versus project outcomes; technical and business buyers; back-office automation; assistants and MCP connections; project examples; working alongside employment; support and retainers.\n\nPractical AI workflows: https://withhammad.com/\n\nPresented with my AI avatar and cloned voice. The short intro and first two narration chapters reuse existing generated assets. Remaining narration uses a local voice-cloning model. Slides and narration are original; project categories are illustrative, not claims about my own clients or earnings.\n\nReference: What Companies Hire Freelance Engineers For in 2026, Dave Ebbelaar \u2014 https://youtu.be/1HtydHmdhrQ\n\n#Freelancing #AIEngineering #Automation\n\nCHAPTERS\n0:00 What clients hire you for\n0:18 Contracts versus projects\n3:26 Engineering teams and business buyers\n6:30 Business automation and assistants\n9:50 Delivery and project examples\n13:09 Contracts, retainers and next steps",
+          "tags": [],
+          "categoryId": "27",
+          "defaultLanguage": "hi",
+          "defaultAudioLanguage": "hi"
+        },
+        "status": {
+          "privacyStatus": "private",
+          "selfDeclaredMadeForKids": false,
+          "containsSyntheticMedia": true,
+          "publishAt": "2026-10-19T05:00:00Z"
+        }
+      },
+      "expect": "200 OK + Location: session URI, saved to state_path before any bytes are sent"
+    },
+    {
+      "step": "upload_file",
+      "method": "PUT",
+      "url": "<session URI from the Location header of step 1>",
+      "headers": {
+        "Authorization": "Bearer ***",
+        "Content-Length": "43048581",
+        "Content-Type": "video/mp4"
+      },
+      "body": {
+        "file": "/Users/hammad/withhammad-video-pipeline/outputs/freelance-engineering-tutorial/full-video.mp4",
+        "bytes": 43048581,
+        "sha256": "c268f22ae6064c799d2a502f2a643daefd22826d1297015edca3dc50a8849809"
+      },
+      "expect": "201 Created + video resource; id saved to state_path at once"
+    },
+    {
+      "step": "set_thumbnail",
+      "method": "POST",
+      "url": "https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=<video id from the upload>&uploadType=media",
+      "headers": {
+        "Authorization": "Bearer ***",
+        "Content-Type": "image/jpeg",
+        "Content-Length": "89320"
+      },
+      "body": {
+        "file": "/Users/hammad/withhammad-video-pipeline/outputs/freelance-engineering-tutorial/thumbnail.jpg",
+        "bytes": 89320,
+        "sha256": "36f5f182d00faada77560d555f6dc3ea5a860788f80c15f78fd7c63c7120bf08"
+      },
+      "expect": "200 + thumbnail URLs; sha256 saved to state_path. A failure is a warning, not a failed publish (403: verify the channel at https://www.youtube.com/verify)."
+    }
+  ],
+  "state_path": "/Users/hammad/withhammad-video-pipeline/work/.secrets/freelance-engineering-youtube-upload.json",
+  "notes": [
+    "Only the OAuth token refresh (POST to oauth2.googleapis.com, creates nothing) and GETs were sent. Run with dry_run=False and a state_path to upload."
+  ]
+}

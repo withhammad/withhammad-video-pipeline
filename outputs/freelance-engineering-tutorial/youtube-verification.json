@@ -1,0 +1,115 @@
+{
+  "video_id": "NOufGTROPI8",
+  "url": "https://www.youtube.com/watch?v=NOufGTROPI8",
+  "checks": {
+    "channel": true,
+    "title": true,
+    "description": true,
+    "scheduled": true,
+    "private_until_scheduled": true,
+    "processed": true,
+    "custom_thumbnail": true,
+    "subtitles_serving": true
+  },
+  "video": {
+    "kind": "youtube#video",
+    "etag": "C2LsdVs_h72fUyDPJ3sSxYFmqCE",
+    "id": "NOufGTROPI8",
+    "snippet": {
+      "publishedAt": "2026-10-18T19:18:41Z",
+      "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+      "title": "Freelance AI Engineer: Clients Kis Kaam Ke Paise Dete Hain? (Urdu/Hindi)",
+      "description": "Freelance engineering mein clients kis kaam ke liye hire karte hain? Is Urdu/Hindi tutorial mein contracts, defined projects, business automation, assistants, delivery aur maintenance retainers ko visual examples ke saath samajhiye.\n\nTopics: team contracts versus project outcomes; technical and business buyers; back-office automation; assistants and MCP connections; project examples; working alongside employment; support and retainers.\n\nPractical AI workflows: https://withhammad.com/\n\nPresented with my AI avatar and cloned voice. The short intro and first two narration chapters reuse existing generated assets. Remaining narration uses a local voice-cloning model. Slides and narration are original; project categories are illustrative, not claims about my own clients or earnings.\n\nReference: What Companies Hire Freelance Engineers For in 2026, Dave Ebbelaar — https://youtu.be/1HtydHmdhrQ\n\n#Freelancing #AIEngineering #Automation\n\nCHAPTERS\n0:00 What clients hire you for\n0:18 Contracts versus projects\n3:26 Engineering teams and business buyers\n6:30 Business automation and assistants\n9:50 Delivery and project examples\n13:09 Contracts, retainers and next steps",
+      "thumbnails": {
+        "default": {
+          "url": "https://i9.ytimg.com/vi/NOufGTROPI8/default.jpg?sqp=COC31NYG&rs=AOn4CLBMCpVYYDJSIfx68uAu0B-hmyQcVA",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i9.ytimg.com/vi/NOufGTROPI8/mqdefault.jpg?sqp=COC31NYG&rs=AOn4CLBQLmj3R12Tfh1XY3HuYExe1f9zRg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i9.ytimg.com/vi/NOufGTROPI8/hqdefault.jpg?sqp=COC31NYG&rs=AOn4CLCNGnu-MXnXqDUHwCh0yeTc3FmyXQ",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i9.ytimg.com/vi/NOufGTROPI8/sddefault.jpg?sqp=COC31NYG&rs=AOn4CLCGhMpQSn94nwd_xkpgIIf5D8gfbg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i9.ytimg.com/vi/NOufGTROPI8/maxresdefault.jpg?sqp=COC31NYG&rs=AOn4CLDHe4_BlUXdQW-AA3DL3h5Hh4cXDg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "HAMMAD YOUSUF",
+      "categoryId": "27",
+      "liveBroadcastContent": "none",
+      "defaultLanguage": "hi",
+      "localized": {
+        "title": "Freelance AI Engineer: Clients Kis Kaam Ke Paise Dete Hain? (Urdu/Hindi)",
+        "description": "Freelance engineering mein clients kis kaam ke liye hire karte hain? Is Urdu/Hindi tutorial mein contracts, defined projects, business automation, assistants, delivery aur maintenance retainers ko visual examples ke saath samajhiye.\n\nTopics: team contracts versus project outcomes; technical and business buyers; back-office automation; assistants and MCP connections; project examples; working alongside employment; support and retainers.\n\nPractical AI workflows: https://withhammad.com/\n\nPresented with my AI avatar and cloned voice. The short intro and first two narration chapters reuse existing generated assets. Remaining narration uses a local voice-cloning model. Slides and narration are original; project categories are illustrative, not claims about my own clients or earnings.\n\nReference: What Companies Hire Freelance Engineers For in 2026, Dave Ebbelaar — https://youtu.be/1HtydHmdhrQ\n\n#Freelancing #AIEngineering #Automation\n\nCHAPTERS\n0:00 What clients hire you for\n0:18 Contracts versus projects\n3:26 Engineering teams and business buyers\n6:30 Business automation and assistants\n9:50 Delivery and project examples\n13:09 Contracts, retainers and next steps"
+      },
+      "defaultAudioLanguage": "hi"
+    },
+    "contentDetails": {
+      "duration": "PT16M40S",
+      "dimension": "2d",
+      "definition": "hd",
+      "caption": "true",
+      "licensedContent": false,
+      "contentRating": {},
+      "projection": "rectangular",
+      "hasCustomThumbnail": true
+    },
+    "status": {
+      "uploadStatus": "processed",
+      "privacyStatus": "private",
+      "publishAt": "2026-10-19T05:00:00Z",
+      "license": "youtube",
+      "embeddable": true,
+      "publicStatsViewable": true,
+      "madeForKids": false,
+      "selfDeclaredMadeForKids": false
+    },
+    "processingDetails": {
+      "processingStatus": "succeeded",
+      "fileDetailsAvailability": "available",
+      "processingIssuesAvailability": "available",
+      "tagSuggestionsAvailability": "inProgress",
+      "editorSuggestionsAvailability": "inProgress",
+      "thumbnailsAvailability": "inProgress"
+    }
+  },
+  "captions": {
+    "kind": "youtube#captionListResponse",
+    "etag": "KdsxaMlB5WT4tePElX6NMkb9-xM",
+    "items": [
+      {
+        "kind": "youtube#caption",
+        "etag": "BfMhlMIpJTNpc0iW0jK6kQDU9gw",
+        "id": "AUieDaZyZm5WWVKch6105-xa6Rsze4k5ySAQGz8FQiegjsJEV_o8jEjmjaZwPsBq1Zpgh_ofMNn1tFht",
+        "snippet": {
+          "videoId": "NOufGTROPI8",
+          "lastUpdated": "2026-10-18T19:22:00.880701Z",
+          "trackKind": "standard",
+          "language": "hi",
+          "name": "Urdu/Hindi — WithHammad",
+          "audioTrackType": "unknown",
+          "isCC": false,
+          "isLarge": false,
+          "isEasyReader": false,
+          "isDraft": false,
+          "isAutoSynced": false,
+          "status": "serving"
+        }
+      }
+    ]
+  },
+  "all_passed": true
+}

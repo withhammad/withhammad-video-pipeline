@@ -1,5 +1,5 @@
 {
-  "status": "finished_ready_for_review",
+  "status": "finished_youtube_scheduled",
   "video": "full-video.mp4",
   "duration_seconds": 999.68,
   "resolution": "1920x1080",
@@ -11,7 +11,14 @@
   "thumbnail": "thumbnail.jpg",
   "new_paid_plan": false,
   "new_heygen_generation_after_skip": false,
-  "publication_status": "not_uploaded",
+  "publication_status": "scheduled",
   "verification": "final-verification.json",
-  "next_reference": "next-reference.json"
+  "next_reference": "next-reference.json",
+  "youtube": {
+    "video_id": "NOufGTROPI8",
+    "url": "https://www.youtube.com/watch?v=NOufGTROPI8",
+    "publish_at": "2026-10-19T05:00:00Z",
+    "local_time": "2026-10-19 09:00 Asia/Dubai",
+    "verification": "youtube-verification.json"
+  }
 }

@@ -7,7 +7,7 @@
   "video": "full-video.mp4",
   "thumbnail": "thumbnail.jpg",
   "subtitles": "full-video.srt",
-  "publication_status": "not_uploaded",
+  "publication_status": "scheduled",
   "requested_upload_date": "2026-10-19",
   "timezone": "Asia/Dubai",
   "chapters": [
@@ -35,5 +35,22 @@
       "seconds": 789.9493877551022,
       "title": "Contracts, retainers and next steps"
     }
-  ]
+  ],
+  "youtube_format": "long",
+  "schedule": {
+    "youtube_utc": "2026-10-19T05:00:00Z",
+    "local": "2026-10-19T09:00:00+04:00",
+    "timezone": "Asia/Dubai"
+  },
+  "captions": {
+    "youtube_title": "Freelance AI Engineer: Clients Kis Kaam Ke Paise Dete Hain? (Urdu/Hindi)",
+    "youtube_description": "Freelance engineering mein clients kis kaam ke liye hire karte hain? Is Urdu/Hindi tutorial mein contracts, defined projects, business automation, assistants, delivery aur maintenance retainers ko visual examples ke saath samajhiye.\n\nTopics: team contracts versus project outcomes; technical and business buyers; back-office automation; assistants and MCP connections; project examples; working alongside employment; support and retainers.\n\nPractical AI workflows: https://withhammad.com/\n\nPresented with my AI avatar and cloned voice. The short intro and first two narration chapters reuse existing generated assets. Remaining narration uses a local voice-cloning model. Slides and narration are original; project categories are illustrative, not claims about my own clients or earnings.\n\nReference: What Companies Hire Freelance Engineers For in 2026, Dave Ebbelaar — https://youtu.be/1HtydHmdhrQ\n\n#Freelancing #AIEngineering #Automation\n\nCHAPTERS\n0:00 What clients hire you for\n0:18 Contracts versus projects\n3:26 Engineering teams and business buyers\n6:30 Business automation and assistants\n9:50 Delivery and project examples\n13:09 Contracts, retainers and next steps"
+  },
+  "youtube": {
+    "video_id": "NOufGTROPI8",
+    "url": "https://www.youtube.com/watch?v=NOufGTROPI8",
+    "publish_at": "2026-10-19T05:00:00Z",
+    "local_time": "2026-10-19 09:00 Asia/Dubai",
+    "verification": "youtube-verification.json"
+  }
 }

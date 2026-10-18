@@ -10,8 +10,8 @@
   "format": "short avatar introduction, cloned voice over freshly recorded visual presentation",
   "owner_approved_format": true,
   "credits_checked": 39,
-  "status": "finished_ready_for_review",
-  "publication_status": "not_uploaded",
+  "status": "finished_youtube_scheduled",
+  "publication_status": "scheduled",
   "privacy_requirement": "No employer or corporate workspace branding in any narration, recording, visual or publication metadata; use Hammad branding only.",
   "coverage": [
     "contract versus project work",
@@ -62,5 +62,12 @@
   "subtitle": "full-video.srt",
   "thumbnail": "thumbnail.jpg",
   "verification": "final-verification.json",
-  "tests": "528 passed; default ffmpeg 8 retained for pipeline compatibility; caption export uses ffmpeg-full separately"
+  "tests": "528 passed; default ffmpeg 8 retained for pipeline compatibility; caption export uses ffmpeg-full separately",
+  "youtube": {
+    "video_id": "NOufGTROPI8",
+    "url": "https://www.youtube.com/watch?v=NOufGTROPI8",
+    "publish_at": "2026-10-19T05:00:00Z",
+    "local_time": "2026-10-19 09:00 Asia/Dubai",
+    "verification": "youtube-verification.json"
+  }
 }
