@@ -1,3 +1,6 @@
 work/.secrets/
 **/__pycache__/
 .claude/worktrees/
+
+# raw audience analytics and screenshots (private; summary lives in docs/BEST_TIMES.md)
+work/timing/

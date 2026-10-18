@@ -12,7 +12,16 @@ thumbnail, avatar "perfect"). Queue order chosen by the owner 2026-10-18: FDE, S
 | 2026-10-21 | Wed | UAE 100 Dreams: $10K for 100 media ideas | 91ac50635d3d | PITCH | in verification |
 | 2026-10-22 | Thu | 5 MCP servers for Claude Code | c366de480853 | (from its spec) | breakdown |
 
-Per-platform posting times: see docs/BEST_TIMES.md (pending the timing study).
+Per-platform posting times (docs/BEST_TIMES.md, decided 2026-10-18 from our own audience data; review 3 Nov 2026):
+
+| Platform | Mon-Fri (GST) | Sat-Sun (GST) | Backup |
+|---|---|---|---|
+| YouTube Shorts | 12:00 (Fri 10:00) | 12:00 | 14:00 (Fri 09:00) |
+| LinkedIn | 16:00 | 10:00 | 11:00 weekdays |
+| Instagram Reels (Collab) | 17:00 | 17:00 | 20:00 |
+| TikTok | 17:00 | 17:00 | 20:00 |
+| Facebook Reels | 17:00 | 17:00 | 20:00 |
+| X | 18:00 | 18:00 | 09:00 |
 
 How each platform is scheduled: YouTube via the API (privacyStatus private + publishAt); TikTok, Facebook, X and
 LinkedIn with the composer's own Schedule option in the owner's Chrome; Instagram (Collab with @hammadagentic.ai,
