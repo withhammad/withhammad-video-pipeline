@@ -26,7 +26,7 @@ may carry "face" {x, y, w, h} (still px: the head box, hair top to chin, ear to 
 its fit and the camera (plus shake) on every frame it is on screen. A still without one is a warning.
 It warns about every pose swap inside a shot between stills that are not one aligned view (the background would
 jump; "align" below), unless the swap sits under a camera blur (a whip hides it). It then copies every asset into
-studio/remotion/public/job/deskreel/ (cleared first), probes inset video lengths (an inset holds its last frame
+studio/remotion/public/job/deskreel/<job id>/ (cleared first), probes inset video lengths (an inset holds its last frame
 instead of running out) and writes <job>/edit_deskreel.props.json.
 
 render runs `npx remotion render DeskReel` with absolute paths (Remotion runs from studio/remotion), masters to
@@ -59,7 +59,7 @@ from pathlib import Path
 STUDIO = Path(__file__).resolve().parents[1]
 REMOTION = STUDIO / 'remotion'
 PUBLIC = REMOTION / 'public'
-STAGE_DIR = 'job/deskreel'          # under remotion/public; cleared on every build
+STAGE_DIR = 'job/deskreel'          # under remotion/public; each job stages into STAGE_DIR/<job id>, cleared on its build
 _METRICS = json.loads((Path(__file__).with_name('deskreel_fonts.json')).read_text())
 FONTS = _METRICS['fonts']
 EMOJI_FONT = _METRICS['emoji']     # Noto Color Emoji, second in every Overlays.tsx font stack
@@ -775,15 +775,20 @@ def _face_clear(errors, where, o, spec, job, sizes, fits, poses, shots):
 
 # ----------------------------------------------------------------------------------------------- staging
 
-def _public_name(path):
+def stage_dir(job):
+    """The job's own folder under remotion/public, so two reels can build and render at the same time."""
+    return f'{STAGE_DIR}/{Path(job).name}'
+
+
+def _public_name(path, job):
     path = Path(path).resolve()
     digest = hashlib.sha1(str(path).encode()).hexdigest()[:6]
-    return f'{STAGE_DIR}/{path.stem}_{digest}{path.suffix.lower()}'
+    return f'{stage_dir(job)}/{path.stem}_{digest}{path.suffix.lower()}'
 
 
 def build_props(spec, job, public=PUBLIC, copy=True, probe=probe_ms):
     """The props for DeskReel: spec-only keys dropped, typewriters expanded, every asset copied under
-    public/job/deskreel and its src rewritten, inset video lengths probed. Assumes validate() passed."""
+    public/job/deskreel/<job id> and its src rewritten, inset video lengths probed. Assumes validate() passed."""
     job = Path(job)
     props = {k: json.loads(json.dumps(spec[k])) for k in PROPS_KEYS if k in spec}
     staged = {}
@@ -791,7 +796,7 @@ def build_props(spec, job, public=PUBLIC, copy=True, probe=probe_ms):
     def stage(src):
         path = resolve(job, src).resolve()
         if path not in staged:
-            staged[path] = _public_name(path)
+            staged[path] = _public_name(path, job)
             if copy:
                 dest = Path(public) / staged[path]
                 dest.parent.mkdir(parents=True, exist_ok=True)
@@ -799,7 +804,7 @@ def build_props(spec, job, public=PUBLIC, copy=True, probe=probe_ms):
         return staged[path]
 
     if copy:
-        shutil.rmtree(Path(public) / STAGE_DIR, ignore_errors=True)
+        shutil.rmtree(Path(public) / stage_dir(job), ignore_errors=True)
     for s in props['stills']:
         for k in STILL_SPEC_KEYS:
             s.pop(k, None)

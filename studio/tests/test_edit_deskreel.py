@@ -231,6 +231,18 @@ def test_props_shape(job, tmp_path):
     json.dumps(props)     # plain JSON for --props
 
 
+def test_two_jobs_stage_apart(job, tmp_path):
+    """Two reels can build at the same time: each stages into its own folder and clears only that one."""
+    public = tmp_path / 'public'
+    other = tmp_path / 'otherjob'
+    shutil.copytree(job, other)
+    first = dr.build_props(spec_ok(), job, public=public, probe=lambda path: 4321)
+    second = dr.build_props(spec_ok(), other, public=public, probe=lambda path: 4321)
+    assert first['stills'][0]['src'].startswith(f'job/deskreel/{job.name}/')
+    assert second['stills'][0]['src'].startswith('job/deskreel/otherjob/')
+    assert (public / first['stills'][0]['src']).is_file() and (public / second['stills'][0]['src']).is_file()
+
+
 def test_props_field_names_match_types_ts():
     ts = TYPES_TS.read_text()
     for field in ('durationMs', 'stills', 'poses', 'camera', 'overlays', 'music', 'sfx', 'grade', 'allowMissingAudio',
