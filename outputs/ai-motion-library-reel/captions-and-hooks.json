@@ -1,6 +1,6 @@
 {
-  "status": "owner_authorized_instagram_publication",
-  "resource_status": "local_not_deployed",
+  "status": "instagram_published",
+  "resource_status": "deployed_verified_200",
   "hook": "Claude can now build full professional motion graphics from scratch.",
   "youtube_title": "Better AI Motion Graphics: From Example to Original Brief",
   "thumbnail": "AI MOTION / COPY THE PROMPT / COMMENT MOTION",

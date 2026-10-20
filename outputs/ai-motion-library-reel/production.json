@@ -1,6 +1,6 @@
 {
   "job": "motion20261020",
-  "status": "publishing_authorized",
+  "status": "instagram_published_manychat_plan_limit",
   "reference": "https://www.instagram.com/reel/DerldXdPE38/",
   "reference_duration": 29.909,
   "language": "English",
@@ -10,8 +10,8 @@
     390
   ],
   "approval_required": false,
-  "upload_status": "not_uploaded_not_scheduled",
-  "resource_status": "local_not_deployed",
+  "upload_status": "instagram_published",
+  "resource_status": "deployed_verified_200",
   "keyword": "MOTION",
   "studio": "http://localhost:3019/MotionReferenceMatch",
   "avatar_video_id": "8c80a10de94587564396c1133d937663",
@@ -21,5 +21,10 @@
   "duration_seconds": 36.866667,
   "final_sha256": "bfd91290c86658db438e9e1a75b553bfc0733e2f33c47140ea746a0a3db140ba",
   "voice": "Fresh owner voice generated at 1.0x; light EQ and loudness normalization, no speed or pitch changes. Quiet music at 0.14 gain with 0.8-second fades.",
-  "timing_note": "Reference shot order preserved; source footage retimed per matched narration anchors to keep the 34-second take natural. Full-presenter captions rebuilt."
+  "timing_note": "Reference shot order preserved; source footage retimed per matched narration anchors to keep the 34-second take natural. Full-presenter captions rebuilt.",
+  "instagram_media_id": "18030406115860410",
+  "instagram_permalink": "https://www.instagram.com/reel/Deu0-tsmyWm/",
+  "manychat_status": "blocked_free_plan_automation_limit",
+  "collaborator_status": "hammadagentic.ai_invited_pending_acceptance",
+  "updated_utc": "2026-10-20T21:50:00.399381+00:00"
 }

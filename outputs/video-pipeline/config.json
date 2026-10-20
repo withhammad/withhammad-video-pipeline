@@ -222,5 +222,14 @@
     "thumbnails": "Large prominent approved face, strong short hook, explicit comment-keyword CTA, consistent branding. Show revised covers before replacing published covers.",
     "voice": "Keep owner voice; natural and clear. Reduce bass buildup, improve intelligibility, quiet music, avoid extra speedup.",
     "motion_reference_revision": "Match supplied reference visuals and sequence; replace avatar, voice, background music. Align visual timing to natural narration."
+  },
+  "motion20261020": {
+    "instagram_media_id": "18030406115860410",
+    "permalink": "https://www.instagram.com/reel/Deu0-tsmyWm/",
+    "resource": "https://withhammad.com/resources/ai-motion-starter-kit",
+    "manychat_flow": "content20261020213935_056913",
+    "manychat_status": "blocked_free_plan_automation_limit",
+    "collaborator_status": "pending_acceptance",
+    "updated_utc": "2026-10-20T21:50:00.399381+00:00"
   }
 }

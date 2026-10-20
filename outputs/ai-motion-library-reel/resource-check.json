@@ -1,0 +1,33 @@
+{
+  "h1_count": 1,
+  "title": [
+    "AI motion graphics prompts and starter kit"
+  ],
+  "canonical": true,
+  "jsonld": 2,
+  "internal_links": 23,
+  "download_link": true,
+  "mobile": {
+    "width": 375,
+    "scroll_width": 375
+  },
+  "live_checks": [
+    {
+      "path": "/resources/ai-motion-starter-kit",
+      "result": "200 text/html; charset=utf-8"
+    },
+    {
+      "path": "/resources/ai-motion-starter-kit/ai-motion-starter-kit.zip",
+      "result": "200 application/zip"
+    },
+    {
+      "path": "/media/reels/ai-motion-starter-kit.mp4",
+      "result": "200 video/mp4"
+    },
+    {
+      "path": "/media/covers/ai-motion-starter-kit.jpg",
+      "result": "200 image/jpeg"
+    }
+  ],
+  "verified_utc": "2026-10-20T21:44:43.372377+00:00"
+}

@@ -1,0 +1,209 @@
+{
+  "platform": "instagram",
+  "dry_run": false,
+  "state_path": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/motion20261020/publish_instagram.json",
+  "video": {
+    "path": "/Users/hammad/withhammad-video-pipeline/outputs/ai-motion-library-reel/final-motion-voice-v3.mp4",
+    "size": 11106120,
+    "duration_s": 36.867,
+    "video_codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "pix_fmt": "yuv420p",
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "audio_channels": 2,
+    "sha256": "bfd91290c86658db438e9e1a75b553bfc0733e2f33c47140ea746a0a3db140ba",
+    "moov_first": true,
+    "edit_lists": true,
+    "warnings": [
+      "audio bitrate 260 kbps is above the 128 kbps in Meta's spec",
+      "file has edit lists (ffmpeg's default); Meta's spec says none: if Meta rejects it, remux with: ffmpeg -i in.mp4 -c copy -use_editlist 0 -movflags +faststart out.mp4"
+    ]
+  },
+  "caption": {
+    "text": "Stop guessing your AI motion prompts. Start with a clearer brief.\n\nStudy an example, then define your own product, palette, timing and final frame. Review the result and iterate\u2014outputs vary with the tool and settings.\n\nComment MOTION for my starter brief and review checklist. Follow @with.hammad for practical AI builds.\n\nPrompt Motion walkthrough adapted from the supplied reference. AI avatar and my generated voice.\n\n#AIMotionGraphics #Remotion #MotionDesign #ClaudeCode",
+    "length": 475,
+    "hashtags": 4,
+    "mentions": 1
+  },
+  "upload_method": "video_url",
+  "warnings": [
+    "audio bitrate 260 kbps is above the 128 kbps in Meta's spec",
+    "file has edit lists (ffmpeg's default); Meta's spec says none: if Meta rejects it, remux with: ffmpeg -i in.mp4 -c copy -use_editlist 0 -movflags +faststart out.mp4"
+  ],
+  "blockers": [],
+  "cover": {
+    "provider": "StaticUrlProvider",
+    "path": "/Users/hammad/withhammad-video-pipeline/outputs/ai-motion-library-reel/cover-face-v2-1080x1920.jpg",
+    "size": 468119,
+    "sha256": "465c80f1972102ed9b4f906a55cfb20930d8c8872a170d5c4306f410f2241ffd",
+    "status": "sent",
+    "url": "https://withhammad.com/media/covers/ai-motion-starter-kit.jpg"
+  },
+  "requests": [
+    {
+      "step": "identity",
+      "method": "GET",
+      "url": "https://graph.instagram.com/v25.0/me",
+      "headers": {
+        "Authorization": "Bearer <redacted>"
+      },
+      "params": {
+        "fields": "user_id,username,account_type"
+      },
+      "executed": true
+    },
+    {
+      "step": "publishing_limit",
+      "method": "GET",
+      "url": "https://graph.instagram.com/v25.0/17841400507502327/content_publishing_limit",
+      "headers": {
+        "Authorization": "Bearer <redacted>"
+      },
+      "params": {
+        "fields": "quota_usage,config"
+      },
+      "executed": true
+    },
+    {
+      "step": "host_video",
+      "method": "HOST",
+      "provider": "StaticUrlProvider",
+      "url": "https://withhammad.com/media/reels/ai-motion-starter-kit.mp4",
+      "file_size": 11106120,
+      "executed": true
+    },
+    {
+      "step": "check_public_url",
+      "method": "HEAD",
+      "url": "https://withhammad.com/media/reels/ai-motion-starter-kit.mp4",
+      "headers": {},
+      "expect": {
+        "status": 200,
+        "content_length": 11106120
+      },
+      "executed": true,
+      "result": {
+        "status": 200,
+        "content_length": 11106120,
+        "content_type": "video/mp4"
+      }
+    },
+    {
+      "step": "host_cover",
+      "method": "HOST",
+      "provider": "StaticUrlProvider",
+      "url": "https://withhammad.com/media/covers/ai-motion-starter-kit.jpg",
+      "file_size": 468119,
+      "executed": true
+    },
+    {
+      "step": "check_cover_url",
+      "method": "HEAD",
+      "url": "https://withhammad.com/media/covers/ai-motion-starter-kit.jpg",
+      "headers": {},
+      "expect": {
+        "status": 200,
+        "content_type": "image/jpeg",
+        "max_bytes": 8000000,
+        "content_length": 468119
+      },
+      "executed": true,
+      "result": {
+        "status": 200,
+        "content_length": 468119,
+        "content_type": "image/jpeg"
+      }
+    },
+    {
+      "step": "create_container",
+      "method": "POST",
+      "url": "https://graph.instagram.com/v25.0/17841400507502327/media",
+      "headers": {
+        "Authorization": "Bearer <redacted>",
+        "Content-Type": "application/json"
+      },
+      "json": {
+        "media_type": "REELS",
+        "video_url": "https://withhammad.com/media/reels/ai-motion-starter-kit.mp4",
+        "caption": "Stop guessing your AI motion prompts. Start with a clearer brief.\n\nStudy an example, then define your own product, palette, timing and final frame. Review the result and iterate\u2014outputs vary with the tool and settings.\n\nComment MOTION for my starter brief and review checklist. Follow @with.hammad for practical AI builds.\n\nPrompt Motion walkthrough adapted from the supplied reference. AI avatar and my generated voice.\n\n#AIMotionGraphics #Remotion #MotionDesign #ClaudeCode",
+        "share_to_feed": true,
+        "is_ai_generated": true,
+        "collaborators": [
+          "hammadagentic.ai"
+        ],
+        "cover_url": "https://withhammad.com/media/covers/ai-motion-starter-kit.jpg"
+      },
+      "file_size": 11106120,
+      "executed": true
+    },
+    {
+      "step": "container_status",
+      "method": "GET",
+      "url": "https://graph.instagram.com/v25.0/18645187609016917",
+      "headers": {
+        "Authorization": "Bearer <redacted>"
+      },
+      "params": {
+        "fields": "id,status,status_code"
+      },
+      "executed": true
+    },
+    {
+      "step": "container_status",
+      "method": "GET",
+      "url": "https://graph.instagram.com/v25.0/18645187609016917",
+      "headers": {
+        "Authorization": "Bearer <redacted>"
+      },
+      "params": {
+        "fields": "id,status,status_code"
+      },
+      "executed": true
+    },
+    {
+      "step": "publish",
+      "method": "POST",
+      "url": "https://graph.instagram.com/v25.0/17841400507502327/media_publish",
+      "headers": {
+        "Authorization": "Bearer <redacted>",
+        "Content-Type": "application/json"
+      },
+      "json": {
+        "creation_id": "18645187609016917"
+      },
+      "executed": true
+    },
+    {
+      "step": "permalink",
+      "method": "GET",
+      "url": "https://graph.instagram.com/v25.0/18030406115860410",
+      "headers": {
+        "Authorization": "Bearer <redacted>"
+      },
+      "params": {
+        "fields": "id,permalink,shortcode,timestamp"
+      },
+      "executed": true
+    }
+  ],
+  "account": {
+    "username": "with.hammad",
+    "ig_user_id": "17841400507502327",
+    "account_type": "MEDIA_CREATOR"
+  },
+  "publishing_limit": {
+    "quota_usage": 1,
+    "quota_total": 100,
+    "quota_duration_s": 86400
+  },
+  "collaborators": [
+    "hammadagentic.ai"
+  ],
+  "container_id": "18645187609016917",
+  "status": "published",
+  "media_id": "18030406115860410",
+  "permalink": "https://www.instagram.com/reel/Deu0-tsmyWm/"
+}

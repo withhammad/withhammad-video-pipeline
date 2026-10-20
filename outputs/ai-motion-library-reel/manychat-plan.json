@@ -1,8 +1,18 @@
 {
-  "status": "draft_only_not_created",
+  "status": "configured_saved_off_blocked_free_plan_automation_limit",
   "keyword": "MOTION",
   "trigger": "Only this reel, after final approval and publication; never all posts",
   "message": "Thanks for commenting MOTION! Follow @with.hammad for practical AI builds. Here is my starter brief and review checklist: https://withhammad.com/resources/ai-motion-starter-kit?utm_source=instagram&utm_medium=dm&utm_campaign=motion",
   "resource_status": "local_not_deployed",
-  "enable_after": "Owner approval, resource deployment, actual reel exists, specific post binding verified"
+  "enable_after": "Owner approval, resource deployment, actual reel exists, specific post binding verified",
+  "flow_id": "content20261020213935_056913",
+  "workspace": "fb5064597",
+  "resource_url": "https://withhammad.com/resources/ai-motion-starter-kit?utm_source=instagram&utm_medium=dm&utm_campaign=motion",
+  "specific_instagram_media_id": "18030406115860410",
+  "specific_thumbnail_filename": "858910624_18645187789016917_8580713230087492940_n.jpg",
+  "private_reply_verified": true,
+  "follow_invitation_verified": true,
+  "activation_error": "You've hit the Free plan's limit. Upgrade to Essential to unlock unlimited automations.",
+  "paid_upgrade_started": false,
+  "verified_utc": "2026-10-20T21:50:00.399381+00:00"
 }
