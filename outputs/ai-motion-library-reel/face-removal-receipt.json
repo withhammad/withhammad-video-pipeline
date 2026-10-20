@@ -31,10 +31,5 @@
     ]
   ],
   "method": "Opaque source-frame removal before retiming; no original presenter layer behind avatar",
-  "status": "validated",
-  "frame_scan": {
-    "frames": 897,
-    "faces": []
-  },
-  "visual_check": "2fps contact sheet inspected; no original presenter. Face scan filters width > 9% and height > 5% of source frame."
+  "status": "pending_visual_validation"
 }

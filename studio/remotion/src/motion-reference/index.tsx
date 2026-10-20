@@ -1,8 +1,8 @@
 import React from 'react';
-import {AbsoluteFill,Composition,registerRoot,OffthreadVideo,Audio,staticFile,useCurrentFrame,useVideoConfig} from 'remotion';
+import {AbsoluteFill,Composition,registerRoot,OffthreadVideo,Audio,staticFile,interpolate,useCurrentFrame,useVideoConfig} from 'remotion';
 import data from './alignment.json';
 type Props={avatar:string;music:string;duration:number;voice?:string;voiceReady?:boolean};
-const ReferenceMatch:React.FC<Props>=({avatar,voice='motion-library/voice-natural.wav',voiceReady=false})=>{
+const ReferenceMatch:React.FC<Props>=({avatar,music,voice='motion-library/voice-natural.wav',voiceReady=true})=>{
  const t=useCurrentFrame()/useVideoConfig().fps;
  const split=data.split.some(([a,b])=>t>=a-.2&&t<b+.2);
  const full=data.full.some(([a,b])=>t>=a-.2&&t<b+.2);
@@ -18,11 +18,12 @@ const ReferenceMatch:React.FC<Props>=({avatar,voice='motion-library/voice-natura
    <div style={{fontSize:38,lineHeight:1.5,marginTop:55,color:'#d5e1ec'}}>{ending?'Comment MOTION for the starter brief and checklist.':'Choose an example. Adapt the prompt to your brand.'}</div>
   </AbsoluteFill>}
   {(split||full)&&<div style={{position:'absolute',top:1100,left:70,right:70,textAlign:'center',fontWeight:800,fontSize:58,lineHeight:1.2,textShadow:'0 3px 12px #000'}}>{group.map((w,i)=><span key={i} style={{color:/motion/i.test(w.text)?'#72c9ff':'white'}}>{w.text.trim()+' '}</span>)}</div>}
-  <div style={{position:'absolute',right:46,bottom:90,width:300,height:450,overflow:'hidden',borderRadius:28,border:'2px solid #ffffff30',background:'#101820'}}>
+  <div style={{position:'absolute',right:46,bottom:30,width:260,height:390,overflow:'hidden',borderRadius:28,border:'2px solid #ffffff30',background:'#101820'}}>
    <OffthreadVideo src={staticFile(avatar)} muted style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'50% 35%'}}/>
   </div>
   {voiceReady&&<Audio src={staticFile(voice)}/>}
+  {voiceReady&&<Audio src={staticFile(music)} volume={.14*interpolate(t,[0,.8,data.duration-.8,data.duration],[0,1,1,0],{extrapolateLeft:"clamp",extrapolateRight:"clamp"})}/>}
   <div style={{position:'absolute',bottom:65,left:42,fontSize:22,color:'#d5e1ec'}}>AI presenter · @with.hammad</div>
  </AbsoluteFill>;
 };
-registerRoot(()=> <Composition id="MotionReferenceMatch" component={ReferenceMatch} width={1080} height={1920} fps={30} durationInFrames={1028} calculateMetadata={({props})=>({durationInFrames:Math.ceil(props.duration*30)})} defaultProps={{avatar:'motion-library/avatar-natural.mp4',music:'motion-library/music.wav',voice:'motion-library/voice-natural.wav',voiceReady:false,duration:data.duration}}/>);
+registerRoot(()=> <Composition id="MotionReferenceMatch" component={ReferenceMatch} width={1080} height={1920} fps={30} durationInFrames={1028} calculateMetadata={({props})=>({durationInFrames:Math.ceil(props.duration*30)})} defaultProps={{avatar:'motion-library/avatar-natural.mp4',music:'motion-library/music.wav',voice:'motion-library/voice-natural.wav',voiceReady:true,duration:data.duration}}/>);

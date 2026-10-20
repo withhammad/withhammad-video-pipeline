@@ -1,0 +1,49 @@
+{
+  "status": "ready_for_owner_review",
+  "duration_seconds": 36.866667,
+  "video": "final-motion-voice-v3.mp4",
+  "audio": {
+    "lufs": -16.0,
+    "lra": 5.2,
+    "true_peak_dbtp": -1.7,
+    "lufs_phone": -19.3,
+    "duration_s": 36.864,
+    "sample_peak_dbfs": -1.71,
+    "clipped_samples": 0,
+    "rms_dbfs": -18.66,
+    "centroid_hz": 393.8,
+    "share_1_4k": 0.0405,
+    "bands_db": {
+      "31-63": -24.5,
+      "63-125": -9.2,
+      "125-250": -5.2,
+      "250-500": -4.5,
+      "500-1000": -7.7,
+      "1000-2000": -15.4,
+      "2000-4000": -19.3,
+      "4000-8000": -22.1,
+      "8000-16000": -32.5
+    }
+  },
+  "face_scan": {
+    "frames": 1106,
+    "detected_faces": 1106,
+    "outside_approved_avatar": 0
+  },
+  "voice_generation_speed": 1.0,
+  "post_speed_change": false,
+  "music": {
+    "volume": 0.14,
+    "fade_seconds": 0.8,
+    "voice_remains_unsped": true
+  },
+  "original_audio": false,
+  "avatar_box": {
+    "x": 774,
+    "y": 1500,
+    "width": 260,
+    "height": 390
+  },
+  "sha256": "bfd91290c86658db438e9e1a75b553bfc0733e2f33c47140ea746a0a3db140ba",
+  "upload_status": "not_uploaded_not_scheduled"
+}

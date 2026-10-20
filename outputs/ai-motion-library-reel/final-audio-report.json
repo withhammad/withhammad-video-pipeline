@@ -1,21 +1,23 @@
 {
-  "input": {
-    "input_i": "-16.21",
-    "input_tp": "-2.00",
-    "input_lra": "3.70",
-    "input_thresh": "-26.51",
-    "output_i": "-14.02",
-    "output_tp": "-1.00",
-    "output_lra": "3.40",
-    "output_thresh": "-24.33",
-    "normalization_type": "dynamic",
-    "target_offset": "0.02"
-  },
-  "normalization_type": "dynamic",
-  "tp_target_used": -1.0,
-  "output": {
-    "lufs": -14.0,
-    "lra": 3.4,
-    "true_peak_dbtp": -1.0
+  "lufs": -16.0,
+  "lra": 5.2,
+  "true_peak_dbtp": -1.7,
+  "lufs_phone": -19.3,
+  "duration_s": 36.864,
+  "sample_peak_dbfs": -1.71,
+  "clipped_samples": 0,
+  "rms_dbfs": -18.66,
+  "centroid_hz": 393.8,
+  "share_1_4k": 0.0405,
+  "bands_db": {
+    "31-63": -24.5,
+    "63-125": -9.2,
+    "125-250": -5.2,
+    "250-500": -4.5,
+    "500-1000": -7.7,
+    "1000-2000": -15.4,
+    "2000-4000": -19.3,
+    "4000-8000": -22.1,
+    "8000-16000": -32.5
   }
 }

@@ -1,4 +1,1 @@
-REVISION IN PROGRESS — DO NOT UPLOAD
-Original presenter removed in source before retiming. 897 source frames scanned with zero presenter-sized face detections; contact sheet visually checked. Approved avatar is now a small 300x450 inset.
-Fresh normal-speed owner voice submitted to HeyGen: 8c80a10de94587564396c1133d937663. Await completed asset, save to studio/.local/jobs/motion20261020/avatar-voice-v3.mp4, then run finish-reference.py with studio Python to transcribe, process lightly and align. Render and inspect before showing final.
-Existing final-reference-match.mp4 and voice-preview.mp3 are superseded review files, not this revision. Current Studio is a silent visual review while voice integration is pending. Pass reference-render-props.json when rendering the completed fresh take.
+Owner authorized Instagram publication with revised own voice, quiet music, small approved avatar and large-face cover. Final: final-motion-voice-v3.mp4. Original presenter removed; all 1106 frames checked.

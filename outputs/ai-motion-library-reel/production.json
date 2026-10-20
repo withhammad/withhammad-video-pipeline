@@ -1,26 +1,25 @@
 {
   "job": "motion20261020",
-  "status": "visual_fix_verified_voice_v3_processing",
+  "status": "publishing_authorized",
   "reference": "https://www.instagram.com/reel/DerldXdPE38/",
   "reference_duration": 29.909,
   "language": "English",
   "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
   "presenter_box": [
-    300,
-    450
+    260,
+    390
   ],
-  "approval_required": true,
+  "approval_required": false,
   "upload_status": "not_uploaded_not_scheduled",
   "resource_status": "local_not_deployed",
   "keyword": "MOTION",
   "studio": "http://localhost:3019/MotionReferenceMatch",
-  "avatar_video_id": "557a3859e5634325d169b3f6eac37617",
+  "avatar_video_id": "8c80a10de94587564396c1133d937663",
   "thumbnail": "cover-face-v2-1080x1920.jpg",
-  "owner_revision": "Remove every original presenter shot; approved avatar small, regenerate natural clear owner voice at 1.0x; no music for voice review.",
-  "final": "final-reference-match.mp4",
-  "duration_seconds": 34.4,
-  "final_sha256": "b6a5d58390b989924496c0ae9f12d0ea2762cd2ee61bd4b1008cfc93677f3f39",
-  "voice": "Fresh 1.0x owner voice take submitted. Prior 1.15x take rejected; new audio not yet integrated.",
-  "timing_note": "Reference shot order preserved; source footage retimed per matched narration anchors to keep the 34-second take natural. Full-presenter captions rebuilt.",
-  "pending_voice_video_id": "8c80a10de94587564396c1133d937663"
+  "owner_revision": "Owner explicitly authorized Instagram upload after natural own voice, music and large-face thumbnail completion.",
+  "final": "final-motion-voice-v3.mp4",
+  "duration_seconds": 36.866667,
+  "final_sha256": "bfd91290c86658db438e9e1a75b553bfc0733e2f33c47140ea746a0a3db140ba",
+  "voice": "Fresh owner voice generated at 1.0x; light EQ and loudness normalization, no speed or pitch changes. Quiet music at 0.14 gain with 0.8-second fades.",
+  "timing_note": "Reference shot order preserved; source footage retimed per matched narration anchors to keep the 34-second take natural. Full-presenter captions rebuilt."
 }

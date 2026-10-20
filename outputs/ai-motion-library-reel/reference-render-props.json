@@ -1,6 +1,8 @@
 {
   "avatar": "motion-library/avatar-natural.mp4",
   "music": "motion-library/music.wav",
-  "duration": 34.24,
+  "duration": 36.84,
+  "voice": "motion-library/voice-natural.wav",
+  "voiceReady": true,
   "ready": true
 }
