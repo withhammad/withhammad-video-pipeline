@@ -1,0 +1,32 @@
+{
+  "status": "blocked_insufficient_higgsfield_credits",
+  "deliverable": "Side-by-side comparison reel, preview before upload",
+  "model": "seedance_2_0",
+  "settings": {
+    "duration": 15,
+    "resolution": "1080p",
+    "aspect_ratio": "9:16",
+    "mode": "std"
+  },
+  "reference": "reference-board.png",
+  "reference_binding": "The supplied image is a five-asset reference board, left to right @bean, @portafilter, @pour, @cup, @roast. Show only the current transforming object full-frame, never the board or all five objects together.",
+  "a": {
+    "label": "Claude Opus 5.5 prompt",
+    "prompt": "opus-prompt.txt",
+    "status": "rejected_not_enough_credits"
+  },
+  "b": {
+    "label": "GPT 6 Astra prompt",
+    "prompt": "astra-prompt.txt",
+    "status": "not_submitted"
+  },
+  "comparison_note": "User-supplied prompt attribution. Same video generator and settings; not a verified model benchmark. No seed parameter exposed. Do not select a winner before viewing actual outputs.",
+  "assembly": {
+    "tool": "Remotion",
+    "layout": "two equal portrait panels side by side",
+    "hook": "SAME BRIEF. TWO AI PROMPTS.",
+    "cta": "Which motion feels better \u2014 A or B?",
+    "audio": "Audition both; use one common soundtrack under the simultaneous comparison to avoid overlapping tracks; retain raw originals."
+  },
+  "upload_authorized": false
+}
