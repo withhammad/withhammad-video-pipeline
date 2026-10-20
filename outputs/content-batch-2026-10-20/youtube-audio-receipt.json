@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-20T12:55:25.265331+00:00",
+  "checked_at": "2026-10-20T13:03:47.940747+00:00",
   "projects": {
     "video_id": "WMhrzmEMJuM",
     "non_english_tracks": "20 tracks verified Draft"
@@ -41,15 +41,15 @@
       },
       {
         "name": "Italian",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Japanese",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Korean",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Malayalam",
@@ -69,7 +69,7 @@
       },
       {
         "name": "Russian",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Spanish (United States)",
@@ -81,7 +81,7 @@
       },
       {
         "name": "Telugu",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Ukrainian",
@@ -91,5 +91,5 @@
     "remaining": "Recheck Publishing tracks when processing finishes and unpublish any Published non-English audio before release."
   },
   "english_srt": "Both manual English tracks serving; see per-output youtube-captions.json",
-  "latest_retry": "Chrome closed during follow-up verification. Prior track snapshot retained; timed automation must recheck remaining processing tracks before release."
+  "latest_retry": "20 October heartbeat: requested unpublication of newly Published Italian, Japanese, Korean and Russian auto-dubs; remaining processing tracks must be checked again before release."
 }
