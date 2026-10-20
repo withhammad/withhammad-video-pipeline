@@ -3,12 +3,11 @@
   "job": "c9d9bd2b786c",
   "language": "English only",
   "voice_name": "Hammad Yousuf",
-  "avatar_look": "Hammad \u2014 Casual Home Office Tutorial",
-  "avatar_id": "cefe83302c79302d9a4bc7e987dcc8b6",
+  "avatar_id": null,
   "engine": "HeyGen Avatar V",
   "resolution": "720p portrait",
   "graphics": "Remotion",
-  "status": "awaiting_replacement_avatar_source",
+  "status": "awaiting_different_avatar_selection",
   "keyword": "PROJECTS",
   "resource_slug": "ai-engineering-projects",
   "paid_plan_added": false,
@@ -23,9 +22,15 @@
   "profile_work": "X text aligned to LinkedIn; remaining visuals deferred to prioritize content",
   "script": "script.txt",
   "script_note": "User explicitly requires English only. Only script.txt submitted; Hindi draft removed.",
-  "digital_twin_motion_reference": "f0d7cc382e5f42398e2a5a1104b4d183",
-  "heygen_video_id": "bd67ddd5ecbd462ec874a81f9ba2493e",
-  "presenter_framing": "Small picture-in-picture,326px wide on1080px canvas; user explicitly rejected large face",
-  "avatar_approval": "rejected",
-  "publishing_blocked_reason": "Owner rejected avatar; replace before final rendering or posting."
+  "heygen_video_id": null,
+  "presenter_framing": "Small360x203 landscape PIP in final1080x1920 composition",
+  "avatar_approval": "rejected_do_not_use",
+  "current_avatar_approved": false,
+  "avatar_status": "All previously shown looks and the real-video digital twin are excluded.",
+  "rejected_avatar_ids": [
+    "cefe83302c79302d9a4bc7e987dcc8b6",
+    "c0c91d44e16140028f05656df6f8a027",
+    "ae84501493694d18b44e45be54198fff",
+    "f0d7cc382e5f42398e2a5a1104b4d183"
+  ]
 }

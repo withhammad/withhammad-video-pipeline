@@ -241,10 +241,10 @@ const Video: React.FC<Props> = ({
         <div
           style={{
             position: "absolute",
-            left: 674,
-            top: 1130,
-            width: 326,
-            height: 580,
+            left: 640,
+            top: 1370,
+            width: 360,
+            height: 203,
             overflow: "hidden",
             borderRadius: 28,
             border: "2px solid #3b505e",
@@ -255,8 +255,8 @@ const Video: React.FC<Props> = ({
             src={staticFile(avatar)}
             style={{
               position: "absolute",
-              width: 326,
-              height: 580,
+              width: 360,
+              height: 203,
               objectFit: "contain",
               transform: `scale(${zoom})`,
               transformOrigin: "50% 28%",
@@ -267,10 +267,10 @@ const Video: React.FC<Props> = ({
         <div
           style={{
             position: "absolute",
-            left: 674,
-            top: 1130,
-            width: 326,
-            height: 580,
+            left: 640,
+            top: 1370,
+            width: 360,
+            height: 203,
             background: "#273841",
             display: "flex",
             alignItems: "center",
@@ -389,7 +389,7 @@ const Video: React.FC<Props> = ({
         style={{
           position: "absolute",
           left: 675,
-          top: 1737,
+          top: 1600,
           fontSize: 22,
           color: "white",
           textShadow: "0 2px 6px #000",
@@ -401,7 +401,7 @@ const Video: React.FC<Props> = ({
         style={{
           position: "absolute",
           right: 80,
-          top: 1778,
+          top: 1640,
           fontSize: 18,
           color: "white",
           textShadow: "0 2px 6px #000",
@@ -468,7 +468,7 @@ const Cover = () => (
     <div style={{ position: "absolute", left: 80, bottom: 155, fontSize: 28 }}>
       withhammad.com
     </div>
-    <div style={{ position: "absolute", left: 674, top: 1740, fontSize: 22 }}>
+    <div style={{ position: "absolute", left: 640, top: 1740, fontSize: 22 }}>
       HAMMAD YOUSUF
     </div>
   </AbsoluteFill>

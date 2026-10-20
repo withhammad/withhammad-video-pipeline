@@ -1,6 +1,6 @@
 # Content batch — 20 October 2026
 
-Owner directions: English only; prioritize content; Remotion graphics; small presenter picture-in-picture. The first generated likeness was completely rejected. Both video edits are held for a replacement avatar source. Do not regenerate or publish an unselected replacement.
+Owner directions: English only; prioritize content; Remotion graphics; small presenter picture-in-picture. All previously shown generated looks and the real-video digital twin were strictly rejected. Never reuse them; their IDs are recorded in outputs/video-pipeline/config.json. Both video edits are held for a different presenter selected from the HeyGen gallery. Do not regenerate or publish an unselected replacement.
 
 1. AI engineering portfolio projects: English script, screen recordings, edit, resource and platform copy prepared. Existing take rejected; final render pending replacement.
 2. UAE 100 Dreams: eight-slide English carousel complete with no avatar. PNGs, preview, platform copy, alt text and disabled ManyChat draft in `outputs/100-dreams-carousel/`.

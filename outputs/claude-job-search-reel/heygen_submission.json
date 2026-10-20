@@ -1,15 +1,17 @@
 {
-  "video_id": "ab4754f5b1ec88be3acd14c4dff02bc9",
-  "status": "processing",
+  "video_id": "00b9195a112f31b0f5a2abb3dac3fa1c",
+  "status": "rejected_do_not_use",
   "method": "HeyGen MCP",
-  "language": "English",
-  "script_file": "script.txt",
-  "avatar_id": "c0c91d44e16140028f05656df6f8a027",
-  "reference_look_id": "f0d7cc382e5f42398e2a5a1104b4d183",
+  "language": "English only",
+  "avatar_id": "f0d7cc382e5f42398e2a5a1104b4d183",
+  "avatar_type": "digital_twin",
+  "owner_selected_source": "My real-video digital twin",
+  "engine": "avatar_v",
   "voice_id": "0f7032b11fb743589cc81b721f4389b3",
-  "resolution": "720p",
-  "aspect_ratio": "9:16",
+  "source_resolution": "720p16:9 preserving original framing",
+  "final_format": "9:16 Remotion with small PIP",
   "speed": 1,
-  "approval_status": "rejected_by_owner_do_not_use",
-  "owner_feedback": "not that avatar; totally reject the avatar"
+  "script_file": "script.txt",
+  "owner_rejection": "not twin; strictly never use these; use different avatar",
+  "approved_for_use": false
 }

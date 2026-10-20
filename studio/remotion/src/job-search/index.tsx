@@ -197,9 +197,9 @@ export const JobSearch: React.FC<JobSearchProps> = ({
           style={{
             position: "absolute",
             right: 80,
-            bottom: 120,
-            width: 330,
-            height: 587,
+            top: 1330,
+            width: 360,
+            height: 203,
             borderRadius: 28,
             overflow: "hidden",
             background: "#34392f",
@@ -240,7 +240,7 @@ export const JobSearch: React.FC<JobSearchProps> = ({
                 <br />
                 pending
               </div>
-              <div style={{ fontSize: 21, marginTop: 20 }}>330 × 587 PIP</div>
+              <div style={{ fontSize: 21, marginTop: 20 }}>360 × 203 PIP</div>
             </div>
           )}
           <div
@@ -254,7 +254,7 @@ export const JobSearch: React.FC<JobSearchProps> = ({
             }}
           >
             {avatar
-              ? "AI avatar of Hammad"
+              ? "AI presenter"
               : draftMode
                 ? "Not a final video"
                 : ""}
@@ -299,7 +299,7 @@ const Root = () => (
       calculateMetadata={({ props }) => {
         if (!props.draftMode && !props.avatar)
           throw new Error(
-            "Final output requires Hammad’s completed avatar clip.",
+            "Final output requires the selected replacement presenter clip.",
           );
         if (!Number.isFinite(props.duration) || props.duration <= 0)
           throw new Error("duration must be positive seconds");
