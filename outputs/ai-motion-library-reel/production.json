@@ -1,13 +1,13 @@
 {
   "job": "motion20261020",
-  "status": "final_ready_for_owner_review",
+  "status": "visual_fix_verified_voice_v3_processing",
   "reference": "https://www.instagram.com/reel/DerldXdPE38/",
   "reference_duration": 29.909,
   "language": "English",
   "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
   "presenter_box": [
-    340,
-    192
+    300,
+    450
   ],
   "approval_required": true,
   "upload_status": "not_uploaded_not_scheduled",
@@ -16,10 +16,11 @@
   "studio": "http://localhost:3019/MotionReferenceMatch",
   "avatar_video_id": "557a3859e5634325d169b3f6eac37617",
   "thumbnail": "cover-face-v2-1080x1920.jpg",
-  "owner_revision": "Match reference visuals and narration; change avatar, voice, music. Both thumbnails have large face, hook and CTA.",
+  "owner_revision": "Remove every original presenter shot; approved avatar small, regenerate natural clear owner voice at 1.0x; no music for voice review.",
   "final": "final-reference-match.mp4",
   "duration_seconds": 34.4,
   "final_sha256": "b6a5d58390b989924496c0ae9f12d0ea2762cd2ee61bd4b1008cfc93677f3f39",
-  "voice": "Owner voice, bass cleanup and presence EQ, mild compression, no additional speedup",
-  "timing_note": "Reference shot order preserved; source footage retimed per matched narration anchors to keep the 34-second take natural. Full-presenter captions rebuilt."
+  "voice": "Fresh 1.0x owner voice take submitted. Prior 1.15x take rejected; new audio not yet integrated.",
+  "timing_note": "Reference shot order preserved; source footage retimed per matched narration anchors to keep the 34-second take natural. Full-presenter captions rebuilt.",
+  "pending_voice_video_id": "8c80a10de94587564396c1133d937663"
 }

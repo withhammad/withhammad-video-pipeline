@@ -1,0 +1,40 @@
+{
+  "source": "reference.mp4",
+  "clean": "reference-clean.mp4",
+  "split_mask_y": 980,
+  "split_source_seconds": [
+    [
+      0,
+      3.1
+    ],
+    [
+      7.6,
+      11.0
+    ],
+    [
+      12.35,
+      18.65
+    ],
+    [
+      19.2,
+      21.2
+    ]
+  ],
+  "full_source_seconds": [
+    [
+      18.2,
+      19.7
+    ],
+    [
+      25.75,
+      30
+    ]
+  ],
+  "method": "Opaque source-frame removal before retiming; no original presenter layer behind avatar",
+  "status": "validated",
+  "frame_scan": {
+    "frames": 897,
+    "faces": []
+  },
+  "visual_check": "2fps contact sheet inspected; no original presenter. Face scan filters width > 9% and height > 5% of source frame."
+}
