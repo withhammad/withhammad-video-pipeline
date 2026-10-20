@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-20T13:03:47.940747+00:00",
+  "checked_at": "2026-10-20T14:18:39.997513+00:00",
   "projects": {
     "video_id": "WMhrzmEMJuM",
     "non_english_tracks": "20 tracks verified Draft"
@@ -13,11 +13,11 @@
       },
       {
         "name": "Bangla",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Dutch (Netherlands)",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "French (France)",
@@ -29,7 +29,7 @@
       },
       {
         "name": "Hebrew",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Hindi",
@@ -37,7 +37,7 @@
       },
       {
         "name": "Indonesian",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Italian",
@@ -53,7 +53,7 @@
       },
       {
         "name": "Malayalam",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Polish",
@@ -73,7 +73,7 @@
       },
       {
         "name": "Spanish (United States)",
-        "status": "Publishing\u2026"
+        "status": "Draft"
       },
       {
         "name": "Tamil",
@@ -88,8 +88,8 @@
         "status": "Draft"
       }
     ],
-    "remaining": "Recheck Publishing tracks when processing finishes and unpublish any Published non-English audio before release."
+    "remaining": "No published non-English tracks: 19 Draft, Punjabi processing failed. Recheck before release."
   },
   "english_srt": "Both manual English tracks serving; see per-output youtube-captions.json",
-  "latest_retry": "20 October heartbeat: requested unpublication of newly Published Italian, Japanese, Korean and Russian auto-dubs; remaining processing tracks must be checked again before release."
+  "latest_retry": "20 October heartbeat: unpublished Bangla, Dutch, Hebrew, Indonesian, Malayalam and Spanish; page reload verified 19 Draft and 1 Processing failed."
 }
