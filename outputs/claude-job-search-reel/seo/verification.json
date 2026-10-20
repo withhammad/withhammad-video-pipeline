@@ -1,0 +1,29 @@
+{
+  "status": "copy_verified_external_dependencies_pending",
+  "checked_at": "2026-10-20",
+  "lengths": {
+    "youtube_title": 49,
+    "instagram_caption": 734,
+    "tiktok_caption": 432,
+    "linkedin_text": 1058,
+    "facebook_caption": 610,
+    "x_weighted": 233
+  },
+  "fixes": [],
+  "checks": [
+    "Every claim matches lesson facts: no employment, search-volume or reach guarantee.",
+    "CTA appears near start and end of long copy; X repeats guide reference compactly and follows weighted 280-character budget.",
+    "English throughout; no rejected avatar image references used in captions.",
+    "AI disclosure present on all six platforms.",
+    "Instagram five relevant hashtags, LinkedIn three at end, X one. Five-tag maximum conservative because official announcement page could not be fetched.",
+    "Resource URLs exactly match lesson slug; live HTTP verification delegated to parent during deployment.",
+    "Instagram ManyChat promise retained per parent while setup is being configured; publication depends on tested delivery.",
+    "TikTok plain URL is not assumed clickable; wording says address above, avoiding unsupported bio-link claim.",
+    "No hashtag-volume tiers or guaranteed discoverability asserted.",
+    "Parent confirmed selected olive look belongs to consented private Hammad avatar group and final videos were explicitly approved; AI avatar of me disclosure retained."
+  ],
+  "pending": [
+    "Parent: confirm live resource URL returns 200 and content is correct.",
+    "Parent: confirm ManyChat automation is live/tested and bound to correct reel before publication."
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "checked_at": "2026-10-20",
+  "platform": "linkedin",
+  "primary_keyword": "claude job search",
+  "keywords": [
+    {
+      "term": "claude job search",
+      "evidence": "Google autocomplete for 'claude job search': position 1",
+      "intent": "job-search workflow and setup"
+    },
+    {
+      "term": "claude job search prompt",
+      "evidence": "Google autocomplete for 'claude job search': position 2",
+      "intent": "job-search workflow and setup"
+    },
+    {
+      "term": "claude job search automation",
+      "evidence": "Google autocomplete for 'claude job search': position 10",
+      "intent": "job-search workflow and setup"
+    },
+    {
+      "term": "playwright mcp claude",
+      "evidence": "Google autocomplete for 'playwright mcp': position 3",
+      "intent": "job-search workflow and setup"
+    }
+  ],
+  "title_patterns": [
+    "Claude + Playwright can help prepare your job-search shortlist. You still review every application."
+  ],
+  "recommended_hook": "Claude + Playwright can help prepare your job-search shortlist. You still review every application.",
+  "recommended_structure": [
+    "Self-contained professional hook",
+    "Resource URL and brief reason to use it",
+    "Three concrete takeaways grounded in the lesson",
+    "One relevant question",
+    "Resource CTA and follow invitation",
+    "AI-avatar disclosure",
+    "Zero to three hashtags"
+  ],
+  "recommended_question": "Which part takes you longest: finding roles, checking fit or drafting answers?",
+  "resource_url": "https://withhammad.com/resources/claude-job-search",
+  "hashtags": [
+    {
+      "tag": "#ClaudeAI",
+      "why": "Directly names the professional topic; no reach or popularity claim"
+    },
+    {
+      "tag": "#JobSearch",
+      "why": "Directly names the professional topic; no reach or popularity claim"
+    },
+    {
+      "tag": "#MCP",
+      "why": "Directly names the professional topic; no reach or popularity claim"
+    }
+  ],
+  "rules": [
+    "Post maximum is 3,000 characters, including spaces and line breaks (official LinkedIn Help).",
+    "Keep the opening sentence self-contained and under roughly 210 characters as an editorial target; no verified fixed 210-character organic fold. Truncation varies by layout/device.",
+    "Use natural topic terms: LinkedIn content search and its March 2026 feed guidance describe semantic relevance, not a keyword-density trick.",
+    "Use zero to three relevant hashtags at the end as a restrained editorial choice, not a verified platform cap or reach guarantee.",
+    "Include the resource URL in the post for the requested conversion. No primary evidence reviewed supports a universal external-link penalty or guaranteed advantage to hiding links in comments.",
+    "Offer a specific professional takeaway, practical steps, one relevant discussion question and follow invitation. Avoid engagement bait and promises of employment.",
+    "Keep the AI-avatar disclosure; do not promise a LinkedIn comment-triggered DM because this funnel is Instagram-only.",
+    "Google autocomplete provides qualitative query phrasing, not LinkedIn search volume, rank potential, audience size or guaranteed demand.",
+    "Use the parent agent\u2019s actual account analytics for scheduling; this keyword research does not establish a best posting hour."
+  ],
+  "limitations": [
+    "No authenticated LinkedIn search-volume data used.",
+    "No post automation or external-link reach guarantee.",
+    "Do not convert Google LinkedIn search suggestions into a claim this workflow scrapes LinkedIn; it uses permitted employer career pages."
+  ],
+  "autocomplete": [
+    {
+      "query": "claude job search",
+      "suggestions": [
+        "claude job search",
+        "claude job search prompt",
+        "claude job search skill",
+        "claude job search agent",
+        "claude job search github",
+        "claude job search skill github",
+        "claude job search connector",
+        "claude job search plugin",
+        "claude job search reddit",
+        "claude job search automation"
+      ],
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=claude%20job%20search"
+    },
+    {
+      "query": "claude job search linkedin",
+      "suggestions": [
+        "claude job search linkedin",
+        "claude linkedin job search skill",
+        "claude code linkedin job search",
+        "claude cowork linkedin job search",
+        "claude linkedin connector for job search"
+      ],
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=claude%20job%20search%20linkedin"
+    },
+    {
+      "query": "playwright mcp",
+      "suggestions": [
+        "playwright mcp",
+        "playwright mcp server",
+        "playwright mcp claude",
+        "playwright mcp claude code",
+        "playwright mcp github",
+        "playwright mcp bridge",
+        "playwright mcp cursor",
+        "playwright mcp with vscode",
+        "codex playwright mcp",
+        "playwright mcp latest"
+      ],
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=playwright%20mcp"
+    }
+  ],
+  "sources": [
+    "https://www.linkedin.com/help/linkedin/answer/a522483/differences-between-posting-and-publishing?lang=en",
+    "https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed",
+    "https://www.linkedin.com/blog/engineering/search/introducing-semantic-capability-in-linkedins-content-search-engine",
+    "https://www.linkedin.com/help/learning/answer/a1499047",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=claude%20job%20search",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=claude%20job%20search%20linkedin",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=playwright%20mcp"
+  ]
+}

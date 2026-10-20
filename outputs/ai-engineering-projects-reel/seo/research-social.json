@@ -1,0 +1,157 @@
+{
+  "checked_at": "2026-10-20",
+  "keywords": [
+    {
+      "term": "ai engineering projects",
+      "evidence": "Google autocomplete rank 1 for seed ai engineering projects, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find practical project ideas and implementation references"
+    },
+    {
+      "term": "ai engineering projects github",
+      "evidence": "Google autocomplete rank 2 for seed ai engineering projects, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find practical project ideas and implementation references"
+    },
+    {
+      "term": "ai engineering projects for beginners",
+      "evidence": "Google autocomplete rank 3 for seed ai engineering projects, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find practical project ideas and implementation references"
+    },
+    {
+      "term": "ai projects for beginners",
+      "evidence": "Google autocomplete rank 1 for seed ai projects for beginners, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find practical project ideas and implementation references"
+    },
+    {
+      "term": "ai projects for beginners github",
+      "evidence": "Google autocomplete rank 2 for seed ai projects for beginners, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find practical project ideas and implementation references"
+    },
+    {
+      "term": "ai projects for beginners with source code",
+      "evidence": "Google autocomplete rank 3 for seed ai projects for beginners, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find practical project ideas and implementation references"
+    },
+    {
+      "term": "ai engineer portfolio",
+      "evidence": "Google autocomplete rank 1 for seed ai engineer portfolio, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find practical project ideas and implementation references"
+    },
+    {
+      "term": "ai engineer portfolio website",
+      "evidence": "Google autocomplete rank 2 for seed ai engineer portfolio, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find practical project ideas and implementation references"
+    },
+    {
+      "term": "ai engineer portfolio examples",
+      "evidence": "Google autocomplete rank 3 for seed ai engineer portfolio, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find practical project ideas and implementation references"
+    }
+  ],
+  "title_patterns": [
+    "85 AI engineering project ideas: choose your next build",
+    "AI engineering portfolio: build one working demo"
+  ],
+  "hashtags": [
+    {
+      "tag": "#AIEngineering",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    },
+    {
+      "tag": "#AIProjects",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    },
+    {
+      "tag": "#RAG",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    },
+    {
+      "tag": "#AIAgents",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    },
+    {
+      "tag": "#BuildInPublic",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    }
+  ],
+  "rules": [
+    "Use English captions with a natural topic phrase early; first 125 characters is a practical drafting target, not a guaranteed truncation boundary.",
+    "Use 3\u20135 directly relevant hashtags. Official @creators cap announcement URL was found, but retrieval failed; conservative maximum five adopted, not independently confirmed from page text.",
+    "Autocomplete is a public Google relevance signal, not Instagram/TikTok search volume or popularity. No hashtag-size or banned-tag claims can be verified from these results.",
+    "Keep an accurate AI-avatar disclosure on every platform; do not say avatar of me unless the selected presenter actually represents Hammad.",
+    "ManyChat comment-to-DM CTA applies to Instagram only, and must be enabled/tested before promising delivery. Facebook uses the direct resource URL; TikTok uses link in bio only if that link exists.",
+    "Facebook captions should describe the reel and avoid excessive hashtags or engagement bait. Original recordings and graphics fit Meta\u2019s preference for original content.",
+    "Use accessibility text to describe actual visuals, not keyword stuffing. Reel upload paths may not expose custom alt text."
+  ],
+  "sources": [
+    "https://newsroom.tiktok.com/creator-search-insights?lang=en",
+    "https://about.fb.com/news/2025/04/cracking-down-spammy-content-facebook/",
+    "https://about.fb.com/news/2026/03/rewarding-original-creators-on-facebook/",
+    "https://www.threads.com/@creators/post/DSalXGPCWM4",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineering%20projects",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20projects%20for%20beginners",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineer%20portfolio"
+  ],
+  "autocomplete": [
+    {
+      "seed": "ai engineering projects",
+      "suggestions": [
+        "ai engineering projects",
+        "ai engineering projects github",
+        "ai engineering projects for beginners",
+        "ai engineering projects reddit",
+        "ai engineering projects 2026",
+        "ai engineering projects ideas",
+        "ai engineering projects for resume",
+        "ai engineering hub projects",
+        "best ai engineering projects",
+        "electrical engineering ai projects"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineering%20projects"
+    },
+    {
+      "seed": "ai projects for beginners",
+      "suggestions": [
+        "ai projects for beginners",
+        "ai projects for beginners github",
+        "ai projects for beginners with source code",
+        "ai projects for beginners with source code in python",
+        "ai projects for beginners in python",
+        "ai projects for beginners reddit",
+        "ai projects for beginners free",
+        "simple ai projects for beginners",
+        "ai agent projects for beginners",
+        "ai automation projects for beginners"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20projects%20for%20beginners"
+    },
+    {
+      "seed": "ai engineer portfolio",
+      "suggestions": [
+        "ai engineer portfolio",
+        "ai engineer portfolio website",
+        "ai engineer portfolio examples",
+        "ai engineer portfolio github",
+        "ai engineer portfolio template",
+        "ai engineer portfolio website templates",
+        "ai engineer portfolios",
+        "ai engineer portfolio projects",
+        "ai engineer portfolio websites",
+        "ai engineer portfolio website github"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineer%20portfolio"
+    }
+  ],
+  "recommended_instagram_hook": "85 AI engineering project ideas. Comment PROJECTS for the catalog and build checklist.",
+  "recommended_alt_text": "A small olive-shirt AI presenter accompanies original GitHub catalog recordings, project categories and a build checklist with English captions.",
+  "tiktok_keywords": [
+    "ai engineering projects",
+    "ai projects for beginners",
+    "ai engineer portfolio"
+  ],
+  "facebook_structure": "Keyword hook \u2192 concrete value in 2\u20133 sentences \u2192 direct resource URL \u2192 follow CTA \u2192 AI-avatar disclosure. Use 0\u20133 relevant hashtags.",
+  "limitations": [
+    "No platform-specific search volume, live hashtag-size counts or guaranteed ranking benefit established.",
+    "Official Instagram five-tag announcement could not be read; five is the conservative operating maximum.",
+    "Claude resume suggestions mix resume-writing and resume-session meanings; prefer Claude job search and Playwright MCP Claude Desktop for precision."
+  ]
+}

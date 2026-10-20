@@ -1,0 +1,95 @@
+{
+  "checked_at": "2026-10-20T12:55:25.265331+00:00",
+  "projects": {
+    "video_id": "WMhrzmEMJuM",
+    "non_english_tracks": "20 tracks verified Draft"
+  },
+  "jobkit": {
+    "video_id": "v4okdBQy4-I",
+    "tracks": [
+      {
+        "name": "Arabic",
+        "status": "Draft"
+      },
+      {
+        "name": "Bangla",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Dutch (Netherlands)",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "French (France)",
+        "status": "Draft"
+      },
+      {
+        "name": "German (Germany)",
+        "status": "Draft"
+      },
+      {
+        "name": "Hebrew",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Hindi",
+        "status": "Draft"
+      },
+      {
+        "name": "Indonesian",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Italian",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Japanese",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Korean",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Malayalam",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Polish",
+        "status": "Draft"
+      },
+      {
+        "name": "Portuguese (Brazil)",
+        "status": "Draft"
+      },
+      {
+        "name": "Punjabi",
+        "status": "Processing failed"
+      },
+      {
+        "name": "Russian",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Spanish (United States)",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Tamil",
+        "status": "Draft"
+      },
+      {
+        "name": "Telugu",
+        "status": "Publishing\u2026"
+      },
+      {
+        "name": "Ukrainian",
+        "status": "Draft"
+      }
+    ],
+    "remaining": "Recheck Publishing tracks when processing finishes and unpublish any Published non-English audio before release."
+  },
+  "english_srt": "Both manual English tracks serving; see per-output youtube-captions.json",
+  "latest_retry": "Chrome closed during follow-up verification. Prior track snapshot retained; timed automation must recheck remaining processing tracks before release."
+}

@@ -15,6 +15,7 @@ The latter creates a persistent job. Repeating the identical URL reuses it.
 It does not download, generate, publish, or send messages.
 
 Production sequence for Codex:
+Owner rule (20 October 2026): Before every new topic, hook and scheduling decision, check live connected-account analytics and current online niche trends/search demand. Prefer real reach, retention, shares, saves, audience activity and comparable recent posts. Record the date, sources and data gaps; distinguish measured signals from fallback assumptions. Rank original ideas by evidence for viral potential, without claiming guaranteed virality. See docs/ANALYTICS_CONTENT_GATE.md.
 Read AGENTS.md latest owner corrections before planning each new video: natural
 voice pace, recurring presenter presence, optional quiet background music, and
 faithful recording of the supplied reference workflow. The published 29:02 tutorial

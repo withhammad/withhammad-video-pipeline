@@ -22,7 +22,7 @@
       },
       {
         "spoken": "You can explore AI agents, RAG systems, fine-tuning, and even language models.",
-        "on_screen_text": "Agents \u00b7 RAG \u00b7 Fine-tuning",
+        "on_screen_text": "Agents · RAG · Fine-tuning",
         "visual": "card"
       },
       {
@@ -61,18 +61,19 @@
     }
   ],
   "captions": {
-    "instagram": "Your next AI project shouldn't start with a blank page.\n\nThis catalog gives you 85 ideas across agents, RAG, fine-tuning and more. Choose one that matches your current skills, build a small working version, then show how you tested it.\n\nComment PROJECTS for the repo and my build checklist. Follow @with.hammad for practical AI builds.\n\nAI avatar of me.",
-    "youtube_title": "85 AI Engineering Project Ideas: What to Build Next",
-    "youtube_description": "Stuck choosing an AI engineering portfolio project? Start here.\n\nRepo and project checklist: https://withhammad.com/resources/ai-engineering-projects\nOriginal catalog: https://github.com/landedjobs/ai-engineer-portfolio-projects\n\nPick one project, build a working demo, test it, and explain the tradeoffs. These are ideas and learning references; individual tools may have their own costs.\n\nSubscribe for practical AI workflows. AI avatar of me.\n\n#AIEngineering #AIProjects #RAG",
-    "tiktok": "Your next AI project shouldn't start with a blank page.\n\nThis catalog gives you 85 ideas across agents, RAG, fine-tuning and more. Choose one that matches your current skills, build a small working version, then show how you tested it.\n\nComment PROJECTS for the repo and my build checklist. Follow @with.hammad for practical AI builds.\n\nAI avatar of me.",
-    "linkedin": "The hardest part of an AI portfolio can be choosing something small enough to finish.\n\nLanded's catalog offers 85 project ideas, with difficulty levels, skills and learning references. My suggestion: pick one, build a working demo, and document how it fails as carefully as how it works.\n\nA project with clear evidence gives people something concrete to evaluate.\n\nhttps://withhammad.com/resources/ai-engineering-projects\n\nFollow for practical AI engineering workflows. Presenter: my AI avatar."
+    "instagram": "85 AI engineering project ideas. Comment PROJECTS for the catalog and build checklist.\n\nLanded’s GitHub collection covers AI agents, RAG, fine-tuning and more, with skills, difficulty and learning references for each idea.\n\nChoose one that fits your current skills. Build a small working demo, test it, and show what you learned. Not every entry is a complete tutorial, and linked tools may have their own costs.\n\nComment PROJECTS and I’ll DM you the guide. Follow @with.hammad for practical AI builds.\n\nAI avatar of me.\n\n#AIEngineering #AIProjects #RAG #AIAgents #BuildInPublic",
+    "youtube_title": "85 AI Engineering Projects: Pick Your Next Build",
+    "youtube_description": "Free catalog guide + build checklist: https://withhammad.com/resources/ai-engineering-projects\nChoose your next AI engineering project from 85 ideas.\n\nLanded’s GitHub collection covers AI agents, RAG, fine-tuning and more. Entries list skills, difficulty and learning references. These are project ideas; not every entry is a complete tutorial. Linked tools may have their own costs.\n\nPick one idea that fits your skills, build a working demo, test it, and document what you learned.\nOriginal catalog: https://github.com/landedjobs/ai-engineer-portfolio-projects\n\nGet the catalog and checklist: https://withhammad.com/resources/ai-engineering-projects\nSubscribe for more practical AI builds.\nAI avatar of me.\n\n#AIEngineering #AIProjects #RAG",
+    "tiktok": "85 AI engineering project ideas. Get the catalog and checklist: https://withhammad.com/resources/ai-engineering-projects\n\nExplore agents, RAG and fine-tuning. Choose one idea, build a working demo, and show your tests. Entries include learning references; they are not all complete tutorials.\n\nGet the guide at the address above. Follow for practical AI builds.\nAI avatar of me.\n\n#AIEngineering #AIProjects #RAG #AIAgents",
+    "linkedin": "AI engineering projects: 85 ideas to help you choose your next build. Get the catalog and checklist: https://withhammad.com/resources/ai-engineering-projects\n\nLanded’s collection lists project ideas across agents, RAG, fine-tuning and more, with skills, difficulty and learning references.\n\nI suggest starting with one small demo you can finish and explain. Define a useful input and output, test failures as well as successes, and document the costs and tradeoffs. The catalog provides ideas and references; not every entry is a complete tutorial.\n\nWhich would you build first: a RAG system or an AI agent?\n\nUse the checklist to scope your first build: https://withhammad.com/resources/ai-engineering-projects\nFollow for practical AI engineering workflows.\n\nAI avatar of me.\n\n#AIEngineering #AIProjects #RAG"
   },
   "hashtags": [
-    "#AIEngineering",
-    "#AIProjects",
-    "#RAG",
-    "#AIAgents",
-    "#BuildInPublic"
+    "AI engineering projects",
+    "AI portfolio projects",
+    "AI projects for beginners",
+    "RAG project ideas",
+    "AI agents projects",
+    "GitHub AI projects"
   ],
   "manychat_keyword": "PROJECTS",
   "resource_page": {
@@ -96,5 +97,6 @@
     "hook": "Build your next",
     "pill_strong": "AI",
     "pill_serif": "project"
-  }
+  },
+  "caption_file": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/c9d9bd2b786c/captions.srt"
 }

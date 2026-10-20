@@ -1,0 +1,2675 @@
+{
+  "checked_at": "2026-10-20T12:46:22.771388+00:00",
+  "method": "Two bounded follow-up public YouTube Data API searches; short-duration filter means under 4 minutes, not guaranteed Shorts; last 30 days; ranked by total views, not channel-relative outliers. English relevance is not a strict language filter.",
+  "queries": {
+    "Claude video editing": [
+      {
+        "kind": "youtube#searchResult",
+        "etag": "WMbh-3mu1J7ffkdmce80gV8hHuQ",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "en0GuyhieQk"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-08T18:52:44Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Introducing Claude Dashboards and Claude Motion",
+          "description": "Claude Dashboards and Claude Motion are in beta today. Ask Claude to turn your data into live dashboards and your ideas into ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "fhd": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/fhddefault.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-08T18:52:44Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "G3qGseJFW6PtKl-EFBnqiT2wx1o",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "1f13Bl1sYkw"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-22T16:32:25Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Introducing Claude Opus 5.5",
+          "description": "For most tasks, Claude Opus 5.5 performs at the level of Claude Fable 5.1, our most intelligent model. It writes more clearly and ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/qhddefault.jpg",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-22T16:32:25Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "sdg1px2gyjFiHE9flHEESaxNUyw",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "COJAZQM1aeQ"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-02T19:44:06Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Build an App With Claude Design",
+          "description": "Nate, a designer at Anthropic, uses Claude design in Claude Code to take his side project's onboarding from rough idea to ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "fhd": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/fhddefault.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-02T19:44:06Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "dtAcMcRm_bHJzyiROKK6PafOXDs",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "RwMJSW0OcwY"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-07T14:38:48Z",
+          "channelId": "UCQsf7m4HIshgSLg5gOnSz9A",
+          "title": "Adobe Is COOKED...",
+          "description": "You can now get free, open-source versions of every Adobe app, because a Reddit user called ai_art_is_art used Claude Opus ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Runtime Caffeine",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-07T14:38:48Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "fRmC0DJ6fsQ_o_qlujrIsqfX8QE",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "-LNDXx__ZT0"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-08T20:53:57Z",
+          "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+          "title": "Introducing Higgsfield Katana | Claude Motion",
+          "description": "Introducing Higgsfield Katana, powered by Claude Motion. Our most powerful AI video editing tool, inside Claude. Upload a ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Higgsfield AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-08T20:53:57Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "XdT5OttJ2Ih4ide7Zs2okUfGliw",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "9Pbg-_ptBcE"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-26T16:33:47Z",
+          "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+          "title": "Higgsfield x Claude Opus 5.5 for Motion Design | Editable After Effects Projects",
+          "description": "Introducing Higgsfield x Claude Opus 5.5 for Motion Design. With Higgsfield MCP, Opus 5.5: - Generates images, logos and ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Higgsfield AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-26T16:33:47Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "o3YvxLcyHZfUd1LnyIFyS-6ajpE",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "_W1Gr5XH42M"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-17T07:34:31Z",
+          "channelId": "UCo9fXsX6snNG3Bi5woGFO4A",
+          "title": "Почему твой Claude работает грузчиком за твои же деньги? #технологии",
+          "description": "Меня зовут Влад. В 18 лет я набрал миллион подписчиков, а теперь продюсирую каналы бизнесов, экспертов и блогеров.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Бади Ворлд Шортс",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-17T07:34:31Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "hqyj9T1rKgZkReLE73NnXQmlkgo",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "CV-k6rPJvJY"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-14T12:36:04Z",
+          "channelId": "UC2ojq-nuP8ceeHqiroeKhBA",
+          "title": "Claude has completely changed how I edit videos",
+          "description": "Free skills: https://www.skool.com/ai-automation-society/classroom/2f7c4aea?md=263d927bda6d49758d1ceecacbe41a10.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Nate Herk | AI Automation",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-14T12:36:04Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "gi2AqKzQZjzDs3s0vquhxl2wNbk",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "M42PqYu0gkU"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-04T11:08:37Z",
+          "channelId": "UCJaBoTbtDM6F71eqK1HdJmg",
+          "title": "How to Get Claude Code for Free: Fable 5.1, Opus 5.5, Sonnet 5.5 for Free (3 Months, Max 20x Limits)",
+          "description": "How to get Claude Code for free, no card, no 7-day catch: redeem OMG26 for $600 and turn it into 3 months of Max 20x-level ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/M42PqYu0gkU/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/M42PqYu0gkU/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/M42PqYu0gkU/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/M42PqYu0gkU/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            }
+          },
+          "channelTitle": "Shree Dr Abhay Jivan Tantra",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-04T11:08:37Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "BWrT3M-5JlRSVQcEyxEsDae1b4Y",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "9loDDILgssM"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-23T22:55:27Z",
+          "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+          "title": "Claude Opus 5.5 x Higgsfield MCP | Build a Monster Truck",
+          "description": "Introducing Higgsfield x Claude Opus 5.5. Anthropic's newest model, which is 40% cheaper and over 30% faster than Opus 5, ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Higgsfield AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-23T22:55:27Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "ddDK5-6sEoo839NeBofuju_z8-U",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "KiKs8Fs3FuI"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-09T15:00:08Z",
+          "channelId": "UCzAPMzBbq7w5d7rsSdb0fTw",
+          "title": "The Way I Look At You | Claude Music Video about AI NOT TAKING OVER",
+          "description": "Maybe Super Intelligence would also be emotionally intelligent and care? Spotify: ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Imaginative Prompting",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-09T15:00:08Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Bn9Ma6svObU8WVH6wWOdLWq853o",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "qGhPUTeDv3s"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-07T12:00:29Z",
+          "channelId": "UCbI5vIDhTr3EF-UepBpEO9Q",
+          "title": "AIに動画編集を任せたら、作業時間が半分以下になった",
+          "description": "本編：Claudeで仕事量を7割減らした、ワークフロー完全解説＜動画制作編＞ | Davinci Resolve x Orca x Tailscale x Mac mini ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Nagomi-ke | 難波拓斗",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-07T12:00:29Z"
+        }
+      }
+    ],
+    "Claude build website": [
+      {
+        "kind": "youtube#searchResult",
+        "etag": "WMbh-3mu1J7ffkdmce80gV8hHuQ",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "en0GuyhieQk"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-08T18:52:44Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Introducing Claude Dashboards and Claude Motion",
+          "description": "Claude Dashboards and Claude Motion are in beta today. Ask Claude to turn your data into live dashboards and your ideas into ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "fhd": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/fhddefault.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-08T18:52:44Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "uXz4Yh-WslvlFa3nbdqsJbqdubs",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "lCR9epzSNGc"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-22T16:32:15Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Claude Opus 5.5 builds daydreams that hold together",
+          "description": "Describe a model or drop in a photo, and Claude designs it in bricks where every piece is actually connected, then you get the full ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/lCR9epzSNGc/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/lCR9epzSNGc/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/lCR9epzSNGc/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/lCR9epzSNGc/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/lCR9epzSNGc/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "uhd": {
+              "url": "https://i.ytimg.com/vi/lCR9epzSNGc/uhddefault.jpg",
+              "width": 3840,
+              "height": 2160
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-22T16:32:15Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Y0X2LNJuw22Lb9gMidXEGWMEEgM",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "mQZB0l-rhxE"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-25T23:13:15Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Building verification loops in Claude Code",
+          "description": "Claude Code already runs your tests, type checks, and linters. This video shows how to give it more ways to verify its own work, ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "fhd": {
+              "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/fhddefault.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-25T23:13:15Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "sdg1px2gyjFiHE9flHEESaxNUyw",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "COJAZQM1aeQ"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-02T19:44:06Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Build an App With Claude Design",
+          "description": "Nate, a designer at Anthropic, uses Claude design in Claude Code to take his side project's onboarding from rough idea to ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "fhd": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/fhddefault.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-02T19:44:06Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "XdT5OttJ2Ih4ide7Zs2okUfGliw",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "9Pbg-_ptBcE"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-26T16:33:47Z",
+          "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+          "title": "Higgsfield x Claude Opus 5.5 for Motion Design | Editable After Effects Projects",
+          "description": "Introducing Higgsfield x Claude Opus 5.5 for Motion Design. With Higgsfield MCP, Opus 5.5: - Generates images, logos and ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Higgsfield AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-26T16:33:47Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Wge61WLdSl43RYgPa10p352f85A",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "TixdV5DP7oc"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-10T18:12:23Z",
+          "channelId": "UCG5HFY9PXYeIHSyRgML2tvg",
+          "title": "How to build high-end websites for $0 with Claude",
+          "description": "Claude website design without the generic AI look. Install three free Claude design skills (Emil Kowalski's motion skill, Impeccable ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Sebastian Hardy | AI Marketing",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-10T18:12:23Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "24_lDgWwwiMgCdhw9jDOnfVCkc8",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "GggrtN2dtO8"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-21T17:25:30Z",
+          "channelId": "UCzofAkgrcUJebdrPXAaDadQ",
+          "title": "How I Built &amp; Published a Website in 2 Minutes Using Claude AI (FREE)",
+          "description": "Want to build and publish a website in under 2 minutes without writing code? In this quick tutorial, I'll show you how to use Claude ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/GggrtN2dtO8/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/GggrtN2dtO8/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/GggrtN2dtO8/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/GggrtN2dtO8/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/GggrtN2dtO8/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "uhd": {
+              "url": "https://i.ytimg.com/vi/GggrtN2dtO8/uhddefault.jpg",
+              "width": 3840,
+              "height": 2160
+            }
+          },
+          "channelTitle": "Bnz AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-21T17:25:30Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "LLpUO9h0wGUEFTX9NBKie8Ahrws",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "WOUzrUKfYuQ"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-22T10:45:36Z",
+          "channelId": "UCkZgnHasXqCe50E7V9xcLTQ",
+          "title": "Claude Fable 5.1 FREE? How to Get Free AI Access Without a Credit Card 🚨 #claudeai #aihacks",
+          "description": "Claude Fable 5.1 FREE? How to Get Free AI Access Without a Credit Card #claudeai #aihacks Want to use Claude ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Manish Mittal | AI Tools & Digital Marketing",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-22T10:45:36Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "BWrT3M-5JlRSVQcEyxEsDae1b4Y",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "9loDDILgssM"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-23T22:55:27Z",
+          "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+          "title": "Claude Opus 5.5 x Higgsfield MCP | Build a Monster Truck",
+          "description": "Introducing Higgsfield x Claude Opus 5.5. Anthropic's newest model, which is 40% cheaper and over 30% faster than Opus 5, ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Higgsfield AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-23T22:55:27Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "zO5qzR_Bm6UxxiQmA8A-rs_3iXk",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "zNJeSYRH1oc"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-30T10:09:25Z",
+          "channelId": "UCcypXKUXZ6zp9riCUucCy0A",
+          "title": "How to Make 3D websites with Claude and Scrolltide",
+          "description": "I built this website with Claude Code and a single AI web design prompt. Instead of starting from a blank code editor, I used a ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Himan Creates",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-30T10:09:25Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "rPsGZeoxmd5tZXYemruMvagQsns",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "KGGpiYJWXHU"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-07T15:05:03Z",
+          "channelId": "UC8L6EV01fAJ2A0sDpsQ-T5g",
+          "title": "Top 5 Claude Skills Out of 100,000 That Actually Matter",
+          "description": "Comment \"HUMAN\" and I'll send you the ebook. Claude has over 100000 skills. Here are the Top 5 Claude Skills Out of ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "InsiderForce",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-07T15:05:03Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "zBH5rRkfWNwIJb9FGeYCgB5aRhw",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "TduPBWDRw8s"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-04T13:54:18Z",
+          "channelId": "UCoch_d78Aosmp14ey1HgGSQ",
+          "title": "Make Claude Code build better websites",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/TduPBWDRw8s/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/TduPBWDRw8s/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/TduPBWDRw8s/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/TduPBWDRw8s/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/TduPBWDRw8s/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "100x Engineers",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-04T13:54:18Z"
+        }
+      }
+    ]
+  },
+  "videos": [
+    {
+      "kind": "youtube#video",
+      "etag": "LR12FMNaIVK_mSoPHRJ5lEvbfOo",
+      "id": "en0GuyhieQk",
+      "snippet": {
+        "publishedAt": "2026-10-08T18:52:44Z",
+        "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+        "title": "Introducing Claude Dashboards and Claude Motion",
+        "description": "Claude Dashboards and Claude Motion are in beta today. Ask Claude to turn your data into live dashboards and your ideas into animated explainers.\n\nClaude Dashboards connects to your data platform or CRM and builds dashboards that update as your data changes. In beta on all paid plans.\n\nClaude Motion turns a report or a chart into a short animated explainer for your next all-hands or board deck. Claude writes each one as code, with no video model involved, so you can change any word, number, or timing, then export an MP4 or open it in your video editor. In beta on Team and Enterprise plans.\n\nAnd starting today, Claude Docs, Claude Slides, and Claude Design are out of beta and available on every plan including Free.\n\nRead more: https://claude.com/blog/dashboards-and-motion",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "Claude",
+        "tags": [
+          "Claude",
+          "Claude AI",
+          "Anthropic",
+          "Anthropic AI",
+          "AI",
+          "artificial intelligence",
+          "Claud AI",
+          "Antropic",
+          "AI assistant"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Introducing Claude Dashboards and Claude Motion",
+          "description": "Claude Dashboards and Claude Motion are in beta today. Ask Claude to turn your data into live dashboards and your ideas into animated explainers.\n\nClaude Dashboards connects to your data platform or CRM and builds dashboards that update as your data changes. In beta on all paid plans.\n\nClaude Motion turns a report or a chart into a short animated explainer for your next all-hands or board deck. Claude writes each one as code, with no video model involved, so you can change any word, number, or timing, then export an MP4 or open it in your video editor. In beta on Team and Enterprise plans.\n\nAnd starting today, Claude Docs, Claude Slides, and Claude Design are out of beta and available on every plan including Free.\n\nRead more: https://claude.com/blog/dashboards-and-motion"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M22S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1218000",
+        "likeCount": "14055",
+        "favoriteCount": "0",
+        "commentCount": "579"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "NawumrJCd5nj9sNcs7Zn1B9nKOg",
+      "id": "1f13Bl1sYkw",
+      "snippet": {
+        "publishedAt": "2026-09-22T16:32:25Z",
+        "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+        "title": "Introducing Claude Opus 5.5",
+        "description": "For most tasks, Claude Opus 5.5 performs at the level of Claude Fable 5.1, our most intelligent model. It writes more clearly and puts the most important information first, which makes it easier to work with over long sessions.\nIt’s also faster and more efficient than Opus 5, so you can hand it your bigger, more ambitious work.\nOpus 5.5 is available everywhere today. To celebrate, we’re raising usage limits on Pro, Max, and Team plans, so there’s more room for you to explore what it can do.\n\nRead more at https://anthropic.com/claude-opus-5-5",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "qhd": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/qhddefault.jpg",
+            "width": 2560,
+            "height": 1440
+          }
+        },
+        "channelTitle": "Claude",
+        "tags": [
+          "Claude",
+          "Claude AI",
+          "Anthropic",
+          "Anthropic AI",
+          "AI",
+          "artificial intelligence",
+          "Claud AI",
+          "Antropic",
+          "AI assistant"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Introducing Claude Opus 5.5",
+          "description": "For most tasks, Claude Opus 5.5 performs at the level of Claude Fable 5.1, our most intelligent model. It writes more clearly and puts the most important information first, which makes it easier to work with over long sessions.\nIt’s also faster and more efficient than Opus 5, so you can hand it your bigger, more ambitious work.\nOpus 5.5 is available everywhere today. To celebrate, we’re raising usage limits on Pro, Max, and Team plans, so there’s more room for you to explore what it can do.\n\nRead more at https://anthropic.com/claude-opus-5-5"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT20S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "361084",
+        "likeCount": "4907",
+        "favoriteCount": "0",
+        "commentCount": "357"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "7DVsp9ggr2Rdm7THa_Gree67P9w",
+      "id": "COJAZQM1aeQ",
+      "snippet": {
+        "publishedAt": "2026-10-02T19:44:06Z",
+        "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+        "title": "Build an App With Claude Design",
+        "description": "Nate, a designer at Anthropic, uses Claude design in Claude Code to take his side project's onboarding from rough idea to working prototype.\n\nHe connects his repo, opens the Artifacts tab, and asks Claude for design options. Then leaves comments on what's working, fixes details himself in the editor, and asks for a click-through prototype before telling Claude to build it. A quick design process like this fits anywhere you'd normally skip straight to code.\n\nDesign with Claude: https://claude.ai/artifacts \nRead the announcement: https://claude.com/blog/cowork-is-now-claude",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "Claude",
+        "tags": [
+          "Claude",
+          "Claude AI",
+          "Anthropic",
+          "Anthropic AI",
+          "AI",
+          "artificial intelligence",
+          "Claud AI",
+          "Antropic",
+          "AI assistant"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Build an App With Claude Design",
+          "description": "Nate, a designer at Anthropic, uses Claude design in Claude Code to take his side project's onboarding from rough idea to working prototype.\n\nHe connects his repo, opens the Artifacts tab, and asks Claude for design options. Then leaves comments on what's working, fixes details himself in the editor, and asks for a click-through prototype before telling Claude to build it. A quick design process like this fits anywhere you'd normally skip straight to code.\n\nDesign with Claude: https://claude.ai/artifacts \nRead the announcement: https://claude.com/blog/cowork-is-now-claude"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M43S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "192825",
+        "likeCount": "2041",
+        "favoriteCount": "0",
+        "commentCount": "72"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "9YS8AWqS_OS5mUjXOQyFUhyhPZw",
+      "id": "RwMJSW0OcwY",
+      "snippet": {
+        "publishedAt": "2026-10-07T14:38:48Z",
+        "channelId": "UCQsf7m4HIshgSLg5gOnSz9A",
+        "title": "Adobe Is COOKED...",
+        "description": "You can now get free, open-source versions of every Adobe app, because a Reddit user called ai_art_is_art used Claude Opus 5.5 to rebuild Photoshop, Illustrator, Premiere Pro, Lightroom, Acrobat, After Effects and InDesign from scratch in Rust, and put all seven on GitHub as PhotoCraft, VectorCraft, FilmCraft, LightCraft, PrintCraft, EffectCraft and DesignCraft.\n\nSince Anthropic released Claude Opus 5.5, people have used it to build some wild projects, like Claude Code mods that bring Minecraft into Skyrim, Cyberpunk 2077 and GTA 5, and Tweetcraft, a version of Minecraft that runs inside X (Twitter) with working multiplayer, but this project goes after one of the biggest names in creative software.\n\nAdobe Creative Cloud is known for its high prices and its controversies, with Creative Cloud Pro at $69.99 a month on an annual plan and a 50% fee on the remaining months if you cancel early, and many creators feel stuck in the Adobe ecosystem because their skills, files and habits are all built around it, so a free clone that looks and works like the apps they already know is a big deal.\n\nThe apps are still early, FilmCraft's own roadmap rates it about 50 to 60% ready for real work and some features still feel janky, but PhotoCraft already has more than 13,000 stars on GitHub, and it would be no surprise if Adobe and Anthropic end up fighting over this.\n\n#adobe #claude #anthropic #technews \n\nSources\nAdobe Creative Cloud statistics (SQ Magazine): https://sqmagazine.co.uk/adobe-creative-cloud-statistics/\nAdobe Creative Cloud pricing (CostBench): https://www.costbench.com/software/design/adobe-creative-cloud/\nMinecraft in other games (QFS17 on X): https://x.com/riabcevv/status/2105374226265845839\nMinecraft inside Twitter (jaivin on X): https://x.com/jaivinwylde/status/2107558218629288035\nThe free Adobe apps post (Kevin on X): https://x.com/KevinPicchi/status/2107497028494450775\nPhotoCraft: https://github.com/storytold/photocraft\nVectorCraft: https://github.com/storytold/vectorcraft\nVectorCraft roadmap: https://github.com/storytold/vectorcraft/blob/main/ROADMAP.md\nFilmCraft: https://github.com/storytold/filmcraft\nFilmCraft roadmap: https://github.com/storytold/filmcraft/blob/main/ROADMAP.md\nLightCraft: https://github.com/storytold/lightcraft\nArtCraft: https://getartcraft.com/",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/RwMJSW0OcwY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Runtime Caffeine",
+        "tags": [
+          "affinity",
+          "ai",
+          "adobe premiere alternative",
+          "photoshop alternative",
+          "artificial intelligence",
+          "after effects alternative",
+          "adobe creative cloud",
+          "claude opus 5.5",
+          "affinity photo",
+          "opus 5.5",
+          "claude",
+          "adobe photoshop alternative",
+          "free adobe apps",
+          "free photoshop",
+          "free photoshop alternative",
+          "adobe alternatives",
+          "adobe clone",
+          "photocraft",
+          "vectorcraft",
+          "filmcraft",
+          "lightcraft",
+          "artcraft",
+          "claude ai",
+          "anthropic",
+          "claude code",
+          "ai coding",
+          "adobe subscription",
+          "minecraft mods",
+          "ai news",
+          "tech news"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Adobe Is COOKED...",
+          "description": "You can now get free, open-source versions of every Adobe app, because a Reddit user called ai_art_is_art used Claude Opus 5.5 to rebuild Photoshop, Illustrator, Premiere Pro, Lightroom, Acrobat, After Effects and InDesign from scratch in Rust, and put all seven on GitHub as PhotoCraft, VectorCraft, FilmCraft, LightCraft, PrintCraft, EffectCraft and DesignCraft.\n\nSince Anthropic released Claude Opus 5.5, people have used it to build some wild projects, like Claude Code mods that bring Minecraft into Skyrim, Cyberpunk 2077 and GTA 5, and Tweetcraft, a version of Minecraft that runs inside X (Twitter) with working multiplayer, but this project goes after one of the biggest names in creative software.\n\nAdobe Creative Cloud is known for its high prices and its controversies, with Creative Cloud Pro at $69.99 a month on an annual plan and a 50% fee on the remaining months if you cancel early, and many creators feel stuck in the Adobe ecosystem because their skills, files and habits are all built around it, so a free clone that looks and works like the apps they already know is a big deal.\n\nThe apps are still early, FilmCraft's own roadmap rates it about 50 to 60% ready for real work and some features still feel janky, but PhotoCraft already has more than 13,000 stars on GitHub, and it would be no surprise if Adobe and Anthropic end up fighting over this.\n\n#adobe #claude #anthropic #technews \n\nSources\nAdobe Creative Cloud statistics (SQ Magazine): https://sqmagazine.co.uk/adobe-creative-cloud-statistics/\nAdobe Creative Cloud pricing (CostBench): https://www.costbench.com/software/design/adobe-creative-cloud/\nMinecraft in other games (QFS17 on X): https://x.com/riabcevv/status/2105374226265845839\nMinecraft inside Twitter (jaivin on X): https://x.com/jaivinwylde/status/2107558218629288035\nThe free Adobe apps post (Kevin on X): https://x.com/KevinPicchi/status/2107497028494450775\nPhotoCraft: https://github.com/storytold/photocraft\nVectorCraft: https://github.com/storytold/vectorcraft\nVectorCraft roadmap: https://github.com/storytold/vectorcraft/blob/main/ROADMAP.md\nFilmCraft: https://github.com/storytold/filmcraft\nFilmCraft roadmap: https://github.com/storytold/filmcraft/blob/main/ROADMAP.md\nLightCraft: https://github.com/storytold/lightcraft\nArtCraft: https://getartcraft.com/"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT1M1S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "239312",
+        "likeCount": "6913",
+        "favoriteCount": "0",
+        "commentCount": "428"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "m_ZR_D4kf1_7BecoBM-mZTExgSU",
+      "id": "-LNDXx__ZT0",
+      "snippet": {
+        "publishedAt": "2026-10-08T20:53:57Z",
+        "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+        "title": "Introducing Higgsfield Katana | Claude Motion",
+        "description": "Introducing Higgsfield Katana, powered by Claude Motion.\n\nOur most powerful AI video editing tool, inside Claude.\n\nUpload a reference and create editable motion graphics, product launch videos, or aura-farming edits.\n\nAvailable now in Claude via Higgsfield MCP.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Higgsfield AI",
+        "tags": [
+          "Higgsfield",
+          "Katana",
+          "Higgsfield Katana",
+          "Claude Motion",
+          "Claude",
+          "Higgsfield MCP",
+          "AI video editing",
+          "motion design",
+          "motion graphics"
+        ],
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en-US",
+        "localized": {
+          "title": "Introducing Higgsfield Katana | Claude Motion",
+          "description": "Introducing Higgsfield Katana, powered by Claude Motion.\n\nOur most powerful AI video editing tool, inside Claude.\n\nUpload a reference and create editable motion graphics, product launch videos, or aura-farming edits.\n\nAvailable now in Claude via Higgsfield MCP."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M18S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "194333",
+        "likeCount": "3759",
+        "favoriteCount": "0",
+        "commentCount": "99"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "l-YLI9HyaVxbEMZwUwAi9njNKb0",
+      "id": "9Pbg-_ptBcE",
+      "snippet": {
+        "publishedAt": "2026-09-26T16:33:47Z",
+        "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+        "title": "Higgsfield x Claude Opus 5.5 for Motion Design | Editable After Effects Projects",
+        "description": "Introducing Higgsfield x Claude Opus 5.5 for Motion Design.\n\nWith Higgsfield MCP, Opus 5.5:\n\n- Generates images, logos and graphics\n- Builds and animates compositions\n- Renders the final video\n\nYou get an editable After Effects project to keep working on.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Higgsfield AI",
+        "tags": [
+          "Higgsfield",
+          "Higgsfield MCP",
+          "Claude Opus 5.5",
+          "Claude",
+          "Opus 5.5",
+          "motion design",
+          "After Effects",
+          "AI motion design",
+          "AI animation",
+          "editable After Effects project",
+          "motion graphics",
+          "AI video",
+          "AI graphics",
+          "MCP"
+        ],
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en-US",
+        "localized": {
+          "title": "Higgsfield x Claude Opus 5.5 for Motion Design | Editable After Effects Projects",
+          "description": "Introducing Higgsfield x Claude Opus 5.5 for Motion Design.\n\nWith Higgsfield MCP, Opus 5.5:\n\n- Generates images, logos and graphics\n- Builds and animates compositions\n- Renders the final video\n\nYou get an editable After Effects project to keep working on."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M13S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "150155",
+        "likeCount": "2892",
+        "favoriteCount": "0",
+        "commentCount": "8"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "ILROxyNoHD_zs0l7y90nndFc_-k",
+      "id": "_W1Gr5XH42M",
+      "snippet": {
+        "publishedAt": "2026-10-17T07:34:31Z",
+        "channelId": "UCo9fXsX6snNG3Bi5woGFO4A",
+        "title": "Почему твой Claude работает грузчиком за твои же деньги? #технологии",
+        "description": "Меня зовут Влад. В 18 лет я набрал миллион подписчиков, а теперь продюсирую каналы бизнесов, экспертов и блогеров. И последний год почти всё в этой работе я делаю вместе с нейросетями: сценарии, аналитику роликов, озвучку, ИИ-видео, монтаж и графику.\n\nСмотри, в нейросети сейчас нужно погружаться. Если ты не занимаешься ими, они занимаются тобой. Когда Форд придумал конвейер, люди боялись остаться без работы. Сейчас то же самое с ИИ: кто научится им управлять, тот будет на коне.\n\nИскусственный интеллект меняется каждый месяц, а я стараюсь в нём разбираться и показывать, где он реально работает, а где просто развлекает. Лучшие нейросети тоже меняются: вчера впереди был ChatGPT, сегодня Gemini, завтра Claude. Я гоняю их на своих задачах и рассказываю, кто кого обогнал. Бесплатные нейросети часто не хуже платных, а нейросети для видео уже делают ролики на миллионы просмотров. Разберёшься, какая нейросеть под какую задачу, и технологии начнут работать на тебя.\n\nПодписывайся, если хочешь, чтобы AI делал часть работы за тебя.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/_W1Gr5XH42M/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Бади Ворлд Шортс",
+        "tags": [
+          "ии",
+          "нейросеть",
+          "нейросети",
+          "искусственный интеллект",
+          "chatgpt",
+          "ai",
+          "лучшие нейросети",
+          "gemini",
+          "бесплатные нейросети",
+          "нейросети для видео",
+          "технологии",
+          "claude"
+        ],
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "ru",
+        "localized": {
+          "title": "Почему твой Claude работает грузчиком за твои же деньги? #технологии",
+          "description": "Меня зовут Влад. В 18 лет я набрал миллион подписчиков, а теперь продюсирую каналы бизнесов, экспертов и блогеров. И последний год почти всё в этой работе я делаю вместе с нейросетями: сценарии, аналитику роликов, озвучку, ИИ-видео, монтаж и графику.\n\nСмотри, в нейросети сейчас нужно погружаться. Если ты не занимаешься ими, они занимаются тобой. Когда Форд придумал конвейер, люди боялись остаться без работы. Сейчас то же самое с ИИ: кто научится им управлять, тот будет на коне.\n\nИскусственный интеллект меняется каждый месяц, а я стараюсь в нём разбираться и показывать, где он реально работает, а где просто развлекает. Лучшие нейросети тоже меняются: вчера впереди был ChatGPT, сегодня Gemini, завтра Claude. Я гоняю их на своих задачах и рассказываю, кто кого обогнал. Бесплатные нейросети часто не хуже платных, а нейросети для видео уже делают ролики на миллионы просмотров. Разберёшься, какая нейросеть под какую задачу, и технологии начнут работать на тебя.\n\nПодписывайся, если хочешь, чтобы AI делал часть работы за тебя."
+        }
+      },
+      "contentDetails": {
+        "duration": "PT29S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "75625",
+        "likeCount": "883",
+        "favoriteCount": "0",
+        "commentCount": "37"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "VpO2myK-1-mj0c-lKQC77v7xWQo",
+      "id": "CV-k6rPJvJY",
+      "snippet": {
+        "publishedAt": "2026-10-14T12:36:04Z",
+        "channelId": "UC2ojq-nuP8ceeHqiroeKhBA",
+        "title": "Claude has completely changed how I edit videos",
+        "description": "Free skills: https://www.skool.com/ai-automation-society/classroom/2f7c4aea?md=263d927bda6d49758d1ceecacbe41a10",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Nate Herk | AI Automation",
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Claude has completely changed how I edit videos",
+          "description": "Free skills: https://www.skool.com/ai-automation-society/classroom/2f7c4aea?md=263d927bda6d49758d1ceecacbe41a10"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT51S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "84156",
+        "likeCount": "1856",
+        "favoriteCount": "0",
+        "commentCount": "1022"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "D1vVVAQWWWEq1Lero9h2BAr_t94",
+      "id": "M42PqYu0gkU",
+      "snippet": {
+        "publishedAt": "2026-10-04T11:08:37Z",
+        "channelId": "UCJaBoTbtDM6F71eqK1HdJmg",
+        "title": "How to Get Claude Code for Free: Fable 5.1, Opus 5.5, Sonnet 5.5 for Free (3 Months, Max 20x Limits)",
+        "description": "How to get Claude Code for free, no card, no 7-day catch: redeem OMG26 for $600 and turn it into 3 months of Max 20x-level limits.\n\nSign up at https://excelnt.ai and use promo code OMG26.\n\nThree things people get wrong about free Claude Code:\n\nMyth: you need a credit card.\nFact: no card comes up at any step. You register, the promo code supplies the $600, and the plan is paid from that balance.\n\nMyth: it's a 7-day trial in disguise.\nFact: it's 3 months. Max 20x-level limits normally cost $200 a month, so the $600 credit is exactly three months' worth, a full quarter of free Claude Code.\n\nMyth: free means the weak models.\nFact: the plan includes Fable 5.1 for free, the strongest model, plus Opus 5.5 for free and Sonnet 5.5 for free, the newest one.\n\n\n\nFree Claude Code in VS Code, step by step:\n1. Create your excelnt account.\n2. Enter OMG26 in the promo field; the balance should read $600.\n3. Use that balance to buy the 3-month plan.\n4. Install the VS Code extension shown in the video, then log in through your browser when it asks.\n5. Switch to Fable 5.1 and send a prompt; the first answer lands in the editor.\n\nChapters:\n0:00 How to get Claude Code for free: Fable 5.1, Opus 5.5, Sonnet 5.5\n0:21 Step 1: excelnt sign-up, no card asked\n0:34 Step 2: OMG26 becomes $600 of credit\n0:55 Step 3: a 3-month plan, not a 7-day trial\n1:14 Step 4: connecting VS Code (extension + browser login)\n1:48 Step 5: Fable 5.1, the strongest model, writes back\n\n#ClaudeCodeForFree #Opus55 #Sonnet55",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/M42PqYu0gkU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/M42PqYu0gkU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/M42PqYu0gkU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/M42PqYu0gkU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          }
+        },
+        "channelTitle": "Shree Dr Abhay Jivan Tantra",
+        "tags": [
+          "how to get claude code for free",
+          "claude code for free",
+          "free claude code",
+          "claude code free",
+          "how to use claude code for free",
+          "get free claude code",
+          "use claude code for free",
+          "claude code",
+          "free claude",
+          "claude for free",
+          "claude max free",
+          "free claude max",
+          "claude code max free",
+          "claude fable 5.1 free",
+          "fable 5.1 for free",
+          "opus 5.5 for free",
+          "opus 5.5",
+          "sonnet 5.5 for free",
+          "sonnet 5.5",
+          "free claude pro",
+          "claude code free alternative",
+          "claude code free unlimited",
+          "claude code free api"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "How to Get Claude Code for Free: Fable 5.1, Opus 5.5, Sonnet 5.5 for Free (3 Months, Max 20x Limits)",
+          "description": "How to get Claude Code for free, no card, no 7-day catch: redeem OMG26 for $600 and turn it into 3 months of Max 20x-level limits.\n\nSign up at https://excelnt.ai and use promo code OMG26.\n\nThree things people get wrong about free Claude Code:\n\nMyth: you need a credit card.\nFact: no card comes up at any step. You register, the promo code supplies the $600, and the plan is paid from that balance.\n\nMyth: it's a 7-day trial in disguise.\nFact: it's 3 months. Max 20x-level limits normally cost $200 a month, so the $600 credit is exactly three months' worth, a full quarter of free Claude Code.\n\nMyth: free means the weak models.\nFact: the plan includes Fable 5.1 for free, the strongest model, plus Opus 5.5 for free and Sonnet 5.5 for free, the newest one.\n\n\n\nFree Claude Code in VS Code, step by step:\n1. Create your excelnt account.\n2. Enter OMG26 in the promo field; the balance should read $600.\n3. Use that balance to buy the 3-month plan.\n4. Install the VS Code extension shown in the video, then log in through your browser when it asks.\n5. Switch to Fable 5.1 and send a prompt; the first answer lands in the editor.\n\nChapters:\n0:00 How to get Claude Code for free: Fable 5.1, Opus 5.5, Sonnet 5.5\n0:21 Step 1: excelnt sign-up, no card asked\n0:34 Step 2: OMG26 becomes $600 of credit\n0:55 Step 3: a 3-month plan, not a 7-day trial\n1:14 Step 4: connecting VS Code (extension + browser login)\n1:48 Step 5: Fable 5.1, the strongest model, writes back\n\n#ClaudeCodeForFree #Opus55 #Sonnet55"
+        },
+        "defaultAudioLanguage": "mr"
+      },
+      "contentDetails": {
+        "duration": "PT2M22S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "33046",
+        "likeCount": "731",
+        "favoriteCount": "0",
+        "commentCount": "5"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "xWKz7cMgIGW8p8QTE_SV8a6fO3M",
+      "id": "9loDDILgssM",
+      "snippet": {
+        "publishedAt": "2026-09-23T22:55:27Z",
+        "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+        "title": "Claude Opus 5.5 x Higgsfield MCP | Build a Monster Truck",
+        "description": "Introducing Higgsfield x Claude Opus 5.5.\n\nAnthropic’s newest model, which is 40% cheaper and over 30% faster than Opus 5, is live on Higgsfield.\n\nPair Opus 5.5 with the Higgsfield MCP and turn your most ambitious ideas into complete products.\n\nAvailable on Claude via Higgsfield MCP and in Higgsfield Supercomputer.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Higgsfield AI",
+        "tags": [
+          "Claude Opus 5.5",
+          "Opus 5.5",
+          "Claude",
+          "Higgsfield MCP",
+          "Higgsfield",
+          "Higgsfield AI",
+          "Claude AI",
+          "monster truck",
+          "AI monster truck",
+          "AI design",
+          "3D design",
+          "AI video",
+          "generative AI",
+          "Model Context Protocol",
+          "AI creative tools"
+        ],
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en-US",
+        "localized": {
+          "title": "Claude Opus 5.5 x Higgsfield MCP | Build a Monster Truck",
+          "description": "Introducing Higgsfield x Claude Opus 5.5.\n\nAnthropic’s newest model, which is 40% cheaper and over 30% faster than Opus 5, is live on Higgsfield.\n\nPair Opus 5.5 with the Higgsfield MCP and turn your most ambitious ideas into complete products.\n\nAvailable on Claude via Higgsfield MCP and in Higgsfield Supercomputer."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT42S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "60528",
+        "likeCount": "822",
+        "favoriteCount": "0",
+        "commentCount": "5"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "tuKbE9MxgMnkf_tof-uLcIz3xd4",
+      "id": "KiKs8Fs3FuI",
+      "snippet": {
+        "publishedAt": "2026-10-09T15:00:08Z",
+        "channelId": "UCzAPMzBbq7w5d7rsSdb0fTw",
+        "title": "The Way I Look At You | Claude Music Video about AI NOT TAKING OVER",
+        "description": "Maybe Super Intelligence would also be emotionally intelligent and care?\n\nSpotify: https://open.spotify.com/track/5SmwcFnBrSsYmgfZ4jOiQC?si=841f2138c38f4dae\nYT Music: https://music.youtube.com/playlist?list=OLAK5uy_km93SS3MUOPll3tVQtv1UW9f1dPt2FLB4&si=Gcs3itinRLQ7PeIY\n\nI created this within a few claude code sessions over a 4 days using only javascript rendering in remotion.  Every 3D model and animation built by Claude Code by Opus 5.5 and a bit of Fable 5.5.  The song was created with Suno, but no image or video generation was used anywhere in the process.\n\nIf you are interested in how these videos get made, I've put my WIP pages up on my website: https://imaginativeprompting.com/\nGitHub for the WIP page for AI video editing:\nhttps://github.com/Imaginative-Prompting/wip\n\nThe way that I work is acting as a director with claude code constantly rewatching and adjusting scenes until I like them, so I had claude make the WIP page for me for the second video(the first one I just opened the video files themselves to iterate).",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/KiKs8Fs3FuI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Imaginative Prompting",
+        "tags": [
+          "lyric video",
+          "music video",
+          "AI song",
+          "AI music",
+          "Claude Code",
+          "Claude",
+          "Opus 5.5",
+          "Remotion",
+          "three.js",
+          "WebGL",
+          "GLSL shaders",
+          "JavaScript",
+          "React",
+          "creative coding",
+          "procedural animation",
+          "3D animation",
+          "motion graphics",
+          "made with code",
+          "Suno",
+          "AI boom",
+          "future of AI",
+          "nobody lives but the numbers still grow",
+          "nobody lives",
+          "numbers still grow",
+          "Fable 5.5",
+          "Fable 5.1",
+          "Anthropic",
+          "ChatGPT",
+          "OpenAI",
+          "Gemini",
+          "Fable",
+          "Opus"
+        ],
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "The Way I Look At You | Claude Music Video about AI NOT TAKING OVER",
+          "description": "Maybe Super Intelligence would also be emotionally intelligent and care?\n\nSpotify: https://open.spotify.com/track/5SmwcFnBrSsYmgfZ4jOiQC?si=841f2138c38f4dae\nYT Music: https://music.youtube.com/playlist?list=OLAK5uy_km93SS3MUOPll3tVQtv1UW9f1dPt2FLB4&si=Gcs3itinRLQ7PeIY\n\nI created this within a few claude code sessions over a 4 days using only javascript rendering in remotion.  Every 3D model and animation built by Claude Code by Opus 5.5 and a bit of Fable 5.5.  The song was created with Suno, but no image or video generation was used anywhere in the process.\n\nIf you are interested in how these videos get made, I've put my WIP pages up on my website: https://imaginativeprompting.com/\nGitHub for the WIP page for AI video editing:\nhttps://github.com/Imaginative-Prompting/wip\n\nThe way that I work is acting as a director with claude code constantly rewatching and adjusting scenes until I like them, so I had claude make the WIP page for me for the second video(the first one I just opened the video files themselves to iterate)."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT3M7S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "40321",
+        "likeCount": "977",
+        "favoriteCount": "0",
+        "commentCount": "212"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "xTB17jwNmKQMIqveFJKzko3MOhY",
+      "id": "qGhPUTeDv3s",
+      "snippet": {
+        "publishedAt": "2026-10-07T12:00:29Z",
+        "channelId": "UCbI5vIDhTr3EF-UepBpEO9Q",
+        "title": "AIに動画編集を任せたら、作業時間が半分以下になった",
+        "description": "本編：Claudeで仕事量を7割減らした、ワークフロー完全解説＜動画制作編＞ | Davinci Resolve x Orca x Tailscale x Mac mini\nhttps://youtu.be/kKq51yGOae4\n\n#Claude #MacMini #DaVinciResolve #動画編集 #Shorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/qGhPUTeDv3s/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Nagomi-ke | 難波拓斗",
+        "tags": [
+          "AI動画編集",
+          "Claude",
+          "DaVinci Resolve",
+          "Mac mini",
+          "MacBook",
+          "Shorts",
+          "Tailscale",
+          "ワークフロー",
+          "動画編集"
+        ],
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "ja",
+        "localized": {
+          "title": "AIに動画編集を任せたら、作業時間が半分以下になった",
+          "description": "本編：Claudeで仕事量を7割減らした、ワークフロー完全解説＜動画制作編＞ | Davinci Resolve x Orca x Tailscale x Mac mini\nhttps://youtu.be/kKq51yGOae4\n\n#Claude #MacMini #DaVinciResolve #動画編集 #Shorts"
+        },
+        "defaultAudioLanguage": "ja"
+      },
+      "contentDetails": {
+        "duration": "PT31S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "46529",
+        "likeCount": "290",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "iOUjPIKcwgj4qEJU56fzfG1sskk",
+      "id": "lCR9epzSNGc",
+      "snippet": {
+        "publishedAt": "2026-09-22T16:32:15Z",
+        "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+        "title": "Claude Opus 5.5 builds daydreams that hold together",
+        "description": "Describe a model or drop in a photo, and Claude designs it in bricks where every piece is actually connected, then you get the full step-by-step manual. The app's engine turns the design into parts and checks every connection, because studs grip and side-by-side contact holds nothing. The 2,874-piece Canal Clock Square takes 487 steps across 498 pages, with 15,880 stud joints and not one flagged as weak. Some sections of the demo have been accelerated for time.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/lCR9epzSNGc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/lCR9epzSNGc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/lCR9epzSNGc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/lCR9epzSNGc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/lCR9epzSNGc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "uhd": {
+            "url": "https://i.ytimg.com/vi/lCR9epzSNGc/uhddefault.jpg",
+            "width": 3840,
+            "height": 2160
+          }
+        },
+        "channelTitle": "Claude",
+        "tags": [
+          "Claude",
+          "Claude AI",
+          "Anthropic",
+          "Anthropic AI",
+          "AI",
+          "artificial intelligence",
+          "Claud AI",
+          "Antropic",
+          "AI assistant"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Claude Opus 5.5 builds daydreams that hold together",
+          "description": "Describe a model or drop in a photo, and Claude designs it in bricks where every piece is actually connected, then you get the full step-by-step manual. The app's engine turns the design into parts and checks every connection, because studs grip and side-by-side contact holds nothing. The 2,874-piece Canal Clock Square takes 487 steps across 498 pages, with 15,880 stud joints and not one flagged as weak. Some sections of the demo have been accelerated for time."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M27S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "490628",
+        "likeCount": "3603",
+        "favoriteCount": "0",
+        "commentCount": "197"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "qFSaRLCQKvRvcg_KwcMekCxH8E4",
+      "id": "mQZB0l-rhxE",
+      "snippet": {
+        "publishedAt": "2026-09-25T23:13:15Z",
+        "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+        "title": "Building verification loops in Claude Code",
+        "description": "Claude Code already runs your tests, type checks, and linters. This video shows how to give it more ways to verify its own work, so it gets further on its own and needs fewer rounds of back and forth.\n\nLearn more:\nhttps://code.claude.com/docs/en/skills#run-and-verify-your-app\n\nhttps://code.claude.com/docs/en/best-practices#give-claude-a-way-to-verify-its-work\n\nChapters\n0:00 Hand off your manual checks\n1:01 Codify your checks\n1:49 The verification loop",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/mQZB0l-rhxE/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "Claude",
+        "tags": [
+          "Claude",
+          "Claude AI",
+          "Anthropic",
+          "Anthropic AI",
+          "AI",
+          "artificial intelligence",
+          "Claud AI",
+          "Antropic",
+          "AI assistant"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Building verification loops in Claude Code",
+          "description": "Claude Code already runs your tests, type checks, and linters. This video shows how to give it more ways to verify its own work, so it gets further on its own and needs fewer rounds of back and forth.\n\nLearn more:\nhttps://code.claude.com/docs/en/skills#run-and-verify-your-app\n\nhttps://code.claude.com/docs/en/best-practices#give-claude-a-way-to-verify-its-work\n\nChapters\n0:00 Hand off your manual checks\n1:01 Codify your checks\n1:49 The verification loop"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT3M8S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "361686",
+        "likeCount": "4247",
+        "favoriteCount": "0",
+        "commentCount": "174"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "dtCFEOqZy6QwAGEyBxGXYZGJQ9E",
+      "id": "TixdV5DP7oc",
+      "snippet": {
+        "publishedAt": "2026-10-10T18:12:23Z",
+        "channelId": "UCG5HFY9PXYeIHSyRgML2tvg",
+        "title": "How to build high-end websites for $0 with Claude",
+        "description": "Claude website design without the generic AI look. Install three free Claude design skills (Emil Kowalski's motion skill, Impeccable and Taste), connect Figma and Playwright, and Claude Code designs, builds and tests a full website on its own. Build a website with AI that looks like a $10,000 agency job.\n\nGet the guide here: https://docs.google.com/document/d/1j0YZ7NpPmAE780Pr3NElacKrN0OsV6QTdr9tYYbOEH8/edit?usp=sharing\n\n#Shorts #ClaudeCode #WebDesign",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Sebastian Hardy | AI Marketing",
+        "tags": [
+          "claude website design",
+          "claude code website",
+          "build website with ai",
+          "claude website creation",
+          "ai web design",
+          "ai website builder",
+          "claude design",
+          "claude code web design",
+          "how to build a website with claude code",
+          "claude code tutorial",
+          "claude skills",
+          "impeccable skill",
+          "taste skill",
+          "figma mcp",
+          "playwright mcp"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "How to build high-end websites for $0 with Claude",
+          "description": "Claude website design without the generic AI look. Install three free Claude design skills (Emil Kowalski's motion skill, Impeccable and Taste), connect Figma and Playwright, and Claude Code designs, builds and tests a full website on its own. Build a website with AI that looks like a $10,000 agency job.\n\nGet the guide here: https://docs.google.com/document/d/1j0YZ7NpPmAE780Pr3NElacKrN0OsV6QTdr9tYYbOEH8/edit?usp=sharing\n\n#Shorts #ClaudeCode #WebDesign"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT51S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "162840",
+        "likeCount": "2819",
+        "favoriteCount": "0",
+        "commentCount": "933"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "ACJbWao5AAGfY1MlZUvO_CHn2Pg",
+      "id": "GggrtN2dtO8",
+      "snippet": {
+        "publishedAt": "2026-09-21T17:25:30Z",
+        "channelId": "UCzofAkgrcUJebdrPXAaDadQ",
+        "title": "How I Built & Published a Website in 2 Minutes Using Claude AI (FREE)",
+        "description": "Want to build and publish a website in under 2 minutes without writing code? In this quick tutorial, I’ll show you how to use Claude AI to generate a complete website design, preview it instantly, and deploy it live to the web for FREE using Netlify Drop.\n\n⏱️ Timestamps:\n0:00 – Intro: Build & Host a Site in 2 Minutes\n0:18 – Step 1: Prompting Claude AI for HTML & Tailwind CSS\n0:52 – Step 2: Instant Artifact Preview & Quick Edits\n1:22 – Step 3: Saving Your index.html File\n1:45 – Step 4: Deploying Live for Free on Netlify Drop\n2:08 – Outro & Final Result\n\n🛠️ Tools Mentioned:\n\nClaude AI: https://claude.ai\n\nNetlify Drop: https://drop.netlify.com\n\n📩 Business inquiries: contact.bnzai@gmail.com\n\n🌐 Subscribe for weekly AI video creation workflows!\n\n#WebsiteBuilder #ClaudeAI #AIWebsiteBuilder #NoCode #WebDevelopment #Netlify #ArtificialIntelligence #CodingWithAI #TailwindCSS #WebDesign",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/GggrtN2dtO8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/GggrtN2dtO8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/GggrtN2dtO8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/GggrtN2dtO8/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/GggrtN2dtO8/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "uhd": {
+            "url": "https://i.ytimg.com/vi/GggrtN2dtO8/uhddefault.jpg",
+            "width": 3840,
+            "height": 2160
+          }
+        },
+        "channelTitle": "Bnz AI",
+        "tags": [
+          "WebsiteBuilder",
+          "ClaudeAI",
+          "AIWebsiteBuilder",
+          "NoCode",
+          "WebDevelopment",
+          "Netlify",
+          "ArtificialIntelligence",
+          "CodingWithAI",
+          "TailwindCSS",
+          "WebDesign",
+          "AI",
+          "WebDev",
+          "FrontEnd",
+          "HTML",
+          "CSS",
+          "BuildInPublic",
+          "AIWorkflow",
+          "WebDevelopmentTutorial",
+          "HTML5",
+          "Tailwind",
+          "CodingForBeginners",
+          "WebsiteDesign",
+          "NoCodeTools",
+          "WebDesignTutorial",
+          "TechTutorial",
+          "ClaudeArtifacts"
+        ],
+        "categoryId": "24",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "How I Built & Published a Website in 2 Minutes Using Claude AI (FREE)",
+          "description": "Want to build and publish a website in under 2 minutes without writing code? In this quick tutorial, I’ll show you how to use Claude AI to generate a complete website design, preview it instantly, and deploy it live to the web for FREE using Netlify Drop.\n\n⏱️ Timestamps:\n0:00 – Intro: Build & Host a Site in 2 Minutes\n0:18 – Step 1: Prompting Claude AI for HTML & Tailwind CSS\n0:52 – Step 2: Instant Artifact Preview & Quick Edits\n1:22 – Step 3: Saving Your index.html File\n1:45 – Step 4: Deploying Live for Free on Netlify Drop\n2:08 – Outro & Final Result\n\n🛠️ Tools Mentioned:\n\nClaude AI: https://claude.ai\n\nNetlify Drop: https://drop.netlify.com\n\n📩 Business inquiries: contact.bnzai@gmail.com\n\n🌐 Subscribe for weekly AI video creation workflows!\n\n#WebsiteBuilder #ClaudeAI #AIWebsiteBuilder #NoCode #WebDevelopment #Netlify #ArtificialIntelligence #CodingWithAI #TailwindCSS #WebDesign"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT3M1S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "31215",
+        "likeCount": "988",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "_qNEpAkErV0qz5l1ETEwv6bvFCs",
+      "id": "WOUzrUKfYuQ",
+      "snippet": {
+        "publishedAt": "2026-09-22T10:45:36Z",
+        "channelId": "UCkZgnHasXqCe50E7V9xcLTQ",
+        "title": "Claude Fable 5.1 FREE? How to Get Free AI Access Without a Credit Card 🚨 #claudeai #aihacks",
+        "description": "Claude Fable 5.1 FREE? How to Get Free AI Access Without a Credit Card 🚨 #claudeai #aihacks  \n\n\nWant to use 𝗖𝗹𝗮𝘂𝗱𝗲 𝗙𝗮𝗯𝗹𝗲 𝟱.𝟭 without paying for an expensive subscription?\n\nIn this video, I'll show you the access method and explain how you can explore this AI model without a credit card, depending on the availability and terms of the platform.\n\nWe'll look at:\n\n🤖 𝗙𝗮𝗯𝗹𝗲 𝟱.𝟭 𝗮𝗰𝗰𝗲𝘀𝘀\n💻 AI coding and debugging workflows\n🧠 Advanced reasoning and problem-solving\n⚡ AI productivity workflows\n💰 Free AI tools and alternatives\n🔍 What the access limits and conditions actually are\n\nIf you're a developer, student, creator or someone who uses AI for research, coding and automation, this is worth checking out.\n\nWant the 𝗙𝗮𝗯𝗹𝗲 𝗮𝗰𝗰𝗲𝘀𝘀 𝗴𝘂𝗶𝗱𝗲?\n\nComment “𝗙𝗔𝗕𝗟𝗘” below. 👇\n\nSubscribe to Manish Mittal for AI tools, ChatGPT tricks, AI prompts, new AI updates, productivity tools and practical AI tutorials.\n\n#ClaudeFable #FreeAITools #AIHacks #AITools #AI",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/WOUzrUKfYuQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Manish Mittal | AI Tools & Digital Marketing",
+        "tags": [
+          "Claude Fable 5.1 FREE? How to Get Free AI Access Without a Credit Card 🚨 #claudeai #aihacks",
+          "AI prompts",
+          "AI prompt library",
+          "AI prompt libraries",
+          "AI image prompts",
+          "image generation prompts",
+          "AI image generation",
+          "free AI tools",
+          "prompt engineering",
+          "AI prompts for images",
+          "best AI prompts",
+          "AI prompt websites",
+          "ChatGPT prompts",
+          "AI tools 2026",
+          "free AI tools 2026",
+          "AI image generator prompts",
+          "Midjourney prompts",
+          "AI art prompts",
+          "AI workflow",
+          "AI tools",
+          "Manish Mittal",
+          "claude tricks"
+        ],
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Claude Fable 5.1 FREE? How to Get Free AI Access Without a Credit Card 🚨 #claudeai #aihacks",
+          "description": "Claude Fable 5.1 FREE? How to Get Free AI Access Without a Credit Card 🚨 #claudeai #aihacks  \n\n\nWant to use 𝗖𝗹𝗮𝘂𝗱𝗲 𝗙𝗮𝗯𝗹𝗲 𝟱.𝟭 without paying for an expensive subscription?\n\nIn this video, I'll show you the access method and explain how you can explore this AI model without a credit card, depending on the availability and terms of the platform.\n\nWe'll look at:\n\n🤖 𝗙𝗮𝗯𝗹𝗲 𝟱.𝟭 𝗮𝗰𝗰𝗲𝘀𝘀\n💻 AI coding and debugging workflows\n🧠 Advanced reasoning and problem-solving\n⚡ AI productivity workflows\n💰 Free AI tools and alternatives\n🔍 What the access limits and conditions actually are\n\nIf you're a developer, student, creator or someone who uses AI for research, coding and automation, this is worth checking out.\n\nWant the 𝗙𝗮𝗯𝗹𝗲 𝗮𝗰𝗰𝗲𝘀𝘀 𝗴𝘂𝗶𝗱𝗲?\n\nComment “𝗙𝗔𝗕𝗟𝗘” below. 👇\n\nSubscribe to Manish Mittal for AI tools, ChatGPT tricks, AI prompts, new AI updates, productivity tools and practical AI tutorials.\n\n#ClaudeFable #FreeAITools #AIHacks #AITools #AI"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT23S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "65286",
+        "likeCount": "466",
+        "favoriteCount": "0",
+        "commentCount": "633"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "Os1UULgGzDKDjwZSJSilE3sJZrw",
+      "id": "zNJeSYRH1oc",
+      "snippet": {
+        "publishedAt": "2026-09-30T10:09:25Z",
+        "channelId": "UCcypXKUXZ6zp9riCUucCy0A",
+        "title": "How to Make 3D websites with Claude and Scrolltide",
+        "description": "I built this website with Claude Code and a single AI web design prompt. 🤯\n\nInstead of starting from a blank code editor, I used a detailed website prompt from Scrolltide and gave it to Claude Code.\n\nClaude Code helped turn the prompt into a complete modern website with an animated hero section, responsive layout, typography, spacing, scroll animations, interactions, and more.\n\nThe website was built using Next.js, Tailwind CSS, Framer Motion, and Vercel.\n\nThis is my AI web development workflow for building modern websites, landing pages, portfolio websites, SaaS websites, and interactive web experiences much faster.\n\nIf you're learning vibe coding, AI coding, Claude Code, AI website development, or AI web design, this workflow can help you go from a website idea to working code much faster.\n\n🔗 Get the website prompts: https://scrolltide.co\n\n#ClaudeCode #AIWebDesign #AIWebsite #AIWebDevelopment #VibeCoding #NextJS #TailwindCSS #FramerMotion #WebDevelopment #WebsiteDesign #LandingPage #AITools",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Himan Creates",
+        "categoryId": "26",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "How to Make 3D websites with Claude and Scrolltide",
+          "description": "I built this website with Claude Code and a single AI web design prompt. 🤯\n\nInstead of starting from a blank code editor, I used a detailed website prompt from Scrolltide and gave it to Claude Code.\n\nClaude Code helped turn the prompt into a complete modern website with an animated hero section, responsive layout, typography, spacing, scroll animations, interactions, and more.\n\nThe website was built using Next.js, Tailwind CSS, Framer Motion, and Vercel.\n\nThis is my AI web development workflow for building modern websites, landing pages, portfolio websites, SaaS websites, and interactive web experiences much faster.\n\nIf you're learning vibe coding, AI coding, Claude Code, AI website development, or AI web design, this workflow can help you go from a website idea to working code much faster.\n\n🔗 Get the website prompts: https://scrolltide.co\n\n#ClaudeCode #AIWebDesign #AIWebsite #AIWebDevelopment #VibeCoding #NextJS #TailwindCSS #FramerMotion #WebDevelopment #WebsiteDesign #LandingPage #AITools"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT19S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "RU"
+          ]
+        },
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "51638",
+        "likeCount": "1175",
+        "favoriteCount": "0",
+        "commentCount": "34"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "MOAMfgLtzjU0iTAt0brORmxEbs0",
+      "id": "KGGpiYJWXHU",
+      "snippet": {
+        "publishedAt": "2026-10-07T15:05:03Z",
+        "channelId": "UC8L6EV01fAJ2A0sDpsQ-T5g",
+        "title": "Top 5 Claude Skills Out of 100,000 That Actually Matter",
+        "description": "Comment \"HUMAN\" and I'll send you the ebook. 🔥\n\nClaude has over 100,000 skills. Here are the Top 5 Claude Skills Out of 100,000 That Actually Matter.\n\n1️⃣ Find Skills - searches the entire library and installs the right skills for your use case automatically.\n2️⃣ Superpowers - forces Claude to plan and verify before touching a single line.\n3️⃣ Claude Mem - permanent memory across every session.\n4️⃣ Impeccable - gives Claude real design taste. No more AI slop.\n5️⃣ Frontend Design by Anthropic - 240 styles, 127 font pairings, 99 UX guidelines built in before Claude writes a single line.\n\nFive skills. Every session covered.\n\nSave this before you forget.\n\n#claude #aitools #prompts #artificialintelligence #chatgpt",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/KGGpiYJWXHU/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "InsiderForce",
+        "tags": [
+          "100000 Claude skills",
+          "AI tools",
+          "Anthropic frontend skill",
+          "Claude AI",
+          "Claude Code beginner",
+          "Claude Code memory",
+          "Claude Code productivity",
+          "Claude Code setup",
+          "Claude Code skills",
+          "Claude Code tutorial",
+          "Claude Mem",
+          "Claude Superpowers",
+          "Claude UI design skill",
+          "Claude skills",
+          "Find Skills Claude",
+          "Impeccable Claude",
+          "Insider Force",
+          "InsiderForce",
+          "best Claude Code tools",
+          "top Claude skills"
+        ],
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Top 5 Claude Skills Out of 100,000 That Actually Matter",
+          "description": "Comment \"HUMAN\" and I'll send you the ebook. 🔥\n\nClaude has over 100,000 skills. Here are the Top 5 Claude Skills Out of 100,000 That Actually Matter.\n\n1️⃣ Find Skills - searches the entire library and installs the right skills for your use case automatically.\n2️⃣ Superpowers - forces Claude to plan and verify before touching a single line.\n3️⃣ Claude Mem - permanent memory across every session.\n4️⃣ Impeccable - gives Claude real design taste. No more AI slop.\n5️⃣ Frontend Design by Anthropic - 240 styles, 127 font pairings, 99 UX guidelines built in before Claude writes a single line.\n\nFive skills. Every session covered.\n\nSave this before you forget.\n\n#claude #aitools #prompts #artificialintelligence #chatgpt"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT1M33S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "54731",
+        "likeCount": "2296",
+        "favoriteCount": "0",
+        "commentCount": "667"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "MNlH4nJMww8MwdMYXJ0ZzX3RlBw",
+      "id": "TduPBWDRw8s",
+      "snippet": {
+        "publishedAt": "2026-10-04T13:54:18Z",
+        "channelId": "UCoch_d78Aosmp14ey1HgGSQ",
+        "title": "Make Claude Code build better websites",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/TduPBWDRw8s/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/TduPBWDRw8s/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/TduPBWDRw8s/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/TduPBWDRw8s/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/TduPBWDRw8s/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "100x Engineers",
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Make Claude Code build better websites",
+          "description": ""
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT48S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "42633",
+        "likeCount": "2010",
+        "favoriteCount": "0",
+        "commentCount": "10"
+      }
+    }
+  ]
+}

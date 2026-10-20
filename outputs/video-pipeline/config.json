@@ -4,7 +4,7 @@
     "minimum": 2,
     "target": 3
   },
-  "scheduler_enabled": false,
+  "scheduler_enabled": true,
   "heygen": {
     "connection_verified": true,
     "avatar_group_id": "83caeb76d04d4e47a9c095e7453ff247",
@@ -181,14 +181,35 @@
   "manychat": {
     "connected": false,
     "workspace_url": "https://app.manychat.com/fb5064597/dashboard",
-    "flow_ids": {},
+    "flow_ids": {
+      "PROJECTS": "content20261020115937_543617",
+      "JOBKIT": "content20261020121005_806950"
+    },
     "followup_destination": null,
     "connection_status": "browser_authenticated_api_plan_blocked",
     "browser_session_verified": true,
     "instagram_handle": "with.hammad",
     "api_access_status": "upgrade_required",
     "identity_last_verified": "2026-10-20",
-    "plan": "Free"
+    "plan": "Free",
+    "draft_status": "Both saved, OFF. PROJECTS opening/button/link step; JOBKIT private reply with follow invitation and guide URL. Specific-post trigger and keyword must be configured and enabled after each reel exists; template triggers must not be enabled on any post."
   },
-  "browser_preference": "Google Chrome"
+  "browser_preference": "Google Chrome",
+  "scheduler_scope": {
+    "automation_id": "publish-approved-projects-and-jobkit-reels",
+    "jobs": [
+      "c9d9bd2b786c",
+      "7123480a28ca"
+    ],
+    "dates": [
+      "2026-10-23",
+      "2026-10-24"
+    ],
+    "kind": "Codex thread heartbeat",
+    "requires": "Mac awake and Codex running for Instagram/LinkedIn and ManyChat activation; native schedules run on their platforms."
+  },
+  "content_research_preference": {
+    "updated": "2026-10-20",
+    "instruction": "Independently research online which new AI videos have stronger viral potential; do not rely only on owner-provided references or posting-time analytics. Use recent relevant videos and real public performance evidence, then propose original English ideas and hooks."
+  }
 }

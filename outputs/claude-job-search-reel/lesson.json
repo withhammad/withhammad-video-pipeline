@@ -87,18 +87,19 @@
     }
   ],
   "captions": {
-    "instagram": "Your job search can start with a shortlist you can actually explain.\n\nClaude + Playwright can help you:\n1. Research employer career pages.\n2. Compare roles against your resume.\n3. Build a shortlist with evidence and gaps.\n4. Draft truthful application answers.\n5. Review everything before you submit.\n\nUse only sites that permit the workflow. Missing dates stay unknown, and “top 10” is a shortlist size—not a promised result.\n\nComment JOBKIT for the setup, prompt and review checklist. Follow @with.hammad for practical AI workflows.\n\nAI avatar of me. Demo uses sample data.",
-    "youtube_title": "Claude + Playwright Job Search: Shortlist, Draft, Review",
-    "youtube_description": "A five-step workflow for researching employer career pages, matching roles to resume evidence, and preparing application drafts with human review.\n\nGuide and copyable prompt: https://withhammad.com/resources/claude-job-search\n\nPlaywright MCP: https://github.com/microsoft/playwright-mcp\n\nPlaywright is open source; Claude access and usage are separate. Use permitted sites, verify dates and eligibility, and review every answer. No automatic submissions or employment guarantees.\n\nSubscribe for practical AI implementation guides.\nAI avatar of Hammad Yousuf. Demo uses sample data.\n\n#ClaudeAI #Playwright #JobSearch",
-    "tiktok": "Five steps for a job-search shortlist you can verify: connect, add criteria, research, compare, draft. Review every answer before submitting. Guide in bio. Follow for practical AI. AI avatar of me. Demo uses sample data.",
-    "linkedin": "A useful job-search agent should be able to explain its shortlist.\n\nThe workflow I would start with:\n\nConnect Claude to Playwright → provide a resume and search criteria → research employer career pages → shortlist roles with evidence and gaps → draft application answers for review.\n\nThe important output is not a match percentage. It is a direct listing link, a verified date, the relevant requirement, the supporting resume evidence and what is still unknown.\n\nForm filling is a separate step. It depends on site permission and compatibility, and personal data can leave the browser before the final Submit button. Review the draft before allowing it onto a live application.\n\nI put the setup, prompt and review checklist here: https://withhammad.com/resources/claude-job-search\n\nFollow for practical AI workflows with clear review points.\n\nAI avatar of me. Demo uses sample data."
+    "instagram": "Claude job search in five steps. Comment JOBKIT for the setup, prompt and review checklist.\n\nConnect Claude to Playwright, add your resume and criteria, research permitted company career pages, shortlist roles with evidence, then draft your answers for review.\n\nKeep direct listing links. Flag missing dates. Use only experience you can support. Review every answer before entering it on a live application, and stop before Submit.\n\nPlaywright is open source; Claude access and usage are separate. Site permissions and compatibility vary.\n\nComment JOBKIT and I’ll DM you the guide. Follow @with.hammad for practical AI workflows.\n\nAI avatar of me. Demo uses sample data.\n\n#ClaudeAI #PlaywrightMCP #JobSearch #AIAutomation #CareerTools",
+    "youtube_title": "Claude AI Job Search: 5 Steps With Playwright MCP",
+    "youtube_description": "Free setup, prompt + review checklist: https://withhammad.com/resources/claude-job-search\nClaude AI job search with Playwright MCP, in five steps.\n\nConnect the browser tool, add your resume and criteria, research permitted employer career pages, shortlist roles with resume evidence, then draft answers for review. Keep source links and flag missing dates.\n\nPlaywright MCP is open source; Claude access and usage are separate. Site permission and compatibility vary. Review your details before entering them on a live form and stop before Submit. This workflow does not submit applications or guarantee employment.\n\nOfficial tool: https://github.com/microsoft/playwright-mcp\nGet the setup and prompt: https://withhammad.com/resources/claude-job-search\nSubscribe for more practical AI workflows.\nAI avatar of me. Demo uses sample data.\n\n#ClaudeAI #JobSearch #Playwright",
+    "tiktok": "Claude AI job search in five steps. Setup + prompt: https://withhammad.com/resources/claude-job-search\n\nConnect, add criteria, research permitted career pages, shortlist with resume evidence, then draft. Check every answer before a live application. Stop before Submit.\n\nGet the guide at the address above. Follow for practical AI workflows.\nAI avatar of me. Demo uses sample data.\n\n#ClaudeAI #JobSearch #PlaywrightMCP #AIAutomation",
+    "linkedin": "Claude job search: prepare a shortlist you can explain. Get the setup, prompt and review checklist: https://withhammad.com/resources/claude-job-search\n\nThe five steps are connect, provide resume and criteria, research, shortlist, then draft and review.\n\nClaude with Playwright can help research permitted employer career pages and compare each role against actual resume evidence. Keep the direct listing URL, stated posting date, requirements, supporting experience and unresolved gaps. Missing dates stay unknown.\n\nDraft answers before entering them on a live employer form. Site permissions and compatibility vary, and form entry can transmit details before the final button. Review every answer and stop before Submit. Playwright is open source; Claude access and usage are separate.\n\nWhich part takes you longest: finding roles, checking fit or drafting answers?\n\nUse the guide for your next search: https://withhammad.com/resources/claude-job-search\nFollow for practical AI workflows.\n\nAI avatar of me. Demo uses sample data.\n\n#ClaudeAI #JobSearch #MCP"
   },
   "hashtags": [
-    "#ClaudeAI",
-    "#Playwright",
-    "#JobSearch",
-    "#AIAutomation",
-    "#CareerTools"
+    "Claude AI job search",
+    "Playwright MCP",
+    "Claude AI for job application",
+    "AI job search",
+    "Claude browser automation",
+    "Claude Desktop MCP"
   ],
   "manychat_keyword": "JOBKIT",
   "resource_page": {
@@ -134,5 +135,6 @@
     "hook": "Prepare your",
     "pill_strong": "NEXT",
     "pill_serif": "application"
-  }
+  },
+  "caption_file": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/7123480a28ca/captions.srt"
 }

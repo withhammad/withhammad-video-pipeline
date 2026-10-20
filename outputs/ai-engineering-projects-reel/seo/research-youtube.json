@@ -1,0 +1,275 @@
+{
+  "checked_at": "2026-10-20",
+  "autocomplete": [
+    {
+      "seed": "ai engineering projects",
+      "suggestions": [
+        "ai engineering projects",
+        "ai ml engineering projects",
+        "ai electrical engineering projects",
+        "ai based engineering projects"
+      ]
+    },
+    {
+      "seed": "ai projects for beginners",
+      "suggestions": [
+        "ai projects for beginners",
+        "ai projects for beginners using python",
+        "ai projects for beginners tamil",
+        "ai projects for beginners in telugu",
+        "ai projects for beginners in python",
+        "ai ml projects for beginners",
+        "simple ai projects for beginners",
+        "agentic ai projects for beginners",
+        "generative ai projects for beginners",
+        "ai coding projects for beginners"
+      ]
+    },
+    {
+      "seed": "ai portfolio projects",
+      "suggestions": [
+        "ai portfolio projects",
+        "generative ai portfolio projects"
+      ]
+    },
+    {
+      "seed": "rag projects",
+      "suggestions": [
+        "rag projects",
+        "rag projects end to end",
+        "rag projects for beginners",
+        "rag projects for resume",
+        "rag project ideas",
+        "rag projects krish naik",
+        "rag projects langchain",
+        "best rag projects",
+        "rag advanced projects",
+        "rag ai projects"
+      ]
+    },
+    {
+      "seed": "ai agents projects",
+      "suggestions": [
+        "ai agents projects",
+        "ai agents projects python",
+        "ai agents projects end to end",
+        "ai agents projects n8n",
+        "ai agents projects from scratch",
+        "best ai agents projects",
+        "build ai agents projects",
+        "full stack ai agents projects",
+        "mcp server and ai agents projects",
+        "ai agents langgraph projects"
+      ]
+    },
+    {
+      "seed": "llm projects",
+      "suggestions": [
+        "llm projects",
+        "llm projects end to end",
+        "llm projects for beginners",
+        "llm projects for resume",
+        "llm projects with source code",
+        "llm projects for beginners in tamil",
+        "llm projects krish naik",
+        "codebasics llm project",
+        "simple llm projects",
+        "genai llm projects"
+      ]
+    },
+    {
+      "seed": "ai engineering roadmap",
+      "suggestions": [
+        "ai engineering roadmap",
+        "ai engineering roadmap 2026",
+        "ai engineering roadmap 2025",
+        "ai engineering roadmap after 12th",
+        "ai engineering roadmap tamil",
+        "ai engineering roadmap gaurav sen",
+        "ai robotics engineering roadmap",
+        "ai engineering a realistic roadmap for beginners",
+        "ai ml engineering roadmap",
+        "ai prompt engineering roadmap"
+      ]
+    },
+    {
+      "seed": "github ai projects",
+      "suggestions": [
+        "github ai projects",
+        "best github ai projects"
+      ]
+    }
+  ],
+  "youtube_searches": [
+    {
+      "query": "ai engineering projects",
+      "status": 200,
+      "videos": [
+        {
+          "id": "2MKUtuHrKcc",
+          "title": "Smart Rain-Proof Clothes Drying System",
+          "channel": "Gadget Girl",
+          "published_at": "2026-08-22T05:30:17Z",
+          "view_count": "107458609"
+        },
+        {
+          "id": "MJcrIRvb4Nk",
+          "title": "i bought every AI scam product",
+          "channel": "Dave K",
+          "published_at": "2026-09-27T13:00:06Z",
+          "view_count": "15744609"
+        },
+        {
+          "id": "kLp_dSxuq3E",
+          "title": "Top 10 Arduino Projects #arduino #arduinoproject #top10 #top5 #top20 #top5arduinoprojects",
+          "channel": "Robotos",
+          "published_at": "2026-07-31T15:15:06Z",
+          "view_count": "7633439"
+        },
+        {
+          "id": "n8MwM1H5q5o",
+          "title": "How Self Driving Car Works? (3D) by Professor of AI",
+          "channel": "Professor Of AI",
+          "published_at": "2026-09-02T04:21:38Z",
+          "view_count": "6723072"
+        },
+        {
+          "id": "OunJtLnyPT4",
+          "title": "The 7 Trillion AI Gamble Is Failing. Big Tech is TRAPPED Right NOW.",
+          "channel": "The Infographics Show",
+          "published_at": "2026-08-11T20:11:36Z",
+          "view_count": "1918399"
+        },
+        {
+          "id": "o1JK79jszqo",
+          "title": "Google\u2019s latest moonshot to put machine learning in space",
+          "channel": "Google",
+          "published_at": "2026-09-24T13:12:27Z",
+          "view_count": "2633169"
+        },
+        {
+          "id": "q3AuP01daL4",
+          "title": "Python Full Course for Beginners",
+          "channel": "Apna College",
+          "published_at": "2026-07-29T17:41:12Z",
+          "view_count": "1789825"
+        },
+        {
+          "id": "emfFxq_yXvA",
+          "title": "Forget Jarvis\u2026 I\u2019m Building ULTRON! \ud83e\udd16\ud83d\udd25",
+          "channel": "Neural Stack",
+          "published_at": "2026-08-04T07:30:26Z",
+          "view_count": "2410331"
+        },
+        {
+          "id": "NYFGCESmikA",
+          "title": "DHH: Future of Programming, AI, Agentic Engineering, Vibe Coding &amp; Linux | Lex Fridman Podcast #501",
+          "channel": "Lex Fridman",
+          "published_at": "2026-08-26T21:44:41Z",
+          "view_count": "2237232"
+        },
+        {
+          "id": "9oJySubZRSA",
+          "title": "The Ultimate Beginner\u2019s Guide to Claude AI",
+          "channel": "Metics Media",
+          "published_at": "2026-08-10T11:00:20Z",
+          "view_count": "1663686"
+        },
+        {
+          "id": "txntDM7lZCQ",
+          "title": "\ud83c\udf34 Palm Jumeirah, Dubai | How It Was Built | AI Engineering Documentary",
+          "channel": "JigNesHTimes",
+          "published_at": "2026-07-31T18:30:38Z",
+          "view_count": "1823815"
+        },
+        {
+          "id": "o-wv_szZ0V0",
+          "title": "Andrew Ng: The Biggest Opportunities in AI Aren&#39;t Where You Think",
+          "channel": "Silicon Valley Girl",
+          "published_at": "2026-08-28T13:35:25Z",
+          "view_count": "1803698"
+        },
+        {
+          "id": "F91uY7QiZUs",
+          "title": "The Collapse of AI Software Engineering",
+          "channel": "The Infographics Show",
+          "published_at": "2026-09-23T20:11:21Z",
+          "view_count": "1914728"
+        },
+        {
+          "id": "dAzs_rU6080",
+          "title": "I Tested The Viral Github Repo That Reverse Engineers Anything",
+          "channel": "Nick Saraev",
+          "published_at": "2026-10-10T21:33:04Z",
+          "view_count": "1560450"
+        },
+        {
+          "id": "SgNDAxpNrmU",
+          "title": "Desk Buddy kit | Harish Projects\ud83d\udd25",
+          "channel": "Harish Shorts",
+          "published_at": "2026-09-07T13:34:37Z",
+          "view_count": "926192"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Autocomplete is a relevance signal, not search volume.",
+    "Search.list requests capped at 3 across both jobs; statistics.list used only to obtain view counts.",
+    "Recent-video window: 2026-07-22 onward. Results may be empty; no winning pattern inferred without evidence."
+  ],
+  "sources": [
+    "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt",
+    "https://support.google.com/youtube/answer/146402",
+    "https://support.google.com/youtube/answer/6390658"
+  ],
+  "primary_keyword": "AI engineering projects",
+  "recommended_title": "85 AI Engineering Projects: Pick Your Next Build",
+  "keywords": [
+    {
+      "term": "AI engineering projects",
+      "evidence": "Exact autocomplete seed returned at rank 1",
+      "intent": "Find project ideas"
+    },
+    {
+      "term": "AI projects for beginners",
+      "evidence": "Exact autocomplete returned at rank 1",
+      "intent": "Beginner builds"
+    },
+    {
+      "term": "AI portfolio projects",
+      "evidence": "Exact autocomplete returned at rank 1",
+      "intent": "Portfolio scope"
+    },
+    {
+      "term": "RAG project ideas",
+      "evidence": "rag projects seed suggestion rank 5",
+      "intent": "Specific build ideas"
+    }
+  ],
+  "title_patterns": [
+    "Lead with the verified count and topic; use a clear next action. This is an editorial recommendation, not proven title-performance causation."
+  ],
+  "hashtags": [
+    {
+      "tag": "#AIEngineering",
+      "why": "Exact discipline"
+    },
+    {
+      "tag": "#AIProjects",
+      "why": "Project discovery"
+    },
+    {
+      "tag": "#RAG",
+      "why": "A demonstrated catalog category"
+    }
+  ],
+  "evidence_limit": "Broad viewCount-ordered search was dominated by unrelated engineering/scam/Arduino videos; do not infer topic-specific winning patterns.",
+  "rules": [
+    "YouTube title maximum 100 characters; recommended titles kept under 60.",
+    "Title, thumbnail and description matter more than tags; tags have minimal discovery weight except misspellings (official YouTube Help).",
+    "Up to three description hashtags may appear by title; use directly relevant hashtags. #Shorts is optional, not required for format recognition.",
+    "Place resource URL in first two description lines; disclose AI presenter; do not imply ManyChat YouTube DM automation.",
+    "No salary, guaranteed interview, free Claude, universal auto-application or guaranteed catalog tutorial claims."
+  ]
+}

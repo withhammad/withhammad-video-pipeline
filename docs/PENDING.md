@@ -58,3 +58,8 @@ Last update: 2026-10-18 22:20 — MOTION reel (job fef5b7f3b5af, Claude motion g
 - YouTube upload complete; provider processing pending: https://www.youtube.com/watch?v=u4J1oQqQoTM
 - LinkedIn published: https://www.linkedin.com/feed/update/urn:li:ugcPost:7517491828477276160/
 - Website resource page and ManyChat funnel for this tutorial remain pending; no resource-delivery claims were published.
+
+
+## Approved PROJECTS / JOBKIT batch — 20 October 2026
+
+Native YouTube/TikTok/Facebook/X schedules confirmed for 23/24 October. Instagram/LinkedIn timed API publishing and specific-post ManyChat activation remain with heartbeat `publish-approved-projects-and-jobkit-reels`. Recheck JOBKIT automatic audio translations after processing; only English audio should be public. See outputs/content-batch-2026-10-20/publishing-handoff.md and youtube-audio-receipt.json. Do not duplicate Facebook/X schedules because IDs are null.

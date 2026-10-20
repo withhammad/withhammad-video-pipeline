@@ -128,8 +128,9 @@ def test_schema_is_strict_everywhere():
     # Only the top-level cover may be left out (lessons written before covers existed); the API request
     # requires it and carries no string length limits (structured outputs do not support them).
     assert lesson.OPTIONAL_KEYS == ('cover',)
-    walk(lesson.SCHEMA, optional=frozenset(lesson.OPTIONAL_KEYS))
+    walk(lesson.SCHEMA, optional=frozenset(lesson.OPTIONAL_KEYS) | {'caption_file'})
     sent = lesson.api_schema()
+    assert 'caption_file' not in sent['properties']
     walk(sent)
     assert 'maxLength' not in json.dumps(sent) and 'minLength' not in json.dumps(sent)
     assert 'maxLength' in json.dumps(lesson.SCHEMA)

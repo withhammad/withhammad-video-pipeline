@@ -62,6 +62,8 @@ SCHEMA = {
                  'sources_checked', 'originality_note'],
     'properties': {
         'language': {'type': 'string', 'description': 'BCP-47 code of the output language, e.g. en, ur, ar'},
+        'caption_file': {'type': 'string', 'minLength': 1,
+                         'description': 'Optional path to the English SRT uploaded by the LinkedIn publisher'},
         'topic_title': {'type': 'string'},
         'hook': {'type': 'string'},
         'key_takeaways': {'type': 'array', 'items': {'type': 'string'}, 'minItems': 2, 'maxItems': 5},
@@ -133,6 +135,8 @@ def api_schema():
             return [strip(v) for v in node]
         return node
     schema = strip(SCHEMA)
+    # Publishing metadata is attached after production, never invented by the lesson writer.
+    schema['properties'].pop('caption_file')
     schema['required'] = schema['required'] + [k for k in OPTIONAL_KEYS if k not in schema['required']]
     return schema
 

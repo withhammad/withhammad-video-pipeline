@@ -1,0 +1,111 @@
+{
+  "checked_at": "2026-10-20",
+  "platform": "linkedin",
+  "primary_keyword": "ai engineering projects",
+  "keywords": [
+    {
+      "term": "ai engineering projects",
+      "evidence": "Google autocomplete for 'ai engineering projects': position 1",
+      "intent": "practical project discovery"
+    },
+    {
+      "term": "ai engineering projects github",
+      "evidence": "Google autocomplete for 'ai engineering projects': position 2",
+      "intent": "practical project discovery"
+    },
+    {
+      "term": "ai engineering projects for beginners",
+      "evidence": "Google autocomplete for 'ai engineering projects': position 3",
+      "intent": "practical project discovery"
+    },
+    {
+      "term": "ai engineering projects for resume",
+      "evidence": "Google autocomplete for 'ai engineering projects': position 7",
+      "intent": "practical project discovery"
+    }
+  ],
+  "title_patterns": [
+    "AI engineering projects: 85 ideas are useful. One working demo is what you can show."
+  ],
+  "recommended_hook": "AI engineering projects: 85 ideas are useful. One working demo is what you can show.",
+  "recommended_structure": [
+    "Self-contained professional hook",
+    "Resource URL and brief reason to use it",
+    "Three concrete takeaways grounded in the lesson",
+    "One relevant question",
+    "Resource CTA and follow invitation",
+    "AI-avatar disclosure",
+    "Zero to three hashtags"
+  ],
+  "recommended_question": "Which project would you build first: a RAG system or an AI agent?",
+  "resource_url": "https://withhammad.com/resources/ai-engineering-projects",
+  "hashtags": [
+    {
+      "tag": "#AIEngineering",
+      "why": "Directly names the professional topic; no reach or popularity claim"
+    },
+    {
+      "tag": "#AIProjects",
+      "why": "Directly names the professional topic; no reach or popularity claim"
+    },
+    {
+      "tag": "#RAG",
+      "why": "Directly names the professional topic; no reach or popularity claim"
+    }
+  ],
+  "rules": [
+    "Post maximum is 3,000 characters, including spaces and line breaks (official LinkedIn Help).",
+    "Keep the opening sentence self-contained and under roughly 210 characters as an editorial target; no verified fixed 210-character organic fold. Truncation varies by layout/device.",
+    "Use natural topic terms: LinkedIn content search and its March 2026 feed guidance describe semantic relevance, not a keyword-density trick.",
+    "Use zero to three relevant hashtags at the end as a restrained editorial choice, not a verified platform cap or reach guarantee.",
+    "Include the resource URL in the post for the requested conversion. No primary evidence reviewed supports a universal external-link penalty or guaranteed advantage to hiding links in comments.",
+    "Offer a specific professional takeaway, practical steps, one relevant discussion question and follow invitation. Avoid engagement bait and promises of employment.",
+    "Keep the AI-avatar disclosure; do not promise a LinkedIn comment-triggered DM because this funnel is Instagram-only.",
+    "Google autocomplete provides qualitative query phrasing, not LinkedIn search volume, rank potential, audience size or guaranteed demand.",
+    "Use the parent agent\u2019s actual account analytics for scheduling; this keyword research does not establish a best posting hour."
+  ],
+  "limitations": [
+    "No authenticated LinkedIn search-volume data used.",
+    "No post automation or external-link reach guarantee.",
+    "Catalog lists project ideas and learning references; not all entries are complete tutorials."
+  ],
+  "autocomplete": [
+    {
+      "query": "ai engineering projects",
+      "suggestions": [
+        "ai engineering projects",
+        "ai engineering projects github",
+        "ai engineering projects for beginners",
+        "ai engineering projects reddit",
+        "ai engineering projects 2026",
+        "ai engineering projects ideas",
+        "ai engineering projects for resume",
+        "ai engineering hub projects",
+        "best ai engineering projects",
+        "electrical engineering ai projects"
+      ],
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineering%20projects"
+    },
+    {
+      "query": "ai portfolio projects linkedin",
+      "suggestions": [],
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20portfolio%20projects%20linkedin"
+    },
+    {
+      "query": "rag projects linkedin",
+      "suggestions": [
+        "rag projects linkedin"
+      ],
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=rag%20projects%20linkedin"
+    }
+  ],
+  "sources": [
+    "https://www.linkedin.com/help/linkedin/answer/a522483/differences-between-posting-and-publishing?lang=en",
+    "https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed",
+    "https://www.linkedin.com/blog/engineering/search/introducing-semantic-capability-in-linkedins-content-search-engine",
+    "https://www.linkedin.com/help/learning/answer/a1499047",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineering%20projects",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20portfolio%20projects%20linkedin",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=rag%20projects%20linkedin"
+  ]
+}

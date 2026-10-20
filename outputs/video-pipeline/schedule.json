@@ -9,7 +9,10 @@
     {
       "date": "2026-10-18",
       "title": "SKILL + HARVEST (posted before the rule)",
-      "jobs": ["9d2d68af60d4", "f7da978d101e"],
+      "jobs": [
+        "9d2d68af60d4",
+        "f7da978d101e"
+      ],
       "keyword": "SKILL / HARVEST",
       "status": "published"
     }
@@ -46,6 +49,187 @@
       "keyword": null,
       "status": "planned",
       "note": "breakdown"
+    },
+    {
+      "date": "2026-10-23",
+      "day": "Fri",
+      "job": "c9d9bd2b786c",
+      "title": "85 AI Engineering Project Ideas",
+      "keyword": "PROJECTS",
+      "slug": "ai-engineering-projects",
+      "resource_url": "https://withhammad.com/resources/ai-engineering-projects",
+      "status": "queued",
+      "platforms": {
+        "youtube": {
+          "via": "api",
+          "status": "scheduled",
+          "slot_utc": "2026-10-23T06:00:00Z",
+          "local_time": "Fri 2026-10-23 10:00 GST",
+          "privacy": "private",
+          "publish_at": "2026-10-23T06:00:00Z",
+          "video_id": "WMhrzmEMJuM",
+          "url": "https://www.youtube.com/shorts/WMhrzmEMJuM",
+          "uploaded_at": "2026-10-20T11:58:16Z",
+          "thumbnail": "set",
+          "publish_at_verified": true,
+          "warnings": null
+        },
+        "linkedin": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-23T12:00:00Z",
+          "local_time": "Fri 2026-10-23 16:00 GST",
+          "automation_id": "publish-approved-projects-and-jobkit-reels"
+        },
+        "instagram": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-23T13:00:00Z",
+          "local_time": "Fri 2026-10-23 17:00 GST",
+          "account": "with.hammad",
+          "video_url": "https://withhammad.com/media/reels/ai-engineering-projects.mp4",
+          "cover_url": "https://withhammad.com/media/covers/ai-engineering-projects.jpg",
+          "hosted": true,
+          "video_bytes": 4107913,
+          "cover_bytes": 76080,
+          "site_commit": "8b625f8",
+          "hosted_at": "2026-10-20T12:03:58Z",
+          "automation_id": "publish-approved-projects-and-jobkit-reels"
+        },
+        "tiktok": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-23T13:00:00Z",
+          "local_time": "Fri 2026-10-23 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": true,
+          "text": "85 AI engineering project ideas. Get the catalog and checklist: https://withhammad.com/resources/ai-engineering-projects\n\nExplore agents, RAG and fine-tuning. Choose one idea, build a working demo, and show your tests. Entries include learning references; they are not all complete tutorials.\n\nGet the guide at the address above. Follow for practical AI builds.\nAI avatar of me.\n\n#AIEngineering #AIProjects #RAG #AIAgents",
+          "cover": "custom cover uploaded and saved",
+          "url": "https://www.tiktok.com/@hammadyousuf01/video/7698724400958278919",
+          "marked_at": "2026-10-20T12:24:02Z"
+        },
+        "facebook": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-23T13:00:00Z",
+          "local_time": "Fri 2026-10-23 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": true,
+          "text": "85 AI engineering project ideas. Get the catalog and build checklist: https://withhammad.com/resources/ai-engineering-projects\n\nExplore AI agents, RAG, fine-tuning and more. Each idea lists skills, difficulty and learning references. Start with one small demo and document how you tested it. These are ideas, not all complete tutorials.\n\nGet the guide: https://withhammad.com/resources/ai-engineering-projects\nFollow for practical AI builds.\nAI avatar of me.\n\n#AIEngineering #AIProjects #RAG",
+          "cover": "custom cover uploaded",
+          "scheduled_verified_at": "2026-10-20T12:28:00Z",
+          "confirmation": "Creator Dashboard > Content Library > Scheduled: matching PROJECTS caption, 23 Oct 2026, 17:00; public; AI content label.",
+          "remote_id": null,
+          "receipt_url": "https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT"
+        },
+        "x": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-23T14:00:00Z",
+          "local_time": "Fri 2026-10-23 18:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": null,
+          "text": "85 AI engineering project ideas. Get the catalog + checklist: https://withhammad.com/resources/ai-engineering-projects\nPick one, build a demo, show your tests. Start with the guide above. Follow for AI builds.\nAI avatar of me. #AIProjects",
+          "weighted_length": 205,
+          "cover": null,
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule",
+          "confirmation": "X Scheduled list: matching PROJECTS text and 0:25 video; Will send on Fri, Oct 23, 2026 at 6:00 PM; Gulf Standard Time.",
+          "receipt_url": "https://x.com/compose/post/unsent/scheduled",
+          "remote_id": null,
+          "srt_uploaded": true
+        }
+      },
+      "queued_at": "2026-10-20T11:58:00Z"
+    },
+    {
+      "date": "2026-10-24",
+      "day": "Sat",
+      "job": "7123480a28ca",
+      "title": "Claude + Playwright: a job-search shortlist you can verify",
+      "keyword": "JOBKIT",
+      "slug": "claude-job-search",
+      "resource_url": "https://withhammad.com/resources/claude-job-search",
+      "status": "queued",
+      "platforms": {
+        "youtube": {
+          "via": "api",
+          "status": "scheduled",
+          "slot_utc": "2026-10-24T08:00:00Z",
+          "local_time": "Sat 2026-10-24 12:00 GST",
+          "privacy": "private",
+          "publish_at": "2026-10-24T08:00:00Z",
+          "video_id": "v4okdBQy4-I",
+          "url": "https://www.youtube.com/shorts/v4okdBQy4-I",
+          "uploaded_at": "2026-10-20T12:04:28Z",
+          "thumbnail": "set",
+          "publish_at_verified": true,
+          "warnings": null
+        },
+        "linkedin": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-24T06:00:00Z",
+          "local_time": "Sat 2026-10-24 10:00 GST",
+          "automation_id": "publish-approved-projects-and-jobkit-reels"
+        },
+        "instagram": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-24T13:00:00Z",
+          "local_time": "Sat 2026-10-24 17:00 GST",
+          "account": "with.hammad",
+          "video_url": "https://withhammad.com/media/reels/claude-job-search.mp4",
+          "cover_url": "https://withhammad.com/media/covers/claude-job-search.jpg",
+          "hosted": true,
+          "video_bytes": 5359241,
+          "cover_bytes": 77727,
+          "site_commit": "b3d8917",
+          "hosted_at": "2026-10-20T12:09:17Z",
+          "automation_id": "publish-approved-projects-and-jobkit-reels"
+        },
+        "tiktok": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-24T13:00:00Z",
+          "local_time": "Sat 2026-10-24 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": true,
+          "text": "Claude AI job search in five steps. Setup + prompt: https://withhammad.com/resources/claude-job-search\n\nConnect, add criteria, research permitted career pages, shortlist with resume evidence, then draft. Check every answer before a live application. Stop before Submit.\n\nGet the guide at the address above. Follow for practical AI workflows.\nAI avatar of me. Demo uses sample data.\n\n#ClaudeAI #JobSearch #PlaywrightMCP #AIAutomation",
+          "cover": "custom cover uploaded and saved",
+          "url": "https://www.tiktok.com/@hammadyousuf01/video/7698725535639145735",
+          "marked_at": "2026-10-20T12:27:56Z"
+        },
+        "facebook": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-24T13:00:00Z",
+          "local_time": "Sat 2026-10-24 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": true,
+          "text": "Claude AI job search in five steps. Get the setup and prompt: https://withhammad.com/resources/claude-job-search\n\nConnect Playwright, add your resume and criteria, research permitted career pages, shortlist with evidence, then draft answers for review. Verify dates, eligibility and every answer. Stop before Submit.\n\nPlaywright is open source; Claude access and usage are separate. Site permissions and compatibility vary.\n\nGet the review checklist: https://withhammad.com/resources/claude-job-search\nFollow for practical AI workflows.\nAI avatar of me. Demo uses sample data.\n\n#ClaudeAI #JobSearch #Playwright",
+          "cover": "custom cover uploaded",
+          "confirmation": "Creator Dashboard > Content Library > Scheduled: matching JOBKIT caption, 24 Oct 2026, 17:00; Public; AI content label.",
+          "receipt_url": "https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT",
+          "remote_id": null
+        },
+        "x": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-24T14:00:00Z",
+          "local_time": "Sat 2026-10-24 18:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": null,
+          "text": "Claude AI job search: get the setup + prompt: https://withhammad.com/resources/claude-job-search\nResearch roles, shortlist with evidence, draft answers. Review before Submit. Use the guide above. Follow for AI workflows.\nAI avatar of me. Sample data. #ClaudeAI",
+          "weighted_length": 233,
+          "cover": null,
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule",
+          "confirmation": "X Scheduled list: matching JOBKIT text and 0:50 video; Will send on Sat, Oct 24, 2026 at 6:00 PM; Gulf Standard Time.",
+          "receipt_url": "https://x.com/compose/post/unsent/scheduled",
+          "remote_id": null,
+          "srt_uploaded": true
+        }
+      },
+      "queued_at": "2026-10-20T12:04:12Z"
     }
   ]
 }

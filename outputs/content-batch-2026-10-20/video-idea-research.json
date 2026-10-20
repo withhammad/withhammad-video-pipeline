@@ -1,0 +1,4194 @@
+{
+  "checked_at": "2026-10-20T12:44:02.678807+00:00",
+  "method": "Three public YouTube Data API searches; short-duration filter means under 4 minutes, not guaranteed Shorts; last 30 days; ranked by total views, not channel-relative outliers. English relevance is not a strict language filter.",
+  "queries": {
+    "Claude AI motion graphics": [
+      {
+        "kind": "youtube#searchResult",
+        "etag": "WMbh-3mu1J7ffkdmce80gV8hHuQ",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "en0GuyhieQk"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-08T18:52:44Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Introducing Claude Dashboards and Claude Motion",
+          "description": "Claude Dashboards and Claude Motion are in beta today. Ask Claude to turn your data into live dashboards and your ideas into ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "fhd": {
+              "url": "https://i.ytimg.com/vi/en0GuyhieQk/fhddefault.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-08T18:52:44Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "G3qGseJFW6PtKl-EFBnqiT2wx1o",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "1f13Bl1sYkw"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-22T16:32:25Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Introducing Claude Opus 5.5",
+          "description": "For most tasks, Claude Opus 5.5 performs at the level of Claude Fable 5.1, our most intelligent model. It writes more clearly and ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/qhddefault.jpg",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-22T16:32:25Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "sdg1px2gyjFiHE9flHEESaxNUyw",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "COJAZQM1aeQ"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-02T19:44:06Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "Build an App With Claude Design",
+          "description": "Nate, a designer at Anthropic, uses Claude design in Claude Code to take his side project's onboarding from rough idea to ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "fhd": {
+              "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/fhddefault.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-02T19:44:06Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "fRmC0DJ6fsQ_o_qlujrIsqfX8QE",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "-LNDXx__ZT0"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-08T20:53:57Z",
+          "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+          "title": "Introducing Higgsfield Katana | Claude Motion",
+          "description": "Introducing Higgsfield Katana, powered by Claude Motion. Our most powerful AI video editing tool, inside Claude. Upload a ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Higgsfield AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-08T20:53:57Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Gft0Gm6ryX7hhrbHKmzDJBK0c_I",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "bVXiNb9RyyI"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-01T18:07:41Z",
+          "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+          "title": "How an Anthropic designer uses Claude Slides",
+          "description": "Make slides with Claude starting from a voice memo. Nate, a designer at Anthropic, talks through an idea on a walk and then turns ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "fhd": {
+              "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/fhddefault.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          "channelTitle": "Claude",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-01T18:07:41Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "XdT5OttJ2Ih4ide7Zs2okUfGliw",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "9Pbg-_ptBcE"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-26T16:33:47Z",
+          "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+          "title": "Higgsfield x Claude Opus 5.5 for Motion Design | Editable After Effects Projects",
+          "description": "Introducing Higgsfield x Claude Opus 5.5 for Motion Design. With Higgsfield MCP, Opus 5.5: - Generates images, logos and ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Higgsfield AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-26T16:33:47Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Wge61WLdSl43RYgPa10p352f85A",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "TixdV5DP7oc"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-10T18:12:23Z",
+          "channelId": "UCG5HFY9PXYeIHSyRgML2tvg",
+          "title": "How to build high-end websites for $0 with Claude",
+          "description": "Claude website design without the generic AI look. Install three free Claude design skills (Emil Kowalski's motion skill, Impeccable ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/TixdV5DP7oc/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Sebastian Hardy | AI Marketing",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-10T18:12:23Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "hqyj9T1rKgZkReLE73NnXQmlkgo",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "CV-k6rPJvJY"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-14T12:36:04Z",
+          "channelId": "UC2ojq-nuP8ceeHqiroeKhBA",
+          "title": "Claude has completely changed how I edit videos",
+          "description": "Free skills: https://www.skool.com/ai-automation-society/classroom/2f7c4aea?md=263d927bda6d49758d1ceecacbe41a10.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Nate Herk | AI Automation",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-14T12:36:04Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "m5G1EUtZkGECa7GzqWPNKmc7AGM",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "RowdmzONk8I"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-02T10:24:34Z",
+          "channelId": "UCUaPm7H9l1AvDLEcqyjqaoA",
+          "title": "💀 chat are we cooked",
+          "description": "Claude Opus 5.5 et le motion design #motiondesign #claude #opus #design #blender.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/RowdmzONk8I/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/RowdmzONk8I/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/RowdmzONk8I/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/RowdmzONk8I/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/RowdmzONk8I/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "unefilleia",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-02T10:24:34Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "DZwVJfrGr2q3DpnnH1x1i2gpmXg",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "ap42Zzizs5c"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-02T22:10:42Z",
+          "channelId": "UCzofAkgrcUJebdrPXAaDadQ",
+          "title": "AI Works While I Sleep 😴🤖 #claudeai #artificialintelligence #contentcreation",
+          "description": "Tools Mentioned: Claude AI: https://claude.ai Business inquiries: contact.bnzai@gmail.com Subscribe for weekly AI video ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/ap42Zzizs5c/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/ap42Zzizs5c/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/ap42Zzizs5c/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/ap42Zzizs5c/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/ap42Zzizs5c/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Bnz AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-02T22:10:42Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "BWrT3M-5JlRSVQcEyxEsDae1b4Y",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "9loDDILgssM"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-23T22:55:27Z",
+          "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+          "title": "Claude Opus 5.5 x Higgsfield MCP | Build a Monster Truck",
+          "description": "Introducing Higgsfield x Claude Opus 5.5. Anthropic's newest model, which is 40% cheaper and over 30% faster than Opus 5, ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/9loDDILgssM/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Higgsfield AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-23T22:55:27Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "zO5qzR_Bm6UxxiQmA8A-rs_3iXk",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "zNJeSYRH1oc"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-30T10:09:25Z",
+          "channelId": "UCcypXKUXZ6zp9riCUucCy0A",
+          "title": "How to Make 3D websites with Claude and Scrolltide",
+          "description": "I built this website with Claude Code and a single AI web design prompt. Instead of starting from a blank code editor, I used a ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Himan Creates",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-30T10:09:25Z"
+        }
+      }
+    ],
+    "AI agent workflow automation": [
+      {
+        "kind": "youtube#searchResult",
+        "etag": "vtnYaMYrDT1RzKIc_uSliiZ5fNY",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "ZJB_VhC2ZWA"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-24T05:53:23Z",
+          "channelId": "UCfKgD2Ug4gRyF9EOGJ9fE2A",
+          "title": "monday CRM | AI Agents That Actually Work",
+          "description": "Most CRMs say they use AI. monday CRM has agents that actually do the work. One platform. Agents that move your pipeline ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "uhd": {
+              "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/uhddefault.jpg",
+              "width": 3840,
+              "height": 2160
+            }
+          },
+          "channelTitle": "monday CRM",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-24T05:53:23Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "L1fP8HNrwQQ4nlHRUFZ5wGpwJbg",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "qYnWlHQ-AgA"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-13T19:59:12Z",
+          "channelId": "UCXelFdwHOcCNc5ON28ejrsQ",
+          "title": "ECC launches AI agents that design, build, test, and secure apps #AI #AITools #SoftwareDevelopment",
+          "description": "ECC shipped a complete engineering solution by a single developer and gained over 250000 stars on GitHub. It offers 64 agents ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Eli Sadler",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-13T19:59:12Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "0m8rVDs4mmwyh-AK8ylFvGOodgQ",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "JhM-rGP5Kx0"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-25T03:00:12Z",
+          "channelId": "UCBd-6KX6KP0aGXzPOP3vRjA",
+          "title": "I Built an Entire Social Media Team With 0 Employees #shorts #claude #automatedsystem #aiagent #ai",
+          "description": "This is an AI social media team built for a one-person company with zero employees. It handles everything: research, content, ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "ReStructure AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-25T03:00:12Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "5ogpKkYaUjL57194hW8VGQwQ8Q8",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "7GTWAXCTy0o"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-13T02:43:49Z",
+          "channelId": "UC2ojq-nuP8ceeHqiroeKhBA",
+          "title": "I Built the Ultimate AI Board of Advisors",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Nate Herk | AI Automation",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-13T02:43:49Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "hqyj9T1rKgZkReLE73NnXQmlkgo",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "CV-k6rPJvJY"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-14T12:36:04Z",
+          "channelId": "UC2ojq-nuP8ceeHqiroeKhBA",
+          "title": "Claude has completely changed how I edit videos",
+          "description": "Free skills: https://www.skool.com/ai-automation-society/classroom/2f7c4aea?md=263d927bda6d49758d1ceecacbe41a10.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Nate Herk | AI Automation",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-14T12:36:04Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "J3GFDVz2PO4IeSmnQIBFIoSIOPg",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "5lwVofPsiHY"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-21T05:45:44Z",
+          "channelId": "UCGXLEjzQwxNz1bO-ujKgn3Q",
+          "title": "Build Multiple AI Agents for Sales, Support &amp; Business Automation | BotSailor",
+          "description": "Meet BotSailor's AI Workforce: specialized AI agents for business automation across WhatsApp, Instagram, Messenger, Telegram, ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/5lwVofPsiHY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/5lwVofPsiHY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/5lwVofPsiHY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/5lwVofPsiHY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/5lwVofPsiHY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "BotSailor",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-21T05:45:44Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "dcBhwkqzmmfp0QUCKOZZkMLlYLk",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "rsc636LjejQ"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-01T15:00:03Z",
+          "channelId": "UCxwtgGPKRNFb1jgM0l7IEkw",
+          "title": "AI Use Cases: How Does an Agent Work?",
+          "description": "You may interact with AI agents every day, sometimes without realizing it. From smart assistants that help schedule meetings to ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/rsc636LjejQ/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/rsc636LjejQ/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/rsc636LjejQ/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/rsc636LjejQ/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/rsc636LjejQ/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "PNY Pro",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-01T15:00:03Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "OwC62rJJwCAyFT_4PoVVE197hHU",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "jBzXXZpDkf4"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-06T10:51:49Z",
+          "channelId": "UCTgwcoeGGKmZ3zzCXN2qo_A",
+          "title": "Every agent needs proper tools | Equip your AI on Apify",
+          "description": "Even the best agent fails when given the wrong tool. Your AI agent is no exception. Without proper tools, an agent can't check ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Apify",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-06T10:51:49Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "iprRULAnmPGNSW3NAgpjhZWUJVE",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "6mog6iBcxN0"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-22T21:54:35Z",
+          "channelId": "UClVkSYJyS4XTpzukZn1zm7w",
+          "title": "Automate Insurance Claims Evidence Review with Box",
+          "description": "See how to automate insurance claims evidence review using Box Automate, metadata, and Box Platform APIs. In this demo, a ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/6mog6iBcxN0/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/6mog6iBcxN0/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/6mog6iBcxN0/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/6mog6iBcxN0/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/6mog6iBcxN0/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "uhd": {
+              "url": "https://i.ytimg.com/vi/6mog6iBcxN0/uhddefault.jpg",
+              "width": 3840,
+              "height": 2160
+            }
+          },
+          "channelTitle": "Box",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-22T21:54:35Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "hFTQa3g27O7zO4C13IDUfjue0RU",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "3pQRzgj_7YQ"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-08T20:32:30Z",
+          "channelId": "UCXelFdwHOcCNc5ON28ejrsQ",
+          "title": "GitHub launches 7 AI agent repos speeding development workflows #AI #GitHub #AITools",
+          "description": "Seven GitHub repositories revealed tools that can accelerate AI agent development by months. These include browser ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Eli Sadler",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-08T20:32:30Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "c_UkBctI_CZu7eF94IY057i7gh4",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "ctaPbOH3O8I"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-27T22:17:51Z",
+          "channelId": "UCly9DNQlBI2O8Sok3nbMTxw",
+          "title": "What Is Grok Bot? Grok Bot vs ChatGPT &amp; Claude Explained #GrokBot #Grok #AIAgents #AI",
+          "description": "What is Grok Bot, and is it really different from ChatGPT or Claude? Here's Grok Bot explained simply, for beginners. Instead of ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "AI Uncomplicated",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-27T22:17:51Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "72g-A8rRgxt5DXs4GZwcPL2qQ4U",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "gdZv6GcQAJw"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-03T13:59:51Z",
+          "channelId": "UC9hfCK9IYCMBp_xLjAQ0Tjg",
+          "title": "I let Claude AI run my YouTube channel for a day 🤖 #Experiment #ClaudeAI #YouTubeAutomation",
+          "description": "Claude can handle almost every part of your YouTube workflow with 11 specialized AI skills. This GitHub repo includes skills for ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Harshit singh",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-03T13:59:51Z"
+        }
+      }
+    ],
+    "AI build website screenshot": [
+      {
+        "kind": "youtube#searchResult",
+        "etag": "KPZURpjuWBR2umfbz6GR3jVDDkc",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "lhyzA49f9vU"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-15T15:31:48Z",
+          "channelId": "UCQIf7hvDL5YqE0-4MdRZA7A",
+          "title": "Free AI Tools | Screenshot This Now | Best Free AI Tools 2026",
+          "description": "BHAI, SCREENSHOT LE LO! Ye FREE AI Tools tumhare career aur business dono mein game-changer ban sakte hain!",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/lhyzA49f9vU/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/lhyzA49f9vU/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/lhyzA49f9vU/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/lhyzA49f9vU/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/lhyzA49f9vU/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "AI By Manas",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-15T15:31:48Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "bNxyiGMfMDv-8ISYvPZG0amnpzM",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "dn6mMZ3OT9c"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-03T10:17:59Z",
+          "channelId": "UCMWSgujczgu5_HElPIshYWw",
+          "title": "How to make a full app promo video with AI! #appmockup #smartphone #mobileapp #tutorial",
+          "description": "Try it out on Promogen.app How to do it with Claude, ChatGPT or Cursor: https://www.promogen.app/ai/claude.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "PromoGen",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-03T10:17:59Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "GqZdzBw_hWWlAiHRiD4rrd7knyA",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "qgX9syt_-fI"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-27T14:17:46Z",
+          "channelId": "UCcUF0dO5lYYspt9-xDUWfyg",
+          "title": "Screenshot to Code Clones Any Website for Free",
+          "description": "Comment \"CLONE\" to get this tool. There's a free open-source project on GitHub turning screenshots of any website into real ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/qgX9syt_-fI/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/qgX9syt_-fI/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/qgX9syt_-fI/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/qgX9syt_-fI/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/qgX9syt_-fI/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i.ytimg.com/vi/qgX9syt_-fI/qhddefault.jpg",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "Nathan Hodgson",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-27T14:17:46Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Kw6q7je2Xo_fDfmip1jUHKWmQTo",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "ailI0NzelJI"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-17T12:04:19Z",
+          "channelId": "UCOMwd9euYhUgXRPvgx-i9TQ",
+          "title": "Ein Screenshot, eine Profi-Website mit Claude #shorts",
+          "description": "Ein Screenshot, und Claude baut dir eine Website wie ein Profi. In der Kombai Gallery findest du über 20.000 kostenlose Web- ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/ailI0NzelJI/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/ailI0NzelJI/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/ailI0NzelJI/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/ailI0NzelJI/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/ailI0NzelJI/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i.ytimg.com/vi/ailI0NzelJI/qhddefault.jpg",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "Ai Agent Georg",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-17T12:04:19Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "G4woA9Xyd2bItQkM_KuXr7fF98Q",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "u3g1SiUq5jM"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-12T03:42:30Z",
+          "channelId": "UCxwLak426QThpnUVW9QtUrA",
+          "title": "🔥 This Website Makes AI UI Design 10x Better! 🤯 | VibeUI | code buzz | #coding #ai",
+          "description": "This Website Makes AI UI Design 10x Better! | VibeUI | code buzz | #coding #ai Want to build better websites with AI? VibeUI ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Code Buzz",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-12T03:42:30Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "CUpA6Gwt0LuaDhDOukow5VOGmPk",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "KEJYS7O_xBs"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-15T21:24:41Z",
+          "channelId": "UCEBdH3mKf09VQTurnvS9AVQ",
+          "title": "Screenshot to Code launches open-source website builder from images #AI #WebDevelopment #OpenSource",
+          "description": "Screenshot to Code converts any website from a single screenshot, creating fully functional prototypes with element spacing, fonts ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Max Verner",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-15T21:24:41Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "RjGmrqA27-WknmKUVmaK0qADnJs",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "eOHedMVf5iQ"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-21T17:48:15Z",
+          "channelId": "UCoEAShjWZsExZSwB02T_IEQ",
+          "title": "Пиши МОКАП в комментариях — скину ссылку на сервис.",
+          "description": "Плоский скриншот сайта в портфолио или презентации выглядит дешево и смазывает впечатление от работы. Сервис ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Николай Алексеев | Ai Agents ",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-21T17:48:15Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "yrUGALxIPePU5lnpi_ppYV8qCTM",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "WhmIowQMskY"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-30T13:38:16Z",
+          "channelId": "UCCZIHtHGgLOkwbNS_Fm_YWA",
+          "title": "AI Product Video Banane Ka Prompt 🤯 | Meesho Photo",
+          "description": "AI Product Video Banane Ka Prompt | Meesho Photo Ye prompt try kar sakte ho: prompt 'Create a realistic product showcase ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/WhmIowQMskY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/WhmIowQMskY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/WhmIowQMskY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/WhmIowQMskY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/WhmIowQMskY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "ParveenByte ",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-30T13:38:16Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "w1c-g-ETexodDz6O85GJvIeXIjY",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "WVnbizqmYng"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-14T19:48:20Z",
+          "channelId": "UCJV08mrHrluU2TtAZOCR2hg",
+          "title": "Screenshot to Code converts screenshots into websites with design #AI #WebDevelopment",
+          "description": "Screenshot to Code converts any website screenshot into full code. This open-source tool analyzes layouts, fonts, colors, and ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/WVnbizqmYng/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/WVnbizqmYng/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/WVnbizqmYng/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/WVnbizqmYng/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/WVnbizqmYng/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Roddy Lawson",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-14T19:48:20Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "XzVJWJ1XM9eaOkgUkoP_26_1DUg",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "ZU6Afp4JgVM"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-07T17:02:16Z",
+          "channelId": "UCUNbTfnPNNpynRL-PQG38TA",
+          "title": "Screenshot to Code: Turn Any Website Into Code (Open Source)",
+          "description": "One screenshot in, the whole website back as working code 🖥️ Screenshot to Code is open source and you can self-host it.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Drew Collins‎ | Learn AI",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-07T17:02:16Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Z1ccpxdv7Y8qSeedC9qfGszIc8c",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "k8X5bzoYFG4"
+        },
+        "snippet": {
+          "publishedAt": "2026-10-03T06:31:56Z",
+          "channelId": "UCJic82YtWEVCmZJqKSZN9wA",
+          "title": "PhotoText.ai 🔥 Edit Screenshots with AI | Best AI Website for Screenshot Editing",
+          "description": "Ever wanted to edit text in a screenshot without recreating the entire image? PhotoText.ai is an AI website worth checking out if ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Techivibe",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-10-03T06:31:56Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Ll4VWvLVoiNQqifzTEcWVV1jAmg",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "JIGyC9g5-gk"
+        },
+        "snippet": {
+          "publishedAt": "2026-09-21T12:30:04Z",
+          "channelId": "UC5rylQF2P8iwYm-Sezg1YbQ",
+          "title": "our next website draft could start with a screenshot.",
+          "description": "The Screenshot to Code demo shows AI reading a page's layout, spacing, typography and colours to generate code with a live ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "Saurabh Bhatnagar",
+          "liveBroadcastContent": "none",
+          "publishTime": "2026-09-21T12:30:04Z"
+        }
+      }
+    ]
+  },
+  "videos": [
+    {
+      "kind": "youtube#video",
+      "etag": "3gBtYNKErLpY7llUYsdO4V6-0Lo",
+      "id": "en0GuyhieQk",
+      "snippet": {
+        "publishedAt": "2026-10-08T18:52:44Z",
+        "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+        "title": "Introducing Claude Dashboards and Claude Motion",
+        "description": "Claude Dashboards and Claude Motion are in beta today. Ask Claude to turn your data into live dashboards and your ideas into animated explainers.\n\nClaude Dashboards connects to your data platform or CRM and builds dashboards that update as your data changes. In beta on all paid plans.\n\nClaude Motion turns a report or a chart into a short animated explainer for your next all-hands or board deck. Claude writes each one as code, with no video model involved, so you can change any word, number, or timing, then export an MP4 or open it in your video editor. In beta on Team and Enterprise plans.\n\nAnd starting today, Claude Docs, Claude Slides, and Claude Design are out of beta and available on every plan including Free.\n\nRead more: https://claude.com/blog/dashboards-and-motion",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/en0GuyhieQk/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "Claude",
+        "tags": [
+          "Claude",
+          "Claude AI",
+          "Anthropic",
+          "Anthropic AI",
+          "AI",
+          "artificial intelligence",
+          "Claud AI",
+          "Antropic",
+          "AI assistant"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Introducing Claude Dashboards and Claude Motion",
+          "description": "Claude Dashboards and Claude Motion are in beta today. Ask Claude to turn your data into live dashboards and your ideas into animated explainers.\n\nClaude Dashboards connects to your data platform or CRM and builds dashboards that update as your data changes. In beta on all paid plans.\n\nClaude Motion turns a report or a chart into a short animated explainer for your next all-hands or board deck. Claude writes each one as code, with no video model involved, so you can change any word, number, or timing, then export an MP4 or open it in your video editor. In beta on Team and Enterprise plans.\n\nAnd starting today, Claude Docs, Claude Slides, and Claude Design are out of beta and available on every plan including Free.\n\nRead more: https://claude.com/blog/dashboards-and-motion"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M22S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1217959",
+        "likeCount": "14055",
+        "favoriteCount": "0",
+        "commentCount": "579"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "J5VrVGG0xL_3nIYvzJKtVAch83M",
+      "id": "1f13Bl1sYkw",
+      "snippet": {
+        "publishedAt": "2026-09-22T16:32:25Z",
+        "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+        "title": "Introducing Claude Opus 5.5",
+        "description": "For most tasks, Claude Opus 5.5 performs at the level of Claude Fable 5.1, our most intelligent model. It writes more clearly and puts the most important information first, which makes it easier to work with over long sessions.\nIt’s also faster and more efficient than Opus 5, so you can hand it your bigger, more ambitious work.\nOpus 5.5 is available everywhere today. To celebrate, we’re raising usage limits on Pro, Max, and Team plans, so there’s more room for you to explore what it can do.\n\nRead more at https://anthropic.com/claude-opus-5-5",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "qhd": {
+            "url": "https://i.ytimg.com/vi/1f13Bl1sYkw/qhddefault.jpg",
+            "width": 2560,
+            "height": 1440
+          }
+        },
+        "channelTitle": "Claude",
+        "tags": [
+          "Claude",
+          "Claude AI",
+          "Anthropic",
+          "Anthropic AI",
+          "AI",
+          "artificial intelligence",
+          "Claud AI",
+          "Antropic",
+          "AI assistant"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Introducing Claude Opus 5.5",
+          "description": "For most tasks, Claude Opus 5.5 performs at the level of Claude Fable 5.1, our most intelligent model. It writes more clearly and puts the most important information first, which makes it easier to work with over long sessions.\nIt’s also faster and more efficient than Opus 5, so you can hand it your bigger, more ambitious work.\nOpus 5.5 is available everywhere today. To celebrate, we’re raising usage limits on Pro, Max, and Team plans, so there’s more room for you to explore what it can do.\n\nRead more at https://anthropic.com/claude-opus-5-5"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT20S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "361080",
+        "likeCount": "4907",
+        "favoriteCount": "0",
+        "commentCount": "357"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "7DVsp9ggr2Rdm7THa_Gree67P9w",
+      "id": "COJAZQM1aeQ",
+      "snippet": {
+        "publishedAt": "2026-10-02T19:44:06Z",
+        "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+        "title": "Build an App With Claude Design",
+        "description": "Nate, a designer at Anthropic, uses Claude design in Claude Code to take his side project's onboarding from rough idea to working prototype.\n\nHe connects his repo, opens the Artifacts tab, and asks Claude for design options. Then leaves comments on what's working, fixes details himself in the editor, and asks for a click-through prototype before telling Claude to build it. A quick design process like this fits anywhere you'd normally skip straight to code.\n\nDesign with Claude: https://claude.ai/artifacts \nRead the announcement: https://claude.com/blog/cowork-is-now-claude",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/COJAZQM1aeQ/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "Claude",
+        "tags": [
+          "Claude",
+          "Claude AI",
+          "Anthropic",
+          "Anthropic AI",
+          "AI",
+          "artificial intelligence",
+          "Claud AI",
+          "Antropic",
+          "AI assistant"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Build an App With Claude Design",
+          "description": "Nate, a designer at Anthropic, uses Claude design in Claude Code to take his side project's onboarding from rough idea to working prototype.\n\nHe connects his repo, opens the Artifacts tab, and asks Claude for design options. Then leaves comments on what's working, fixes details himself in the editor, and asks for a click-through prototype before telling Claude to build it. A quick design process like this fits anywhere you'd normally skip straight to code.\n\nDesign with Claude: https://claude.ai/artifacts \nRead the announcement: https://claude.com/blog/cowork-is-now-claude"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M43S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "192825",
+        "likeCount": "2041",
+        "favoriteCount": "0",
+        "commentCount": "72"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "m_ZR_D4kf1_7BecoBM-mZTExgSU",
+      "id": "-LNDXx__ZT0",
+      "snippet": {
+        "publishedAt": "2026-10-08T20:53:57Z",
+        "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+        "title": "Introducing Higgsfield Katana | Claude Motion",
+        "description": "Introducing Higgsfield Katana, powered by Claude Motion.\n\nOur most powerful AI video editing tool, inside Claude.\n\nUpload a reference and create editable motion graphics, product launch videos, or aura-farming edits.\n\nAvailable now in Claude via Higgsfield MCP.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/-LNDXx__ZT0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Higgsfield AI",
+        "tags": [
+          "Higgsfield",
+          "Katana",
+          "Higgsfield Katana",
+          "Claude Motion",
+          "Claude",
+          "Higgsfield MCP",
+          "AI video editing",
+          "motion design",
+          "motion graphics"
+        ],
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en-US",
+        "localized": {
+          "title": "Introducing Higgsfield Katana | Claude Motion",
+          "description": "Introducing Higgsfield Katana, powered by Claude Motion.\n\nOur most powerful AI video editing tool, inside Claude.\n\nUpload a reference and create editable motion graphics, product launch videos, or aura-farming edits.\n\nAvailable now in Claude via Higgsfield MCP."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M18S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "194333",
+        "likeCount": "3759",
+        "favoriteCount": "0",
+        "commentCount": "99"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "wXPEO2ggQHzMr47UGHchEocbdhg",
+      "id": "bVXiNb9RyyI",
+      "snippet": {
+        "publishedAt": "2026-10-01T18:07:41Z",
+        "channelId": "UCV03SRZXJEz-hchIAogeJOg",
+        "title": "How an Anthropic designer uses Claude Slides",
+        "description": "Make slides with Claude starting from a voice memo. Nate, a designer at Anthropic, talks through an idea on a walk and then turns it into a deck.\n\nInstead of staring at a blank slide, Nate records a messy voice memo on his phone, talking through everything he wants to say. Then he works with Claude to shape that thinking into a presentation, spending less time on formatting and more time on the idea itself (with some fresh air along the way).\n\nCreate a deck with Claude: https://claude.ai/artifacts \nRead the announcement: https://claude.com/blog/cowork-is-now-claude",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/bVXiNb9RyyI/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "Claude",
+        "tags": [
+          "Claude",
+          "Claude AI",
+          "Anthropic",
+          "Anthropic AI",
+          "AI",
+          "artificial intelligence",
+          "Claud AI",
+          "Antropic",
+          "AI assistant"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "How an Anthropic designer uses Claude Slides",
+          "description": "Make slides with Claude starting from a voice memo. Nate, a designer at Anthropic, talks through an idea on a walk and then turns it into a deck.\n\nInstead of staring at a blank slide, Nate records a messy voice memo on his phone, talking through everything he wants to say. Then he works with Claude to shape that thinking into a presentation, spending less time on formatting and more time on the idea itself (with some fresh air along the way).\n\nCreate a deck with Claude: https://claude.ai/artifacts \nRead the announcement: https://claude.com/blog/cowork-is-now-claude"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M45S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "152364",
+        "likeCount": "1490",
+        "favoriteCount": "0",
+        "commentCount": "58"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "-n9Qq_1TtIz0qoJfP9m8qXyg_x0",
+      "id": "9Pbg-_ptBcE",
+      "snippet": {
+        "publishedAt": "2026-09-26T16:33:47Z",
+        "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+        "title": "Higgsfield x Claude Opus 5.5 for Motion Design | Editable After Effects Projects",
+        "description": "Introducing Higgsfield x Claude Opus 5.5 for Motion Design.\n\nWith Higgsfield MCP, Opus 5.5:\n\n- Generates images, logos and graphics\n- Builds and animates compositions\n- Renders the final video\n\nYou get an editable After Effects project to keep working on.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/9Pbg-_ptBcE/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Higgsfield AI",
+        "tags": [
+          "Higgsfield",
+          "Higgsfield MCP",
+          "Claude Opus 5.5",
+          "Claude",
+          "Opus 5.5",
+          "motion design",
+          "After Effects",
+          "AI motion design",
+          "AI animation",
+          "editable After Effects project",
+          "motion graphics",
+          "AI video",
+          "AI graphics",
+          "MCP"
+        ],
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en-US",
+        "localized": {
+          "title": "Higgsfield x Claude Opus 5.5 for Motion Design | Editable After Effects Projects",
+          "description": "Introducing Higgsfield x Claude Opus 5.5 for Motion Design.\n\nWith Higgsfield MCP, Opus 5.5:\n\n- Generates images, logos and graphics\n- Builds and animates compositions\n- Renders the final video\n\nYou get an editable After Effects project to keep working on."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M13S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "150145",
+        "likeCount": "2892",
+        "favoriteCount": "0",
+        "commentCount": "8"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "ruJtT7rHioOiBnGB605dbXixSwM",
+      "id": "TixdV5DP7oc",
+      "snippet": {
+        "publishedAt": "2026-10-10T18:12:23Z",
+        "channelId": "UCG5HFY9PXYeIHSyRgML2tvg",
+        "title": "How to build high-end websites for $0 with Claude",
+        "description": "Claude website design without the generic AI look. Install three free Claude design skills (Emil Kowalski's motion skill, Impeccable and Taste), connect Figma and Playwright, and Claude Code designs, builds and tests a full website on its own. Build a website with AI that looks like a $10,000 agency job.\n\nGet the guide here: https://docs.google.com/document/d/1j0YZ7NpPmAE780Pr3NElacKrN0OsV6QTdr9tYYbOEH8/edit?usp=sharing\n\n#Shorts #ClaudeCode #WebDesign",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/TixdV5DP7oc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Sebastian Hardy | AI Marketing",
+        "tags": [
+          "claude website design",
+          "claude code website",
+          "build website with ai",
+          "claude website creation",
+          "ai web design",
+          "ai website builder",
+          "claude design",
+          "claude code web design",
+          "how to build a website with claude code",
+          "claude code tutorial",
+          "claude skills",
+          "impeccable skill",
+          "taste skill",
+          "figma mcp",
+          "playwright mcp"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "How to build high-end websites for $0 with Claude",
+          "description": "Claude website design without the generic AI look. Install three free Claude design skills (Emil Kowalski's motion skill, Impeccable and Taste), connect Figma and Playwright, and Claude Code designs, builds and tests a full website on its own. Build a website with AI that looks like a $10,000 agency job.\n\nGet the guide here: https://docs.google.com/document/d/1j0YZ7NpPmAE780Pr3NElacKrN0OsV6QTdr9tYYbOEH8/edit?usp=sharing\n\n#Shorts #ClaudeCode #WebDesign"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT51S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "162801",
+        "likeCount": "2819",
+        "favoriteCount": "0",
+        "commentCount": "932"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "VpO2myK-1-mj0c-lKQC77v7xWQo",
+      "id": "CV-k6rPJvJY",
+      "snippet": {
+        "publishedAt": "2026-10-14T12:36:04Z",
+        "channelId": "UC2ojq-nuP8ceeHqiroeKhBA",
+        "title": "Claude has completely changed how I edit videos",
+        "description": "Free skills: https://www.skool.com/ai-automation-society/classroom/2f7c4aea?md=263d927bda6d49758d1ceecacbe41a10",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/CV-k6rPJvJY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Nate Herk | AI Automation",
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Claude has completely changed how I edit videos",
+          "description": "Free skills: https://www.skool.com/ai-automation-society/classroom/2f7c4aea?md=263d927bda6d49758d1ceecacbe41a10"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT51S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "84156",
+        "likeCount": "1856",
+        "favoriteCount": "0",
+        "commentCount": "1022"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "zqGr-_ZPGpKZb6vGa_M6Qjxvql8",
+      "id": "RowdmzONk8I",
+      "snippet": {
+        "publishedAt": "2026-10-02T10:24:34Z",
+        "channelId": "UCUaPm7H9l1AvDLEcqyjqaoA",
+        "title": "💀 chat are we cooked",
+        "description": "Claude Opus 5.5 et le motion design\n\n#motiondesign #claude #opus #design #blender",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/RowdmzONk8I/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/RowdmzONk8I/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/RowdmzONk8I/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/RowdmzONk8I/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/RowdmzONk8I/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "unefilleia",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "fr",
+        "localized": {
+          "title": "💀 chat are we cooked",
+          "description": "Claude Opus 5.5 et le motion design\n\n#motiondesign #claude #opus #design #blender"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT45S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "46319",
+        "likeCount": "1346",
+        "favoriteCount": "0",
+        "commentCount": "55"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "DbU-2JixEhSJif91jsL0wpYgzrU",
+      "id": "ap42Zzizs5c",
+      "snippet": {
+        "publishedAt": "2026-10-02T22:10:42Z",
+        "channelId": "UCzofAkgrcUJebdrPXAaDadQ",
+        "title": "AI Works While I Sleep 😴🤖 #claudeai #artificialintelligence #contentcreation",
+        "description": "🛠️ Tools Mentioned:\n\nClaude AI: https://claude.ai\n\n\n📩 Business inquiries: contact.bnzai@gmail.com\n\n🌐 Subscribe for weekly AI video creation workflows!\n\n #Shorts #AI #Claude",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ap42Zzizs5c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ap42Zzizs5c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ap42Zzizs5c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ap42Zzizs5c/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ap42Zzizs5c/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Bnz AI",
+        "tags": [
+          "ai",
+          "ai agent",
+          "ai automation",
+          "claude code",
+          "claude",
+          "higgsfield"
+        ],
+        "categoryId": "24",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "AI Works While I Sleep 😴🤖 #claudeai #artificialintelligence #contentcreation",
+          "description": "🛠️ Tools Mentioned:\n\nClaude AI: https://claude.ai\n\n\n📩 Business inquiries: contact.bnzai@gmail.com\n\n🌐 Subscribe for weekly AI video creation workflows!\n\n #Shorts #AI #Claude"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT28S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "24362",
+        "likeCount": "8",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "xWKz7cMgIGW8p8QTE_SV8a6fO3M",
+      "id": "9loDDILgssM",
+      "snippet": {
+        "publishedAt": "2026-09-23T22:55:27Z",
+        "channelId": "UCh13OyDSm-Kb8ij3yZArtFg",
+        "title": "Claude Opus 5.5 x Higgsfield MCP | Build a Monster Truck",
+        "description": "Introducing Higgsfield x Claude Opus 5.5.\n\nAnthropic’s newest model, which is 40% cheaper and over 30% faster than Opus 5, is live on Higgsfield.\n\nPair Opus 5.5 with the Higgsfield MCP and turn your most ambitious ideas into complete products.\n\nAvailable on Claude via Higgsfield MCP and in Higgsfield Supercomputer.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/9loDDILgssM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Higgsfield AI",
+        "tags": [
+          "Claude Opus 5.5",
+          "Opus 5.5",
+          "Claude",
+          "Higgsfield MCP",
+          "Higgsfield",
+          "Higgsfield AI",
+          "Claude AI",
+          "monster truck",
+          "AI monster truck",
+          "AI design",
+          "3D design",
+          "AI video",
+          "generative AI",
+          "Model Context Protocol",
+          "AI creative tools"
+        ],
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en-US",
+        "localized": {
+          "title": "Claude Opus 5.5 x Higgsfield MCP | Build a Monster Truck",
+          "description": "Introducing Higgsfield x Claude Opus 5.5.\n\nAnthropic’s newest model, which is 40% cheaper and over 30% faster than Opus 5, is live on Higgsfield.\n\nPair Opus 5.5 with the Higgsfield MCP and turn your most ambitious ideas into complete products.\n\nAvailable on Claude via Higgsfield MCP and in Higgsfield Supercomputer."
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT42S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "60528",
+        "likeCount": "822",
+        "favoriteCount": "0",
+        "commentCount": "5"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "NLplNM8s5E8OjJu57ecYwtcdczI",
+      "id": "zNJeSYRH1oc",
+      "snippet": {
+        "publishedAt": "2026-09-30T10:09:25Z",
+        "channelId": "UCcypXKUXZ6zp9riCUucCy0A",
+        "title": "How to Make 3D websites with Claude and Scrolltide",
+        "description": "I built this website with Claude Code and a single AI web design prompt. 🤯\n\nInstead of starting from a blank code editor, I used a detailed website prompt from Scrolltide and gave it to Claude Code.\n\nClaude Code helped turn the prompt into a complete modern website with an animated hero section, responsive layout, typography, spacing, scroll animations, interactions, and more.\n\nThe website was built using Next.js, Tailwind CSS, Framer Motion, and Vercel.\n\nThis is my AI web development workflow for building modern websites, landing pages, portfolio websites, SaaS websites, and interactive web experiences much faster.\n\nIf you're learning vibe coding, AI coding, Claude Code, AI website development, or AI web design, this workflow can help you go from a website idea to working code much faster.\n\n🔗 Get the website prompts: https://scrolltide.co\n\n#ClaudeCode #AIWebDesign #AIWebsite #AIWebDevelopment #VibeCoding #NextJS #TailwindCSS #FramerMotion #WebDevelopment #WebsiteDesign #LandingPage #AITools",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/zNJeSYRH1oc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Himan Creates",
+        "categoryId": "26",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "How to Make 3D websites with Claude and Scrolltide",
+          "description": "I built this website with Claude Code and a single AI web design prompt. 🤯\n\nInstead of starting from a blank code editor, I used a detailed website prompt from Scrolltide and gave it to Claude Code.\n\nClaude Code helped turn the prompt into a complete modern website with an animated hero section, responsive layout, typography, spacing, scroll animations, interactions, and more.\n\nThe website was built using Next.js, Tailwind CSS, Framer Motion, and Vercel.\n\nThis is my AI web development workflow for building modern websites, landing pages, portfolio websites, SaaS websites, and interactive web experiences much faster.\n\nIf you're learning vibe coding, AI coding, Claude Code, AI website development, or AI web design, this workflow can help you go from a website idea to working code much faster.\n\n🔗 Get the website prompts: https://scrolltide.co\n\n#ClaudeCode #AIWebDesign #AIWebsite #AIWebDevelopment #VibeCoding #NextJS #TailwindCSS #FramerMotion #WebDevelopment #WebsiteDesign #LandingPage #AITools"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT19S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "regionRestriction": {
+          "blocked": [
+            "BY",
+            "RU"
+          ]
+        },
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "51631",
+        "likeCount": "1175",
+        "favoriteCount": "0",
+        "commentCount": "34"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "-JpbKDPuOPjO6A05oVVS1XCKZwA",
+      "id": "ZJB_VhC2ZWA",
+      "snippet": {
+        "publishedAt": "2026-09-24T05:53:23Z",
+        "channelId": "UCfKgD2Ug4gRyF9EOGJ9fE2A",
+        "title": "monday CRM | AI Agents That Actually Work",
+        "description": "Most CRMs say they use AI. monday CRM has agents that actually do the work.\nOne platform. Agents that move your pipeline forward—so you can close faster.\nLearn more about monday CRM: https://monday.com/crm",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "uhd": {
+            "url": "https://i.ytimg.com/vi/ZJB_VhC2ZWA/uhddefault.jpg",
+            "width": 3840,
+            "height": 2160
+          }
+        },
+        "channelTitle": "monday CRM",
+        "tags": [
+          "crm",
+          "sales",
+          "deals",
+          "ai",
+          "agents",
+          "leads",
+          "mondaycrm"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "monday CRM | AI Agents That Actually Work",
+          "description": "Most CRMs say they use AI. monday CRM has agents that actually do the work.\nOne platform. Agents that move your pipeline forward—so you can close faster.\nLearn more about monday CRM: https://monday.com/crm"
+        },
+        "defaultAudioLanguage": "en-US"
+      },
+      "contentDetails": {
+        "duration": "PT42S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "627843",
+        "likeCount": "3",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "8m4fGIEBkxcXQ64KcmiI7UArHj0",
+      "id": "qYnWlHQ-AgA",
+      "snippet": {
+        "publishedAt": "2026-10-13T19:59:12Z",
+        "channelId": "UCXelFdwHOcCNc5ON28ejrsQ",
+        "title": "ECC launches AI agents that design, build, test, and secure apps #AI #AITools #SoftwareDevelopment",
+        "description": "ECC shipped a complete engineering solution by a single developer and gained over 250,000 stars on GitHub. It offers 64 agents and 261 skills that automate architecture planning, code writing, security testing, and coverage improvement, all for free. This innovation changes how software development teams operate by consolidating multiple roles into an AI-driven workflow. Users can install ECC quickly via plugin marketplaces and engage a fully autonomous coding and testing environment tailored to their preferred stack. ECC represents a significant leap in AI-powered development tools, reducing time-to-market and increasing code reliability through automated security and test coverage processes. Its rapid adoption highlights the demand for scalable, low-cost engineering automation in the software industry. #AI #SoftwareDevelopment #DevTools",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/qYnWlHQ-AgA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Eli Sadler",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "ECC launches AI agents that design, build, test, and secure apps #AI #AITools #SoftwareDevelopment",
+          "description": "ECC shipped a complete engineering solution by a single developer and gained over 250,000 stars on GitHub. It offers 64 agents and 261 skills that automate architecture planning, code writing, security testing, and coverage improvement, all for free. This innovation changes how software development teams operate by consolidating multiple roles into an AI-driven workflow. Users can install ECC quickly via plugin marketplaces and engage a fully autonomous coding and testing environment tailored to their preferred stack. ECC represents a significant leap in AI-powered development tools, reducing time-to-market and increasing code reliability through automated security and test coverage processes. Its rapid adoption highlights the demand for scalable, low-cost engineering automation in the software industry. #AI #SoftwareDevelopment #DevTools"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT55S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "181457",
+        "likeCount": "4202",
+        "favoriteCount": "0",
+        "commentCount": "41"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "iaK7QUNMRgyvAuFPGPckpOoKMos",
+      "id": "JhM-rGP5Kx0",
+      "snippet": {
+        "publishedAt": "2026-09-25T03:00:12Z",
+        "channelId": "UCBd-6KX6KP0aGXzPOP3vRjA",
+        "title": "I Built an Entire Social Media Team With 0 Employees #shorts #claude #automatedsystem #aiagent #ai",
+        "description": "This is an AI social media team built for a one-person company with zero employees.\n\nIt handles everything: research, content, posting, and reporting. But nothing goes public until you sign off on it.\n\nModule 1, Research. Claude digs into your niche like a full-time strategist would. What is trending this week, which competitor posts just blew up, and what your audience keeps asking in the comments. Then it pulls the top videos on your topic and lines up their hooks side by side: what they said in the first three seconds, and why it worked.\n\nModule 2, Content. All that research turns into a full week of content. Short videos, carousels, captions, all in your voice. Every video opens with a hook built on what is already working, but made for you, not copied from someone else. And every post sits in an approval queue until you hit approve.\n\nModule 3, Posting and Community. Once you approve a post, it goes out on every platform at the right time. Comments get replies, DMs get answered, and anyone who asks \"how much?\" gets flagged as a lead instead of getting lost in your inbox.\n\nAnd running the whole thing? Claude Code. It tracks the money, not just the likes. Which posts brought in new followers, who clicked your link, and which clicks actually turned into paying customers. Then every morning, it sends you a one-page summary.\n\nOne person. Zero employees. A full social media team.\n\nConnect with ReStructure AI:\n\nWebsite: https://re-structure.ai/\n\nInstagram: https://www.instagram.com/restructureai/\n\nTikTok: https://www.tiktok.com/@restructureai\n\nX: https://x.com/ReStructureAI\n\n#shorts #Jevai #TypeSafe #ClaudeAI #AIAgent #BusinessAutomation #LocalBusinessMarketing #AIForBusiness #LeadGeneration #SalesAutomation #SMSAutomation #SmallBusinessGrowth #AIWorkflow #RestructureAI",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/JhM-rGP5Kx0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "ReStructure AI",
+        "tags": [
+          "shorts",
+          "claude",
+          "claude ai",
+          "system design",
+          "design system",
+          "automation system",
+          "automation",
+          "claude code",
+          "grow your business",
+          "ai automation",
+          "business strategy",
+          "system business",
+          "growth business",
+          "lead capture",
+          "Start up",
+          "business systems",
+          "business operations",
+          "workflow automation",
+          "make money with ai",
+          "claude cowork",
+          "artificial intelligence",
+          "agentic AI",
+          "AI workflow",
+          "AI tools for business",
+          "ai automation business",
+          "ai agent",
+          "ReStructure AI",
+          "Jev AI",
+          "TypeSafe",
+          "JEV",
+          "TypeSafe AI"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "I Built an Entire Social Media Team With 0 Employees #shorts #claude #automatedsystem #aiagent #ai",
+          "description": "This is an AI social media team built for a one-person company with zero employees.\n\nIt handles everything: research, content, posting, and reporting. But nothing goes public until you sign off on it.\n\nModule 1, Research. Claude digs into your niche like a full-time strategist would. What is trending this week, which competitor posts just blew up, and what your audience keeps asking in the comments. Then it pulls the top videos on your topic and lines up their hooks side by side: what they said in the first three seconds, and why it worked.\n\nModule 2, Content. All that research turns into a full week of content. Short videos, carousels, captions, all in your voice. Every video opens with a hook built on what is already working, but made for you, not copied from someone else. And every post sits in an approval queue until you hit approve.\n\nModule 3, Posting and Community. Once you approve a post, it goes out on every platform at the right time. Comments get replies, DMs get answered, and anyone who asks \"how much?\" gets flagged as a lead instead of getting lost in your inbox.\n\nAnd running the whole thing? Claude Code. It tracks the money, not just the likes. Which posts brought in new followers, who clicked your link, and which clicks actually turned into paying customers. Then every morning, it sends you a one-page summary.\n\nOne person. Zero employees. A full social media team.\n\nConnect with ReStructure AI:\n\nWebsite: https://re-structure.ai/\n\nInstagram: https://www.instagram.com/restructureai/\n\nTikTok: https://www.tiktok.com/@restructureai\n\nX: https://x.com/ReStructureAI\n\n#shorts #Jevai #TypeSafe #ClaudeAI #AIAgent #BusinessAutomation #LocalBusinessMarketing #AIForBusiness #LeadGeneration #SalesAutomation #SMSAutomation #SmallBusinessGrowth #AIWorkflow #RestructureAI"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT1M24S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "357772",
+        "likeCount": "7619",
+        "favoriteCount": "0",
+        "commentCount": "2425"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "qmmye3BeD61ejJmpGvPWW1tXKgI",
+      "id": "7GTWAXCTy0o",
+      "snippet": {
+        "publishedAt": "2026-10-13T02:43:49Z",
+        "channelId": "UC2ojq-nuP8ceeHqiroeKhBA",
+        "title": "I Built the Ultimate AI Board of Advisors",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/7GTWAXCTy0o/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Nate Herk | AI Automation",
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "I Built the Ultimate AI Board of Advisors",
+          "description": ""
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT1M31S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "123486",
+        "likeCount": "4193",
+        "favoriteCount": "0",
+        "commentCount": "1780"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "bsmrCa5N_l4XWjRaiPBQYnWjI3Q",
+      "id": "5lwVofPsiHY",
+      "snippet": {
+        "publishedAt": "2026-09-21T05:45:44Z",
+        "channelId": "UCGXLEjzQwxNz1bO-ujKgn3Q",
+        "title": "Build Multiple AI Agents for Sales, Support & Business Automation | BotSailor",
+        "description": "Meet BotSailor’s AI Workforce: specialized AI agents for business automation across WhatsApp, Instagram, Messenger, Telegram, and your webchat. Automate sales conversations, customer support, and order inquiries with multiple AI agents working 24/7.\nWhy ask one AI to handle everything? Give every customer conversation the right specialist.\n\nIn this video, discover how BotSailor AI Agents work together to support your business:\n\n• Sales Agent: Handle product questions and help customers make buying decisions.\n• Order Agent: Respond to order inquiries and provide order updates.\n• Support Agent: Answer support questions and assist customers when they need help.\n\nThese agents go beyond answering messages. They qualify leads, collect customer data, trigger automations, call APIs, and take business actions. Smart routing directs conversations to the appropriate agent, while human handoff brings your team into the conversation when needed.\n\nWhether you run an online store, manage a business on social media, or offer automation services to clients, BotSailor brings AI sales and support automation to the channels your customers already use.\nExplore WhatsApp sales and support automation, Instagram DM automation for business, and AI agents for lead qualification as part of one connected AI workforce.\nBuild your AI team and give your customers support around the clock.\n\nRelated Links & Resources:\n\nVisit Us: https://botsailor.com/ \n\nFull AI Agent Setup Tutorial: https://www.youtube.com/watch?v=0PcFxp-XST0 \n\n\nRead Our Use Case Blogs:\nD2C E-Commerce AI Automation: BotSailor Agent Routing Guide: https://botsailor.com/blog/d2c-ecommerce-ai-automation-botsailor-agent-routing-guide \n\nFinancial Services & Agent Banking: AI Lead Qualification with BotSailor: https://botsailor.com/blog/financial-services-agent-banking-ai-lead-qualification-with-botsailor \n\nHow Healthcare Clinics Reduce No-Shows and Front-Desk Burnout Using BotSailor AI: https://botsailor.com/blog/how-healthcare-clinics-reduce-noshows-and-frontdesk-burnout-using-botsailor-ai \n\nSocial Media\nFacebook:   https://www.facebook.com/BotSailorLimited/ \nInstagram:   https://www.instagram.com/botsailor_ai/ \nPinterest:   https://www.pinterest.com/botsailor/ \nLinked in:   https://www.linkedin.com/company/80194339/admin/dashboard/ \n\n#aiagents  #businessautomation  #whatsappautomation  #instagramautomation  #aiforbusiness",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/5lwVofPsiHY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/5lwVofPsiHY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/5lwVofPsiHY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/5lwVofPsiHY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/5lwVofPsiHY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "BotSailor",
+        "tags": [
+          "BotSailor",
+          "BotSailor AI agents",
+          "AI workforce",
+          "AI agents for business",
+          "business automation",
+          "WhatsApp automation",
+          "WhatsApp sales automation",
+          "WhatsApp customer support automation",
+          "Instagram DM automation",
+          "Messenger chatbot",
+          "Telegram bot",
+          "webchat chatbot",
+          "AI sales agent",
+          "AI support agent",
+          "AI order agent",
+          "lead qualification AI",
+          "AI customer support",
+          "sales automation",
+          "chatbot for business",
+          "multi-agent AI",
+          "human handoff",
+          "AI ecommerce automation"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Build Multiple AI Agents for Sales, Support & Business Automation | BotSailor",
+          "description": "Meet BotSailor’s AI Workforce: specialized AI agents for business automation across WhatsApp, Instagram, Messenger, Telegram, and your webchat. Automate sales conversations, customer support, and order inquiries with multiple AI agents working 24/7.\nWhy ask one AI to handle everything? Give every customer conversation the right specialist.\n\nIn this video, discover how BotSailor AI Agents work together to support your business:\n\n• Sales Agent: Handle product questions and help customers make buying decisions.\n• Order Agent: Respond to order inquiries and provide order updates.\n• Support Agent: Answer support questions and assist customers when they need help.\n\nThese agents go beyond answering messages. They qualify leads, collect customer data, trigger automations, call APIs, and take business actions. Smart routing directs conversations to the appropriate agent, while human handoff brings your team into the conversation when needed.\n\nWhether you run an online store, manage a business on social media, or offer automation services to clients, BotSailor brings AI sales and support automation to the channels your customers already use.\nExplore WhatsApp sales and support automation, Instagram DM automation for business, and AI agents for lead qualification as part of one connected AI workforce.\nBuild your AI team and give your customers support around the clock.\n\nRelated Links & Resources:\n\nVisit Us: https://botsailor.com/ \n\nFull AI Agent Setup Tutorial: https://www.youtube.com/watch?v=0PcFxp-XST0 \n\n\nRead Our Use Case Blogs:\nD2C E-Commerce AI Automation: BotSailor Agent Routing Guide: https://botsailor.com/blog/d2c-ecommerce-ai-automation-botsailor-agent-routing-guide \n\nFinancial Services & Agent Banking: AI Lead Qualification with BotSailor: https://botsailor.com/blog/financial-services-agent-banking-ai-lead-qualification-with-botsailor \n\nHow Healthcare Clinics Reduce No-Shows and Front-Desk Burnout Using BotSailor AI: https://botsailor.com/blog/how-healthcare-clinics-reduce-noshows-and-frontdesk-burnout-using-botsailor-ai \n\nSocial Media\nFacebook:   https://www.facebook.com/BotSailorLimited/ \nInstagram:   https://www.instagram.com/botsailor_ai/ \nPinterest:   https://www.pinterest.com/botsailor/ \nLinked in:   https://www.linkedin.com/company/80194339/admin/dashboard/ \n\n#aiagents  #businessautomation  #whatsappautomation  #instagramautomation  #aiforbusiness"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT42S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "39370",
+        "likeCount": "70",
+        "favoriteCount": "0",
+        "commentCount": "3"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "O9oeTApWKzeQAdp_oVyaFieCwQQ",
+      "id": "rsc636LjejQ",
+      "snippet": {
+        "publishedAt": "2026-10-01T15:00:03Z",
+        "channelId": "UCxwtgGPKRNFb1jgM0l7IEkw",
+        "title": "AI Use Cases: How Does an Agent Work?",
+        "description": "You may interact with AI agents every day, sometimes without realizing it.\n\nFrom smart assistants that help schedule meetings to systems that route support tickets or automate workflows behind the scenes, AI agents can reason, plan, and act toward defined goals.\n\nWatch now to learn how AI agents work and how they’re transforming modern workflows ▶️\n\nIf you would like to learn more about PNY Products, please fill out this form: https://www.pny.com/forms/youtube-subscribe-form\n\nFollow us on Social Media: \nLinkedIn: https://www.linkedin.com/company/pny-technologies\nX: https://twitter.com/pny_pro/\nFacebook: https://www.facebook.com/pnypro\nInstagram: https://www.instagram.com/pny_pro/\n\n#PNY #PNYPRO",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/rsc636LjejQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/rsc636LjejQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/rsc636LjejQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/rsc636LjejQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/rsc636LjejQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "PNY Pro",
+        "tags": [
+          "PNY PRO",
+          "AI agents",
+          "AI agent",
+          "how AI agents work",
+          "how does an AI agent work",
+          "agentic AI",
+          "AI use cases",
+          "artificial intelligence",
+          "enterprise AI",
+          "generative AI",
+          "AI explained",
+          "AI automation",
+          "autonomous AI agents",
+          "AI workflow",
+          "AI technology",
+          "AI infrastructure",
+          "professional AI",
+          "NVIDIA AI",
+          "NVIDIA RTX PRO",
+          "RTX PRO",
+          "PNY AI",
+          "AI solutions",
+          "machine learning",
+          "AI education",
+          "AI for business",
+          "future of AI"
+        ],
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "AI Use Cases: How Does an Agent Work?",
+          "description": "You may interact with AI agents every day, sometimes without realizing it.\n\nFrom smart assistants that help schedule meetings to systems that route support tickets or automate workflows behind the scenes, AI agents can reason, plan, and act toward defined goals.\n\nWatch now to learn how AI agents work and how they’re transforming modern workflows ▶️\n\nIf you would like to learn more about PNY Products, please fill out this form: https://www.pny.com/forms/youtube-subscribe-form\n\nFollow us on Social Media: \nLinkedIn: https://www.linkedin.com/company/pny-technologies\nX: https://twitter.com/pny_pro/\nFacebook: https://www.facebook.com/pnypro\nInstagram: https://www.instagram.com/pny_pro/\n\n#PNY #PNYPRO"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT1M33S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "285648",
+        "likeCount": "6",
+        "favoriteCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "VoqZp_cq3-my_lvTU9sPiUCMuUU",
+      "id": "jBzXXZpDkf4",
+      "snippet": {
+        "publishedAt": "2026-10-06T10:51:49Z",
+        "channelId": "UCTgwcoeGGKmZ3zzCXN2qo_A",
+        "title": "Every agent needs proper tools | Equip your AI on Apify",
+        "description": "Even the best agent fails when given the wrong tool. Your AI agent is no exception.\n\nWithout proper tools, an agent can't check prices, read the latest news, or pull reliable data. So it guesses. Or worse, it stalls.\n\nTools on Apify are ready to run and built for production-grade work. Apify AI helps your agent pick the right one for the job.\n\n🧰 Equip your AI agents with thousands of tools on Apify → https://apify.it/4yQ1Dop",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/jBzXXZpDkf4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Apify",
+        "tags": [
+          "web scraping platform",
+          "web automation",
+          "scrapers",
+          "Apify",
+          "web crawling",
+          "web scraping",
+          "data extraction",
+          "best web scraping tool",
+          "API",
+          "how to extract data from any website",
+          "web scraping tutorial",
+          "web scrape",
+          "data collection tool",
+          "RPA",
+          "web integration",
+          "how to turn website into API",
+          "JSON"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Every agent needs proper tools | Equip your AI on Apify",
+          "description": "Even the best agent fails when given the wrong tool. Your AI agent is no exception.\n\nWithout proper tools, an agent can't check prices, read the latest news, or pull reliable data. So it guesses. Or worse, it stalls.\n\nTools on Apify are ready to run and built for production-grade work. Apify AI helps your agent pick the right one for the job.\n\n🧰 Equip your AI agents with thousands of tools on Apify → https://apify.it/4yQ1Dop"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT31S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "44948",
+        "likeCount": "10",
+        "favoriteCount": "0",
+        "commentCount": "4"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "L2ZQroh2wEsuTdrmQUtyn7uJBLY",
+      "id": "6mog6iBcxN0",
+      "snippet": {
+        "publishedAt": "2026-09-22T21:54:35Z",
+        "channelId": "UClVkSYJyS4XTpzukZn1zm7w",
+        "title": "Automate Insurance Claims Evidence Review with Box",
+        "description": "See how to automate insurance claims evidence review using Box Automate, metadata, and Box Platform APIs.\n\nIn this demo, a baggage claim workflow processes three supporting documents—a damaged baggage report, an invoice, and an incident report—then routes the claim to the appropriate reviewers. The workflow can also be triggered programmatically from an external application.\n\nYou’ll see how to:\n\n- Configure a Box Automate workflow\n- Track claim status with Box metadata\n- Trigger the workflow through the Box Automate API\n- Assign review tasks and notify reviewers\n- Add approval and rejection conditions\n- Extend the solution with Box Apps, Box Extract, Box Sign, and other Box capabilities\n\n🚀 START BUILDING\n\nFollow the claims evidence review tutorial and explore the Box developer resources:\n\n- Claims evidence review tutorial: https://developer.box.com/tutorials/claims-evidence-review\n- Box Developer Docs: https://developer.box.com/\n- Sign up for a free Box developer account: https://account.box.com/signup/developer\n\n📚 DEVELOPER GUIDES & DOCS\n\nEverything you need to start building intelligent content workflows with Box:\n\n- Box Automate product documentation: https://docs.box.com/en/box-automate/about-box-automate\n- Box Automate API reference: https://developer.box.com/reference/v2026.0/get-automate-workflows\n- Getting Started Guide: https://developer.box.com/guides/getting-started/\n- Box Platform API Reference: https://developer.box.com/reference/\n- Build with Box AI: https://developer.box.com/ai\n\nTIMESTAMPS:\n\n00:00 – Introduction\n\n00:17 – Claims evidence review with Box Automate\n\n01:35 – Trigger the workflow through the API\n\n01:50 – Review and approve the task\n\n02:20 – Learn how to build this workflow\n\n🔔 FOLLOW BOX\n\n- X: https://x.com/Box\n- LinkedIn: https://www.linkedin.com/company/box/\n- Developer site: https://developer.box.com/",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/6mog6iBcxN0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/6mog6iBcxN0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/6mog6iBcxN0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/6mog6iBcxN0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/6mog6iBcxN0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "uhd": {
+            "url": "https://i.ytimg.com/vi/6mog6iBcxN0/uhddefault.jpg",
+            "width": 3840,
+            "height": 2160
+          }
+        },
+        "channelTitle": "Box",
+        "tags": [
+          "box",
+          "box.com",
+          "Box AI",
+          "Box AI API",
+          "OpenAI O3",
+          "O3 model",
+          "enterprise content",
+          "document processing",
+          "metadata extraction",
+          "invoice processing",
+          "photo analysis",
+          "image recognition",
+          "Python SDK",
+          "API demo",
+          "machine learning tutorials",
+          "AI"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Automate Insurance Claims Evidence Review with Box",
+          "description": "See how to automate insurance claims evidence review using Box Automate, metadata, and Box Platform APIs.\n\nIn this demo, a baggage claim workflow processes three supporting documents—a damaged baggage report, an invoice, and an incident report—then routes the claim to the appropriate reviewers. The workflow can also be triggered programmatically from an external application.\n\nYou’ll see how to:\n\n- Configure a Box Automate workflow\n- Track claim status with Box metadata\n- Trigger the workflow through the Box Automate API\n- Assign review tasks and notify reviewers\n- Add approval and rejection conditions\n- Extend the solution with Box Apps, Box Extract, Box Sign, and other Box capabilities\n\n🚀 START BUILDING\n\nFollow the claims evidence review tutorial and explore the Box developer resources:\n\n- Claims evidence review tutorial: https://developer.box.com/tutorials/claims-evidence-review\n- Box Developer Docs: https://developer.box.com/\n- Sign up for a free Box developer account: https://account.box.com/signup/developer\n\n📚 DEVELOPER GUIDES & DOCS\n\nEverything you need to start building intelligent content workflows with Box:\n\n- Box Automate product documentation: https://docs.box.com/en/box-automate/about-box-automate\n- Box Automate API reference: https://developer.box.com/reference/v2026.0/get-automate-workflows\n- Getting Started Guide: https://developer.box.com/guides/getting-started/\n- Box Platform API Reference: https://developer.box.com/reference/\n- Build with Box AI: https://developer.box.com/ai\n\nTIMESTAMPS:\n\n00:00 – Introduction\n\n00:17 – Claims evidence review with Box Automate\n\n01:35 – Trigger the workflow through the API\n\n01:50 – Review and approve the task\n\n02:20 – Learn how to build this workflow\n\n🔔 FOLLOW BOX\n\n- X: https://x.com/Box\n- LinkedIn: https://www.linkedin.com/company/box/\n- Developer site: https://developer.box.com/"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT2M37S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "388242",
+        "likeCount": "1",
+        "favoriteCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "abrPbyOxM7Z8Rqm3RWC-jTYzH-I",
+      "id": "3pQRzgj_7YQ",
+      "snippet": {
+        "publishedAt": "2026-10-08T20:32:30Z",
+        "channelId": "UCXelFdwHOcCNc5ON28ejrsQ",
+        "title": "GitHub launches 7 AI agent repos speeding development workflows #AI #GitHub #AITools",
+        "description": "Seven GitHub repositories revealed tools that can accelerate AI agent development by months. These include browser automation for natural workflow interaction, persistent agent memory for learning across tasks, and over 160 scientific skills to enhance research capabilities. Additional tools focus on Claude code workflow diagrams, Anthropic-based cybersecurity skills for secure coding agents, orchestration patterns through harness engineering, and context management with Open Viking. Together, they offer practical solutions to streamline complex AI agent construction and deployment, pushing innovation in AI tooling efficiency. These resources signify a shift toward more modular, capable, and secure AI development environments, benefiting developers and researchers aiming for faster prototyping and enhanced functionality. #AI #AITools #GitHub",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/3pQRzgj_7YQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Eli Sadler",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "GitHub launches 7 AI agent repos speeding development workflows #AI #GitHub #AITools",
+          "description": "Seven GitHub repositories revealed tools that can accelerate AI agent development by months. These include browser automation for natural workflow interaction, persistent agent memory for learning across tasks, and over 160 scientific skills to enhance research capabilities. Additional tools focus on Claude code workflow diagrams, Anthropic-based cybersecurity skills for secure coding agents, orchestration patterns through harness engineering, and context management with Open Viking. Together, they offer practical solutions to streamline complex AI agent construction and deployment, pushing innovation in AI tooling efficiency. These resources signify a shift toward more modular, capable, and secure AI development environments, benefiting developers and researchers aiming for faster prototyping and enhanced functionality. #AI #AITools #GitHub"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT45S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "34427",
+        "likeCount": "946",
+        "favoriteCount": "0",
+        "commentCount": "9"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "rfeZP16AWhFOT1MJBHZaGnlPVtk",
+      "id": "ctaPbOH3O8I",
+      "snippet": {
+        "publishedAt": "2026-09-27T22:17:51Z",
+        "channelId": "UCly9DNQlBI2O8Sok3nbMTxw",
+        "title": "What Is Grok Bot? Grok Bot vs ChatGPT & Claude Explained #GrokBot #Grok #AIAgents #AI",
+        "description": "What is Grok Bot, and is it really different from ChatGPT or Claude? Here's Grok Bot explained simply, for beginners.\n\nInstead of one AI chatbot, xAI's Grok Bot lets you set up a team of AI workers (\"Bots\"), each with its own job. They can talk to each other, hand work off, and use websites and apps on a shared cloud computer. You can even teach a Bot a task by doing the steps once while it watches.\n\nBut ChatGPT and Claude can already do much more than answer questions. They're becoming AI agents too. So the bigger question may not be which AI is best. It may be: how much work are you comfortable handing over to AI?\n\nIn this Short:\n- What Grok Bot is and how Grok Bots work together\n- Teaching a Bot a task by showing it\n- Grok Bot vs ChatGPT and Claude: what's actually different\n\nGrok Bot is in beta. Availability and pricing vary by plan and may change. This information is current as of September 2026.\n\nSources (xAI):\n- Introducing Grok Bot: https://x.ai/news/introducing-grok-bot\n- Grok Bot documentation: https://docs.x.ai/grok-bot/overview\n\nWould you hand real work to an AI team? Let me know in the comments.\n\nThis is AI Uncomplicated, and it is just that simple.\n\nMore simple AI lessons: @AI_Uncomplicated \n\n#GrokBot #Grok #ChatGPT #Claude #AIAgents #AI #AIUncomplicated",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ctaPbOH3O8I/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "AI Uncomplicated",
+        "tags": [
+          "grok bot",
+          "what is grok bot",
+          "grok bots",
+          "grokbot",
+          "grok bot explained",
+          "grok bots explained",
+          "grok bot tutorial",
+          "grok bot for beginners",
+          "grok bot review",
+          "grok bot use cases",
+          "what is grok bot used for",
+          "how does grok bot work",
+          "grok bot vs claude",
+          "grok bot vs chatgpt",
+          "grok bot teach a task",
+          "grok ai agent",
+          "grok agents",
+          "xai grok bot",
+          "grok vs chatgpt",
+          "grok vs claude",
+          "grok vs chatgpt vs claude",
+          "ai agents",
+          "ai agents explained",
+          "ai agents for beginners",
+          "ai team",
+          "ai uncomplicated"
+        ],
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "What Is Grok Bot? Grok Bot vs ChatGPT & Claude Explained #GrokBot #Grok #AIAgents #AI",
+          "description": "What is Grok Bot, and is it really different from ChatGPT or Claude? Here's Grok Bot explained simply, for beginners.\n\nInstead of one AI chatbot, xAI's Grok Bot lets you set up a team of AI workers (\"Bots\"), each with its own job. They can talk to each other, hand work off, and use websites and apps on a shared cloud computer. You can even teach a Bot a task by doing the steps once while it watches.\n\nBut ChatGPT and Claude can already do much more than answer questions. They're becoming AI agents too. So the bigger question may not be which AI is best. It may be: how much work are you comfortable handing over to AI?\n\nIn this Short:\n- What Grok Bot is and how Grok Bots work together\n- Teaching a Bot a task by showing it\n- Grok Bot vs ChatGPT and Claude: what's actually different\n\nGrok Bot is in beta. Availability and pricing vary by plan and may change. This information is current as of September 2026.\n\nSources (xAI):\n- Introducing Grok Bot: https://x.ai/news/introducing-grok-bot\n- Grok Bot documentation: https://docs.x.ai/grok-bot/overview\n\nWould you hand real work to an AI team? Let me know in the comments.\n\nThis is AI Uncomplicated, and it is just that simple.\n\nMore simple AI lessons: @AI_Uncomplicated \n\n#GrokBot #Grok #ChatGPT #Claude #AIAgents #AI #AIUncomplicated"
+        },
+        "defaultAudioLanguage": "en-US"
+      },
+      "contentDetails": {
+        "duration": "PT2M30S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "34155",
+        "likeCount": "417",
+        "favoriteCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "N24KVgE6855U3y5J-sV7b_WZwWM",
+      "id": "gdZv6GcQAJw",
+      "snippet": {
+        "publishedAt": "2026-10-03T13:59:51Z",
+        "channelId": "UC9hfCK9IYCMBp_xLjAQ0Tjg",
+        "title": "I let Claude AI run my YouTube channel for a day 🤖 #Experiment #ClaudeAI #YouTubeAutomation",
+        "description": "Claude can handle almost every part of your YouTube workflow with 11 specialized AI skills.\n\nThis GitHub repo includes skills for YouTube scripts, 21 hook formulas, titles and thumbnails, comments, content planning, viral video research, SEO, retention, Shorts, chapters and channel audits.\n\nThe most interesting one is the virality skill, which looks at what's working in your niche and identifies videos that outperform their own channel's typical performance.\n\nIf you want to build an AI-powered YouTube workflow with Claude, this setup is worth checking out.\n\nComment \"YouTube\" if you want the complete setup.\n\n#ClaudeAI #ClaudeCode #YouTubeAutomation #AITools #AIContent",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/gdZv6GcQAJw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Harshit singh",
+        "tags": [
+          "Claude AI",
+          "Claude Code",
+          "Claude skills",
+          "Claude YouTube",
+          "YouTube AI tools",
+          "AI YouTube tools",
+          "YouTube automation",
+          "YouTube automation AI",
+          "AI content creation",
+          "YouTube content strategy",
+          "YouTube creator tools",
+          "GitHub AI tools",
+          "GitHub Claude skills",
+          "AI tools for YouTube",
+          "YouTube workflow",
+          "Claude AI tools",
+          "AI creator tools",
+          "YouTube growth tools",
+          "Claude automation",
+          "AI YouTube channel",
+          "make money with ai",
+          "how to make videos with claude",
+          "ai video editing"
+        ],
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "I let Claude AI run my YouTube channel for a day 🤖 #Experiment #ClaudeAI #YouTubeAutomation",
+          "description": "Claude can handle almost every part of your YouTube workflow with 11 specialized AI skills.\n\nThis GitHub repo includes skills for YouTube scripts, 21 hook formulas, titles and thumbnails, comments, content planning, viral video research, SEO, retention, Shorts, chapters and channel audits.\n\nThe most interesting one is the virality skill, which looks at what's working in your niche and identifies videos that outperform their own channel's typical performance.\n\nIf you want to build an AI-powered YouTube workflow with Claude, this setup is worth checking out.\n\nComment \"YouTube\" if you want the complete setup.\n\n#ClaudeAI #ClaudeCode #YouTubeAutomation #AITools #AIContent"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT25S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "31019",
+        "likeCount": "353",
+        "favoriteCount": "0",
+        "commentCount": "297"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "1rQExXahO4883cp_B_VwG-b8WN8",
+      "id": "lhyzA49f9vU",
+      "snippet": {
+        "publishedAt": "2026-10-15T15:31:48Z",
+        "channelId": "UCQIf7hvDL5YqE0-4MdRZA7A",
+        "title": "Free AI Tools | Screenshot This Now | Best Free AI Tools 2026",
+        "description": "🚨 BHAI, SCREENSHOT LE LO! 📸\n\nYe FREE AI Tools tumhare career aur business dono mein game-changer ban sakte hain! 🚀\n\nMaine creators, students, freelancers aur entrepreneurs ke liye kuch of the BEST AI tools ki list banayi hai! 👇\n\n🎬 AI VIDEOS banani hain?  \n→ Google Gemini + Google Flow\n\n🎨 AI IMAGES generate karni hain?  \n→ ChatGPT + Grok\n\n💡 TRENDING PROMPTS chahiye?  \n→ YouMind\n\n🎤 JOB INTERVIEW ki preparation?  \n→ Interviews by AI\n\n🖼️ VIRAL THUMBNAILS banane hain?  \n→ Canva + ChatGPT\n\n✂️ VIDEO EDITING karni hai?  \n→ Instagram Edits + Swishy AI\n\n📊 PROFESSIONAL PPT banani hai?  \n→ Gamma AI\n\n🧠 CONTENT IDEAS aur SCRIPTS chahiye?  \n→ Claude + Meta AI\n\n🌐 BINA CODING WEBSITE banani hai?  \n→ Framer + Emergent\n\n💰 AI se SKILLS aur INCOME build karni hai?  \n→ In tools ko seekho, practice karo aur real projects mein use karo!\n\n🔥 BEST PART? Inmein se kai tools free plans ya limited free credits offer karte hain, toh shuru karne ke liye expensive subscriptions zaroori nahi!\n\n📌 SAVE THIS REEL — Jab zaroorat padegi, tab kaam aayegi!\n\n📤 Apne us dost ko SHARE karo jo AI seekhkar career ya business grow karna chahta hai.\n\n👇 COMMENT \"TOOL\" aur main tumhe AI tools ke direct links DM karunga!\n\n🚀 Follow @AIBYMANAS for practical AI tools, side hustles aur AI business ideas!\n\n#AITools #FreeAITools #AIByManas #ChatGPT #AIToolsForCreators #AIForStudents #AISideHustles #AIAutomation #ContentCreation #LearnAI #PromptEngineering",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/lhyzA49f9vU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/lhyzA49f9vU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/lhyzA49f9vU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/lhyzA49f9vU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/lhyzA49f9vU/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "AI By Manas",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Free AI Tools | Screenshot This Now | Best Free AI Tools 2026",
+          "description": "🚨 BHAI, SCREENSHOT LE LO! 📸\n\nYe FREE AI Tools tumhare career aur business dono mein game-changer ban sakte hain! 🚀\n\nMaine creators, students, freelancers aur entrepreneurs ke liye kuch of the BEST AI tools ki list banayi hai! 👇\n\n🎬 AI VIDEOS banani hain?  \n→ Google Gemini + Google Flow\n\n🎨 AI IMAGES generate karni hain?  \n→ ChatGPT + Grok\n\n💡 TRENDING PROMPTS chahiye?  \n→ YouMind\n\n🎤 JOB INTERVIEW ki preparation?  \n→ Interviews by AI\n\n🖼️ VIRAL THUMBNAILS banane hain?  \n→ Canva + ChatGPT\n\n✂️ VIDEO EDITING karni hai?  \n→ Instagram Edits + Swishy AI\n\n📊 PROFESSIONAL PPT banani hai?  \n→ Gamma AI\n\n🧠 CONTENT IDEAS aur SCRIPTS chahiye?  \n→ Claude + Meta AI\n\n🌐 BINA CODING WEBSITE banani hai?  \n→ Framer + Emergent\n\n💰 AI se SKILLS aur INCOME build karni hai?  \n→ In tools ko seekho, practice karo aur real projects mein use karo!\n\n🔥 BEST PART? Inmein se kai tools free plans ya limited free credits offer karte hain, toh shuru karne ke liye expensive subscriptions zaroori nahi!\n\n📌 SAVE THIS REEL — Jab zaroorat padegi, tab kaam aayegi!\n\n📤 Apne us dost ko SHARE karo jo AI seekhkar career ya business grow karna chahta hai.\n\n👇 COMMENT \"TOOL\" aur main tumhe AI tools ke direct links DM karunga!\n\n🚀 Follow @AIBYMANAS for practical AI tools, side hustles aur AI business ideas!\n\n#AITools #FreeAITools #AIByManas #ChatGPT #AIToolsForCreators #AIForStudents #AISideHustles #AIAutomation #ContentCreation #LearnAI #PromptEngineering"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT1M9S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1659",
+        "likeCount": "40",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "8SdgS0Y3Fm3QU4rafAcLu0UaSCs",
+      "id": "dn6mMZ3OT9c",
+      "snippet": {
+        "publishedAt": "2026-10-03T10:17:59Z",
+        "channelId": "UCMWSgujczgu5_HElPIshYWw",
+        "title": "How to make a full app promo video with AI! #appmockup #smartphone #mobileapp #tutorial",
+        "description": "Try it out on Promogen.app\n\nHow to do it with Claude, ChatGPT or Cursor:\nhttps://www.promogen.app/ai/claude",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/dn6mMZ3OT9c/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "PromoGen",
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "How to make a full app promo video with AI! #appmockup #smartphone #mobileapp #tutorial",
+          "description": "Try it out on Promogen.app\n\nHow to do it with Claude, ChatGPT or Cursor:\nhttps://www.promogen.app/ai/claude"
+        },
+        "defaultAudioLanguage": "en-US"
+      },
+      "contentDetails": {
+        "duration": "PT14S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "2161",
+        "likeCount": "14",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "jhNaTsHNCMlftfhUGhsa_1zsJZ8",
+      "id": "qgX9syt_-fI",
+      "snippet": {
+        "publishedAt": "2026-09-27T14:17:46Z",
+        "channelId": "UCcUF0dO5lYYspt9-xDUWfyg",
+        "title": "Screenshot to Code Clones Any Website for Free",
+        "description": "Comment \"CLONE\" to get this tool.\n\nThere's a free open-source project on GitHub turning screenshots of any website into real working code. Tens of thousands of stars.\n\nUpload a screenshot of any site and it reads the layout and spacing, then outputs editable React, Vue, or plain HTML.\n\nGo to screenshottocode.com. Click the Upload button to drop in a screenshot, or hit Screen Record and click through a site yourself. Choose your output framework and which AI model to use: Claude, Gemini, or GPT. Hit Generate.\n\nThe recording mode reads every click and hover interaction and turns it into a working prototype.\n\nYou can also drop in a Figma file and it rebuilds that the same way.\n\n#ai #aitools #artificialintelligence #vibecoding #aiwebsites",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/qgX9syt_-fI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/qgX9syt_-fI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/qgX9syt_-fI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/qgX9syt_-fI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/qgX9syt_-fI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "qhd": {
+            "url": "https://i.ytimg.com/vi/qgX9syt_-fI/qhddefault.jpg",
+            "width": 2560,
+            "height": 1440
+          }
+        },
+        "channelTitle": "Nathan Hodgson",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Screenshot to Code Clones Any Website for Free",
+          "description": "Comment \"CLONE\" to get this tool.\n\nThere's a free open-source project on GitHub turning screenshots of any website into real working code. Tens of thousands of stars.\n\nUpload a screenshot of any site and it reads the layout and spacing, then outputs editable React, Vue, or plain HTML.\n\nGo to screenshottocode.com. Click the Upload button to drop in a screenshot, or hit Screen Record and click through a site yourself. Choose your output framework and which AI model to use: Claude, Gemini, or GPT. Hit Generate.\n\nThe recording mode reads every click and hover interaction and turns it into a working prototype.\n\nYou can also drop in a Figma file and it rebuilds that the same way.\n\n#ai #aitools #artificialintelligence #vibecoding #aiwebsites"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT41S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1285",
+        "likeCount": "46",
+        "favoriteCount": "0",
+        "commentCount": "2"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "SMXDPVc1xMoYOydkGhFzEQzqtTE",
+      "id": "ailI0NzelJI",
+      "snippet": {
+        "publishedAt": "2026-10-17T12:04:19Z",
+        "channelId": "UCOMwd9euYhUgXRPvgx-i9TQ",
+        "title": "Ein Screenshot, eine Profi-Website mit Claude #shorts",
+        "description": "Ein Screenshot, und Claude baut dir eine Website wie ein Profi. 🎨\n\nIn der Kombai Gallery findest du über 20.000 kostenlose Web- und App-Designs, ganz ohne Anmeldung. Design aussuchen, Screenshot an Claude, und deine Seite sieht aus wie von einer Agentur statt wie jede andere KI-Seite.\n\n💬 Kommentiere „GALERIE“ und ich schick dir den Link und meinen Prompt.\n📌 Speicher dir das Video und schick es jemandem, dessen Website noch nach KI aussieht.\n➕ Folge @aiagentgeorg für mehr KI-Tipps.\n\n#KI #Claude #Webdesign #Website #KITipps",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ailI0NzelJI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ailI0NzelJI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ailI0NzelJI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ailI0NzelJI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ailI0NzelJI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "qhd": {
+            "url": "https://i.ytimg.com/vi/ailI0NzelJI/qhddefault.jpg",
+            "width": 2560,
+            "height": 1440
+          }
+        },
+        "channelTitle": "Ai Agent Georg",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "de",
+        "localized": {
+          "title": "Ein Screenshot, eine Profi-Website mit Claude #shorts",
+          "description": "Ein Screenshot, und Claude baut dir eine Website wie ein Profi. 🎨\n\nIn der Kombai Gallery findest du über 20.000 kostenlose Web- und App-Designs, ganz ohne Anmeldung. Design aussuchen, Screenshot an Claude, und deine Seite sieht aus wie von einer Agentur statt wie jede andere KI-Seite.\n\n💬 Kommentiere „GALERIE“ und ich schick dir den Link und meinen Prompt.\n📌 Speicher dir das Video und schick es jemandem, dessen Website noch nach KI aussieht.\n➕ Folge @aiagentgeorg für mehr KI-Tipps.\n\n#KI #Claude #Webdesign #Website #KITipps"
+        },
+        "defaultAudioLanguage": "de"
+      },
+      "contentDetails": {
+        "duration": "PT43S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1394",
+        "likeCount": "30",
+        "favoriteCount": "0",
+        "commentCount": "3"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "N2nThvkjnsMsF4sPsEYXhEBTnEM",
+      "id": "u3g1SiUq5jM",
+      "snippet": {
+        "publishedAt": "2026-10-12T03:42:30Z",
+        "channelId": "UCxwLak426QThpnUVW9QtUrA",
+        "title": "🔥 This Website Makes AI UI Design 10x Better! 🤯 | VibeUI | code buzz | #coding #ai",
+        "description": "🔥 This Website Makes AI UI Design 10x Better! 🤯 | VibeUI | code buzz | #coding #ai\n\nWant to build better websites with AI? 🚀\n\nVibeUI offers 92 ready-to-use UI structure prompts across 15 categories, including hero sections, pricing pages, dashboards, bento grids, navigation, testimonials, and much more! 💻\n\nJust pick a layout, copy the prompt, add your design reference screenshot, and let AI build a UI that matches your style. 🔥\n\n🔗 Website: VibeUI\n💎 Follow for more AI tools, coding websites, and useful tech discoveries!\n\n#VibeCoding #AITools #WebDevelopment #UIDesign #Coding #VibeUI #TechShorts #Shorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/u3g1SiUq5jM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Code Buzz",
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "🔥 This Website Makes AI UI Design 10x Better! 🤯 | VibeUI | code buzz | #coding #ai",
+          "description": "🔥 This Website Makes AI UI Design 10x Better! 🤯 | VibeUI | code buzz | #coding #ai\n\nWant to build better websites with AI? 🚀\n\nVibeUI offers 92 ready-to-use UI structure prompts across 15 categories, including hero sections, pricing pages, dashboards, bento grids, navigation, testimonials, and much more! 💻\n\nJust pick a layout, copy the prompt, add your design reference screenshot, and let AI build a UI that matches your style. 🔥\n\n🔗 Website: VibeUI\n💎 Follow for more AI tools, coding websites, and useful tech discoveries!\n\n#VibeCoding #AITools #WebDevelopment #UIDesign #Coding #VibeUI #TechShorts #Shorts"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT20S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1523",
+        "likeCount": "13",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "9dRWnjqKwwvXFE5wM4Q5tyfXrmI",
+      "id": "KEJYS7O_xBs",
+      "snippet": {
+        "publishedAt": "2026-10-15T21:24:41Z",
+        "channelId": "UCEBdH3mKf09VQTurnvS9AVQ",
+        "title": "Screenshot to Code launches open-source website builder from images #AI #WebDevelopment #OpenSource",
+        "description": "Screenshot to Code converts any website from a single screenshot, creating fully functional prototypes with element spacing, fonts, and colors automatically detected. It supports inputs from screenshots, Figma designs, reference images, and screen recordings, delivering editable live design spaces in minutes. This open-source project has gained over 72,000 stars, reflecting wide developer interest and the growing need for fast, accurate web design recreation tools. It streamlines the prototyping process, reducing manual coding and accelerating product development cycles. By transforming visual inputs into editable websites effortlessly, Screenshot to Code offers significant value for designers, developers, and product teams aiming to improve efficiency and bridge design-to-code gaps. #AI #WebDevelopment #Prototyping",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/KEJYS7O_xBs/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Max Verner",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Screenshot to Code launches open-source website builder from images #AI #WebDevelopment #OpenSource",
+          "description": "Screenshot to Code converts any website from a single screenshot, creating fully functional prototypes with element spacing, fonts, and colors automatically detected. It supports inputs from screenshots, Figma designs, reference images, and screen recordings, delivering editable live design spaces in minutes. This open-source project has gained over 72,000 stars, reflecting wide developer interest and the growing need for fast, accurate web design recreation tools. It streamlines the prototyping process, reducing manual coding and accelerating product development cycles. By transforming visual inputs into editable websites effortlessly, Screenshot to Code offers significant value for designers, developers, and product teams aiming to improve efficiency and bridge design-to-code gaps. #AI #WebDevelopment #Prototyping"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT39S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1022",
+        "likeCount": "10",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "MXQJ7W1OBSuo2Gw06gn_FhN69tY",
+      "id": "eOHedMVf5iQ",
+      "snippet": {
+        "publishedAt": "2026-09-21T17:48:15Z",
+        "channelId": "UCoEAShjWZsExZSwB02T_IEQ",
+        "title": "Пиши МОКАП в комментариях — скину ссылку на сервис.",
+        "description": "Плоский скриншот сайта в портфолио или презентации выглядит дешево и смазывает впечатление от работы. Сервис PixelPanda решает это за 10 секунд: ты просто загружаешь картинку интерфейса, а нейросеть мгновенно упаковывает ее в стильный мокап на экране MacBook, iPhone или в парящем окне браузера с аккуратными тенями и градиентным фоном.\n\nНикакого Photoshop и бесконечной подгонки слоев в тяжелых PSD-шаблонах. Это простая деталь, которая сразу повышает визуальную стоимость твоих услуг в глазах клиента — будь то коммерческое предложение, сайт или кейс в соцсетях. Первый мокап можно собрать моментально даже без регистрации.\n\n#pixelpanda #автоматизациябизнеса #мокапы #упаковкабизнеса #aiтренды",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/eOHedMVf5iQ/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Николай Алексеев | Ai Agents ",
+        "tags": [
+          "pixelpanda ai",
+          "генератор мокапов",
+          "оформление кейса",
+          "упаковка продукта",
+          "презентация сайта",
+          "коммерческое предложение",
+          "веб дизайн фишки",
+          "создание контента",
+          "визуальный контент",
+          "маркетинг инструменты",
+          "нейросети для бизнеса",
+          "автоматизация бизнеса",
+          "бизнес инструменты",
+          "it решения для бизнеса",
+          "экономия бюджета it",
+          "замена фотошопа ai",
+          "оптимизация расходов бизнеса",
+          "ai тренды 2026",
+          "продажи b2b",
+          "упаковка бизнеса",
+          "витрина проектов"
+        ],
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "ru",
+        "localized": {
+          "title": "Пиши МОКАП в комментариях — скину ссылку на сервис.",
+          "description": "Плоский скриншот сайта в портфолио или презентации выглядит дешево и смазывает впечатление от работы. Сервис PixelPanda решает это за 10 секунд: ты просто загружаешь картинку интерфейса, а нейросеть мгновенно упаковывает ее в стильный мокап на экране MacBook, iPhone или в парящем окне браузера с аккуратными тенями и градиентным фоном.\n\nНикакого Photoshop и бесконечной подгонки слоев в тяжелых PSD-шаблонах. Это простая деталь, которая сразу повышает визуальную стоимость твоих услуг в глазах клиента — будь то коммерческое предложение, сайт или кейс в соцсетях. Первый мокап можно собрать моментально даже без регистрации.\n\n#pixelpanda #автоматизациябизнеса #мокапы #упаковкабизнеса #aiтренды"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT32S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1000",
+        "likeCount": "9",
+        "favoriteCount": "0",
+        "commentCount": "2"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "3dzykxP2-pxx3rZmw4Cu2HOnYFo",
+      "id": "WhmIowQMskY",
+      "snippet": {
+        "publishedAt": "2026-09-30T13:38:16Z",
+        "channelId": "UCCZIHtHGgLOkwbNS_Fm_YWA",
+        "title": "AI Product Video Banane Ka Prompt 🤯 | Meesho Photo",
+        "description": "AI Product Video Banane Ka Prompt 🤯 | Meesho Photo\n\n\nYe prompt try kar sakte ho:\n\n\nprompt \n\n‘Create a realistic product showcase video with smooth camera movement, natural lighting and professional commercial style. Keep the product design unchanged.’\n\n\nmeesho ai video\n meesho photo to video\nai product video\nphoto to video ai\nai video prompt\nai product video prompt\nmobile ai video\n meesho creative club\n ai editing\nproduct video\n ai video editing\n photo se video",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WhmIowQMskY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WhmIowQMskY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WhmIowQMskY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/WhmIowQMskY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/WhmIowQMskY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "ParveenByte ",
+        "tags": [
+          "meesho ai video",
+          "meesho photo to video",
+          "ai product video",
+          "photo to video ai",
+          "ai video prompt",
+          "ai product video prompt",
+          "mobile ai video",
+          "meesho creative club",
+          "ai editing",
+          "product video",
+          "ai video editing",
+          "trending",
+          "trending video"
+        ],
+        "categoryId": "26",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "AI Product Video Banane Ka Prompt 🤯 | Meesho Photo",
+          "description": "AI Product Video Banane Ka Prompt 🤯 | Meesho Photo\n\n\nYe prompt try kar sakte ho:\n\n\nprompt \n\n‘Create a realistic product showcase video with smooth camera movement, natural lighting and professional commercial style. Keep the product design unchanged.’\n\n\nmeesho ai video\n meesho photo to video\nai product video\nphoto to video ai\nai video prompt\nai product video prompt\nmobile ai video\n meesho creative club\n ai editing\nproduct video\n ai video editing\n photo se video"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "contentDetails": {
+        "duration": "PT38S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "797",
+        "likeCount": "5",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "YbHBaZ3SbqIMkgVcz7jic48mAhc",
+      "id": "WVnbizqmYng",
+      "snippet": {
+        "publishedAt": "2026-10-14T19:48:20Z",
+        "channelId": "UCJV08mrHrluU2TtAZOCR2hg",
+        "title": "Screenshot to Code converts screenshots into websites with design #AI #WebDevelopment",
+        "description": "Screenshot to Code converts any website screenshot into full code. This open-source tool analyzes layouts, fonts, colors, and spacing to recreate websites instantly. It works not only with screenshots but also with Figma designs, reference images, and screen recordings. The output is a live, editable website prototype ready for customization. This innovation simplifies web development workflows and accelerates prototyping, making design-to-code conversion accessible for developers and designers alike. #AI #WebDevelopment #OpenSource",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WVnbizqmYng/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WVnbizqmYng/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WVnbizqmYng/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/WVnbizqmYng/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/WVnbizqmYng/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Roddy Lawson",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Screenshot to Code converts screenshots into websites with design #AI #WebDevelopment",
+          "description": "Screenshot to Code converts any website screenshot into full code. This open-source tool analyzes layouts, fonts, colors, and spacing to recreate websites instantly. It works not only with screenshots but also with Figma designs, reference images, and screen recordings. The output is a live, editable website prototype ready for customization. This innovation simplifies web development workflows and accelerates prototyping, making design-to-code conversion accessible for developers and designers alike. #AI #WebDevelopment #OpenSource"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT35S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1035",
+        "likeCount": "7",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "d-a5-Dde11prWXYrrE8k4sqT6eI",
+      "id": "ZU6Afp4JgVM",
+      "snippet": {
+        "publishedAt": "2026-10-07T17:02:16Z",
+        "channelId": "UCUNbTfnPNNpynRL-PQG38TA",
+        "title": "Screenshot to Code: Turn Any Website Into Code (Open Source)",
+        "description": "One screenshot in, the whole website back as working code 🖥️\n\nScreenshot to Code is open source and you can self-host it. It reads layout, spacing, fonts and colors and rebuilds the page. Works from Figma and screen recordings too.\n\nWhat site would you rebuild first?\n\nFollow for more AI stuff.\n\n#AItools #webdesign #vibecoding #opensource #AIcoding",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ZU6Afp4JgVM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Drew Collins‎ | Learn AI",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Screenshot to Code: Turn Any Website Into Code (Open Source)",
+          "description": "One screenshot in, the whole website back as working code 🖥️\n\nScreenshot to Code is open source and you can self-host it. It reads layout, spacing, fonts and colors and rebuilds the page. Works from Figma and screen recordings too.\n\nWhat site would you rebuild first?\n\nFollow for more AI stuff.\n\n#AItools #webdesign #vibecoding #opensource #AIcoding"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT43S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "814",
+        "likeCount": "10",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fvivdEBxbNEdyF8lQCJWmqgsDJI",
+      "id": "k8X5bzoYFG4",
+      "snippet": {
+        "publishedAt": "2026-10-03T06:31:56Z",
+        "channelId": "UCJic82YtWEVCmZJqKSZN9wA",
+        "title": "PhotoText.ai 🔥 Edit Screenshots with AI | Best AI Website for Screenshot Editing",
+        "description": "Ever wanted to edit text in a screenshot without recreating the entire image? 👀\nPhotoText.ai is an AI website worth checking out if you want to explore a different way to edit text in images and screenshots.\n\nIn this video, we explore PhotoText.ai, an AI-powered website for screenshot and text editing. If you're interested in useful AI tools, hidden websites, and productivity hacks, this is one to check out.\n\n📌 In This Video\n\n- PhotoText.ai website introduction\n- AI screenshot editing\n- Editing text in screenshots\n- A useful AI tool for everyday tasks\n- How AI websites can simplify image editing\n\n🔍 Topics Covered\n\nPhotoText.ai, AI screenshot editor, AI image editing website, screenshot text editor, AI tools, useful AI websites, AI tools for students, productivity tools, and tech websites.\n\n💻 Explore More Tech\n\nAt TECHIVIBE, we discover useful AI tools, websites, apps, gadgets, and technology that can make everyday tasks easier.\n\nSubscribe to TECHIVIBE for more useful tech discoveries, AI websites, app recommendations, and honest gadget reviews.\n\n🔎 SEO Keywords\n\nPhotoText.ai, PhotoText AI tutorial, PhotoText.ai review, AI screenshot editing website, edit text in screenshot with AI, AI screenshot editor, screenshot editing AI tool, AI image editor online, best AI websites, useful AI tools, AI tools in Hindi, tech websites in Hindi, AI tools for students, screenshot text editing tool.\n\n#PhotoTextAI #AITools #AIWebsites #ScreenshotEditing #Techivibe #TechHindi #AIToolsHindi",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/k8X5bzoYFG4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Techivibe",
+        "categoryId": "22",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "PhotoText.ai 🔥 Edit Screenshots with AI | Best AI Website for Screenshot Editing",
+          "description": "Ever wanted to edit text in a screenshot without recreating the entire image? 👀\nPhotoText.ai is an AI website worth checking out if you want to explore a different way to edit text in images and screenshots.\n\nIn this video, we explore PhotoText.ai, an AI-powered website for screenshot and text editing. If you're interested in useful AI tools, hidden websites, and productivity hacks, this is one to check out.\n\n📌 In This Video\n\n- PhotoText.ai website introduction\n- AI screenshot editing\n- Editing text in screenshots\n- A useful AI tool for everyday tasks\n- How AI websites can simplify image editing\n\n🔍 Topics Covered\n\nPhotoText.ai, AI screenshot editor, AI image editing website, screenshot text editor, AI tools, useful AI websites, AI tools for students, productivity tools, and tech websites.\n\n💻 Explore More Tech\n\nAt TECHIVIBE, we discover useful AI tools, websites, apps, gadgets, and technology that can make everyday tasks easier.\n\nSubscribe to TECHIVIBE for more useful tech discoveries, AI websites, app recommendations, and honest gadget reviews.\n\n🔎 SEO Keywords\n\nPhotoText.ai, PhotoText AI tutorial, PhotoText.ai review, AI screenshot editing website, edit text in screenshot with AI, AI screenshot editor, screenshot editing AI tool, AI image editor online, best AI websites, useful AI tools, AI tools in Hindi, tech websites in Hindi, AI tools for students, screenshot text editing tool.\n\n#PhotoTextAI #AITools #AIWebsites #ScreenshotEditing #Techivibe #TechHindi #AIToolsHindi"
+        }
+      },
+      "contentDetails": {
+        "duration": "PT27S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "867",
+        "likeCount": "3",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "vONWZ7GLABE4sfd_hWH6AqYo1s8",
+      "id": "JIGyC9g5-gk",
+      "snippet": {
+        "publishedAt": "2026-09-21T12:30:04Z",
+        "channelId": "UC5rylQF2P8iwYm-Sezg1YbQ",
+        "title": "our next website draft could start with a screenshot.",
+        "description": "The Screenshot to Code demo shows AI reading a page’s layout, spacing, typography and colours to generate code with a live preview. The useful part? You can keep refining the result in the same window.\n\nStart with one page, inspect the preview, then refine the spacing, components and mobile layout before publishing. What would you build first—a landing page or a portfolio?\n\n#ScreenshotToCode #AIWebDevelopment",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/JIGyC9g5-gk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Saurabh Bhatnagar",
+        "tags": [
+          "saurabh bhatnagar",
+          "saurabh bhatnagar affiliate marketing",
+          "affiliate marketing",
+          "sourav bhatnagar",
+          "affiliate marketing for beginners",
+          "rahul bhatnagar",
+          "saurabh bhatnagar course review",
+          "affiliate marketing full course in hindi",
+          "saurav bhatnagar",
+          "flexifunnels",
+          "rahul bhatnagar josh talks",
+          "saurabh bhatnagar josh talks",
+          "josh talks",
+          "digital marketing",
+          "digital marketing for beginners",
+          "business ideas",
+          "copywriting",
+          "facebook ads",
+          "online business",
+          "entrepreneur",
+          "entrepreneurship"
+        ],
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "our next website draft could start with a screenshot.",
+          "description": "The Screenshot to Code demo shows AI reading a page’s layout, spacing, typography and colours to generate code with a live preview. The useful part? You can keep refining the result in the same window.\n\nStart with one page, inspect the preview, then refine the spacing, components and mobile layout before publishing. What would you build first—a landing page or a portfolio?\n\n#ScreenshotToCode #AIWebDevelopment"
+        },
+        "defaultAudioLanguage": "hi"
+      },
+      "contentDetails": {
+        "duration": "PT54S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "570",
+        "likeCount": "16",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    }
+  ]
+}

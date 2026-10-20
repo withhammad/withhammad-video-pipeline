@@ -1,0 +1,157 @@
+{
+  "checked_at": "2026-10-20",
+  "keywords": [
+    {
+      "term": "claude job search",
+      "evidence": "Google autocomplete rank 1 for seed claude job search, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find setup and prompts for job-search preparation"
+    },
+    {
+      "term": "claude job search prompt",
+      "evidence": "Google autocomplete rank 2 for seed claude job search, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find setup and prompts for job-search preparation"
+    },
+    {
+      "term": "claude job search skill",
+      "evidence": "Google autocomplete rank 3 for seed claude job search, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find setup and prompts for job-search preparation"
+    },
+    {
+      "term": "claude resume skill",
+      "evidence": "Google autocomplete rank 1 for seed claude resume, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find setup and prompts for job-search preparation"
+    },
+    {
+      "term": "claude resume prompt",
+      "evidence": "Google autocomplete rank 2 for seed claude resume, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find setup and prompts for job-search preparation"
+    },
+    {
+      "term": "claude resume",
+      "evidence": "Google autocomplete rank 3 for seed claude resume, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find setup and prompts for job-search preparation"
+    },
+    {
+      "term": "playwright mcp claude",
+      "evidence": "Google autocomplete rank 1 for seed playwright mcp claude, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find setup and prompts for job-search preparation"
+    },
+    {
+      "term": "playwright mcp claude code",
+      "evidence": "Google autocomplete rank 2 for seed playwright mcp claude, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find setup and prompts for job-search preparation"
+    },
+    {
+      "term": "playwright mcp claude desktop",
+      "evidence": "Google autocomplete rank 3 for seed playwright mcp claude, retrieved 2026-10-20. Proxy relevance only.",
+      "intent": "Find setup and prompts for job-search preparation"
+    }
+  ],
+  "title_patterns": [
+    "Claude job search: shortlist, draft, review",
+    "Claude + Playwright MCP: prepare your job-search shortlist"
+  ],
+  "hashtags": [
+    {
+      "tag": "#ClaudeAI",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    },
+    {
+      "tag": "#PlaywrightMCP",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    },
+    {
+      "tag": "#JobSearch",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    },
+    {
+      "tag": "#AIAutomation",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    },
+    {
+      "tag": "#CareerTools",
+      "why": "Direct topical relevance to the verified reel; volume tier unverified."
+    }
+  ],
+  "rules": [
+    "Use English captions with a natural topic phrase early; first 125 characters is a practical drafting target, not a guaranteed truncation boundary.",
+    "Use 3\u20135 directly relevant hashtags. Official @creators cap announcement URL was found, but retrieval failed; conservative maximum five adopted, not independently confirmed from page text.",
+    "Autocomplete is a public Google relevance signal, not Instagram/TikTok search volume or popularity. No hashtag-size or banned-tag claims can be verified from these results.",
+    "Keep an accurate AI-avatar disclosure on every platform; do not say avatar of me unless the selected presenter actually represents Hammad.",
+    "ManyChat comment-to-DM CTA applies to Instagram only, and must be enabled/tested before promising delivery. Facebook uses the direct resource URL; TikTok uses link in bio only if that link exists.",
+    "Facebook captions should describe the reel and avoid excessive hashtags or engagement bait. Original recordings and graphics fit Meta\u2019s preference for original content.",
+    "Use accessibility text to describe actual visuals, not keyword stuffing. Reel upload paths may not expose custom alt text."
+  ],
+  "sources": [
+    "https://newsroom.tiktok.com/creator-search-insights?lang=en",
+    "https://about.fb.com/news/2025/04/cracking-down-spammy-content-facebook/",
+    "https://about.fb.com/news/2026/03/rewarding-original-creators-on-facebook/",
+    "https://www.threads.com/@creators/post/DSalXGPCWM4",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=claude%20job%20search",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=claude%20resume",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=playwright%20mcp%20claude"
+  ],
+  "autocomplete": [
+    {
+      "seed": "claude job search",
+      "suggestions": [
+        "claude job search",
+        "claude job search prompt",
+        "claude job search skill",
+        "claude job search agent",
+        "claude job search github",
+        "claude job search skill github",
+        "claude job search connector",
+        "claude job search plugin",
+        "claude job search reddit",
+        "claude job search automation"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=claude%20job%20search"
+    },
+    {
+      "seed": "claude resume",
+      "suggestions": [
+        "claude resume skill",
+        "claude resume prompt",
+        "claude resume",
+        "how to resume session in claude",
+        "claude resume last session",
+        "claude resume command",
+        "claude resume builder skills",
+        "claude resume skill github",
+        "how to resume conversation in claude",
+        "claude resume prompt reddit"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=claude%20resume"
+    },
+    {
+      "seed": "playwright mcp claude",
+      "suggestions": [
+        "playwright mcp claude",
+        "playwright mcp claude code",
+        "playwright mcp claude desktop",
+        "playwright mcp claude code install",
+        "install playwright mcp claude",
+        "how to setup playwright mcp in claude code",
+        "playwright mcp claude skill",
+        "add playwright mcp to claude",
+        "playwright mcp claude code add",
+        "playwright mcp claude skills"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=playwright%20mcp%20claude"
+    }
+  ],
+  "recommended_instagram_hook": "Claude job search: shortlist, draft, review. Comment JOBKIT for the setup and prompt.",
+  "recommended_alt_text": "A small olive-shirt AI presenter accompanies a five-step Claude and Playwright workflow, sample shortlist, review checklist and English captions.",
+  "tiktok_keywords": [
+    "claude job search",
+    "claude resume",
+    "playwright mcp claude"
+  ],
+  "facebook_structure": "Keyword hook \u2192 concrete value in 2\u20133 sentences \u2192 direct resource URL \u2192 follow CTA \u2192 AI-avatar disclosure. Use 0\u20133 relevant hashtags.",
+  "limitations": [
+    "No platform-specific search volume, live hashtag-size counts or guaranteed ranking benefit established.",
+    "Official Instagram five-tag announcement could not be read; five is the conservative operating maximum.",
+    "Claude resume suggestions mix resume-writing and resume-session meanings; prefer Claude job search and Playwright MCP Claude Desktop for precision."
+  ]
+}
