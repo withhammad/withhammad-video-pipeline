@@ -4,6 +4,7 @@ import { Video } from "@remotion/media";
 import { loadFont } from "@remotion/fonts";
 import {
   AbsoluteFill,
+  Audio,
   Composition,
   Folder,
   Sequence,
@@ -44,6 +45,7 @@ export type JobSearchProps = {
   beats: number[];
   captions: (Caption | SecondsCaption)[];
   docsVideo: string;
+  music?: string;
   draftMode: boolean;
   avatarPosition: string;
 };
@@ -97,6 +99,7 @@ export const JobSearch: React.FC<JobSearchProps> = ({
   beats,
   captions,
   docsVideo,
+  music,
   draftMode,
   avatarPosition,
 }) => {
@@ -106,6 +109,7 @@ export const JobSearch: React.FC<JobSearchProps> = ({
     <AbsoluteFill
       style={{ fontFamily: "JobInter", fontWeight: 600, background: C.paper }}
     >
+      {music && <Audio src={asset(music)} volume={(frame) => 0.055 * Math.min(1, frame / 15, Math.max(0, (duration * fps - frame) / 30))} />}
       <Sequence
         name="Hook"
         from={b[0]}

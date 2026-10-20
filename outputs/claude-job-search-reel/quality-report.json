@@ -1,0 +1,836 @@
+{
+  "chain": [
+    "highpass=f=90:poles=2",
+    "lowshelf=f=140:g=-4:t=q:w=0.7",
+    "adynamicequalizer=dfrequency=320:dqfactor=1.4:tfrequency=320:tqfactor=1.4:mode=cutabove:ratio=3:range=5:threshold=0.04:attack=5:release=100",
+    "equalizer=f=1100:t=q:w=1.0:g=6",
+    "equalizer=f=5500:t=q:w=1.2:g=4",
+    "highshelf=f=9000:t=q:w=0.7:g=-5",
+    "acrossover=split=4800:order=4th[dsl][dsh];[dsh]acompressor=threshold=0.025:ratio=4:attack=1:release=40:knee=2[dsc];[dsl][dsc]amix=inputs=2:normalize=0",
+    "acompressor=threshold=0.063:ratio=3:attack=8:release=90:knee=4",
+    "highshelf=f=10000:t=q:w=0.7:g=13"
+  ],
+  "sync": {
+    "max_offset_ms": 0.0,
+    "segments_measured": 17,
+    "av_offset_ms": -100.0,
+    "video_s": 50.04,
+    "audio_s": 50.04,
+    "duration_diff_ms": 0.0,
+    "start_time_s": {
+      "video": 0.0,
+      "audio": 0.0
+    },
+    "rows": [
+      {
+        "src_ms": [
+          80.0,
+          3760.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": null,
+        "offset_ms": null
+      },
+      {
+        "src_ms": [
+          4040.0,
+          9520.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          9800.0,
+          12800.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          13040.0,
+          16040.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          16360.0,
+          20240.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          20400.0,
+          24640.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          24760.0,
+          26800.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          27080.0,
+          29880.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          30040.0,
+          32360.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          32480.0,
+          33760.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          33920.0,
+          39160.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          39440.0,
+          41200.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          41320.0,
+          42680.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          42800.0,
+          44360.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          44680.0,
+          46080.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          46200.0,
+          49720.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          49840.0,
+          51040.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          51200.0,
+          51880.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": 0.0,
+        "offset_ms": 0.0
+      },
+      {
+        "src_ms": [
+          52000.0,
+          53600.0
+        ],
+        "video_lag_ms": 0.0,
+        "audio_lag_ms": null,
+        "offset_ms": null
+      }
+    ]
+  },
+  "gates": {
+    "rows": [
+      {
+        "gate": "pause share (pauses >= 150 ms)",
+        "value": "5.3 % (12 pauses)",
+        "target": "3-5 %",
+        "pass": false,
+        "detail": [
+          160,
+          380,
+          240,
+          170,
+          150,
+          220,
+          180,
+          190,
+          200,
+          240,
+          250,
+          250
+        ]
+      },
+      {
+        "gate": "no clipped word endings",
+        "value": "0 of 18 cuts, stem splices -0 dB, removed tails -1 dB (re audible line)",
+        "target": "0 (all < 0 dB re line)",
+        "pass": true,
+        "detail": [
+          {
+            "at_ms": 3680,
+            "audio_at_ms": 3675.0,
+            "stem_splice_over_db": [
+              -7.4,
+              -0.7
+            ],
+            "src_ms": [
+              3755.0,
+              4035.0
+            ],
+            "word_end_ms": 3620,
+            "removed_tail_over_db": [
+              -9.3,
+              -4.2
+            ],
+            "src_splice_over_db": [
+              [
+                -7.3,
+                -0.6
+              ],
+              [
+                -20.1,
+                -5.9
+              ]
+            ],
+            "removed_speech_db": -48.6,
+            "ok": true
+          },
+          {
+            "at_ms": 9160,
+            "audio_at_ms": 9160.0,
+            "stem_splice_over_db": [
+              -1.4,
+              -1.7
+            ],
+            "src_ms": [
+              9520.0,
+              9800.0
+            ],
+            "word_end_ms": 9490,
+            "removed_tail_over_db": [
+              -0.7,
+              -12.2
+            ],
+            "src_splice_over_db": [
+              [
+                -1.3,
+                -12.9
+              ],
+              [
+                -17.2,
+                -1.6
+              ]
+            ],
+            "removed_speech_db": -37.6,
+            "ok": true
+          },
+          {
+            "at_ms": 12160,
+            "audio_at_ms": 12170.0,
+            "stem_splice_over_db": [
+              -10.1,
+              -7.1
+            ],
+            "src_ms": [
+              12810.0,
+              13050.0
+            ],
+            "word_end_ms": 12720,
+            "removed_tail_over_db": [
+              -9.0,
+              -5.8
+            ],
+            "src_splice_over_db": [
+              [
+                -10.3,
+                -6.6
+              ],
+              [
+                -9.7,
+                -10.7
+              ]
+            ],
+            "removed_speech_db": -50.5,
+            "ok": true
+          },
+          {
+            "at_ms": 15160,
+            "audio_at_ms": 15160.0,
+            "stem_splice_over_db": [
+              -2.9,
+              -0.9
+            ],
+            "src_ms": [
+              16040.0,
+              16360.0
+            ],
+            "word_end_ms": 15970,
+            "removed_tail_over_db": [
+              -3.7,
+              -4.5
+            ],
+            "src_splice_over_db": [
+              [
+                -2.8,
+                -2.0
+              ],
+              [
+                -18.1,
+                -0.6
+              ]
+            ],
+            "removed_speech_db": -39.0,
+            "ok": true
+          },
+          {
+            "at_ms": 19040,
+            "audio_at_ms": 19030.0,
+            "stem_splice_over_db": [
+              -8.0,
+              -1.1
+            ],
+            "src_ms": [
+              20230.0,
+              20390.0
+            ],
+            "word_end_ms": 20110,
+            "removed_tail_over_db": [
+              -5.6,
+              -5.4
+            ],
+            "src_splice_over_db": [
+              [
+                -5.7,
+                -6.1
+              ],
+              [
+                -14.8,
+                -1.0
+              ]
+            ],
+            "removed_speech_db": -42.2,
+            "ok": true
+          },
+          {
+            "at_ms": 23280,
+            "audio_at_ms": 23280.0,
+            "stem_splice_over_db": [
+              -5.0,
+              -5.0
+            ],
+            "src_ms": [
+              24640.0,
+              24760.0
+            ],
+            "word_end_ms": 24410,
+            "removed_tail_over_db": [
+              null,
+              null
+            ],
+            "src_splice_over_db": [
+              [
+                -17.0,
+                -4.9
+              ],
+              [
+                -5.0,
+                -5.5
+              ]
+            ],
+            "removed_speech_db": -53.1,
+            "ok": true
+          },
+          {
+            "at_ms": 25320,
+            "audio_at_ms": 25330.0,
+            "stem_splice_over_db": [
+              -16.4,
+              -2.9
+            ],
+            "src_ms": [
+              26810.0,
+              27090.0
+            ],
+            "word_end_ms": 26720,
+            "removed_tail_over_db": [
+              -75.4,
+              -57.6
+            ],
+            "src_splice_over_db": [
+              [
+                -48.9,
+                -130.9
+              ],
+              [
+                -16.2,
+                -2.7
+              ]
+            ],
+            "removed_speech_db": -58.3,
+            "ok": true
+          },
+          {
+            "at_ms": 28120,
+            "audio_at_ms": 28100.0,
+            "stem_splice_over_db": [
+              -12.0,
+              -0.6
+            ],
+            "src_ms": [
+              29860.0,
+              30020.0
+            ],
+            "word_end_ms": 29670,
+            "removed_tail_over_db": [
+              null,
+              null
+            ],
+            "src_splice_over_db": [
+              [
+                -11.8,
+                -0.5
+              ],
+              [
+                -15.2,
+                -10.7
+              ]
+            ],
+            "removed_speech_db": -49.1,
+            "ok": true
+          },
+          {
+            "at_ms": 30440,
+            "audio_at_ms": 30450.0,
+            "stem_splice_over_db": [
+              -3.9,
+              -0.9
+            ],
+            "src_ms": [
+              32370.0,
+              32490.0
+            ],
+            "word_end_ms": 32170,
+            "removed_tail_over_db": [
+              null,
+              null
+            ],
+            "src_splice_over_db": [
+              [
+                -11.0,
+                -0.9
+              ],
+              [
+                -3.6,
+                -11.0
+              ]
+            ],
+            "removed_speech_db": -54.0,
+            "ok": true
+          },
+          {
+            "at_ms": 31720,
+            "audio_at_ms": 31725.0,
+            "stem_splice_over_db": [
+              -11.8,
+              -0.2
+            ],
+            "src_ms": [
+              33765.0,
+              33925.0
+            ],
+            "word_end_ms": 33660,
+            "removed_tail_over_db": [
+              -58.4,
+              -42.7
+            ],
+            "src_splice_over_db": [
+              [
+                -55.7,
+                -39.1
+              ],
+              [
+                -11.6,
+                -0.3
+              ]
+            ],
+            "removed_speech_db": -51.4,
+            "ok": true
+          },
+          {
+            "at_ms": 36960,
+            "audio_at_ms": 36950.0,
+            "stem_splice_over_db": [
+              -4.7,
+              -6.6
+            ],
+            "src_ms": [
+              39150.0,
+              39430.0
+            ],
+            "word_end_ms": 39070,
+            "removed_tail_over_db": [
+              -2.3,
+              -9.8
+            ],
+            "src_splice_over_db": [
+              [
+                -3.1,
+                -6.5
+              ],
+              [
+                -12.7,
+                -12.0
+              ]
+            ],
+            "removed_speech_db": -38.2,
+            "ok": true
+          },
+          {
+            "at_ms": 38720,
+            "audio_at_ms": 38710.0,
+            "stem_splice_over_db": [
+              -11.8,
+              -7.7
+            ],
+            "src_ms": [
+              41190.0,
+              41310.0
+            ],
+            "word_end_ms": 41050,
+            "removed_tail_over_db": [
+              -15.9,
+              -8.2
+            ],
+            "src_splice_over_db": [
+              [
+                -15.1,
+                -7.5
+              ],
+              [
+                -11.7,
+                -8.6
+              ]
+            ],
+            "removed_speech_db": -49.5,
+            "ok": true
+          },
+          {
+            "at_ms": 40080,
+            "audio_at_ms": 40080.0,
+            "stem_splice_over_db": [
+              -4.8,
+              -8.1
+            ],
+            "src_ms": [
+              42680.0,
+              42800.0
+            ],
+            "word_end_ms": 42570,
+            "removed_tail_over_db": [
+              -12.0,
+              -13.4
+            ],
+            "src_splice_over_db": [
+              [
+                -10.8,
+                -11.0
+              ],
+              [
+                -4.8,
+                -6.4
+              ]
+            ],
+            "removed_speech_db": -47.4,
+            "ok": true
+          },
+          {
+            "at_ms": 41640,
+            "audio_at_ms": 41620.0,
+            "stem_splice_over_db": [
+              -2.9,
+              -2.4
+            ],
+            "src_ms": [
+              44340.0,
+              44660.0
+            ],
+            "word_end_ms": 44270,
+            "removed_tail_over_db": [
+              -4.5,
+              -5.7
+            ],
+            "src_splice_over_db": [
+              [
+                -1.9,
+                -16.7
+              ],
+              [
+                -18.0,
+                -2.3
+              ]
+            ],
+            "removed_speech_db": -41.5,
+            "ok": true
+          },
+          {
+            "at_ms": 43040,
+            "audio_at_ms": 43045.0,
+            "stem_splice_over_db": [
+              -13.7,
+              -0.2
+            ],
+            "src_ms": [
+              46085.0,
+              46205.0
+            ],
+            "word_end_ms": 45850,
+            "removed_tail_over_db": [
+              null,
+              null
+            ],
+            "src_splice_over_db": [
+              [
+                -13.6,
+                -0.1
+              ],
+              [
+                -13.5,
+                -3.0
+              ]
+            ],
+            "removed_speech_db": -56.6,
+            "ok": true
+          },
+          {
+            "at_ms": 46560,
+            "audio_at_ms": 46540.0,
+            "stem_splice_over_db": [
+              -2.4,
+              -7.3
+            ],
+            "src_ms": [
+              49700.0,
+              49820.0
+            ],
+            "word_end_ms": 49610,
+            "removed_tail_over_db": [
+              -5.3,
+              -9.4
+            ],
+            "src_splice_over_db": [
+              [
+                -2.2,
+                -7.2
+              ],
+              [
+                -15.9,
+                -7.8
+              ]
+            ],
+            "removed_speech_db": -42.7,
+            "ok": true
+          },
+          {
+            "at_ms": 47760,
+            "audio_at_ms": 47770.0,
+            "stem_splice_over_db": [
+              -4.0,
+              -4.5
+            ],
+            "src_ms": [
+              51050.0,
+              51210.0
+            ],
+            "word_end_ms": 50810,
+            "removed_tail_over_db": [
+              null,
+              null
+            ],
+            "src_splice_over_db": [
+              [
+                -7.2,
+                -2.6
+              ],
+              [
+                -3.9,
+                -4.5
+              ]
+            ],
+            "removed_speech_db": -49.8,
+            "ok": true
+          },
+          {
+            "at_ms": 48440,
+            "audio_at_ms": 48425.0,
+            "stem_splice_over_db": [
+              -1.7,
+              -2.7
+            ],
+            "src_ms": [
+              51865.0,
+              51985.0
+            ],
+            "word_end_ms": 51820,
+            "removed_tail_over_db": [
+              -2.3,
+              -10.0
+            ],
+            "src_splice_over_db": [
+              [
+                -1.7,
+                -13.6
+              ],
+              [
+                -9.1,
+                -2.6
+              ]
+            ],
+            "removed_speech_db": -40.7,
+            "ok": true
+          }
+        ]
+      },
+      {
+        "gate": "8-16 kHz vs reference",
+        "value": "-0.7 dB (-23.1)",
+        "target": "+-2 dB",
+        "pass": true
+      },
+      {
+        "gate": "5-9 kHz p99 vs reference",
+        "value": "-1.4 dB (-4.9 re LUFS)",
+        "target": "<= 0 dB",
+        "pass": true
+      },
+      {
+        "gate": "longest pause",
+        "value": "380 ms",
+        "target": "ref 340-360 ms",
+        "pass": null
+      },
+      {
+        "gate": "pace",
+        "value": "190 wpm (157 words / 49.57 s)",
+        "target": "ref 262 wpm",
+        "pass": null
+      }
+    ],
+    "failed": [
+      "pause share (pauses >= 150 ms)"
+    ]
+  },
+  "review_note": "Pause share is 5.3%, slightly above the legacy 3\u20135% fast-reel target. Preserved protected word tails and natural delivery; no speed-up and no cuts under 120 ms. Clipped-word, treble and sibilance checks pass. This numeric exception is retained for review, not reported as a full gate pass.",
+  "master": {
+    "input": {
+      "input_i": "-19.12",
+      "input_tp": "-6.62",
+      "input_lra": "2.30",
+      "input_thresh": "-29.19",
+      "output_i": "-13.94",
+      "output_tp": "-1.47",
+      "output_lra": "2.00",
+      "output_thresh": "-23.99",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.06"
+    },
+    "normalization_type": "linear",
+    "tp_target_used": -1.0,
+    "output": {
+      "lufs": -13.9,
+      "lra": 2.0,
+      "true_peak_dbtp": -1.5
+    }
+  },
+  "final_analysis": {
+    "lufs": -13.9,
+    "lra": 2.0,
+    "true_peak_dbtp": -1.5,
+    "lufs_phone": -16.6,
+    "duration_s": 50.069,
+    "sample_peak_dbfs": -1.51,
+    "clipped_samples": 0,
+    "rms_dbfs": -16.45,
+    "centroid_hz": 558.6,
+    "share_1_4k": 0.0648,
+    "bands_db": {
+      "31-63": -30.0,
+      "63-125": -9.7,
+      "125-250": -5.7,
+      "250-500": -4.2,
+      "500-1000": -8.3,
+      "1000-2000": -13.7,
+      "2000-4000": -16.6,
+      "4000-8000": -16.0,
+      "8000-16000": -25.4
+    }
+  },
+  "selected_avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
+  "frame_size": [
+    1080,
+    1920
+  ],
+  "presenter_frame": [
+    360,
+    203
+  ],
+  "upload_status": "held_for_owner_review",
+  "visual_review": "Scene contact sheet checked: selected olive-shirt avatar small, graphics and captions readable, no overlap.",
+  "final_sha256": "71800e5077d8591d5059b356c8c17786cb8fefe35824997efd977aea977fc574"
+}

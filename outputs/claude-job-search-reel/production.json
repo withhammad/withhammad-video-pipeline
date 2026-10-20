@@ -1,5 +1,5 @@
 {
-  "status": "selected_olive_shirt_render_processing",
+  "status": "awaiting_owner_review",
   "reference": "https://www.instagram.com/reel/DesvNaXM_j5/",
   "job_id": "7123480a28ca",
   "order": 3,
@@ -10,11 +10,9 @@
   "background": "Original Remotion warm library/desk composition; no imitation of source character likeness",
   "keyword": "JOBKIT",
   "next_steps": [
-    "Obtain user-approved replacement avatar",
-    "align final audio captions and beat times",
-    "integrate approved presenter only",
-    "render and verify final video",
-    "website, automation and scheduling"
+    "Owner reviews both final reels",
+    "Apply any requested edits",
+    "Only after approval: resource deployment, automation and analytics-based scheduling"
   ],
   "no_real_job_applications_performed": true,
   "avatar_approval": "owner_selected_via_HeyGen_gallery",
@@ -34,7 +32,7 @@
     "caption_y": 1375,
     "caption_width": 530
   },
-  "no_final_video_rendered": true,
+  "no_final_video_rendered": false,
   "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
   "heygen_video_id": "e0f82a153b79e6cb4c2f877db95c2413",
   "presenter_framing": "Small360x203 landscape PIP in final1080x1920 composition",
@@ -46,5 +44,12 @@
   ],
   "avatar_look": "Content creator in olive shirt",
   "engine": "HeyGen Avatar IV",
-  "resolution": "720p landscape source; portrait Remotion output"
+  "resolution": "720p landscape source; portrait Remotion output",
+  "posting_authorized": false,
+  "upload_hold": "Owner must review and approve these final cuts before any upload.",
+  "final_video": "final.mp4",
+  "final_duration_seconds": 50.069,
+  "final_cut_approved": false,
+  "quality_report": "quality-report.json",
+  "contact_sheet": "final-contact-sheet.jpg"
 }

@@ -1,18 +1,18 @@
 {
-  "avatar": "",
-  "duration": 25.12,
+  "avatar": "ai-projects/avatar.mp4",
+  "duration": 24.96,
   "beats": [
     0,
-    3.36,
-    7.88,
-    12.81,
-    17.24,
-    21.0
+    3.32,
+    7.76,
+    12.69,
+    17.08,
+    20.82
   ],
   "captions": [
     {
       "start": 0.05,
-      "end": 1.26,
+      "end": 1.24,
       "text": "Learning AI engineering,",
       "words": [
         {
@@ -28,7 +28,7 @@
         {
           "text": "engineering,",
           "start": 0.66,
-          "end": 1.26
+          "end": 1.24
         }
       ]
     },
@@ -56,7 +56,7 @@
     },
     {
       "start": 2.38,
-      "end": 3.06,
+      "end": 3.08,
       "text": "what to build.",
       "words": [
         {
@@ -72,524 +72,524 @@
         {
           "text": "build.",
           "start": 2.8,
-          "end": 3.06
+          "end": 3.08
         }
       ]
     },
     {
-      "start": 3.44,
-      "end": 4.36,
+      "start": 3.4,
+      "end": 4.32,
       "text": "This GitHub collection",
       "words": [
         {
           "text": "This",
-          "start": 3.44,
-          "end": 3.56
+          "start": 3.4,
+          "end": 3.52
         },
         {
           "text": "GitHub",
-          "start": 3.56,
-          "end": 3.84
+          "start": 3.52,
+          "end": 3.8
         },
         {
           "text": "collection",
-          "start": 3.84,
-          "end": 4.36
+          "start": 3.8,
+          "end": 4.32
         }
       ]
     },
     {
-      "start": 4.36,
-      "end": 5.6,
+      "start": 4.32,
+      "end": 5.56,
       "text": "has 85 project",
       "words": [
         {
           "text": "has",
-          "start": 4.36,
-          "end": 4.72
+          "start": 4.32,
+          "end": 4.68
         },
         {
           "text": "85",
-          "start": 4.72,
-          "end": 5.16
+          "start": 4.68,
+          "end": 5.14
         },
         {
           "text": "project",
-          "start": 5.16,
-          "end": 5.6
+          "start": 5.14,
+          "end": 5.56
         }
       ]
     },
     {
-      "start": 5.6,
-      "end": 6.86,
+      "start": 5.56,
+      "end": 6.82,
       "text": "ideas from beginner",
       "words": [
         {
           "text": "ideas",
-          "start": 5.6,
-          "end": 6.04
+          "start": 5.56,
+          "end": 6.0
         },
         {
           "text": "from",
-          "start": 6.04,
-          "end": 6.48
+          "start": 6.0,
+          "end": 6.44
         },
         {
           "text": "beginner",
-          "start": 6.48,
-          "end": 6.86
+          "start": 6.44,
+          "end": 6.82
         }
       ]
     },
     {
-      "start": 6.86,
-      "end": 7.54,
+      "start": 6.82,
+      "end": 7.5,
       "text": "to advanced.",
       "words": [
         {
           "text": "to",
-          "start": 6.86,
-          "end": 7.12
+          "start": 6.82,
+          "end": 7.08
         },
         {
           "text": "advanced.",
-          "start": 7.12,
-          "end": 7.54
+          "start": 7.08,
+          "end": 7.5
         }
       ]
     },
     {
-      "start": 7.9,
-      "end": 8.52,
+      "start": 7.76,
+      "end": 8.4,
       "text": "You can explore",
       "words": [
         {
           "text": "You",
-          "start": 7.9,
-          "end": 7.98
+          "start": 7.76,
+          "end": 7.86
         },
         {
           "text": "can",
-          "start": 7.98,
-          "end": 8.14
+          "start": 7.86,
+          "end": 8.02
         },
         {
           "text": "explore",
-          "start": 8.14,
-          "end": 8.52
+          "start": 8.02,
+          "end": 8.4
         }
       ]
     },
     {
-      "start": 8.52,
-      "end": 9.32,
+      "start": 8.4,
+      "end": 9.2,
       "text": "AI agents,",
       "words": [
         {
           "text": "AI",
-          "start": 8.52,
-          "end": 8.84
+          "start": 8.4,
+          "end": 8.72
         },
         {
           "text": "agents,",
-          "start": 8.84,
-          "end": 9.32
+          "start": 8.72,
+          "end": 9.2
         }
       ]
     },
     {
-      "start": 9.58,
-      "end": 10.28,
+      "start": 9.46,
+      "end": 10.16,
       "text": "RAG systems,",
       "words": [
         {
           "text": "RAG",
-          "start": 9.58,
-          "end": 9.86
+          "start": 9.46,
+          "end": 9.74
         },
         {
           "text": "systems,",
-          "start": 9.86,
-          "end": 10.28
+          "start": 9.74,
+          "end": 10.16
         }
       ]
     },
     {
-      "start": 10.54,
-      "end": 11.0,
+      "start": 10.42,
+      "end": 10.88,
       "text": "fine-tuning,",
       "words": [
         {
           "text": "fine-tuning,",
-          "start": 10.54,
-          "end": 11.0
+          "start": 10.42,
+          "end": 10.88
         }
       ]
     },
     {
-      "start": 11.16,
-      "end": 11.8,
+      "start": 11.04,
+      "end": 11.68,
       "text": "and even language",
       "words": [
         {
           "text": "and",
-          "start": 11.16,
-          "end": 11.24
+          "start": 11.04,
+          "end": 11.12
         },
         {
           "text": "even",
-          "start": 11.24,
-          "end": 11.44
+          "start": 11.12,
+          "end": 11.32
         },
         {
           "text": "language",
-          "start": 11.44,
-          "end": 11.8
+          "start": 11.32,
+          "end": 11.68
         }
       ]
     },
     {
-      "start": 11.8,
-      "end": 12.26,
+      "start": 11.68,
+      "end": 12.14,
       "text": "models.",
       "words": [
         {
           "text": "models.",
-          "start": 11.8,
-          "end": 12.26
+          "start": 11.68,
+          "end": 12.14
         }
       ]
     },
     {
-      "start": 12.81,
-      "end": 13.54,
+      "start": 12.69,
+      "end": 13.42,
       "text": "Each idea lists",
       "words": [
         {
           "text": "Each",
-          "start": 12.81,
-          "end": 12.96
+          "start": 12.69,
+          "end": 12.84
         },
         {
           "text": "idea",
-          "start": 12.96,
-          "end": 13.24
+          "start": 12.84,
+          "end": 13.1
         },
         {
           "text": "lists",
-          "start": 13.24,
-          "end": 13.54
+          "start": 13.1,
+          "end": 13.42
         }
       ]
     },
     {
-      "start": 13.54,
-      "end": 14.28,
+      "start": 13.42,
+      "end": 14.16,
       "text": "the skills you'll",
       "words": [
         {
           "text": "the",
-          "start": 13.54,
-          "end": 13.78
+          "start": 13.42,
+          "end": 13.66
         },
         {
           "text": "skills",
-          "start": 13.78,
-          "end": 14.06
+          "start": 13.66,
+          "end": 13.94
         },
         {
           "text": "you'll",
-          "start": 14.06,
-          "end": 14.28
+          "start": 13.94,
+          "end": 14.16
         }
       ]
     },
     {
-      "start": 14.28,
-      "end": 14.66,
+      "start": 14.16,
+      "end": 14.54,
       "text": "practice,",
       "words": [
         {
           "text": "practice,",
-          "start": 14.28,
-          "end": 14.66
+          "start": 14.16,
+          "end": 14.54
         }
       ]
     },
     {
-      "start": 15.12,
-      "end": 15.64,
+      "start": 15.0,
+      "end": 15.52,
       "text": "its difficulty,",
       "words": [
         {
           "text": "its",
-          "start": 15.12,
-          "end": 15.22
+          "start": 15.0,
+          "end": 15.1
         },
         {
           "text": "difficulty,",
-          "start": 15.22,
-          "end": 15.64
+          "start": 15.1,
+          "end": 15.52
         }
       ]
     },
     {
-      "start": 15.88,
-      "end": 16.34,
+      "start": 15.76,
+      "end": 16.22,
       "text": "and links to",
       "words": [
         {
           "text": "and",
-          "start": 15.88,
-          "end": 15.96
+          "start": 15.76,
+          "end": 15.84
         },
         {
           "text": "links",
-          "start": 15.96,
-          "end": 16.16
+          "start": 15.84,
+          "end": 16.04
         },
         {
           "text": "to",
-          "start": 16.16,
-          "end": 16.34
+          "start": 16.04,
+          "end": 16.22
         }
       ]
     },
     {
-      "start": 16.34,
-      "end": 16.92,
+      "start": 16.22,
+      "end": 16.8,
       "text": "help you learn.",
       "words": [
         {
           "text": "help",
-          "start": 16.34,
-          "end": 16.5
+          "start": 16.22,
+          "end": 16.38
         },
         {
           "text": "you",
-          "start": 16.5,
-          "end": 16.68
+          "start": 16.38,
+          "end": 16.56
         },
         {
           "text": "learn.",
-          "start": 16.68,
-          "end": 16.92
+          "start": 16.56,
+          "end": 16.8
         }
       ]
     },
     {
-      "start": 17.26,
-      "end": 17.98,
+      "start": 17.1,
+      "end": 17.82,
       "text": "Start with one",
       "words": [
         {
           "text": "Start",
-          "start": 17.26,
-          "end": 17.5
+          "start": 17.1,
+          "end": 17.34
         },
         {
           "text": "with",
-          "start": 17.5,
-          "end": 17.76
+          "start": 17.34,
+          "end": 17.6
         },
         {
           "text": "one",
-          "start": 17.76,
-          "end": 17.98
+          "start": 17.6,
+          "end": 17.82
         }
       ]
     },
     {
-      "start": 17.98,
-      "end": 18.38,
+      "start": 17.82,
+      "end": 18.22,
       "text": "project,",
       "words": [
         {
           "text": "project,",
-          "start": 17.98,
-          "end": 18.38
+          "start": 17.82,
+          "end": 18.22
         }
       ]
     },
     {
-      "start": 18.54,
-      "end": 19.12,
+      "start": 18.4,
+      "end": 18.96,
       "text": "build a working",
       "words": [
         {
           "text": "build",
-          "start": 18.54,
-          "end": 18.66
+          "start": 18.4,
+          "end": 18.5
         },
         {
           "text": "a",
-          "start": 18.66,
-          "end": 18.82
+          "start": 18.5,
+          "end": 18.66
         },
         {
           "text": "working",
-          "start": 18.82,
-          "end": 19.12
+          "start": 18.66,
+          "end": 18.96
         }
       ]
     },
     {
-      "start": 19.12,
-      "end": 19.48,
+      "start": 18.96,
+      "end": 19.32,
       "text": "demo,",
       "words": [
         {
           "text": "demo,",
-          "start": 19.12,
-          "end": 19.48
+          "start": 18.96,
+          "end": 19.32
         }
       ]
     },
     {
-      "start": 19.92,
-      "end": 20.46,
+      "start": 19.76,
+      "end": 20.3,
       "text": "and show what",
       "words": [
         {
           "text": "and",
-          "start": 19.92,
-          "end": 19.98
+          "start": 19.76,
+          "end": 19.82
         },
         {
           "text": "show",
-          "start": 19.98,
-          "end": 20.22
+          "start": 19.82,
+          "end": 20.06
         },
         {
           "text": "what",
-          "start": 20.22,
-          "end": 20.46
+          "start": 20.06,
+          "end": 20.3
         }
       ]
     },
     {
-      "start": 20.46,
-      "end": 20.8,
+      "start": 20.3,
+      "end": 20.64,
       "text": "you learned.",
       "words": [
         {
           "text": "you",
-          "start": 20.46,
-          "end": 20.56
+          "start": 20.3,
+          "end": 20.4
         },
         {
           "text": "learned.",
-          "start": 20.56,
-          "end": 20.8
+          "start": 20.4,
+          "end": 20.64
         }
       ]
     },
     {
-      "start": 21.0,
-      "end": 21.6,
+      "start": 20.82,
+      "end": 21.42,
       "text": "Comment PROJECTS,",
       "words": [
         {
           "text": "Comment",
-          "start": 21.0,
-          "end": 21.14
+          "start": 20.82,
+          "end": 20.98
         },
         {
           "text": "PROJECTS,",
-          "start": 21.14,
-          "end": 21.6
+          "start": 20.98,
+          "end": 21.42
         }
       ]
     },
     {
-      "start": 21.8,
-      "end": 22.2,
+      "start": 21.64,
+      "end": 22.02,
       "text": "and I'll send",
       "words": [
         {
           "text": "and",
-          "start": 21.8,
-          "end": 21.84
+          "start": 21.64,
+          "end": 21.68
         },
         {
           "text": "I'll",
-          "start": 21.84,
-          "end": 21.98
+          "start": 21.68,
+          "end": 21.82
         },
         {
           "text": "send",
-          "start": 21.98,
-          "end": 22.2
+          "start": 21.82,
+          "end": 22.02
         }
       ]
     },
     {
-      "start": 22.2,
-      "end": 22.8,
+      "start": 22.02,
+      "end": 22.64,
       "text": "you the collection",
       "words": [
         {
           "text": "you",
-          "start": 22.2,
-          "end": 22.3
+          "start": 22.02,
+          "end": 22.16
         },
         {
           "text": "the",
-          "start": 22.3,
-          "end": 22.42
+          "start": 22.16,
+          "end": 22.26
         },
         {
           "text": "collection",
-          "start": 22.42,
-          "end": 22.8
+          "start": 22.26,
+          "end": 22.64
         }
       ]
     },
     {
-      "start": 22.8,
-      "end": 24.08,
+      "start": 22.64,
+      "end": 23.92,
       "text": "and my project",
       "words": [
         {
           "text": "and",
-          "start": 22.8,
-          "end": 23.21
+          "start": 22.64,
+          "end": 23.05
         },
         {
           "text": "my",
-          "start": 23.52,
-          "end": 23.7
+          "start": 23.36,
+          "end": 23.54
         },
         {
           "text": "project",
-          "start": 23.7,
-          "end": 24.08
+          "start": 23.54,
+          "end": 23.92
         }
       ]
     },
     {
-      "start": 24.08,
-      "end": 24.48,
+      "start": 23.92,
+      "end": 24.32,
       "text": "checklist.",
       "words": [
         {
           "text": "checklist.",
-          "start": 24.08,
-          "end": 24.48
+          "start": 23.92,
+          "end": 24.32
         }
       ]
     }
   ],
-  "draftMode": true,
+  "draftMode": false,
   "cuts": [
     1.6,
-    3.36,
-    6.32,
-    7.88,
-    15.12,
-    17.24,
-    19.88
+    3.32,
+    6.28,
+    7.76,
+    15.0,
+    17.08,
+    19.72
   ],
   "music": "ai-projects/music.wav"
 }

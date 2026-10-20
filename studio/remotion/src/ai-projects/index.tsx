@@ -335,7 +335,7 @@ const Video: React.FC<Props> = ({
           withhammad.com
         </div>
       </div>
-      {music && <Audio src={staticFile(music)} volume={0.055} />}
+      {music && <Audio src={staticFile(music)} volume={(frame) => 0.055 * Math.min(1, frame / 15, Math.max(0, (duration * fps - frame) / 30))} />}
       <div
         style={{
           position: "absolute",

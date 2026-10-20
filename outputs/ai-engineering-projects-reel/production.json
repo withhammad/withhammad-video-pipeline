@@ -7,7 +7,7 @@
   "engine": "HeyGen Avatar IV",
   "resolution": "720p landscape source; portrait Remotion output",
   "graphics": "Remotion",
-  "status": "selected_olive_shirt_render_processing",
+  "status": "awaiting_owner_review",
   "keyword": "PROJECTS",
   "resource_slug": "ai-engineering-projects",
   "paid_plan_added": false,
@@ -18,7 +18,7 @@
     "youtube",
     "x"
   ],
-  "posting_authorized": true,
+  "posting_authorized": false,
   "profile_work": "X text aligned to LinkedIn; remaining visuals deferred to prioritize content",
   "script": "script.txt",
   "script_note": "User explicitly requires English only. Only script.txt submitted; Hindi draft removed.",
@@ -33,5 +33,17 @@
     "ae84501493694d18b44e45be54198fff",
     "f0d7cc382e5f42398e2a5a1104b4d183"
   ],
-  "avatar_look": "Content creator in olive shirt"
+  "avatar_look": "Content creator in olive shirt",
+  "upload_hold": "Owner must review and approve these final cuts before any upload.",
+  "final_video": "final.mp4",
+  "final_duration_seconds": 24.981,
+  "no_final_video_rendered": false,
+  "final_cut_approved": false,
+  "quality_report": "quality-report.json",
+  "contact_sheet": "final-contact-sheet.jpg",
+  "next_steps": [
+    "Owner reviews both final reels",
+    "Apply any requested edits",
+    "Only after approval: resource deployment, automation and analytics-based scheduling"
+  ]
 }
