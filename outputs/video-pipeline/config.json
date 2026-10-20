@@ -204,12 +204,14 @@
       "website20261020"
     ],
     "dates": [
+      "2026-10-20",
       "2026-10-23",
       "2026-10-24",
       "2026-10-25"
     ],
     "kind": "Codex thread heartbeat",
-    "requires": "Mac awake and Codex running for Instagram/LinkedIn and ManyChat activation; native schedules run on their platforms."
+    "requires": "Mac awake and Codex running for Instagram/LinkedIn and ManyChat activation; native schedules run on their platforms.",
+    "owner_override": "DESIGN Instagram only 20 October 20:00 GST; remaining DESIGN platforms 25 October"
   },
   "content_research_preference": {
     "updated": "2026-10-20",

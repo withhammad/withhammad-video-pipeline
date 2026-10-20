@@ -1297,7 +1297,7 @@ def run_due(now=None, live=False, platforms=None, confirm_not_posted=(), rt=None
                     results.append({**base, 'action': 'recorded' if live else 'would_record', 'url': posted.get('url'),
                                     'followups': _followups(entry, platform)})
                     continue
-                window, detail = post_window(platform, entry['date'], slot, now, slots_cfg)
+                window, detail = post_window(platform, str(slot.astimezone(gst()).date()), slot, now, slots_cfg)
                 owner_confirmed = _confirmed(confirm, entry['job'], platform)
                 if window == 'wait':
                     results.append({**base, 'action': 'waiting_for_backup', 'backup_utc': iso_z(detail),
@@ -1552,7 +1552,10 @@ def render_md(schedule=None, slots=None):
             cells = []
             for platform in PLATFORMS:
                 pe = entry['platforms'].get(platform) or {}
-                hhmm = parse_moment(pe['slot_utc']).astimezone(gst()).strftime('%H:%M') if pe.get('slot_utc') else ''
+                local_slot = parse_moment(pe['slot_utc']).astimezone(gst()) if pe.get('slot_utc') else None
+                hhmm = local_slot.strftime('%H:%M') if local_slot else ''
+                if local_slot and str(local_slot.date()) != entry['date']:
+                    hhmm = local_slot.strftime('%Y-%m-%d %H:%M')
                 state = pe.get('status') or ''
                 cells.append(f'{hhmm} {state}' + (f' ([link]({pe["url"]}))' if pe.get('url') else ''))
             out.append(f'| {entry["date"]} | {entry.get("keyword") or entry["job"]} | ' + ' | '.join(cells) + ' |')

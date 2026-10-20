@@ -974,3 +974,17 @@ def test_check_blocks_copy_without_the_ai_disclosure_or_the_x_resource_link(env)
     assert 'checks.x.disclosure is not ok' in text
     assert any('youtube.title_len' in w for w in report['warnings'])
     assert not any('resource_url' in w for w in report['warnings'])     # superseded by the live check
+
+
+def test_platform_date_override_does_not_wait_for_original_day_backup(env):
+    queued(env)
+    schedule = pr.load_schedule()
+    entry = schedule['queue'][0]
+    entry['date'] = '2026-10-25'
+    entry['platforms']['instagram']['slot_utc'] = '2026-10-20T13:00:00Z'
+    pr.save_schedule(schedule)
+    rt = env['rt']('2026-10-20T17:30:00Z')
+    result = pr.run_due(live=True, rt=rt, platforms=['instagram'])
+    assert result['results'][0]['action'] == 'missed'
+    assert rt.posts() == []
+    assert '2026-10-20 17:00 pending' in pr.render_md(schedule)

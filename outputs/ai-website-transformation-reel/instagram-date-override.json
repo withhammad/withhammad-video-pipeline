@@ -1,0 +1,23 @@
+{
+  "job": "website20261020",
+  "approved_by": "owner chat request: put today best time live",
+  "instagram": {
+    "via": "api",
+    "status": "pending",
+    "slot_utc": "2026-10-20T16:00:00Z",
+    "local_time": "Tue 2026-10-20 20:00 GST",
+    "account": "with.hammad",
+    "video_url": "https://withhammad.com/media/reels/ai-website-design-brief.mp4",
+    "cover_url": "https://withhammad.com/media/covers/ai-website-design-brief.jpg",
+    "hosted": true,
+    "video_bytes": 3651578,
+    "cover_bytes": 116345,
+    "site_commit": "3e4a154",
+    "hosted_at": "2026-10-20T13:43:05Z",
+    "automation_id": "publish-approved-projects-and-jobkit-reels",
+    "date_override": "2026-10-20",
+    "owner_override": "Owner requested Instagram today at best remaining time on 20 October; saved 20:00 backup slot. Other platforms remain 25 October."
+  },
+  "reason": "docs/BEST_TIMES.md backup 20:00; 17:00 has passed",
+  "other_platforms": "unchanged 2026-10-25"
+}
