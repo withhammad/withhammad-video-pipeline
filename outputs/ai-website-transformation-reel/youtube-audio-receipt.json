@@ -1,9 +1,90 @@
 {
   "video_id": "LBx57qzUrq8",
-  "checked_at": "2026-10-20T13:51:08.876613+00:00",
+  "checked_at": "2026-10-20T15:06:25.242866+00:00",
   "video_language": "English",
   "manual_english_srt": "serving",
-  "non_english_translation_rows": 0,
-  "studio_message": "Automatic translation will begin after subtitles have been generated. For now, you can add other languages manually.",
-  "followup": "Heartbeat rechecks auto-dubs after processing and keeps non-English tracks unpublished."
+  "non_english_translation_rows": 20,
+  "followup": "Recheck pending Publishing tracks and unpublish them once Published before release. Do not recreate uploads.",
+  "tracks": [
+    {
+      "name": "Arabic",
+      "status": "Draft"
+    },
+    {
+      "name": "Bangla",
+      "status": "Draft"
+    },
+    {
+      "name": "Dutch (Netherlands)",
+      "status": "Draft"
+    },
+    {
+      "name": "French (France)",
+      "status": "Draft"
+    },
+    {
+      "name": "German (Germany)",
+      "status": "Draft"
+    },
+    {
+      "name": "Hebrew",
+      "status": "Draft"
+    },
+    {
+      "name": "Hindi",
+      "status": "Publishing\u2026"
+    },
+    {
+      "name": "Indonesian",
+      "status": "Draft"
+    },
+    {
+      "name": "Italian",
+      "status": "Draft"
+    },
+    {
+      "name": "Japanese",
+      "status": "Draft"
+    },
+    {
+      "name": "Korean",
+      "status": "Publishing\u2026"
+    },
+    {
+      "name": "Malayalam",
+      "status": "Draft"
+    },
+    {
+      "name": "Polish",
+      "status": "Draft"
+    },
+    {
+      "name": "Portuguese (Brazil)",
+      "status": "Draft"
+    },
+    {
+      "name": "Punjabi",
+      "status": "Draft"
+    },
+    {
+      "name": "Russian",
+      "status": "Publishing\u2026"
+    },
+    {
+      "name": "Spanish (United States)",
+      "status": "Publishing\u2026"
+    },
+    {
+      "name": "Tamil",
+      "status": "Draft"
+    },
+    {
+      "name": "Telugu",
+      "status": "Draft"
+    },
+    {
+      "name": "Ukrainian",
+      "status": "Draft"
+    }
+  ]
 }
