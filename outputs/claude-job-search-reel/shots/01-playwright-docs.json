@@ -1,0 +1,35 @@
+{
+  "url": "https://github.com/microsoft/playwright-mcp",
+  "width": 540,
+  "height": 360,
+  "scale": 2,
+  "fps": 30,
+  "debug": true,
+  "out": "01-playwright-docs.mp4",
+  "actions": [
+    {
+      "remove": [
+        "header, .AppHeader, .react-blob-header, .js-sticky"
+      ]
+    },
+    {
+      "scroll": {
+        "to": "text=Standard config works",
+        "ms": 450,
+        "offset": -10
+      }
+    },
+    {
+      "wait": 1400
+    },
+    {
+      "highlight": {
+        "selector": "text=@playwright/mcp@latest",
+        "ms": 1600
+      }
+    },
+    {
+      "wait": 5600
+    }
+  ]
+}

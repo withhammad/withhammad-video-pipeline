@@ -1,0 +1,40 @@
+{
+  "status": "graphics_ready_avatar_rejected",
+  "reference": "https://www.instagram.com/reel/DesvNaXM_j5/",
+  "job_id": "7123480a28ca",
+  "order": 3,
+  "target_seconds": 69,
+  "script_words": 155,
+  "language": "en",
+  "presenter": "Hammad Yousuf HeyGen avatar; natural conversational delivery",
+  "background": "Original Remotion warm library/desk composition; no imitation of source character likeness",
+  "keyword": "JOBKIT",
+  "next_steps": [
+    "Obtain user-approved replacement avatar",
+    "align final audio captions and beat times",
+    "integrate approved presenter only",
+    "render and verify final video",
+    "website, automation and scheduling"
+  ],
+  "no_real_job_applications_performed": true,
+  "no_render_submitted": true,
+  "avatar_approval": "rejected",
+  "publishing_blocked_reason": "Owner rejected avatar; replace before final rendering or posting.",
+  "avatar_status": "User rejected the generated avatar; replacement pending.",
+  "rejected_heygen_video_id": "ab4754f5b1ec88be3acd14c4dff02bc9",
+  "current_avatar_approved": false,
+  "render_entry": "studio/remotion/src/job-search/index.tsx",
+  "composition": "JobSearch",
+  "preview_url": "http://localhost:3119/JobSearch",
+  "layout": {
+    "presenter_width": 330,
+    "presenter_height": 587,
+    "presenter_x": 670,
+    "presenter_y": 1213,
+    "fit": "contain",
+    "caption_x": 80,
+    "caption_y": 1375,
+    "caption_width": 530
+  },
+  "no_final_video_rendered": true
+}

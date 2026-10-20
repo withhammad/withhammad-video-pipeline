@@ -9,3 +9,6 @@ work/timing/
 work/site/
 # publish_reel's lock beside the tracked schedule
 outputs/video-pipeline/.schedule.json.lock
+
+# Local Remotion browser runtime cache
+.remotion/

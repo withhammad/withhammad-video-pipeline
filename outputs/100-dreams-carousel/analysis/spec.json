@@ -1,0 +1,13 @@
+{
+  "format": "carousel",
+  "slides": 8,
+  "width": 1080,
+  "height": 1350,
+  "language": "en",
+  "keyword": "DREAM",
+  "copy": "/Users/hammad/withhammad-video-pipeline/outputs/100-dreams-carousel/slides.json",
+  "render": "/Users/hammad/withhammad-video-pipeline/outputs/100-dreams-carousel/carousel.html",
+  "asset_source": "Original HTML/CSS typography and geometric forms; no people, avatar assets or photographs.",
+  "adaptation": "Static carousel: timing, ASR, voice/avatar video generation are not applicable. Analyze visual, beats, facts then synthesize original spec as required by reference-breakdown.",
+  "design_revision": "User rejected previous avatar. Removed from all final assets and package."
+}

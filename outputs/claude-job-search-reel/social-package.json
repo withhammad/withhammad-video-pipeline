@@ -1,0 +1,63 @@
+{
+  "status": "draft_content_not_published",
+  "resource_url": "https://withhammad.com/resources/claude-job-search",
+  "resource_live_verified": false,
+  "search_volume_research": "not performed; no search-volume claims",
+  "instagram": {
+    "caption": "Your job search can start with a shortlist you can actually explain.\n\nClaude + Playwright can help you:\n1. Research employer career pages.\n2. Compare roles against your resume.\n3. Build a shortlist with evidence and gaps.\n4. Draft truthful application answers.\n5. Review everything before you submit.\n\nUse only sites that permit the workflow. Missing dates stay unknown, and “top 10” is a shortlist size—not a promised result.\n\nComment JOBKIT for the setup, prompt and review checklist. Follow @with.hammad for practical AI workflows.\n\nAI avatar of me. Demo uses sample data.",
+    "hashtags": [
+      "#ClaudeAI",
+      "#Playwright",
+      "#JobSearch",
+      "#AIAutomation",
+      "#CareerTools"
+    ],
+    "primary_cta": "Comment JOBKIT",
+    "follow_cta": "Follow @with.hammad for practical AI workflows.",
+    "ai_label_required": true,
+    "collaborator": "hammadagentic.ai"
+  },
+  "facebook": {
+    "caption": "Build a job-search shortlist with evidence, then draft your answers for review. This walkthrough covers Claude + Playwright, company career pages, a comparison sheet and a stop before Submit.\n\nGet the guide: https://withhammad.com/resources/claude-job-search\nFollow for practical AI workflows.\nAI avatar of me. Demo uses sample data.",
+    "hashtags": [
+      "#ClaudeAI",
+      "#JobSearch",
+      "#AIAutomation"
+    ],
+    "ai_label_required": true
+  },
+  "youtube": {
+    "title": "Claude + Playwright Job Search: Shortlist, Draft, Review",
+    "description": "A five-step workflow for researching employer career pages, matching roles to resume evidence, and preparing application drafts with human review.\n\nGuide and copyable prompt: https://withhammad.com/resources/claude-job-search\n\nPlaywright MCP: https://github.com/microsoft/playwright-mcp\n\nPlaywright is open source; Claude access and usage are separate. Use permitted sites, verify dates and eligibility, and review every answer. No automatic submissions or employment guarantees.\n\nSubscribe for practical AI implementation guides.\nAI avatar of Hammad Yousuf. Demo uses sample data.\n\n#ClaudeAI #Playwright #JobSearch",
+    "tags": [
+      "Claude Playwright",
+      "Playwright MCP",
+      "AI job search",
+      "job search workflow",
+      "application drafts"
+    ],
+    "altered_content_disclosure": true
+  },
+  "linkedin": {
+    "body": "A useful job-search agent should be able to explain its shortlist.\n\nThe workflow I would start with:\n\nConnect Claude to Playwright → provide a resume and search criteria → research employer career pages → shortlist roles with evidence and gaps → draft application answers for review.\n\nThe important output is not a match percentage. It is a direct listing link, a verified date, the relevant requirement, the supporting resume evidence and what is still unknown.\n\nForm filling is a separate step. It depends on site permission and compatibility, and personal data can leave the browser before the final Submit button. Review the draft before allowing it onto a live application.\n\nI put the setup, prompt and review checklist here: https://withhammad.com/resources/claude-job-search\n\nFollow for practical AI workflows with clear review points.\n\nAI avatar of me. Demo uses sample data.",
+    "hashtags": [
+      "#ArtificialIntelligence",
+      "#JobSearch",
+      "#Automation"
+    ]
+  },
+  "x": {
+    "post": "Claude + Playwright: research roles, shortlist with resume evidence, then draft answers for review. You decide what gets submitted. Setup + prompt: https://withhammad.com/resources/claude-job-search\nAI avatar of me.",
+    "max_weighted_characters": 280
+  },
+  "tiktok": {
+    "caption": "Five steps for a job-search shortlist you can verify: connect, add criteria, research, compare, draft. Review every answer before submitting. Guide in bio. Follow for practical AI. AI avatar of me. Demo uses sample data.",
+    "hashtags": [
+      "#ClaudeAI",
+      "#JobSearch",
+      "#Playwright"
+    ],
+    "ai_label_required": true
+  },
+  "alt_text": "Hammad explains five steps for using Claude and Playwright to research employer career pages, compare resume evidence, and prepare application drafts. Clearly labeled sample screens demonstrate fields being filled and stopping before Submit."
+}

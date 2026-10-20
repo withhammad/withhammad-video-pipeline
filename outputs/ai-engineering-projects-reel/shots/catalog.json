@@ -1,0 +1,49 @@
+{
+  "width": 540,
+  "height": 420,
+  "scale": 2,
+  "fps": 30,
+  "settleMs": 2000,
+  "remove": [
+    "header",
+    ".AppHeader",
+    "footer",
+    "[data-testid=\"sticky-header\"]"
+  ],
+  "debug": true,
+  "url": "https://github.com/landedjobs/ai-engineer-portfolio-projects",
+  "out": "catalog.mp4",
+  "actions": [
+    {
+      "scroll": {
+        "to": "article table",
+        "ms": 500,
+        "offset": -20
+      }
+    },
+    {
+      "wait": 800
+    },
+    {
+      "move": {
+        "selector": "text=RAG apps",
+        "ms": 400
+      }
+    },
+    {
+      "highlight": {
+        "selector": "text=RAG apps",
+        "ms": 700
+      }
+    },
+    {
+      "scrollBy": {
+        "y": 200,
+        "ms": 2500
+      }
+    },
+    {
+      "wait": 1200
+    }
+  ]
+}

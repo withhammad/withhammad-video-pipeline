@@ -1,0 +1,58 @@
+{
+  "language": "en",
+  "status": "draft_assets_created_not_published",
+  "reference": "https://www.instagram.com/p/DelamVen6xr/",
+  "checked_at": "2026-10-20",
+  "primary_goal": "saves and qualified resource requests",
+  "formula": "eight-slide informational framework preserving reference beat order",
+  "resource_url": "https://withhammad.com/resources/100-dreams-uae",
+  "official_url": "https://helpbnk.com/spaces/100-dreams/landing/100-dreams",
+  "keyword": "DREAM",
+  "hooks": [
+    "Your media business idea could receive $10,000. Here’s who 100 Dreams is for.",
+    "100 Dreams is backing 100 media business ideas. Read this before you register.",
+    "Thinking about a creator business? Save the 100 Dreams dates and requirements."
+  ],
+  "instagram": {
+    "caption": "Your media business idea could receive USD 10,000 through 100 Dreams. Here’s what the official page actually says.\n\n100 people will be selected worldwide. Support includes funding towards their business, a UAE company licence, a Dubai Summit trip, and a six-week kickstart programme with Simon Squibb and the Dream team. Golden Visa support is subject to government approval.\n\nIt is for media business ideas: creator brands, entertainment, film and video production, media technology, and new media business models. Applicants must be 18 or older and able to establish a UAE company, travel to Dubai, and participate in all six weeks. Relocation is not required.\n\nApplications open 20 November 2026. You can register interest now, but that does not guarantee selection. The official landing page currently lists no minimum follower count; check the full application rules when released.\n\nMy preparation advice: explain who your idea serves, what you would build with the funding, and what you have already made or tested. This is my checklist, not official selection criteria.\n\nComment DREAM for the official link and my pitch checklist.\n\nIndependent guide; not affiliated with 100 Dreams or its organisers. Information checked 20 October 2026.\n\n#100Dreams #CreatorEconomy #MediaBusiness #UAEEntrepreneurs #ContentCreators",
+    "media": [
+      "slides/01.png",
+      "slides/02.png",
+      "slides/03.png",
+      "slides/04.png",
+      "slides/05.png",
+      "slides/06.png",
+      "slides/07.png",
+      "slides/08.png"
+    ],
+    "collaborator": "hammadagentic.ai",
+    "alt_text": [
+      "Text-led graphic with a large numeral 100. Headline: Your media idea could get $10,000. 100 people will be selected worldwide. Here is what to know before you apply.",
+      "Funding and support for selected participants: USD 10,000 towards a media business, a six-week kickstart with Simon Squibb’s team, UAE company licence support and a Dubai Summit trip.",
+      "Who it is for: creator brands, film, digital media or media technology. Worldwide applicants aged 18 or older who can establish a UAE company.",
+      "The official page currently lists no minimum follower count. Check the application rules when they open; eligibility is not a promise of selection.",
+      "Registering interest is not a funding offer. The programme selects 100 people. Read full terms. Golden Visa support is subject to government approval.",
+      "Applications open 20 November 2026. Register interest now. Dubai Summit is 8 to 10 January 2027. Selected participants must travel and complete the six-week programme.",
+      "Hammad’s own preparation checklist, not official selection criteria: who it serves and which problem it solves; what you would build with funding; what you have already made or tested.",
+      "Comment DREAM for the official programme link and Hammad’s pitch checklist. Media idea, check eligibility, prepare your pitch. Free resource on withhammad.com. Independent guide, not affiliated with the programme."
+    ],
+    "publish_dependency": "Enable and test a post-specific DREAM automation before using comment-to-DM promise; otherwise replace CTA with free guide in bio."
+  },
+  "facebook": {
+    "caption": "Your media business idea could receive USD 10,000 through 100 Dreams. Here’s what the official page actually says.\n\n100 people will be selected worldwide. Support includes funding towards their business, a UAE company licence, a Dubai Summit trip, and a six-week kickstart programme with Simon Squibb and the Dream team. Golden Visa support is subject to government approval.\n\nIt is for media business ideas: creator brands, entertainment, film and video production, media technology, and new media business models. Applicants must be 18 or older and able to establish a UAE company, travel to Dubai, and participate in all six weeks. Relocation is not required.\n\nApplications open 20 November 2026. You can register interest now, but that does not guarantee selection. The official landing page currently lists no minimum follower count; check the full application rules when released.\n\nMy preparation advice: explain who your idea serves, what you would build with the funding, and what you have already made or tested. This is my checklist, not official selection criteria.\n\nOfficial link and my pitch checklist: https://withhammad.com/resources/100-dreams-uae\n\nIndependent guide; not affiliated with 100 Dreams or its organisers. Information checked 20 October 2026.\n\n#100Dreams #CreatorEconomy #MediaBusiness #UAEEntrepreneurs #ContentCreators",
+    "format": "eight-image album or carousel where available"
+  },
+  "linkedin": {
+    "text": "Your media business idea could receive USD 10,000 through 100 Dreams. Here’s what the official page actually says.\n\n100 people will be selected worldwide. Support includes funding towards their business, a UAE company licence, a Dubai Summit trip, and a six-week kickstart programme with Simon Squibb and the Dream team. Golden Visa support is subject to government approval.\n\nIt is for media business ideas: creator brands, entertainment, film and video production, media technology, and new media business models. Applicants must be 18 or older and able to establish a UAE company, travel to Dubai, and participate in all six weeks. Relocation is not required.\n\nApplications open 20 November 2026. You can register interest now, but that does not guarantee selection. The official landing page currently lists no minimum follower count; check the full application rules when released.\n\nMy preparation advice: explain who your idea serves, what you would build with the funding, and what you have already made or tested. This is my checklist, not official selection criteria.\n\nOfficial link and my preparation checklist: https://withhammad.com/resources/100-dreams-uae\n\nIndependent guide; not affiliated with 100 Dreams or its organisers. Information checked 20 October 2026.\n\n#100Dreams #CreatorEconomy #MediaBusiness #UAEEntrepreneurs #ContentCreators",
+    "format": "eight images; document carousel can be exported separately"
+  },
+  "x": {
+    "text": "100 Dreams will select 100 people worldwide for USD 10,000 towards a media business. Applications open 20 Nov 2026. Registering interest is not selection. Official link + my checklist: https://withhammad.com/resources/100-dreams-uae",
+    "format": "thread or selected images; eight images cannot be assumed to fit one post"
+  },
+  "youtube": {
+    "status": "not_applicable_to_static_carousel",
+    "reason": "These assets are a static carousel. A Shorts video requires a separately reviewed video edit; no upload is prepared here."
+  },
+  "ai_disclosure": "Original typography and geometric graphics; no people or photographic assets. No organiser affiliation."
+}

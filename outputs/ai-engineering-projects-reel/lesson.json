@@ -1,0 +1,100 @@
+{
+  "language": "en",
+  "topic_title": "85 AI Engineering Project Ideas",
+  "hook": "Learning AI engineering, but stuck on what to build?",
+  "key_takeaways": [
+    "Choose a project at your level.",
+    "Test a working demo and document its limitations.",
+    "Project briefs link to learning resources; they are not all complete tutorials."
+  ],
+  "script": {
+    "estimated_seconds": 32,
+    "segments": [
+      {
+        "spoken": "Learning AI engineering, but stuck on what to build?",
+        "on_screen_text": "What to build?",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "This GitHub collection has eighty-five project ideas, from beginner to advanced.",
+        "on_screen_text": "85 project ideas",
+        "visual": "demo"
+      },
+      {
+        "spoken": "You can explore AI agents, RAG systems, fine-tuning, and even language models.",
+        "on_screen_text": "Agents \u00b7 RAG \u00b7 Fine-tuning",
+        "visual": "card"
+      },
+      {
+        "spoken": "Each idea lists the skills you'll practise, its difficulty, and links to help you learn.",
+        "on_screen_text": "Skills + difficulty + references",
+        "visual": "demo"
+      },
+      {
+        "spoken": "Start with one project, build a working demo, and show what you learned.",
+        "on_screen_text": "Build one working demo",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Comment PROJECTS and I'll send you the collection and my project checklist!",
+        "on_screen_text": "Comment PROJECTS",
+        "visual": "card"
+      }
+    ]
+  },
+  "demo_steps": [
+    "Open the catalog table.",
+    "Browse the RAG category.",
+    "Read the first project skills and difficulty.",
+    "Follow a learning reference and scope a small demo."
+  ],
+  "prompts": [
+    {
+      "title": "Scope a portfolio project",
+      "text": "Help me scope one AI engineering portfolio project from this catalog: https://github.com/landedjobs/ai-engineer-portfolio-projects . My current skills are [skills], I have [hours] this week, and my maximum spend is [budget]. Recommend one suitable idea and explain the choice. Give me a smallest working version, milestones, ten evaluation cases, expected dependencies and costs, and a README outline. Separate verified facts from assumptions. Do not invent integrations, benchmark results or work I have not done."
+    }
+  ],
+  "tool_links": [
+    {
+      "name": "AI engineering portfolio catalog",
+      "url": "https://github.com/landedjobs/ai-engineer-portfolio-projects"
+    }
+  ],
+  "captions": {
+    "instagram": "Your next AI project shouldn't start with a blank page.\n\nThis catalog gives you 85 ideas across agents, RAG, fine-tuning and more. Choose one that matches your current skills, build a small working version, then show how you tested it.\n\nComment PROJECTS for the repo and my build checklist. Follow @with.hammad for practical AI builds.\n\nAI avatar of me.",
+    "youtube_title": "85 AI Engineering Project Ideas: What to Build Next",
+    "youtube_description": "Stuck choosing an AI engineering portfolio project? Start here.\n\nRepo and project checklist: https://withhammad.com/resources/ai-engineering-projects\nOriginal catalog: https://github.com/landedjobs/ai-engineer-portfolio-projects\n\nPick one project, build a working demo, test it, and explain the tradeoffs. These are ideas and learning references; individual tools may have their own costs.\n\nSubscribe for practical AI workflows. AI avatar of me.\n\n#AIEngineering #AIProjects #RAG",
+    "tiktok": "Your next AI project shouldn't start with a blank page.\n\nThis catalog gives you 85 ideas across agents, RAG, fine-tuning and more. Choose one that matches your current skills, build a small working version, then show how you tested it.\n\nComment PROJECTS for the repo and my build checklist. Follow @with.hammad for practical AI builds.\n\nAI avatar of me.",
+    "linkedin": "The hardest part of an AI portfolio can be choosing something small enough to finish.\n\nLanded's catalog offers 85 project ideas, with difficulty levels, skills and learning references. My suggestion: pick one, build a working demo, and document how it fails as carefully as how it works.\n\nA project with clear evidence gives people something concrete to evaluate.\n\nhttps://withhammad.com/resources/ai-engineering-projects\n\nFollow for practical AI engineering workflows. Presenter: my AI avatar."
+  },
+  "hashtags": [
+    "#AIEngineering",
+    "#AIProjects",
+    "#RAG",
+    "#AIAgents",
+    "#BuildInPublic"
+  ],
+  "manychat_keyword": "PROJECTS",
+  "resource_page": {
+    "slug": "ai-engineering-projects",
+    "title": "85 AI Engineering Project Ideas + Build Checklist",
+    "body_markdown": "# Pick an AI project you can actually finish\n\nA useful portfolio shows a working system, how you tested it, and what you would improve. Start with one small problem instead of collecting more tutorials.\n\n## The project catalog\n\n[Landed's AI engineering portfolio catalog](https://github.com/landedjobs/ai-engineer-portfolio-projects) lists 85 ideas grouped by theme, with difficulty, skills and learning references. These are project briefs and reference links; not every entry is a complete tutorial. The catalog is MIT licensed. Linked tools have their own licenses and hosting or model costs.\n\n## A practical first build\n\n1. Open the RAG category and choose Document Q&A. Use a few documents you own or have permission to use.\n2. Define one question your demo should answer, plus one question it should decline when the answer is absent.\n3. Build the smallest version: ingest documents, retrieve relevant passages and answer with sources.\n4. Test at least ten questions, including missing answers and conflicting documents. Record what fails.\n5. Publish a short demo, setup instructions, sample inputs and results. Remove secrets and private documents.\n6. Explain one tradeoff: accuracy, speed, cost or simplicity. A specific limitation is more useful than an unsupported claim.\n\n## Copyable planning prompt\n\n> Help me scope one AI engineering portfolio project from this catalog: https://github.com/landedjobs/ai-engineer-portfolio-projects . My current skills are [skills], I have [hours] this week, and my maximum spend is [budget]. Recommend one suitable idea and explain the choice. Give me a smallest working version, milestones, ten evaluation cases, expected dependencies and costs, and a README outline. Separate verified facts from assumptions. Do not invent integrations, benchmark results or work I have not done.\n\n## Before you share your demo\n\n- Does it run from your README on a clean environment?\n- Can someone see an example input and output within a minute?\n- Are failures, costs and required keys documented?\n- Are citations backed by the actual source text?\n- Did you remove tokens, customer data and personal records?\n- Can you explain what you built without claiming guaranteed interviews or employment?\n\nCompiled by Hammad Yousuf. Catalog checked 20 October 2026; project availability and dependencies can change.\n"
+  },
+  "sources_checked": [
+    {
+      "claim": "Catalog contains85 ideas and themed entries with skills, difficulty and learning references.",
+      "url": "https://github.com/landedjobs/ai-engineer-portfolio-projects"
+    },
+    {
+      "claim": "Document Q&A is a beginner RAG example with skills and references.",
+      "url": "https://github.com/landedjobs/ai-engineer-portfolio-projects/blob/main/catalog/rag-apps.md"
+    }
+  ],
+  "originality_note": "Original portfolio-first hook, English narration, fresh GitHub recordings and practical build checklist; omits the source salary graphic and job guarantee.",
+  "cover": {
+    "kicker": "AI engineering project catalog",
+    "hook": "Build your next",
+    "pill_strong": "AI",
+    "pill_serif": "project"
+  }
+}

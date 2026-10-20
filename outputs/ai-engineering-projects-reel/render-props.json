@@ -1,0 +1,588 @@
+{
+  "avatar": "",
+  "music": "ai-projects/music.wav",
+  "duration": 25.16,
+  "captions": [
+    {
+      "start": 0.07,
+      "end": 1.28,
+      "text": "Learning AI engineering,",
+      "words": [
+        {
+          "text": "Learning",
+          "start": 0.07,
+          "end": 0.38
+        },
+        {
+          "text": "AI",
+          "start": 0.38,
+          "end": 0.68
+        },
+        {
+          "text": "engineering,",
+          "start": 0.68,
+          "end": 1.28
+        }
+      ]
+    },
+    {
+      "start": 1.65,
+      "end": 2.4,
+      "text": "but stuck on",
+      "words": [
+        {
+          "text": "but",
+          "start": 1.65,
+          "end": 1.82
+        },
+        {
+          "text": "stuck",
+          "start": 1.82,
+          "end": 2.18
+        },
+        {
+          "text": "on",
+          "start": 2.18,
+          "end": 2.4
+        }
+      ]
+    },
+    {
+      "start": 2.4,
+      "end": 3.1,
+      "text": "what to build.",
+      "words": [
+        {
+          "text": "what",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "text": "to",
+          "start": 2.66,
+          "end": 2.82
+        },
+        {
+          "text": "build.",
+          "start": 2.82,
+          "end": 3.1
+        }
+      ]
+    },
+    {
+      "start": 3.46,
+      "end": 4.38,
+      "text": "This GitHub collection",
+      "words": [
+        {
+          "text": "This",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "text": "GitHub",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "collection",
+          "start": 3.86,
+          "end": 4.38
+        }
+      ]
+    },
+    {
+      "start": 4.38,
+      "end": 5.62,
+      "text": "has 85 project",
+      "words": [
+        {
+          "text": "has",
+          "start": 4.38,
+          "end": 4.74
+        },
+        {
+          "text": "85",
+          "start": 4.74,
+          "end": 5.18
+        },
+        {
+          "text": "project",
+          "start": 5.18,
+          "end": 5.62
+        }
+      ]
+    },
+    {
+      "start": 5.62,
+      "end": 6.92,
+      "text": "ideas from beginner",
+      "words": [
+        {
+          "text": "ideas",
+          "start": 5.62,
+          "end": 6.08
+        },
+        {
+          "text": "from",
+          "start": 6.08,
+          "end": 6.54
+        },
+        {
+          "text": "beginner",
+          "start": 6.54,
+          "end": 6.92
+        }
+      ]
+    },
+    {
+      "start": 6.92,
+      "end": 7.62,
+      "text": "to advanced.",
+      "words": [
+        {
+          "text": "to",
+          "start": 6.92,
+          "end": 7.18
+        },
+        {
+          "text": "advanced.",
+          "start": 7.18,
+          "end": 7.62
+        }
+      ]
+    },
+    {
+      "start": 7.96,
+      "end": 8.58,
+      "text": "You can explore",
+      "words": [
+        {
+          "text": "You",
+          "start": 7.96,
+          "end": 8.04
+        },
+        {
+          "text": "can",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "text": "explore",
+          "start": 8.2,
+          "end": 8.58
+        }
+      ]
+    },
+    {
+      "start": 8.58,
+      "end": 9.38,
+      "text": "AI agents,",
+      "words": [
+        {
+          "text": "AI",
+          "start": 8.58,
+          "end": 8.9
+        },
+        {
+          "text": "agents,",
+          "start": 8.9,
+          "end": 9.38
+        }
+      ]
+    },
+    {
+      "start": 9.66,
+      "end": 10.34,
+      "text": "RAG systems,",
+      "words": [
+        {
+          "text": "RAG",
+          "start": 9.66,
+          "end": 9.92
+        },
+        {
+          "text": "systems,",
+          "start": 9.92,
+          "end": 10.34
+        }
+      ]
+    },
+    {
+      "start": 10.6,
+      "end": 11.5,
+      "text": "fine-tuning, and even",
+      "words": [
+        {
+          "text": "fine-tuning,",
+          "start": 10.6,
+          "end": 11.06
+        },
+        {
+          "text": "and",
+          "start": 11.24,
+          "end": 11.3
+        },
+        {
+          "text": "even",
+          "start": 11.3,
+          "end": 11.5
+        }
+      ]
+    },
+    {
+      "start": 11.5,
+      "end": 12.3,
+      "text": "language models.",
+      "words": [
+        {
+          "text": "language",
+          "start": 11.5,
+          "end": 11.86
+        },
+        {
+          "text": "models.",
+          "start": 11.86,
+          "end": 12.3
+        }
+      ]
+    },
+    {
+      "start": 12.88,
+      "end": 13.6,
+      "text": "Each idea lists",
+      "words": [
+        {
+          "text": "Each",
+          "start": 12.88,
+          "end": 13.02
+        },
+        {
+          "text": "idea",
+          "start": 13.02,
+          "end": 13.3
+        },
+        {
+          "text": "lists",
+          "start": 13.3,
+          "end": 13.6
+        }
+      ]
+    },
+    {
+      "start": 13.6,
+      "end": 14.34,
+      "text": "the skills you'll",
+      "words": [
+        {
+          "text": "the",
+          "start": 13.6,
+          "end": 13.86
+        },
+        {
+          "text": "skills",
+          "start": 13.86,
+          "end": 14.12
+        },
+        {
+          "text": "you'll",
+          "start": 14.12,
+          "end": 14.34
+        }
+      ]
+    },
+    {
+      "start": 14.34,
+      "end": 14.72,
+      "text": "practice,",
+      "words": [
+        {
+          "text": "practice,",
+          "start": 14.34,
+          "end": 14.72
+        }
+      ]
+    },
+    {
+      "start": 15.16,
+      "end": 15.7,
+      "text": "its difficulty,",
+      "words": [
+        {
+          "text": "its",
+          "start": 15.16,
+          "end": 15.28
+        },
+        {
+          "text": "difficulty,",
+          "start": 15.28,
+          "end": 15.7
+        }
+      ]
+    },
+    {
+      "start": 15.96,
+      "end": 16.4,
+      "text": "and links to",
+      "words": [
+        {
+          "text": "and",
+          "start": 15.96,
+          "end": 16.02
+        },
+        {
+          "text": "links",
+          "start": 16.02,
+          "end": 16.22
+        },
+        {
+          "text": "to",
+          "start": 16.22,
+          "end": 16.4
+        }
+      ]
+    },
+    {
+      "start": 16.4,
+      "end": 16.98,
+      "text": "help you learn.",
+      "words": [
+        {
+          "text": "help",
+          "start": 16.4,
+          "end": 16.56
+        },
+        {
+          "text": "you",
+          "start": 16.56,
+          "end": 16.74
+        },
+        {
+          "text": "learn.",
+          "start": 16.74,
+          "end": 16.98
+        }
+      ]
+    },
+    {
+      "start": 17.32,
+      "end": 18.04,
+      "text": "Start with one",
+      "words": [
+        {
+          "text": "Start",
+          "start": 17.32,
+          "end": 17.58
+        },
+        {
+          "text": "with",
+          "start": 17.58,
+          "end": 17.82
+        },
+        {
+          "text": "one",
+          "start": 17.82,
+          "end": 18.04
+        }
+      ]
+    },
+    {
+      "start": 18.04,
+      "end": 18.44,
+      "text": "project,",
+      "words": [
+        {
+          "text": "project,",
+          "start": 18.04,
+          "end": 18.44
+        }
+      ]
+    },
+    {
+      "start": 18.62,
+      "end": 19.18,
+      "text": "build a working",
+      "words": [
+        {
+          "text": "build",
+          "start": 18.62,
+          "end": 18.72
+        },
+        {
+          "text": "a",
+          "start": 18.72,
+          "end": 18.88
+        },
+        {
+          "text": "working",
+          "start": 18.88,
+          "end": 19.18
+        }
+      ]
+    },
+    {
+      "start": 19.18,
+      "end": 19.54,
+      "text": "demo,",
+      "words": [
+        {
+          "text": "demo,",
+          "start": 19.18,
+          "end": 19.54
+        }
+      ]
+    },
+    {
+      "start": 19.98,
+      "end": 20.52,
+      "text": "and show what",
+      "words": [
+        {
+          "text": "and",
+          "start": 19.98,
+          "end": 20.06
+        },
+        {
+          "text": "show",
+          "start": 20.06,
+          "end": 20.3
+        },
+        {
+          "text": "what",
+          "start": 20.3,
+          "end": 20.52
+        }
+      ]
+    },
+    {
+      "start": 20.52,
+      "end": 20.88,
+      "text": "you learned.",
+      "words": [
+        {
+          "text": "you",
+          "start": 20.52,
+          "end": 20.64
+        },
+        {
+          "text": "learned.",
+          "start": 20.64,
+          "end": 20.88
+        }
+      ]
+    },
+    {
+      "start": 21.04,
+      "end": 21.66,
+      "text": "Comment PROJECTS,",
+      "words": [
+        {
+          "text": "Comment",
+          "start": 21.04,
+          "end": 21.2
+        },
+        {
+          "text": "PROJECTS,",
+          "start": 21.2,
+          "end": 21.66
+        }
+      ]
+    },
+    {
+      "start": 21.86,
+      "end": 22.24,
+      "text": "and I'll send",
+      "words": [
+        {
+          "text": "and",
+          "start": 21.86,
+          "end": 21.9
+        },
+        {
+          "text": "I'll",
+          "start": 21.9,
+          "end": 22.04
+        },
+        {
+          "text": "send",
+          "start": 22.04,
+          "end": 22.24
+        }
+      ]
+    },
+    {
+      "start": 22.24,
+      "end": 22.86,
+      "text": "you the collection",
+      "words": [
+        {
+          "text": "you",
+          "start": 22.24,
+          "end": 22.38
+        },
+        {
+          "text": "the",
+          "start": 22.38,
+          "end": 22.48
+        },
+        {
+          "text": "collection",
+          "start": 22.48,
+          "end": 22.86
+        }
+      ]
+    },
+    {
+      "start": 22.86,
+      "end": 24.14,
+      "text": "and my project",
+      "words": [
+        {
+          "text": "and",
+          "start": 22.86,
+          "end": 23.27
+        },
+        {
+          "text": "my",
+          "start": 23.58,
+          "end": 23.78
+        },
+        {
+          "text": "project",
+          "start": 23.78,
+          "end": 24.14
+        }
+      ]
+    },
+    {
+      "start": 24.14,
+      "end": 24.54,
+      "text": "checklist.",
+      "words": [
+        {
+          "text": "checklist.",
+          "start": 24.14,
+          "end": 24.54
+        }
+      ]
+    }
+  ],
+  "beats": [
+    0,
+    3.4,
+    7.96,
+    12.88,
+    17.32,
+    21.04
+  ],
+  "cuts": [
+    1.64,
+    3.4,
+    6.4,
+    7.96,
+    15.16,
+    17.32,
+    19.92
+  ],
+  "draftMode": true
+}

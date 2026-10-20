@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-10-20",
+  "tools": [
+    {
+      "name": "Microsoft Playwright MCP",
+      "repo_url": "https://github.com/microsoft/playwright-mcp",
+      "stars": "38399",
+      "license": "Apache-2.0",
+      "contents": "Local MCP server for browser interaction: navigation, accessibility snapshots, typing/form fill, file upload, screenshots. It is not a purpose-built job search service.",
+      "setup": "Node.js 18+ and an MCP client; official npx @playwright/mcp@latest configuration; our guide adds Chrome and isolated context.",
+      "needs": "Installed Chrome, runtime/network and client access; Claude account/plan limits separate. No Playwright API key for local server."
+    },
+    {
+      "name": "Claude Desktop",
+      "repo_url": "",
+      "license": "Proprietary service; do not describe as free/open source",
+      "contents": "Model client that can use configured local MCP tools.",
+      "setup": "Local-server config then restart; some organizations restrict tools.",
+      "needs": "Authorized Claude access and available usage; no purchase performed."
+    }
+  ],
+  "safe_rule_one_line": "Use permitted sites, review every answer, and stop before Submit.",
+  "reference_claim_issues": [
+    "Job guarantee is unsupported. Replace with preparation assistance.",
+    "Free applies to the open-source browser package; do not call Claude or the entire workflow free.",
+    "One paste omits runtime/client setup and permissions.",
+    "A recent listing does not guarantee a stronger application or less competition.",
+    "Exactly ten matches and displayed match percentages are illustrative; request up to ten with evidence.",
+    "Every form is not supported universally; site access and compatibility vary.",
+    "LinkedIn bot prohibition does not establish a lunchtime-ban prediction.",
+    "Ten applications a day is not a verified safe quota for company sites.",
+    "Stopping before Submit does not prevent data transmission from earlier form entry/upload.",
+    "Generic company boards and the animated sheet are not evidence of actual results."
+  ],
+  "sources": [
+    {
+      "claim": "Official Microsoft Playwright MCP supports accessibility snapshots, navigation, form filling and uploads; Node.js 18+ and an MCP client are requirements; Apache-2.0 licence.",
+      "url": "https://github.com/microsoft/playwright-mcp"
+    },
+    {
+      "claim": "Claude Desktop supports local MCP servers; setup depends on client configuration and organizational controls.",
+      "url": "https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop"
+    },
+    {
+      "claim": "Desktop manual configuration uses Developer/Edit Config and requires a full restart.",
+      "url": "https://modelcontextprotocol.io/docs/develop/connect-local-servers"
+    },
+    {
+      "claim": "Claude access, plans and usage limits are separate from the Playwright open-source package.",
+      "url": "https://claude.com/pricing"
+    },
+    {
+      "claim": "LinkedIn User Agreement prohibits unauthorized bots and scraping; no timing for a ban or universal safe daily quota is stated.",
+      "url": "https://www.linkedin.com/legal/user-agreement"
+    }
+  ]
+}

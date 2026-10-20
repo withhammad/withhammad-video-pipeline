@@ -1,0 +1,111 @@
+{
+  "corrected_names": [
+    "Playwright (product capitalization)",
+    "Claude",
+    "MIT",
+    "LinkedIn"
+  ],
+  "beats": [
+    {
+      "name": "problem and comedic turn",
+      "start_s": 0,
+      "end_s": 13.9,
+      "words": 28,
+      "wpm": 120.9,
+      "function": "Problem/setup",
+      "energy": "Conversational two-character dialogue; deliberate pauses for response",
+      "text": "Claude the job market is cooked so I'm doing a masters at MIT with your 2 .9 GPA 2 .7 okay I'll get you a job free watch"
+    },
+    {
+      "name": "1 connect",
+      "start_s": 13.9,
+      "end_s": 22.1,
+      "words": 24,
+      "wpm": 175.6,
+      "function": "Demonstrate sequential step or review boundary",
+      "energy": "Conversational two-character dialogue; deliberate pauses for response",
+      "text": "step one connect playwright free from Microsoft now I can use a real browser do I need to code one copy paste I'll send"
+    },
+    {
+      "name": "2 resume and preferences",
+      "start_s": 22.1,
+      "end_s": 30.1,
+      "words": 23,
+      "wpm": 172.5,
+      "function": "Demonstrate sequential step or review boundary",
+      "energy": "Conversational two-character dialogue; deliberate pauses for response",
+      "text": "it step two give me your resume and one line new grad software this week that's it more than you did all semester"
+    },
+    {
+      "name": "3 research",
+      "start_s": 30.1,
+      "end_s": 39.4,
+      "words": 23,
+      "wpm": 148.4,
+      "function": "Demonstrate sequential step or review boundary",
+      "energy": "Conversational two-character dialogue; deliberate pauses for response",
+      "text": "step three I search company career pages only jobs posted this week why this week next week everyone's applied including the 3 .9's"
+    },
+    {
+      "name": "4 shortlist",
+      "start_s": 39.4,
+      "end_s": 44,
+      "words": 15,
+      "wpm": 195.7,
+      "function": "Demonstrate sequential step or review boundary",
+      "energy": "Conversational two-character dialogue; deliberate pauses for response",
+      "text": "step four I match each job to your resume top 10 go in a sheet"
+    },
+    {
+      "name": "5 form drafts",
+      "start_s": 44,
+      "end_s": 53.1,
+      "words": 24,
+      "wpm": 158.2,
+      "function": "Demonstrate sequential step or review boundary",
+      "energy": "Conversational two-character dialogue; deliberate pauses for response",
+      "text": "step five I fill every form name grad date resume and a new why this company each time okay now do LinkedIn every job"
+    },
+    {
+      "name": "scope caveat",
+      "start_s": 53.1,
+      "end_s": 57.7,
+      "words": 11,
+      "wpm": 143.5,
+      "function": "Demonstrate sequential step or review boundary",
+      "energy": "Conversational two-character dialogue; deliberate pauses for response",
+      "text": "LinkedIn bans bots gone by lunch company sites 10 a day"
+    },
+    {
+      "name": "review and human submit",
+      "start_s": 57.7,
+      "end_s": 66.1,
+      "words": 17,
+      "wpm": 121.4,
+      "function": "Demonstrate sequential step or review boundary",
+      "energy": "Conversational two-character dialogue; deliberate pauses for response",
+      "text": "then I stop you check it you press submit so I just press it yes you're overqualified"
+    },
+    {
+      "name": "CTA",
+      "start_s": 66.1,
+      "end_s": 69,
+      "words": 0,
+      "wpm": 0.0,
+      "function": "Demonstrate sequential step or review boundary",
+      "energy": "Conversational two-character dialogue; deliberate pauses for response",
+      "text": ""
+    }
+  ],
+  "words": 165,
+  "overall_wpm": 143.5,
+  "speech_wpm": 152.5,
+  "word_timestamp_gaps_at_least_300ms": [
+    {
+      "start_s": 6.92,
+      "end_s": 7.74,
+      "duration_s": 0.82
+    }
+  ],
+  "method": "faster-whisper small int8 CPU word timestamps VAD on; PCM decoded with ffmpeg due PyAV metadata_errors incompatibility. Gaps are ASR word gaps, not measured audible silence."
+}

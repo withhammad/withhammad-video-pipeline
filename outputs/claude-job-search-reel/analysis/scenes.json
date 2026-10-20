@@ -1,0 +1,110 @@
+[
+  {
+    "start_s": 0,
+    "end_s": 4.8,
+    "type": "animated two-shot",
+    "shows": "Stylized student left and orange floating robot right, seated at a library desk; grand dome ceiling and blue windows.",
+    "on_screen_action": "Student speaks; small gestures; camera static.",
+    "on_screen_text": "White two-line serif subtitles low at desk.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 4.8,
+    "end_s": 7.5,
+    "type": "animated reverse-shot",
+    "shows": "Close robot shot with black face and simple yellow eyes.",
+    "on_screen_action": "Robot replies.",
+    "on_screen_text": "Warm yellow serif subtitle.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 7.5,
+    "end_s": 10.1,
+    "type": "animated reverse-shot",
+    "shows": "Close student shot, books lower left.",
+    "on_screen_action": "Student corrects GPA.",
+    "on_screen_text": "White short subtitle.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 10.1,
+    "end_s": 13.9,
+    "type": "animated two-shot",
+    "shows": "Return to both characters at desk.",
+    "on_screen_action": "Robot proposes plan.",
+    "on_screen_text": "Yellow subtitles; unsupported job/free claims.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 13.9,
+    "end_s": 22.1,
+    "type": "animated UI card",
+    "shows": "Rounded dark-framed Step 1 card fills top half. Stylized Claude settings/Connectors with Playwright row, ready-browser pop-up and configuration code.",
+    "on_screen_action": "Row outline, Connected toggle, browser window popup, copy button changes to Copied.",
+    "on_screen_text": "Connect Playwright; five-part coral progress rail; seam subtitles.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 22.1,
+    "end_s": 30.1,
+    "type": "animated UI card",
+    "shows": "Step 2 stylized Claude chat with resume attachment.",
+    "on_screen_action": "Prompt types progressively; Stop before Submit highlighted.",
+    "on_screen_text": "Tell Claude what you want; yellow/white dialogue captions.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 30.1,
+    "end_s": 39.4,
+    "type": "animated browser montage",
+    "shows": "Step 3 generic company career boards; Northwind Labs, Pebble Systems, Corvid Health and Lumen Freight are shown.",
+    "on_screen_action": "Cards swap, roles highlighted, counter grows. No verified live URLs or real result provenance.",
+    "on_screen_text": "Find; posting dates highlighted green.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 39.4,
+    "end_s": 44.0,
+    "type": "animated sheet card",
+    "shows": "Step 4 count transitions from 38 to 21 to10, followed by Google-Sheets-style rows and match percentages.",
+    "on_screen_action": "Numbers animate, table appears.",
+    "on_screen_text": "Match; 10 best matches.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 44.0,
+    "end_s": 53.1,
+    "type": "animated form card",
+    "shows": "Step 5 stylized company application, file upload, answer text.",
+    "on_screen_action": "Name/email/date fields type, file progress advances, company answer types.",
+    "on_screen_text": "Fill; Submit Application button visible.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 53.1,
+    "end_s": 57.7,
+    "type": "animated scope popup",
+    "shows": "Small rules popup over form.",
+    "on_screen_action": "Three rows appear: LinkedIn bots, company pages, ten applications.",
+    "on_screen_text": "Unverified ban timing and safe quota implications.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 57.7,
+    "end_s": 66.1,
+    "type": "animated review state",
+    "shows": "Completed form stays above both characters.",
+    "on_screen_action": "Stopped/You check it strip appears; no submission success shown.",
+    "on_screen_text": "Human review/Submit dialogue then comic payoff.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  },
+  {
+    "start_s": 66.1,
+    "end_s": 69.0,
+    "type": "CTA card",
+    "shows": "Warm dark brown background, small orange robot icon upper center.",
+    "on_screen_action": "Fade to static end card.",
+    "on_screen_text": "Share prompt, comment AUTO, setup + full prompt, follow line.",
+    "motion": "Hard cuts for dialogue; animated card pop-ins/type-on within steps"
+  }
+]

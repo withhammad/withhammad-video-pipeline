@@ -1,0 +1,49 @@
+{
+  "width": 540,
+  "height": 420,
+  "scale": 2,
+  "fps": 30,
+  "settleMs": 2000,
+  "remove": [
+    "header",
+    ".AppHeader",
+    "footer",
+    "[data-testid=\"sticky-header\"]"
+  ],
+  "debug": true,
+  "url": "https://github.com/landedjobs/ai-engineer-portfolio-projects/blob/main/catalog/rag-apps.md",
+  "out": "project.mp4",
+  "actions": [
+    {
+      "scroll": {
+        "to": "text=1. Document Q&A",
+        "ms": 500,
+        "offset": -20
+      }
+    },
+    {
+      "wait": 1200
+    },
+    {
+      "move": {
+        "selector": "text=Skills proven",
+        "ms": 600
+      }
+    },
+    {
+      "highlight": {
+        "selector": "text=Skills proven",
+        "ms": 1400
+      }
+    },
+    {
+      "scrollBy": {
+        "y": 170,
+        "ms": 2000
+      }
+    },
+    {
+      "wait": 1500
+    }
+  ]
+}

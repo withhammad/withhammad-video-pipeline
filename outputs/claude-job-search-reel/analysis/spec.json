@@ -1,0 +1,159 @@
+{
+  "target_seconds": 69,
+  "beats": [
+    {
+      "name": "problem and comedic turn",
+      "start_s": 0,
+      "end_s": 12,
+      "line": "Still opening twenty career tabs and rewriting the same application? Here is a five-step workflow to prepare your shortlist with Claude, while you keep control of every submission.",
+      "visual": "Hammad full at warm desk; open tabs become an original Remotion five-step progress rail.",
+      "footage": "original avatar + Remotion",
+      "screenrec_plan": "",
+      "emphasis": [
+        "Prepare your job search"
+      ],
+      "caption_text": "Still opening twenty career tabs and rewriting the same application? Here is a five-step workflow to prepare your shortlist with Claude, while you keep control of every submission."
+    },
+    {
+      "name": "1 connect",
+      "start_s": 12,
+      "end_s": 21,
+      "line": "First, connect Microsoft\u2019s Playwright browser tool to Claude. The tool is open source; Claude access and usage are separate.",
+      "visual": "Hammad lower half; official Playwright config close-up and actual connected tools.",
+      "footage": "connect",
+      "screenrec_plan": "shots/01-playwright-docs.json",
+      "emphasis": [
+        "1 \u00b7 Connect Playwright"
+      ],
+      "caption_text": "First, connect Microsoft\u2019s Playwright browser tool to Claude. The tool is open source; Claude access and usage are separate."
+    },
+    {
+      "name": "2 resume and preferences",
+      "start_s": 21,
+      "end_s": 27,
+      "line": "Second, add your resume and specify the role, location and date range.",
+      "visual": "Hammad lower half; real chat/resume/preferences entry.",
+      "footage": "criteria",
+      "screenrec_plan": "",
+      "emphasis": [
+        "2 \u00b7 Resume + preferences"
+      ],
+      "caption_text": "Second, add your resume and specify the role, location and date range."
+    },
+    {
+      "name": "3 research",
+      "start_s": 27,
+      "end_s": 36,
+      "line": "Third, search company career pages for recent openings, and keep the source links. If a posting date is missing, flag it.",
+      "visual": "Hammad lower half; real read-only company listing and visible date/source.",
+      "footage": "career-pages",
+      "screenrec_plan": "",
+      "emphasis": [
+        "3 \u00b7 Verify recent openings"
+      ],
+      "caption_text": "Third, search company career pages for recent openings, and keep the source links. If a posting date is missing, flag it."
+    },
+    {
+      "name": "4 shortlist",
+      "start_s": 36,
+      "end_s": 45,
+      "line": "Fourth, compare each role with your actual experience, then put up to ten strong matches in a sheet, with evidence and gaps.",
+      "visual": "Hammad lower half; actual sheet/CSV with evidence and gaps.",
+      "footage": "shortlist",
+      "screenrec_plan": "",
+      "emphasis": [
+        "4 \u00b7 Shortlist with evidence"
+      ],
+      "caption_text": "Fourth, compare each role with your actual experience, then put up to ten strong matches in a sheet, with evidence and gaps."
+    },
+    {
+      "name": "5 form drafts",
+      "start_s": 45,
+      "end_s": 52,
+      "line": "Fifth, draft the application fields and a company-specific answer using only facts you can support.",
+      "visual": "Hammad lower half; labeled sample form and draft answer.",
+      "footage": "draft-form",
+      "screenrec_plan": "",
+      "emphasis": [
+        "5 \u00b7 Draft truthful answers"
+      ],
+      "caption_text": "Fifth, draft the application fields and a company-specific answer using only facts you can support."
+    },
+    {
+      "name": "scope caveat",
+      "start_s": 52,
+      "end_s": 57,
+      "line": "Where a site permits automation, it can help fill the form, but it will not work everywhere.",
+      "visual": "Brief Hammad punch-in; cards: site permission / compatibility.",
+      "footage": "original avatar + Remotion",
+      "screenrec_plan": "",
+      "emphasis": [
+        "Respect each site\u2019s rules"
+      ],
+      "caption_text": "Where a site permits automation, it can help fill the form, but it will not work everywhere."
+    },
+    {
+      "name": "review and human submit",
+      "start_s": 57,
+      "end_s": 64,
+      "line": "Stop before Submit. Check the resume, dates, eligibility and every answer yourself.",
+      "visual": "Sample form close-up; Hammad remains in bottom corner, review pointers, Submit untouched.",
+      "footage": "review",
+      "screenrec_plan": "",
+      "emphasis": [
+        "You review. You submit."
+      ],
+      "caption_text": "Stop before Submit. Check the resume, dates, eligibility and every answer yourself."
+    },
+    {
+      "name": "CTA",
+      "start_s": 64,
+      "end_s": 69,
+      "line": "Comment JOBKIT for the setup, prompt and review checklist!",
+      "visual": "Hammad desk close; simple warm end card JOBKIT, prompt + checklist, withhammad.com.",
+      "footage": "original avatar + Remotion",
+      "screenrec_plan": "",
+      "emphasis": [
+        "Comment JOBKIT"
+      ],
+      "caption_text": "Comment JOBKIT for the setup, prompt and review checklist!"
+    }
+  ],
+  "keyword": "JOBKIT",
+  "keyword_reason": "Specific uppercase resource keyword; avoids generic AUTO collisions with earlier automations.",
+  "cover_spec": "Warm desk/library setting, Hammad lower-left or centered, original abstract assistant card right; cream outlined serif hook near desk. Crop closer than source to keep face recognizable. Copy: Prepare your NEXT application. Kicker: Claude + Playwright.",
+  "assets": [
+    {
+      "what": "Fresh official package browser recording",
+      "url": "https://github.com/microsoft/playwright-mcp"
+    },
+    {
+      "what": "Actual configured Claude Desktop capture",
+      "url": "https://claude.com/download"
+    },
+    {
+      "what": "User-owned demo form and fictional resume",
+      "url": "not yet produced"
+    },
+    {
+      "what": "Website resource (pending publication)",
+      "url": "https://withhammad.com/resources/claude-job-search"
+    }
+  ],
+  "caption_style_to_match": "Cream/amber bold serif clauses, dark stroke, 1\u20132 lines at popup seam, timed to voice. No whole-screen source captions reused.",
+  "reference_flaws_and_fixes": [
+    "Tiny wide UI \u2192 narrow capture and one relevant control at a time, minimum 32px UI text in final.",
+    "No provenance in animated listings \u2192 real source URLs/dates, or clearly marked illustrative sample.",
+    "Invented match scores \u2192 evidence and gaps.",
+    "Brand-like orange robot and student likeness \u2192 Hammad and an original abstract assistant panel.",
+    "Unclear third-party UI montage \u2192 original recording of actual supported client; no fabricated connected status.",
+    "Long almost-static form section \u2192 sequential highlights tied to voice, keeping steps intact.",
+    "Claim-heavy comedy \u2192 original practical hook; source claims corrected.",
+    "Low visual hierarchy in opening architecture \u2192 closer presenter crop and legible five-step rail.",
+    "Blank/black transition around 66s \u2192 short continuous color fade, no black gap."
+  ],
+  "recording_manifest": "shots/recording-manifest.json",
+  "deviation_reason": "Source is a fictional animated dialogue; latest user requested Hammad HeyGen avatar + Remotion backgrounds. Preserve workflow and visual roles, change speaker/characters and original wording.",
+  "latest_owner_override": "English only. No large face avatar. Small 330x587 presenter PIP bottom-right. Existing generated avatar rejected; replacement must be approved before final output.",
+  "production_realization": "Original illustrated five-step cards, clearly labeled illustrative; actual Microsoft documentation screen recording. No pretend live job results."
+}

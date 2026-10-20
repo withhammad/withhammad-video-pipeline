@@ -11,7 +11,7 @@
     "avatar_name": "Hammad Yousuf",
     "consent_status": "accepted",
     "training_status": "completed",
-    "available_look_count": 3,
+    "available_look_count": 9,
     "looks_seen_in_gallery_2026_10_17": [
       {
         "name": "Hammad Yousuf",
@@ -28,11 +28,17 @@
       }
     ],
     "selected_look_id": null,
-    "selected_look_name_pending_owner_confirmation": "Hammad Yousuf",
     "assigned_default_voice_id": "0f7032b11fb743589cc81b721f4389b3",
     "voice_name": "Hammad Yousuf (cloned from original audio)",
-    "voice_compatibility_verified": false,
-    "api_key_location": "work/.secrets/heygen-api-key.txt (not yet provided)"
+    "voice_compatibility_verified": true,
+    "api_key_location": "work/.secrets/heygen-api-key.txt (not yet provided)",
+    "connection_method": "HeyGen MCP",
+    "last_verified": "2026-10-20",
+    "selected_look_name": null,
+    "digital_twin_motion_reference": "f0d7cc382e5f42398e2a5a1104b4d183",
+    "current_video_id": "bd67ddd5ecbd462ec874a81f9ba2493e",
+    "current_video_status": "completed_rejected",
+    "avatar_selection_status": "Owner rejected generated look on2026-10-20; awaiting replacement source."
   },
   "publishing": {
     "proposed_provider": "Direct platform APIs through Codex MCP",
@@ -58,7 +64,8 @@
         "default_collaborators": [
           "hammadagentic.ai"
         ],
-        "first_publish": "https://www.instagram.com/reel/DemtmtXn_AT/"
+        "first_publish": "https://www.instagram.com/reel/DemtmtXn_AT/",
+        "identity_last_verified": "2026-10-20"
       },
       {
         "key": "instagram_secondary",
@@ -95,7 +102,7 @@
           "https://www.googleapis.com/auth/youtube.force-ssl"
         ],
         "video_publish_tested": true,
-        "identity_last_verified": "2026-10-18",
+        "identity_last_verified": "2026-10-20",
         "last_long_video": "https://www.youtube.com/watch?v=u4J1oQqQoTM",
         "separate_caption_permission": "verified"
       },
@@ -125,7 +132,7 @@
         ],
         "expires_at": "2026-12-16T09:32:17+00:00",
         "video_publish_tested": true,
-        "identity_last_verified": "2026-10-18",
+        "identity_last_verified": "2026-10-20",
         "last_long_video": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7517491828477276160/",
         "english_srt_upload_tested": true
       },
@@ -140,7 +147,10 @@
         "note": "No API (paid plans not approved). Post via the owner Chrome: x.com/compose/post, upload final_social.mp4, paste the X copy (<= 280 chars, URLs count 23). Profile set up 2026-10-18 (docs/X_PROFILE.md).",
         "display_name": "Hammad Yousuf | AI Agents for Marketers",
         "previous_handle": "HammadYous32321",
-        "pinned_post": "https://x.com/HammadYousufAI/status/2111673313701597275"
+        "pinned_post": "https://x.com/HammadYousufAI/status/2111673313701597275",
+        "api_connection_status": "developer_enrollment_required",
+        "api_pricing_checked": "2026-10-20",
+        "api_pricing_source": "https://docs.x.com/x-api/getting-started/pricing"
       }
     ],
     "provider_connection_verified": true,
@@ -168,7 +178,9 @@
     "connection_status": "browser_authenticated_api_plan_blocked",
     "browser_session_verified": true,
     "instagram_handle": "with.hammad",
-    "api_access_status": "upgrade_required"
+    "api_access_status": "upgrade_required",
+    "identity_last_verified": "2026-10-20",
+    "plan": "Free"
   },
   "browser_preference": "Google Chrome"
 }

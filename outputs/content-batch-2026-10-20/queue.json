@@ -1,0 +1,32 @@
+{
+  "updated": "2026-10-20",
+  "priority": "Create content first; complete platform packaging, website funnel and analytics-based scheduling afterward.",
+  "items": [
+    {
+      "order": 1,
+      "reference": "https://www.instagram.com/reel/DepEKb1xxVI/",
+      "job": "c9d9bd2b786c",
+      "status": "english_content_ready_avatar_rejected",
+      "production": "outputs/ai-engineering-projects-reel/production.json"
+    },
+    {
+      "order": 2,
+      "reference": "https://www.instagram.com/p/DelamVen6xr/",
+      "job": "3506722867b0",
+      "status": "complete_english_carousel_no_avatar_not_published",
+      "topic": "UAE 100 Dreams",
+      "format": "carousel",
+      "related_existing_job": "91ac50635d3d",
+      "package": "outputs/100-dreams-carousel/carousel-package.zip"
+    },
+    {
+      "order": 3,
+      "reference": "https://www.instagram.com/reel/DesvNaXM_j5/",
+      "status": "english_content_and_graphics_ready_avatar_rejected",
+      "job": "7123480a28ca",
+      "topic": "Claude + Playwright job-search workflow"
+    }
+  ],
+  "language": "English only (owner correction)",
+  "avatar_policy": "Current generated likeness rejected; await owner-selected replacement source. Do not publish rejected assets."
+}

@@ -1,0 +1,9 @@
+{
+  "studio_tests": "528 passed;1 dependency deprecation warning",
+  "new_remotion_entries_typecheck": "passed",
+  "full_project_typecheck": "blocked by existing unused Img import in src/claudeedit/full.tsx (unmodified)",
+  "lesson_schemas": "first and third passed",
+  "carousel": "8 PNGs1080x1350; text fits; no avatar in slides or ZIP",
+  "publication": "none",
+  "avatar": "owner rejected; do not publish or finalize current take"
+}

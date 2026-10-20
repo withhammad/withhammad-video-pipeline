@@ -1,0 +1,18 @@
+{
+  "status": "draft_not_enabled",
+  "platform": "instagram",
+  "trigger": "comments on this specific future reel only",
+  "keyword": "JOBKIT",
+  "match_case_insensitive": true,
+  "opening_dm": "Want the setup, prompt and application-review checklist? Tap below and I’ll share the guide.",
+  "opening_button": "Send the job kit",
+  "link_dm": "Here is the Job Search Kit: https://withhammad.com/resources/claude-job-search\nStart with the research prompt and review every answer before applying. Follow @with.hammad for more practical AI workflows.",
+  "resource_url": "https://withhammad.com/resources/claude-job-search",
+  "activation_requires": [
+    "resource URL verified live",
+    "published reel ID recorded",
+    "available free-plan automation quota verified"
+  ],
+  "no_paid_plan": true,
+  "no_existing_flows_replaced": true
+}

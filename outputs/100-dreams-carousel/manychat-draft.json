@@ -1,0 +1,25 @@
+{
+  "status": "draft_not_enabled",
+  "platform": "instagram",
+  "account": "with.hammad",
+  "target": "specific new carousel only; post ID pending",
+  "trigger": {
+    "type": "comment_keyword",
+    "keywords": [
+      "DREAM",
+      "dream"
+    ]
+  },
+  "opening_dm": "Here\u2019s the 100 Dreams guide with the official programme link and my pitch checklist. Registering interest does not guarantee selection.",
+  "button_label": "Get the guide",
+  "button_url": "https://withhammad.com/resources/100-dreams-uae",
+  "follow_invitation": "Follow @with.hammad for practical AI and creator-business guides.",
+  "follow_required": false,
+  "constraints": [
+    "Use existing free-plan Quick Automation only if quota supports it.",
+    "Do not send messages to existing commenters during setup.",
+    "Do not overwrite current automations.",
+    "Test with a consenting test account after the post exists."
+  ],
+  "fallback_caption_cta": "The official link and my pitch checklist are in my bio."
+}

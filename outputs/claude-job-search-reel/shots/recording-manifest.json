@@ -1,0 +1,84 @@
+{
+  "status": "official_docs_recorded_illustrated_workflow_cards_built",
+  "output_panel": {
+    "width": 1080,
+    "height": 1080,
+    "source_css_width": 540,
+    "scale": 2
+  },
+  "recordings": [
+    {
+      "id": "connect",
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "plan": "01-playwright-docs.json",
+      "mode": "public read-only screenrec",
+      "actions": [
+        "Show official package and configuration.",
+        "In a separate native desktop capture, show actual Claude local-server entry and tools list after installation; no fake connector toggle."
+      ],
+      "pending": "Native Claude configuration not recorded; official Microsoft docs footage is used and labeled as documentation.",
+      "recorded_file": "01-playwright-docs.mp4",
+      "measured_seconds": 9.78
+    },
+    {
+      "id": "criteria",
+      "url": "Claude Desktop native application, local MCP-enabled chat",
+      "mode": "native app capture; actual supported client",
+      "actions": [
+        "Open new clean demo chat.",
+        "Attach clearly fictional resume PDF.",
+        "Type short preferences from prompt and explicit research-only scope.",
+        "Show response summarizing criteria."
+      ],
+      "pending": "Need disposable fictional resume and a real Claude session; do not substitute claude.ai for local tools without verification"
+    },
+    {
+      "id": "career-pages",
+      "url": "Employer-approved public career URL selected at recording time",
+      "mode": "read-only browser",
+      "actions": [
+        "Open real employer career board allowed for recording.",
+        "Select current relevant role.",
+        "Highlight actual posted date or UNKNOWN label.",
+        "Capture source URL and requirements."
+      ],
+      "pending": "Choose current employer pages and check permissions; do not invent a recent job or source link"
+    },
+    {
+      "id": "shortlist",
+      "url": "Actual Claude output and user-owned spreadsheet created for this demo",
+      "mode": "native/chat and sheet capture",
+      "actions": [
+        "Show genuine output rows with direct URLs and resume-evidence columns.",
+        "Export actual CSV.",
+        "Import into a new demo sheet.",
+        "Highlight evidence and gap, not invented confidence percentages."
+      ],
+      "pending": "Requires real research output; do not fill ten rows merely to satisfy headline"
+    },
+    {
+      "id": "draft-form",
+      "url": "Owned test form URL set at production time",
+      "mode": "clearly labeled owned demonstration",
+      "actions": [
+        "Show DEMO \u2014 SAMPLE DATA label throughout.",
+        "Type fictional name, graduation date and company-specific draft.",
+        "Upload fictional resume only to owned demo endpoint.",
+        "Stop before Submit and show review state."
+      ],
+      "pending": "Build or obtain a controlled test form; no live employer application writes authorized by this task"
+    },
+    {
+      "id": "review",
+      "url": "Same owned demonstration form",
+      "mode": "review close-up",
+      "actions": [
+        "Highlight resume filename, dates and eligibility field.",
+        "Display STOPPED \u2014 REVIEW REQUIRED.",
+        "Leave Submit untouched."
+      ],
+      "pending": "Depends on draft-form recording"
+    }
+  ],
+  "editorial_note": "Parent production direction: original illustrative workflow cards fit the animated reference; cards explicitly label invented criteria, roles, resume evidence, and forms as ILLUSTRATIVE EXAMPLE. No cloud sheet, application, or live result is claimed. Official Microsoft documentation is genuinely recorded."
+}

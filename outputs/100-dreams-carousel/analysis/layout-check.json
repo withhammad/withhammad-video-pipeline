@@ -1,0 +1,58 @@
+[
+  {
+    "slide": 1,
+    "contentBottom": 953.375,
+    "footerTop": 1268,
+    "overlap": false,
+    "scrollOverflow": false
+  },
+  {
+    "slide": 2,
+    "contentBottom": 1075.15625,
+    "footerTop": 1268,
+    "overlap": false,
+    "scrollOverflow": false
+  },
+  {
+    "slide": 3,
+    "contentBottom": 1025.765625,
+    "footerTop": 1268,
+    "overlap": false,
+    "scrollOverflow": false
+  },
+  {
+    "slide": 4,
+    "contentBottom": 974.171875,
+    "footerTop": 1268,
+    "overlap": false,
+    "scrollOverflow": false
+  },
+  {
+    "slide": 5,
+    "contentBottom": 1068.5625,
+    "footerTop": 1268,
+    "overlap": false,
+    "scrollOverflow": false
+  },
+  {
+    "slide": 6,
+    "contentBottom": 1075.15625,
+    "footerTop": 1268,
+    "overlap": false,
+    "scrollOverflow": false
+  },
+  {
+    "slide": 7,
+    "contentBottom": 1025.765625,
+    "footerTop": 1268,
+    "overlap": false,
+    "scrollOverflow": false
+  },
+  {
+    "slide": 8,
+    "contentBottom": 1155.328125,
+    "footerTop": 1268,
+    "overlap": false,
+    "scrollOverflow": false
+  }
+]

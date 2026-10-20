@@ -1,0 +1,72 @@
+{
+  "status": "draft_pending_final_video_and_live_resource",
+  "language": "English",
+  "hooks": [
+    "Learning AI engineering, but stuck on what to build?",
+    "85 ideas. Start by finishing one.",
+    "Turn your AI learning into a working demo."
+  ],
+  "instagram": {
+    "caption": "Your next AI project shouldn't start with a blank page.\n\nThis catalog gives you 85 ideas across agents, RAG, fine-tuning and more. Choose one that matches your current skills, build a small working version, then show how you tested it.\n\nComment PROJECTS for the repo and my build checklist. Follow @with.hammad for practical AI builds.\n\nAI avatar of me.",
+    "hashtags": [
+      "#AIEngineering",
+      "#AIProjects",
+      "#RAG",
+      "#AIAgents",
+      "#BuildInPublic"
+    ],
+    "collaborator": "hammadagentic.ai",
+    "ai_label": true
+  },
+  "facebook": {
+    "caption": "Your next AI project shouldn't start with a blank page.\n\nThis catalog gives you 85 ideas across agents, RAG, fine-tuning and more. Choose one that matches your current skills, build a small working version, then show how you tested it.\n\nComment PROJECTS for the repo and my build checklist. Follow Hammad Yousuf for practical AI builds.\n\nAI avatar of me.",
+    "hashtags": [
+      "#AIEngineering",
+      "#AIProjects",
+      "#AIAgents"
+    ],
+    "ai_label": true
+  },
+  "linkedin": {
+    "body": "The hardest part of an AI portfolio can be choosing something small enough to finish.\n\nLanded's catalog offers 85 project ideas, with difficulty levels, skills and learning references. My suggestion: pick one, build a working demo, and document how it fails as carefully as how it works.\n\nA project with clear evidence gives people something concrete to evaluate.\n\nhttps://withhammad.com/resources/ai-engineering-projects\n\nFollow for practical AI engineering workflows. Presenter: my AI avatar.",
+    "hashtags": [],
+    "alt_text": "Hammad explains an AI project catalog while original GitHub recordings show project categories and skills."
+  },
+  "youtube": {
+    "title": "85 AI Engineering Project Ideas: What to Build Next",
+    "description": "Stuck choosing an AI engineering portfolio project? Start here.\n\nRepo and project checklist: https://withhammad.com/resources/ai-engineering-projects\nOriginal catalog: https://github.com/landedjobs/ai-engineer-portfolio-projects\n\nPick one project, build a working demo, test it, and explain the tradeoffs. These are ideas and learning references; individual tools may have their own costs.\n\nSubscribe for practical AI workflows. AI avatar of me.\n\n#AIEngineering #AIProjects #RAG",
+    "tags": [
+      "AI engineering projects",
+      "AI portfolio",
+      "RAG project",
+      "AI agents",
+      "GitHub projects"
+    ],
+    "synthetic_media": true
+  },
+  "x": {
+    "text": "Stuck choosing an AI portfolio project? Start with one small demo, test it, and show your results.\n\n85 ideas + my checklist: https://withhammad.com/resources/ai-engineering-projects\n\nAI avatar of me.",
+    "media": "final_social.mp4"
+  },
+  "manychat": {
+    "status": "draft_not_enabled",
+    "platform": "Instagram",
+    "trigger": "Comments on this specific future reel only",
+    "keyword": "PROJECTS",
+    "opening_dm": "Want the AI project collection and my build checklist? Tap below. Follow @with.hammad for more practical builds.",
+    "button": "Send the projects",
+    "link_dm": "Here is the collection and checklist. Start with one project that fits your skills and time.",
+    "url": "https://withhammad.com/resources/ai-engineering-projects",
+    "prerequisites": [
+      "Verify live resource page.",
+      "Confirm Free plan automation allowance.",
+      "Bind trigger to actual published reel ID.",
+      "Test once with a consenting account."
+    ]
+  },
+  "timing": {
+    "basis": "docs/BEST_TIMES.md; existing owner analytics evidence from2026-10-18",
+    "not_yet_scheduled": true,
+    "next_step": "Choose next unoccupied day only after final video and funnel verification."
+  }
+}
