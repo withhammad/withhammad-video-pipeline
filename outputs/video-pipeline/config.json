@@ -27,25 +27,26 @@
         "note": "webcam-style, marked New"
       }
     ],
-    "selected_look_id": null,
+    "selected_look_id": "5dfa03f53ae54f919040a26a953b7f4b",
     "assigned_default_voice_id": "0f7032b11fb743589cc81b721f4389b3",
     "voice_name": "Hammad Yousuf (cloned from original audio)",
     "voice_compatibility_verified": true,
     "api_key_location": "work/.secrets/heygen-api-key.txt (not yet provided)",
     "connection_method": "HeyGen MCP",
     "last_verified": "2026-10-20",
-    "selected_look_name": null,
+    "selected_look_name": "Content creator in olive shirt",
     "digital_twin_motion_reference": null,
-    "current_video_id": null,
-    "current_video_status": "rejected_do_not_use",
-    "avatar_selection_status": "Owner strictly forbids previously rejected looks and real-video twin. Different presenter pending gallery selection.",
+    "current_video_id": "9e178b0d855b06b779d397435e0f08d3",
+    "current_video_status": "processing",
+    "avatar_selection_status": "Owner selected olive-shirt look via gallery; ready and consent accepted; Avatar IV uses no rejected motion reference.",
     "rejected_avatar_ids": [
       "cefe83302c79302d9a4bc7e987dcc8b6",
       "c0c91d44e16140028f05656df6f8a027",
       "ae84501493694d18b44e45be54198fff",
       "f0d7cc382e5f42398e2a5a1104b4d183"
     ],
-    "allow_digital_twin_setup": false
+    "allow_digital_twin_setup": false,
+    "selected_engine": "avatar_iv"
   },
   "publishing": {
     "proposed_provider": "Direct platform APIs through Codex MCP",

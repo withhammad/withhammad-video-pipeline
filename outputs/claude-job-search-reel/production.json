@@ -1,5 +1,5 @@
 {
-  "status": "awaiting_different_avatar_selection",
+  "status": "selected_olive_shirt_render_processing",
   "reference": "https://www.instagram.com/reel/DesvNaXM_j5/",
   "job_id": "7123480a28ca",
   "order": 3,
@@ -17,10 +17,10 @@
     "website, automation and scheduling"
   ],
   "no_real_job_applications_performed": true,
-  "avatar_approval": "rejected_do_not_use",
-  "avatar_status": "All previously shown looks and the real-video digital twin are excluded.",
+  "avatar_approval": "owner_selected_via_HeyGen_gallery",
+  "avatar_status": "Selected look verified ready; new take processing; final review pending.",
   "rejected_heygen_video_id": "ab4754f5b1ec88be3acd14c4dff02bc9",
-  "current_avatar_approved": false,
+  "current_avatar_approved": true,
   "render_entry": "studio/remotion/src/job-search/index.tsx",
   "composition": "JobSearch",
   "preview_url": "http://localhost:3119/JobSearch",
@@ -35,13 +35,16 @@
     "caption_width": 530
   },
   "no_final_video_rendered": true,
-  "avatar_id": null,
-  "heygen_video_id": null,
+  "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
+  "heygen_video_id": "e0f82a153b79e6cb4c2f877db95c2413",
   "presenter_framing": "Small360x203 landscape PIP in final1080x1920 composition",
   "rejected_avatar_ids": [
     "cefe83302c79302d9a4bc7e987dcc8b6",
     "c0c91d44e16140028f05656df6f8a027",
     "ae84501493694d18b44e45be54198fff",
     "f0d7cc382e5f42398e2a5a1104b4d183"
-  ]
+  ],
+  "avatar_look": "Content creator in olive shirt",
+  "engine": "HeyGen Avatar IV",
+  "resolution": "720p landscape source; portrait Remotion output"
 }
