@@ -1,0 +1,9 @@
+{
+  "composition_typecheck": "passed",
+  "thumbnail": "rendered; inspected and corrected frame-zero animation state",
+  "preview_frame": "rendered and visually inspected",
+  "studio_http": 200,
+  "resource_http": 200,
+  "final_video": "pending presenter result, transcription, sync and final QA",
+  "publication": "not authorized until owner sees final"
+}

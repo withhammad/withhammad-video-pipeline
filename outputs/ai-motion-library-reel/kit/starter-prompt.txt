@@ -1,0 +1,12 @@
+Create an original 12-second motion graphic for [PRODUCT], using Remotion.
+Audience: [AUDIENCE]. Main message: [ONE BENEFIT].
+Format: 1080x1920, 30fps. Leave the bottom 280px clear for platform controls.
+Palette: ink #142033, warm white #f6f1e8, lime #b7ff64. Use licensed fonts.
+0–3s: reveal the product name and one short benefit with staggered type.
+3–7s: demonstrate one feature with original geometric UI elements. Gentle camera push.
+7–10s: resolve into the benefit with a clean slide transition.
+10–12s: hold the final call to action with no new competing elements.
+Use frame-based animation. Keep text legible on a phone.
+Do not copy another creator’s logo, assets, music or composition.
+Provide editable source, a preview, and a note listing any external assets and licenses.
+Review the render for spelling, contrast, clipping, timing and audio before publishing.

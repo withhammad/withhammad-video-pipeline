@@ -1,0 +1,17 @@
+{
+  "job": "motion20261020",
+  "status": "in_production_avatar_processing",
+  "reference": "https://www.instagram.com/reel/DerldXdPE38/",
+  "reference_duration": 29.909,
+  "language": "English",
+  "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
+  "presenter_box": [
+    340,
+    192
+  ],
+  "approval_required": true,
+  "upload_status": "not_uploaded_not_scheduled",
+  "resource_status": "local_not_deployed",
+  "keyword": "MOTION",
+  "studio": "http://localhost:3018/MotionLibrary"
+}
