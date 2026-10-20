@@ -1,8 +1,8 @@
 {
   "job": "website20261020",
-  "status": "approved_scheduled_native_and_queued_api",
+  "status": "instagram_published_other_platforms_scheduled_or_queued",
   "approval_required": false,
-  "upload_status": "YouTube/TikTok/Facebook/X native schedules verified; LinkedIn/Instagram timed API jobs queued",
+  "upload_status": "Instagram published Oct20 20:02 GST; YouTube/TikTok/Facebook/X native schedules and LinkedIn timed API remain Oct25",
   "resource_status": "deployed_verified_200",
   "resource_slug": "ai-website-design-brief",
   "keyword": "DESIGN",
@@ -17,7 +17,7 @@
   ],
   "language": "English",
   "source": "Original demonstration based on independent topic research",
-  "manychat": "Saved OFF draft content20261020133756_436865; heartbeat binds DESIGN and exact reel after Instagram publication",
+  "manychat": "OFF draft; DESIGN exact reel binding pending because Mac is locked and Flow Builder remains loading",
   "final": "final.mp4",
   "duration_seconds": 27.2,
   "thumbnail": "cover_1080x1920.jpg",
@@ -38,5 +38,6 @@
   "resource_url": "https://withhammad.com/resources/ai-website-design-brief",
   "schedule_date": "2026-10-25",
   "automation_id": "publish-approved-projects-and-jobkit-reels",
-  "instagram_schedule_override": "2026-10-20 20:00 Asia/Dubai, owner requested today; other platforms remain2026-10-25"
+  "instagram_schedule_override": "2026-10-20 20:00 Asia/Dubai, owner requested today; other platforms remain2026-10-25",
+  "instagram_url": "https://www.instagram.com/reel/DeuNwewjXms/"
 }

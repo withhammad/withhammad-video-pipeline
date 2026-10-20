@@ -1,0 +1,53 @@
+{
+  "verified_at": "2026-10-20T16:06:44.056214+00:00",
+  "publisher_state": {
+    "platform": "instagram",
+    "account": {
+      "username": "with.hammad",
+      "ig_user_id": "17841400507502327"
+    },
+    "video": {
+      "path": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/website20261020/final_ig.mp4",
+      "size": 3651578,
+      "sha256": "37e5198941f9ff0f47d88f215dec41228c23c7cc71fdc4a5f2adc7b69fc5134d"
+    },
+    "caption_sha256": "1576fa9388cf7569ddb445df0a32767a5b1f09050e7227f19586f847481e5aac",
+    "updated_at": "2026-10-20T16:02:35Z",
+    "video_url": "https://withhammad.com/media/reels/ai-website-design-brief.mp4",
+    "video_url_provider": "StaticUrlProvider",
+    "status": "published",
+    "hosted_at": "2026-10-20T16:01:41Z",
+    "cover_url": "https://withhammad.com/media/covers/ai-website-design-brief.jpg",
+    "cover_url_provider": "StaticUrlProvider",
+    "container_id": "18645089869016917",
+    "container_created_at": "2026-10-20T16:01:43Z",
+    "container_status": "FINISHED",
+    "cover_key": "2f79ca8537f04975d0039d59d03cb1e6f78b62083f1ae544fbf9e194400db7c8",
+    "publish_attempted_at": "2026-10-20T16:02:24Z",
+    "media_id": "18102296804369794",
+    "published_at": "2026-10-20T16:02:35Z",
+    "permalink": "https://www.instagram.com/reel/DeuNwewjXms/",
+    "shortcode": "DeuNwewjXms"
+  },
+  "published": {
+    "url": "https://www.instagram.com/reel/DeuNwewjXms/",
+    "account": "with.hammad",
+    "media_id": "18102296804369794",
+    "via": "api",
+    "collaborators_invited": [
+      "hammadagentic.ai"
+    ],
+    "collab_status": "invited, not yet accepted",
+    "ai_label": true,
+    "cover": "cover_url (https://withhammad.com/media/covers/ai-website-design-brief.jpg)",
+    "posted_at": "2026-10-20T16:01:37Z"
+  },
+  "duplicate_policy": "Already published. Never resubmit on October 25.",
+  "manychat_status": "OFF; exact post binding pending; Mac screen locked and flow editor remains loading",
+  "collaborator_action": "Owner must accept invitation on hammadagentic.ai",
+  "resource_checks": {
+    "page_http": 200,
+    "download_http": 200,
+    "method": "curl HEAD with TLS verification"
+  }
+}

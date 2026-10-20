@@ -1,5 +1,5 @@
 {
-  "status": "saved_OFF_waiting_for_specific_instagram_post",
+  "status": "saved_OFF_pending_binding_mac_locked",
   "workspace": "fb5064597",
   "flow_id": "content20261020133756_436865",
   "url": "https://app.manychat.com/fb5064597/cms/files/content20261020133756_436865/edit",
@@ -12,5 +12,9 @@
   "saved_verified_after_reload": "2026-10-20T13:51:08.876613+00:00",
   "resource_live": true,
   "automation_id": "publish-approved-projects-and-jobkit-reels",
-  "remaining": "Bind exact Instagram post and DESIGN keyword, verify path, then enable. Free plan requires actual post."
+  "remaining": "Unlock Mac and make Chrome visible. Bind published reel DeuNwewjXms (18102296804369794) and DESIGN keyword, verify path, then enable only this flow. Never enable the broad template trigger.",
+  "instagram_media_id": "18102296804369794",
+  "instagram_url": "https://www.instagram.com/reel/DeuNwewjXms/",
+  "checked_at": "2026-10-20T16:06:44.056214+00:00",
+  "blocker": "macOS CGSSessionScreenIsLocked=Yes; Chrome document.visibilityState=hidden; Flow Builder loading indefinitely. Basic Builder still confirms saved private reply."
 }

@@ -264,7 +264,7 @@
         },
         "instagram": {
           "via": "api",
-          "status": "pending",
+          "status": "published",
           "slot_utc": "2026-10-20T16:00:00Z",
           "local_time": "Tue 2026-10-20 20:00 GST",
           "account": "with.hammad",
@@ -277,7 +277,15 @@
           "hosted_at": "2026-10-20T13:43:05Z",
           "automation_id": "publish-approved-projects-and-jobkit-reels",
           "date_override": "2026-10-20",
-          "owner_override": "Owner requested Instagram today at best remaining time on 20 October; saved 20:00 backup slot. Other platforms remain 25 October."
+          "owner_override": "Owner requested Instagram today at best remaining time on 20 October; saved 20:00 backup slot. Other platforms remain 25 October.",
+          "attempt_at": "2026-10-20T16:01:37Z",
+          "url": "https://www.instagram.com/reel/DeuNwewjXms/",
+          "published_at": "2026-10-20T16:01:37Z",
+          "media_id": "18102296804369794",
+          "followups": [
+            "ManyChat: Quick Automation \"Auto-DM links from comments\" on https://www.instagram.com/reel/DeuNwewjXms/ with keyword DESIGN, link https://withhammad.com/resources/ai-website-design-brief",
+            "Owner: accept the Collab on @hammadagentic.ai in the Instagram app"
+          ]
         },
         "tiktok": {
           "via": "composer",

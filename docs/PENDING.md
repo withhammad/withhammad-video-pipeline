@@ -75,3 +75,5 @@ Job website20261020 (DESIGN): owner-approved 27.2s English Remotion reel with sm
 Job audit20261020, CHECK: final 29.7s English Remotion reel, small approved olive presenter, thumbnail, six-platform copy and verified local resource kit ready. See outputs/ai-dashboard-audit-reel/REVIEW.txt. Not uploaded, queued, deployed or included in heartbeat; final owner approval required.
 
 DESIGN override: owner requested Instagram today. Its Instagram slot is now 20 October 20:00 GST; other five platforms remain 25 October. Heartbeat updated; dry run targets only DESIGN at tonight’s slot. Do not publish it again on 25 October.
+
+20 October 20:02 GST: DESIGN Instagram published https://www.instagram.com/reel/DeuNwewjXms/ (18102296804369794). Do not repost. Owner must accept hammadagentic.ai Collab. DESIGN ManyChat is still OFF, binding blocked by locked Mac / hidden Chrome / Flow Builder loading; resume exact-post DESIGN trigger after unlock. Other platform slots unchanged.

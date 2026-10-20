@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-10-20T13:51:08.876613+00:00",
+  "verified_at": "2026-10-20T16:06:44.056214+00:00",
   "queue": {
     "date": "2026-10-25",
     "day": "Sun",
@@ -33,9 +33,9 @@
       },
       "instagram": {
         "via": "api",
-        "status": "pending",
-        "slot_utc": "2026-10-25T13:00:00Z",
-        "local_time": "Sun 2026-10-25 17:00 GST",
+        "status": "published",
+        "slot_utc": "2026-10-20T16:00:00Z",
+        "local_time": "Tue 2026-10-20 20:00 GST",
         "account": "with.hammad",
         "video_url": "https://withhammad.com/media/reels/ai-website-design-brief.mp4",
         "cover_url": "https://withhammad.com/media/covers/ai-website-design-brief.jpg",
@@ -44,7 +44,17 @@
         "cover_bytes": 116345,
         "site_commit": "3e4a154",
         "hosted_at": "2026-10-20T13:43:05Z",
-        "automation_id": "publish-approved-projects-and-jobkit-reels"
+        "automation_id": "publish-approved-projects-and-jobkit-reels",
+        "date_override": "2026-10-20",
+        "owner_override": "Owner requested Instagram today at best remaining time on 20 October; saved 20:00 backup slot. Other platforms remain 25 October.",
+        "attempt_at": "2026-10-20T16:01:37Z",
+        "url": "https://www.instagram.com/reel/DeuNwewjXms/",
+        "published_at": "2026-10-20T16:01:37Z",
+        "media_id": "18102296804369794",
+        "followups": [
+          "ManyChat: Quick Automation \"Auto-DM links from comments\" on https://www.instagram.com/reel/DeuNwewjXms/ with keyword DESIGN, link https://withhammad.com/resources/ai-website-design-brief",
+          "Owner: accept the Collab on @hammadagentic.ai in the Instagram app"
+        ]
       },
       "tiktok": {
         "via": "composer",
@@ -91,7 +101,8 @@
         "verified_at": "2026-10-20T13:51:08.876613+00:00"
       }
     },
-    "queued_at": "2026-10-20T13:39:21Z"
+    "queued_at": "2026-10-20T13:39:21Z",
+    "note": "Owner exception: Instagram 20 October 20:00 GST; other platforms 25 October. No second Instagram post on 25 October."
   },
   "published": {
     "youtube": {
@@ -135,6 +146,19 @@
       "via": "chrome",
       "scheduled_for": "2026-10-25",
       "account": "HammadYousufAI"
+    },
+    "instagram": {
+      "url": "https://www.instagram.com/reel/DeuNwewjXms/",
+      "account": "with.hammad",
+      "media_id": "18102296804369794",
+      "via": "api",
+      "collaborators_invited": [
+        "hammadagentic.ai"
+      ],
+      "collab_status": "invited, not yet accepted",
+      "ai_label": true,
+      "cover": "cover_url (https://withhammad.com/media/covers/ai-website-design-brief.jpg)",
+      "posted_at": "2026-10-20T16:01:37Z"
     }
   }
 }
