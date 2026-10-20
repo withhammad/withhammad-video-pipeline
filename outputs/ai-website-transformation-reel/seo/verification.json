@@ -1,5 +1,5 @@
 {
-  "status": "copy_checks_pass_publication_blocked",
+  "status": "copy_checks_pass_owner_approved_scheduled",
   "checks": {
     "youtube": {
       "characters": 573,
@@ -16,7 +16,7 @@
       "hashtags_count": 4
     },
     "tiktok": {
-      "characters": 394,
+      "characters": 434,
       "budget": 500,
       "within_budget": true,
       "ai_disclosure": true,
@@ -48,8 +48,8 @@
       "within_60": true
     }
   },
-  "resource_http_check": "deliberately not treated as live; planned URL and deployment remain gated",
+  "resource_http_check": "200 verified: live page, ZIP and both demos",
   "final_render_comparison": "Checked against final nine-scene render: sample business before/after, consultation CTA, typography/spacing/palette, specific offer, mobile and contrast, no conversion claim. Small AI presenter visible. English narration and captions.",
-  "owner_approval": "pending",
-  "no_upload_performed": true
+  "owner_approval": "approved 2026-10-20",
+  "no_upload_performed": false
 }

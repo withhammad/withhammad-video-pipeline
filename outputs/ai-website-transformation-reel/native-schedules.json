@@ -1,0 +1,30 @@
+{
+  "tiktok": {
+    "status": "composer_scheduled",
+    "url": "https://www.tiktok.com/@hammadyousuf01/video/7698744181560282376",
+    "local_time": "2026-10-25 17:00 GST",
+    "confirmation": "Studio content list reloaded: matching AI website design caption, 00:27, Oct25 5PM, Everyone.",
+    "cover": "custom uploaded and saved",
+    "ai_label": true
+  },
+  "facebook": {
+    "status": "composer_scheduled",
+    "local_time": "2026-10-25 17:00 Asia/Dubai",
+    "remote_id": null,
+    "receipt_url": "https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT",
+    "confirmation": "Content Library Scheduled list: exact AI website design caption and 25 Oct 2026, 17:00. Public visibility and AI label selected before scheduling.",
+    "ai_label": true,
+    "cover": "custom cover uploaded",
+    "verified_at": "2026-10-20T13:51:08.876613+00:00"
+  },
+  "x": {
+    "status": "composer_scheduled",
+    "local_time": "2026-10-25 18:00 Asia/Dubai",
+    "remote_id": null,
+    "receipt_url": "https://x.com/compose/post/unsent/scheduled",
+    "confirmation": "Scheduled list: exact AI website design caption, 0:27 video, Sun Oct 25 2026 at 6:00 PM. Gulf Standard Time verified in composer.",
+    "srt_uploaded": true,
+    "cover": null,
+    "verified_at": "2026-10-20T13:51:08.876613+00:00"
+  }
+}

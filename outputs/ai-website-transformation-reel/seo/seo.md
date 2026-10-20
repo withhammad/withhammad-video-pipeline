@@ -1,7 +1,7 @@
 # AI website transformation — review copy
 
 
-DRAFT. Do not upload, schedule or publish. Final render approval and resource/funnel verification are required.
+Owner approved 20 October 2026. Scheduled for 25 October; see publishing-handoff.md for receipts and remaining timed actions.
 
 
 Primary keyword: **AI website design**. English only. Disclosure: **AI presenter.**
@@ -56,13 +56,13 @@ Follow @with.hammad for practical AI builds. Comment DESIGN and I’ll DM you th
 
 ## Tiktok
 
-AI website design looking generic? Get the brief through the link in bio.
+AI website design looking generic? Get the brief: https://withhammad.com/resources/ai-website-design-brief
 
 Same sample business, clearer direction: one consultation goal, a specific offer and CTA, typography, spacing and palette. Check mobile layout and text contrast.
 
 Design demonstration. AI presenter.
 
-Follow for practical AI builds. Template: link in bio.
+Follow for practical AI builds. Copy the guide address above.
 
 #AIWebsiteDesign #WebsiteRedesign #LandingPageDesign #WebDesign
 
@@ -125,13 +125,13 @@ These examples support audience interest in the topic; they do not establish lik
 
 ## Publication gates
 
-- Owner approves final rendered video and this copy before any upload.
+- Owner approved final rendered video and distribution on 20 October.
 
-- Deploy and verify planned resource URL only after authorization.
+- Resource deployed and HTTP 200 verified.
 
 - Configure and test Instagram DESIGN funnel against the approved specific reel before using its DM promise.
 
-- Verify TikTok bio destination reaches the resource before using link-in-bio copy.
+- TikTok uses the direct resource address; no unverified bio promise.
 
 - Verify metadata matches final rendered sample, not merely the production brief.
 

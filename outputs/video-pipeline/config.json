@@ -183,7 +183,8 @@
     "workspace_url": "https://app.manychat.com/fb5064597/dashboard",
     "flow_ids": {
       "PROJECTS": "content20261020115937_543617",
-      "JOBKIT": "content20261020121005_806950"
+      "JOBKIT": "content20261020121005_806950",
+      "DESIGN": "content20261020133756_436865"
     },
     "followup_destination": null,
     "connection_status": "browser_authenticated_api_plan_blocked",
@@ -192,18 +193,20 @@
     "api_access_status": "upgrade_required",
     "identity_last_verified": "2026-10-20",
     "plan": "Free",
-    "draft_status": "Both saved, OFF. PROJECTS opening/button/link step; JOBKIT private reply with follow invitation and guide URL. Specific-post trigger and keyword must be configured and enabled after each reel exists; template triggers must not be enabled on any post."
+    "draft_status": "PROJECTS, JOBKIT and DESIGN saved OFF. DESIGN private reply includes follow invitation and verified design resource URL. Configure each specific-post trigger and exact keyword after its reel exists, then enable only its flow. Never enable broad template triggers."
   },
   "browser_preference": "Google Chrome",
   "scheduler_scope": {
     "automation_id": "publish-approved-projects-and-jobkit-reels",
     "jobs": [
       "c9d9bd2b786c",
-      "7123480a28ca"
+      "7123480a28ca",
+      "website20261020"
     ],
     "dates": [
       "2026-10-23",
-      "2026-10-24"
+      "2026-10-24",
+      "2026-10-25"
     ],
     "kind": "Codex thread heartbeat",
     "requires": "Mac awake and Codex running for Instagram/LinkedIn and ManyChat activation; native schedules run on their platforms."

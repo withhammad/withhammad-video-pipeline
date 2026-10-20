@@ -1,0 +1,9 @@
+{
+  "video_id": "LBx57qzUrq8",
+  "checked_at": "2026-10-20T13:51:08.876613+00:00",
+  "video_language": "English",
+  "manual_english_srt": "serving",
+  "non_english_translation_rows": 0,
+  "studio_message": "Automatic translation will begin after subtitles have been generated. For now, you can add other languages manually.",
+  "followup": "Heartbeat rechecks auto-dubs after processing and keeps non-English tracks unpublished."
+}

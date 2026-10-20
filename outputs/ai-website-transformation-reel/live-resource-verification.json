@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-10-20T13:50:11.699452+00:00",
+  "checks": [
+    {
+      "url": "https://withhammad.com/resources/ai-website-design-brief",
+      "status": 200
+    },
+    {
+      "url": "https://withhammad.com/resources/ai-website-design-brief/ai-website-design-kit.zip",
+      "status": 200
+    },
+    {
+      "url": "https://withhammad.com/resources/ai-website-design-brief/demo/before.html",
+      "status": 200
+    },
+    {
+      "url": "https://withhammad.com/resources/ai-website-design-brief/demo/after.html",
+      "status": 200
+    },
+    {
+      "url": "https://withhammad.com/media/reels/ai-website-design-brief.mp4",
+      "status": 200
+    },
+    {
+      "url": "https://withhammad.com/media/covers/ai-website-design-brief.jpg",
+      "status": 200
+    }
+  ],
+  "site_commit": "2d1f30b",
+  "media_commit": "3e4a154"
+}

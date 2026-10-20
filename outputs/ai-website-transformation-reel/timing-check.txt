@@ -1,0 +1,5 @@
+Checked 20 October 2026, Asia/Dubai. Next free day: Sunday 25 October, preserving previous queue through 24 October and one reel per day.
+Instagram live Professional dashboard: 112,635 followers; 5,560 views in last 30 days. Sunday activity, 12a/3a/6a/9a/12p/3p/6p/9p: 11,937 / 11,909 / 13,410 / 12,295 / 6,116 / 3,786 / 8,462 / 10,453. Highest 6a in Meta's Pacific-time chart; interpreted as 17:00 GST during daylight time. Preserve known chart timezone ambiguity (fixed PST would mean 18:00); do not claim an exact optimum.
+YouTube audience report checked earlier today still had insufficient data for hourly viewer heatmap; retain documented historical publish-hour prior, Sunday 12:00 GST. This is not a fresh measured optimum for the AI niche.
+LinkedIn/TikTok/Facebook/X retain low-confidence slots from docs/BEST_TIMES.md, not claimed account-measured hourly optima. X has no Premium analytics.
+Sunday 25 October GST: LinkedIn10:00; YouTube12:00; Instagram/TikTok/Facebook17:00; X18:00.

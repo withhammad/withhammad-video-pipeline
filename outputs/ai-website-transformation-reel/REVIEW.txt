@@ -1,8 +1,8 @@
-AI WEBSITE TRANSFORMATION — READY FOR REVIEW
+AI WEBSITE TRANSFORMATION — APPROVED AND SCHEDULED
 
 27.2 seconds, 1080x1920, English only. Approved olive-shirt avatar at 340x192 pixels; natural voice pace retained. Final video: final.mp4. Covers: cover_1080x1920.jpg and cover_720x1280.jpg. Captions: captions.srt. Six-platform copy: seo/seo.md. Resource preview: resource.html. Download: ai-website-design-kit.zip.
 
-Nothing is scheduled or uploaded to social platforms. The resource is local and is not deployed. DESIGN automation is a prepared plan only. The existing two-reel heartbeat does not include this job.
+Owner approved 20 October. Scheduled for 25 October: YouTube/TikTok/Facebook/X native; Instagram/LinkedIn timed API jobs. Resource deployed. DESIGN is a saved OFF ManyChat draft awaiting the specific Instagram post. Existing heartbeat extended to this approved job. See publishing-handoff.md.
 
 Validation: final audio -13.9 LUFS, -1.4 dBTP, zero clipped samples; no clipped word endings measured. Natural pauses 7.4% exceed the older 3-5% target: protected audible releases were retained under the newer natural-speech preference. Mobile/resource widths 320/375/390/768/1280 passed overflow checks. Specific text contrast pairs exceeded 4.5:1. These checks are not a complete accessibility audit.
 

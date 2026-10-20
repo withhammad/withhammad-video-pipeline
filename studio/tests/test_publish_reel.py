@@ -947,6 +947,15 @@ def test_an_instagram_past_its_backup_window_is_missed(env):
     assert result['results'][0]['action'] == 'missed' and rt.posts() == []
 
 
+def test_check_accepts_truthful_non_twin_presenter_disclosure(env):
+    seo = json.loads(json.dumps(SEO))
+    for platform, field in (('x', 'post'), *pr.DISCLOSED_COPY):
+        seo[platform][field] = seo[platform][field].replace('AI avatar of me', 'AI presenter')
+    env['make_job'](seo=seo)
+    report = pr.check_report('job1', rt=env['rt']())
+    assert not any(b['code'] == 'disclosure' for b in report['blockers'])
+
+
 def test_check_blocks_copy_without_the_ai_disclosure_or_the_x_resource_link(env):
     seo = json.loads(json.dumps(SEO))
     for platform, field in (('x', 'post'), ('instagram', 'caption'), ('linkedin', 'text'), ('tiktok', 'caption'),

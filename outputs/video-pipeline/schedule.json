@@ -230,6 +230,99 @@
         }
       },
       "queued_at": "2026-10-20T12:04:12Z"
+    },
+    {
+      "date": "2026-10-25",
+      "day": "Sun",
+      "job": "website20261020",
+      "title": "AI Website Transformation: A Better Design Brief",
+      "keyword": "DESIGN",
+      "slug": "ai-website-design-brief",
+      "resource_url": "https://withhammad.com/resources/ai-website-design-brief",
+      "status": "queued",
+      "platforms": {
+        "youtube": {
+          "via": "api",
+          "status": "scheduled",
+          "slot_utc": "2026-10-25T08:00:00Z",
+          "local_time": "Sun 2026-10-25 12:00 GST",
+          "privacy": "private",
+          "publish_at": "2026-10-25T08:00:00Z",
+          "video_id": "LBx57qzUrq8",
+          "url": "https://www.youtube.com/shorts/LBx57qzUrq8",
+          "uploaded_at": "2026-10-20T13:39:36Z",
+          "thumbnail": "set",
+          "publish_at_verified": true,
+          "warnings": null
+        },
+        "linkedin": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-25T06:00:00Z",
+          "local_time": "Sun 2026-10-25 10:00 GST",
+          "automation_id": "publish-approved-projects-and-jobkit-reels"
+        },
+        "instagram": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-25T13:00:00Z",
+          "local_time": "Sun 2026-10-25 17:00 GST",
+          "account": "with.hammad",
+          "video_url": "https://withhammad.com/media/reels/ai-website-design-brief.mp4",
+          "cover_url": "https://withhammad.com/media/covers/ai-website-design-brief.jpg",
+          "hosted": true,
+          "video_bytes": 3651578,
+          "cover_bytes": 116345,
+          "site_commit": "3e4a154",
+          "hosted_at": "2026-10-20T13:43:05Z",
+          "automation_id": "publish-approved-projects-and-jobkit-reels"
+        },
+        "tiktok": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-25T13:00:00Z",
+          "local_time": "Sun 2026-10-25 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": true,
+          "text": "AI website design looking generic? Get the brief: https://withhammad.com/resources/ai-website-design-brief\n\nSame sample business, clearer direction: one consultation goal, a specific offer and CTA, typography, spacing and palette. Check mobile layout and text contrast.\n\nDesign demonstration. AI presenter.\n\nFollow for practical AI builds. Copy the guide address above.\n\n#AIWebsiteDesign #WebsiteRedesign #LandingPageDesign #WebDesign",
+          "cover": "custom cover uploaded and saved",
+          "url": "https://www.tiktok.com/@hammadyousuf01/video/7698744181560282376",
+          "marked_at": "2026-10-20T13:49:51Z",
+          "confirmation": "Studio content list reloaded: matching AI website design caption, 00:27, Oct25 5PM, Everyone."
+        },
+        "facebook": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-25T13:00:00Z",
+          "local_time": "Sun 2026-10-25 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": true,
+          "text": "AI website design looking generic? Get the brief: https://withhammad.com/resources/ai-website-design-brief\n\nSee the same sample business with a clearer design direction: one consultation goal, a specific offer and CTA, defined typography, spacing and palette, then mobile and text contrast checks.\n\nThis is a design demonstration, not a measured conversion result. AI presenter.\n\nFollow for more practical AI builds. Get the template: https://withhammad.com/resources/ai-website-design-brief\n\n#AIWebsiteDesign #WebDesign",
+          "cover": "custom cover uploaded",
+          "remote_id": null,
+          "receipt_url": "https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT",
+          "confirmation": "Content Library Scheduled list: exact AI website design caption and 25 Oct 2026, 17:00. Public visibility and AI label selected before scheduling.",
+          "verified_at": "2026-10-20T13:51:08.876613+00:00"
+        },
+        "x": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-25T14:00:00Z",
+          "local_time": "Sun 2026-10-25 18:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": null,
+          "text": "AI website design looking generic? Try a clearer brief: https://withhammad.com/resources/ai-website-design-brief\nOne goal, a specific offer, typography, spacing and mobile checks. Sample redesign.\nAI presenter. Follow for more AI builds. Get the brief above.\n#WebDesign",
+          "weighted_length": 236,
+          "cover": null,
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule",
+          "remote_id": null,
+          "receipt_url": "https://x.com/compose/post/unsent/scheduled",
+          "confirmation": "Scheduled list: exact AI website design caption, 0:27 video, Sun Oct 25 2026 at 6:00 PM. Gulf Standard Time verified in composer.",
+          "srt_uploaded": true,
+          "verified_at": "2026-10-20T13:51:08.876613+00:00"
+        }
+      },
+      "queued_at": "2026-10-20T13:39:21Z"
     }
   ]
 }

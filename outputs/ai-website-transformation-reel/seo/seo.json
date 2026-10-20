@@ -1,17 +1,14 @@
 {
-  "status": "draft_pending_final_video_review_and_owner_approval",
+  "status": "owner_approved_pending_resource_deployment",
   "primary_keyword": "AI website design",
   "rationale": "Use searchable AI website design language and an original before/after sample. Public examples indicate topic interest, not forecast views.",
   "resource_url": "https://withhammad.com/resources/ai-website-design-brief",
   "resource_status": "planned_not_verified_live",
   "manychat_keyword": "DESIGN",
   "publication_gates": [
-    "Owner approves final rendered video and this copy before any upload.",
-    "Deploy and verify planned resource URL only after authorization.",
-    "Configure and test Instagram DESIGN funnel against the approved specific reel before using its DM promise.",
-    "Verify TikTok bio destination reaches the resource before using link-in-bio copy.",
-    "Verify metadata matches final rendered sample, not merely the production brief.",
-    "Use English audio and captions; prevent non-English automatic audio dubbing."
+    "Deploy and verify resource before scheduling.",
+    "Activate DESIGN specific-post trigger after Instagram publication.",
+    "Verify English-only audio before release."
   ],
   "hooks": [
     "Your AI website looks generic? Start with the brief.",
@@ -19,8 +16,8 @@
     "Before you change AI tools, change these design instructions."
   ],
   "thumbnail": {
-    "primary": "FIX YOUR AI WEBSITE",
-    "secondary": "BEFORE → AFTER",
+    "primary": "SAME AI. BETTER WEBSITE.",
+    "secondary": "BEFORE / AFTER",
     "alternative": "BETTER BRIEF. BETTER DESIGN.",
     "direction": "Compare the same sample business before and after. Keep labels readable and approved presenter small; avoid sales figures, tool logos or a fake client testimonial."
   },
@@ -41,7 +38,7 @@
     ]
   },
   "instagram": {
-    "caption": "AI website design looking generic? Comment DESIGN for the brief.\n\nThis sample keeps the same business and gives the page a clearer direction:\n• One goal: book a consultation.\n• A specific offer and call to action.\n• Defined typography, spacing and palette.\n• A mobile layout and text contrast check.\n\nA design demonstration, not a conversion claim. AI presenter.\n\nFollow @with.hammad for practical AI builds. Comment DESIGN and I’ll DM you the template.\n\n#AIWebsiteDesign #WebsiteRedesign #LandingPageDesign #WebDesign",
+    "caption": "AI website design looking generic? Comment DESIGN for the brief.\n\nThis sample keeps the same business and gives the page a clearer direction:\n\u2022 One goal: book a consultation.\n\u2022 A specific offer and call to action.\n\u2022 Defined typography, spacing and palette.\n\u2022 A mobile layout and text contrast check.\n\nA design demonstration, not a conversion claim. AI presenter.\n\nFollow @with.hammad for practical AI builds. Comment DESIGN and I\u2019ll DM you the template.\n\n#AIWebsiteDesign #WebsiteRedesign #LandingPageDesign #WebDesign",
     "hashtags": [
       "#AIWebsiteDesign",
       "#WebsiteRedesign",
@@ -49,10 +46,10 @@
       "#WebDesign"
     ],
     "alt_text": "Before-and-after comparison of a sample business website, followed by a design brief covering the consultation goal, offer, call to action, typography, spacing, palette, mobile layout and contrast. A small AI presenter accompanies English captions.",
-    "alt_text_status": "draft_verify_against_final_frames; use where supported"
+    "alt_text_status": "verified_against_final_frames"
   },
   "tiktok": {
-    "caption": "AI website design looking generic? Get the brief through the link in bio.\n\nSame sample business, clearer direction: one consultation goal, a specific offer and CTA, typography, spacing and palette. Check mobile layout and text contrast.\n\nDesign demonstration. AI presenter.\n\nFollow for practical AI builds. Template: link in bio.\n\n#AIWebsiteDesign #WebsiteRedesign #LandingPageDesign #WebDesign",
+    "caption": "AI website design looking generic? Get the brief: https://withhammad.com/resources/ai-website-design-brief\n\nSame sample business, clearer direction: one consultation goal, a specific offer and CTA, typography, spacing and palette. Check mobile layout and text contrast.\n\nDesign demonstration. AI presenter.\n\nFollow for practical AI builds. Copy the guide address above.\n\n#AIWebsiteDesign #WebsiteRedesign #LandingPageDesign #WebDesign",
     "hashtags": [
       "#AIWebsiteDesign",
       "#WebsiteRedesign",

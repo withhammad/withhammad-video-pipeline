@@ -469,7 +469,7 @@ def attempt_in_progress(jdir, platform):
     return False
 
 
-AI_DISCLOSURE = re.compile(r'\bAI avatar\b', re.I)
+AI_DISCLOSURE = re.compile(r'\bAI (?:avatar|presenter)\b', re.I)
 X_DISCLOSURE = 'ai avatar of me'
 DISCLOSED_COPY = (('instagram', 'caption'), ('linkedin', 'text'), ('tiktok', 'caption'), ('facebook', 'caption'),
                   ('youtube', 'description'))
@@ -488,12 +488,12 @@ def _failed_checks(node, path='checks'):
 
 
 def _disclosure_checks(seo, url, blockers, warnings):
-    """AGENTS.md daily routine step 6: the X post carries the resource link and "AI avatar of me"; every caption
-    that goes out names the AI avatar (the API flags are set by the publishers on top of this)."""
+    """Require the resource link and explicit AI disclosure. Approved non-twin presenters may say
+    "AI presenter" instead of claiming the avatar depicts the owner. API disclosure flags remain required."""
     post = _get(seo, ('x', 'post'))
     if isinstance(post, str) and post.strip():
-        if X_DISCLOSURE not in post.lower():
-            _blocker(blockers, 'disclosure', 'seo.json x.post lacks "AI avatar of me" (AGENTS.md step 6)', 'x')
+        if X_DISCLOSURE not in post.lower() and not re.search(r'\bAI presenter\b', post, re.I):
+            _blocker(blockers, 'disclosure', 'seo.json x.post lacks "AI avatar of me" or "AI presenter"', 'x')
         bare = re.sub(r'^https?://', '', url or '').rstrip('/')
         if not bare or bare.lower() not in post.lower():
             _blocker(blockers, 'x_link', f'seo.json x.post lacks the resource link {url or "(none)"}', 'x')

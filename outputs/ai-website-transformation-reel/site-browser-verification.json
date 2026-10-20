@@ -1,0 +1,719 @@
+[
+  {
+    "path": "/resources/ai-website-design-brief",
+    "width": 390,
+    "scroll": 390,
+    "h1": 1,
+    "title": "AI website design brief and review checklist",
+    "description": "Improve a generic AI website with a clear design brief. Copy the prompt, review mobile layout and contrast, and download both sample pages.",
+    "canonical": "https://withhammad.com/resources/ai-website-design-brief",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://withhammad.com/#person",
+            "name": "Hammad Yousuf",
+            "jobTitle": "AI Marketing Automation Engineer",
+            "email": "marketing@withhammad.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "url": "https://withhammad.com",
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://instagram.com/with.hammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google AI Professional Certificate"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Ads AI-Powered Performance"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Social Media Marketing Professional"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "One Million Prompters – AI Prompt Engineering (Dubai Future Foundation)"
+              }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://withhammad.com/#organization",
+            "name": "withhammad",
+            "legalName": "Hammad Yousuf",
+            "url": "https://withhammad.com",
+            "founder": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://instagram.com/with.hammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "areaServed": [
+              "AE",
+              "SA",
+              "QA",
+              "BH"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "GEO"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://withhammad.com/#website",
+            "url": "https://withhammad.com",
+            "name": "withhammad.com",
+            "publisher": {
+              "@id": "https://withhammad.com/#person"
+            }
+          },
+          {
+            "@type": "Article",
+            "headline": "AI website design brief and review checklist",
+            "description": "Improve a generic AI website with a clear design brief. Copy the prompt, review mobile layout and contrast, and download both sample pages.",
+            "url": "https://withhammad.com/resources/ai-website-design-brief",
+            "datePublished": "2026-10-20",
+            "dateModified": "2026-10-20",
+            "author": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "publisher": {
+              "@id": "https://withhammad.com/#person"
+            }
+          },
+          {
+            "@type": "HowTo",
+            "name": "AI website design brief and review checklist",
+            "description": "Improve a generic AI website with a clear design brief. Copy the prompt, review mobile layout and contrast, and download both sample pages.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Choose one action",
+                "text": "Define the audience, offer and primary action before changing the layout."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Write a visual brief",
+                "text": "Specify typography, palette, spacing and imagery. Preserve accurate information and working links."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Review the result",
+                "text": "Test mobile widths, keyboard controls and text contrast. Connect and test the real booking destination before launch."
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://withhammad.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://withhammad.com/resources"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "AI website design brief and review checklist",
+                "item": "https://withhammad.com/resources/ai-website-design-brief"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "copy": 0,
+    "exact": true
+  },
+  {
+    "copy": 1,
+    "exact": true
+  },
+  {
+    "path": "/resources",
+    "width": 390,
+    "scroll": 390,
+    "h1": 1,
+    "title": "Free AI Resources: Prompts, Guides and Checklists",
+    "description": "Free AI resources from the reels: copy-paste prompts, setup guides, a 6-week roadmap and checklists, plus 30 workflow guides and 20 field notes.",
+    "canonical": "https://withhammad.com/resources",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://withhammad.com/#person",
+            "name": "Hammad Yousuf",
+            "jobTitle": "AI Marketing Automation Engineer",
+            "email": "marketing@withhammad.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "url": "https://withhammad.com",
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://instagram.com/with.hammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google AI Professional Certificate"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Ads AI-Powered Performance"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Social Media Marketing Professional"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "One Million Prompters – AI Prompt Engineering (Dubai Future Foundation)"
+              }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://withhammad.com/#organization",
+            "name": "withhammad",
+            "legalName": "Hammad Yousuf",
+            "url": "https://withhammad.com",
+            "founder": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://instagram.com/with.hammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "areaServed": [
+              "AE",
+              "SA",
+              "QA",
+              "BH"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "GEO"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://withhammad.com/#website",
+            "url": "https://withhammad.com",
+            "name": "withhammad.com",
+            "publisher": {
+              "@id": "https://withhammad.com/#person"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://withhammad.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://withhammad.com/resources"
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://withhammad.com/resources#page",
+            "url": "https://withhammad.com/resources",
+            "name": "Free AI Resources: Prompts, Guides and Checklists",
+            "description": "Free AI resources from the reels: copy-paste prompts, setup guides, a 6-week roadmap and checklists, plus 30 workflow guides and 20 field notes.",
+            "isPartOf": {
+              "@id": "https://withhammad.com/#website"
+            },
+            "mainEntity": {
+              "@type": "ItemList",
+              "numberOfItems": 11,
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "url": "https://withhammad.com/resources/ai-website-design-brief",
+                  "name": "AI website design brief and review checklist"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "url": "https://withhammad.com/resources/ai-engineering-projects",
+                  "name": "AI engineering projects: 85 ideas and a build checklist"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "url": "https://withhammad.com/resources/claude-job-search",
+                  "name": "Claude job search: Playwright setup and review checklist"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "url": "https://withhammad.com/resources/ai-startup-stack-costs",
+                  "name": "The AI startup stack: 14 tools, their real prices and the honest monthly bill"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "url": "https://withhammad.com/resources/forward-deployed-engineer-roadmap",
+                  "name": "Forward Deployed Engineer: a free 6-week roadmap (2026)"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 6,
+                  "url": "https://withhammad.com/resources/100-dreams-uae",
+                  "name": "100 Dreams UAE: the official link, key dates and a pitch-prep checklist"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 7,
+                  "url": "https://withhammad.com/resources/scrapegraphai-lead-finder",
+                  "name": "A free daily lead finder with ScrapeGraphAI: setup, code and UK rules"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 8,
+                  "url": "https://withhammad.com/resources/youtube-agent-skill-claude",
+                  "name": "Claude's YouTube Agent Skill: 11 free skills for your YouTube workflow"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 9,
+                  "url": "https://withhammad.com/resources/reverse-engineer-features-with-claude-code",
+                  "name": "Reverse-engineer a feature with Claude Code"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 10,
+                  "url": "https://withhammad.com/resources/ai-business",
+                  "name": "30 practical workflow guides"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 11,
+                  "url": "https://withhammad.com/resources/ai-engineering",
+                  "name": "20 AI engineering field notes"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/resources/ai-website-design-brief",
+    "width": 1280,
+    "scroll": 1280,
+    "h1": 1,
+    "title": "AI website design brief and review checklist",
+    "description": "Improve a generic AI website with a clear design brief. Copy the prompt, review mobile layout and contrast, and download both sample pages.",
+    "canonical": "https://withhammad.com/resources/ai-website-design-brief",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://withhammad.com/#person",
+            "name": "Hammad Yousuf",
+            "jobTitle": "AI Marketing Automation Engineer",
+            "email": "marketing@withhammad.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "url": "https://withhammad.com",
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://instagram.com/with.hammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google AI Professional Certificate"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Ads AI-Powered Performance"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Social Media Marketing Professional"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "One Million Prompters – AI Prompt Engineering (Dubai Future Foundation)"
+              }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://withhammad.com/#organization",
+            "name": "withhammad",
+            "legalName": "Hammad Yousuf",
+            "url": "https://withhammad.com",
+            "founder": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://instagram.com/with.hammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "areaServed": [
+              "AE",
+              "SA",
+              "QA",
+              "BH"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "GEO"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://withhammad.com/#website",
+            "url": "https://withhammad.com",
+            "name": "withhammad.com",
+            "publisher": {
+              "@id": "https://withhammad.com/#person"
+            }
+          },
+          {
+            "@type": "Article",
+            "headline": "AI website design brief and review checklist",
+            "description": "Improve a generic AI website with a clear design brief. Copy the prompt, review mobile layout and contrast, and download both sample pages.",
+            "url": "https://withhammad.com/resources/ai-website-design-brief",
+            "datePublished": "2026-10-20",
+            "dateModified": "2026-10-20",
+            "author": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "publisher": {
+              "@id": "https://withhammad.com/#person"
+            }
+          },
+          {
+            "@type": "HowTo",
+            "name": "AI website design brief and review checklist",
+            "description": "Improve a generic AI website with a clear design brief. Copy the prompt, review mobile layout and contrast, and download both sample pages.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Choose one action",
+                "text": "Define the audience, offer and primary action before changing the layout."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Write a visual brief",
+                "text": "Specify typography, palette, spacing and imagery. Preserve accurate information and working links."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Review the result",
+                "text": "Test mobile widths, keyboard controls and text contrast. Connect and test the real booking destination before launch."
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://withhammad.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://withhammad.com/resources"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "AI website design brief and review checklist",
+                "item": "https://withhammad.com/resources/ai-website-design-brief"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "copy": 0,
+    "exact": true
+  },
+  {
+    "copy": 1,
+    "exact": true
+  },
+  {
+    "path": "/resources",
+    "width": 1280,
+    "scroll": 1280,
+    "h1": 1,
+    "title": "Free AI Resources: Prompts, Guides and Checklists",
+    "description": "Free AI resources from the reels: copy-paste prompts, setup guides, a 6-week roadmap and checklists, plus 30 workflow guides and 20 field notes.",
+    "canonical": "https://withhammad.com/resources",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://withhammad.com/#person",
+            "name": "Hammad Yousuf",
+            "jobTitle": "AI Marketing Automation Engineer",
+            "email": "marketing@withhammad.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "url": "https://withhammad.com",
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://instagram.com/with.hammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google AI Professional Certificate"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Ads AI-Powered Performance"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Social Media Marketing Professional"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "One Million Prompters – AI Prompt Engineering (Dubai Future Foundation)"
+              }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://withhammad.com/#organization",
+            "name": "withhammad",
+            "legalName": "Hammad Yousuf",
+            "url": "https://withhammad.com",
+            "founder": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://instagram.com/with.hammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "areaServed": [
+              "AE",
+              "SA",
+              "QA",
+              "BH"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "GEO"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://withhammad.com/#website",
+            "url": "https://withhammad.com",
+            "name": "withhammad.com",
+            "publisher": {
+              "@id": "https://withhammad.com/#person"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://withhammad.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://withhammad.com/resources"
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://withhammad.com/resources#page",
+            "url": "https://withhammad.com/resources",
+            "name": "Free AI Resources: Prompts, Guides and Checklists",
+            "description": "Free AI resources from the reels: copy-paste prompts, setup guides, a 6-week roadmap and checklists, plus 30 workflow guides and 20 field notes.",
+            "isPartOf": {
+              "@id": "https://withhammad.com/#website"
+            },
+            "mainEntity": {
+              "@type": "ItemList",
+              "numberOfItems": 11,
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "url": "https://withhammad.com/resources/ai-website-design-brief",
+                  "name": "AI website design brief and review checklist"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "url": "https://withhammad.com/resources/ai-engineering-projects",
+                  "name": "AI engineering projects: 85 ideas and a build checklist"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "url": "https://withhammad.com/resources/claude-job-search",
+                  "name": "Claude job search: Playwright setup and review checklist"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "url": "https://withhammad.com/resources/ai-startup-stack-costs",
+                  "name": "The AI startup stack: 14 tools, their real prices and the honest monthly bill"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "url": "https://withhammad.com/resources/forward-deployed-engineer-roadmap",
+                  "name": "Forward Deployed Engineer: a free 6-week roadmap (2026)"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 6,
+                  "url": "https://withhammad.com/resources/100-dreams-uae",
+                  "name": "100 Dreams UAE: the official link, key dates and a pitch-prep checklist"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 7,
+                  "url": "https://withhammad.com/resources/scrapegraphai-lead-finder",
+                  "name": "A free daily lead finder with ScrapeGraphAI: setup, code and UK rules"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 8,
+                  "url": "https://withhammad.com/resources/youtube-agent-skill-claude",
+                  "name": "Claude's YouTube Agent Skill: 11 free skills for your YouTube workflow"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 9,
+                  "url": "https://withhammad.com/resources/reverse-engineer-features-with-claude-code",
+                  "name": "Reverse-engineer a feature with Claude Code"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 10,
+                  "url": "https://withhammad.com/resources/ai-business",
+                  "name": "30 practical workflow guides"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 11,
+                  "url": "https://withhammad.com/resources/ai-engineering",
+                  "name": "20 AI engineering field notes"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sitemap": true
+  },
+  {
+    "asset": "/resources/ai-website-design-brief/ai-website-design-kit.zip",
+    "status": 200
+  },
+  {
+    "asset": "/resources/ai-website-design-brief/demo/before.html",
+    "status": 200
+  },
+  {
+    "asset": "/resources/ai-website-design-brief/demo/after.html",
+    "status": 200
+  }
+]
