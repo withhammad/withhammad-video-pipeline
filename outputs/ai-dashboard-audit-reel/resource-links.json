@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://support.microsoft.com/en-us/office/filter-for-or-remove-duplicate-values-662c153f-cf21-4d7b-a5af-a9390648eb37",
+    "python_tls_error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1082)>",
+    "curl_http_status": 200
+  },
+  {
+    "url": "https://docs.python.org/3/library/csv.html",
+    "python_tls_error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>",
+    "curl_http_status": 200
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "status": "copy_verified_release_blocked",
+  "character_counts": {
+    "youtube": 654,
+    "instagram": 567,
+    "tiktok": 493,
+    "linkedin": 868,
+    "facebook": 587,
+    "x": 232
+  },
+  "youtube_title_characters": 45,
+  "disclosures_all_platforms": true,
+  "english_only_copy": true,
+  "arithmetic": "15000 - 3000 = 12000; seven rows - one exact duplicate = six orders",
+  "facts_checked_against": "../lesson.json",
+  "resource_http_status": 404,
+  "publish_blockers": [
+    "Owner approval of final new reel and details",
+    "Resource deployment and live verification",
+    "Instagram CHECK specific-post automation configured at publication"
+  ],
+  "fixes": [
+    "Use truthful AI presenter disclosure instead of claiming owner digital twin.",
+    "Direct TikTok resource address instead of unverified link in bio.",
+    "Explicit sample-data qualifiers and review-before-removal guidance.",
+    "No guarantees of virality, revenue, clients or model capability."
+  ],
+  "hashtag_policy": "4 IG, 4 TikTok, 3 YouTube, 3 LinkedIn, 3 Facebook, 1 X; relevant topical selection, no verified size/banned-status claim."
+}

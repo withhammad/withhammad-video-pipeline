@@ -1,0 +1,68 @@
+{
+  "selected": "AI dashboard audit: looks right, wrong total",
+  "confidence": "Moderate topic-fit; no viral forecast",
+  "sample": "Three YouTube Data API searches, July20\u2013Oct20 2026, order=viewCount, short duration (<4min). This does NOT prove Shorts classification or English speech; titles manually filtered. Not channel-normalized outliers; no search-volume estimate. vidIQ unavailable (zero credits, zero charged).",
+  "support": [
+    {
+      "id": "n7LM6egSgek",
+      "title": "How to Create a Dashboard with ChatGPT \ud83d\udcca #ChatGPT_partner  @OpenAI",
+      "channel": "Kevin Stratvert",
+      "channel_id": "UCfJT_eYDTmDE-ovKaxVE1ig",
+      "published": "2026-08-20T13:41:27Z",
+      "duration": "PT1M59S",
+      "views": 53879,
+      "likes": "1491",
+      "url": "https://www.youtube.com/watch?v=n7LM6egSgek"
+    },
+    {
+      "id": "o9WsumssGgE",
+      "title": "\ud83d\udd25 Create Your Own Prompt + Build ANY Dashboard Using Claude AI in 3 Minutes | Claude AI Tutorial",
+      "channel": "Vizspire Ai ",
+      "channel_id": "UCIbq9HHwLh9TfjcIxL1uI9A",
+      "published": "2026-08-09T11:45:23Z",
+      "duration": "PT3M38S",
+      "views": 52507,
+      "likes": "560",
+      "url": "https://www.youtube.com/watch?v=o9WsumssGgE"
+    },
+    {
+      "id": "B9krizXS16g",
+      "title": "Build a Professional Sales Dashboard with AI! \u2728",
+      "channel": "IICA Computer Education",
+      "channel_id": "UC9xqp0g38ExZMawt61Y_pcw",
+      "published": "2026-08-07T14:43:19Z",
+      "duration": "PT48S",
+      "views": 24414,
+      "likes": "696",
+      "url": "https://www.youtube.com/watch?v=B9krizXS16g"
+    }
+  ],
+  "excluded": [
+    "Official Claude launch video: launch/promotion spike, not reusable independent format evidence.",
+    "Non-English titles, generic career videos and irrelevant search matches."
+  ],
+  "comparison": [
+    {
+      "idea": "AI dashboard audit",
+      "fit": "High: practical AI, marketers, founders; concrete visible correction; reproducible resource",
+      "freshness": "Evergreen",
+      "originality": "Audit-first duplicate trap instead of generic dashboard generation tutorial"
+    },
+    {
+      "idea": "Notebook research-to-quiz",
+      "fit": "Medium: productivity; study audience less directly aligned",
+      "limitation": "Brand/product changes and existing crowded tutorials; less distinct payoff"
+    },
+    {
+      "idea": "AI email automation",
+      "fit": "High audience fit",
+      "limitation": "Search sample largely unrelated; insufficient evidence for a specific recurring idea"
+    }
+  ],
+  "counterevidence": "Raw views may reflect audience size, ads or age; no measured velocity/outlier ratio/retention. Three selected independent examples support general dashboard interest, not this precise audit hook. Private same-format age-normalized analytics not collected; channel fit is editorial based on current AI workflow content.",
+  "sources": [
+    "https://support.microsoft.com/en-us/excel/filter-for-or-remove-duplicate-values",
+    "https://docs.python.org/3/library/csv.html"
+  ],
+  "production": "Original fictional dataset, no borrowed footage, English script, approved small olive presenter. User review required before upload."
+}

@@ -1,0 +1,26 @@
+{
+  "sample_only": true,
+  "unit_of_row": "one complete order, not a line item",
+  "currency": "AED",
+  "date_range": [
+    "2026-10-01",
+    "2026-10-06"
+  ],
+  "original_rows": 7,
+  "cleaned_rows": 6,
+  "original_total": "15000",
+  "removed_amount": "3000",
+  "cleaned_total": "12000",
+  "reconciliation_pass": true,
+  "repeated_ids": [
+    {
+      "order_id": "O-1003",
+      "retained_csv_row": 4,
+      "removed_csv_row": 8,
+      "amount": "3000",
+      "classification": "exact duplicate; reviewed synthetic sample"
+    }
+  ],
+  "policy": "Exact duplicate removal is approved for this fictional sample only. Review repeated IDs in real data before any change.",
+  "source_sha256": "18f511c9c444223012228a9d721b75b48da6eddcd9d96f19cf0813b5385bd1ed"
+}

@@ -1,0 +1,63 @@
+{
+  "checked_at": "2026-10-20T14:03:50.517411+00:00",
+  "autocomplete": "autocomplete.json",
+  "youtube_evidence": "outputs/next-reel-research-2026-10-20/youtube-evidence.json",
+  "additional_youtube_api_queries": 0,
+  "vidiq_paid_calls": 0,
+  "sources": [
+    {
+      "url": "https://support.google.com/youtube/answer/146402?hl=en",
+      "finding": "Tags play a minimal discovery role; prioritize accurate title, thumbnail and description."
+    },
+    {
+      "url": "https://newsroom.tiktok.com/5-tips-for-tiktok-creators?lang=en",
+      "finding": "Official 2020 guidance: relevant hashtags and caption context, no FYP guarantee. Historical guidance, not a current algorithm formula."
+    },
+    {
+      "url": "https://www.linkedin.com/help/linkedin/answer/a523136/search-on-linkedin",
+      "finding": "LinkedIn search includes posts."
+    },
+    {
+      "url": "https://www.linkedin.com/help/linkedin/answer/a527226",
+      "finding": "LinkedIn post limit 3000 characters."
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/excel/filter-for-or-remove-duplicate-values",
+      "finding": "Preserve original data and review duplicates; removal deletes values."
+    }
+  ],
+  "keyword_evidence": [
+    {
+      "term": "AI dashboard",
+      "evidence": "YouTube autocomplete rank 3 exact; related excel/generator suggestions ranks 1/2",
+      "intent": "build or learn dashboard workflows"
+    },
+    {
+      "term": "AI data analysis",
+      "evidence": "YouTube autocomplete rank 1 exact",
+      "intent": "analyze data using AI"
+    },
+    {
+      "term": "CSV data cleaning",
+      "evidence": "YouTube autocomplete rank 1 exact",
+      "intent": "clean a practice data file"
+    },
+    {
+      "term": "data quality",
+      "evidence": "Google linkedin data quality exact suggestion rank 1",
+      "intent": "professional quality checks"
+    }
+  ],
+  "title_patterns": [
+    "Topic first + visible mistake",
+    "Show a concrete before/after amount with sample qualifier"
+  ],
+  "limitations": [
+    "Autocomplete is query vocabulary, not measured volume.",
+    "Earlier YouTube views are not normalized for channel size, video age or paid traffic; no causal viral prediction.",
+    "Instagram official search article throttled (429); current hashtag cap not independently verified. Four relevant hashtags is conservative, not a claimed platform maximum.",
+    "No unsupported claim that external links hurt LinkedIn reach.",
+    "TikTok social seed returned no suggestions; do not invent search demand.",
+    "Alt text is editorial accessibility text; native support must be checked at publication."
+  ]
+}

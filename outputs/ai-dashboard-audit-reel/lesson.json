@@ -1,0 +1,113 @@
+{
+  "language": "en",
+  "topic_title": "AI Dashboard Audit: The Duplicate Order Trap",
+  "hook": "This AI dashboard looks polished, but its total is wrong.",
+  "key_takeaways": [
+    "Audit source data before creating charts.",
+    "Repeated IDs require review, not blind deletion.",
+    "Reconcile the clean total against the original and removed amount."
+  ],
+  "script": {
+    "estimated_seconds": 34,
+    "segments": [
+      {
+        "spoken": "This AI dashboard looks polished, but its total is wrong.",
+        "visual": "demo",
+        "on_screen_text": ""
+      },
+      {
+        "spoken": "In this sample, one duplicated order turns twelve thousand into fifteen thousand.",
+        "visual": "demo",
+        "on_screen_text": ""
+      },
+      {
+        "spoken": "Before asking AI for charts, ask it to audit the rows.",
+        "visual": "demo",
+        "on_screen_text": ""
+      },
+      {
+        "spoken": "Check repeated order IDs, confirm the currency, and check the date range.",
+        "visual": "demo",
+        "on_screen_text": ""
+      },
+      {
+        "spoken": "Review the duplicate, then rebuild from the cleaned data and reconcile the total with the source.",
+        "visual": "demo",
+        "on_screen_text": ""
+      },
+      {
+        "spoken": "Now the chart looks good and the number checks out.",
+        "visual": "demo",
+        "on_screen_text": ""
+      },
+      {
+        "spoken": "This is sample data, not client results.",
+        "visual": "demo",
+        "on_screen_text": ""
+      },
+      {
+        "spoken": "Comment CHECK for the audit prompt and practice file, and follow for more practical AI builds!",
+        "visual": "demo",
+        "on_screen_text": ""
+      }
+    ]
+  },
+  "demo_steps": [
+    "Read seven sample rows: AED 15,000, including one exact duplicate order of AED 3,000.",
+    "Flag repeated order O-1003 and compare all fields.",
+    "Verify one order per row, AED currency and 1\u20136 October 2026 window.",
+    "Review the exact duplicate, retain six original orders, reconcile AED 15,000 minus AED 3,000 equals AED 12,000.",
+    "Build the dashboard using the checked six-row file."
+  ],
+  "prompts": [
+    {
+      "title": "Audit before charts",
+      "text": "Audit this CSV before making a dashboard. Do not alter the original. First state the unit of a row and the date/currency assumptions. For this practice file, each row is a complete order, not a line item. Flag repeated order IDs and distinguish exact duplicate rows from conflicting records. Show row numbers and the amounts affected. Do not delete repeated IDs automatically: explain why an exact row is a duplicate and ask before changing real data. Never merge currencies or guess exchange rates. Check missing values, numeric parsing and the date window. For the included sample only, remove the exact duplicate after review, save cleaned-orders.csv and reconcile original total minus removed amount equals cleaned total. Produce an audit log and a simple dashboard from the cleaned file. Show currency, date range, row count and assumptions. If anything cannot be verified, say so. Keep real customer data private and use an approved tool."
+    }
+  ],
+  "tool_links": [
+    {
+      "name": "Microsoft: filter or remove duplicate values",
+      "url": "https://support.microsoft.com/en-us/office/filter-for-or-remove-duplicate-values-662c153f-cf21-4d7b-a5af-a9390648eb37"
+    },
+    {
+      "name": "Python CSV documentation",
+      "url": "https://docs.python.org/3/library/csv.html"
+    }
+  ],
+  "manychat_keyword": "CHECK",
+  "resource_page": {
+    "slug": "ai-dashboard-data-check",
+    "title": "AI dashboard data audit: prompt and practice kit",
+    "body_markdown": "Practice on a fictional seven-row orders CSV. One exact duplicate inflates AED 12,000 to AED 15,000. Download the original, cleaned CSV, audit log, reproducible Python audit and local dashboard. Each row represents a complete order. Never delete repeated IDs blindly; real line-item data may repeat an order ID legitimately. Confirm currency and date range, preserve the original and reconcile totals. All numbers are illustrative, not client results. AI presenter."
+  },
+  "sources_checked": [
+    {
+      "claim": "Duplicate detection depends on selected columns; preserve original data and review before removal.",
+      "url": "https://support.microsoft.com/en-us/office/filter-for-or-remove-duplicate-values-662c153f-cf21-4d7b-a5af-a9390648eb37"
+    }
+  ],
+  "originality_note": "Original synthetic data and working audit/dashboard. No copied creator footage or imitation product UI. Approved olive AI presenter small at340x192.",
+  "cover": {
+    "kicker": "AI DASHBOARD AUDIT",
+    "hook": "Looks right. Wrong",
+    "pill_strong": "TOTAL",
+    "pill_serif": "check first"
+  },
+  "captions": {
+    "instagram": "AI dashboard looks right. The total is wrong. Comment CHECK for the audit prompt + practice file.\n\nOne exact duplicate turns AED 12,000 into AED 15,000 in this fictional sample.\n\nBefore charts, check repeated order IDs, currency and date range. Review the rows, preserve the original and reconcile the total. A repeated ID is a flag to investigate, not an instruction to delete.\n\nSample data, not client results. AI presenter.\n\nComment CHECK and I\u2019ll DM you the kit. Follow @with.hammad for practical AI builds.\n\n#AIDashboard #DataQuality #DataCleaning #AIForBusiness",
+    "youtube_title": "AI Dashboard Looks Right. The Total Is Wrong.",
+    "youtube_description": "AI dashboard audit: check the data before the chart.\nFree audit prompt + practice kit: https://withhammad.com/resources/ai-dashboard-data-check\n\nThis fictional orders file totals AED 15,000 because one AED 3,000 order appears twice. After reviewing that exact duplicate, six orders total AED 12,000.\n\nCheck the unit of each row, repeated IDs, currency and date range. Preserve the original and reconcile the totals. Repeated IDs can be legitimate line items: never delete them blindly.\n\nSample data, not client results. AI presenter.\n\nGet the audit prompt and practice kit above. Subscribe for more practical AI builds.\n\n#AIDashboard #DataQuality #Shorts",
+    "tiktok": "AI dashboard audit: check the rows before trusting the chart. Practice kit: https://withhammad.com/resources/ai-dashboard-data-check\n\nIn this fictional sample, one exact duplicate adds AED 3,000 to a total that should be AED 12,000. Review repeated IDs, confirm currency and dates, then reconcile.\n\nSample data, not client results. AI presenter.\n\nGet the audit prompt + practice file at the address above. Follow for practical AI builds.\n\n#AIDashboard #DataCleaning #DataQuality #AIForBusiness",
+    "linkedin": "AI dashboard audit: a polished chart can still contain the wrong total. Try the practice kit: https://withhammad.com/resources/ai-dashboard-data-check\n\nIn this fictional orders file, one exact duplicate inflates AED 12,000 to AED 15,000. The chart accurately displays an unchecked input.\n\nBefore building the dashboard, establish what one row represents, review repeated IDs, confirm the currency and date range, and reconcile original minus removed amount against the cleaned total.\n\nA repeated order ID may represent legitimate line items. Review the full record before removing anything, and preserve the original.\n\nThe kit includes an audit prompt and practice data. Sample data, not client results. AI presenter.\n\nTry the kit above. Which check would you add before trusting a dashboard? Follow for practical AI builds.\n\n#DataQuality #DataAnalytics #AIForBusiness"
+  },
+  "hashtags": [
+    "AI dashboard",
+    "AI data analysis",
+    "CSV data cleaning",
+    "data quality checks",
+    "duplicate rows",
+    "dashboard audit"
+  ],
+  "caption_file": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/audit20261020/captions.srt"
+}

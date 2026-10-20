@@ -1,0 +1,32 @@
+{
+  "job": "audit20261020",
+  "status": "ready_for_owner_review",
+  "approval_required": true,
+  "publish_status": "not_authorized_hold_for_final_review",
+  "language": "English",
+  "presenter_box": [
+    340,
+    192
+  ],
+  "keyword": "CHECK",
+  "resource_slug": "ai-dashboard-data-check",
+  "duration_seconds": 29.674,
+  "final": "final.mp4",
+  "final_sha256": "2b6220a6424ad5bdf6608b4ebbc5ae76da692671c355659602ee3a08bcb855b9",
+  "resource": "resource.html",
+  "download": "ai-dashboard-audit-kit.zip",
+  "thumbnail": "cover_1080x1920.jpg",
+  "seo": "seo/seo.json",
+  "resource_status": "local_verified_not_deployed",
+  "manychat": "plan_only_not_created_or_enabled",
+  "validation": {
+    "python_tests": "530 passed; one existing deprecation warning",
+    "resource_tests": "4 passed",
+    "voice_gates": "all measured gates pass; 4.4% pauses; no clipped word endings; no speed-up",
+    "final_audio": "-14.0 LUFS; -1.6dBTP; 0 clipped samples",
+    "visual_review": "all nine scenes inspected; source and clean totals match audit.json",
+    "resource_browser": "375/390/1280 no overflow, exact prompt copy, ZIP download, dashboard toggle checked",
+    "composition_typescript": "pass",
+    "studio_preview": "DashboardAudit loaded with preview on port3017"
+  }
+}

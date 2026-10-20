@@ -1,0 +1,14 @@
+{
+  "status": "prepared_only_not_created_or_enabled",
+  "keyword": "CHECK",
+  "workspace": "fb5064597",
+  "trigger": "specific approved audit reel after publication",
+  "resource_url": "https://withhammad.com/resources/ai-dashboard-data-check?utm_source=instagram&utm_medium=dm&utm_campaign=check",
+  "message": "Thanks for commenting CHECK! Follow @with.hammad for practical AI builds. Here is the audit prompt, practice CSV and dashboard: https://withhammad.com/resources/ai-dashboard-data-check?utm_source=instagram&utm_medium=dm&utm_campaign=check",
+  "gates": [
+    "Owner approves final reel",
+    "Deploy and verify resource",
+    "Publish approved Instagram reel",
+    "Bind exact post and CHECK keyword, verify path, then enable"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "status": "local_review_ready",
+  "deployed": false,
+  "automationEnabled": false,
+  "pythonTests": 4,
+  "browser": [
+    {
+      "width": 375,
+      "overflow": false,
+      "h1": 1,
+      "title": 43,
+      "description": 145,
+      "clipboardExact": true,
+      "zipDownload": true,
+      "sourceTotal": 15000,
+      "cleanTotal": 12000,
+      "sourceRows": 7,
+      "cleanRows": 6,
+      "toggleRoundTrip": true,
+      "dashboardOverflow": false
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "title": 43,
+      "description": 145,
+      "clipboardExact": true,
+      "zipDownload": true,
+      "sourceTotal": 15000,
+      "cleanTotal": 12000,
+      "sourceRows": 7,
+      "cleanRows": 6,
+      "toggleRoundTrip": true,
+      "dashboardOverflow": false
+    },
+    {
+      "width": 1280,
+      "overflow": false,
+      "h1": 1,
+      "title": 43,
+      "description": 145,
+      "clipboardExact": true,
+      "zipDownload": true,
+      "sourceTotal": 15000,
+      "cleanTotal": 12000,
+      "sourceRows": 7,
+      "cleanRows": 6,
+      "toggleRoundTrip": true,
+      "dashboardOverflow": false
+    }
+  ]
+}

@@ -68,3 +68,10 @@ Native YouTube/TikTok/Facebook/X schedules confirmed for 23/24 October. Instagra
 ## AI website transformation — approved and scheduled, 20 October 2026
 
 Job website20261020 (DESIGN): owner-approved 27.2s English Remotion reel with small approved avatar. Resource and kit deployed. YouTube/TikTok/Facebook/X native schedules confirmed for 25 October; LinkedIn 10:00 GST and Instagram 17:00 GST queued through the extended heartbeat. Saved OFF ManyChat draft content20261020133756_436865 requires exact reel + DESIGN trigger after publication. Recheck YouTube auto-dubs after processing; only English audio should publish. See outputs/ai-website-transformation-reel/publishing-handoff.md. Do not duplicate native submissions; Facebook/X IDs are not exposed.
+
+
+## New dashboard audit reel — held for owner review, 20 October 2026
+
+Job audit20261020, CHECK: final 29.7s English Remotion reel, small approved olive presenter, thumbnail, six-platform copy and verified local resource kit ready. See outputs/ai-dashboard-audit-reel/REVIEW.txt. Not uploaded, queued, deployed or included in heartbeat; final owner approval required.
+
+DESIGN override: owner requested Instagram today. Its Instagram slot is now 20 October 20:00 GST; other five platforms remain 25 October. Heartbeat updated; dry run targets only DESIGN at tonight’s slot. Do not publish it again on 25 October.
