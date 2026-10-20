@@ -1,6 +1,6 @@
 {
   "job": "motion20261020",
-  "status": "in_production_avatar_processing",
+  "status": "final_ready_for_owner_review",
   "reference": "https://www.instagram.com/reel/DerldXdPE38/",
   "reference_duration": 29.909,
   "language": "English",
@@ -13,5 +13,13 @@
   "upload_status": "not_uploaded_not_scheduled",
   "resource_status": "local_not_deployed",
   "keyword": "MOTION",
-  "studio": "http://localhost:3018/MotionLibrary"
+  "studio": "http://localhost:3019/MotionReferenceMatch",
+  "avatar_video_id": "557a3859e5634325d169b3f6eac37617",
+  "thumbnail": "cover-face-v2-1080x1920.jpg",
+  "owner_revision": "Match reference visuals and narration; change avatar, voice, music. Both thumbnails have large face, hook and CTA.",
+  "final": "final-reference-match.mp4",
+  "duration_seconds": 34.4,
+  "final_sha256": "b6a5d58390b989924496c0ae9f12d0ea2762cd2ee61bd4b1008cfc93677f3f39",
+  "voice": "Owner voice, bass cleanup and presence EQ, mild compression, no additional speedup",
+  "timing_note": "Reference shot order preserved; source footage retimed per matched narration anchors to keep the 34-second take natural. Full-presenter captions rebuilt."
 }

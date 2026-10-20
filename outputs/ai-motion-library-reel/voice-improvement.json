@@ -1,0 +1,60 @@
+{
+  "raw": {
+    "lufs": -16.1,
+    "lra": 5.5,
+    "true_peak_dbtp": -3.2,
+    "lufs_phone": -19.7,
+    "duration_s": 34.24,
+    "sample_peak_dbfs": -3.23,
+    "clipped_samples": 0,
+    "rms_dbfs": -18.76,
+    "centroid_hz": 342.8,
+    "share_1_4k": 0.0308,
+    "bands_db": {
+      "31-63": -42.1,
+      "63-125": -9.5,
+      "125-250": -4.9,
+      "250-500": -4.1,
+      "500-1000": -8.6,
+      "1000-2000": -16.1,
+      "2000-4000": -22.2,
+      "4000-8000": -26.6,
+      "8000-16000": -35.4
+    }
+  },
+  "improved": {
+    "lufs": -16.2,
+    "lra": 3.5,
+    "true_peak_dbtp": -2.0,
+    "lufs_phone": -18.3,
+    "duration_s": 34.24,
+    "sample_peak_dbfs": -2.0,
+    "clipped_samples": 0,
+    "rms_dbfs": -19.23,
+    "centroid_hz": 623.0,
+    "share_1_4k": 0.1503,
+    "bands_db": {
+      "31-63": -50.1,
+      "63-125": -10.3,
+      "125-250": -6.3,
+      "250-500": -5.2,
+      "500-1000": -6.8,
+      "1000-2000": -9.8,
+      "2000-4000": -13.5,
+      "4000-8000": -19.1,
+      "8000-16000": -29.3
+    }
+  },
+  "filters": [
+    "highpass=f=95:poles=2",
+    "equalizer=f=180:t=q:w=0.7:g=-5",
+    "equalizer=f=380:t=q:w=0.8:g=-3",
+    "equalizer=f=1600:t=q:w=0.9:g=4",
+    "equalizer=f=3200:t=q:w=1:g=3",
+    "deesser=i=0.25:m=0.5:f=0.5",
+    "acompressor=threshold=0.12:ratio=2:attack=18:release=130:knee=2",
+    "loudnorm=I=-16:TP=-2:LRA=7"
+  ],
+  "speed_change": false,
+  "music_volume": 0.025
+}

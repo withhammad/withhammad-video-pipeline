@@ -4,6 +4,8 @@
   "preview_frame": "rendered and visually inspected",
   "studio_http": 200,
   "resource_http": 200,
-  "final_video": "pending presenter result, transcription, sync and final QA",
-  "publication": "not authorized until owner sees final"
+  "final_video": "rendered, mastered, shot contact sheet and caption boundary inspected",
+  "publication": "held for owner approval",
+  "python_tests": "530 passed, one existing deprecation warning",
+  "audio": "-14 LUFS, -1 dBTP; owner voice retained, no additional speed change"
 }

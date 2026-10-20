@@ -1,0 +1,21 @@
+{
+  "input": {
+    "input_i": "-16.21",
+    "input_tp": "-2.00",
+    "input_lra": "3.70",
+    "input_thresh": "-26.51",
+    "output_i": "-14.02",
+    "output_tp": "-1.00",
+    "output_lra": "3.40",
+    "output_thresh": "-24.33",
+    "normalization_type": "dynamic",
+    "target_offset": "0.02"
+  },
+  "normalization_type": "dynamic",
+  "tp_target_used": -1.0,
+  "output": {
+    "lufs": -14.0,
+    "lra": 3.4,
+    "true_peak_dbtp": -1.0
+  }
+}

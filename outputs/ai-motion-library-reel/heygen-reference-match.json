@@ -1,0 +1,12 @@
+{
+  "video_id": "557a3859e5634325d169b3f6eac37617",
+  "status": "completed_downloaded",
+  "supersedes": "fba26e8ed31164b915a077f2607f5b05",
+  "reason": "Owner requested reference-matching narration and visuals, only changing avatar, voice and music",
+  "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
+  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "engine": "avatar_v",
+  "speed": 1.15,
+  "duration": 34.2204,
+  "voice_revision": "Preserve owner voice; local clarity processing, no further speedup. Visual shot durations aligned to narration."
+}

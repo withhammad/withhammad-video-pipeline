@@ -1,12 +1,5 @@
-MOTION — Prompt Motion workflow
-Reference: https://www.instagram.com/reel/DerldXdPE38/
-Job motion20261020. Not approved, not uploaded, not scheduled.
-English script; approved olive-shirt avatar; small 340x192 presenter box.
-Remotion preview: http://localhost:3018/MotionLibrary
-Resource preview: http://localhost:8823/resource.html
-HeyGen job fba26e8ed31164b915a077f2607f5b05 submitted once via MCP; inline player tracks completion.
-Pending: obtain completed take and download to studio/.local/jobs/motion20261020/avatar_raw.mp4. Transcribe, enhance and measure audio, align scene timing to narration, add word captions and English SRT, update defaultProps, render/master final and inspect every scene. Show owner before upload.
-Current Studio uses placeholder timing and the approved avatar still, not final narration. Do not call it final.
-Do not create a second generation to check status. No production deployment or ManyChat activation before final approval.
-Resource ZIP, draft captions/hooks/hashtags and scoped MOTION ManyChat plan are prepared locally.
-Source recording shows real Prompt Motion site and brief original UI walkthrough. Original Remotion demo is clearly identified, not claimed as an identical generation from another creator's prompt.
+FINAL FOR OWNER REVIEW
+Video: final-reference-match.mp4 (34.4 seconds, English, own voice with clarity processing and quiet new music).
+Owner approved avatar replaces original presenter. Reference screen demonstrations and shot order retained. Shot durations aligned to natural narration; full-presenter captions rebuilt.
+Both face-led covers completed: cover-face-v2-1080x1920.jpg here and in ../ai-website-transformation-reel/.
+No upload or schedule; show owner first. DESIGN published cover has not been replaced. Resource and MOTION automation remain drafts.

@@ -216,5 +216,11 @@
   "content_research_preference": {
     "updated": "2026-10-20",
     "instruction": "Independently research online which new AI videos have stronger viral potential; do not rely only on owner-provided references or posting-time analytics. Use recent relevant videos and real public performance evidence, then propose original English ideas and hooks."
+  },
+  "creative_preferences": {
+    "updated": "2026-10-20",
+    "thumbnails": "Large prominent approved face, strong short hook, explicit comment-keyword CTA, consistent branding. Show revised covers before replacing published covers.",
+    "voice": "Keep owner voice; natural and clear. Reduce bass buildup, improve intelligibility, quiet music, avoid extra speedup.",
+    "motion_reference_revision": "Match supplied reference visuals and sequence; replace avatar, voice, background music. Align visual timing to natural narration."
   }
 }
