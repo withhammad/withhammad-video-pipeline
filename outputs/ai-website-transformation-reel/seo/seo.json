@@ -1,0 +1,83 @@
+{
+  "status": "draft_pending_final_video_review_and_owner_approval",
+  "primary_keyword": "AI website design",
+  "rationale": "Use searchable AI website design language and an original before/after sample. Public examples indicate topic interest, not forecast views.",
+  "resource_url": "https://withhammad.com/resources/ai-website-design-brief",
+  "resource_status": "planned_not_verified_live",
+  "manychat_keyword": "DESIGN",
+  "publication_gates": [
+    "Owner approves final rendered video and this copy before any upload.",
+    "Deploy and verify planned resource URL only after authorization.",
+    "Configure and test Instagram DESIGN funnel against the approved specific reel before using its DM promise.",
+    "Verify TikTok bio destination reaches the resource before using link-in-bio copy.",
+    "Verify metadata matches final rendered sample, not merely the production brief.",
+    "Use English audio and captions; prevent non-English automatic audio dubbing."
+  ],
+  "hooks": [
+    "Your AI website looks generic? Start with the brief.",
+    "Same sample business. A much clearer website brief.",
+    "Before you change AI tools, change these design instructions."
+  ],
+  "thumbnail": {
+    "primary": "FIX YOUR AI WEBSITE",
+    "secondary": "BEFORE → AFTER",
+    "alternative": "BETTER BRIEF. BETTER DESIGN.",
+    "direction": "Compare the same sample business before and after. Keep labels readable and approved presenter small; avoid sales figures, tool logos or a fake client testimonial."
+  },
+  "youtube": {
+    "title": "AI Website Design: Fix a Generic Page With a Better Brief",
+    "description": "AI website design brief: copy this URL for the template:\nhttps://withhammad.com/resources/ai-website-design-brief\n\nA before-and-after sample shows how a detailed brief changes a business website design. Give the page one goal: book a consultation. Specify the offer, typography, spacing, palette and call to action, then check the mobile layout and text contrast.\n\nThis is a design demonstration, not a measured conversion result. AI presenter.\n\nSubscribe for more practical AI builds. Copy the template URL above to try your own brief.\n\n#AIWebsiteDesign #WebDesign #Shorts",
+    "tags": [
+      "AI website design",
+      "AI website redesign",
+      "website design brief",
+      "landing page design",
+      "website redesign before and after"
+    ],
+    "hashtags": [
+      "#AIWebsiteDesign",
+      "#WebDesign",
+      "#Shorts"
+    ]
+  },
+  "instagram": {
+    "caption": "AI website design looking generic? Comment DESIGN for the brief.\n\nThis sample keeps the same business and gives the page a clearer direction:\n• One goal: book a consultation.\n• A specific offer and call to action.\n• Defined typography, spacing and palette.\n• A mobile layout and text contrast check.\n\nA design demonstration, not a conversion claim. AI presenter.\n\nFollow @with.hammad for practical AI builds. Comment DESIGN and I’ll DM you the template.\n\n#AIWebsiteDesign #WebsiteRedesign #LandingPageDesign #WebDesign",
+    "hashtags": [
+      "#AIWebsiteDesign",
+      "#WebsiteRedesign",
+      "#LandingPageDesign",
+      "#WebDesign"
+    ],
+    "alt_text": "Before-and-after comparison of a sample business website, followed by a design brief covering the consultation goal, offer, call to action, typography, spacing, palette, mobile layout and contrast. A small AI presenter accompanies English captions.",
+    "alt_text_status": "draft_verify_against_final_frames; use where supported"
+  },
+  "tiktok": {
+    "caption": "AI website design looking generic? Get the brief through the link in bio.\n\nSame sample business, clearer direction: one consultation goal, a specific offer and CTA, typography, spacing and palette. Check mobile layout and text contrast.\n\nDesign demonstration. AI presenter.\n\nFollow for practical AI builds. Template: link in bio.\n\n#AIWebsiteDesign #WebsiteRedesign #LandingPageDesign #WebDesign",
+    "hashtags": [
+      "#AIWebsiteDesign",
+      "#WebsiteRedesign",
+      "#LandingPageDesign",
+      "#WebDesign"
+    ]
+  },
+  "linkedin": {
+    "text": "AI website design starts with a brief. Use the template: https://withhammad.com/resources/ai-website-design-brief\n\nFor this sample business, the page has one goal: book a consultation. The revised brief defines the offer, call to action, typography, spacing and palette. The final checks cover mobile layout and text contrast.\n\nThe before-and-after is a design demonstration. It does not establish a conversion uplift.\n\nWhich part of your website brief is usually missing: the audience, the offer or the next step?\n\nAI presenter. Follow for practical AI builds.\nGet the brief: https://withhammad.com/resources/ai-website-design-brief\n\n#WebDesign #AIWebsiteDesign",
+    "hashtags": [
+      "#WebDesign",
+      "#AIWebsiteDesign"
+    ]
+  },
+  "facebook": {
+    "caption": "AI website design looking generic? Get the brief: https://withhammad.com/resources/ai-website-design-brief\n\nSee the same sample business with a clearer design direction: one consultation goal, a specific offer and CTA, defined typography, spacing and palette, then mobile and text contrast checks.\n\nThis is a design demonstration, not a measured conversion result. AI presenter.\n\nFollow for more practical AI builds. Get the template: https://withhammad.com/resources/ai-website-design-brief\n\n#AIWebsiteDesign #WebDesign",
+    "hashtags": [
+      "#AIWebsiteDesign",
+      "#WebDesign"
+    ]
+  },
+  "x": {
+    "post": "AI website design looking generic? Try a clearer brief: https://withhammad.com/resources/ai-website-design-brief\nOne goal, a specific offer, typography, spacing and mobile checks. Sample redesign.\nAI presenter. Follow for more AI builds. Get the brief above.\n#WebDesign",
+    "hashtags": [
+      "#WebDesign"
+    ]
+  }
+}

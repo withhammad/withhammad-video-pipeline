@@ -1,0 +1,36 @@
+AI WEBSITE DESIGN BRIEF — WITH HAMMAD
+
+Use this as a starting point with an AI coding assistant. Replace the sample details with your own. The example is a fictional brand, not a client result or conversion experiment. Tool access and costs depend on your provider.
+
+PROMPT
+Redesign my existing landing page using the following brief. Preserve accurate business information and working links. Do not invent testimonials, client logos, statistics, prices or guarantees.
+
+Business: Northline, a fictional brand strategy and website design studio.
+Audience: independent consultants who need to explain their offer clearly.
+Primary action: book a consultation. Give this action visual priority over secondary navigation.
+Headline direction: a clear brand and a stronger first impression. Explain the actual service and audience in the supporting sentence.
+Visual direction: calm editorial layout, forest green (#163D31), warm cream (#F2EFE7), muted sage (#B5C596) as decoration. Use no more than two font families: Source Serif 4 for display text and Inter for readable supporting text. Include the font licences with downloadable files.
+Spacing: use a repeatable 8 / 16 / 24 / 40 px scale as the starting point, adjusting only when the layout needs it. Keep the primary button separated from surrounding text.
+Imagery: original CSS abstract shapes, no borrowed logos or invented social proof.
+Layout: readable hierarchy, responsive navigation and a visible primary action. Test 320, 375, 390, 768 and 1280 CSS-pixel widths. No unintended horizontal overflow.
+Accessibility: semantic headings, descriptive links, visible keyboard focus, sufficient text contrast and usable controls. Check normal text at 4.5:1 and large text at 3:1. Do not claim WCAG compliance from a single contrast check.
+Delivery: provide the changed files, explain what changed, list checks actually performed, and identify any remaining limitations. Keep this as a local preview until I approve deployment.
+
+REVIEW CHECKLIST
+[ ] One clear primary action; correct destination.
+[ ] The offer says what the business does and for whom.
+[ ] Typography, spacing and palette are consistent.
+[ ] Text remains readable on mobile and when zoomed.
+[ ] No sideways scroll at the tested widths.
+[ ] Links and controls work with a keyboard; focus is visible.
+[ ] Text/background contrast checked, including the button.
+[ ] Images have useful alternative text, or are marked decorative.
+[ ] No fabricated proof, fake customers or unverified outcome claims.
+[ ] A real booking form is connected and tested before launch.
+
+HOW TO USE THE DEMO
+Open demo/before.html and demo/after.html in a browser. The consultation button scrolls to a disclosure section; it does not create bookings. Both pages are deliberately illustrative. The updated design is not evidence of more sales. Measure actual behavior separately after a reviewed deployment.
+
+SOURCES
+https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+https://www.w3.org/WAI/WCAG22/Understanding/reflow.html

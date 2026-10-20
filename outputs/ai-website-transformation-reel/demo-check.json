@@ -1,0 +1,23 @@
+[
+  {
+    "name": "before",
+    "viewport": 900,
+    "documentWidth": 900,
+    "h1": "We provide innovative solutions for your business"
+  },
+  {
+    "name": "after",
+    "viewport": 900,
+    "documentWidth": 900,
+    "h1": "A clear brand.\nA stronger first\nimpression.",
+    "cta": "Book a consultation ↗"
+  },
+  {
+    "name": "mobile",
+    "viewport": 390,
+    "documentWidth": 390,
+    "h1": "A clear brand.\nA stronger first\nimpression.",
+    "cta": "Book a consultation ↗",
+    "ctaWorks": true
+  }
+]

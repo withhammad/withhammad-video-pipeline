@@ -1,0 +1,129 @@
+{
+  "checked_at": "2026-10-20T13:14:44.750772+00:00",
+  "autocomplete": [
+    {
+      "query": "ai website design",
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+website+design",
+      "suggestions": [
+        "ai website design generator",
+        "ai website design",
+        "ai website design in figma",
+        "ai website design shopify",
+        "ai website design generator free",
+        "ai website designer",
+        "ai website design free",
+        "ai website design html css",
+        "ai website design tools",
+        "ai website design agency"
+      ]
+    },
+    {
+      "query": "ai website redesign",
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+website+redesign",
+      "suggestions": [
+        "ai website redesign"
+      ]
+    },
+    {
+      "query": "website design brief",
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=website+design+brief",
+      "suggestions": []
+    },
+    {
+      "query": "landing page design",
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=landing+page+design",
+      "suggestions": [
+        "landing page design",
+        "landing page design tutorial",
+        "landing page design figma animation",
+        "landing page design canva",
+        "landing page design in illustrator",
+        "landing page designs",
+        "landing page designer",
+        "landing page design using figma",
+        "landing page design figma",
+        "landing page design photoshop"
+      ]
+    },
+    {
+      "query": "ai website prompt",
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+website+prompt",
+      "suggestions": [
+        "ai website prompt",
+        "best ai prompt website",
+        "ai photo prompt website",
+        "gemini ai prompt website",
+        "free ai prompt website"
+      ]
+    },
+    {
+      "query": "website before and after",
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=website+before+and+after",
+      "suggestions": [
+        "website before and after",
+        "website redesign before and after",
+        "before and after website design"
+      ]
+    },
+    {
+      "query": "ai website design instagram",
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&ds=&q=ai+website+design+instagram",
+      "suggestions": []
+    },
+    {
+      "query": "website design linkedin",
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&ds=&q=website+design+linkedin",
+      "suggestions": [
+        "website design linkedin"
+      ]
+    }
+  ],
+  "limitations": "Suggestions are query wording signals, not search volumes or guarantees of reach. Existing public views are total counts, not channel-relative outlier scores or view velocity. No direct Instagram hashtag-cap statement was retrieved; using four relevant tags conservatively. No official TikTok maximum was established; draft stays below 500 characters. No hashtag volume or banned-status claims.",
+  "public_video_evidence": [
+    {
+      "id": "TixdV5DP7oc",
+      "title": "How to build high-end websites for $0 with Claude",
+      "channel": "Sebastian Hardy | AI Marketing",
+      "views": "162801",
+      "published_at": "2026-10-10T18:12:23Z",
+      "checked_at": "2026-10-20T12:44:02.678807+00:00",
+      "url": "https://www.youtube.com/watch?v=TixdV5DP7oc"
+    },
+    {
+      "id": "zNJeSYRH1oc",
+      "title": "How to Make 3D websites with Claude and Scrolltide",
+      "channel": "Himan Creates",
+      "views": "51631",
+      "published_at": "2026-09-30T10:09:25Z",
+      "checked_at": "2026-10-20T12:44:02.678807+00:00",
+      "url": "https://www.youtube.com/watch?v=zNJeSYRH1oc"
+    },
+    {
+      "id": "TduPBWDRw8s",
+      "title": "Make Claude Code build better websites",
+      "channel": "100x Engineers",
+      "views": "42633",
+      "published_at": "2026-10-04T13:54:18Z",
+      "checked_at": "2026-10-20T12:46:22.771388+00:00",
+      "url": "https://www.youtube.com/watch?v=TduPBWDRw8s"
+    }
+  ],
+  "official_sources": [
+    {
+      "url": "https://support.google.com/youtube/answer/146402",
+      "finding": "Title, thumbnail and description matter more than tags; tags have a minimal discovery role."
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/13748639",
+      "finding": "External URLs in Shorts descriptions/comments are not clickable. Copy-URL wording used."
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html",
+      "finding": "Contrast reference for resource checks, not a claim this sample is fully WCAG compliant."
+    },
+    {
+      "url": "https://www.linkedin.com/help/linkedin/answer/a523360",
+      "finding": "Feed includes network and interest-based content; no deterministic hashtag reach promise."
+    }
+  ]
+}

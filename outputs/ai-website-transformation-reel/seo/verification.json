@@ -1,0 +1,55 @@
+{
+  "status": "copy_checks_pass_publication_blocked",
+  "checks": {
+    "youtube": {
+      "characters": 573,
+      "budget": 5000,
+      "within_budget": true,
+      "ai_disclosure": true,
+      "hashtags_count": 3
+    },
+    "instagram": {
+      "characters": 518,
+      "budget": 2200,
+      "within_budget": true,
+      "ai_disclosure": true,
+      "hashtags_count": 4
+    },
+    "tiktok": {
+      "characters": 394,
+      "budget": 500,
+      "within_budget": true,
+      "ai_disclosure": true,
+      "hashtags_count": 4
+    },
+    "linkedin": {
+      "characters": 662,
+      "budget": 3000,
+      "within_budget": true,
+      "ai_disclosure": true,
+      "hashtags_count": 2
+    },
+    "facebook": {
+      "characters": 520,
+      "budget": 2200,
+      "within_budget": true,
+      "ai_disclosure": true,
+      "hashtags_count": 2
+    },
+    "x": {
+      "characters": 236,
+      "budget": 280,
+      "within_budget": true,
+      "ai_disclosure": true,
+      "hashtags_count": 1
+    },
+    "youtube_title": {
+      "characters": 57,
+      "within_60": true
+    }
+  },
+  "resource_http_check": "deliberately not treated as live; planned URL and deployment remain gated",
+  "final_render_comparison": "Checked against final nine-scene render: sample business before/after, consultation CTA, typography/spacing/palette, specific offer, mobile and contrast, no conversion claim. Small AI presenter visible. English narration and captions.",
+  "owner_approval": "pending",
+  "no_upload_performed": true
+}

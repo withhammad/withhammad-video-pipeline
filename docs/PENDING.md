@@ -63,3 +63,8 @@ Last update: 2026-10-18 22:20 — MOTION reel (job fef5b7f3b5af, Claude motion g
 ## Approved PROJECTS / JOBKIT batch — 20 October 2026
 
 Native YouTube/TikTok/Facebook/X schedules confirmed for 23/24 October. Instagram/LinkedIn timed API publishing and specific-post ManyChat activation remain with heartbeat `publish-approved-projects-and-jobkit-reels`. Recheck JOBKIT automatic audio translations after processing; only English audio should be public. See outputs/content-batch-2026-10-20/publishing-handoff.md and youtube-audio-receipt.json. Do not duplicate Facebook/X schedules because IDs are null.
+
+
+## AI website transformation — held for owner review, 20 October 2026
+
+Job website20261020: final 27.2-second Remotion reel, approved olive avatar small (340x192), English narration and SRT. Review package: outputs/ai-website-transformation-reel/REVIEW.txt. Thumbnail, six-platform SEO copy, local resource.html and downloadable design kit complete. Do not schedule, upload or deploy until the owner approves the final. This job is outside the two-reel heartbeat scope. No DESIGN ManyChat flow is enabled.

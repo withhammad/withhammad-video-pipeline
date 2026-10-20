@@ -1,0 +1,703 @@
+{
+  "avatar": "website-transformation/avatar.mp4",
+  "duration": 27.2,
+  "captions": [
+    {
+      "start": 0.07,
+      "end": 0.94,
+      "text": "Your AI website",
+      "words": [
+        {
+          "text": "Your",
+          "start": 0.07,
+          "end": 0.26
+        },
+        {
+          "text": "AI",
+          "start": 0.26,
+          "end": 0.56
+        },
+        {
+          "text": "website",
+          "start": 0.56,
+          "end": 0.94
+        }
+      ]
+    },
+    {
+      "start": 0.94,
+      "end": 1.64,
+      "text": "looks generic.",
+      "words": [
+        {
+          "text": "looks",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "text": "generic.",
+          "start": 1.22,
+          "end": 1.64
+        }
+      ]
+    },
+    {
+      "start": 1.88,
+      "end": 2.48,
+      "text": "Change the design",
+      "words": [
+        {
+          "text": "Change",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "the",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "design",
+          "start": 2.2,
+          "end": 2.48
+        }
+      ]
+    },
+    {
+      "start": 2.48,
+      "end": 2.7,
+      "text": "brief,",
+      "words": [
+        {
+          "text": "brief,",
+          "start": 2.48,
+          "end": 2.7
+        }
+      ]
+    },
+    {
+      "start": 2.92,
+      "end": 3.4,
+      "text": "not just the",
+      "words": [
+        {
+          "text": "not",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "text": "just",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "text": "the",
+          "start": 3.24,
+          "end": 3.4
+        }
+      ]
+    },
+    {
+      "start": 3.4,
+      "end": 3.62,
+      "text": "colors.",
+      "words": [
+        {
+          "text": "colors.",
+          "start": 3.4,
+          "end": 3.62
+        }
+      ]
+    },
+    {
+      "start": 4.24,
+      "end": 4.66,
+      "text": "Here is the",
+      "words": [
+        {
+          "text": "Here",
+          "start": 4.24,
+          "end": 4.38
+        },
+        {
+          "text": "is",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "text": "the",
+          "start": 4.54,
+          "end": 4.66
+        }
+      ]
+    },
+    {
+      "start": 4.66,
+      "end": 5.58,
+      "text": "same sample business",
+      "words": [
+        {
+          "text": "same",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "text": "sample",
+          "start": 4.88,
+          "end": 5.26
+        },
+        {
+          "text": "business",
+          "start": 5.26,
+          "end": 5.58
+        }
+      ]
+    },
+    {
+      "start": 5.58,
+      "end": 6.36,
+      "text": "before and after.",
+      "words": [
+        {
+          "text": "before",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "text": "and",
+          "start": 5.88,
+          "end": 6.12
+        },
+        {
+          "text": "after.",
+          "start": 6.12,
+          "end": 6.36
+        }
+      ]
+    },
+    {
+      "start": 6.81,
+      "end": 7.06,
+      "text": "First,",
+      "words": [
+        {
+          "text": "First,",
+          "start": 6.81,
+          "end": 7.06
+        }
+      ]
+    },
+    {
+      "start": 7.2,
+      "end": 7.72,
+      "text": "give the page",
+      "words": [
+        {
+          "text": "give",
+          "start": 7.2,
+          "end": 7.34
+        },
+        {
+          "text": "the",
+          "start": 7.34,
+          "end": 7.5
+        },
+        {
+          "text": "page",
+          "start": 7.5,
+          "end": 7.72
+        }
+      ]
+    },
+    {
+      "start": 7.72,
+      "end": 8.5,
+      "text": "one clear goal,",
+      "words": [
+        {
+          "text": "one",
+          "start": 7.72,
+          "end": 7.96
+        },
+        {
+          "text": "clear",
+          "start": 7.96,
+          "end": 8.26
+        },
+        {
+          "text": "goal,",
+          "start": 8.26,
+          "end": 8.5
+        }
+      ]
+    },
+    {
+      "start": 8.72,
+      "end": 9.46,
+      "text": "book a consultation,",
+      "words": [
+        {
+          "text": "book",
+          "start": 8.72,
+          "end": 8.84
+        },
+        {
+          "text": "a",
+          "start": 8.84,
+          "end": 9.0
+        },
+        {
+          "text": "consultation,",
+          "start": 9.0,
+          "end": 9.46
+        }
+      ]
+    },
+    {
+      "start": 10.14,
+      "end": 10.76,
+      "text": "then define the",
+      "words": [
+        {
+          "text": "then",
+          "start": 10.14,
+          "end": 10.24
+        },
+        {
+          "text": "define",
+          "start": 10.24,
+          "end": 10.6
+        },
+        {
+          "text": "the",
+          "start": 10.6,
+          "end": 10.76
+        }
+      ]
+    },
+    {
+      "start": 10.76,
+      "end": 10.98,
+      "text": "type,",
+      "words": [
+        {
+          "text": "type,",
+          "start": 10.76,
+          "end": 10.98
+        }
+      ]
+    },
+    {
+      "start": 11.1,
+      "end": 11.9,
+      "text": "spacing and color",
+      "words": [
+        {
+          "text": "spacing",
+          "start": 11.1,
+          "end": 11.4
+        },
+        {
+          "text": "and",
+          "start": 11.4,
+          "end": 11.64
+        },
+        {
+          "text": "color",
+          "start": 11.64,
+          "end": 11.9
+        }
+      ]
+    },
+    {
+      "start": 11.9,
+      "end": 12.22,
+      "text": "palette.",
+      "words": [
+        {
+          "text": "palette.",
+          "start": 11.9,
+          "end": 12.22
+        }
+      ]
+    },
+    {
+      "start": 12.7,
+      "end": 12.78,
+      "text": "So,",
+      "words": [
+        {
+          "text": "So,",
+          "start": 12.7,
+          "end": 12.78
+        }
+      ]
+    },
+    {
+      "start": 12.8,
+      "end": 13.7,
+      "text": "every section feels",
+      "words": [
+        {
+          "text": "every",
+          "start": 12.8,
+          "end": 13.0
+        },
+        {
+          "text": "section",
+          "start": 13.0,
+          "end": 13.34
+        },
+        {
+          "text": "feels",
+          "start": 13.34,
+          "end": 13.7
+        }
+      ]
+    },
+    {
+      "start": 13.7,
+      "end": 14.34,
+      "text": "consistent.",
+      "words": [
+        {
+          "text": "consistent.",
+          "start": 13.7,
+          "end": 14.34
+        }
+      ]
+    },
+    {
+      "start": 14.7,
+      "end": 15.8,
+      "text": "Replace vague headlines",
+      "words": [
+        {
+          "text": "Replace",
+          "start": 14.7,
+          "end": 15.0
+        },
+        {
+          "text": "vague",
+          "start": 15.0,
+          "end": 15.36
+        },
+        {
+          "text": "headlines",
+          "start": 15.36,
+          "end": 15.8
+        }
+      ]
+    },
+    {
+      "start": 15.8,
+      "end": 16.6,
+      "text": "with a specific",
+      "words": [
+        {
+          "text": "with",
+          "start": 15.8,
+          "end": 16.08
+        },
+        {
+          "text": "a",
+          "start": 16.08,
+          "end": 16.24
+        },
+        {
+          "text": "specific",
+          "start": 16.24,
+          "end": 16.6
+        }
+      ]
+    },
+    {
+      "start": 16.6,
+      "end": 17.8,
+      "text": "offer and give",
+      "words": [
+        {
+          "text": "offer",
+          "start": 16.6,
+          "end": 17.04
+        },
+        {
+          "text": "and",
+          "start": 17.04,
+          "end": 17.21
+        },
+        {
+          "text": "give",
+          "start": 17.62,
+          "end": 17.8
+        }
+      ]
+    },
+    {
+      "start": 17.8,
+      "end": 18.46,
+      "text": "the main button",
+      "words": [
+        {
+          "text": "the",
+          "start": 17.8,
+          "end": 17.98
+        },
+        {
+          "text": "main",
+          "start": 17.98,
+          "end": 18.18
+        },
+        {
+          "text": "button",
+          "start": 18.18,
+          "end": 18.46
+        }
+      ]
+    },
+    {
+      "start": 18.46,
+      "end": 19.16,
+      "text": "room to stand",
+      "words": [
+        {
+          "text": "room",
+          "start": 18.46,
+          "end": 18.76
+        },
+        {
+          "text": "to",
+          "start": 18.76,
+          "end": 18.94
+        },
+        {
+          "text": "stand",
+          "start": 18.94,
+          "end": 19.16
+        }
+      ]
+    },
+    {
+      "start": 19.16,
+      "end": 19.42,
+      "text": "out.",
+      "words": [
+        {
+          "text": "out.",
+          "start": 19.16,
+          "end": 19.42
+        }
+      ]
+    },
+    {
+      "start": 19.56,
+      "end": 19.92,
+      "text": "Finally,",
+      "words": [
+        {
+          "text": "Finally,",
+          "start": 19.56,
+          "end": 19.92
+        }
+      ]
+    },
+    {
+      "start": 19.96,
+      "end": 20.58,
+      "text": "check the mobile",
+      "words": [
+        {
+          "text": "check",
+          "start": 19.96,
+          "end": 20.2
+        },
+        {
+          "text": "the",
+          "start": 20.2,
+          "end": 20.38
+        },
+        {
+          "text": "mobile",
+          "start": 20.38,
+          "end": 20.58
+        }
+      ]
+    },
+    {
+      "start": 20.58,
+      "end": 21.32,
+      "text": "layout and text",
+      "words": [
+        {
+          "text": "layout",
+          "start": 20.58,
+          "end": 20.92
+        },
+        {
+          "text": "and",
+          "start": 20.92,
+          "end": 21.12
+        },
+        {
+          "text": "text",
+          "start": 21.12,
+          "end": 21.32
+        }
+      ]
+    },
+    {
+      "start": 21.32,
+      "end": 21.72,
+      "text": "contrast.",
+      "words": [
+        {
+          "text": "contrast.",
+          "start": 21.32,
+          "end": 21.72
+        }
+      ]
+    },
+    {
+      "start": 22.37,
+      "end": 22.76,
+      "text": "This is a",
+      "words": [
+        {
+          "text": "This",
+          "start": 22.37,
+          "end": 22.5
+        },
+        {
+          "text": "is",
+          "start": 22.5,
+          "end": 22.62
+        },
+        {
+          "text": "a",
+          "start": 22.62,
+          "end": 22.76
+        }
+      ]
+    },
+    {
+      "start": 22.76,
+      "end": 23.46,
+      "text": "DESIGN demonstration,",
+      "words": [
+        {
+          "text": "DESIGN",
+          "start": 22.76,
+          "end": 23.02
+        },
+        {
+          "text": "demonstration,",
+          "start": 23.02,
+          "end": 23.46
+        }
+      ]
+    },
+    {
+      "start": 23.9,
+      "end": 24.42,
+      "text": "not a conversion",
+      "words": [
+        {
+          "text": "not",
+          "start": 23.9,
+          "end": 24.0
+        },
+        {
+          "text": "a",
+          "start": 24.0,
+          "end": 24.16
+        },
+        {
+          "text": "conversion",
+          "start": 24.16,
+          "end": 24.42
+        }
+      ]
+    },
+    {
+      "start": 24.42,
+      "end": 24.84,
+      "text": "test.",
+      "words": [
+        {
+          "text": "test.",
+          "start": 24.42,
+          "end": 24.84
+        }
+      ]
+    },
+    {
+      "start": 25.23,
+      "end": 25.98,
+      "text": "Comment DESIGN for",
+      "words": [
+        {
+          "text": "Comment",
+          "start": 25.23,
+          "end": 25.4
+        },
+        {
+          "text": "DESIGN",
+          "start": 25.4,
+          "end": 25.74
+        },
+        {
+          "text": "for",
+          "start": 25.74,
+          "end": 25.98
+        }
+      ]
+    },
+    {
+      "start": 25.98,
+      "end": 26.48,
+      "text": "the brief and",
+      "words": [
+        {
+          "text": "the",
+          "start": 25.98,
+          "end": 26.12
+        },
+        {
+          "text": "brief",
+          "start": 26.12,
+          "end": 26.3
+        },
+        {
+          "text": "and",
+          "start": 26.3,
+          "end": 26.48
+        }
+      ]
+    },
+    {
+      "start": 26.48,
+      "end": 26.74,
+      "text": "checklist.",
+      "words": [
+        {
+          "text": "checklist.",
+          "start": 26.48,
+          "end": 26.74
+        }
+      ]
+    }
+  ],
+  "beats": [
+    0,
+    1.88,
+    4.24,
+    6.81,
+    10.14,
+    14.7,
+    19.56,
+    22.37,
+    25.23
+  ],
+  "draftMode": false,
+  "music": "website-transformation/music.wav"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "prepared_only_not_created_or_enabled",
+  "keyword": "DESIGN",
+  "platform": "instagram",
+  "trigger": "specific approved reel, after publication",
+  "opening": "Want the AI website design brief and checklist? Follow @with.hammad for practical AI builds, then tap below.",
+  "button": "Send the design kit",
+  "delivery": "Here is the brief, checklist and both sample pages: https://withhammad.com/resources/ai-website-design-brief?utm_source=instagram&utm_medium=dm&utm_campaign=design",
+  "gates": [
+    "Owner approval of final reel",
+    "Deploy and verify resource",
+    "Publish approved Instagram reel",
+    "Bind exact reel and keyword, then enable only this flow"
+  ]
+}

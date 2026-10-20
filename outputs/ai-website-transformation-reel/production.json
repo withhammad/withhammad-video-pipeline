@@ -1,0 +1,37 @@
+{
+  "job": "website20261020",
+  "status": "ready_for_owner_review",
+  "approval_required": true,
+  "upload_status": "held_for_owner_review",
+  "resource_status": "local_review_complete_not_deployed",
+  "resource_slug": "ai-website-design-brief",
+  "keyword": "DESIGN",
+  "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
+  "presenter_box": [
+    340,
+    192
+  ],
+  "format": [
+    1080,
+    1920
+  ],
+  "language": "English",
+  "source": "Original demonstration based on independent topic research",
+  "manychat": "Not created or enabled; attach specific reel only after approval/publication",
+  "final": "final.mp4",
+  "duration_seconds": 27.2,
+  "thumbnail": "cover_1080x1920.jpg",
+  "resource": "resource.html",
+  "download": "ai-website-design-kit.zip",
+  "seo": "seo/seo.json",
+  "scheduled": false,
+  "final_sha256": "e2866d9b8eef5ce14ae057bcae52077c941220aa0b2c1fab305fd4f37a241cb9",
+  "validation": {
+    "python_tests": "528 passed, one existing deprecation warning",
+    "composition_typescript": "pass",
+    "resource_copy_button": "Copied verified in browser",
+    "resource_download_http": 200,
+    "remotion_studio": "composition page loaded",
+    "whole_project_typescript": "Existing unrelated unused Img import in src/claudeedit/full.tsx; new composition typecheck passes"
+  }
+}

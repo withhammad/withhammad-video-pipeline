@@ -1,0 +1,198 @@
+{
+  "rows": [
+    {
+      "gate": "pause share (pauses >= 150 ms)",
+      "value": "7.4 % (6 pauses)",
+      "target": "3-5 %",
+      "pass": false,
+      "detail": [
+        460,
+        330,
+        220,
+        300,
+        400,
+        280
+      ]
+    },
+    {
+      "gate": "no clipped word endings",
+      "value": "0 of 5 cuts, stem splices -3 dB (re audible line)",
+      "target": "0 (all < 0 dB re line)",
+      "pass": true,
+      "detail": [
+        {
+          "at_ms": 6760,
+          "audio_at_ms": 6760.0,
+          "stem_splice_over_db": [
+            -7.7,
+            -4.6
+          ],
+          "src_ms": [
+            6800.0,
+            6920.0
+          ],
+          "word_end_ms": 6540,
+          "removed_tail_over_db": [
+            null,
+            null
+          ],
+          "src_splice_over_db": [
+            [
+              -7.8,
+              -6.5
+            ],
+            [
+              -16.3,
+              -6.0
+            ]
+          ],
+          "removed_speech_db": -49.3,
+          "ok": true
+        },
+        {
+          "at_ms": 10080,
+          "audio_at_ms": 10070.0,
+          "stem_splice_over_db": [
+            -15.9,
+            -5.4
+          ],
+          "src_ms": [
+            10230.0,
+            10510.0
+          ],
+          "word_end_ms": 9950,
+          "removed_tail_over_db": [
+            null,
+            null
+          ],
+          "src_splice_over_db": [
+            [
+              -16.0,
+              -4.6
+            ],
+            [
+              -16.3,
+              -13.3
+            ]
+          ],
+          "removed_speech_db": -51.3,
+          "ok": true
+        },
+        {
+          "at_ms": 14680,
+          "audio_at_ms": 14680.0,
+          "stem_splice_over_db": [
+            -8.8,
+            -4.0
+          ],
+          "src_ms": [
+            15120.0,
+            15240.0
+          ],
+          "word_end_ms": 14910,
+          "removed_tail_over_db": [
+            null,
+            null
+          ],
+          "src_splice_over_db": [
+            [
+              -8.8,
+              -3.6
+            ],
+            [
+              -14.2,
+              -8.2
+            ]
+          ],
+          "removed_speech_db": -54.3,
+          "ok": true
+        },
+        {
+          "at_ms": 19560,
+          "audio_at_ms": 19575.0,
+          "stem_splice_over_db": [
+            -18.9,
+            -12.1
+          ],
+          "src_ms": [
+            20135.0,
+            20335.0
+          ],
+          "word_end_ms": 19970,
+          "removed_tail_over_db": [
+            null,
+            null
+          ],
+          "src_splice_over_db": [
+            [
+              -19.2,
+              -13.6
+            ],
+            [
+              -29.9,
+              -13.8
+            ]
+          ],
+          "removed_speech_db": -57.4,
+          "ok": true
+        },
+        {
+          "at_ms": 25200,
+          "audio_at_ms": 25210.0,
+          "stem_splice_over_db": [
+            -12.9,
+            -3.2
+          ],
+          "src_ms": [
+            25970.0,
+            26090.0
+          ],
+          "word_end_ms": 25700,
+          "removed_tail_over_db": [
+            null,
+            null
+          ],
+          "src_splice_over_db": [
+            [
+              -13.2,
+              -2.9
+            ],
+            [
+              -13.4,
+              -3.7
+            ]
+          ],
+          "removed_speech_db": -54.1,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "gate": "8-16 kHz vs reference",
+      "value": "-1.7 dB (-24.1)",
+      "target": "+-2 dB",
+      "pass": true
+    },
+    {
+      "gate": "5-9 kHz p99 vs reference",
+      "value": "-1.1 dB (-4.6 re LUFS)",
+      "target": "<= 0 dB",
+      "pass": true
+    },
+    {
+      "gate": "longest pause",
+      "value": "460 ms",
+      "target": "ref 340-360 ms",
+      "pass": null
+    },
+    {
+      "gate": "pace",
+      "value": "189 wpm (85 words / 26.95 s)",
+      "target": "ref 262 wpm",
+      "pass": null
+    }
+  ],
+  "failed": [
+    "pause share (pauses >= 150 ms)"
+  ]
+}
