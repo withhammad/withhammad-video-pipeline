@@ -1,20 +1,21 @@
 {
-  "status": "saved_OFF_pending_binding_mac_locked",
+  "status": "LIVE_specific_reel_DESIGN_verified_after_reload",
   "workspace": "fb5064597",
   "flow_id": "content20261020133756_436865",
   "url": "https://app.manychat.com/fb5064597/cms/files/content20261020133756_436865/edit",
   "name": "DESIGN - AI website design brief - Oct 25",
   "keyword": "DESIGN",
-  "trigger_configured": false,
-  "trigger": "specific approved DESIGN Instagram reel after publication on2026-10-20 at20:00GST",
+  "trigger_configured": true,
+  "trigger": "Specific Post or Reel: 18102296804369794; comment contains DESIGN (case-insensitive)",
   "message_type": "Instagram private reply",
   "message": "Thanks for commenting DESIGN! Follow @with.hammad for practical AI builds. Here is your website design brief, checklist and before-and-after sample kit: https://withhammad.com/resources/ai-website-design-brief?utm_source=instagram&utm_medium=dm&utm_campaign=design This is a design demonstration, not a conversion guarantee.",
-  "saved_verified_after_reload": "2026-10-20T13:51:08.876613+00:00",
+  "saved_verified_after_reload": "2026-10-20T17:10:35.802738+00:00",
   "resource_live": true,
   "automation_id": "publish-approved-projects-and-jobkit-reels",
-  "remaining": "Unlock Mac and make Chrome visible. Bind published reel DeuNwewjXms (18102296804369794) and DESIGN keyword, verify path, then enable only this flow. Never enable the broad template trigger.",
+  "remaining": "Monitor actual delivery when a viewer comments; no test DM was sent.",
   "instagram_media_id": "18102296804369794",
   "instagram_url": "https://www.instagram.com/reel/DeuNwewjXms/",
-  "checked_at": "2026-10-20T16:06:44.056214+00:00",
-  "blocker": "macOS CGSSessionScreenIsLocked=Yes; Chrome document.visibilityState=hidden; Flow Builder loading indefinitely. Basic Builder still confirms saved private reply."
+  "checked_at": "2026-10-20T17:10:35.802738+00:00",
+  "trigger_enabled": true,
+  "verification": "Reloaded builder shows LIVE and private reply; Automations card shows LIVE, specific Post or Reel, comment contains DESIGN. Selected thumbnail filename matches Instagram API thumbnail for media 18102296804369794."
 }

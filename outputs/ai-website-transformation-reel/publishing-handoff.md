@@ -24,3 +24,7 @@ Heartbeat publish-approved-projects-and-jobkit-reels now explicitly covers PROJE
 Owner override 20 October: Instagram ONLY moved to 20 October 20:00 GST, replacing 25 October. Other platforms unchanged. See instagram-date-override.json and platform slot_utc in schedule.json. DESIGN ManyChat activates after this earlier Instagram release.
 
 20 October publication receipt: Instagram media 18102296804369794, custom cover and AI label set, collaborator hammadagentic.ai invited (owner acceptance pending). Do not repost. DESIGN ManyChat remains OFF: Mac is locked and Flow Builder remains loading. After unlock, bind this exact reel and DESIGN keyword and enable only its draft. YouTube has 16 non-English Draft tracks and four still Publishing (Hindi/Korean/Russian/Spanish US); recheck those after processing.
+
+20 October 21:09 GST update: DESIGN ManyChat is LIVE. Specific reel 18102296804369794 was matched using its API thumbnail, with keyword DESIGN. Reload confirms LIVE and private reply with follow invitation and tracked resource URL; automation list confirms specific-post keyword trigger. No test DM sent. Earlier locked-Mac blocker is resolved. PROJECTS/JOBKIT remain OFF.
+
+20 October 21:11 GST: the four remaining DESIGN auto-dubs completed processing and were unpublished. Reload confirms all 20 non-English audio tracks are Draft; resource page returns HTTP 200.
