@@ -1,0 +1,1453 @@
+{
+  "identity": {
+    "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+    "title": "HAMMAD YOUSUF",
+    "custom_url": "@with.hammad"
+  },
+  "recent": {
+    "kind": "youtube#playlistItemListResponse",
+    "etag": "wrQC363dh7oi2sUIG8NdjiF3BJ4",
+    "nextPageToken": "EAAaBlBUOkNCNA",
+    "items": [
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "A8lXcqKyYNeL7tD_ebfM8Xa4sVQ",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LkxCeDU3cXpVcnE4",
+        "snippet": {
+          "publishedAt": "2026-10-20T13:39:27Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "AI Website Design: Fix a Generic Page With a Better Brief #Shorts",
+          "description": "AI website design brief: copy this URL for the template:\nhttps://withhammad.com/resources/ai-website-design-brief\n\nA before-and-after sample shows how a detailed brief changes a business website design. Give the page one goal: book a consultation. Specify the offer, typography, spacing, palette and call to action, then check the mobile layout and text contrast.\n\nThis is a design demonstration, not a measured conversion result. AI presenter.\n\nSubscribe for more practical AI builds. Copy the template URL above to try your own brief.\n\n#AIWebsiteDesign #WebDesign #Shorts",
+          "thumbnails": {
+            "default": {
+              "url": "https://i9.ytimg.com/vi/LBx57qzUrq8/default.jpg?sqp=CKiS4dYG&rs=AOn4CLCLEi6Xn-g-jZ2XwxQjn9SUKTFzPQ",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i9.ytimg.com/vi/LBx57qzUrq8/mqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLAN0BhyQHczZsG7Alc4TF3CZn8tbg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i9.ytimg.com/vi/LBx57qzUrq8/hqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLCGZexmaSp_Ibo2hwmCqI5f7-1MBQ",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i9.ytimg.com/vi/LBx57qzUrq8/sddefault.jpg?sqp=CKiS4dYG&rs=AOn4CLCNxvBaCgNkNozkUsiLXYRqTnglAg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i9.ytimg.com/vi/LBx57qzUrq8/maxresdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLAwrzcbNBeKXf9qnYcUHEFCR_Usrw",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i9.ytimg.com/vi/LBx57qzUrq8/qhddefault.jpg?sqp=CKiS4dYG&rs=AOn4CLCgn4CyuPVu81LZ9e9RWb7ypGy19Q",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 0,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "LBx57qzUrq8"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "OWwhl38tl4JeG5sRw4B380xCILM",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LnY0b2tkQlF5NC1J",
+        "snippet": {
+          "publishedAt": "2026-10-20T12:04:18Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Claude AI Job Search: 5 Steps With Playwright MCP #Shorts",
+          "description": "Free setup, prompt + review checklist: https://withhammad.com/resources/claude-job-search\nClaude AI job search with Playwright MCP, in five steps.\n\nConnect the browser tool, add your resume and criteria, research permitted employer career pages, shortlist roles with resume evidence, then draft answers for review. Keep source links and flag missing dates.\n\nPlaywright MCP is open source; Claude access and usage are separate. Site permission and compatibility vary. Review your details before entering them on a live form and stop before Submit. This workflow does not submit applications or guarantee employment.\n\nOfficial tool: https://github.com/microsoft/playwright-mcp\nGet the setup and prompt: https://withhammad.com/resources/claude-job-search\nSubscribe for more practical AI workflows.\nAI avatar of me. Demo uses sample data.\n\n#ClaudeAI #JobSearch #Playwright",
+          "thumbnails": {
+            "default": {
+              "url": "https://i9.ytimg.com/vi/v4okdBQy4-I/default.jpg?sqp=CKiS4dYG&rs=AOn4CLB0gq6KJCcM5_EAK-jjdK6KIpOn0w",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i9.ytimg.com/vi/v4okdBQy4-I/mqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLDE1tDDhD2hyC0x0Ox_3PgZ8mw0vQ",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i9.ytimg.com/vi/v4okdBQy4-I/hqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLBmMOyZajoW22a1JWJCnI0br2pxwg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i9.ytimg.com/vi/v4okdBQy4-I/sddefault.jpg?sqp=CKiS4dYG&rs=AOn4CLAiEWwmg43vuPidl-rVcDi3a6CSAA",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i9.ytimg.com/vi/v4okdBQy4-I/maxresdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLDR-dXcM9fFUfLidm-puvkRE8ucGA",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i9.ytimg.com/vi/v4okdBQy4-I/qhddefault.jpg?sqp=CKiS4dYG&rs=AOn4CLCDnqFYqdRRg5XZtSqJqUbtam6yYw",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 1,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "v4okdBQy4-I"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "hnOMzQCSmxF9JzUlslNwhjWukMA",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LldNaHJ6bUVNSnVN",
+        "snippet": {
+          "publishedAt": "2026-10-20T11:58:06Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "85 AI Engineering Projects: Pick Your Next Build #Shorts",
+          "description": "Free catalog guide + build checklist: https://withhammad.com/resources/ai-engineering-projects\nChoose your next AI engineering project from 85 ideas.\n\nLanded\u2019s GitHub collection covers AI agents, RAG, fine-tuning and more. Entries list skills, difficulty and learning references. These are project ideas; not every entry is a complete tutorial. Linked tools may have their own costs.\n\nPick one idea that fits your skills, build a working demo, test it, and document what you learned.\nOriginal catalog: https://github.com/landedjobs/ai-engineer-portfolio-projects\n\nGet the catalog and checklist: https://withhammad.com/resources/ai-engineering-projects\nSubscribe for more practical AI builds.\nAI avatar of me.\n\n#AIEngineering #AIProjects #RAG",
+          "thumbnails": {
+            "default": {
+              "url": "https://i9.ytimg.com/vi/WMhrzmEMJuM/default.jpg?sqp=CKiS4dYG&rs=AOn4CLCyV0lGDqsnHRZbrSUFWAFtoz4XcA",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i9.ytimg.com/vi/WMhrzmEMJuM/mqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLBZA9sp_BirndtxZXwJaICTfxvpbw",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i9.ytimg.com/vi/WMhrzmEMJuM/hqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLDDbanoNiicAJBX-xpTc2RMjJBOBQ",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i9.ytimg.com/vi/WMhrzmEMJuM/sddefault.jpg?sqp=CKiS4dYG&rs=AOn4CLBIqwfaugiqdTpC46WiKlp5zh25bA",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i9.ytimg.com/vi/WMhrzmEMJuM/maxresdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLDpL_t4KTNjFiAm9lVx9MOCYw-wsQ",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i9.ytimg.com/vi/WMhrzmEMJuM/qhddefault.jpg?sqp=CKiS4dYG&rs=AOn4CLBt9CYE_GBjlOWQNxJ1UBmd1S0y5Q",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 2,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "WMhrzmEMJuM"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "_b0mfFkPWWTSkywb-LsQSeOR_qE",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LndXeGlmZlBXdjhF",
+        "snippet": {
+          "publishedAt": "2026-10-20T05:00:08Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Claude AI Se Video Editing | Talking Video to Motion Graphics (Urdu/Hindi)",
+          "description": "Claude AI se talking video ko motion graphics ke saath edit karne ka practical workflow \u2014 Urdu/Hindi mein, real screen recordings aur finished example ke saath.\n\nIs tutorial mein ChatGPT se visual plan banayenge, Claude mein editing instructions aur source files upload karenge, phir exported video ko review karenge. Final example bhi poora dikhaya gaya hai.\n\nCHAPTERS\n0:00 Claude se video editing\n0:25 ChatGPT mein visual plan\n1:09 Equivalent editing workflow\n1:32 Claude: model, skill aur source files\n2:02 Editing instructions submit karein\n2:21 Preview, export aur file check\n3:06 Finished example: full playback\n3:56 Publish karne se pehle review\n\nAI workflows aur practical tutorials: https://withhammad.com/\nAise hands-on tutorials ke liye subscribe karein.\n\nProduction note: Presented with my AI avatar and cloned voice. Screen recordings show the real workflow. The reference creator's private editing skill was unavailable, so this tutorial demonstrates an equivalent workflow with original narration and fresh recordings. Results and processing time depend on the tools and source footage.\nWorkflow reference: https://youtu.be/HYbRdc_3_LQ\n\n#ClaudeAI #VideoEditing #AITutorial",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/wWxiffPWv8E/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/wWxiffPWv8E/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/wWxiffPWv8E/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/wWxiffPWv8E/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/wWxiffPWv8E/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 3,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "wWxiffPWv8E"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "bwpA5ip8rSNm1K5gcU3xHxLEN8A",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3Lk5PdWZHVFJPUEk4",
+        "snippet": {
+          "publishedAt": "2026-10-18T19:53:12Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Freelance AI Engineer: Clients Kis Kaam Ke Paise Dete Hain? (Urdu/Hindi)",
+          "description": "Freelance engineering mein clients kis kaam ke liye hire karte hain? Is Urdu/Hindi tutorial mein contracts, defined projects, business automation, assistants, delivery aur maintenance retainers ko visual examples ke saath samajhiye.\n\nTopics: team contracts versus project outcomes; technical and business buyers; back-office automation; assistants and MCP connections; project examples; working alongside employment; support and retainers.\n\nPractical AI workflows: https://withhammad.com/\n\nPresented with my AI avatar and cloned voice. The short intro and first two narration chapters reuse existing generated assets. Remaining narration uses a local voice-cloning model. Slides and narration are original; project categories are illustrative, not claims about my own clients or earnings.\n\nReference: What Companies Hire Freelance Engineers For in 2026, Dave Ebbelaar \u2014 https://youtu.be/1HtydHmdhrQ\n\n#Freelancing #AIEngineering #Automation\n\nCHAPTERS\n0:00 What clients hire you for\n0:18 Contracts versus projects\n3:26 Engineering teams and business buyers\n6:30 Business automation and assistants\n9:50 Delivery and project examples\n13:09 Contracts, retainers and next steps",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/NOufGTROPI8/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/NOufGTROPI8/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/NOufGTROPI8/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/NOufGTROPI8/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/NOufGTROPI8/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 4,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "NOufGTROPI8"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "3NYgwZ9bgI0t-5n9-Cdwg--PjQg",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LjRBSkZ3X1hweEVJ",
+        "snippet": {
+          "publishedAt": "2026-10-18T10:08:35Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Claude AI Se Video Editing | Talking Video to Motion Graphics (Urdu/Hindi)",
+          "description": "Claude AI se talking video ko motion graphics ke saath edit karne ka practical workflow \u2014 Urdu/Hindi mein, real screen recordings aur finished example ke saath.\n\nIs tutorial mein ChatGPT se visual plan banayenge, Claude mein editing instructions aur source files upload karenge, phir exported video ko review karenge. Final example bhi poora dikhaya gaya hai.\n\nCHAPTERS\n0:00 Claude se video editing\n0:25 ChatGPT mein visual plan\n1:09 Equivalent editing workflow\n1:32 Claude: model, skill aur source files\n2:02 Editing instructions submit karein\n2:21 Preview, export aur file check\n3:06 Finished example: full playback\n3:56 Publish karne se pehle review\n\nAI workflows aur practical tutorials: https://withhammad.com/\nAise hands-on tutorials ke liye subscribe karein.\n\nProduction note: Presented with my AI avatar and cloned voice. Screen recordings show the real workflow. The reference creator's private editing skill was unavailable, so this tutorial demonstrates an equivalent workflow with original narration and fresh recordings. Results and processing time depend on the tools and source footage.\nWorkflow reference: https://youtu.be/HYbRdc_3_LQ\n\n#ClaudeAI #VideoEditing #AITutorial",
+          "thumbnails": {
+            "default": {
+              "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/default.jpg?sqp=CKiS4dYG&rs=AOn4CLAdD48PMFTDrrDlbPO98DlaYGtYXg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/mqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLCoeoIxbTlaOk7lHwyqgtBm4Cb2Qg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/hqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLCsANu3uxyqnFX2lxL26KSrouPrmw",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/sddefault.jpg?sqp=CKiS4dYG&rs=AOn4CLAwshM0FUqDxsIudIVNPV7gDcP5jA",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i9.ytimg.com/vi/4AJFw_XpxEI/maxresdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLBEEMMo9oJBSj6LF0ur9t0Zoqd1Ow",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 5,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "4AJFw_XpxEI"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "7clDekXGnA8xcv60lne6nZGftDU",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LnU0SjFvUXFRb1RN",
+        "snippet": {
+          "publishedAt": "2026-10-18T07:51:23Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Build Useful AI Tools: 4 Practical Workflows You Can Test",
+          "description": "Turn a repeated task into a tool you can actually use. In this tutorial, I walk through a newsletter editor, a task board with a delegation draft, a revenue model, and a packaging concept. We also cover selecting ideas and preparing a presentation.\n\nFollow the screen demonstrations to see how inputs, calculations, previews and exports work, and how to test a result before relying on it. The examples use sample data and run locally. The video includes a brief recorded Claude build; the extended demonstrations use original tutorial tools.\n\nThe presenter is an AI avatar of Hammad Yousuf, with his authorized cloned voice.\n\nCHAPTERS\n00:00 Build tools with AI\n02:11 Edit. Preview. Export.\n06:59 Decide what happens next\n11:41 Make assumptions visible\n16:42 Explore before production\n21:33 From ideas to decisions\n28:51 Build one useful tool\n\nSubscribe for practical AI workflows and step-by-step demonstrations.\n\n#AI #AITutorial #Productivity\n\nReference inspiration: Allie K Miller, \u201cStop Using AI Chat Threads and Do This Instead\u201d: https://www.youtube.com/watch?v=OayJ4FDbjUw\nOriginal narration and tutorial examples by WithHammad.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/u4J1oQqQoTM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/u4J1oQqQoTM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/u4J1oQqQoTM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/u4J1oQqQoTM/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/u4J1oQqQoTM/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 6,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "u4J1oQqQoTM"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "FzqhC8_BD4QQbCnV307KazOf0bk",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LmpBa0NVSFZWNVdZ",
+        "snippet": {
+          "publishedAt": "2026-10-18T01:54:43Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "AI Lead Generation That Runs Every Morning (Free Open-Source Scraper) #Shorts",
+          "description": "AI lead generation with GPT-6 Astra and ScrapeGraphAI, a free, open-source AI web scraper: new UK company leads land in one sheet every morning at 7.\nFree guide: https://withhammad.com/resources/scrapegraphai-lead-finder (setup, code, prompts and the UK rules)\n\nHow this B2B lead generation setup works:\n1. ScrapeGraphAI (MIT licence, 31k+ GitHub stars) reads each company website and returns only the fields you ask for, as clean rows. It runs on a free local model through Ollama, so you don't pay per lead.\n2. Give GPT-6 Astra (or Claude Code) the repo and say who to find, e.g. 200 UK online shops that are registered companies.\n3. Save the process as a skill and a ChatGPT scheduled task at 07:00, and new leads are added to the same sheet each morning.\n\nWhat's free and what isn't: the scraper and the local model are free; GPT-6 Astra needs a paid ChatGPT plan (Claude Code also needs a paid Claude plan or API credits). A free macOS launchd job can run the script every morning instead. A local run needs your computer awake, and the ChatGPT desktop app open for a scheduled task.\n\nBusiness contacts only (limited companies; sole traders need consent). Respect robots.txt and site terms, put your name and an opt-out in every email, and check the rows before you send anything. Not legal advice.\n\nRepo: https://github.com/ScrapeGraphAI/Scrapegraph-ai\n\nCommented HARVEST? There are no DMs on YouTube, so here's the guide: https://withhammad.com/resources/scrapegraphai-lead-finder\nSubscribe for more AI builds.\n\nPresented by an AI avatar of Hammad; script written and checked by Hammad.\n\n#LeadGeneration #WebScraping #AIAgents #Shorts",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/jAkCUHVV5WY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/jAkCUHVV5WY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/jAkCUHVV5WY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/jAkCUHVV5WY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/jAkCUHVV5WY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i.ytimg.com/vi/jAkCUHVV5WY/qhddefault.jpg",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 7,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "jAkCUHVV5WY"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "455yfab1ELUqDclYs2wPE06qMA0",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LlYzVmt0bkloYURB",
+        "snippet": {
+          "publishedAt": "2026-10-17T23:32:08Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "11 Free Claude Skills for YouTube (Scripts, Titles, SEO) #Shorts",
+          "description": "Claude skills for YouTube: 11 free, open-source Claude Code skills for scripts (21 hook formulas), titles, edit lists, Shorts, SEO and chapters.\nFree setup guide + prompts: https://withhammad.com/resources/youtube-agent-skill-claude\n\nThe pack is the YouTube Agent Skill by Jake Schincariol (MIT licence; a community project, not made by Anthropic). Each skill does one job:\n/yt-script: 5 hooks scored against 21 hook formulas, the top 2 kept, then a full script\n/yt-package: 10 titles checked together with your thumbnail text\n/yt-edit: an edit decision list from your transcript (it does not touch your video file)\n/yt-viral: ranks videos you collect against their own channel's median and names the title formula\n/yt-shorts: finds 20-55 second Shorts clips in a transcript\n/yt-seo and /yt-chapters: a description, tags, 3 target search queries and chapters\nPlus /yt-comment, /yt-plan, /yt-retention and /yt-audit.\n\nNot hands-off YouTube automation: it never logs into your channel, needs no API key and never uploads or publishes. Claude drafts, you decide.\nThe skills are free; Claude Code itself needs a paid Claude plan (Pro or Max).\n\nSetup: open Claude Code, paste the repo link and ask Claude to install the skills.\nRepo: https://github.com/Jakeschincariol/youtube-agent-skill\n\nCommented SKILL? Here's the link (free setup guide + copy-paste prompts): https://withhammad.com/resources/youtube-agent-skill-claude\nSubscribe for more AI builds.\n\nPresented by an AI avatar of Hammad; script written and checked by Hammad.\n\n#ClaudeCode #ClaudeSkills #YouTubeTips #Shorts",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/V3VktnIhaDA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/V3VktnIhaDA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/V3VktnIhaDA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/V3VktnIhaDA/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/V3VktnIhaDA/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i.ytimg.com/vi/V3VktnIhaDA/qhddefault.jpg",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 8,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "V3VktnIhaDA"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "OUlUpctKFN8sVAPI-WL5lRbXZUw",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LkhDbEFrRzc0cjZB",
+        "snippet": {
+          "publishedAt": "2026-10-17T14:51:49Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Reverse-engineer any feature with Claude Code (the right way) #Shorts",
+          "description": "REA (Reverse Engineer Anything) is a free, MIT-licensed tool that lets Claude Code inspect an app on your machine and explain how a feature works, with evidence and stated unknowns. Install: npx rea-agents setup. Supports desktop/Electron apps, websites and Android APKs. Use it only on software you own or are authorized to examine.\n\nOfficial repo: https://github.com/morluto/rea\n\nFree setup guide + my 3 investigation prompts: https://withhammad.com/resources/reverse-engineer-features-with-claude-code\n\nThis video uses an AI avatar of Hammad Yousuf; the script is written and reviewed by Hammad.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/HClAkG74r6A/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/HClAkG74r6A/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/HClAkG74r6A/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/HClAkG74r6A/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/HClAkG74r6A/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 9,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "HClAkG74r6A"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "84pHm3RMX48kD0FPsgWzjN035qk",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LnRGWHZhVnpFUDdZ",
+        "snippet": {
+          "publishedAt": "2026-10-09T19:24:53Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "11 Claude Skills for Your YouTube Workflow #Shorts",
+          "description": "A visual overview of the open-source YouTube Agent Skill: scripts, title-and-thumbnail pairing, transcript edit decisions and workflow planning.\n\nOriginal repository: https://github.com/Jakeschincariol/youtube-agent-skill\n\nThe toolkit drafts and analyses; you review and publish. Skill-pack licensing is free/MIT. AI service costs may apply. UI panels are illustrative, not a live test of the pack.\n\n#Shorts #ClaudeAI #ContentCreation\n\nAI-generated presenter and narration.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/tFXvaVzEP7Y/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/tFXvaVzEP7Y/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/tFXvaVzEP7Y/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/tFXvaVzEP7Y/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/tFXvaVzEP7Y/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 10,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "tFXvaVzEP7Y"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "yNOAb6honVFLt0fyD05mq8-NXU4",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LjVVeVRDQk1sOUlR",
+        "snippet": {
+          "publishedAt": "2026-10-05T06:02:12Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Build Effective AI Agents in Python (Real Code, Tests & Tool Calls)",
+          "description": "Learn how to build effective AI agents in Python with real VS Code code, tool calls, validation, and tests. Follow a small AI support system from one model call to a bounded agent loop.\n\nWe inspect retrieval, structured outputs, memory, chaining, routing, parallel checks, planner/worker steps, evaluation, tool permissions, and a failing test that gets fixed and rerun.\n\nFull guide and project: https://withhammad.com/resources/effective-ai-agents\n\nThe sample order records are fictional. The code runs against a local Ollama model (qwen3:1.7b). The editor and terminal recordings show real code execution; narration uses a synthetic voice.\n\nChapters\n00:00 Build, run, inspect\n02:37 Start with one call\n03:52 Define trusted sample records\n06:31 Valid structure is not enough\n08:31 Make memory explicit\n09:52 Build a controlled chain\n11:12 Route only supported requests\n12:38 Run independent checks together\n14:05 Let a planner choose evidence tasks\n15:25 Build a bounded repair loop\n16:48 Define the model's tools\n18:51 Test the permission boundary\n19:36 Make a test fail\n21:37 Run the regression checks\n\nConceptual reference: https://www.anthropic.com/engineering/building-effective-agents\nOllama chat API: https://docs.ollama.com/api/chat\n\n#AIAgents #Python #Ollama",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/5UyTCBMl9IQ/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/5UyTCBMl9IQ/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/5UyTCBMl9IQ/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/5UyTCBMl9IQ/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/5UyTCBMl9IQ/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 11,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "5UyTCBMl9IQ"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "uWLL5bVvdNTky0L0YCkWvixHcTM",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LjdEWVJQY3JKQjlN",
+        "snippet": {
+          "publishedAt": "2026-10-04T16:44:18Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "How to Build Effective AI Agents (Without the Hype) | Animated Guide",
+          "description": "Learn how to choose between an AI workflow and an agent, then follow the patterns step by step with animated diagrams and a concrete workshop example.\n\nGet the guide, diagrams, planning prompt and Python examples:\nhttps://withhammad.com/resources/effective-ai-agents?utm_source=youtube&utm_medium=video&utm_campaign=effective_ai_agents\n\nWe cover retrieval, tools, memory, prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer loops, environment feedback, stopping conditions and evaluation.\n\nCHAPTERS\n00:00 Start with the job\n01:02 Workflows and agents\n03:08 Pick your building tools\n04:50 The augmented LLM\n07:42 Prompt chaining\n09:58 Routing\n12:12 Parallelization\n13:51 Orchestrator and workers\n15:28 Evaluator and optimizer\n17:10 The agent feedback loop\n19:56 Make the system reliable\n23:23 Choose your next step\n\nEXAMPLES AND VALIDATION\nThe workshop records are fictional. Recorded model decisions make the Python examples runnable without an API account. All 20 application control-flow tests passed; those tests do not measure a live model's accuracy. Illustrative diagrams are labelled where appropriate.\n\nCREDITS AND SOURCES\nTechnical pattern reference \u2014 Anthropic, Building effective agents:\nhttps://www.anthropic.com/engineering/building-effective-agents\n\nRequested video reference \u2014 Dave Ebbelaar, How to Build Effective AI Agents (without the hype):\nhttps://www.youtube.com/watch?v=tx5OapbK-8A\n\nOriginal animation and independently written explanation for With Hammad. Stock synthetic narration; no cloned presenter voice. This episode uses its own examples and visuals.\n\n#AIAgents #AIEngineering #LLM",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/7DYRPcrJB9M/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/7DYRPcrJB9M/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/7DYRPcrJB9M/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/7DYRPcrJB9M/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/7DYRPcrJB9M/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 12,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "7DYRPcrJB9M"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "tP5ZkWThZQDLVeKNm6A7j4s9iLc",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LkdUMWRSU1U5dEFV",
+        "snippet": {
+          "publishedAt": "2026-10-03T22:29:08Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "How to Choose an LLM for AI Agents: Evaluation, Cost & Reliability",
+          "description": "Learn how to choose an LLM for AI agents using evaluation cases, cost per successful task, latency and reliability checks. This 20-minute AI engineering guide follows a fictional equipment service assistant from workflow design to a release decision.\n\nFor software developers and AI engineers working with OpenAI, Anthropic, tool calling and retrieval. The focus is on designing a useful comparison, checking failures and deciding what evidence your application needs.\n\nYou\u2019ll learn how to:\n\u2022 Write acceptance criteria and evaluation cases.\n\u2022 Check tool permissions, structured outputs and retrieved sources.\n\u2022 Compare cost, latency and retry behavior.\n\u2022 Plan human approval, tracing and rollback.\n\nThe scenario and records are synthetic. No model benchmark, winning model or deployed client result is claimed. Model-release context reflects research on 3 October 2026.\n\nCHAPTERS\n00:00 How to choose an LLM for an AI agent\n01:00 Model releases and integration details\n02:00 Define the user\u2019s real task\n03:00 Design the smallest complete workflow\n04:00 Prepare retrieval data and source metadata\n05:00 Define acceptance criteria\n06:00 Build useful LLM evaluation cases\n07:00 Tool contracts, permissions and MCP\n08:00 Test model integrations first\n09:00 Compare models under clear conditions\n10:00 Measure cost per successful task\n11:00 Measure latency across the workflow\n12:00 Prompt caching and repeated context\n13:00 Test prompt injection and access boundaries\n14:00 Design human approval checks\n15:00 Handle retries and idempotency\n16:00 Debug failures with traces\n17:00 Make a release and rollback decision\n18:00 Document the engineering handoff\n19:00 Your model evaluation scorecard\n\nWhich failure would stop you from releasing your AI agent? Use that case as the first entry in your evaluation set.\n\n\n\nSOURCES\nhttps://www.anthropic.com/claude-sonnet-5-5\nhttps://developers.openai.com/api/docs/models/gpt-6.1-sol\nhttps://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide\nhttps://developers.openai.com/api/docs/guides/prompt-caching\nhttps://platform.claude.com/docs/en/build-with-claude/structured-outputs\nhttps://platform.claude.com/docs/en/build-with-claude/citations\nhttps://modelcontextprotocol.io/docs/2026-07-28/learn/architecture\nhttps://openai.com/index/introducing-the-agents-api/\nhttps://developers.openai.com/api/docs/guides/evaluation-best-practices\nhttps://developers.openai.com/api/docs/guides/agent-builder-safety\nhttps://docs.stripe.com/api/idempotent_requests\nhttps://www.anthropic.com/engineering/building-effective-agents\nhttps://platform.claude.com/docs/en/build-with-claude/streaming\nhttps://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents\n\n#AIEngineering #AIAgents #LLMEvaluation",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/GT1dRSU9tAU/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/GT1dRSU9tAU/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/GT1dRSU9tAU/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/GT1dRSU9tAU/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/GT1dRSU9tAU/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 13,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "GT1dRSU9tAU"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "0UB24oQ6rYyLH448bO9CRrF2yuY",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LmM3WGdWOGFVV1U0",
+        "snippet": {
+          "publishedAt": "2026-09-02T11:27:36Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "AMOS YouTube MCP \u2014 Private Capability Test (safe to ignore/delete) [metadata-verified]",
+          "description": "Controlled private test upload verifying AMOS YouTube MCP write capability (videoUpload/metadataEdit/thumbnailWrite). Never public. Owner-approved 2026-09-02.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i9.ytimg.com/vi/c7XgV8aUWU4/default.jpg?sqp=CKiS4dYG&rs=AOn4CLDHcPPzROKxX543P4mW2jn6H33Oqg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i9.ytimg.com/vi/c7XgV8aUWU4/mqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLC8e7J7KtKFpLOk5fjqPI_WfVYCVQ",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i9.ytimg.com/vi/c7XgV8aUWU4/hqdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLCwdmftsiBsg2CiflFMk8PlS2MaMA",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i9.ytimg.com/vi/c7XgV8aUWU4/sddefault.jpg?sqp=CKiS4dYG&rs=AOn4CLAKsyp-CLXe0WidYcWVaqbpkpDrtw",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i9.ytimg.com/vi/c7XgV8aUWU4/maxresdefault.jpg?sqp=CKiS4dYG&rs=AOn4CLB6nTYPm1--60L8D6Kco4r3PGjmoQ",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 14,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "c7XgV8aUWU4"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "RtPbkyo1TuxhA5CTKq9jXkLZvwk",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LnlXU3FaRjc3eEN3",
+        "snippet": {
+          "publishedAt": "2026-08-26T18:03:21Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "I Built an Autonomous AI Agent for Google Ads (Live, Real Client, Full Walkthrough)",
+          "description": "I built Ads OS \u2014 an AI system that manages a real Google Ads account autonomously. It's live today, running against a real client's ad spend.\n\nMost \"AI ads agents\" ask you to trust a black box. This one doesn't get that trust by default: every proposed change passes a guardrails layer before it can touch the account, every mutation writes a rollback record before it executes, and nothing runs live until it's proven itself in shadow mode first.\n\nIn this video: a full walkthrough of the actual product \u2014 real voice interface, real account data pulled from the Google Ads API, live decision queue, full audit trail, and the safety architecture that makes autonomous ad management something you can actually trust.\n\nBuilt solo, deployed end-to-end, currently managing a real client account.\n\nIf you're building AI agents, doing performance marketing, or just curious what \"autonomous but safe\" actually looks like in practice \u2014 this is that, not a mockup.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/yWSqZF77xCw/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/yWSqZF77xCw/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/yWSqZF77xCw/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/yWSqZF77xCw/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/yWSqZF77xCw/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 15,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "yWSqZF77xCw"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "pcjNZtd4Dq8hrEGhozRGytzenec",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LjFwWGZ1bC1iOWtJ",
+        "snippet": {
+          "publishedAt": "2026-06-28T22:00:15Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "\u0635\u0648\u062a \u0647\u0630\u0627 \u0627\u0644\u0637\u0641\u0644 \u0633\u064a\u0635\u062f\u0645\u0643 \ud83d\ude31",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/1pXful-b9kI/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/1pXful-b9kI/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/1pXful-b9kI/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/1pXful-b9kI/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/1pXful-b9kI/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 16,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "1pXful-b9kI"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "_I_2dEMivk-MzeRLV93jDGGg-uE",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LlluZ05KLTlXQTJF",
+        "snippet": {
+          "publishedAt": "2026-06-28T21:00:24Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "#\u0642\u0631\u0622\u0646 #quran #dhikr #quran \u0627\u0644\u0642\u0631\u0622\u0646 \u0648\u0635\u0641 \u062e\u0644\u0642 \u0627\u0644\u0625\u0646\u0633\u0627\u0646 \u0642\u0628\u0644 \u0623\u0646 \u064a\u0643\u062a\u0634\u0641\u0647 \u0627\u0644\u0639\u0644\u0645 \ud83d\ude31",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/YngNJ-9WA2E/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/YngNJ-9WA2E/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/YngNJ-9WA2E/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/YngNJ-9WA2E/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/YngNJ-9WA2E/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 17,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "YngNJ-9WA2E"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "TjfoeVlbA7xRbN-rOQJHFqHPQXE",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LmFsbkVPdHRSQnRB",
+        "snippet": {
+          "publishedAt": "2026-06-28T20:38:02Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "1,400 Years Ago, the Quran Described THIS \ud83d\ude31",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/alnEOttRBtA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/alnEOttRBtA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/alnEOttRBtA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/alnEOttRBtA/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/alnEOttRBtA/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 18,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "alnEOttRBtA"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "bp9QtddtGeDuL7VSA0BBwEC9igU",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3Ljl3czQ1WG1hMmxZ",
+        "snippet": {
+          "publishedAt": "2026-06-28T20:28:41Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "#islamicreminder #islamicreminder #quran \u0631\u062f\u0629 \u0641\u0639\u0644\u0647 \u0639\u0644\u0649 \u062a\u0644\u0627\u0648\u0629 \u0627\u0644\u0634\u064a\u062e \u0645\u062d\u0645\u062f \u0627\u0644\u0644\u062d\u064a\u062f\u0627\u0646 \u2764\ufe0f\ud83c\udf3f",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/9ws45Xma2lY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/9ws45Xma2lY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/9ws45Xma2lY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/9ws45Xma2lY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/9ws45Xma2lY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 19,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "9ws45Xma2lY"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "-922rBlDcldYN2jqfsPVOcpCDUo",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LklEXzNwYUg2QXI0",
+        "snippet": {
+          "publishedAt": "2026-06-28T14:44:36Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "\u0631\u062f\u0629 \u0641\u0639\u0644\u0647 \u0639\u0644\u0649 \u062a\u0644\u0627\u0648\u0629 \u0627\u0644\u0634\u064a\u062e \u0645\u062d\u0645\u062f \u0627\u0644\u0644\u062d\u064a\u062f\u0627\u0646 \u2764\ufe0f\ud83c\udf3f",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/ID_3paH6Ar4/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/ID_3paH6Ar4/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/ID_3paH6Ar4/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/ID_3paH6Ar4/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/ID_3paH6Ar4/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 20,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "ID_3paH6Ar4"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "sMjI_--FWCBB99S5W-J24RLuyXI",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LkNfdlBRYnAtM1I4",
+        "snippet": {
+          "publishedAt": "2026-06-28T11:46:55Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "His Reaction to Sheikh Al-Luhaidan's Recitation \ud83d\ude22\u2764\ufe0f",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/C_vPQbp-3R8/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/C_vPQbp-3R8/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/C_vPQbp-3R8/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/C_vPQbp-3R8/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/C_vPQbp-3R8/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 21,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "C_vPQbp-3R8"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "p26ohLFw7IRVyvfSXoSbFbKCefs",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LjJ3MG1lNWxYRGNv",
+        "snippet": {
+          "publishedAt": "2026-06-28T11:10:22Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "#islamicreminder #allah \u0647\u0630\u0627 \u0627\u0644\u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u0642\u062f\u064a\u0645 \u0627\u0644\u0646\u0627\u062f\u0631 \u0623\u062b\u0627\u0631 \u0645\u0634\u0627\u0639\u0631\u0647 \ud83d\ude22",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/2w0me5lXDco/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/2w0me5lXDco/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/2w0me5lXDco/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/2w0me5lXDco/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/2w0me5lXDco/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 22,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "2w0me5lXDco"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "F0uqhrA8oxFVXMn24WPLZ3cdUhI",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LjdwYldhRUpGd1VF",
+        "snippet": {
+          "publishedAt": "2026-06-28T10:59:35Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "This Kid's Voice Will Blow Your Mind \ud83d\ude31",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/7pbWaEJFwUE/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/7pbWaEJFwUE/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/7pbWaEJFwUE/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/7pbWaEJFwUE/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/7pbWaEJFwUE/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 23,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "7pbWaEJFwUE"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "1YB-SGml6HIoKB_4Zwc8GwMW87o",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LllONlF2d0ozd0dF",
+        "snippet": {
+          "publishedAt": "2026-06-28T10:28:21Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "This Rare Old Recording Gave Him Chills \ud83d\ude22",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/YN6QvwJ3wGE/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/YN6QvwJ3wGE/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/YN6QvwJ3wGE/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/YN6QvwJ3wGE/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/YN6QvwJ3wGE/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 24,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "YN6QvwJ3wGE"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "_zV5PN1J8wjto5yOgMU8DQPQWRo",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LmhEbE00S2o3dnBZ",
+        "snippet": {
+          "publishedAt": "2026-06-27T21:00:02Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "\u0627\u0644\u0622\u064a\u0629 \u0646\u0641\u0633\u0647\u0627  \u0628\u0623\u0635\u0648\u0627\u062a \u0645\u062e\u062a\u0644\u0641\u0629... \u0634\u0627\u0647\u062f \u0631\u062f\u0629 \u0641\u0639\u0644\u0647 \ud83d\ude22",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/hDlM4Kj7vpY/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/hDlM4Kj7vpY/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/hDlM4Kj7vpY/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/hDlM4Kj7vpY/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/hDlM4Kj7vpY/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 25,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "hDlM4Kj7vpY"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "s6I6uAtqlBKr0fdsKNUBrCdsC_I",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LlYtMGJlaGdHZHlN",
+        "snippet": {
+          "publishedAt": "2026-06-27T20:20:37Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Same Ayah, Different Voices \u2014 Watch His Reaction \ud83d\ude22",
+          "description": "A single Ayah, recited in different voices \u2014 and a reaction that says everything. \ud83d\ude22\n\n\"And to Allah belong the east and the west. So wherever you turn, there is the Face of Allah. Indeed, Allah is all-Encompassing and Knowing.\" \u2014 Surah Al-Baqarah 2:115\n\n\u0648\u064e\u0644\u0650\u0644\u064e\u0651\u0647\u0650 \u0627\u0644\u0652\u0645\u064e\u0634\u0652\u0631\u0650\u0642\u064f \u0648\u064e\u0627\u0644\u0652\u0645\u064e\u063a\u0652\u0631\u0650\u0628\u064f \u0641\u064e\u0623\u064e\u064a\u0652\u0646\u064e\u0645\u064e\u0627 \u062a\u064f\u0648\u064e\u0644\u064f\u0651\u0648\u0627 \u0641\u064e\u062b\u064e\u0645\u064e\u0651 \u0648\u064e\u062c\u0652\u0647\u064f \u0627\u0644\u0644\u064e\u0651\u0647\u0650 \u0625\u0650\u0646\u064e\u0651 \u0627\u0644\u0644\u064e\u0651\u0647\u064e \u0648\u064e\u0627\u0633\u0650\u0639\u064c \u0639\u064e\u0644\u0650\u064a\u0645\u064c\n\nFollow for more Quran reaction Shorts & Islamic reminders.\n\n#Quran #SurahBaqarah #IslamicShorts",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/V-0behgGdyM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/V-0behgGdyM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/V-0behgGdyM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/V-0behgGdyM/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/V-0behgGdyM/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 26,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "V-0behgGdyM"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "LS7jr3sO9PHsOvIx3Z-yM1BOAts",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LjJiRFV6QTlTVkFJ",
+        "snippet": {
+          "publishedAt": "2026-06-25T15:48:38Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "\u0634\u0627\u0628 \u064a\u062d\u0627\u0643\u0649 \u0627\u0644\u0634\u064a\u062e \u062d\u0627\u0645\u062f \u0634\u0627\u0643\u0631 \u0646\u062c\u0627\u062f \u0628\u0628\u0631\u0627\u0639\u0629 #quran #dhikr #allah",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/2bDUzA9SVAI/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/2bDUzA9SVAI/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/2bDUzA9SVAI/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/2bDUzA9SVAI/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/2bDUzA9SVAI/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 27,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "2bDUzA9SVAI"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "zI6_1wSrThFGS9RY3J2YocerQO0",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LjZaZmpvY09TX1ZN",
+        "snippet": {
+          "publishedAt": "2026-06-24T10:34:00Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Quran",
+          "description": "#CapCut I made this amazing video with CapCut. Open the link to try it out:  capcut.com/tools/desktop-video-editor",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/6ZfjocOS_VM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/6ZfjocOS_VM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/6ZfjocOS_VM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/6ZfjocOS_VM/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/6ZfjocOS_VM/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 28,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "6ZfjocOS_VM"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "etag": "VY26z7j9gbXwpjC3ipzJfCbqbXc",
+        "id": "VVVKdHJFREdnMVIza05lN3Q3UFFGaUV3LnMxb1hsRDVKZWx3",
+        "snippet": {
+          "publishedAt": "2026-05-20T19:09:18Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "Astaghfirullah Benefits in 60 Seconds #\u0642\u0631\u0622\u0646 #quran",
+          "description": "Beautiful Quran recitation to soothe your soul \ud83c\udf99\ufe0f\n\nLet the words of Allah fill your heart with peace and tranquility.\n\ud83d\udcf1 Subscribe to @with.hammad for daily Islamic reminders & Quran recitations\n\n#quran #quranrecitation #islamicshorts #muslim #shorts #qurankareem",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/s1oXlD5Jelw/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/s1oXlD5Jelw/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/s1oXlD5Jelw/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/s1oXlD5Jelw/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/s1oXlD5Jelw/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "playlistId": "UUJtrEDGg1R3kNe7t7PQFiEw",
+          "position": 29,
+          "resourceId": {
+            "kind": "youtube#video",
+            "videoId": "s1oXlD5Jelw"
+          },
+          "videoOwnerChannelTitle": "HAMMAD YOUSUF",
+          "videoOwnerChannelId": "UCJtrEDGg1R3kNe7t7PQFiEw"
+        }
+      }
+    ],
+    "pageInfo": {
+      "totalResults": 4061,
+      "resultsPerPage": 30
+    }
+  }
+}

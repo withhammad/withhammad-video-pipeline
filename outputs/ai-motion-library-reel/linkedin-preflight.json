@@ -1,0 +1,170 @@
+{
+  "platform": "linkedin",
+  "dry_run": true,
+  "status": "planned",
+  "author": "urn:li:person:yWP7me7dep",
+  "identity": {
+    "sub": "yWP7me7dep",
+    "name": "HAMMAD YOUSUF",
+    "verified": true
+  },
+  "token_expires_at": "2026-12-16T09:32:17Z",
+  "linkedin_version": "202610",
+  "video": {
+    "path": ".local/jobs/motion20261020/final.mp4",
+    "size": 11106120,
+    "duration_s": 36.867,
+    "width": 1080,
+    "height": 1920,
+    "video_codec": "h264",
+    "audio_codec": "aac"
+  },
+  "commentary": "A good AI motion prompt is a production brief.\n\nDefine the product, palette, timing and final frame before you generate. Use examples to understand the structure, then adapt the details to your own brand and review the result.\n\nThis walkthrough shows the process. Results vary by tool and settings.\n\nGet my starter brief and checklist: https://withhammad.com/resources/ai-motion-starter-kit\nFollow for practical AI builds. AI avatar of me.\n\n#AIMotionGraphics #MotionDesign #Remotion",
+  "state_path": ".local/jobs/motion20261020/publish_linkedin.json",
+  "resume": false,
+  "warnings": [],
+  "thumbnail": {
+    "path": ".local/jobs/motion20261020/cover_720x1280.jpg",
+    "size": 468119,
+    "sha256": "465c80f1972102ed9b4f906a55cfb20930d8c8872a170d5c4306f410f2241ffd"
+  },
+  "checks_performed": [
+    {
+      "step": "identity_check",
+      "method": "GET",
+      "url": "https://api.linkedin.com/v2/userinfo",
+      "status": 200
+    }
+  ],
+  "requests": [
+    {
+      "step": "initialize_upload",
+      "method": "POST",
+      "url": "https://api.linkedin.com/rest/videos?action=initializeUpload",
+      "headers": {
+        "Authorization": "Bearer <redacted>",
+        "Linkedin-Version": "202610",
+        "X-Restli-Protocol-Version": "2.0.0",
+        "Content-Type": "application/json"
+      },
+      "json": {
+        "initializeUploadRequest": {
+          "owner": "urn:li:person:yWP7me7dep",
+          "fileSizeBytes": 11106120,
+          "uploadCaptions": false,
+          "uploadThumbnail": true
+        }
+      }
+    },
+    {
+      "step": "upload_part",
+      "part": "1/3",
+      "method": "PUT",
+      "url": "<uploadInstructions[0].uploadUrl>",
+      "headers": {
+        "Content-Type": "application/octet-stream"
+      },
+      "bytes": "0-4194303",
+      "size": 4194304,
+      "source": ".local/jobs/motion20261020/final.mp4"
+    },
+    {
+      "step": "upload_part",
+      "part": "2/3",
+      "method": "PUT",
+      "url": "<uploadInstructions[1].uploadUrl>",
+      "headers": {
+        "Content-Type": "application/octet-stream"
+      },
+      "bytes": "4194304-8388607",
+      "size": 4194304,
+      "source": ".local/jobs/motion20261020/final.mp4"
+    },
+    {
+      "step": "upload_part",
+      "part": "3/3",
+      "method": "PUT",
+      "url": "<uploadInstructions[2].uploadUrl>",
+      "headers": {
+        "Content-Type": "application/octet-stream"
+      },
+      "bytes": "8388608-11106119",
+      "size": 2717512,
+      "source": ".local/jobs/motion20261020/final.mp4"
+    },
+    {
+      "step": "upload_thumbnail",
+      "method": "PUT",
+      "url": "<thumbnailUploadUrl from initializeUpload>",
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "media-type-family": "STILLIMAGE"
+      },
+      "size": 468119,
+      "source": ".local/jobs/motion20261020/cover_720x1280.jpg",
+      "expect": "201; a failure is a warning and the post still goes out"
+    },
+    {
+      "step": "finalize_upload",
+      "method": "POST",
+      "url": "https://api.linkedin.com/rest/videos?action=finalizeUpload",
+      "headers": {
+        "Authorization": "Bearer <redacted>",
+        "Linkedin-Version": "202610",
+        "X-Restli-Protocol-Version": "2.0.0",
+        "Content-Type": "application/json"
+      },
+      "json": {
+        "finalizeUploadRequest": {
+          "video": "<video URN from initializeUpload>",
+          "uploadToken": "<uploadToken from initializeUpload>",
+          "uploadedPartIds": [
+            "<ETag of part 1>",
+            "<ETag of part 2>",
+            "<ETag of part 3>"
+          ]
+        }
+      }
+    },
+    {
+      "step": "wait_until_available",
+      "method": "GET",
+      "url": "https://api.linkedin.com/rest/videos/<url-encoded video URN>",
+      "headers": {
+        "Authorization": "Bearer <redacted>",
+        "Linkedin-Version": "202610",
+        "X-Restli-Protocol-Version": "2.0.0"
+      },
+      "repeat": "from every 5 s, doubling to at most 30 s, until status AVAILABLE (gives up after 900 s); if LinkedIn refuses the status GET with 403, waits a fixed time instead and lets the post call decide"
+    },
+    {
+      "step": "create_post",
+      "method": "POST",
+      "url": "https://api.linkedin.com/rest/posts",
+      "headers": {
+        "Authorization": "Bearer <redacted>",
+        "Linkedin-Version": "202610",
+        "X-Restli-Protocol-Version": "2.0.0",
+        "Content-Type": "application/json"
+      },
+      "json": {
+        "author": "urn:li:person:yWP7me7dep",
+        "commentary": "A good AI motion prompt is a production brief.\n\nDefine the product, palette, timing and final frame before you generate. Use examples to understand the structure, then adapt the details to your own brand and review the result.\n\nThis walkthrough shows the process. Results vary by tool and settings.\n\nGet my starter brief and checklist: https://withhammad.com/resources/ai-motion-starter-kit\nFollow for practical AI builds. AI avatar of me.\n\n#AIMotionGraphics #MotionDesign #Remotion",
+        "visibility": "PUBLIC",
+        "distribution": {
+          "feedDistribution": "MAIN_FEED",
+          "targetEntities": [],
+          "thirdPartyDistributionChannels": []
+        },
+        "content": {
+          "media": {
+            "id": "<video URN from initializeUpload>"
+          }
+        },
+        "lifecycleState": "PUBLISHED",
+        "isReshareDisabledByAuthor": false
+      },
+      "expect": "201 with x-restli-id header"
+    }
+  ]
+}

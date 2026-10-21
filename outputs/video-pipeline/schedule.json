@@ -334,6 +334,66 @@
       },
       "queued_at": "2026-10-20T13:39:21Z",
       "note": "Owner exception: Instagram 20 October 20:00 GST; other platforms 25 October. No second Instagram post on 25 October."
+    },
+    {
+      "job": "motion20261020",
+      "date": "2026-10-21",
+      "title": "AI Motion Starter Kit",
+      "keyword": "MOTION",
+      "slug": "ai-motion-starter-kit",
+      "resource_url": "https://withhammad.com/resources/ai-motion-starter-kit",
+      "status": "queued",
+      "owner_override": "Owner explicitly selected Today\u201421 October for distribution; do not change other planned jobs. Instagram already published.",
+      "platforms": {
+        "youtube": {
+          "via": "api",
+          "status": "scheduled",
+          "slot_utc": "2026-10-21T08:00:00Z",
+          "local_time": "Wed 2026-10-21 12:00 GST",
+          "video_id": "xnL4IfRhR3E",
+          "url": "https://www.youtube.com/shorts/xnL4IfRhR3E",
+          "publish_at": "2026-10-21T08:00:00Z",
+          "thumbnail": "set",
+          "privacy": "private"
+        },
+        "linkedin": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-21T12:00:00Z",
+          "local_time": "Wed 2026-10-21 16:00 GST",
+          "automation_id": "publish-motion-linkedin-today"
+        },
+        "tiktok": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-21T13:00:00Z",
+          "local_time": "Wed 2026-10-21 17:00 GST",
+          "url": "https://www.tiktok.com/@hammadyousuf01/video/7698985902042860808",
+          "cover": "custom face cover uploaded and saved",
+          "ai_label": true,
+          "confirmation": "Reloaded TikTok Studio: exact MOTION caption, 00:36, Oct21 5PM, Everyone"
+        },
+        "facebook": {
+          "via": "composer",
+          "status": "pending",
+          "slot_utc": "2026-10-21T13:00:00Z",
+          "local_time": "Wed 2026-10-21 17:00 GST"
+        },
+        "x": {
+          "via": "composer",
+          "status": "pending",
+          "slot_utc": "2026-10-21T14:00:00Z",
+          "local_time": "Wed 2026-10-21 18:00 GST"
+        },
+        "instagram": {
+          "via": "api",
+          "status": "published",
+          "media_id": "18030406115860410",
+          "url": "https://www.instagram.com/reel/Deu0-tsmyWm/",
+          "slot_utc": "2026-10-20T21:44:54Z",
+          "local_time": "Wed 2026-10-21 01:44 GST"
+        }
+      }
     }
   ]
 }

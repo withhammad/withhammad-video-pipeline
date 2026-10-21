@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-21",
+  "timezone": "Asia/Dubai",
+  "owner_override": "Today\u201421 October",
+  "live_checks": {
+    "youtube": "Studio audience 22 Sep\u201319 Oct: insufficient viewer data for hourly activity. Own channel verified.",
+    "tiktok": "59 followers; 583 views over 7 days; 98.8% For You; hourly follower activity unavailable below 100 followers."
+  },
+  "timing_basis": {
+    "youtube": "Historical own-channel Shorts analysis supports noon, but older niche limits confidence.",
+    "linkedin_facebook_x": "Previously recorded audience/timing research; no fresh hourly activity verified today."
+  },
+  "slots": {
+    "youtube": "12:00",
+    "linkedin": "16:00",
+    "tiktok": "17:00",
+    "facebook": "17:00",
+    "x": "18:00"
+  },
+  "limitation": "Test slots, not a guarantee of optimal reach or virality."
+}

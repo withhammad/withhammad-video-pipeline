@@ -110,7 +110,7 @@
           "https://www.googleapis.com/auth/youtube.force-ssl"
         ],
         "video_publish_tested": true,
-        "identity_last_verified": "2026-10-20",
+        "identity_last_verified": "2026-10-21",
         "last_long_video": "https://www.youtube.com/watch?v=u4J1oQqQoTM",
         "separate_caption_permission": "verified"
       },
@@ -119,8 +119,9 @@
         "handle": "hammadyousuf01",
         "account_id": null,
         "profile_url": "https://www.tiktok.com/@hammadyousuf01",
-        "connection_status": "metricool_only_direct_auth_unverified",
-        "provider": "tiktok_direct_api"
+        "connection_status": "chrome_session_verified_native_schedule",
+        "provider": "owner_chrome",
+        "identity_last_verified": "2026-10-21"
       },
       {
         "key": "linkedin",
@@ -140,7 +141,7 @@
         ],
         "expires_at": "2026-12-16T09:32:17+00:00",
         "video_publish_tested": true,
-        "identity_last_verified": "2026-10-20",
+        "identity_last_verified": "2026-10-21",
         "last_long_video": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7517491828477276160/",
         "english_srt_upload_tested": true
       },
@@ -230,6 +231,33 @@
     "manychat_flow": "content20261020213935_056913",
     "manychat_status": "blocked_free_plan_automation_limit",
     "collaborator_status": "pending_acceptance",
-    "updated_utc": "2026-10-20T21:50:00.399381+00:00"
+    "updated_utc": "2026-10-20T21:50:00.399381+00:00",
+    "distribution": {
+      "date": "2026-10-21",
+      "timezone": "Asia/Dubai",
+      "youtube": {
+        "status": "native_scheduled",
+        "time": "12:00",
+        "video_id": "xnL4IfRhR3E"
+      },
+      "linkedin": {
+        "status": "timed_api_pending",
+        "time": "16:00",
+        "automation_id": "publish-motion-linkedin-today"
+      },
+      "tiktok": {
+        "status": "native_scheduled",
+        "time": "17:00",
+        "video_id": "7698985902042860808"
+      },
+      "facebook": {
+        "status": "unsubmitted_composer_closed",
+        "time": "17:00"
+      },
+      "x": {
+        "status": "pending",
+        "time": "18:00"
+      }
+    }
   }
 }
