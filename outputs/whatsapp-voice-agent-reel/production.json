@@ -1,5 +1,5 @@
 {
-  "status": "avatar_processing_visual_draft",
+  "status": "final_ready_for_owner_review",
   "video_id": "ab6ded30bfb02f7b8b21b5128cf0f315",
   "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
   "voice_id": "0f7032b11fb743589cc81b721f4389b3",
@@ -8,10 +8,15 @@
   "preview": "http://localhost:3022/WhatsAppVoiceAgent",
   "publish_authorized": false,
   "remaining": [
-    "Retrieve completed avatar after provider completion",
-    "Align visuals and captions to narration",
-    "Mix quiet music",
-    "Create face thumbnail",
-    "Verify final and show owner"
+    "Owner review before upload"
+  ],
+  "duration_seconds": 30.571,
+  "final": "final.mp4",
+  "thumbnail": "thumbnail.jpg",
+  "voice_processing": "Original speed and pitch; 70Hz high-pass and loudness normalization; no pause trimming",
+  "music_gain": 0.07,
+  "avatar_dimensions": [
+    240,
+    285
   ]
 }

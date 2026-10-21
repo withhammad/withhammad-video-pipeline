@@ -1,0 +1,14 @@
+{
+  "resolution": [
+    1080,
+    1920
+  ],
+  "frames": 917,
+  "fps": 30,
+  "loudness_lufs": -16.4,
+  "true_peak_dbtp": -1.93,
+  "thumbnail_and_frame_visually_checked": true,
+  "original_reference_presenter_used": false,
+  "sha256": "f1336939bcab01e72245a8bfbfff20cc2d9b83b1b295af6ba035bd0cea2a8967",
+  "resource_status": "Checklist drafted locally; website deployment pending before publication"
+}

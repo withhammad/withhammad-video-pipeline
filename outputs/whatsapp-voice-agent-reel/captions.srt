@@ -1,0 +1,111 @@
+1
+00:00:00,320 --> 00:00:01,680
+Imagine opening a café
+
+2
+00:00:01,820 --> 00:00:02,720
+through WhatsApp voice
+
+3
+00:00:02,800 --> 00:00:03,100
+notes.
+
+4
+00:00:03,540 --> 00:00:04,400
+In this demo from
+
+5
+00:00:04,440 --> 00:00:05,920
+Netveva, the assistant
+
+6
+00:00:06,020 --> 00:00:06,980
+checks your identity,
+
+7
+00:00:07,360 --> 00:00:08,480
+helps you choose a café
+
+8
+00:00:08,520 --> 00:00:09,600
+and roastery licence,
+
+9
+00:00:10,040 --> 00:00:10,780
+checks existing
+
+10
+00:00:10,840 --> 00:00:12,320
+clearances, then handles
+
+11
+00:00:12,420 --> 00:00:13,220
+payment and books an
+
+12
+00:00:13,260 --> 00:00:13,820
+inspection.
+
+13
+00:00:14,220 --> 00:00:15,540
+The creator says its AI
+
+14
+00:00:15,580 --> 00:00:16,580
+models run on a local
+
+15
+00:00:16,700 --> 00:00:17,000
+server.
+
+16
+00:00:17,480 --> 00:00:18,300
+That is the interesting
+
+17
+00:00:18,400 --> 00:00:19,600
+part: voice is the
+
+18
+00:00:19,640 --> 00:00:20,740
+interface, but connected
+
+19
+00:00:20,820 --> 00:00:21,880
+workflows do the work.
+
+20
+00:00:22,260 --> 00:00:23,380
+This is a demonstration,
+
+21
+00:00:23,460 --> 00:00:24,520
+not a service we have
+
+22
+00:00:24,560 --> 00:00:25,020
+deployed.
+
+23
+00:00:25,460 --> 00:00:26,500
+Want to map a workflow
+
+24
+00:00:26,560 --> 00:00:27,220
+like this for your
+
+25
+00:00:27,280 --> 00:00:27,680
+business?
+
+26
+00:00:28,100 --> 00:00:29,040
+Get the voice agent
+
+27
+00:00:29,080 --> 00:00:29,780
+checklist from my
+
+28
+00:00:29,840 --> 00:00:30,360
+resources.
