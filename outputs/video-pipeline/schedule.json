@@ -343,25 +343,31 @@
       "slug": "ai-motion-starter-kit",
       "resource_url": "https://withhammad.com/resources/ai-motion-starter-kit",
       "status": "queued",
-      "owner_override": "Owner explicitly selected Today\u201421 October for distribution; do not change other planned jobs. Instagram already published.",
+      "owner_override": "Owner explicitly selected Today—21 October for distribution; do not change other planned jobs. Instagram already published.",
       "platforms": {
         "youtube": {
           "via": "api",
-          "status": "scheduled",
+          "status": "published",
           "slot_utc": "2026-10-21T08:00:00Z",
           "local_time": "Wed 2026-10-21 12:00 GST",
           "video_id": "xnL4IfRhR3E",
           "url": "https://www.youtube.com/shorts/xnL4IfRhR3E",
           "publish_at": "2026-10-21T08:00:00Z",
           "thumbnail": "set",
-          "privacy": "private"
+          "privacy": "public",
+          "verified_at": "2026-10-22T17:39:15Z"
         },
         "linkedin": {
           "via": "api",
-          "status": "pending",
+          "status": "missed",
           "slot_utc": "2026-10-21T12:00:00Z",
           "local_time": "Wed 2026-10-21 16:00 GST",
-          "automation_id": "publish-motion-linkedin-today"
+          "automation_id": "publish-motion-linkedin-today",
+          "missed_at": "2026-10-22T17:39:15Z",
+          "error": "slot passed 1 day, 5:39:15.690549 ago (limit 6:00:00); not posted late",
+          "automation_status": "deleted_expired",
+          "requires_owner_date_approval": true,
+          "receipt": "outputs/ai-motion-library-reel/linkedin-expired-2026-10-22.json"
         },
         "tiktok": {
           "via": "composer",

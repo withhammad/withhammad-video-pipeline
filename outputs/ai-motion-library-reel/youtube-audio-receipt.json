@@ -1,0 +1,33 @@
+{
+  "video_id": "xnL4IfRhR3E",
+  "checked_at": "2026-10-22T17:39:52.014Z",
+  "video_language": "English",
+  "initial_non_english_audio": "20 Published",
+  "action": "unpublished only the 20 non-English auto-dub audio tracks",
+  "verified_after_reload": true,
+  "non_english_audio": [
+    "Arabic Draft 1 published Published",
+    "Bangla Draft 1 published Published",
+    "Dutch (Netherlands) Draft 1 published Published",
+    "French (France) Draft 1 published Published",
+    "German (Germany) Draft 1 published Published",
+    "Hebrew Draft 1 published Published",
+    "Hindi Draft 1 published Published",
+    "Indonesian Draft 1 published Published",
+    "Italian Draft 1 published Published",
+    "Japanese Draft 1 published Published",
+    "Korean Draft 1 published Published",
+    "Malayalam Draft 1 published Published",
+    "Polish Draft 1 published Published",
+    "Portuguese (Brazil) Draft 1 published Published",
+    "Punjabi Draft 1 published Published",
+    "Russian Draft 1 published Published",
+    "Spanish (United States) Draft 1 published Published",
+    "Tamil Draft 1 published Published",
+    "Telugu Draft 1 published Published",
+    "Ukrainian Draft 1 published Published"
+  ],
+  "all_non_english_audio_draft": true,
+  "english_manual_caption_evidence": "youtube-live-verification-2026-10-22.json",
+  "screenshot": "youtube-audio-drafts-2026-10-22.png"
+}

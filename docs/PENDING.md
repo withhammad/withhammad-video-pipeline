@@ -77,3 +77,9 @@ Job audit20261020, CHECK: final 29.7s English Remotion reel, small approved oliv
 DESIGN override: owner requested Instagram today. Its Instagram slot is now 20 October 20:00 GST; other five platforms remain 25 October. Heartbeat updated; dry run targets only DESIGN at tonight’s slot. Do not publish it again on 25 October.
 
 20 October 20:02 GST: DESIGN Instagram published https://www.instagram.com/reel/DeuNwewjXms/ (18102296804369794). Do not repost. Owner must accept hammadagentic.ai Collab. DESIGN ManyChat is LIVE as of 21:09 GST: exact published reel + DESIGN keyword, follow invitation and tracked resource private reply verified after reload. Other platform slots unchanged.
+
+## MOTION LinkedIn expired — 22 October 2026
+
+Job motion20261020 missed its owner-approved 21 October 16:00 GST LinkedIn window. No publisher receipt or submission attempt is saved. The isolated scheduler marked only this LinkedIn entry missed; no publication was attempted. The expired publish-motion-linkedin-today automation was deleted. A new owner-approved date and a fresh remote duplicate check are required before posting. Receipt: outputs/ai-motion-library-reel/linkedin-expired-2026-10-22.json.
+
+YouTube xnL4IfRhR3E is public and its manual English subtitle track is serving. Twenty non-English auto-dub audio tracks were found Published, returned to Draft, and verified after reload. Evidence: outputs/ai-motion-library-reel/youtube-audio-receipt.json and youtube-live-verification-2026-10-22.json.

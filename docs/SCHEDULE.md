@@ -22,7 +22,7 @@ Per-platform state of queued reels (GST; UTC for the APIs in schedule.json):
 
 | Date | Reel | YouTube Shorts | LinkedIn | Instagram Reels (Collab) | TikTok | Facebook Reels | X |
 |---|---|---|---|---|---|---|---|
-| 2026-10-21 | MOTION | 12:00 scheduled ([link](https://www.youtube.com/shorts/xnL4IfRhR3E)) | 16:00 pending | 01:44 published ([link](https://www.instagram.com/reel/Deu0-tsmyWm/)) | 17:00 composer_scheduled ([link](https://www.tiktok.com/@hammadyousuf01/video/7698985902042860808)) | 17:00 pending | 18:00 pending |
+| 2026-10-21 | MOTION | 12:00 published ([link](https://www.youtube.com/shorts/xnL4IfRhR3E)) | 16:00 missed | 01:44 published ([link](https://www.instagram.com/reel/Deu0-tsmyWm/)) | 17:00 composer_scheduled ([link](https://www.tiktok.com/@hammadyousuf01/video/7698985902042860808)) | 17:00 pending | 18:00 pending |
 | 2026-10-23 | PROJECTS | 10:00 scheduled ([link](https://www.youtube.com/shorts/WMhrzmEMJuM)) | 16:00 pending | 17:00 pending | 17:00 composer_scheduled ([link](https://www.tiktok.com/@hammadyousuf01/video/7698724400958278919)) | 17:00 composer_scheduled | 18:00 composer_scheduled |
 | 2026-10-24 | JOBKIT | 12:00 scheduled ([link](https://www.youtube.com/shorts/v4okdBQy4-I)) | 10:00 pending | 17:00 pending | 17:00 composer_scheduled ([link](https://www.tiktok.com/@hammadyousuf01/video/7698725535639145735)) | 17:00 composer_scheduled | 18:00 composer_scheduled |
 | 2026-10-25 | DESIGN | 12:00 scheduled ([link](https://www.youtube.com/shorts/LBx57qzUrq8)) | 10:00 pending | 2026-10-20 20:00 published ([link](https://www.instagram.com/reel/DeuNwewjXms/)) | 17:00 composer_scheduled ([link](https://www.tiktok.com/@hammadyousuf01/video/7698744181560282376)) | 17:00 composer_scheduled | 18:00 composer_scheduled |

@@ -231,19 +231,26 @@
     "manychat_flow": "content20261020213935_056913",
     "manychat_status": "blocked_free_plan_automation_limit",
     "collaborator_status": "pending_acceptance",
-    "updated_utc": "2026-10-20T21:50:00.399381+00:00",
+    "updated_utc": "2026-10-22T17:39:15Z",
     "distribution": {
       "date": "2026-10-21",
       "timezone": "Asia/Dubai",
       "youtube": {
-        "status": "native_scheduled",
+        "status": "published",
         "time": "12:00",
-        "video_id": "xnL4IfRhR3E"
+        "video_id": "xnL4IfRhR3E",
+        "verified_at": "2026-10-22T17:39:15Z",
+        "english_manual_captions": "serving",
+        "non_english_audio": "20 drafts verified after reload",
+        "audio_receipt": "outputs/ai-motion-library-reel/youtube-audio-receipt.json"
       },
       "linkedin": {
-        "status": "timed_api_pending",
+        "status": "missed_requires_owner_date",
         "time": "16:00",
-        "automation_id": "publish-motion-linkedin-today"
+        "automation_id": "publish-motion-linkedin-today",
+        "automation_status": "deleted_expired",
+        "checked_at": "2026-10-22T17:39:15Z",
+        "receipt": "outputs/ai-motion-library-reel/linkedin-expired-2026-10-22.json"
       },
       "tiktok": {
         "status": "native_scheduled",

@@ -1,0 +1,124 @@
+{
+  "checked_at": "2026-10-22T17:36:29.608250+00:00",
+  "identity": {
+    "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+    "title": "HAMMAD YOUSUF",
+    "custom_url": "@with.hammad"
+  },
+  "video": [
+    {
+      "kind": "youtube#video",
+      "etag": "K2K9qLui7t56oijgiNVarnS1dLU",
+      "id": "xnL4IfRhR3E",
+      "snippet": {
+        "publishedAt": "2026-10-21T08:00:04Z",
+        "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+        "title": "Better AI Motion Graphics: Start With This Prompt Brief #Shorts",
+        "description": "Get the AI motion starter brief and checklist: https://withhammad.com/resources/ai-motion-starter-kit\n\nStop guessing your AI motion prompts. Study a reference, define your own product, palette, timing and final frame, then review and iterate. Outputs vary with the tool and settings.\n\nPrompt Motion walkthrough adapted from the supplied reference. AI avatar of me and my generated voice.\nFollow for practical AI builds.\n\n#AIMotionGraphics #Remotion #MotionDesign #Shorts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/xnL4IfRhR3E/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/xnL4IfRhR3E/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/xnL4IfRhR3E/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/xnL4IfRhR3E/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/xnL4IfRhR3E/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "qhd": {
+            "url": "https://i.ytimg.com/vi/xnL4IfRhR3E/qhddefault.jpg",
+            "width": 2560,
+            "height": 1440
+          }
+        },
+        "channelTitle": "HAMMAD YOUSUF",
+        "tags": [
+          "AIMotionGraphics",
+          "MotionDesign",
+          "Remotion"
+        ],
+        "categoryId": "28",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "Better AI Motion Graphics: Start With This Prompt Brief #Shorts",
+          "description": "Get the AI motion starter brief and checklist: https://withhammad.com/resources/ai-motion-starter-kit\n\nStop guessing your AI motion prompts. Study a reference, define your own product, palette, timing and final frame, then review and iterate. Outputs vary with the tool and settings.\n\nPrompt Motion walkthrough adapted from the supplied reference. AI avatar of me and my generated voice.\nFollow for practical AI builds.\n\n#AIMotionGraphics #Remotion #MotionDesign #Shorts"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "public",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false,
+        "selfDeclaredMadeForKids": false
+      },
+      "processingDetails": {
+        "processingStatus": "succeeded",
+        "fileDetailsAvailability": "available",
+        "processingIssuesAvailability": "available",
+        "tagSuggestionsAvailability": "inProgress",
+        "editorSuggestionsAvailability": "inProgress",
+        "thumbnailsAvailability": "available"
+      }
+    }
+  ],
+  "captions": [
+    {
+      "kind": "youtube#caption",
+      "etag": "NkldHxr9_Vj0Dh0zJv8hNZxw_as",
+      "id": "AUieDaY28-3WPR0-J6pNFi6Ax-PKuNpXxq-I8sI3wqRAMkZlPzA",
+      "snippet": {
+        "videoId": "xnL4IfRhR3E",
+        "lastUpdated": "2026-10-21T05:16:12.466795Z",
+        "trackKind": "asr",
+        "language": "en",
+        "name": "",
+        "audioTrackType": "unknown",
+        "isCC": false,
+        "isLarge": false,
+        "isEasyReader": false,
+        "isDraft": false,
+        "isAutoSynced": false,
+        "status": "serving"
+      }
+    },
+    {
+      "kind": "youtube#caption",
+      "etag": "qE2AKh3_p769Gn2DeeaiXp80wi8",
+      "id": "AUieDaa3Mcn20OnB4NFAvyhMCfez9T8qCM98co9TWpwBSACmoOZH4yw2k52HA1f8H8de4n_QEA",
+      "snippet": {
+        "videoId": "xnL4IfRhR3E",
+        "lastUpdated": "2026-10-21T05:11:47.646222Z",
+        "trackKind": "standard",
+        "language": "en",
+        "name": "English - WithHammad",
+        "audioTrackType": "unknown",
+        "isCC": false,
+        "isLarge": false,
+        "isEasyReader": false,
+        "isDraft": false,
+        "isAutoSynced": false,
+        "status": "serving"
+      }
+    }
+  ]
+}

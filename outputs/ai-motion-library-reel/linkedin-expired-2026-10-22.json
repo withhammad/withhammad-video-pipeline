@@ -1,0 +1,45 @@
+{
+  "job": "motion20261020",
+  "checked_at": "2026-10-22T17:39:15Z",
+  "approved_slot_utc": "2026-10-21T12:00:00Z",
+  "approved_date_timezone": "Asia/Dubai",
+  "outcome": "missed_requires_new_owner_date",
+  "publication_attempted": false,
+  "local_post_record": null,
+  "uncertain_attempt": false,
+  "remote_linkedin_state": "not_verified; no pipeline receipt or submission state exists",
+  "automation": {
+    "id": "publish-motion-linkedin-today",
+    "status": "deleted_expired"
+  },
+  "result": {
+    "now": "2026-10-22T17:39:15Z",
+    "dry_run": false,
+    "results": [
+      {
+        "job": "motion20261020",
+        "date": "2026-10-21",
+        "platform": "linkedin",
+        "slot_utc": "2026-10-21T12:00:00Z",
+        "action": "missed",
+        "message": "slot passed 1 day, 5:39:15.690549 ago (limit 6:00:00); not posted late"
+      }
+    ],
+    "exit_code": 2
+  },
+  "preserved_other_jobs": true,
+  "validation": {
+    "pytest": {
+      "passed": 529,
+      "failed": 1,
+      "failure": "tests/test_publish_reel.py::test_tracked_schedule_and_slots_are_consistent",
+      "reason": "pre-existing duplicate queue date from owner-authorized override",
+      "duplicate_dates_in_HEAD": [
+        "2026-10-21"
+      ]
+    },
+    "scope_check": "all unrelated schedule entries and config entries identical to HEAD",
+    "receipt_check": "20 non-English audio drafts and manual English subtitles serving",
+    "diff_check": "passed"
+  }
+}
