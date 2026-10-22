@@ -1,0 +1,192 @@
+{
+  "checked_at": "2026-10-22T18:05:31.496Z",
+  "outcome": "unchanged_healthy_no_api_posts_due",
+  "api": {
+    "checked_at": "2026-10-22T18:03:45Z",
+    "identity": {
+      "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+      "title": "HAMMAD YOUSUF",
+      "custom_url": "@with.hammad"
+    },
+    "videos": [
+      {
+        "job": "c9d9bd2b786c",
+        "video_id": "WMhrzmEMJuM",
+        "title": "85 AI Engineering Projects: Pick Your Next Build #Shorts",
+        "status": {
+          "uploadStatus": "processed",
+          "privacyStatus": "private",
+          "publishAt": "2026-10-23T06:00:00Z",
+          "license": "youtube",
+          "embeddable": true,
+          "publicStatsViewable": true,
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false
+        },
+        "expected_publish_at": "2026-10-23T06:00:00Z",
+        "schedule_matches": true,
+        "english_manual_serving": true,
+        "due_actionable": []
+      },
+      {
+        "job": "7123480a28ca",
+        "video_id": "v4okdBQy4-I",
+        "title": "Claude AI Job Search: 5 Steps With Playwright MCP #Shorts",
+        "status": {
+          "uploadStatus": "processed",
+          "privacyStatus": "private",
+          "publishAt": "2026-10-24T08:00:00Z",
+          "license": "youtube",
+          "embeddable": true,
+          "publicStatsViewable": true,
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false
+        },
+        "expected_publish_at": "2026-10-24T08:00:00Z",
+        "schedule_matches": true,
+        "english_manual_serving": true,
+        "due_actionable": []
+      },
+      {
+        "job": "website20261020",
+        "video_id": "LBx57qzUrq8",
+        "title": "AI Website Design: Fix a Generic Page With a Better Brief #Shorts",
+        "status": {
+          "uploadStatus": "processed",
+          "privacyStatus": "private",
+          "publishAt": "2026-10-25T08:00:00Z",
+          "license": "youtube",
+          "embeddable": true,
+          "publicStatsViewable": true,
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false
+        },
+        "expected_publish_at": "2026-10-25T08:00:00Z",
+        "schedule_matches": true,
+        "english_manual_serving": true,
+        "due_actionable": []
+      }
+    ]
+  },
+  "browser": {
+    "checked_at": "2026-10-22T18:05:31.496Z",
+    "audio": {
+      "PROJECTS": {
+        "video_id": "WMhrzmEMJuM",
+        "rows": [
+          "Arabic Draft 1 published Published",
+          "Bangla Draft 1 published Published",
+          "Dutch (Netherlands) Draft 1 published Published",
+          "French (France) Draft 1 published Published",
+          "German (Germany) Draft 1 published Published",
+          "Hebrew Draft 1 published Published",
+          "Hindi Draft 1 published Published",
+          "Indonesian Draft 1 published Published",
+          "Italian Draft 1 published Published",
+          "Japanese Draft 1 published Published",
+          "Korean Draft 1 published Published",
+          "Malayalam Draft 1 published Published",
+          "Polish Draft 1 published Published",
+          "Portuguese (Brazil) Draft 1 published Published",
+          "Punjabi Draft 1 published Published",
+          "Russian Draft 1 published Published",
+          "Spanish (United States) Draft 1 published Published",
+          "Tamil Draft 1 published Published",
+          "Telugu Draft 1 published Published",
+          "Ukrainian Draft 1 published Published"
+        ]
+      },
+      "JOBKIT": {
+        "video_id": "v4okdBQy4-I",
+        "rows": [
+          "Arabic Draft 1 published Published",
+          "Bangla Draft 1 published Published",
+          "Dutch (Netherlands) Draft 1 published Published",
+          "French (France) Draft 1 published Published",
+          "German (Germany) Draft 1 published Published",
+          "Hebrew Draft 1 published Published",
+          "Hindi Draft 1 published Published",
+          "Indonesian Draft 1 published Published",
+          "Italian Draft 1 published Published",
+          "Japanese Draft 1 published Published",
+          "Korean Draft 1 published Published",
+          "Malayalam Draft 1 published Published",
+          "Polish Draft 1 published Published",
+          "Portuguese (Brazil) Draft 1 published Published",
+          "Punjabi Processing failed Processing failed due to an unknown error. – –",
+          "Russian Draft 1 published Published",
+          "Spanish (United States) Draft 1 published Published",
+          "Tamil Draft 1 published Published",
+          "Telugu Draft 1 published Published",
+          "Ukrainian Draft 1 published Published"
+        ]
+      },
+      "DESIGN": {
+        "video_id": "LBx57qzUrq8",
+        "rows": [
+          "Arabic Draft 1 published Published",
+          "Bangla Draft 1 published Published",
+          "Dutch (Netherlands) Draft 1 published Published",
+          "French (France) Draft 1 published Published",
+          "German (Germany) Draft 1 published Published",
+          "Hebrew Draft 1 published Published",
+          "Hindi Draft 1 published Published",
+          "Indonesian Draft 1 published Published",
+          "Italian Draft 1 published Published",
+          "Japanese Draft 1 published Published",
+          "Korean Draft 1 published Published",
+          "Malayalam Draft 1 published Published",
+          "Polish Draft 1 published Published",
+          "Portuguese (Brazil) Draft 1 published Published",
+          "Punjabi Draft 1 published Published",
+          "Russian Draft 1 published Published",
+          "Spanish (United States) Draft 1 published Published",
+          "Tamil Draft 1 published Published",
+          "Telugu Draft 1 published Published",
+          "Ukrainian Draft 1 published Published"
+        ]
+      }
+    },
+    "facebook": [
+      "AI website design looking generic? Get the brief: https://withhammad.com/resources/ai-website-design-brief See the same sample business with a clearer design direction: one consultation goal, a specific offer and CTA, defined typography, spacing and palette, then mobile and text contrast checks. This is a design demonstration, not a measured conversion result. AI presenter. Follow for more practical AI builds. Get the template: https://withhammad.com/resources/ai-website-design-brief #AIWebsiteDesign #WebDesign Scheduled25 Oct 2026, 17:00",
+      "Claude AI job search in five steps. Get the setup and prompt: https://withhammad.com/resources/claude-job-search Connect Playwright, add your resume and criteria, research permitted career pages, shortlist with evidence, then draft answers for review. Verify dates, eligibility and every answer. Stop before Submit. Playwright is open source; Claude access and usage are separate. Site permissions and compatibility vary. Get the review checklist: https://withhammad.com/resources/claude-job-search Follow for practical AI workflows. AI avatar of me. Demo uses sample data. #ClaudeAI #JobSearch #Playwright Scheduled24 Oct 2026, 17:00",
+      "85 AI engineering project ideas. Get the catalog and build checklist: https://withhammad.com/resources/ai-engineering-projects Explore AI agents, RAG, fine-tuning and more. Each idea lists skills, difficulty and learning references. Start with one small demo and document how you tested it. These are ideas, not all complete tutorials. Get the guide: https://withhammad.com/resources/ai-engineering-projects Follow for practical AI builds. AI avatar of me. #AIEngineering #AIProjects #RAG Scheduled23 Oct 2026, 17:00"
+    ],
+    "x": [
+      "Will send on Fri, Oct 23, 2026 at 6:00 PM85 AI engineering project ideas. Get the catalog + checklist: https://withhammad.com/resources/ai-engineering-projects Pick one, build a demo, show your tests. Start with the guide above. Follow for AI builds. AI avatar of me. #AIProjects0:25",
+      "Will send on Sat, Oct 24, 2026 at 6:00 PMClaude AI job search: get the setup + prompt: https://withhammad.com/resources/claude-job-search Research roles, shortlist with evidence, draft answers. Review before Submit. Use the guide above. Follow for AI workflows. AI avatar of me. Sample data. #ClaudeAI0:50",
+      "Will send on Sun, Oct 25, 2026 at 6:00 PMAI website design looking generic? Try a clearer brief: https://withhammad.com/resources/ai-website-design-brief One goal, a specific offer, typography, spacing and mobile checks. Sample redesign. AI presenter. Follow for more AI builds. Get the brief above. #WebDesign0:27"
+    ],
+    "tiktok": [
+      {
+        "video_id": "7698744181560282376",
+        "caption": "AI website design looking generic? Get the brief: https://withhammad.com/resources/ai-website-design-brief Same sample business, clearer direction: one consultation goal, a specific offer and CTA, typography, spacing and palette. Check mobile layout and text contrast. Design demonstration. AI presenter. Follow for practical AI builds. Copy the guide address above. #AIWebsiteDesign #WebsiteRedesign #LandingPageDesign #WebDesign",
+        "href": "/@hammadyousuf01/video/7698744181560282376",
+        "displayed_schedule": "Oct 25, 5:00 PM"
+      },
+      {
+        "video_id": "7698725535639145735",
+        "caption": "Claude AI job search in five steps. Setup + prompt: https://withhammad.com/resources/claude-job-search Connect, add criteria, research permitted career pages, shortlist with resume evidence, then draft. Check every answer before a live application. Stop before Submit. Get the guide at the address above. Follow for practical AI workflows. AI avatar of me. Demo uses sample data. #ClaudeAI #JobSearch #PlaywrightMCP #AIAutomation",
+        "href": "/@hammadyousuf01/video/7698725535639145735",
+        "displayed_schedule": "Oct 24, 5:00 PM"
+      },
+      {
+        "video_id": "7698724400958278919",
+        "caption": "85 AI engineering project ideas. Get the catalog and checklist: https://withhammad.com/resources/ai-engineering-projects Explore agents, RAG and fine-tuning. Choose one idea, build a working demo, and show your tests. Entries include learning references; they are not all complete tutorials. Get the guide at the address above. Follow for practical AI builds. AI avatar of me. #AIEngineering #AIProjects #RAG #AIAgents",
+        "href": "/@hammadyousuf01/video/7698724400958278919",
+        "displayed_schedule": "Oct 23, 5:00 PM"
+      }
+    ],
+    "scope": "Read-only verification of PROJECTS, JOBKIT and DESIGN; no uploads, publishing, schedule edits or flow edits."
+  },
+  "checks": {
+    "all_three_youtube_native_schedules_match": true,
+    "all_three_manual_english_subtitles_serving": true,
+    "no_published_non_english_audio": true,
+    "all_nine_composer_captions_and_dates_match": true,
+    "design_instagram_already_published_do_not_repost": true
+  },
+  "next_api_slot_utc": "2026-10-23T12:00:00Z",
+  "schedule_sha256": "0184f7c9caf5e9976d39c34ee95780267ce65a6a2594c450c272ddce85a87070",
+  "validation": "Read-only API/UI results, exact normalized caption/date comparison, 60 language-row checks; application code and schedule unchanged."
+}
