@@ -1,0 +1,121 @@
+{
+  "status": "review_only",
+  "owner_review_status": "pending",
+  "owner_approved": false,
+  "publishing_authorized": false,
+  "scheduling_authorized": false,
+  "checked_at": "2026-10-23",
+  "resource_delivery": {
+    "status": "local_draft_only",
+    "public_url": null,
+    "automation_enabled": false,
+    "promise_in_copy": false
+  },
+  "workflow_phase": "Verify complete for copy; owner review and final-asset checks pending",
+  "caption_format": "Hashtags are already included in the caption/text/post. Hashtag arrays are metadata; do not append them again.",
+  "format": "vertical comedy reel",
+  "primary_keyword": "AI coding",
+  "rationale": "Uses observed AI coding wording and the exact one-word/24-file story contrast. Explicit skit labels distinguish invented counters from product performance.",
+  "youtube": {
+    "applicable": true,
+    "title": "AI Coding Skit: One Word, 24 Files",
+    "description": "AI coding skit: a one-word button change turns into translation support, profiles and a missing mail service.\nSave this for your next scope review.\n\nThe file and language counts are fictional comedy props. The practical takeaway: define the exact change, inspect the diff and treat unexpected features as separate requests.\n\nSave this for your next scope review, and subscribe for more practical AI builds and coding stories.\n\nAI avatar of me.\n\n#AICoding #CodingHumor #Shorts",
+    "tags": [
+      "AI coding",
+      "AI coding skit",
+      "vibe coding",
+      "coding humor",
+      "scope creep",
+      "code review"
+    ],
+    "hashtags": [
+      "#AICoding",
+      "#CodingHumor",
+      "#Shorts"
+    ]
+  },
+  "instagram": {
+    "caption": "AI coding skit: one word becomes 24 files.\n\nSave this for your next tiny edit.\n\n“Rename this button to Start.” Somehow we now have translation support, customer profiles and an email problem.\n\nThe numbers are part of the joke. The useful habit is real: state the exact change, review the diff and give unexpected features their own scope.\n\nSave this for your next tiny edit. Follow @with.hammad for practical AI builds and the occasional coding spiral.\n\nAI avatar of me.\n\n#AICoding #VibeCoding #DeveloperHumor",
+    "hashtags": [
+      "#AICoding",
+      "#VibeCoding",
+      "#DeveloperHumor"
+    ],
+    "alt_text": "Draft video description: Hammad’s AI avatar performs a fictional exchange with an animated coding assistant while original interface cards show a button-label request expanding into extra files, language support and account requirements."
+  },
+  "linkedin": {
+    "text": "AI coding skit: one button label, 24 changed files.\n\nSave this for your next tiny edit.\n\nA tiny request becomes translation support, customer profiles and a mail-service dependency. The numbers are fictional; the scope-review lesson is useful.\n\nBefore accepting a change, check what was requested, what actually changed and why each extra dependency is needed. Keep new features as separate decisions.\n\nSave this for your next code review. What is the smallest request that grew into a much bigger change on your team?\n\nFollow for practical AI workflows and coding stories.\n\nAI avatar of me.\n\n#AICoding #SoftwareDevelopment"
+  },
+  "tiktok": {
+    "caption": "AI coding skit: I asked for one word. We got 24 files.\n\nSave this for your next tiny edit.\n\nTranslation support. Profiles. Email verification. The button is still waiting.\n\nFictional counters, familiar scope creep. Save this for your next diff review and follow for more AI coding stories.\n\nAI avatar of me.\n\n#AICoding #VibeCoding #DeveloperHumor",
+    "hashtags": [
+      "#AICoding",
+      "#VibeCoding",
+      "#DeveloperHumor"
+    ]
+  },
+  "facebook": {
+    "caption": "AI coding skit: a one-word change gets a little out of hand.\n\nSave this for your next tiny edit.\n\nThe assistant adds translation support, a customer database and email verification. This is a fictional sketch, including the file and language counts.\n\nThe takeaway: make the requested change clear and review the result before accepting unrelated features.\n\nSave this for your next code review and follow for practical AI builds with a little developer humor.\n\nAI avatar of me.\n\n#AICoding #DeveloperHumor",
+    "hashtags": [
+      "#AICoding",
+      "#DeveloperHumor"
+    ]
+  },
+  "x": {
+    "post": "AI coding skit. Bookmark for your next edit: one word becomes 24 files, profiles and email verification. Fictional counters; scope the change and review the diff. Save and follow for AI builds. AI avatar of me. #AICoding",
+    "hashtags": [
+      "#AICoding"
+    ]
+  },
+  "accessibility": {
+    "video_description": "Fictional comedy with Hammad’s AI avatar, an original animated coding assistant and interface cards that escalate a button-label edit into unrelated features.",
+    "status": "Draft from script and spec; verify against the final cut. Keep spoken captions and the skit label readable.",
+    "custom_reel_alt_text_support": "Not assumed."
+  },
+  "editorial_notes": [
+    "Current script, lesson and parent-corrected spec all say For one word?; SEO uses the same one-word premise.",
+    "No Claude/Codex benchmark, universal overengineering claim, free skill-pack offer or DM promise.",
+    "No claim that this fictional sequence happened in Hammad’s real project."
+  ],
+  "evidence": [
+    {
+      "claim": "One-word request, 24 files, translation, profiles and mail-service escalation",
+      "source": "script.txt; lesson.json"
+    },
+    {
+      "claim": "Fictional counters and scope-review takeaway",
+      "source": "analysis/facts.md"
+    },
+    {
+      "claim": "AI coding wording and skit framing",
+      "source": "seo/research-youtube.json; seo/research-social.json; seo/research-linkedin.json"
+    }
+  ],
+  "writer_checks": {
+    "character_counts": {
+      "instagram": 509,
+      "linkedin": 623,
+      "tiktok": 346,
+      "facebook": 503,
+      "x": 220,
+      "x_weighted": 220,
+      "tiktok_utf16": 346,
+      "youtube_title": 34,
+      "youtube_description_utf8_bytes": 475,
+      "youtube_tags_aggregate": 85
+    },
+    "x_under_280": true,
+    "reel_youtube_title_under_70": true,
+    "public_resource_links": 0,
+    "slide_alt_text_count": 0,
+    "independent_verification": "complete for copy; see verification.json",
+    "owner_review": "pending"
+  },
+  "verification": {
+    "status": "copy_checks_passed_owner_review_pending",
+    "record": "verification.json",
+    "verified_at": "2026-10-23T10:48:44.199438+00:00",
+    "final_asset_check": "pending",
+    "owner_review": "pending"
+  }
+}

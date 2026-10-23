@@ -1,0 +1,325 @@
+{
+  "status": "REVIEW_ONLY_NOT_GENERATED",
+  "checked_date": "2026-10-23",
+  "source_id": "NYR3ccvCOEQ",
+  "target_seconds": 79.319365,
+  "target_dimensions": [
+    720,
+    1280
+  ],
+  "fps": 30,
+  "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
+  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "natural_pace": true,
+  "uniform_speedup": false,
+  "word_count": 197,
+  "overall_wpm": 149.0,
+  "script": "Before another return deadline slips past, let your AI help you check what is still eligible. Agents like Muse, Instinct, and dots need your approved access. Find recent purchases, check return policies, and list possible returns with deadlines and source links. Have it include order and delivery dates, item condition, fees, and anything it cannot verify, because a receipt on its own may not establish whether a return is still eligible. Sort the list by deadline, so a forgotten purchase does not disappear under another week of email. Then choose the item numbers and ask for a return request draft. Make it show the next step before sending anything, cancelling anything, or accepting a charge. For a pair of glasses, that means checking the exact policy, preparing the request, and showing you the next step. A return label depends on the retailer, and a request is not a refund. You still need to check the details and send the item back. The useful part is cutting down all that admin. For business software, audit upcoming renewals and check the contract before cancelling. I\u2019m Hammad. Save this prompt, and follow for practical AI workflows you can actually use.",
+  "beats": [
+    {
+      "name": "Return-deadline hook",
+      "start_s": 0,
+      "end_s": 6.1,
+      "line": "Before another return deadline slips past, let your AI help you check what is still eligible.",
+      "word_count": 16,
+      "planned_wpm": 157.4,
+      "visual": "Approved Hammad avatar, full portrait; neutral white chest pill: \u201cCheck returns with AI\u201d. Keep established owner brand and casual creator look.",
+      "footage": "Approved owner avatar plus original graphics; any listed b-roll still requires a fresh licensed/owner-supplied asset.",
+      "screenrec_plan": "",
+      "emphasis": [
+        "return deadline",
+        "still eligible"
+      ]
+    },
+    {
+      "name": "Named agents and access",
+      "start_s": 6.1,
+      "end_s": 10.133,
+      "line": "Agents like Muse, Instinct, and dots need your approved access.",
+      "word_count": 10,
+      "planned_wpm": 148.8,
+      "visual": "Avatar full-frame; small text chips \u201cMuse\u201d, \u201cInstinct\u201d, \u201cdots\u201d enter above shoulders. Add readable qualifier \u201cAccess and availability vary\u201d. No borrowed logos or claim of equal features.",
+      "footage": "Approved owner avatar plus original graphics; any listed b-roll still requires a fresh licensed/owner-supplied asset.",
+      "screenrec_plan": "",
+      "emphasis": [
+        "approved access"
+      ]
+    },
+    {
+      "name": "First prompt",
+      "start_s": 10.133,
+      "end_s": 16.567,
+      "line": "Find recent purchases, check return policies, and list possible returns with deadlines and source links.",
+      "word_count": 15,
+      "planned_wpm": 139.9,
+      "visual": "Original prompt-card graphic on owner-brand dark/neutral canvas; large text and visible \u201cPrompt template \u00b7 illustration\u201d label. Tiny recurring avatar corner or return to avatar at end if clear; do not mimic a branded app result.",
+      "footage": "Original local prompt template, explicitly labeled illustration; no real AI output or external action.",
+      "screenrec_plan": "{\"url\": \"file:///Users/hammad/withhammad-video-pipeline/studio/.local/jobs/fd7218f0a2e4/analysis/prompt-card.html?beat=first\", \"width\": 600, \"height\": 750, \"scale\": 1.8, \"fps\": 30, \"debug\": true, \"actions\": [{\"wait\": 500}, {\"move\": {\"selector\": \"#prompt\", \"ms\": 350}}, {\"type\": {\"selector\": \"#prompt\", \"text\": \"Review recent receipts. List possible returns with deadlines, fees, policy links, and missing information. Do not submit or send anything.\", \"cps\": 42}}, {\"wait\": 2000}]}",
+      "emphasis": [
+        "possible returns",
+        "source links"
+      ]
+    },
+    {
+      "name": "What to inspect",
+      "start_s": 16.567,
+      "end_s": 28.6,
+      "line": "Have it include order and delivery dates, item condition, fees, and anything it cannot verify, because a receipt on its own may not establish whether a return is still eligible.",
+      "word_count": 30,
+      "planned_wpm": 149.6,
+      "visual": "Avatar full-frame with one simple icon beat each: receipt \u2192 delivery date \u2192 policy \u2192 checklist. Each object appears once; no deep UI or 3D effect.",
+      "footage": "Approved owner avatar plus original graphics; any listed b-roll still requires a fresh licensed/owner-supplied asset.",
+      "screenrec_plan": "",
+      "emphasis": [
+        "fees",
+        "cannot verify"
+      ]
+    },
+    {
+      "name": "Deadline prioritization",
+      "start_s": 28.6,
+      "end_s": 35.5,
+      "line": "Sort the list by deadline, so a forgotten purchase does not disappear under another week of email.",
+      "word_count": 17,
+      "planned_wpm": 147.8,
+      "visual": "Avatar cutout over fresh licensed/original b-roll of a person reviewing orders; simple deadline warning icon. Source asset currently unselected; optional honest original deadline card only if explicitly accepted as an editorial adaptation.",
+      "footage": "Approved owner avatar plus original graphics; any listed b-roll still requires a fresh licensed/owner-supplied asset.",
+      "screenrec_plan": "",
+      "emphasis": [
+        "by deadline"
+      ]
+    },
+    {
+      "name": "Select and prepare",
+      "start_s": 35.5,
+      "end_s": 46.3,
+      "line": "Then choose the item numbers and ask for a return request draft. Make it show the next step before sending anything, cancelling anything, or accepting a charge.",
+      "word_count": 27,
+      "planned_wpm": 150.0,
+      "visual": "Avatar counts item choices, then same original prompt card shows the review-first follow-up. Approval language replaces vague \u201chandle it\u201d.",
+      "footage": "Original local prompt template, explicitly labeled illustration; no real AI output or external action.",
+      "screenrec_plan": "{\"url\": \"file:///Users/hammad/withhammad-video-pipeline/studio/.local/jobs/fd7218f0a2e4/analysis/prompt-card.html?beat=second\", \"width\": 600, \"height\": 750, \"scale\": 1.8, \"fps\": 30, \"debug\": true, \"actions\": [{\"wait\": 500}, {\"move\": {\"selector\": \"#prompt\", \"ms\": 350}}, {\"type\": {\"selector\": \"#prompt\", \"text\": \"For items 1 and 3, draft the return request. Show the policy, any fees, and the next step. Wait for my approval before sending or submitting.\", \"cps\": 36}}, {\"wait\": 2200}]}",
+      "emphasis": [
+        "draft",
+        "before sending"
+      ]
+    },
+    {
+      "name": "Hypothetical glasses example",
+      "start_s": 46.3,
+      "end_s": 59.5,
+      "line": "For a pair of glasses, that means checking the exact policy, preparing the request, and showing you the next step. A return label depends on the retailer, and a request is not a refund.",
+      "word_count": 34,
+      "planned_wpm": 154.5,
+      "visual": "Avatar cutout over fresh licensed/original shopper-at-home b-roll, glasses icon; return to room with paper/request icon. Keep large \u201cExample workflow\u201d label. No generated carrier label or false success notification.",
+      "footage": "Approved owner avatar plus original graphics; any listed b-roll still requires a fresh licensed/owner-supplied asset.",
+      "screenrec_plan": "",
+      "emphasis": [
+        "example",
+        "not a refund"
+      ]
+    },
+    {
+      "name": "Realistic payoff",
+      "start_s": 59.5,
+      "end_s": 68.3,
+      "line": "You still need to check the details and send the item back. The useful part is cutting down all that admin.",
+      "word_count": 21,
+      "planned_wpm": 143.2,
+      "visual": "Avatar over fresh licensed/original clothing/parcel clutter b-roll, then full portrait. No dollar amount or fake before/after savings.",
+      "footage": "Approved owner avatar plus original graphics; any listed b-roll still requires a fresh licensed/owner-supplied asset.",
+      "screenrec_plan": "",
+      "emphasis": [
+        "send the item back",
+        "admin"
+      ]
+    },
+    {
+      "name": "Business renewal analogy",
+      "start_s": 68.3,
+      "end_s": 73.3,
+      "line": "For business software, audit upcoming renewals and check the contract before cancelling.",
+      "word_count": 12,
+      "planned_wpm": 144.0,
+      "visual": "Avatar over fresh licensed/original business-at-laptop b-roll. Text reads \u201cRenewal audit \u2192 contract review\u201d; do not show a subscription cancelled.",
+      "footage": "Approved owner avatar plus original graphics; any listed b-roll still requires a fresh licensed/owner-supplied asset.",
+      "screenrec_plan": "",
+      "emphasis": [
+        "renewals",
+        "contract"
+      ]
+    },
+    {
+      "name": "Owner and follow CTA",
+      "start_s": 73.3,
+      "end_s": 79.319365,
+      "line": "I\u2019m Hammad. Save this prompt, and follow for practical AI workflows you can actually use.",
+      "word_count": 15,
+      "planned_wpm": 149.5,
+      "visual": "Avatar full-frame; centered two-line lower third \u201cHAMMAD YOUSUF\u201d and \u201cAI MARKETING AUTOMATION\u201d; final \u201cSave + follow\u201d. No copied creator accolade or years-of-experience claim.",
+      "footage": "Approved owner avatar plus original graphics; any listed b-roll still requires a fresh licensed/owner-supplied asset.",
+      "screenrec_plan": "",
+      "emphasis": [
+        "Save",
+        "follow"
+      ]
+    }
+  ],
+  "keyword": "RETURNS",
+  "keyword_reason": "Optional generic keyword for a later resource funnel. The reference itself is follow-only. Do not promise a DM until a resource is approved/live and automation is explicitly authorized. Current narration uses save/follow.",
+  "resource_draft": "Return-check prompt, follow-up approval prompt, source checklist and availability notes. Destination URL uncreated/unverified; do not advertise one.",
+  "cover_spec": "Keep centered approved owner portrait and one small warning/checklist symbol. Replace awkward mid-word frame with an approved natural expression. White rounded chest pill \u201cCHECK YOUR RETURNS\u201d; optional small \u201cWITH AI\u201d. Use owner brand, clean portrait 9:16, safe crops. No monetary guarantee, external creator, false product UI or copied accolade.",
+  "assets": [
+    {
+      "what": "Approved Hammad avatar",
+      "id": "5dfa03f53ae54f919040a26a953b7f4b",
+      "status": "Preserve; no new look generation requested in this analysis."
+    },
+    {
+      "what": "Approved cloned voice",
+      "id": "0f7032b11fb743589cc81b721f4389b3",
+      "status": "Preserve natural pace and audio; do not force historical 1.1x or 219-wpm settings."
+    },
+    {
+      "what": "Original first/follow-up prompt template",
+      "url": "file:///Users/hammad/withhammad-video-pipeline/studio/.local/jobs/fd7218f0a2e4/analysis/prompt-card.html",
+      "status": "Authored locally for review; explicitly an illustration, not a live app or output."
+    },
+    {
+      "what": "Public source reference, analysis only",
+      "url": "https://www.youtube.com/watch?v=NYR3ccvCOEQ",
+      "status": "Never reuse frames, voice, stock clips or creator likeness."
+    },
+    {
+      "what": "Meta primary feature/permission evidence",
+      "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"
+    },
+    {
+      "what": "Dots setup/access evidence",
+      "url": "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot"
+    },
+    {
+      "what": "Instinct primary product evidence",
+      "url": "https://instinct.com/"
+    },
+    {
+      "what": "Instinct Google access/privacy evidence",
+      "url": "https://instinct.com/privacy-policy"
+    },
+    {
+      "what": "Merchant policy evidence",
+      "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/returns/return-rules"
+    },
+    {
+      "what": "Fresh shopper/order-review, glasses-at-home, clothing clutter, business-at-laptop b-roll",
+      "status": "Missing. Source/license or owner footage must be chosen before rendering; do not reuse the reference stock."
+    },
+    {
+      "what": "Simple receipt, magnifier, checklist, glasses and warning icons",
+      "status": "Draw original vector icons with established owner palette; no AI generation required."
+    }
+  ],
+  "caption_style_to_match": "White semibold sans with subtle dark outline/shadow; short 1\u20132-line phrases, 2\u20137 words, centered at stable lower-chest position, not over face or platform UI. At 720px width target 30\u201334px and safe lower edge above y1000. Preserve hook pill/final lower-third hierarchy, but keep accessibility captions available rather than dropping spoken information. SRT follows actual final take.",
+  "reference_flaws_and_fixes": [
+    "Blurred tiny chat becomes legible original prompt template labeled illustration.",
+    "Universal AI promise becomes approved access plus availability caveat.",
+    "Creator colleague anecdote becomes hypothetical glasses workflow.",
+    "No unverified dollar savings or successful-label UI.",
+    "Fresh b-roll and clean matte edges replace any reuse of creator frames.",
+    "Approved owner avatar/voice and natural ~150 wpm supersede outdated forced-fast settings."
+  ],
+  "read_only_documentary_plans": [
+    {
+      "name": "dots-email-access-evidence",
+      "url": "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot",
+      "width": 600,
+      "height": 750,
+      "scale": 1.8,
+      "fps": 30,
+      "debug": true,
+      "actions": [
+        {
+          "wait": 700
+        },
+        {
+          "scroll": {
+            "to": "text=Can I connect my dot to Slack or email?",
+            "ms": 1400,
+            "offset": -120
+          }
+        },
+        {
+          "highlight": {
+            "selector": "text=You can connect your personal email account",
+            "ms": 1800
+          }
+        },
+        {
+          "wait": 1500
+        }
+      ]
+    },
+    {
+      "name": "muse-permissions-evidence",
+      "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+      "width": 600,
+      "height": 750,
+      "scale": 1.8,
+      "fps": 30,
+      "debug": true,
+      "actions": [
+        {
+          "wait": 700
+        },
+        {
+          "scroll": {
+            "to": "text=People choose which apps Muse connects to",
+            "ms": 1600,
+            "offset": -120
+          }
+        },
+        {
+          "highlight": {
+            "selector": "text=People choose which apps Muse connects to",
+            "ms": 1800
+          }
+        },
+        {
+          "wait": 1500
+        }
+      ]
+    },
+    {
+      "name": "merchant-policy-variability-evidence",
+      "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/returns/return-rules",
+      "width": 600,
+      "height": 750,
+      "scale": 1.8,
+      "fps": 30,
+      "debug": true,
+      "actions": [
+        {
+          "wait": 700
+        },
+        {
+          "scroll": {
+            "to": "text=Set up return rules",
+            "ms": 1400,
+            "offset": -100
+          }
+        },
+        {
+          "highlight": {
+            "selector": "text=Each return rule sets",
+            "ms": 1800
+          }
+        },
+        {
+          "wait": 1500
+        }
+      ]
+    }
+  ],
+  "recording_caveat": "app.screenrec is a fresh logged-out headless browser; it cannot inherit the owner\u2019s signed-in app session. Public documentary selectors are unexecuted and require preflight. The local prompt-template selectors are controlled and have no backend or send button.",
+  "real_demo_remaining": "For any claimed live agent demonstration, observe an authorized supported account, supply specifically approved/redacted sample receipts and a real retailer policy, run review-only analysis, inspect the actual result and record it. No outbound mail, live return, cancellation, fee acceptance, or label success should be simulated or performed by this task."
+}

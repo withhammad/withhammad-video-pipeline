@@ -1,0 +1,663 @@
+{
+  "text": " Rename this button to start please. Already building 24 files. I asked for one word. I added translation support for one word. Every button in 30 languages. This is a one page demo. You can expand now and this customer database it saves their preferred language. Fine. Show me start. You'll need a profile first. A profile just to read my button and a verified email. Ah. Nobody connected the mail service. I'll handle that. Stop renovating the internet.",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 0.0,
+      "end": 7.48,
+      "text": " Rename this button to start please. Already building 24 files. I asked for one word. I added",
+      "tokens": [
+        50364,
+        12883,
+        529,
+        341,
+        2960,
+        281,
+        722,
+        1767,
+        13,
+        23741,
+        2390,
+        4022,
+        7098,
+        13,
+        286,
+        2351,
+        337,
+        472,
+        1349,
+        13,
+        286,
+        3869,
+        50736
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.17983008833492503,
+      "compression_ratio": 1.4663212435233162,
+      "no_speech_prob": 0.03080747276544571,
+      "words": [
+        {
+          "word": " Rename",
+          "start": 0.0,
+          "end": 0.44,
+          "probability": 0.7911885380744934
+        },
+        {
+          "word": " this",
+          "start": 0.44,
+          "end": 0.62,
+          "probability": 0.9837080836296082
+        },
+        {
+          "word": " button",
+          "start": 0.62,
+          "end": 0.94,
+          "probability": 0.9890300631523132
+        },
+        {
+          "word": " to",
+          "start": 0.94,
+          "end": 1.14,
+          "probability": 0.9918473958969116
+        },
+        {
+          "word": " start",
+          "start": 1.14,
+          "end": 1.4,
+          "probability": 0.8123029470443726
+        },
+        {
+          "word": " please.",
+          "start": 1.4,
+          "end": 1.7,
+          "probability": 0.6959125995635986
+        },
+        {
+          "word": " Already",
+          "start": 2.02,
+          "end": 2.3,
+          "probability": 0.9272964000701904
+        },
+        {
+          "word": " building",
+          "start": 2.3,
+          "end": 2.7,
+          "probability": 0.9702268838882446
+        },
+        {
+          "word": " 24",
+          "start": 2.7,
+          "end": 3.88,
+          "probability": 0.9691959619522095
+        },
+        {
+          "word": " files.",
+          "start": 3.88,
+          "end": 4.44,
+          "probability": 0.9912029504776001
+        },
+        {
+          "word": " I",
+          "start": 5.22,
+          "end": 5.5,
+          "probability": 0.9856922626495361
+        },
+        {
+          "word": " asked",
+          "start": 5.5,
+          "end": 5.68,
+          "probability": 0.9211350083351135
+        },
+        {
+          "word": " for",
+          "start": 5.68,
+          "end": 5.88,
+          "probability": 0.9967855215072632
+        },
+        {
+          "word": " one",
+          "start": 5.88,
+          "end": 6.1,
+          "probability": 0.94932621717453
+        },
+        {
+          "word": " word.",
+          "start": 6.1,
+          "end": 6.36,
+          "probability": 0.9799253940582275
+        },
+        {
+          "word": " I",
+          "start": 7.0,
+          "end": 7.24,
+          "probability": 0.9939569234848022
+        },
+        {
+          "word": " added",
+          "start": 7.24,
+          "end": 7.48,
+          "probability": 0.9881507158279419
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 7.48,
+      "end": 15.6,
+      "text": " translation support for one word. Every button in 30 languages. This is a one page demo. You can",
+      "tokens": [
+        50736,
+        12853,
+        1406,
+        337,
+        472,
+        1349,
+        13,
+        2048,
+        2960,
+        294,
+        2217,
+        8650,
+        13,
+        639,
+        307,
+        257,
+        472,
+        3028,
+        10723,
+        13,
+        509,
+        393,
+        51140
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.17983008833492503,
+      "compression_ratio": 1.4663212435233162,
+      "no_speech_prob": 0.03080747276544571,
+      "words": [
+        {
+          "word": " translation",
+          "start": 7.48,
+          "end": 7.94,
+          "probability": 0.9794142842292786
+        },
+        {
+          "word": " support",
+          "start": 7.94,
+          "end": 8.44,
+          "probability": 0.9978843331336975
+        },
+        {
+          "word": " for",
+          "start": 8.44,
+          "end": 9.72,
+          "probability": 0.650058925151825
+        },
+        {
+          "word": " one",
+          "start": 9.72,
+          "end": 9.96,
+          "probability": 0.9814077019691467
+        },
+        {
+          "word": " word.",
+          "start": 9.96,
+          "end": 10.22,
+          "probability": 0.9954804182052612
+        },
+        {
+          "word": " Every",
+          "start": 10.5,
+          "end": 10.78,
+          "probability": 0.9879111051559448
+        },
+        {
+          "word": " button",
+          "start": 10.78,
+          "end": 11.08,
+          "probability": 0.9932509064674377
+        },
+        {
+          "word": " in",
+          "start": 11.08,
+          "end": 11.8,
+          "probability": 0.9767900109291077
+        },
+        {
+          "word": " 30",
+          "start": 11.8,
+          "end": 12.1,
+          "probability": 0.9826233983039856
+        },
+        {
+          "word": " languages.",
+          "start": 12.1,
+          "end": 12.56,
+          "probability": 0.9953396320343018
+        },
+        {
+          "word": " This",
+          "start": 13.24,
+          "end": 13.66,
+          "probability": 0.9856297373771667
+        },
+        {
+          "word": " is",
+          "start": 13.66,
+          "end": 13.82,
+          "probability": 0.9984098672866821
+        },
+        {
+          "word": " a",
+          "start": 13.82,
+          "end": 13.94,
+          "probability": 0.9394051432609558
+        },
+        {
+          "word": " one",
+          "start": 13.94,
+          "end": 14.1,
+          "probability": 0.905988872051239
+        },
+        {
+          "word": " page",
+          "start": 14.1,
+          "end": 14.34,
+          "probability": 0.6514152884483337
+        },
+        {
+          "word": " demo.",
+          "start": 14.34,
+          "end": 14.68,
+          "probability": 0.9976081848144531
+        },
+        {
+          "word": " You",
+          "start": 15.22,
+          "end": 15.42,
+          "probability": 0.9851483106613159
+        },
+        {
+          "word": " can",
+          "start": 15.42,
+          "end": 15.6,
+          "probability": 0.9988572597503662
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "seek": 0,
+      "start": 15.6,
+      "end": 23.16,
+      "text": " expand now and this customer database it saves their preferred language. Fine. Show me start.",
+      "tokens": [
+        51140,
+        5268,
+        586,
+        293,
+        341,
+        5474,
+        8149,
+        309,
+        19155,
+        641,
+        16494,
+        2856,
+        13,
+        12024,
+        13,
+        6895,
+        385,
+        722,
+        13,
+        51524
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.17983008833492503,
+      "compression_ratio": 1.4663212435233162,
+      "no_speech_prob": 0.03080747276544571,
+      "words": [
+        {
+          "word": " expand",
+          "start": 15.6,
+          "end": 15.92,
+          "probability": 0.9949221014976501
+        },
+        {
+          "word": " now",
+          "start": 15.92,
+          "end": 16.36,
+          "probability": 0.9713209271430969
+        },
+        {
+          "word": " and",
+          "start": 16.36,
+          "end": 17.38,
+          "probability": 0.5135043859481812
+        },
+        {
+          "word": " this",
+          "start": 17.38,
+          "end": 17.6,
+          "probability": 0.9924789667129517
+        },
+        {
+          "word": " customer",
+          "start": 17.6,
+          "end": 17.98,
+          "probability": 0.8656520247459412
+        },
+        {
+          "word": " database",
+          "start": 17.98,
+          "end": 18.42,
+          "probability": 0.9896316528320312
+        },
+        {
+          "word": " it",
+          "start": 18.42,
+          "end": 19.58,
+          "probability": 0.39637771248817444
+        },
+        {
+          "word": " saves",
+          "start": 19.58,
+          "end": 19.82,
+          "probability": 0.771731436252594
+        },
+        {
+          "word": " their",
+          "start": 19.82,
+          "end": 20.08,
+          "probability": 0.9801601767539978
+        },
+        {
+          "word": " preferred",
+          "start": 20.08,
+          "end": 20.38,
+          "probability": 0.9985479712486267
+        },
+        {
+          "word": " language.",
+          "start": 20.38,
+          "end": 20.84,
+          "probability": 0.9957749247550964
+        },
+        {
+          "word": " Fine.",
+          "start": 21.48,
+          "end": 21.64,
+          "probability": 0.9016565084457397
+        },
+        {
+          "word": " Show",
+          "start": 22.28,
+          "end": 22.72,
+          "probability": 0.976148247718811
+        },
+        {
+          "word": " me",
+          "start": 22.72,
+          "end": 22.88,
+          "probability": 0.9902955293655396
+        },
+        {
+          "word": " start.",
+          "start": 22.88,
+          "end": 23.16,
+          "probability": 0.8320819735527039
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "seek": 2316,
+      "start": 23.16,
+      "end": 30.82,
+      "text": " You'll need a profile first. A profile just to read my button and a verified email. Ah.",
+      "tokens": [
+        50364,
+        509,
+        603,
+        643,
+        257,
+        7964,
+        700,
+        13,
+        316,
+        7964,
+        445,
+        281,
+        1401,
+        452,
+        2960,
+        293,
+        257,
+        31197,
+        3796,
+        13,
+        2438,
+        13,
+        50736
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.25370438154353653,
+      "compression_ratio": 1.3076923076923077,
+      "no_speech_prob": 0.2959553599357605,
+      "words": [
+        {
+          "word": " You'll",
+          "start": 23.16,
+          "end": 24.06,
+          "probability": 0.4361567348241806
+        },
+        {
+          "word": " need",
+          "start": 24.06,
+          "end": 24.24,
+          "probability": 0.9985833168029785
+        },
+        {
+          "word": " a",
+          "start": 24.24,
+          "end": 24.36,
+          "probability": 0.9942050576210022
+        },
+        {
+          "word": " profile",
+          "start": 24.36,
+          "end": 24.64,
+          "probability": 0.9650519490242004
+        },
+        {
+          "word": " first.",
+          "start": 24.64,
+          "end": 25.1,
+          "probability": 0.9848025441169739
+        },
+        {
+          "word": " A",
+          "start": 25.72,
+          "end": 26.0,
+          "probability": 0.8622927665710449
+        },
+        {
+          "word": " profile",
+          "start": 26.0,
+          "end": 26.36,
+          "probability": 0.9780967831611633
+        },
+        {
+          "word": " just",
+          "start": 26.36,
+          "end": 27.18,
+          "probability": 0.8396965265274048
+        },
+        {
+          "word": " to",
+          "start": 27.18,
+          "end": 27.38,
+          "probability": 0.9923498034477234
+        },
+        {
+          "word": " read",
+          "start": 27.38,
+          "end": 27.54,
+          "probability": 0.9955189228057861
+        },
+        {
+          "word": " my",
+          "start": 27.54,
+          "end": 27.72,
+          "probability": 0.9943124055862427
+        },
+        {
+          "word": " button",
+          "start": 27.72,
+          "end": 28.02,
+          "probability": 0.9878113865852356
+        },
+        {
+          "word": " and",
+          "start": 28.02,
+          "end": 28.94,
+          "probability": 0.7996576428413391
+        },
+        {
+          "word": " a",
+          "start": 28.94,
+          "end": 29.08,
+          "probability": 0.9795280694961548
+        },
+        {
+          "word": " verified",
+          "start": 29.08,
+          "end": 29.4,
+          "probability": 0.9776395559310913
+        },
+        {
+          "word": " email.",
+          "start": 29.4,
+          "end": 29.8,
+          "probability": 0.9474711418151855
+        },
+        {
+          "word": " Ah.",
+          "start": 30.58,
+          "end": 30.82,
+          "probability": 0.5846304297447205
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "seek": 2316,
+      "start": 31.56,
+      "end": 36.18,
+      "text": " Nobody connected the mail service. I'll handle that. Stop renovating the internet.",
+      "tokens": [
+        50736,
+        9297,
+        4582,
+        264,
+        10071,
+        2643,
+        13,
+        286,
+        603,
+        4813,
+        300,
+        13,
+        5535,
+        18845,
+        990,
+        264,
+        4705,
+        13,
+        51020
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.25370438154353653,
+      "compression_ratio": 1.3076923076923077,
+      "no_speech_prob": 0.2959553599357605,
+      "words": [
+        {
+          "word": " Nobody",
+          "start": 31.56,
+          "end": 31.96,
+          "probability": 0.9650630354881287
+        },
+        {
+          "word": " connected",
+          "start": 31.96,
+          "end": 32.44,
+          "probability": 0.9804682731628418
+        },
+        {
+          "word": " the",
+          "start": 32.44,
+          "end": 32.64,
+          "probability": 0.9593993425369263
+        },
+        {
+          "word": " mail",
+          "start": 32.64,
+          "end": 32.84,
+          "probability": 0.9578969478607178
+        },
+        {
+          "word": " service.",
+          "start": 32.84,
+          "end": 33.24,
+          "probability": 0.9886343479156494
+        },
+        {
+          "word": " I'll",
+          "start": 33.74,
+          "end": 33.94,
+          "probability": 0.9761025905609131
+        },
+        {
+          "word": " handle",
+          "start": 33.94,
+          "end": 34.16,
+          "probability": 0.9991245865821838
+        },
+        {
+          "word": " that.",
+          "start": 34.16,
+          "end": 34.46,
+          "probability": 0.9959087371826172
+        },
+        {
+          "word": " Stop",
+          "start": 34.94,
+          "end": 35.14,
+          "probability": 0.9844390749931335
+        },
+        {
+          "word": " renovating",
+          "start": 35.14,
+          "end": 35.72,
+          "probability": 0.932331383228302
+        },
+        {
+          "word": " the",
+          "start": 35.72,
+          "end": 35.9,
+          "probability": 0.9975347518920898
+        },
+        {
+          "word": " internet.",
+          "start": 35.9,
+          "end": 36.18,
+          "probability": 0.6907476782798767
+        }
+      ]
+    }
+  ],
+  "language": "en"
+}

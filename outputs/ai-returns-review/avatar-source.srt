@@ -1,0 +1,227 @@
+1
+00:00:00,160 --> 00:00:01,360
+Before another return
+
+2
+00:00:01,460 --> 00:00:03,180
+deadline slips past, let
+
+3
+00:00:03,220 --> 00:00:04,520
+your AI help you check
+
+4
+00:00:04,560 --> 00:00:05,560
+what is still eligible.
+
+5
+00:00:06,100 --> 00:00:07,260
+Agents like Muse,
+
+6
+00:00:07,400 --> 00:00:08,860
+Instinct, and dots need
+
+7
+00:00:08,920 --> 00:00:09,860
+your approved access.
+
+8
+00:00:10,360 --> 00:00:11,440
+Find recent purchases,
+
+9
+00:00:11,880 --> 00:00:12,980
+check return policies,
+
+10
+00:00:13,100 --> 00:00:13,960
+and list possible
+
+11
+00:00:14,020 --> 00:00:15,060
+returns with deadlines
+
+12
+00:00:15,080 --> 00:00:15,880
+and source links.
+
+13
+00:00:16,360 --> 00:00:17,420
+Have it include order
+
+14
+00:00:17,460 --> 00:00:19,000
+and delivery dates, item
+
+15
+00:00:19,080 --> 00:00:20,440
+condition, fees, and
+
+16
+00:00:20,520 --> 00:00:21,300
+anything it cannot
+
+17
+00:00:21,360 --> 00:00:22,480
+verify, because a
+
+18
+00:00:22,520 --> 00:00:23,700
+receipt on its own may
+
+19
+00:00:23,740 --> 00:00:24,760
+not establish whether a
+
+20
+00:00:24,800 --> 00:00:25,460
+return is still
+
+21
+00:00:25,520 --> 00:00:25,940
+eligible.
+
+22
+00:00:26,580 --> 00:00:27,400
+Sort the list by
+
+23
+00:00:27,440 --> 00:00:28,820
+deadline, so a forgotten
+
+24
+00:00:28,920 --> 00:00:29,640
+purchase does not
+
+25
+00:00:29,660 --> 00:00:30,800
+disappear under another
+
+26
+00:00:30,840 --> 00:00:31,520
+week of email.
+
+27
+00:00:32,000 --> 00:00:32,880
+Then choose the item
+
+28
+00:00:32,940 --> 00:00:33,980
+numbers and ask for a
+
+29
+00:00:34,020 --> 00:00:35,080
+return request draft.
+
+30
+00:00:35,580 --> 00:00:36,440
+Make it show the next
+
+31
+00:00:36,500 --> 00:00:37,400
+step before sending
+
+32
+00:00:37,460 --> 00:00:38,580
+anything, cancelling
+
+33
+00:00:38,660 --> 00:00:39,840
+anything, or accepting a
+
+34
+00:00:39,900 --> 00:00:40,200
+charge.
+
+35
+00:00:40,700 --> 00:00:41,700
+For a pair of glasses,
+
+36
+00:00:41,820 --> 00:00:42,780
+that means checking the
+
+37
+00:00:42,840 --> 00:00:44,440
+exact policy, preparing
+
+38
+00:00:44,480 --> 00:00:45,580
+the request, and showing
+
+39
+00:00:45,620 --> 00:00:46,300
+you the next step.
+
+40
+00:00:46,860 --> 00:00:47,980
+A return label depends
+
+41
+00:00:48,020 --> 00:00:49,300
+on the retailer, and a
+
+42
+00:00:49,340 --> 00:00:50,600
+request is not a refund.
+
+43
+00:00:50,980 --> 00:00:51,920
+You still need to check
+
+44
+00:00:51,960 --> 00:00:53,120
+the details and send the
+
+45
+00:00:53,200 --> 00:00:53,760
+item back.
+
+46
+00:00:54,160 --> 00:00:55,100
+The useful part is
+
+47
+00:00:55,140 --> 00:00:56,080
+cutting down all that
+
+48
+00:00:56,160 --> 00:00:56,460
+admin.
+
+49
+00:00:56,880 --> 00:00:57,820
+For business software,
+
+50
+00:00:57,920 --> 00:00:59,160
+audit upcoming renewals
+
+51
+00:00:59,220 --> 00:01:00,180
+and check the contract
+
+52
+00:01:00,240 --> 00:01:01,000
+before cancelling.
+
+53
+00:01:01,380 --> 00:01:01,820
+I’m Hammad.
+
+54
+00:01:02,260 --> 00:01:03,380
+Save this prompt, and
+
+55
+00:01:03,440 --> 00:01:04,700
+follow for practical AI
+
+56
+00:01:04,760 --> 00:01:05,520
+workflows you can
+
+57
+00:01:05,600 --> 00:01:06,280
+actually use.

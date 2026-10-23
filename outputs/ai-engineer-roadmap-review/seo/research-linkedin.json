@@ -1,0 +1,132 @@
+{
+  "checked_at": "2026-10-23",
+  "platform": "linkedin",
+  "status": "review_only",
+  "workflow": ".claude/workflows/seo-pack.js — LinkedIn research branch",
+  "primary_keyword": "AI engineer roadmap",
+  "keywords": [
+    {
+      "term": "AI engineer roadmap",
+      "evidence": "Google public autocomplete for 'ai engineer roadmap', rank 1, retrieved 2026-10-23; proxy relevance only.",
+      "intent": "Learning sequence"
+    },
+    {
+      "term": "AI engineer roadmap for beginners",
+      "evidence": "Google public autocomplete for 'ai engineer roadmap', rank 7, retrieved 2026-10-23; proxy relevance only.",
+      "intent": "Beginner progression"
+    },
+    {
+      "term": "AI engineering portfolio",
+      "evidence": "Google public autocomplete for 'ai engineering portfolio', rank 1, retrieved 2026-10-23; proxy relevance only.",
+      "intent": "Demonstrable work"
+    },
+    {
+      "term": "AI engineering portfolio projects",
+      "evidence": "Google public autocomplete for 'ai engineering portfolio', rank 2, retrieved 2026-10-23; proxy relevance only.",
+      "intent": "Practical artifacts"
+    }
+  ],
+  "title_patterns": [
+    "Roadmap + concrete stage/milestone value",
+    "Beginner learning sequence + inspectable portfolio evidence"
+  ],
+  "recommended_hook": "AI engineer roadmap: six stages, free learning resources, and a project to prove each skill.",
+  "recommended_structure": [
+    "Hook naming the roadmap and practical milestones",
+    "Brief distinction between course completion and demonstrated skills",
+    "Explain that production improves an existing project; five portfolio projects overall",
+    "Question: Which stage are you working through, and what are you building?",
+    "Optional topic hashtags; describe only the actual carousel asset"
+  ],
+  "hashtags": [
+    {
+      "tag": "#AIEngineering",
+      "why": "Direct discipline; no volume tier verified."
+    },
+    {
+      "tag": "#MachineLearning",
+      "why": "Core curriculum; no volume tier verified."
+    },
+    {
+      "tag": "#LearningInPublic",
+      "why": "Project-based learning context; no volume tier verified."
+    }
+  ],
+  "rules": [
+    "Use the natural topic phrase early, followed by a concrete professional takeaway. This is an editorial recommendation, not a ranking formula.",
+    "Put the essential point in the opening one or two short lines. A universal 210-character see-more boundary was not established; display varies with layout.",
+    "Zero to three relevant hashtags at the end is our restraint choice, not a verified platform cap or guaranteed reach benefit.",
+    "No universal external-link penalty or benefit was established. No unpublished resource URL, link-in-bio claim, automatic DM promise or comment-keyword delivery CTA belongs in these review drafts.",
+    "No publishing, scheduling, account writes or automated engagement. A question should invite actual experience rather than comment-to-agree engagement bait.",
+    "Dubai/UAE context should be used only when relevant; do not imply local availability of every product or invent regional search demand.",
+    "Keep any AI-presenter disclosure accurate to the final asset. For the two avatar videos, retain AI avatar of me. Do not label a normal photo-only carousel as an AI-avatar video.",
+    "The portfolio LinkedIn variant returned no suggestions. Keep that empty result; it does not prove there is no interest.",
+    "Free describes learning materials; API, compute and hosting costs are separate. Avoid 12-month, job-ready or hiring guarantees.",
+    "No measured demand growth, search volume or promised carousel reach was established.",
+    "Resource guide is local and review-only. Use save/read wording; no automatic delivery or live website claim."
+  ],
+  "autocomplete": [
+    {
+      "seed": "ai engineer roadmap",
+      "suggestions": [
+        "ai engineer roadmap",
+        "ai engineer roadmap 2026",
+        "ai engineer roadmap github",
+        "ai engineer roadmap sh",
+        "ai engineer roadmap 2025",
+        "ai engineer roadmap reddit",
+        "ai engineer roadmap for beginners",
+        "ai engineer roadmap pdf",
+        "ai engineer roadmap codebasics",
+        "medium ai engineer roadmap"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineer%20roadmap"
+    },
+    {
+      "seed": "ai engineer roadmap linkedin",
+      "suggestions": [
+        "ai engineer roadmap linkedin"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineer%20roadmap%20linkedin"
+    },
+    {
+      "seed": "ai engineering portfolio",
+      "suggestions": [
+        "ai engineering portfolio",
+        "ai engineering portfolio projects",
+        "ai prompt engineering portfolio"
+      ],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineering%20portfolio"
+    },
+    {
+      "seed": "ai engineering portfolio linkedin",
+      "suggestions": [],
+      "source": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineering%20portfolio%20linkedin"
+    }
+  ],
+  "primary_guidance": [
+    {
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1339724",
+      "finding": "Feed and search are personalized; professional relevance, content, identity and activity inform recommendations. Exact reach outcomes are not specified."
+    },
+    {
+      "url": "https://news.linkedin.com/2026/ImprovingTheFeed",
+      "published_at": "2026-03-12",
+      "finding": "LinkedIn describes reducing generic engagement bait and inauthentic comments. Use useful substance and an authentic question."
+    }
+  ],
+  "sources": [
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineer%20roadmap",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineer%20roadmap%20linkedin",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineering%20portfolio",
+    "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineering%20portfolio%20linkedin",
+    "https://www.linkedin.com/help/linkedin/answer/a1339724",
+    "https://news.linkedin.com/2026/ImprovingTheFeed"
+  ],
+  "limitations": [
+    "Google autocomplete is not LinkedIn search volume, rank, reach or conversion data.",
+    "No authenticated LinkedIn analytics were read.",
+    "No fixed see-more threshold, hashtag ranking boost or external-link reach rule independently established.",
+    "Initial Python HTTPS attempt failed local CA verification; authenticated HTTPS curl retry succeeded without disabling certificate verification."
+  ]
+}

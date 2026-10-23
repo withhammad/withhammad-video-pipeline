@@ -1,0 +1,241 @@
+{
+  "reference_url": "https://www.instagram.com/reel/DebmIDlSiR3/",
+  "analysis_date": "2026-10-23",
+  "duration_s": 49.236042,
+  "video_duration_s": 49.1,
+  "width": 720,
+  "height": 1280,
+  "fps": 30,
+  "timing_method": "2fps visual inspection and ffmpeg scene scores; hard-cut boundaries measured at30fps. Within-shot event times approximately0.1\u20130.3s.",
+  "cover_description": "1080x1920 portrait source image. Oversized low-poly developer face and navy hoodie in dark brown room; warm glowing @agentpoly sign above head; white creator watermark at upper right; bold white single-line question across upper chest at about61% height. No arrow, separate title card, or product logo.",
+  "caption_style": "Bold sans serif, approximately3% canvas width at720px (20\u201324px), white for developer and orange for assistant, subtle shadow, no box, one short sentence/phrase per line, generally y~60\u201365% frame height, no karaoke. A few uppercase emphasis words. UI text uses separate hierarchy.",
+  "edit_rhythm": "21 visible changes including black, about4.3 changes/10s, mean content shot2.33s. Dialogue reactions often2\u20134.7s; first cascade2.13s; second1.03s. Developer shots total~20.90s (~42% runtime); rest assistant/code/laptop.",
+  "product_names_seen": [
+    "Claude (spoken)",
+    "Claude Code (small simulated editor label)",
+    "@agentpoly (reference brand; exclude from adaptation)",
+    "Codex (post hashtag only; no demonstrated action)"
+  ],
+  "scenes": [
+    {
+      "id": 1,
+      "start_s": 0,
+      "end_s": 1.7,
+      "type": "animated presenter",
+      "shows": "Low-poly dark-haired developer, navy hoodie, warm dark room; glowing creator handle overhead.",
+      "on_screen_action": "Turns toward laptop and extends one arm.",
+      "on_screen_text": "Short opening request caption; white.",
+      "motion": "Medium full figure, slight camera/pose movement."
+    },
+    {
+      "id": 2,
+      "start_s": 1.7,
+      "end_s": 2.966667,
+      "type": "animated app UI",
+      "shows": "Laptop portfolio home page; grey Contact me button; orange assistant on keyboard.",
+      "on_screen_action": "Pointer approaches the button.",
+      "on_screen_text": "Hi, I\u2019m a new grad.; Contact me; request caption.",
+      "motion": "Hard cut to over-shoulder/laptop view."
+    },
+    {
+      "id": 3,
+      "start_s": 2.966667,
+      "end_s": 4.033333,
+      "type": "animated assistant close-up",
+      "shows": "Orange rectangular low-poly assistant, closed happy eyes, short legs, on laptop keys.",
+      "on_screen_action": "Cheerful bounce/acknowledgement.",
+      "on_screen_text": "Short orange acknowledgement caption.",
+      "motion": "Hard punch-in."
+    },
+    {
+      "id": 4,
+      "start_s": 4.033333,
+      "end_s": 6.166667,
+      "type": "animated code montage",
+      "shows": "Layered dark code windows with file/line-change pill.",
+      "on_screen_action": "Windows pop forward; file count races from 1 to 19 and lines to +1,256.",
+      "on_screen_text": "19 files changed \u00b7 +1,256 at completion.",
+      "motion": "Rapid prop animation inside one shot."
+    },
+    {
+      "id": 5,
+      "start_s": 6.166667,
+      "end_s": 10.866667,
+      "type": "animated presenter",
+      "shows": "Developer faces camera; furrowed brow and disbelieving eyes.",
+      "on_screen_action": "Reads the change count, then questions it.",
+      "on_screen_text": "White dialogue caption; the question persists as a full sentence.",
+      "motion": "Hard cut; subtle push/reaction poses."
+    },
+    {
+      "id": 6,
+      "start_s": 10.866667,
+      "end_s": 13.1,
+      "type": "animated code explanation",
+      "shows": "ThemeProvider.tsx and theme/dark.ts cards foregrounded against earlier stack.",
+      "on_screen_action": "Two relevant code windows glow with pale gold border.",
+      "on_screen_text": "Theme explanation in orange; change-count pill remains.",
+      "motion": "Hard cut; layered foreground cards."
+    },
+    {
+      "id": 7,
+      "start_s": 13.1,
+      "end_s": 14.666667,
+      "type": "animated presenter",
+      "shows": "Same developer and room.",
+      "on_screen_action": "Looks down, then raises both arms in objection.",
+      "on_screen_text": "White short objection caption.",
+      "motion": "Hard cut."
+    },
+    {
+      "id": 8,
+      "start_s": 14.666667,
+      "end_s": 17.3,
+      "type": "animated code explanation",
+      "shows": "Design-system index, spacing and button-component cards.",
+      "on_screen_action": "Three highlighted cards expand over code stack.",
+      "on_screen_text": "Design-system explanation split into two orange phrases.",
+      "motion": "Hard cut; sequential card pops."
+    },
+    {
+      "id": 9,
+      "start_s": 17.3,
+      "end_s": 19.8,
+      "type": "animated presenter",
+      "shows": "Developer in same framing.",
+      "on_screen_action": "Looks from laptop to viewer with raised arms.",
+      "on_screen_text": "White dialogue; HAVE capitalized for emphasis.",
+      "motion": "Hard cut; expressive pose changes."
+    },
+    {
+      "id": 10,
+      "start_s": 19.8,
+      "end_s": 21.533333,
+      "type": "animated assistant close-up",
+      "shows": "Happy orange assistant, with card borders behind.",
+      "on_screen_action": "Proud acknowledgement and small bounce.",
+      "on_screen_text": "Short orange boast.",
+      "motion": "Hard cut."
+    },
+    {
+      "id": 11,
+      "start_s": 21.533333,
+      "end_s": 24.166667,
+      "type": "animated presenter",
+      "shows": "Developer looking downward toward laptop.",
+      "on_screen_action": "Points attention to unexplained database.",
+      "on_screen_text": "White database question.",
+      "motion": "Hard cut."
+    },
+    {
+      "id": 12,
+      "start_s": 24.166667,
+      "end_s": 26.133333,
+      "type": "animated code explanation",
+      "shows": "database/schema.sql card above other files.",
+      "on_screen_action": "SQL users table is highlighted; favorite_color default blue is readable.",
+      "on_screen_text": "Orange user-accounts explanation.",
+      "motion": "Hard cut; gold border focus."
+    },
+    {
+      "id": 13,
+      "start_s": 26.133333,
+      "end_s": 28.333333,
+      "type": "animated assistant close-up",
+      "shows": "Orange assistant smiling on keys.",
+      "on_screen_action": "Proudly explains remembering the preference.",
+      "on_screen_text": "Orange preference line.",
+      "motion": "Hard cut; holds expression."
+    },
+    {
+      "id": 14,
+      "start_s": 28.333333,
+      "end_s": 30.833333,
+      "type": "animated presenter",
+      "shows": "Side-facing developer.",
+      "on_screen_action": "Extends hand toward laptop to ask to see result.",
+      "on_screen_text": "White let-me-see caption.",
+      "motion": "Hard cut."
+    },
+    {
+      "id": 15,
+      "start_s": 30.833333,
+      "end_s": 34.033333,
+      "type": "animated app UI",
+      "shows": "Portfolio page; grey button; orange assistant low in frame.",
+      "on_screen_action": "Cursor approaches; page dims and Create an account modal appears.",
+      "on_screen_text": "Create an account; Sign up to unlock your button.; Email; Password; Sign up; orange gate dialogue.",
+      "motion": "Hard cut; modal appears around 31.4 s; push toward modal."
+    },
+    {
+      "id": 16,
+      "start_s": 34.033333,
+      "end_s": 37.233333,
+      "type": "animated presenter",
+      "shows": "Developer centered, raised arms and angry brows.",
+      "on_screen_action": "Protests being gated from his own site.",
+      "on_screen_text": "Two white phrases with ownership emphasized.",
+      "motion": "Hard cut; reaction held."
+    },
+    {
+      "id": 17,
+      "start_s": 37.233333,
+      "end_s": 39.3,
+      "type": "animated app UI close-up",
+      "shows": "Signup modal large; blue Sign up button while original Contact me stays grey behind.",
+      "on_screen_action": "Cursor waits below modal.",
+      "on_screen_text": "Orange conditional payoff; signup modal stays readable.",
+      "motion": "Hard cut tighter."
+    },
+    {
+      "id": 18,
+      "start_s": 39.3,
+      "end_s": 41.933333,
+      "type": "animated app UI result",
+      "shows": "Wider laptop/assistant view.",
+      "on_screen_action": "Pointer clicks signup; verification card replaces form around 40.3 s, shows mail error.",
+      "on_screen_text": "Verify your email; We sent a link to you@portfolio.dev; Error: no email server found; orange Oh.",
+      "motion": "Pull back/hard cut; modal swap."
+    },
+    {
+      "id": 19,
+      "start_s": 41.933333,
+      "end_s": 45.8,
+      "type": "animated assistant close-up",
+      "shows": "Assistant goes from blank vertical eyes to happy arcs.",
+      "on_screen_action": "Pauses, realizes missing mail system, eagerly offers more work.",
+      "on_screen_text": "Orange mail-server line, then repeated acknowledgement.",
+      "motion": "Hard cut; reaction/face change carries joke."
+    },
+    {
+      "id": 20,
+      "start_s": 45.8,
+      "end_s": 46.833333,
+      "type": "animated code montage",
+      "shows": "Email and infrastructure file windows cascade.",
+      "on_screen_action": "Count resumes above 19 and reaches 37 files, +3,057; assistant faces screen.",
+      "on_screen_text": "37 files changed \u00b7 +3,057; mail/rate-limit.ts and related prop filenames.",
+      "motion": "Hard cut; faster repeat of initial cascade."
+    },
+    {
+      "id": 21,
+      "start_s": 46.833333,
+      "end_s": 48.933333,
+      "type": "animated presenter",
+      "shows": "Exasperated developer, both hands raised.",
+      "on_screen_action": "Interrupts assistant; holds annoyed expression after last word.",
+      "on_screen_text": "NO, STOP! then caption clears before cut.",
+      "motion": "Hard cut; sustained reaction."
+    },
+    {
+      "id": 22,
+      "start_s": 48.933333,
+      "end_s": 49.236042,
+      "type": "black tail",
+      "shows": "Black with reference watermark.",
+      "on_screen_action": "No additional story or CTA.",
+      "on_screen_text": "Creator watermark only.",
+      "motion": "Cut to black; actual video ends49.10s, audio ends49.236s."
+    }
+  ]
+}

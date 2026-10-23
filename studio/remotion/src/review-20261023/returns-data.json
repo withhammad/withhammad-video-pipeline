@@ -1,0 +1,335 @@
+{
+  "fps": 30,
+  "duration": 79.32,
+  "clips": [
+    {
+      "from": 0,
+      "duration": 486,
+      "start": 0,
+      "end": 16.2,
+      "kind": "take"
+    },
+    {
+      "from": 486,
+      "duration": 144,
+      "start": 16.2,
+      "end": 16.2,
+      "kind": "prompt1"
+    },
+    {
+      "from": 630,
+      "duration": 729,
+      "start": 16.2,
+      "end": 40.5,
+      "kind": "take"
+    },
+    {
+      "from": 1359,
+      "duration": 144,
+      "start": 40.5,
+      "end": 40.5,
+      "kind": "prompt2"
+    },
+    {
+      "from": 1503,
+      "duration": 777,
+      "start": 40.5,
+      "end": 66.4,
+      "kind": "take"
+    },
+    {
+      "from": 2280,
+      "duration": 100,
+      "start": 66.4,
+      "end": 66.4,
+      "kind": "returns-ending"
+    }
+  ],
+  "captions": [
+    {
+      "startMs": 160,
+      "endMs": 1360,
+      "text": "Before another return"
+    },
+    {
+      "startMs": 1460,
+      "endMs": 3180,
+      "text": "deadline slips past, let"
+    },
+    {
+      "startMs": 3220,
+      "endMs": 4520,
+      "text": "your AI help you check"
+    },
+    {
+      "startMs": 4560,
+      "endMs": 5560,
+      "text": "what is still eligible."
+    },
+    {
+      "startMs": 6100,
+      "endMs": 7260,
+      "text": "Agents like Muse,"
+    },
+    {
+      "startMs": 7400,
+      "endMs": 8860,
+      "text": "Instinct, and dots need"
+    },
+    {
+      "startMs": 8920,
+      "endMs": 9860,
+      "text": "your approved access."
+    },
+    {
+      "startMs": 10360,
+      "endMs": 11440,
+      "text": "Find recent purchases,"
+    },
+    {
+      "startMs": 11880,
+      "endMs": 12980,
+      "text": "check return policies,"
+    },
+    {
+      "startMs": 13100,
+      "endMs": 13960,
+      "text": "and list possible"
+    },
+    {
+      "startMs": 14020,
+      "endMs": 15060,
+      "text": "returns with deadlines"
+    },
+    {
+      "startMs": 15080,
+      "endMs": 15880,
+      "text": "and source links."
+    },
+    {
+      "startMs": 21160,
+      "endMs": 22220,
+      "text": "Have it include order"
+    },
+    {
+      "startMs": 22260,
+      "endMs": 23800,
+      "text": "and delivery dates, item"
+    },
+    {
+      "startMs": 23880,
+      "endMs": 25240,
+      "text": "condition, fees, and"
+    },
+    {
+      "startMs": 25320,
+      "endMs": 26100,
+      "text": "anything it cannot"
+    },
+    {
+      "startMs": 26160,
+      "endMs": 27280,
+      "text": "verify, because a"
+    },
+    {
+      "startMs": 27320,
+      "endMs": 28500,
+      "text": "receipt on its own may"
+    },
+    {
+      "startMs": 28540,
+      "endMs": 29560,
+      "text": "not establish whether a"
+    },
+    {
+      "startMs": 29600,
+      "endMs": 30260,
+      "text": "return is still"
+    },
+    {
+      "startMs": 30320,
+      "endMs": 30740,
+      "text": "eligible."
+    },
+    {
+      "startMs": 31380,
+      "endMs": 32200,
+      "text": "Sort the list by"
+    },
+    {
+      "startMs": 32240,
+      "endMs": 33620,
+      "text": "deadline, so a forgotten"
+    },
+    {
+      "startMs": 33720,
+      "endMs": 34440,
+      "text": "purchase does not"
+    },
+    {
+      "startMs": 34460,
+      "endMs": 35600,
+      "text": "disappear under another"
+    },
+    {
+      "startMs": 35640,
+      "endMs": 36320,
+      "text": "week of email."
+    },
+    {
+      "startMs": 36800,
+      "endMs": 37680,
+      "text": "Then choose the item"
+    },
+    {
+      "startMs": 37740,
+      "endMs": 38780,
+      "text": "numbers and ask for a"
+    },
+    {
+      "startMs": 38820,
+      "endMs": 39880,
+      "text": "return request draft."
+    },
+    {
+      "startMs": 40380,
+      "endMs": 41240,
+      "text": "Make it show the next"
+    },
+    {
+      "startMs": 41300,
+      "endMs": 42200,
+      "text": "step before sending"
+    },
+    {
+      "startMs": 42260,
+      "endMs": 43380,
+      "text": "anything, cancelling"
+    },
+    {
+      "startMs": 43460,
+      "endMs": 44640,
+      "text": "anything, or accepting a"
+    },
+    {
+      "startMs": 44700,
+      "endMs": 45000,
+      "text": "charge."
+    },
+    {
+      "startMs": 50300,
+      "endMs": 51300,
+      "text": "For a pair of glasses,"
+    },
+    {
+      "startMs": 51420,
+      "endMs": 52380,
+      "text": "that means checking the"
+    },
+    {
+      "startMs": 52440,
+      "endMs": 54040,
+      "text": "exact policy, preparing"
+    },
+    {
+      "startMs": 54080,
+      "endMs": 55180,
+      "text": "the request, and showing"
+    },
+    {
+      "startMs": 55220,
+      "endMs": 55900,
+      "text": "you the next step."
+    },
+    {
+      "startMs": 56460,
+      "endMs": 57580,
+      "text": "A return label depends"
+    },
+    {
+      "startMs": 57620,
+      "endMs": 58900,
+      "text": "on the retailer, and a"
+    },
+    {
+      "startMs": 58940,
+      "endMs": 60200,
+      "text": "request is not a refund."
+    },
+    {
+      "startMs": 60580,
+      "endMs": 61520,
+      "text": "You still need to check"
+    },
+    {
+      "startMs": 61560,
+      "endMs": 62720,
+      "text": "the details and send the"
+    },
+    {
+      "startMs": 62800,
+      "endMs": 63360,
+      "text": "item back."
+    },
+    {
+      "startMs": 63760,
+      "endMs": 64700,
+      "text": "The useful part is"
+    },
+    {
+      "startMs": 64740,
+      "endMs": 65680,
+      "text": "cutting down all that"
+    },
+    {
+      "startMs": 65760,
+      "endMs": 66060,
+      "text": "admin."
+    },
+    {
+      "startMs": 66480,
+      "endMs": 67420,
+      "text": "For business software,"
+    },
+    {
+      "startMs": 67520,
+      "endMs": 68760,
+      "text": "audit upcoming renewals"
+    },
+    {
+      "startMs": 68820,
+      "endMs": 69780,
+      "text": "and check the contract"
+    },
+    {
+      "startMs": 69840,
+      "endMs": 70600,
+      "text": "before cancelling."
+    },
+    {
+      "startMs": 70980,
+      "endMs": 71420,
+      "text": "I\u2019m Hammad."
+    },
+    {
+      "startMs": 71860,
+      "endMs": 72980,
+      "text": "Save this prompt, and"
+    },
+    {
+      "startMs": 73040,
+      "endMs": 74300,
+      "text": "follow for practical AI"
+    },
+    {
+      "startMs": 74360,
+      "endMs": 75120,
+      "text": "workflows you can"
+    },
+    {
+      "startMs": 75200,
+      "endMs": 75880,
+      "text": "actually use."
+    }
+  ]
+}

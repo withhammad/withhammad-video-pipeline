@@ -1,0 +1,110 @@
+{
+  "engine": "faster-whisper:small int8 CPU, word_timestamps=True, vad_filter=True",
+  "duration_s": 79.319365,
+  "word_count": 333,
+  "overall_wpm": 251.9,
+  "corrected_names": [
+    "Muse and Instinct are separate products; insert comma.",
+    "Allie K. Miller (ASR: Ali Miller).",
+    "USPS is correct.",
+    "Correct base-ASR phrase to \u201cI\u2019ll wear it one day. You\u2019re not gonna wear it.\u201d Small model recovered it."
+  ],
+  "beats": [
+    {
+      "name": "Hook",
+      "start_s": 0,
+      "end_s": 6.1,
+      "words": 27,
+      "wpm": 265.6,
+      "function": "Recognizable pile-of-returns pain point, quick remedy",
+      "energy": "Warm, emphatic"
+    },
+    {
+      "name": "Tool examples",
+      "start_s": 6.1,
+      "end_s": 10.133,
+      "words": 17,
+      "wpm": 252.9,
+      "function": "Names agents and implies broad applicability",
+      "energy": "Inviting"
+    },
+    {
+      "name": "First prompt",
+      "start_s": 10.133,
+      "end_s": 16.567,
+      "words": 25,
+      "wpm": 233.1,
+      "function": "Concrete instruction to scan mail and list returns",
+      "energy": "Directive"
+    },
+    {
+      "name": "Process",
+      "start_s": 16.567,
+      "end_s": 28.6,
+      "words": 44,
+      "wpm": 219.4,
+      "function": "Inbox \u2192 orders \u2192 policy \u2192 numbered list",
+      "energy": "Explanatory, finger-counted"
+    },
+    {
+      "name": "Extra payoff",
+      "start_s": 28.6,
+      "end_s": 35.5,
+      "words": 33,
+      "wpm": 287.0,
+      "function": "Discover overlooked eligible purchases",
+      "energy": "Surprise"
+    },
+    {
+      "name": "Select and delegate",
+      "start_s": 35.5,
+      "end_s": 46.3,
+      "words": 47,
+      "wpm": 261.1,
+      "function": "Choose items, then broad handle-it instruction",
+      "energy": "Confident"
+    },
+    {
+      "name": "Social-proof anecdote",
+      "start_s": 46.3,
+      "end_s": 59.5,
+      "words": 43,
+      "wpm": 195.5,
+      "function": "Colleague glasses return, label and location story",
+      "energy": "Specific, enthusiastic"
+    },
+    {
+      "name": "Personal payoff",
+      "start_s": 59.5,
+      "end_s": 68.3,
+      "words": 46,
+      "wpm": 313.6,
+      "function": "Clutter joke and possible savings",
+      "energy": "Playful then persuasive"
+    },
+    {
+      "name": "Business analogy",
+      "start_s": 68.3,
+      "end_s": 73.3,
+      "words": 23,
+      "wpm": 276.0,
+      "function": "Apply concept to subscriptions",
+      "energy": "Quick extension"
+    },
+    {
+      "name": "Identity and follow",
+      "start_s": 73.3,
+      "end_s": 79.319365,
+      "words": 28,
+      "wpm": 279.1,
+      "function": "Creator authority and follow CTA",
+      "energy": "Friendly close"
+    }
+  ],
+  "pause_measurement": {
+    "method": "ffmpeg silencedetect noise=-40dB d=0.15 on original audio",
+    "internal_silence_s": 0.399,
+    "internal_pause_percent": 0.5,
+    "warning": "Threshold-based source-audio metric, not speech-only VAD and not directly comparable with repository final voice gate. Music/noise can mask silence. Do not force the new take to this rate."
+  }
+}

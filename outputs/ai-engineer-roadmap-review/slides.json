@@ -1,0 +1,83 @@
+{
+  "status": "review_only",
+  "reference": "https://www.instagram.com/p/DerD5keCJgy/",
+  "size": [
+    1080,
+    1350
+  ],
+  "stages": [
+    [
+      "01",
+      "Learn the foundations",
+      "Write useful Python",
+      "Functions, files, tests and one small API request.",
+      "Understand the data",
+      "SQL queries, Git commits and the math behind vectors.",
+      "Build proof",
+      "A script that cleans a CSV and explains every step.",
+      "CS50P · Python + SQL docs",
+      "cs50.harvard.edu/python"
+    ],
+    [
+      "02",
+      "Train. Test. Compare.",
+      "Start with a baseline",
+      "Try regression and classification before complex models.",
+      "Measure what matters",
+      "Keep a test set separate. Check precision and recall.",
+      "Build proof",
+      "A classifier with a clear baseline and error analysis.",
+      "Google · Machine Learning Crash Course",
+      "developers.google.com/machine-learning"
+    ],
+    [
+      "03",
+      "Learn the training loop",
+      "Work with tensors",
+      "Follow data through a small PyTorch network.",
+      "Watch learning happen",
+      "Inspect the loss, gradients and validation results.",
+      "Build proof",
+      "Train a small image classifier and explain its failures.",
+      "PyTorch · Learn the Basics",
+      "docs.pytorch.org/tutorials"
+    ],
+    [
+      "04",
+      "Ground an LLM in evidence",
+      "Learn the model basics",
+      "Tokens, context, prompting and structured outputs.",
+      "Add retrieval",
+      "Chunk documents, retrieve passages, cite the evidence.",
+      "Build proof",
+      "A document assistant that can say “I don’t know.”",
+      "Hugging Face · LLM Course",
+      "huggingface.co/learn/llm-course"
+    ],
+    [
+      "05",
+      "Give agents boundaries",
+      "Connect a narrow tool",
+      "Define inputs, permissions and the allowed actions.",
+      "Test the whole workflow",
+      "Check tool errors, state and when a human must approve.",
+      "Build proof",
+      "An assistant that drafts an action before it executes.",
+      "Hugging Face · Agents Course",
+      "huggingface.co/learn/agents-course"
+    ],
+    [
+      "06",
+      "Ship something dependable",
+      "Expose a small API",
+      "Validate requests and handle failures clearly.",
+      "Make it observable",
+      "Log errors. Track latency, usage and model costs.",
+      "Build proof",
+      "A deployed demo with tests and a short runbook.",
+      "FastAPI tutorial · Docker Get Started",
+      "fastapi.tiangolo.com/tutorial"
+    ]
+  ],
+  "publishing_authorized": false
+}

@@ -1,0 +1,194 @@
+{
+  "reference_duration_s": 49.236042,
+  "word_count": 84,
+  "word_count_method": "Whitespace token count from small-model word timestamps, numerals count as one word. Allocation by word midpoint; approximate because Whisper sometimes includes silence in a word.",
+  "overall_wpm": 102.4,
+  "corrected_names": [
+    "Claude, not cloud. Claude Code is visible in simulated editor.",
+    "Separate final mail-server statement from the repeated short acknowledgement; base transcript merged them."
+  ],
+  "beats": [
+    {
+      "id": 1,
+      "name": "Simple request and eager acceptance",
+      "start_s": 0,
+      "end_s": 4.033333,
+      "words": 9,
+      "wpm": 133.9,
+      "function": "Establish a small task and contrasting personalities.",
+      "energy": "Calm request; cheerful assistant."
+    },
+    {
+      "id": 2,
+      "name": "Unexpected scope explosion",
+      "start_s": 4.033333,
+      "end_s": 10.866667,
+      "words": 8,
+      "wpm": 70.2,
+      "function": "Visual surprise, then incredulous question.",
+      "energy": "Fast UI changes; slow disbelief."
+    },
+    {
+      "id": 3,
+      "name": "First rationalization and objection",
+      "start_s": 10.866667,
+      "end_s": 14.666667,
+      "words": 9,
+      "wpm": 142.1,
+      "function": "First rung of unnecessary architecture.",
+      "energy": "Assistant matter-of-fact; human dry."
+    },
+    {
+      "id": 4,
+      "name": "Second rationalization and boast",
+      "start_s": 14.666667,
+      "end_s": 21.533333,
+      "words": 16,
+      "wpm": 139.8,
+      "function": "Escalate from one component into a system.",
+      "energy": "Human growing frustration; assistant proud."
+    },
+    {
+      "id": 5,
+      "name": "Database escalation",
+      "start_s": 21.533333,
+      "end_s": 28.333333,
+      "words": 9,
+      "wpm": 79.4,
+      "function": "Reveal backend scope solely to remember a color.",
+      "energy": "Incredulous question; smiling explanation."
+    },
+    {
+      "id": 6,
+      "name": "Attempt to see result",
+      "start_s": 28.333333,
+      "end_s": 30.833333,
+      "words": 5,
+      "wpm": 120.0,
+      "function": "Brief reset and anticipation.",
+      "energy": "Resigned human."
+    },
+    {
+      "id": 7,
+      "name": "Unwanted signup gate",
+      "start_s": 30.833333,
+      "end_s": 34.033333,
+      "words": 8,
+      "wpm": 150.0,
+      "function": "Turn helpful work into an obstacle.",
+      "energy": "Assistant casually obstructive."
+    },
+    {
+      "id": 8,
+      "name": "Ownership protest",
+      "start_s": 34.033333,
+      "end_s": 37.233333,
+      "words": 7,
+      "wpm": 131.2,
+      "function": "Human points out the absurdity.",
+      "energy": "Raised voice/reaction."
+    },
+    {
+      "id": 9,
+      "name": "Conditional payoff",
+      "start_s": 37.233333,
+      "end_s": 39.3,
+      "words": 3,
+      "wpm": 87.1,
+      "function": "Assistant doubles down while target button remains grey.",
+      "energy": "Cheerful certainty."
+    },
+    {
+      "id": 10,
+      "name": "Verification error reveal",
+      "start_s": 39.3,
+      "end_s": 41.933333,
+      "words": 1,
+      "wpm": 22.8,
+      "function": "Silently expose a fresh dependency.",
+      "energy": "UI hold, then realization."
+    },
+    {
+      "id": 11,
+      "name": "Mail-server callback and second cascade",
+      "start_s": 41.933333,
+      "end_s": 46.833333,
+      "words": 7,
+      "wpm": 85.7,
+      "function": "Repeat eager acknowledgement, now with bigger scope.",
+      "energy": "Brief thought pause, cheerful acceleration."
+    },
+    {
+      "id": 12,
+      "name": "Final interruption and reaction",
+      "start_s": 46.833333,
+      "end_s": 49.236042,
+      "words": 2,
+      "wpm": 49.9,
+      "function": "End on human stopping the runaway work.",
+      "energy": "Exasperation; held reaction, black tail."
+    }
+  ],
+  "estimated_word_gaps": [
+    {
+      "start_s": 3.62,
+      "end_s": 6.47,
+      "duration_s": 2.85
+    },
+    {
+      "start_s": 7.69,
+      "end_s": 7.93,
+      "duration_s": 0.24
+    },
+    {
+      "start_s": 10.31,
+      "end_s": 10.85,
+      "duration_s": 0.54
+    },
+    {
+      "start_s": 16.83,
+      "end_s": 17.03,
+      "duration_s": 0.2
+    },
+    {
+      "start_s": 19.31,
+      "end_s": 19.83,
+      "duration_s": 0.52
+    },
+    {
+      "start_s": 27.39,
+      "end_s": 28.49,
+      "duration_s": 1.1
+    },
+    {
+      "start_s": 31.33,
+      "end_s": 31.81,
+      "duration_s": 0.48
+    },
+    {
+      "start_s": 33.35,
+      "end_s": 34.01,
+      "duration_s": 0.66
+    },
+    {
+      "start_s": 34.91,
+      "end_s": 35.51,
+      "duration_s": 0.6
+    },
+    {
+      "start_s": 38.67,
+      "end_s": 40.61,
+      "duration_s": 1.94
+    },
+    {
+      "start_s": 41.37,
+      "end_s": 42.27,
+      "duration_s": 0.9
+    },
+    {
+      "start_s": 45.49,
+      "end_s": 46.53,
+      "duration_s": 1.04
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "status": "technical_checks_passed_owner_review_pending",
+  "file": "final.mp4",
+  "sha256": "f30326e66de914e6384e202dafc6f0c7c3035b9f2c769529d822e6407e59dc6a",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "30/1",
+        "nb_frames": "2380"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "r_frame_rate": "0/0",
+        "nb_frames": "3720"
+      }
+    ],
+    "format": {
+      "duration": "79.400000"
+    }
+  },
+  "loudness": {
+    "input_i": "-13.56",
+    "input_tp": "-1.73",
+    "input_lra": "6.30",
+    "input_thresh": "-24.90",
+    "output_i": "-13.91",
+    "output_tp": "-1.50",
+    "output_lra": "5.60",
+    "output_thresh": "-25.10",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.09"
+  },
+  "captions": 57,
+  "voice_speed": 1.0,
+  "publication_authorized": false,
+  "requires_owner_review": [
+    "Delivery and pacing",
+    "Visual treatment",
+    "Post copy and companion guide"
+  ],
+  "notes": [
+    "Source voice retained without time stretching.",
+    "Added visual reading/reaction holds are explicit in timing.json.",
+    "Source references used for analysis; new owner narration and original graphics.",
+    "Captioned HeyGen source used after clean UI download failed. Original captions below the safe zone are covered by lower-edge design; source SRT is restyled in the safe zone.",
+    "Example workflow, not a completed return."
+  ]
+}

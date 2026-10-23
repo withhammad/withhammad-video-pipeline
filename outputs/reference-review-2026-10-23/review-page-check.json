@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "viewport_desktop": [
+    1200,
+    1000
+  ],
+  "viewport_mobile": [
+    390,
+    844
+  ],
+  "horizontal_overflow": false,
+  "carousel_next": "2 / 10",
+  "videos": [
+    {
+      "duration": 49.237,
+      "width": 1080,
+      "height": 1920,
+      "error": null
+    },
+    {
+      "duration": 79.4,
+      "width": 1080,
+      "height": 1920,
+      "error": null
+    }
+  ],
+  "public_access": false
+}

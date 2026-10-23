@@ -1,0 +1,83 @@
+1
+00:00:00,000 --> 00:00:01,950
+Rename this button to Start, please.
+
+2
+00:00:02,080 --> 00:00:02,980
+Already building.
+
+3
+00:00:06,450 --> 00:00:07,580
+Twenty-four files?
+
+4
+00:00:08,370 --> 00:00:09,530
+I asked for one word.
+
+5
+00:00:10,110 --> 00:00:11,630
+I added translation support.
+
+6
+00:00:12,630 --> 00:00:13,330
+For one word?
+
+7
+00:00:13,580 --> 00:00:14,500
+Every button,
+
+8
+00:00:14,690 --> 00:00:15,790
+in thirty languages.
+
+9
+00:00:17,650 --> 00:00:18,990
+This is a one-page demo.
+
+10
+00:00:19,520 --> 00:00:20,620
+You can expand now.
+
+11
+00:00:21,440 --> 00:00:22,880
+And this customer database?
+
+12
+00:00:23,650 --> 00:00:25,200
+It saves their preferred language.
+
+13
+00:00:26,960 --> 00:00:28,790
+Fine. Show me Start.
+
+14
+00:00:29,410 --> 00:00:30,710
+You'll need a profile first.
+
+15
+00:00:32,710 --> 00:00:33,450
+A profile,
+
+16
+00:00:33,790 --> 00:00:34,960
+just to read my button?
+
+17
+00:00:35,610 --> 00:00:36,850
+And a verified email.
+
+18
+00:00:37,370 --> 00:00:37,770
+Ah.
+
+19
+00:00:40,250 --> 00:00:41,980
+Nobody connected the mail service.
+
+20
+00:00:42,380 --> 00:00:43,130
+I'll handle that.
+
+21
+00:00:45,530 --> 00:00:47,020
+Stop renovating the internet!

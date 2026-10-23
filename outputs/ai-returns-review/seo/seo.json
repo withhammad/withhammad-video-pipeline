@@ -1,0 +1,122 @@
+{
+  "status": "review_only",
+  "owner_review_status": "pending",
+  "owner_approved": false,
+  "publishing_authorized": false,
+  "scheduling_authorized": false,
+  "checked_at": "2026-10-23",
+  "resource_delivery": {
+    "status": "local_draft_only",
+    "public_url": null,
+    "automation_enabled": false,
+    "promise_in_copy": false
+  },
+  "workflow_phase": "Verify complete for copy; owner review and final-asset checks pending",
+  "caption_format": "Hashtags are already included in the caption/text/post. Hashtag arrays are metadata; do not append them again.",
+  "format": "vertical educational reel",
+  "primary_keyword": "AI return checklist",
+  "rationale": "Specific return-check wording avoids ambiguous investment and product-refund searches. YouTube uses the broader assistant phrase observed in research, followed by the actual task. No relevant winning comparator or demand volume was established.",
+  "youtube": {
+    "applicable": true,
+    "title": "AI Personal Assistant: Check Return Deadlines",
+    "description": "Use an AI personal assistant to prepare a checklist of possible returns, with deadlines and source policies.\nSave this prompt for your next order review.\n\n“Review the receipts I provide. List possible returns with order and delivery dates, deadlines, item conditions, fees, source policy links and missing information. Sort by deadline. Do not submit or send anything.”\n\nFor a chosen item, ask for a request draft and review the exact next step before sending, cancelling or accepting a charge. A receipt may not prove eligibility, and a request is not a refund. Tools, access and regional availability vary.\n\nSave this prompt for your next order review, and subscribe for more practical AI workflows.\n\nAI avatar of me.\n\n#AIAssistant #AIWorkflows #Shorts",
+    "tags": [
+      "AI personal assistant",
+      "AI return checklist",
+      "return deadlines",
+      "AI agents",
+      "AI workflow",
+      "online shopping returns"
+    ],
+    "hashtags": [
+      "#AIAssistant",
+      "#AIWorkflows",
+      "#Shorts"
+    ]
+  },
+  "instagram": {
+    "caption": "AI return checklist: check the policy before the deadline.\n\nSave this checklist for your next order review.\n\nAsk your assistant to list possible returns with order and delivery dates, item condition, fees, policy links and anything it cannot verify. Then sort by deadline.\n\nChoose an item and ask for a request draft. Review the next step before anything is sent, submitted, cancelled or charged. A request is not a refund, and tools and availability vary.\n\nSave this checklist for your next order review. Follow @with.hammad for practical AI workflows.\n\nAI avatar of me.\n\n#AIAgents #AIProductivity #OnlineShopping",
+    "hashtags": [
+      "#AIAgents",
+      "#AIProductivity",
+      "#OnlineShopping"
+    ],
+    "alt_text": "Draft video description: Hammad’s AI avatar explains a return-check workflow with illustrative receipt, policy, deadline and request graphics. The glasses example is hypothetical, and the workflow calls for review before external action."
+  },
+  "linkedin": {
+    "text": "AI return checks work best as a list you can verify.\n\nSave this checklist for your next order review.\n\nAsk for possible returns with order and delivery dates, conditions, fees, deadlines and the exact policy sources. Make missing information visible and sort the list by deadline.\n\nThen choose an item and request a draft. Review the proposed action before anything is sent, submitted, cancelled or charged. A request does not establish a refund, and tools and regional access vary.\n\nThe same review habit can inform a business-software renewal audit: check the contract before deciding to cancel.\n\nSave the checklist for your next admin session. Which part takes you longest to verify?\n\nFollow for practical AI workflows.\n\nAI avatar of me.\n\n#AIWorkflows #AIAgents"
+  },
+  "tiktok": {
+    "caption": "AI return checklist: dates, conditions, fees and the exact policy.\n\nSave this checklist for your next order review.\n\nAsk for possible returns sorted by deadline, then review a request draft before any action. A request is not a refund. Tool access and availability vary.\n\nSave this for your next order review and follow for practical AI workflows.\n\nAI avatar of me.\n\n#AIAgents #AIProductivity #OnlineShopping",
+    "hashtags": [
+      "#AIAgents",
+      "#AIProductivity",
+      "#OnlineShopping"
+    ]
+  },
+  "facebook": {
+    "caption": "AI can help prepare a return checklist before you miss a deadline.\n\nSave this checklist for your next order review.\n\nGive it the receipts you choose to share. Ask for possible returns, order and delivery dates, condition requirements, fees, policy links and missing information, sorted by deadline.\n\nCheck the details yourself and review a request draft before anything is sent or submitted. A request is not a refund, and access varies by tool and region.\n\nSave this for your next order review. Follow for practical AI workflows.\n\nAI avatar of me.\n\n#AIWorkflows #AIAgents",
+    "hashtags": [
+      "#AIWorkflows",
+      "#AIAgents"
+    ]
+  },
+  "x": {
+    "post": "AI return checklist. Bookmark this: dates, deadline, condition, fees and policy. Review a draft before approving an action. A request is not a refund. Save and follow for practical AI. AI avatar of me. #AIWorkflows",
+    "hashtags": [
+      "#AIWorkflows"
+    ]
+  },
+  "accessibility": {
+    "video_description": "Hammad’s AI avatar explains how to check possible returns using receipts, merchant policy sources and deadlines, then review a request draft. Graphics and the glasses example illustrate the process rather than proving a completed return.",
+    "status": "Draft from script and spec; verify visible graphics and labels against final cut. Preserve spoken captions.",
+    "custom_reel_alt_text_support": "Not assumed."
+  },
+  "editorial_notes": [
+    "No guaranteed savings, refund, eligibility, return label, universal tool capability or UAE availability claim.",
+    "No claim that Hammad performed a real transaction or connected an account.",
+    "Prompt is included directly in the YouTube description; no live resource, link-in-bio or DM promise.",
+    "Business renewals are a contract-review analogy; no particular product is promoted as verified business cancellation software."
+  ],
+  "evidence": [
+    {
+      "claim": "Dates, conditions, fees, policies, unknowns and approval before external actions",
+      "source": "script.txt; lesson.json; analysis/facts.md"
+    },
+    {
+      "claim": "Request is not refund; regional/tool variation",
+      "source": "analysis/facts.md"
+    },
+    {
+      "claim": "Specific checklist wording and broad assistant phrase",
+      "source": "seo/research-youtube.json; seo/research-social.json; seo/research-linkedin.json"
+    }
+  ],
+  "writer_checks": {
+    "character_counts": {
+      "instagram": 614,
+      "linkedin": 764,
+      "tiktok": 408,
+      "facebook": 572,
+      "x": 214,
+      "x_weighted": 214,
+      "tiktok_utf16": 408,
+      "youtube_title": 45,
+      "youtube_description_utf8_bytes": 758,
+      "youtube_tags_aggregate": 116
+    },
+    "x_under_280": true,
+    "reel_youtube_title_under_70": true,
+    "public_resource_links": 0,
+    "slide_alt_text_count": 0,
+    "independent_verification": "complete for copy; see verification.json",
+    "owner_review": "pending"
+  },
+  "verification": {
+    "status": "copy_checks_passed_owner_review_pending",
+    "record": "verification.json",
+    "verified_at": "2026-10-23T10:48:44.199438+00:00",
+    "final_asset_check": "pending",
+    "owner_review": "pending"
+  }
+}

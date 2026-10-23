@@ -1,0 +1,320 @@
+{
+  "status": "research_review_only",
+  "checked_at_utc": "2026-10-23T10:19:40.156475+00:00",
+  "research_budget_minutes": 3,
+  "primary_keyword": "AI engineer roadmap",
+  "keywords": [
+    {
+      "term": "ai engineer roadmap",
+      "evidence": "Google autocomplete for “ai engineer roadmap”, returned position 1 on 2026-10-23.",
+      "intent": "Learning sequence",
+      "search_volume": null,
+      "seed": "ai engineer roadmap",
+      "rank": 1
+    },
+    {
+      "term": "ai engineer roadmap 2026",
+      "evidence": "Google autocomplete for “ai engineer roadmap”, returned position 2 on 2026-10-23.",
+      "intent": "Current learning sequence",
+      "search_volume": null,
+      "seed": "ai engineer roadmap",
+      "rank": 2
+    },
+    {
+      "term": "ai engineer roadmap for beginners",
+      "evidence": "Google autocomplete for “ai engineer roadmap”, returned position 7 on 2026-10-23.",
+      "intent": "Beginner entry point",
+      "search_volume": null,
+      "seed": "ai engineer roadmap",
+      "rank": 7
+    },
+    {
+      "term": "learn ai engineering from scratch",
+      "evidence": "Google autocomplete for “learn ai engineering”, returned position 2 on 2026-10-23.",
+      "intent": "Foundations",
+      "search_volume": null,
+      "seed": "learn ai engineering",
+      "rank": 2
+    },
+    {
+      "term": "rag projects ideas",
+      "evidence": "Google autocomplete for “rag projects”, returned position 3 on 2026-10-23.",
+      "intent": "Portfolio project selection",
+      "search_volume": null,
+      "seed": "rag projects",
+      "rank": 3
+    }
+  ],
+  "autocomplete": [
+    {
+      "seed": "ai engineer roadmap",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20engineer%20roadmap",
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "ai engineer roadmap"
+        },
+        {
+          "rank": 2,
+          "term": "ai engineer roadmap 2026"
+        },
+        {
+          "rank": 3,
+          "term": "ai engineer roadmap github"
+        },
+        {
+          "rank": 4,
+          "term": "ai engineer roadmap sh"
+        },
+        {
+          "rank": 5,
+          "term": "ai engineer roadmap 2025"
+        },
+        {
+          "rank": 6,
+          "term": "ai engineer roadmap reddit"
+        },
+        {
+          "rank": 7,
+          "term": "ai engineer roadmap for beginners"
+        },
+        {
+          "rank": 8,
+          "term": "ai engineer roadmap pdf"
+        },
+        {
+          "rank": 9,
+          "term": "ai engineer roadmap codebasics"
+        },
+        {
+          "rank": 10,
+          "term": "medium ai engineer roadmap"
+        }
+      ],
+      "search_volume": null
+    },
+    {
+      "seed": "learn ai engineering",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=learn%20ai%20engineering",
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "learn ai engineering"
+        },
+        {
+          "rank": 2,
+          "term": "learn ai engineering from scratch"
+        },
+        {
+          "rank": 3,
+          "term": "learn ai engineering free"
+        },
+        {
+          "rank": 4,
+          "term": "learn ai engineering github"
+        },
+        {
+          "rank": 5,
+          "term": "learn ai engineering reddit"
+        },
+        {
+          "rank": 6,
+          "term": "learn ai engineering online"
+        },
+        {
+          "rank": 7,
+          "term": "learn ai engineering roadmap"
+        },
+        {
+          "rank": 8,
+          "term": "learn ai engineering course"
+        },
+        {
+          "rank": 9,
+          "term": "learn ai engineering pdf"
+        },
+        {
+          "rank": 10,
+          "term": "how to learn ai prompt engineering"
+        }
+      ],
+      "search_volume": null
+    },
+    {
+      "seed": "rag projects",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=rag%20projects",
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "rag projects"
+        },
+        {
+          "rank": 2,
+          "term": "rag projects github"
+        },
+        {
+          "rank": 3,
+          "term": "rag projects ideas"
+        },
+        {
+          "rank": 4,
+          "term": "rag projects github with source code"
+        },
+        {
+          "rank": 5,
+          "term": "rag projects meaning"
+        },
+        {
+          "rank": 6,
+          "term": "rag projects using langchain"
+        },
+        {
+          "rank": 7,
+          "term": "rag projects medium"
+        },
+        {
+          "rank": 8,
+          "term": "rag projects ai"
+        },
+        {
+          "rank": 9,
+          "term": "rag projects for resume"
+        },
+        {
+          "rank": 10,
+          "term": "rag projects advanced examples"
+        }
+      ],
+      "search_volume": null
+    }
+  ],
+  "title_patterns": [
+    "AI engineer roadmap: six stages, one project at a time",
+    "From Python to deployed AI: a practical learning path"
+  ],
+  "hashtags": [
+    {
+      "tag": "#AIEngineering",
+      "why": "Exact learning field",
+      "size_verified": false
+    },
+    {
+      "tag": "#LearnPython",
+      "why": "First stage",
+      "size_verified": false
+    },
+    {
+      "tag": "#MachineLearning",
+      "why": "Core middle stage",
+      "size_verified": false
+    },
+    {
+      "tag": "#AIProjects",
+      "why": "Portfolio focus",
+      "size_verified": false
+    }
+  ],
+  "caption_recommendations": {
+    "instagram": "AI engineer roadmap: six stages, with work you can show at every step.\n\nBuild from Python and data foundations through machine learning, training loops, LLMs, agents and deployment. Pick one project, test it, and explain its limits before moving on.\n\nLearning resources are free to read; hosting, compute, APIs and optional certificates may cost money. Your pace depends on your starting point and practice time.\n\nSave the roadmap and choose your first project. Follow for practical AI workflows.\nAI-assisted carousel, reviewed by Hammad.",
+    "tiktok": "AI engineer roadmap: Python → ML → deep learning → LLMs → agents → deployment. Build and test one project at each stage. Save this learning path. No fixed timeline or hiring guarantee. AI-assisted carousel, reviewed by Hammad.",
+    "facebook": "An AI engineer roadmap should help you decide what to build next. These six stages move from Python foundations to a deployed, tested AI service.\n\nUse the learning resources listed on the slides, build one project at a time, and document its limitations. Learning materials are free to read; compute, APIs, hosting and optional certificates can cost money.\n\nSave the roadmap, pick your first project, and follow for practical AI workflows.\nAI-assisted carousel, reviewed by Hammad."
+  },
+  "alt_text_recommendation": "Ten-slide AI engineering learning roadmap in cream, navy and light blue, with Hammad’s portrait on the cover. It covers foundations, machine learning, neural-network training, LLM retrieval, bounded agents and deployment; then lists portfolio artifacts and a save-and-build call to action.",
+  "alt_text_by_slide": [
+    "Hammad’s portrait above the title “Build your path into AI engineering.” Subtitle: six stages, a working project at every step. A badge says free learning resources.",
+    "Six-stage overview: foundations; train, test and compare; training loop; grounded LLMs; bounded agents; dependable deployment. Note: progress depends on starting point and practice, and the path is not a hiring guarantee.",
+    "Stage 1, foundations: useful Python, SQL, Git and vectors. Project: clean a CSV and explain each step. Learning sources: CS50P, Python and SQL documentation.",
+    "Stage 2, train, test, compare: start with regression or classification, keep a separate test set and check precision and recall. Project: classifier with baseline and error analysis. Source: Google ML Crash Course.",
+    "Stage 3, training loop: tensors, a small PyTorch network, loss, gradients and validation. Project: image classifier with explained failures. Source: PyTorch Learn the Basics.",
+    "Stage 4, ground an LLM in evidence: tokens, context, prompting, structured output and retrieval with citations. Project: a document assistant able to say it does not know. Source: Hugging Face LLM Course.",
+    "Stage 5, give agents boundaries: narrow tools, permissions, errors, state and human approval. Diagram: plan, approve, act. Project: draft an action before executing. Source: Hugging Face Agents Course.",
+    "Stage 6, dependable deployment: validated API requests, error handling, logs, latency, usage and costs. Project: a deployed tested demo with a runbook. Sources: FastAPI and Docker.",
+    "Five portfolio artifacts: clean-data pipeline, measured classifier, cited document assistant, tool-using assistant and deployed AI service. Add a README, demo, evaluation results and limitations.",
+    "Closing slide: “Build one. Then level up.” Save the roadmap and pick a first project. Fine print distinguishes free learning materials from possible hosting, compute, API and certificate costs."
+  ],
+  "rules": [
+    "Review only. No publishing, scheduling, website edits, DM delivery promises or live-resource claims.",
+    "Google autocomplete is a public wording/relevance proxy, not Instagram/TikTok/Facebook search volume. Returned rank is suggestion position, not measured demand or predicted reach.",
+    "No locale or language parameter was fixed; these are endpoint results from this environment, not UAE-only audience analytics. Arabic suggestions are retained as observed, not translated into inferred volumes.",
+    "Use a clear topic phrase in the first line. Keeping that line under 125 characters is an editorial readability target, not a verified universal truncation rule.",
+    "Use three or four relevant hashtags; exact current Instagram cap could not be retrieved directly. No hashtag size, banned-tag status, or performance rank was verified.",
+    "Alt text should describe visible information and meaningful text, not repeat hashtags or imply hidden actions. For video, retain accurate captions and a descriptive post summary; do not assume a custom Reel alt-text field exists.",
+    "Keep content original. Mark fictional coding counters as skit props and hypothetical return data as examples.",
+    "Use the platform AI disclosure controls when applicable at eventual authorized publication. Avatar videos also get a plain caption disclosure; verify portrait provenance for the static carousel.",
+    "No private account analytics, live competitor engagement, TikTok Creator Search Insights metrics or regional posting-time evidence was acquired."
+  ],
+  "claim_cautions": [
+    "Do not promise job readiness or a fixed completion time.",
+    "Free learning material does not mean free APIs, inference, certificates or hosting.",
+    "No companion resource URL is live or verified by this pass.",
+    "Static carousel does not automatically imply an AI avatar; confirm portrait provenance before using an avatar-specific disclosure."
+  ],
+  "sources": [
+    {
+      "url": "https://newsroom.tiktok.com/creator-search-insights?lang=en",
+      "type": "primary",
+      "status": "retrieved",
+      "finding": "TikTok describes searched-topic discovery and content-gap filters. No account-specific topic metrics were accessed."
+    },
+    {
+      "url": "https://about.fb.com/news/2026/03/rewarding-original-creators-on-facebook/",
+      "type": "primary",
+      "status": "retrieved",
+      "finding": "Meta prioritizes original creator content; superficial edits of others’ posts may be deprioritized."
+    },
+    {
+      "url": "https://about.fb.com/news/2025/04/cracking-down-spammy-content-facebook/",
+      "type": "primary",
+      "status": "retrieved",
+      "finding": "Meta discourages unrelated captions and excessive hashtag spam."
+    },
+    {
+      "url": "https://help.instagram.com/351460621611097",
+      "type": "primary",
+      "status": "429 Too Many Requests",
+      "finding": "Five-hashtag cap not directly verified in this bounded pass. Use three or four relevant tags as conservative editorial guidance."
+    },
+    {
+      "url": "https://about.instagram.com/blog/announcements/break-down-how-instagram-search-works",
+      "type": "primary",
+      "status": "429 Too Many Requests",
+      "finding": "Current search-ranking claims not independently reverified here."
+    },
+    {
+      "url": "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+      "type": "primary",
+      "status": "429 Too Many Requests",
+      "finding": "Unavailable; no precise current ranking weights asserted."
+    },
+    {
+      "url": "https://support.tiktok.com/en/using-tiktok/growing-your-audience/creator-search-insights",
+      "type": "primary",
+      "status": "robots.txt denied",
+      "finding": "Newsroom source used for basic tool description only."
+    },
+    {
+      "url": "https://support.tiktok.com/en/using-tiktok/creating-videos/accessibility",
+      "type": "primary",
+      "status": "robots.txt denied",
+      "finding": "Accessibility recommendations below are editorial; current exact upload fields not verified."
+    },
+    {
+      "url": "https://ads.tiktok.com/business/creativecenter/inspiration/popular/hashtag/pc/en",
+      "type": "primary",
+      "status": "redirected to https://ads.tiktok.com/creative/creativeCenter/trends; login shell only",
+      "finding": "No topic hashtag counts or search volumes visible."
+    },
+    {
+      "url": "https://www.facebook.com/help/273947702950567",
+      "type": "primary",
+      "status": "login redirect / temporarily blocked message",
+      "finding": "No current accessibility-field instruction inferred."
+    }
+  ],
+  "limitations": [
+    "Initial Python urllib fetch failed certificate validation; system curl succeeded with normal TLS verification. No verification was disabled.",
+    "No account access used. Primary Instagram cap/search pages and TikTok support pages inaccessible; exact current rules remain unverified.",
+    "Reference captions and local facts provide content context, not evidence of audience performance."
+  ],
+  "publishing_authorized": false
+}

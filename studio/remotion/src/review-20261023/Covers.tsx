@@ -1,0 +1,6 @@
+import React from 'react';
+import {AbsoluteFill,Img} from 'remotion';
+import {Base,blue,file} from './shared';
+const Cover:React.FC<{returns?:boolean}>=({returns})=><Base><Img src={file(returns?'returns-cover.jpg':'comedy-cover.jpg')} style={{width:'100%',height:'100%',objectFit:'cover'}}/><AbsoluteFill style={{background:'linear-gradient(180deg,#07172511,transparent 35%,#071725aa 62%,#071725 87%)'}}/><div style={{position:'absolute',left:80,top:330,fontSize:29,letterSpacing:3,fontWeight:800,textShadow:'0 3px 15px #000'}}>WITH HAMMAD</div><div style={{position:'absolute',left:80,top:1060,width:860}}><div style={{color:blue,fontSize:25,letterSpacing:3,marginBottom:24}}>{returns?'PRACTICAL AI WORKFLOW':'AI CODING SKIT'}</div><div style={{fontSize:returns?91:106,fontWeight:800,lineHeight:1.02,letterSpacing:-4}}>{returns?<>CHECK RETURN<br/><span style={{color:blue}}>DEADLINES</span></>:<>ONE WORD.<br/><span style={{color:blue}}>24 FILES?</span></>}</div><div style={{fontSize:29,marginTop:30,color:'#c0d7ea'}}>{returns?'Check → Draft → Review':'When a tiny edit becomes a whole product'}</div></div></Base>;
+export const ComedyCover:React.FC=()=> <Cover/>;
+export const ReturnsCover:React.FC=()=> <Cover returns/>;

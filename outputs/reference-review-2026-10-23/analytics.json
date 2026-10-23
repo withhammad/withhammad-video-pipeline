@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-10-23T10:12:23.939511+00:00",
+  "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+  "source": "YouTube Data API videos.list; read only",
+  "videos": [
+    {
+      "id": "WMhrzmEMJuM",
+      "title": "85 AI Engineering Projects: Pick Your Next Build #Shorts",
+      "publishedAt": "2026-10-23T06:00:21Z",
+      "visibility": "public",
+      "statistics": {
+        "viewCount": "14",
+        "likeCount": "0",
+        "dislikeCount": "0",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "id": "xnL4IfRhR3E",
+      "title": "Better AI Motion Graphics: Start With This Prompt Brief #Shorts",
+      "publishedAt": "2026-10-21T08:00:04Z",
+      "visibility": "public",
+      "statistics": {
+        "viewCount": "505",
+        "likeCount": "2",
+        "dislikeCount": "0",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    }
+  ],
+  "limits": [
+    "Publication ages differ; no causal performance comparison.",
+    "No fresh retention, saves, shares or hourly audience data.",
+    "Reference choices are owner supplied; hook testing remains a hypothesis."
+  ],
+  "review_only": true
+}

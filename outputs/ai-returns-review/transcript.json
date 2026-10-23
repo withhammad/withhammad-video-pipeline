@@ -1,0 +1,1701 @@
+{
+  "text": " Before another return deadline slips pass, let your AI help you check what is still eligible. Agents like Muse, Instinct and Dots need your approved access. Find recent purchases. Check return policies and list possible returns with deadlines and source links. Have it include order and delivery dates, item condition fees and anything it cannot verify because a receipt on its own may not establish whether a return is still eligible. Sort the list by deadline so a forgotten purchase does not disappear under another week of email. Then choose the item numbers and ask for a return request draft. Make it show the next step before sending anything, cancelling anything or accepting a charge. For a pair of glasses that means checking the exact policy, preparing the request and showing you the next step. A return label depends on the retailer and the request is not a refund. You still need to check the details and send the item back. The useful part is cutting down all that admin for business software audit upcoming renewals and check the contract before cancelling. I am Hamar Chauhan. Save this prompt and follow for practical AI workflows you can actually use.",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 0.0,
+      "end": 5.46,
+      "text": " Before another return deadline slips pass, let your AI help you check what is still eligible.",
+      "tokens": [
+        50364,
+        4546,
+        1071,
+        2736,
+        20615,
+        44690,
+        1320,
+        11,
+        718,
+        428,
+        7318,
+        854,
+        291,
+        1520,
+        437,
+        307,
+        920,
+        14728,
+        13,
+        50664
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.11926505920734812,
+      "compression_ratio": 1.6539923954372624,
+      "no_speech_prob": 0.033426713198423386,
+      "words": [
+        {
+          "word": " Before",
+          "start": 0.0,
+          "end": 0.52,
+          "probability": 0.838454008102417
+        },
+        {
+          "word": " another",
+          "start": 0.52,
+          "end": 0.86,
+          "probability": 0.8928296566009521
+        },
+        {
+          "word": " return",
+          "start": 0.86,
+          "end": 1.34,
+          "probability": 0.9191498160362244
+        },
+        {
+          "word": " deadline",
+          "start": 1.34,
+          "end": 1.78,
+          "probability": 0.7526246309280396
+        },
+        {
+          "word": " slips",
+          "start": 1.78,
+          "end": 2.1,
+          "probability": 0.9893897175788879
+        },
+        {
+          "word": " pass,",
+          "start": 2.1,
+          "end": 2.5,
+          "probability": 0.4489883780479431
+        },
+        {
+          "word": " let",
+          "start": 3.06,
+          "end": 3.18,
+          "probability": 0.970431387424469
+        },
+        {
+          "word": " your",
+          "start": 3.18,
+          "end": 3.38,
+          "probability": 0.9879365563392639
+        },
+        {
+          "word": " AI",
+          "start": 3.38,
+          "end": 3.6,
+          "probability": 0.8744571805000305
+        },
+        {
+          "word": " help",
+          "start": 3.6,
+          "end": 4.04,
+          "probability": 0.985724687576294
+        },
+        {
+          "word": " you",
+          "start": 4.04,
+          "end": 4.24,
+          "probability": 0.9940631985664368
+        },
+        {
+          "word": " check",
+          "start": 4.24,
+          "end": 4.46,
+          "probability": 0.9507341384887695
+        },
+        {
+          "word": " what",
+          "start": 4.46,
+          "end": 4.7,
+          "probability": 0.9925092458724976
+        },
+        {
+          "word": " is",
+          "start": 4.7,
+          "end": 4.88,
+          "probability": 0.9907063841819763
+        },
+        {
+          "word": " still",
+          "start": 4.88,
+          "end": 5.1,
+          "probability": 0.9896009564399719
+        },
+        {
+          "word": " eligible.",
+          "start": 5.1,
+          "end": 5.46,
+          "probability": 0.9976156949996948
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "seek": 0,
+      "start": 6.04,
+      "end": 9.76,
+      "text": " Agents like Muse, Instinct and Dots need your approved access.",
+      "tokens": [
+        50664,
+        2725,
+        791,
+        411,
+        47293,
+        11,
+        2730,
+        5460,
+        293,
+        413,
+        1971,
+        643,
+        428,
+        10826,
+        2105,
+        13,
+        50876
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.11926505920734812,
+      "compression_ratio": 1.6539923954372624,
+      "no_speech_prob": 0.033426713198423386,
+      "words": [
+        {
+          "word": " Agents",
+          "start": 6.04,
+          "end": 6.42,
+          "probability": 0.9851814210414886
+        },
+        {
+          "word": " like",
+          "start": 6.42,
+          "end": 6.76,
+          "probability": 0.9651864171028137
+        },
+        {
+          "word": " Muse,",
+          "start": 6.76,
+          "end": 7.16,
+          "probability": 0.27803704142570496
+        },
+        {
+          "word": " Instinct",
+          "start": 7.42,
+          "end": 7.94,
+          "probability": 0.9695952832698822
+        },
+        {
+          "word": " and",
+          "start": 7.94,
+          "end": 8.16,
+          "probability": 0.603705644607544
+        },
+        {
+          "word": " Dots",
+          "start": 8.16,
+          "end": 8.46,
+          "probability": 0.6731398701667786
+        },
+        {
+          "word": " need",
+          "start": 8.46,
+          "end": 8.8,
+          "probability": 0.9827015995979309
+        },
+        {
+          "word": " your",
+          "start": 8.8,
+          "end": 9.06,
+          "probability": 0.961125910282135
+        },
+        {
+          "word": " approved",
+          "start": 9.06,
+          "end": 9.4,
+          "probability": 0.9623502492904663
+        },
+        {
+          "word": " access.",
+          "start": 9.4,
+          "end": 9.76,
+          "probability": 0.9954276084899902
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "seek": 0,
+      "start": 10.32,
+      "end": 15.84,
+      "text": " Find recent purchases. Check return policies and list possible returns with deadlines and source links.",
+      "tokens": [
+        50876,
+        11809,
+        5162,
+        26762,
+        13,
+        6881,
+        2736,
+        7657,
+        293,
+        1329,
+        1944,
+        11247,
+        365,
+        37548,
+        293,
+        4009,
+        6123,
+        13,
+        51176
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.11926505920734812,
+      "compression_ratio": 1.6539923954372624,
+      "no_speech_prob": 0.033426713198423386,
+      "words": [
+        {
+          "word": " Find",
+          "start": 10.32,
+          "end": 10.52,
+          "probability": 0.9873344898223877
+        },
+        {
+          "word": " recent",
+          "start": 10.52,
+          "end": 10.86,
+          "probability": 0.9215264320373535
+        },
+        {
+          "word": " purchases.",
+          "start": 10.86,
+          "end": 11.32,
+          "probability": 0.9843866229057312
+        },
+        {
+          "word": " Check",
+          "start": 11.86,
+          "end": 12.06,
+          "probability": 0.9970687031745911
+        },
+        {
+          "word": " return",
+          "start": 12.06,
+          "end": 12.4,
+          "probability": 0.9060889482498169
+        },
+        {
+          "word": " policies",
+          "start": 12.4,
+          "end": 12.86,
+          "probability": 0.990065336227417
+        },
+        {
+          "word": " and",
+          "start": 12.86,
+          "end": 13.24,
+          "probability": 0.9479261636734009
+        },
+        {
+          "word": " list",
+          "start": 13.24,
+          "end": 13.5,
+          "probability": 0.9876296520233154
+        },
+        {
+          "word": " possible",
+          "start": 13.5,
+          "end": 13.98,
+          "probability": 0.9965288043022156
+        },
+        {
+          "word": " returns",
+          "start": 13.98,
+          "end": 14.36,
+          "probability": 0.9933317303657532
+        },
+        {
+          "word": " with",
+          "start": 14.36,
+          "end": 14.58,
+          "probability": 0.9941790103912354
+        },
+        {
+          "word": " deadlines",
+          "start": 14.58,
+          "end": 14.88,
+          "probability": 0.969337522983551
+        },
+        {
+          "word": " and",
+          "start": 14.88,
+          "end": 15.24,
+          "probability": 0.9895920157432556
+        },
+        {
+          "word": " source",
+          "start": 15.24,
+          "end": 15.5,
+          "probability": 0.9659637808799744
+        },
+        {
+          "word": " links.",
+          "start": 15.5,
+          "end": 15.84,
+          "probability": 0.9959047436714172
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "seek": 0,
+      "start": 16.32,
+      "end": 21.7,
+      "text": " Have it include order and delivery dates, item condition fees and anything it cannot verify",
+      "tokens": [
+        51176,
+        3560,
+        309,
+        4090,
+        1668,
+        293,
+        8982,
+        11691,
+        11,
+        3174,
+        4188,
+        13370,
+        293,
+        1340,
+        309,
+        2644,
+        16888,
+        51464
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.11926505920734812,
+      "compression_ratio": 1.6539923954372624,
+      "no_speech_prob": 0.033426713198423386,
+      "words": [
+        {
+          "word": " Have",
+          "start": 16.32,
+          "end": 16.52,
+          "probability": 0.9782022833824158
+        },
+        {
+          "word": " it",
+          "start": 16.52,
+          "end": 16.66,
+          "probability": 0.994211733341217
+        },
+        {
+          "word": " include",
+          "start": 16.66,
+          "end": 17.0,
+          "probability": 0.9849486947059631
+        },
+        {
+          "word": " order",
+          "start": 17.0,
+          "end": 17.4,
+          "probability": 0.9410505890846252
+        },
+        {
+          "word": " and",
+          "start": 17.4,
+          "end": 17.62,
+          "probability": 0.9572785496711731
+        },
+        {
+          "word": " delivery",
+          "start": 17.62,
+          "end": 17.86,
+          "probability": 0.992299497127533
+        },
+        {
+          "word": " dates,",
+          "start": 17.86,
+          "end": 18.22,
+          "probability": 0.9968817234039307
+        },
+        {
+          "word": " item",
+          "start": 18.72,
+          "end": 19.0,
+          "probability": 0.9177798628807068
+        },
+        {
+          "word": " condition",
+          "start": 19.0,
+          "end": 19.4,
+          "probability": 0.9275304675102234
+        },
+        {
+          "word": " fees",
+          "start": 19.4,
+          "end": 19.82,
+          "probability": 0.9542981386184692
+        },
+        {
+          "word": " and",
+          "start": 19.82,
+          "end": 20.44,
+          "probability": 0.6858202815055847
+        },
+        {
+          "word": " anything",
+          "start": 20.44,
+          "end": 20.8,
+          "probability": 0.9947003126144409
+        },
+        {
+          "word": " it",
+          "start": 20.8,
+          "end": 21.02,
+          "probability": 0.9510713219642639
+        },
+        {
+          "word": " cannot",
+          "start": 21.02,
+          "end": 21.24,
+          "probability": 0.9779420495033264
+        },
+        {
+          "word": " verify",
+          "start": 21.24,
+          "end": 21.7,
+          "probability": 0.9990748167037964
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "seek": 0,
+      "start": 21.7,
+      "end": 25.86,
+      "text": " because a receipt on its own may not establish whether a return is still eligible.",
+      "tokens": [
+        51464,
+        570,
+        257,
+        33882,
+        322,
+        1080,
+        1065,
+        815,
+        406,
+        8327,
+        1968,
+        257,
+        2736,
+        307,
+        920,
+        14728,
+        13,
+        51688
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.11926505920734812,
+      "compression_ratio": 1.6539923954372624,
+      "no_speech_prob": 0.033426713198423386,
+      "words": [
+        {
+          "word": " because",
+          "start": 21.7,
+          "end": 22.36,
+          "probability": 0.6044007539749146
+        },
+        {
+          "word": " a",
+          "start": 22.36,
+          "end": 22.56,
+          "probability": 0.7913870811462402
+        },
+        {
+          "word": " receipt",
+          "start": 22.56,
+          "end": 22.82,
+          "probability": 0.9982510209083557
+        },
+        {
+          "word": " on",
+          "start": 22.82,
+          "end": 23.08,
+          "probability": 0.988895058631897
+        },
+        {
+          "word": " its",
+          "start": 23.08,
+          "end": 23.24,
+          "probability": 0.9647299647331238
+        },
+        {
+          "word": " own",
+          "start": 23.24,
+          "end": 23.52,
+          "probability": 0.9949485063552856
+        },
+        {
+          "word": " may",
+          "start": 23.52,
+          "end": 23.72,
+          "probability": 0.9916636943817139
+        },
+        {
+          "word": " not",
+          "start": 23.72,
+          "end": 23.88,
+          "probability": 0.9991554021835327
+        },
+        {
+          "word": " establish",
+          "start": 23.88,
+          "end": 24.3,
+          "probability": 0.997999370098114
+        },
+        {
+          "word": " whether",
+          "start": 24.3,
+          "end": 24.62,
+          "probability": 0.9961681962013245
+        },
+        {
+          "word": " a",
+          "start": 24.62,
+          "end": 24.82,
+          "probability": 0.9689132571220398
+        },
+        {
+          "word": " return",
+          "start": 24.82,
+          "end": 25.1,
+          "probability": 0.9888277053833008
+        },
+        {
+          "word": " is",
+          "start": 25.1,
+          "end": 25.36,
+          "probability": 0.987745463848114
+        },
+        {
+          "word": " still",
+          "start": 25.36,
+          "end": 25.48,
+          "probability": 0.9966173768043518
+        },
+        {
+          "word": " eligible.",
+          "start": 25.48,
+          "end": 25.86,
+          "probability": 0.9967987537384033
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "seek": 2586,
+      "start": 26.419999999999998,
+      "end": 31.4,
+      "text": " Sort the list by deadline so a forgotten purchase does not disappear under another week of email.",
+      "tokens": [
+        50392,
+        26149,
+        264,
+        1329,
+        538,
+        20615,
+        370,
+        257,
+        11832,
+        8110,
+        775,
+        406,
+        11596,
+        833,
+        1071,
+        1243,
+        295,
+        3796,
+        13,
+        50664
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.06573490438790157,
+      "compression_ratio": 1.7491289198606272,
+      "no_speech_prob": 0.037138983607292175,
+      "words": [
+        {
+          "word": " Sort",
+          "start": 26.419999999999998,
+          "end": 26.76,
+          "probability": 0.1606387495994568
+        },
+        {
+          "word": " the",
+          "start": 26.76,
+          "end": 27.0,
+          "probability": 0.9619226455688477
+        },
+        {
+          "word": " list",
+          "start": 27.0,
+          "end": 27.2,
+          "probability": 0.9682015776634216
+        },
+        {
+          "word": " by",
+          "start": 27.2,
+          "end": 27.4,
+          "probability": 0.8635229468345642
+        },
+        {
+          "word": " deadline",
+          "start": 27.4,
+          "end": 27.8,
+          "probability": 0.9587987661361694
+        },
+        {
+          "word": " so",
+          "start": 27.8,
+          "end": 28.38,
+          "probability": 0.2302854061126709
+        },
+        {
+          "word": " a",
+          "start": 28.38,
+          "end": 28.52,
+          "probability": 0.863163411617279
+        },
+        {
+          "word": " forgotten",
+          "start": 28.52,
+          "end": 28.78,
+          "probability": 0.9421736001968384
+        },
+        {
+          "word": " purchase",
+          "start": 28.78,
+          "end": 29.16,
+          "probability": 0.9923025369644165
+        },
+        {
+          "word": " does",
+          "start": 29.16,
+          "end": 29.42,
+          "probability": 0.9850038290023804
+        },
+        {
+          "word": " not",
+          "start": 29.42,
+          "end": 29.62,
+          "probability": 0.9971215128898621
+        },
+        {
+          "word": " disappear",
+          "start": 29.62,
+          "end": 30.02,
+          "probability": 0.986086905002594
+        },
+        {
+          "word": " under",
+          "start": 30.02,
+          "end": 30.42,
+          "probability": 0.966529130935669
+        },
+        {
+          "word": " another",
+          "start": 30.42,
+          "end": 30.72,
+          "probability": 0.981745183467865
+        },
+        {
+          "word": " week",
+          "start": 30.72,
+          "end": 31.0,
+          "probability": 0.9959061145782471
+        },
+        {
+          "word": " of",
+          "start": 31.0,
+          "end": 31.18,
+          "probability": 0.9841407537460327
+        },
+        {
+          "word": " email.",
+          "start": 31.18,
+          "end": 31.4,
+          "probability": 0.887538492679596
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "seek": 2586,
+      "start": 31.92,
+      "end": 35.04,
+      "text": " Then choose the item numbers and ask for a return request draft.",
+      "tokens": [
+        50664,
+        1396,
+        2826,
+        264,
+        3174,
+        3547,
+        293,
+        1029,
+        337,
+        257,
+        2736,
+        5308,
+        11206,
+        13,
+        50844
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.06573490438790157,
+      "compression_ratio": 1.7491289198606272,
+      "no_speech_prob": 0.037138983607292175,
+      "words": [
+        {
+          "word": " Then",
+          "start": 31.92,
+          "end": 32.16,
+          "probability": 0.8837628364562988
+        },
+        {
+          "word": " choose",
+          "start": 32.16,
+          "end": 32.44,
+          "probability": 0.7733244895935059
+        },
+        {
+          "word": " the",
+          "start": 32.44,
+          "end": 32.64,
+          "probability": 0.9686692357063293
+        },
+        {
+          "word": " item",
+          "start": 32.64,
+          "end": 32.84,
+          "probability": 0.9510242342948914
+        },
+        {
+          "word": " numbers",
+          "start": 32.84,
+          "end": 33.22,
+          "probability": 0.9656990766525269
+        },
+        {
+          "word": " and",
+          "start": 33.22,
+          "end": 33.48,
+          "probability": 0.9846432209014893
+        },
+        {
+          "word": " ask",
+          "start": 33.48,
+          "end": 33.74,
+          "probability": 0.9920682907104492
+        },
+        {
+          "word": " for",
+          "start": 33.74,
+          "end": 33.94,
+          "probability": 0.9960632920265198
+        },
+        {
+          "word": " a",
+          "start": 33.94,
+          "end": 34.04,
+          "probability": 0.9815770983695984
+        },
+        {
+          "word": " return",
+          "start": 34.04,
+          "end": 34.3,
+          "probability": 0.9273961782455444
+        },
+        {
+          "word": " request",
+          "start": 34.3,
+          "end": 34.62,
+          "probability": 0.9570575952529907
+        },
+        {
+          "word": " draft.",
+          "start": 34.62,
+          "end": 35.04,
+          "probability": 0.9779329299926758
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "seek": 2586,
+      "start": 35.5,
+      "end": 40.2,
+      "text": " Make it show the next step before sending anything, cancelling anything or accepting a charge.",
+      "tokens": [
+        50844,
+        4387,
+        309,
+        855,
+        264,
+        958,
+        1823,
+        949,
+        7750,
+        1340,
+        11,
+        393,
+        384,
+        2669,
+        1340,
+        420,
+        17391,
+        257,
+        4602,
+        13,
+        51100
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.06573490438790157,
+      "compression_ratio": 1.7491289198606272,
+      "no_speech_prob": 0.037138983607292175,
+      "words": [
+        {
+          "word": " Make",
+          "start": 35.5,
+          "end": 35.72,
+          "probability": 0.9946147799491882
+        },
+        {
+          "word": " it",
+          "start": 35.72,
+          "end": 35.88,
+          "probability": 0.9682872891426086
+        },
+        {
+          "word": " show",
+          "start": 35.88,
+          "end": 36.1,
+          "probability": 0.8410613536834717
+        },
+        {
+          "word": " the",
+          "start": 36.1,
+          "end": 36.24,
+          "probability": 0.9873381853103638
+        },
+        {
+          "word": " next",
+          "start": 36.24,
+          "end": 36.44,
+          "probability": 0.994341254234314
+        },
+        {
+          "word": " step",
+          "start": 36.44,
+          "end": 36.72,
+          "probability": 0.993803858757019
+        },
+        {
+          "word": " before",
+          "start": 36.72,
+          "end": 36.98,
+          "probability": 0.993960976600647
+        },
+        {
+          "word": " sending",
+          "start": 36.98,
+          "end": 37.34,
+          "probability": 0.9747070670127869
+        },
+        {
+          "word": " anything,",
+          "start": 37.34,
+          "end": 37.8,
+          "probability": 0.9959949254989624
+        },
+        {
+          "word": " cancelling",
+          "start": 38.24,
+          "end": 38.58,
+          "probability": 0.840385913848877
+        },
+        {
+          "word": " anything",
+          "start": 38.58,
+          "end": 38.92,
+          "probability": 0.9952321648597717
+        },
+        {
+          "word": " or",
+          "start": 38.92,
+          "end": 39.28,
+          "probability": 0.8142719268798828
+        },
+        {
+          "word": " accepting",
+          "start": 39.28,
+          "end": 39.68,
+          "probability": 0.9922773838043213
+        },
+        {
+          "word": " a",
+          "start": 39.68,
+          "end": 39.92,
+          "probability": 0.9834604859352112
+        },
+        {
+          "word": " charge.",
+          "start": 39.92,
+          "end": 40.2,
+          "probability": 0.9825641512870789
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "seek": 2586,
+      "start": 40.68,
+      "end": 43.58,
+      "text": " For a pair of glasses that means checking the exact policy,",
+      "tokens": [
+        51100,
+        1171,
+        257,
+        6119,
+        295,
+        10812,
+        300,
+        1355,
+        8568,
+        264,
+        1900,
+        3897,
+        11,
+        51268
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.06573490438790157,
+      "compression_ratio": 1.7491289198606272,
+      "no_speech_prob": 0.037138983607292175,
+      "words": [
+        {
+          "word": " For",
+          "start": 40.68,
+          "end": 40.84,
+          "probability": 0.9803665280342102
+        },
+        {
+          "word": " a",
+          "start": 40.84,
+          "end": 41.0,
+          "probability": 0.9947047829627991
+        },
+        {
+          "word": " pair",
+          "start": 41.0,
+          "end": 41.12,
+          "probability": 0.9992431402206421
+        },
+        {
+          "word": " of",
+          "start": 41.12,
+          "end": 41.26,
+          "probability": 0.9977847933769226
+        },
+        {
+          "word": " glasses",
+          "start": 41.26,
+          "end": 41.62,
+          "probability": 0.994441568851471
+        },
+        {
+          "word": " that",
+          "start": 41.62,
+          "end": 41.96,
+          "probability": 0.6223558187484741
+        },
+        {
+          "word": " means",
+          "start": 41.96,
+          "end": 42.24,
+          "probability": 0.9865151643753052
+        },
+        {
+          "word": " checking",
+          "start": 42.24,
+          "end": 42.58,
+          "probability": 0.9916394352912903
+        },
+        {
+          "word": " the",
+          "start": 42.58,
+          "end": 42.82,
+          "probability": 0.9722669124603271
+        },
+        {
+          "word": " exact",
+          "start": 42.82,
+          "end": 43.12,
+          "probability": 0.9976028800010681
+        },
+        {
+          "word": " policy,",
+          "start": 43.12,
+          "end": 43.58,
+          "probability": 0.9948921203613281
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "seek": 2586,
+      "start": 44.0,
+      "end": 46.36,
+      "text": " preparing the request and showing you the next step.",
+      "tokens": [
+        51268,
+        10075,
+        264,
+        5308,
+        293,
+        4099,
+        291,
+        264,
+        958,
+        1823,
+        13,
+        51404
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.06573490438790157,
+      "compression_ratio": 1.7491289198606272,
+      "no_speech_prob": 0.037138983607292175,
+      "words": [
+        {
+          "word": " preparing",
+          "start": 44.0,
+          "end": 44.36,
+          "probability": 0.9774010181427002
+        },
+        {
+          "word": " the",
+          "start": 44.36,
+          "end": 44.58,
+          "probability": 0.9954987168312073
+        },
+        {
+          "word": " request",
+          "start": 44.58,
+          "end": 44.86,
+          "probability": 0.9805284142494202
+        },
+        {
+          "word": " and",
+          "start": 44.86,
+          "end": 45.22,
+          "probability": 0.8719669580459595
+        },
+        {
+          "word": " showing",
+          "start": 45.22,
+          "end": 45.52,
+          "probability": 0.9905866980552673
+        },
+        {
+          "word": " you",
+          "start": 45.52,
+          "end": 45.74,
+          "probability": 0.9755821228027344
+        },
+        {
+          "word": " the",
+          "start": 45.74,
+          "end": 45.86,
+          "probability": 0.9906346201896667
+        },
+        {
+          "word": " next",
+          "start": 45.86,
+          "end": 46.04,
+          "probability": 0.9967879056930542
+        },
+        {
+          "word": " step.",
+          "start": 46.04,
+          "end": 46.36,
+          "probability": 0.9923048615455627
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "seek": 2586,
+      "start": 46.8,
+      "end": 50.48,
+      "text": " A return label depends on the retailer and the request is not a refund.",
+      "tokens": [
+        51404,
+        316,
+        2736,
+        7645,
+        5946,
+        322,
+        264,
+        45467,
+        293,
+        264,
+        5308,
+        307,
+        406,
+        257,
+        29384,
+        13,
+        51612
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.06573490438790157,
+      "compression_ratio": 1.7491289198606272,
+      "no_speech_prob": 0.037138983607292175,
+      "words": [
+        {
+          "word": " A",
+          "start": 46.8,
+          "end": 46.96,
+          "probability": 0.9449176788330078
+        },
+        {
+          "word": " return",
+          "start": 46.96,
+          "end": 47.22,
+          "probability": 0.959333062171936
+        },
+        {
+          "word": " label",
+          "start": 47.22,
+          "end": 47.54,
+          "probability": 0.9647682905197144
+        },
+        {
+          "word": " depends",
+          "start": 47.54,
+          "end": 47.86,
+          "probability": 0.9921356439590454
+        },
+        {
+          "word": " on",
+          "start": 47.86,
+          "end": 48.14,
+          "probability": 0.9969032406806946
+        },
+        {
+          "word": " the",
+          "start": 48.14,
+          "end": 48.28,
+          "probability": 0.9901671409606934
+        },
+        {
+          "word": " retailer",
+          "start": 48.28,
+          "end": 48.62,
+          "probability": 0.9977368116378784
+        },
+        {
+          "word": " and",
+          "start": 48.62,
+          "end": 49.24,
+          "probability": 0.8931601047515869
+        },
+        {
+          "word": " the",
+          "start": 49.24,
+          "end": 49.36,
+          "probability": 0.9706906080245972
+        },
+        {
+          "word": " request",
+          "start": 49.36,
+          "end": 49.7,
+          "probability": 0.9975520968437195
+        },
+        {
+          "word": " is",
+          "start": 49.7,
+          "end": 49.92,
+          "probability": 0.9957334399223328
+        },
+        {
+          "word": " not",
+          "start": 49.92,
+          "end": 50.1,
+          "probability": 0.9984087347984314
+        },
+        {
+          "word": " a",
+          "start": 50.1,
+          "end": 50.26,
+          "probability": 0.9204859733581543
+        },
+        {
+          "word": " refund.",
+          "start": 50.26,
+          "end": 50.48,
+          "probability": 0.9997561573982239
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "seek": 2586,
+      "start": 50.96,
+      "end": 53.7,
+      "text": " You still need to check the details and send the item back.",
+      "tokens": [
+        51612,
+        509,
+        920,
+        643,
+        281,
+        1520,
+        264,
+        4365,
+        293,
+        2845,
+        264,
+        3174,
+        646,
+        13,
+        51772
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.06573490438790157,
+      "compression_ratio": 1.7491289198606272,
+      "no_speech_prob": 0.037138983607292175,
+      "words": [
+        {
+          "word": " You",
+          "start": 50.96,
+          "end": 51.08,
+          "probability": 0.9809889197349548
+        },
+        {
+          "word": " still",
+          "start": 51.08,
+          "end": 51.3,
+          "probability": 0.9944556355476379
+        },
+        {
+          "word": " need",
+          "start": 51.3,
+          "end": 51.48,
+          "probability": 0.9977123737335205
+        },
+        {
+          "word": " to",
+          "start": 51.48,
+          "end": 51.68,
+          "probability": 0.9966514706611633
+        },
+        {
+          "word": " check",
+          "start": 51.68,
+          "end": 51.9,
+          "probability": 0.9978629946708679
+        },
+        {
+          "word": " the",
+          "start": 51.9,
+          "end": 52.08,
+          "probability": 0.9947093725204468
+        },
+        {
+          "word": " details",
+          "start": 52.08,
+          "end": 52.44,
+          "probability": 0.998056173324585
+        },
+        {
+          "word": " and",
+          "start": 52.44,
+          "end": 52.74,
+          "probability": 0.9933778643608093
+        },
+        {
+          "word": " send",
+          "start": 52.74,
+          "end": 52.98,
+          "probability": 0.9945042133331299
+        },
+        {
+          "word": " the",
+          "start": 52.98,
+          "end": 53.14,
+          "probability": 0.9963711500167847
+        },
+        {
+          "word": " item",
+          "start": 53.14,
+          "end": 53.46,
+          "probability": 0.9831320643424988
+        },
+        {
+          "word": " back.",
+          "start": 53.46,
+          "end": 53.7,
+          "probability": 0.9950792789459229
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "seek": 5370,
+      "start": 53.7,
+      "end": 58.1,
+      "text": " The useful part is cutting down all that admin for business software audit",
+      "tokens": [
+        50376,
+        440,
+        4420,
+        644,
+        307,
+        6492,
+        760,
+        439,
+        300,
+        24236,
+        337,
+        1606,
+        4722,
+        17748,
+        50588
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2291750567299979,
+      "compression_ratio": 1.3832335329341316,
+      "no_speech_prob": 0.023677490651607513,
+      "words": [
+        {
+          "word": " The",
+          "start": 53.7,
+          "end": 54.22,
+          "probability": 0.4971633851528168
+        },
+        {
+          "word": " useful",
+          "start": 54.22,
+          "end": 54.52,
+          "probability": 0.9893136620521545
+        },
+        {
+          "word": " part",
+          "start": 54.52,
+          "end": 54.9,
+          "probability": 0.9940323233604431
+        },
+        {
+          "word": " is",
+          "start": 54.9,
+          "end": 55.08,
+          "probability": 0.9867223501205444
+        },
+        {
+          "word": " cutting",
+          "start": 55.08,
+          "end": 55.34,
+          "probability": 0.960722029209137
+        },
+        {
+          "word": " down",
+          "start": 55.34,
+          "end": 55.62,
+          "probability": 0.9927365779876709
+        },
+        {
+          "word": " all",
+          "start": 55.62,
+          "end": 55.88,
+          "probability": 0.7898693084716797
+        },
+        {
+          "word": " that",
+          "start": 55.88,
+          "end": 56.08,
+          "probability": 0.9540662169456482
+        },
+        {
+          "word": " admin",
+          "start": 56.08,
+          "end": 56.4,
+          "probability": 0.9824504256248474
+        },
+        {
+          "word": " for",
+          "start": 56.4,
+          "end": 57.0,
+          "probability": 0.9128036499023438
+        },
+        {
+          "word": " business",
+          "start": 57.0,
+          "end": 57.32,
+          "probability": 0.9038739204406738
+        },
+        {
+          "word": " software",
+          "start": 57.32,
+          "end": 57.84,
+          "probability": 0.9840944409370422
+        },
+        {
+          "word": " audit",
+          "start": 57.84,
+          "end": 58.1,
+          "probability": 0.8966182470321655
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "seek": 5370,
+      "start": 58.1,
+      "end": 61.3,
+      "text": " upcoming renewals and check the contract before cancelling.",
+      "tokens": [
+        50588,
+        11500,
+        10162,
+        1124,
+        293,
+        1520,
+        264,
+        4364,
+        949,
+        393,
+        384,
+        2669,
+        13,
+        50736
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2291750567299979,
+      "compression_ratio": 1.3832335329341316,
+      "no_speech_prob": 0.023677490651607513,
+      "words": [
+        {
+          "word": " upcoming",
+          "start": 58.1,
+          "end": 58.56,
+          "probability": 0.7867388725280762
+        },
+        {
+          "word": " renewals",
+          "start": 58.56,
+          "end": 59.18,
+          "probability": 0.9959238767623901
+        },
+        {
+          "word": " and",
+          "start": 59.18,
+          "end": 59.34,
+          "probability": 0.9300473928451538
+        },
+        {
+          "word": " check",
+          "start": 59.34,
+          "end": 59.58,
+          "probability": 0.9780606627464294
+        },
+        {
+          "word": " the",
+          "start": 59.58,
+          "end": 59.76,
+          "probability": 0.9936650991439819
+        },
+        {
+          "word": " contract",
+          "start": 59.76,
+          "end": 60.1,
+          "probability": 0.9854407906532288
+        },
+        {
+          "word": " before",
+          "start": 60.1,
+          "end": 60.42,
+          "probability": 0.9864229559898376
+        },
+        {
+          "word": " cancelling.",
+          "start": 60.42,
+          "end": 61.3,
+          "probability": 0.8648200829823812
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "seek": 5370,
+      "start": 61.44,
+      "end": 62.2,
+      "text": " I am Hamar Chauhan.",
+      "tokens": [
+        50736,
+        286,
+        669,
+        8234,
+        289,
+        761,
+        1459,
+        3451,
+        13,
+        50784
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2291750567299979,
+      "compression_ratio": 1.3832335329341316,
+      "no_speech_prob": 0.023677490651607513,
+      "words": [
+        {
+          "word": " I",
+          "start": 61.44,
+          "end": 61.46,
+          "probability": 0.9503116607666016
+        },
+        {
+          "word": " am",
+          "start": 61.46,
+          "end": 61.54,
+          "probability": 0.4475480020046234
+        },
+        {
+          "word": " Hamar",
+          "start": 61.54,
+          "end": 61.8,
+          "probability": 0.3699325770139694
+        },
+        {
+          "word": " Chauhan.",
+          "start": 61.8,
+          "end": 62.2,
+          "probability": 0.4427379071712494
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "seek": 5370,
+      "start": 62.24,
+      "end": 66.2,
+      "text": " Save this prompt and follow for practical AI workflows you can actually use.",
+      "tokens": [
+        50784,
+        15541,
+        341,
+        12391,
+        293,
+        1524,
+        337,
+        8496,
+        7318,
+        43461,
+        291,
+        393,
+        767,
+        764,
+        13,
+        50988
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.2291750567299979,
+      "compression_ratio": 1.3832335329341316,
+      "no_speech_prob": 0.023677490651607513,
+      "words": [
+        {
+          "word": " Save",
+          "start": 62.24,
+          "end": 62.42,
+          "probability": 0.9591652750968933
+        },
+        {
+          "word": " this",
+          "start": 62.42,
+          "end": 62.7,
+          "probability": 0.9824823141098022
+        },
+        {
+          "word": " prompt",
+          "start": 62.7,
+          "end": 63.04,
+          "probability": 0.9953902959823608
+        },
+        {
+          "word": " and",
+          "start": 63.04,
+          "end": 63.38,
+          "probability": 0.9387245774269104
+        },
+        {
+          "word": " follow",
+          "start": 63.38,
+          "end": 63.66,
+          "probability": 0.9805288910865784
+        },
+        {
+          "word": " for",
+          "start": 63.66,
+          "end": 63.9,
+          "probability": 0.8804718852043152
+        },
+        {
+          "word": " practical",
+          "start": 63.9,
+          "end": 64.28,
+          "probability": 0.9833481907844543
+        },
+        {
+          "word": " AI",
+          "start": 64.28,
+          "end": 64.64,
+          "probability": 0.9548961520195007
+        },
+        {
+          "word": " workflows",
+          "start": 64.64,
+          "end": 65.06,
+          "probability": 0.9666591286659241
+        },
+        {
+          "word": " you",
+          "start": 65.06,
+          "end": 65.4,
+          "probability": 0.9642384052276611
+        },
+        {
+          "word": " can",
+          "start": 65.4,
+          "end": 65.56,
+          "probability": 0.9968157410621643
+        },
+        {
+          "word": " actually",
+          "start": 65.56,
+          "end": 65.88,
+          "probability": 0.9489383101463318
+        },
+        {
+          "word": " use.",
+          "start": 65.88,
+          "end": 66.2,
+          "probability": 0.997292697429657
+        }
+      ]
+    }
+  ],
+  "language": "en"
+}

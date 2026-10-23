@@ -1,0 +1,491 @@
+{
+  "checked_at": "2026-10-23T10:16:50.867304+00:00",
+  "research_scope": "YouTube research only; review draft; no publishing, scheduling, resource deployment, or DM action.",
+  "autocomplete": [
+    {
+      "seed": "ai coding",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+coding&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "ai coding"
+        },
+        {
+          "rank": 2,
+          "term": "ai coding masterclass"
+        },
+        {
+          "rank": 3,
+          "term": "ai coding for beginners"
+        },
+        {
+          "rank": 4,
+          "term": "ai coding agent"
+        },
+        {
+          "rank": 5,
+          "term": "ai coding tools"
+        },
+        {
+          "rank": 6,
+          "term": "ai coding workflow"
+        },
+        {
+          "rank": 7,
+          "term": "ai coding for kids"
+        },
+        {
+          "rank": 8,
+          "term": "ai coding assistant"
+        },
+        {
+          "rank": 9,
+          "term": "ai coding malayalam"
+        },
+        {
+          "rank": 10,
+          "term": "ai coding course"
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "vibe coding",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=vibe+coding&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "vibe coding"
+        },
+        {
+          "rank": 2,
+          "term": "vibe coding tutorial"
+        },
+        {
+          "rank": 3,
+          "term": "vibe coding full course"
+        },
+        {
+          "rank": 4,
+          "term": "vibe coding malayalam"
+        },
+        {
+          "rank": 5,
+          "term": "vibe coding cursor"
+        },
+        {
+          "rank": 6,
+          "term": "vibe coding claude"
+        },
+        {
+          "rank": 7,
+          "term": "vibe coding tamil"
+        },
+        {
+          "rank": 8,
+          "term": "vibe coding app"
+        },
+        {
+          "rank": 9,
+          "term": "vibe coding replit"
+        },
+        {
+          "rank": 10,
+          "term": "vibe coding fundamentals"
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "ai coding funny",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+coding+funny&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [],
+      "error": null
+    },
+    {
+      "seed": "ai coding agent",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+coding+agent&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "ai coding agent"
+        },
+        {
+          "rank": 2,
+          "term": "ai coding agent free"
+        },
+        {
+          "rank": 3,
+          "term": "ai coding agent with python"
+        },
+        {
+          "rank": 4,
+          "term": "ai coding agents comparison"
+        },
+        {
+          "rank": 5,
+          "term": "ai coding agents review"
+        },
+        {
+          "rank": 6,
+          "term": "ai coding agent github"
+        },
+        {
+          "rank": 7,
+          "term": "ai coding agent local"
+        },
+        {
+          "rank": 8,
+          "term": "ai coding agents are useless on large codebases. unless you do this"
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "claude code funny",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=claude+code+funny&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "claude code funny"
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "ai overengineering",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+overengineering&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [],
+      "error": null
+    }
+  ],
+  "autocomplete_caveat": "Suggestions are wording signals, not query volumes; locale request en/AE does not establish UAE-specific demand. Empty lists are recorded literally.",
+  "api_status": "completed",
+  "authorized_identity": {
+    "verified": true,
+    "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+    "title": "HAMMAD YOUSUF"
+  },
+  "comparator": {
+    "query": "AI coding funny",
+    "params": {
+      "part": "snippet",
+      "q": "AI coding funny",
+      "order": "viewCount",
+      "publishedAfter": "2026-07-25T10:16:50.867304Z",
+      "publishedBefore": "2026-10-23T10:16:50.867304Z",
+      "type": "video",
+      "maxResults": 15,
+      "regionCode": "AE",
+      "relevanceLanguage": "en"
+    },
+    "http_status": 200,
+    "items": [
+      {
+        "video_id": "4ZnfU3_sErw",
+        "url": "https://www.youtube.com/watch?v=4ZnfU3_sErw",
+        "title": "Reverse Engineering Games #ai #meme #comedy #gaming #mod",
+        "channel": "Jaden Williams",
+        "published_at": "2026-10-02T17:30:05Z",
+        "description_excerpt": "Website/Merch - https://www.jadenw.com GamerSupps - https://gamersupps.gg/jaden10 (10% OFF) Socials - ➤ Live Channel ...",
+        "view_count": 6490012,
+        "duration": "PT3M"
+      },
+      {
+        "video_id": "T2ynFchifJk",
+        "url": "https://www.youtube.com/watch?v=T2ynFchifJk",
+        "title": "பாத்ரூம் பல்லி❌Human✅..😂😂...#ai #viralreel. #funnyreels #funny #trendingpost",
+        "channel": "Teakadai Talks.AI🎭",
+        "published_at": "2026-08-20T04:09:48Z",
+        "description_excerpt": "பாத்ரூம் பல்லி❌Human✓ அலப்பறைகள், என்ன வித்த காட்டிட்டு இருக்க.",
+        "view_count": 3916647,
+        "duration": "PT37S"
+      },
+      {
+        "video_id": "xo3vpvbA8p8",
+        "url": "https://www.youtube.com/watch?v=xo3vpvbA8p8",
+        "title": "AI IS MERGING GAMES #shorts",
+        "channel": "jacobweeby",
+        "published_at": "2026-10-03T20:02:23Z",
+        "description_excerpt": "Gaming is COOKED #ps5 #playstation #xboxseriesx #xbox #steam #gaming #skit #fyp #funny #shorts.",
+        "view_count": 2756099,
+        "duration": "PT1M3S"
+      },
+      {
+        "video_id": "KxHAyo97cwI",
+        "url": "https://www.youtube.com/watch?v=KxHAyo97cwI",
+        "title": "GPT 6 Astra Vs. Claude Opus 5.5 #ai #gpt6 #claude #meme #funny",
+        "channel": "Jaden Williams",
+        "published_at": "2026-09-24T19:30:36Z",
+        "description_excerpt": "Website/Merch - https://www.jadenw.com GamerSupps - https://gamersupps.gg/jaden10 (10% OFF) Socials - ➤ Live Channel ...",
+        "view_count": 2266071,
+        "duration": "PT52S"
+      },
+      {
+        "video_id": "MhEL9cvLxQE",
+        "url": "https://www.youtube.com/watch?v=MhEL9cvLxQE",
+        "title": "Hyperoptimized Engineer 2026",
+        "channel": "Kai Lentit",
+        "published_at": "2026-10-15T18:25:03Z",
+        "description_excerpt": "Hyperoptimized Engineer Showcasing the AI work of Jackson Jineer the dream of every CEO. AI, Tokenmaxxing, Token efficiency, ...",
+        "view_count": 1855536,
+        "duration": "PT4M42S"
+      },
+      {
+        "video_id": "awFTa5rr8F8",
+        "url": "https://www.youtube.com/watch?v=awFTa5rr8F8",
+        "title": "Vibe coding vs software engineering",
+        "channel": "Alberta Tech",
+        "published_at": "2026-08-07T17:52:51Z",
+        "description_excerpt": "",
+        "view_count": 1415107,
+        "duration": "PT45S"
+      },
+      {
+        "video_id": "nbcW6qHES94",
+        "url": "https://www.youtube.com/watch?v=nbcW6qHES94",
+        "title": "POV: Tech workers without Claude",
+        "channel": "Rho",
+        "published_at": "2026-09-09T23:18:00Z",
+        "description_excerpt": "Please visit our website to get more information: https://www.rho.co/ Don't forget to subscribe to ...",
+        "view_count": 1588209,
+        "duration": "PT39S"
+      },
+      {
+        "video_id": "XfdIhd1g6EI",
+        "url": "https://www.youtube.com/watch?v=XfdIhd1g6EI",
+        "title": "Zuckerberg’s $100 Billion Bet",
+        "channel": "Cheeky Pint",
+        "published_at": "2026-10-12T21:10:10Z",
+        "description_excerpt": "As Meta scales its AI infrastructure past five gigawatts, Mark Zuckerberg (founder and CEO, Meta) and Alexandr Wang (Chief AI ...",
+        "view_count": 1050338,
+        "duration": "PT2H14M31S"
+      },
+      {
+        "video_id": "bZxAKA69xqg",
+        "url": "https://www.youtube.com/watch?v=bZxAKA69xqg",
+        "title": "AI Complete OneShot Course | Learn AI & Deep Learning from Scratch",
+        "channel": "Apna College",
+        "published_at": "2026-09-12T14:52:41Z",
+        "description_excerpt": "Save time & study only what's needed for Placements with PRIME 3.0 Prime 3.0 : New Complete AI/ML Batch ...",
+        "view_count": 1310890,
+        "duration": "PT1H23M35S"
+      },
+      {
+        "video_id": "MGcgU8NyUOY",
+        "url": "https://www.youtube.com/watch?v=MGcgU8NyUOY",
+        "title": "Funny Snake AI Video Kaise Banaye? 🐍🤯 | AI Video Kaise Banaye #shorts",
+        "channel": "Tech raj deepak",
+        "published_at": "2026-08-21T12:08:49Z",
+        "description_excerpt": "Funny Snake AI Video Kaise Banaye? Is video mein dekho kaise AI ki help se funny Snake AI Video banaye ja sakte hain.",
+        "view_count": 348181,
+        "duration": "PT51S"
+      },
+      {
+        "video_id": "YCMCdBwuZq8",
+        "url": "https://www.youtube.com/watch?v=YCMCdBwuZq8",
+        "title": "This Tiny Robot Works On My Desk #aiagent #robotics #raspberrypi #opensource",
+        "channel": "Jdaie Lin",
+        "published_at": "2026-09-23T13:04:46Z",
+        "description_excerpt": "I check out and test this incredible open-source build featuring a mini desktop workstation, working typing arms, and an ...",
+        "view_count": 448823,
+        "duration": "PT38S"
+      },
+      {
+        "video_id": "W1wse8qttlI",
+        "url": "https://www.youtube.com/watch?v=W1wse8qttlI",
+        "title": "Funny Snake Ai Video Kaise Banaye | Viral Ai Snake Video Kaise Banaye | Funny Ai Snake Video Editing",
+        "channel": "Shuvo Paul",
+        "published_at": "2026-08-21T13:38:43Z",
+        "description_excerpt": "Funny Snake Ai Video Kaise Banaye | Viral Ai Snake Video Kaise Banaye | Funny Ai Snake Video Editing Prompt Link ...",
+        "view_count": 117289,
+        "duration": "PT5M16S"
+      },
+      {
+        "video_id": "aGQt8ZBuWlY",
+        "url": "https://www.youtube.com/watch?v=aGQt8ZBuWlY",
+        "title": "Instagram Trending Celebrity Funny Dance AI Video Editing | Celebrity AI Dance Video Kaise Banaye",
+        "channel": "Tarun Editz",
+        "published_at": "2026-10-01T03:00:38Z",
+        "description_excerpt": "instagram trending celebrity funny dance ai video editing instagram celebrity dance ai video kaise banaye celebrity ai dance ...",
+        "view_count": 162901,
+        "duration": "PT39S"
+      },
+      {
+        "video_id": "iW5EyTKDlrg",
+        "url": "https://www.youtube.com/watch?v=iW5EyTKDlrg",
+        "title": "Spider Boss 😂 | “Web Ban Gaya!” 🕷️💻 | Coding Company | Funny Animal Animation #shorts #spiderman",
+        "channel": "Animation by Ayush",
+        "published_at": "2026-08-14T06:34:19Z",
+        "description_excerpt": "Spider Boss asked, “Website ka kya hua?” 🕷️   Employee replied, “Sir, web ban gaya!” But when the boss asked, “Kaunsi ...",
+        "view_count": 50838,
+        "duration": "PT11S"
+      },
+      {
+        "video_id": "lN9qEnh9dUc",
+        "url": "https://www.youtube.com/watch?v=lN9qEnh9dUc",
+        "title": "How To Make Viral Snake Funny AI Videos | 😍 Ai Snake funny Video Kese banaye ",
+        "channel": "kabirkk",
+        "published_at": "2026-08-03T06:06:00Z",
+        "description_excerpt": "Learn how to make viral Snake Funny AI videos step by step using AI tools | Complete Hindi Tutorial. PROMPT High-quality 3D ...",
+        "view_count": 20119,
+        "duration": "PT2M24S"
+      }
+    ]
+  },
+  "quota_note": "At most2 search.list calls combined across both topics;1 channels.list identity check and at most1 batched videos.list.202 units using older100-unit/search accounting, below300; current official search docs use a separate Search Queries bucket. No repeated search retries.",
+  "sources": [
+    "https://developers.google.com/youtube/v3/docs/search/list",
+    "https://developers.google.com/youtube/v3/docs/videos",
+    "https://support.google.com/youtube/answer/12948449?hl=en",
+    "https://support.google.com/youtube/answer/146402?hl=en-EN",
+    "https://support.google.com/youtube/answer/6390658?hl=en"
+  ],
+  "primary_keyword": "AI coding",
+  "keywords": [
+    {
+      "term": "AI coding",
+      "evidence": "Autocomplete seed ai coding: exact term rank1; ai coding agent rank4; workflow rank6; assistant rank8.",
+      "intent": "General AI-assisted development; relevant broad topic."
+    },
+    {
+      "term": "vibe coding",
+      "evidence": "Autocomplete seed vibe coding: exact term rank1; comparator Vibe coding vs software engineering is directly related comedy framing.",
+      "intent": "AI development culture; secondary wording, not a tutorial promise."
+    },
+    {
+      "term": "AI coding agent",
+      "evidence": "Exact autocomplete rank1 for its seed.",
+      "intent": "Assistant scope behavior; relevant description/tag."
+    },
+    {
+      "term": "coding skit / overengineering",
+      "evidence": "Editorial description of lesson; ai overengineering and ai coding funny returned no suggestions. No volume inferred.",
+      "intent": "Signal fictional comedy rather than a benchmark."
+    }
+  ],
+  "selected_comparators": [
+    {
+      "video_id": "KxHAyo97cwI",
+      "url": "https://www.youtube.com/watch?v=KxHAyo97cwI",
+      "title": "GPT 6 Astra Vs. Claude Opus 5.5 #ai #gpt6 #claude #meme #funny",
+      "channel": "Jaden Williams",
+      "published_at": "2026-09-24T19:30:36Z",
+      "description_excerpt": "Website/Merch - https://www.jadenw.com GamerSupps - https://gamersupps.gg/jaden10 (10% OFF) Socials - ➤ Live Channel ...",
+      "view_count": 2266071,
+      "duration": "PT52S"
+    },
+    {
+      "video_id": "MhEL9cvLxQE",
+      "url": "https://www.youtube.com/watch?v=MhEL9cvLxQE",
+      "title": "Hyperoptimized Engineer 2026",
+      "channel": "Kai Lentit",
+      "published_at": "2026-10-15T18:25:03Z",
+      "description_excerpt": "Hyperoptimized Engineer Showcasing the AI work of Jackson Jineer the dream of every CEO. AI, Tokenmaxxing, Token efficiency, ...",
+      "view_count": 1855536,
+      "duration": "PT4M42S"
+    },
+    {
+      "video_id": "awFTa5rr8F8",
+      "url": "https://www.youtube.com/watch?v=awFTa5rr8F8",
+      "title": "Vibe coding vs software engineering",
+      "channel": "Alberta Tech",
+      "published_at": "2026-08-07T17:52:51Z",
+      "description_excerpt": "",
+      "view_count": 1415107,
+      "duration": "PT45S"
+    },
+    {
+      "video_id": "nbcW6qHES94",
+      "url": "https://www.youtube.com/watch?v=nbcW6qHES94",
+      "title": "POV: Tech workers without Claude",
+      "channel": "Rho",
+      "published_at": "2026-09-09T23:18:00Z",
+      "description_excerpt": "Please visit our website to get more information: https://www.rho.co/ Don't forget to subscribe to ...",
+      "view_count": 1588209,
+      "duration": "PT39S"
+    }
+  ],
+  "title_patterns": [
+    "Observed relevant sample uses short contrast titles (Vibe coding vs software engineering), situational POV, or recognizable tool comparisons. Counts alone do not establish why a video performed.",
+    "Recommended adaptation: broad topic at the start, concrete one-word/24-files contrast, and (Skit) to avoid presenting the plot as a real test.",
+    "Do not copy tool-versus-tool comparisons: this draft does not benchmark Claude or Codex."
+  ],
+  "hashtags": [
+    {
+      "tag": "#AICoding",
+      "why": "Exact subject; broad autocomplete wording."
+    },
+    {
+      "tag": "#CodingHumor",
+      "why": "Editorial genre label, not verified demand."
+    },
+    {
+      "tag": "#Shorts",
+      "why": "Optional format label; no reach guarantee."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "Title maximum100 characters; keep proposed titles under60 as an editorial target, not a guaranteed display cutoff.",
+      "source": "https://developers.google.com/youtube/v3/docs/videos"
+    },
+    {
+      "rule": "Description API maximum5000 UTF-8 bytes; Help guidance says5000 characters. Draft stays well below both.",
+      "source": "https://developers.google.com/youtube/v3/docs/videos"
+    },
+    {
+      "rule": "Use the opening lines to explain the video; choose1–2 main topic terms naturally.",
+      "source": "https://support.google.com/youtube/answer/12948449?hl=en"
+    },
+    {
+      "rule": "Tags have minimal discovery value except useful misspellings; title, thumbnail and description matter more.",
+      "source": "https://support.google.com/youtube/answer/146402?hl=en-EN"
+    },
+    {
+      "rule": "Up to3 description hashtags may appear by the title; this is not a limit of3 total. More than60 hashtags makes all ignored. Use3 relevant tags; #Shorts is optional formatting, not a promised ranking boost.",
+      "source": "https://support.google.com/youtube/answer/6390658?hl=en"
+    },
+    {
+      "rule": "Do not describe selected videos as a universal winning pattern. Search sorted by viewCount with date filters can yield incomplete/non-monotonic index results; raw sample is retained.",
+      "source": "https://developers.google.com/youtube/v3/docs/search/list"
+    },
+    {
+      "rule": "No chapters proposed for these short single-flow drafts; this is an editorial choice, not a claimed Shorts prohibition.",
+      "source": null
+    },
+    {
+      "rule": "Keep AI avatar of me disclosure. No live-resource URL, comment-DM promise, automatic return or savings guarantee; owner review first.",
+      "source": "Owner scope and current lesson/facts."
+    }
+  ],
+  "limitations": [
+    "Only one broad comedy API query; several high-view results are AI-generated entertainment, unrelated tutorials or interviews.",
+    "Selected comparison metadata is adjacent evidence, not validated production analysis or a causal performance study.",
+    "No search volume, competition metric, CTR or audience retention was available."
+  ],
+  "recommendation": {
+    "title": "AI Coding: One Word, 24 Files? (Skit)",
+    "title_characters": 37,
+    "alternate_title": "When an AI Coding Agent Overbuilds One Tiny Edit",
+    "alternate_title_characters": 48,
+    "description_draft": "AI coding skit: a one-word button edit turns into 24 changed files.\nThe file counts and interface are fictional; the lesson is to define scope and review the diff.\n\nAI avatar of me.\nSave this for your next tiny edit, and subscribe for more practical AI workflows.",
+    "tags": [
+      "AI coding",
+      "AI coding agent",
+      "vibe coding",
+      "coding humor"
+    ],
+    "cta": "Save the workflow and subscribe. No deployed resource, DM, or action promise."
+  },
+  "inaccessible_sources": [
+    "Initial bare YouTube Help URLs for tags and hashtags timed out in web.open; official indexed versions with language parameters were subsequently available."
+  ],
+  "research_finished_at": "2026-10-23T10:18:59.506799+00:00"
+}

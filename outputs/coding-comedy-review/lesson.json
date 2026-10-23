@@ -1,0 +1,103 @@
+{
+  "language": "en",
+  "topic_title": "One word. 24 files?",
+  "hook": "Rename this button to Start, please. Already building.",
+  "key_takeaways": [
+    "Scope a small change clearly.",
+    "Check the diff before accepting unexpected new features."
+  ],
+  "script": {
+    "estimated_seconds": 49,
+    "segments": [
+      {
+        "spoken": "Rename this button to Start, please. Already building.",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Twenty-four files? I asked for one word.",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "I added translation support. For one word?",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Every button, in thirty languages. This is a one-page demo. You can expand now.",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "And this customer database? It saves their preferred language.",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Fine. Show me Start.",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "You’ll need a profile first.",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "A profile, just to read my button?",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "And a verified email.",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Ah.",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Nobody connected the mail service. I’ll handle that.",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Stop renovating the internet!",
+        "on_screen_text": "AI coding skit",
+        "visual": "avatar+caption"
+      }
+    ]
+  },
+  "demo_steps": [
+    "Scope a small change clearly.",
+    "Check the diff before accepting unexpected new features."
+  ],
+  "prompts": [],
+  "tool_links": [],
+  "captions": {
+    "instagram": "One word. 24 files?\nSave this for later.\nAI avatar of me.",
+    "youtube_title": "One word. 24 files?",
+    "youtube_description": "One word. 24 files?\nSave this workflow. AI avatar of me.",
+    "tiktok": "One word. 24 files?\nAI avatar of me.",
+    "linkedin": "One word. 24 files?\nAI avatar of me."
+  },
+  "hashtags": [
+    "AICoding"
+  ],
+  "manychat_keyword": "SCOPE",
+  "resource_page": {
+    "slug": "small-change-checklist",
+    "title": "One word. 24 files?",
+    "body_markdown": "# Small-change checklist\n\nReview draft; not published.\n\n1. Identify the exact element and intended change.\n2. State existing behavior that must remain.\n3. Request the smallest relevant change and an explanation for dependencies.\n4. Inspect the diff and rendered result.\n5. Treat unexpected new features as separate requests.\n\nPrompt: “Change only the specified button label to Start. Preserve current behavior. Explain any necessary change outside that component before implementing it. Show the diff and verify the result.”\n\nThis can clarify scope; it does not guarantee model behavior.\n"
+  },
+  "sources_checked": [
+    {
+      "claim": "Reference mechanism inspected; original adaptation uses different wording and owner identity.",
+      "url": "https://www.instagram.com/reel/DebmIDlSiR3/"
+    }
+  ],
+  "originality_note": "Original script, owner avatar and new graphics; third-party media used for analysis only."
+}

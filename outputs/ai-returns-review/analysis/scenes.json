@@ -1,0 +1,183 @@
+{
+  "source": "https://www.youtube.com/watch?v=NYR3ccvCOEQ",
+  "duration_s": 79.319365,
+  "dimensions": [
+    608,
+    1080
+  ],
+  "fps": 30,
+  "inspection": "All 159 frames sampled at 2 fps inspected across six contact sheets; exact high-threshold cuts from ffmpeg scene>0.25. Other boundaries estimated within about 0.25 s. No full UI action can be inferred from blurred inserts.",
+  "scenes": [
+    {
+      "start_s": 0,
+      "end_s": 6.1,
+      "type": "talking_head",
+      "shows": "Seated female presenter, waist-up, charcoal sleeveless roll-neck, long brown hair, teal chair; dark teal wall and black open bookcase, books/plant/framed art.",
+      "on_screen_action": "Direct address, frequent open-palmed gestures.",
+      "on_screen_text": "Save hundreds of dollars with AI",
+      "motion": "Static medium portrait; hook white rounded rectangle at chest."
+    },
+    {
+      "start_s": 6.1,
+      "end_s": 10.133,
+      "type": "talking_head_with_logos",
+      "shows": "Same presenter; Muse blue handwritten m in white circle, Instinct white wordmark card, green ChatGPT logo, coral Claude star enter around head.",
+      "on_screen_action": "Four logos appear in sequence, no app interaction.",
+      "on_screen_text": "Muse / Instinct / ChatGPT / Claude; phrase captions",
+      "motion": "Simple pop/scale entrances; occasional subtle punch-in."
+    },
+    {
+      "start_s": 10.133,
+      "end_s": 16.567,
+      "type": "message_screenshot_with_text_overlay",
+      "shows": "Dark red canvas with small, intentionally blurred landscape messaging window around middle-lower frame.",
+      "on_screen_action": "Two editorial gray-backed prompt strips appear over the blurred chat; no legible typing or verifiable sent-message/result flow.",
+      "on_screen_text": "Check my recent emails for orders I can still return / Send me all of that back in a numbered list",
+      "motion": "Gentle enlargement/reframe of the inset; hard transition from presenter."
+    },
+    {
+      "start_s": 16.567,
+      "end_s": 19.0,
+      "type": "talking_head_with_icon",
+      "shows": "Presenter back in room; yellow circle with black envelope upper left.",
+      "on_screen_action": "Envelope icon pops on while inbox is explained.",
+      "on_screen_text": "Phrase captions about connected inbox",
+      "motion": "Hard cut to presenter."
+    },
+    {
+      "start_s": 19.0,
+      "end_s": 22.6,
+      "type": "talking_head_with_icons",
+      "shows": "Envelope left; black magnifier in yellow circle upper right.",
+      "on_screen_action": "Magnifier joins envelope, then both fade.",
+      "on_screen_text": "Recent orders / items in captions",
+      "motion": "Simple icon entrances and fade, presenter gestures."
+    },
+    {
+      "start_s": 22.6,
+      "end_s": 26.2,
+      "type": "talking_head",
+      "shows": "Presenter alone in same room.",
+      "on_screen_action": "Counts and gestures while explaining policy check.",
+      "on_screen_text": "Company return policies in captions",
+      "motion": "No demonstrated policy page."
+    },
+    {
+      "start_s": 26.2,
+      "end_s": 28.6,
+      "type": "talking_head_with_icon",
+      "shows": "Yellow checklist circle above presenter.",
+      "on_screen_action": "Checklist appears then leaves.",
+      "on_screen_text": "Numbered list in captions",
+      "motion": "Simple icon pop/fade."
+    },
+    {
+      "start_s": 28.6,
+      "end_s": 31.3,
+      "type": "talking_head",
+      "shows": "Same full-frame presenter.",
+      "on_screen_action": "Continues explaining possible forgotten eligible purchases.",
+      "on_screen_text": "Phrase captions",
+      "motion": "Mild reframing."
+    },
+    {
+      "start_s": 31.3,
+      "end_s": 35.5,
+      "type": "presenter_cutout_over_broll",
+      "shows": "Presenter foreground over a clip of a man with glasses looking at a laptop; yellow/pink warning triangle to right.",
+      "on_screen_action": "Background b-roll plays; warning symbol appears.",
+      "on_screen_text": "Flag things you did not realize could return (captions)",
+      "motion": "Short crossfade into background; hard return at 35.5."
+    },
+    {
+      "start_s": 35.5,
+      "end_s": 41.667,
+      "type": "talking_head",
+      "shows": "Presenter back against bookshelf.",
+      "on_screen_action": "Counts options on fingers and explains selecting items.",
+      "on_screen_text": "Numbers of the items / dictate them",
+      "motion": "Hard cut then sustained presenter."
+    },
+    {
+      "start_s": 41.667,
+      "end_s": 46.3,
+      "type": "message_screenshot_with_text_overlay",
+      "shows": "Same red canvas and blurred messaging inset.",
+      "on_screen_action": "Editorial item labels appear one by one, then instruction; no return submitted on-screen.",
+      "on_screen_text": "The red top / The kettle / The brown boots / Handle it",
+      "motion": "Hard cut in; slow enlargement; hard cut out."
+    },
+    {
+      "start_s": 46.3,
+      "end_s": 48.6,
+      "type": "presenter_cutout_over_broll",
+      "shows": "Presenter foreground over woman seated on sofa using a device.",
+      "on_screen_action": "B-roll plays beneath anecdote.",
+      "on_screen_text": "Someone on my team did exactly this (captions)",
+      "motion": "Hard entry."
+    },
+    {
+      "start_s": 48.6,
+      "end_s": 51.6,
+      "type": "presenter_cutout_over_broll",
+      "shows": "Same sofa background; yellow circle with glasses icon left.",
+      "on_screen_action": "Glasses icon pops in as glasses are mentioned.",
+      "on_screen_text": "Pair of glasses / Instinct",
+      "motion": "Simple pop; background crossfade back to room near 51.5."
+    },
+    {
+      "start_s": 51.6,
+      "end_s": 54.5,
+      "type": "talking_head_with_logo",
+      "shows": "Presenter in bookshelf room; Instinct white card left.",
+      "on_screen_action": "Logo appears as return-processing claim is narrated.",
+      "on_screen_text": "Within minutes / Instinct processed the return",
+      "motion": "No merchant page or confirmation shown."
+    },
+    {
+      "start_s": 54.5,
+      "end_s": 59.5,
+      "type": "talking_head_with_logo_and_icon",
+      "shows": "Instinct card left and yellow parcel/return icon above presenter.",
+      "on_screen_action": "Icon appears; presenter counts label and post office benefits.",
+      "on_screen_text": "USPS return label / nearest post office",
+      "motion": "No real label, address, map, or location UI."
+    },
+    {
+      "start_s": 59.5,
+      "end_s": 63.6,
+      "type": "presenter_cutout_over_broll",
+      "shows": "Presenter foreground over bed/table piled with clothing.",
+      "on_screen_action": "Clothing background moves slightly while presenter jokes.",
+      "on_screen_text": "Stuff gathering dust / I\u2019ll wear it one day",
+      "motion": "Crossfade into and out of background near 63.5."
+    },
+    {
+      "start_s": 63.6,
+      "end_s": 68.3,
+      "type": "talking_head",
+      "shows": "Presenter in original room.",
+      "on_screen_action": "Gestures toward viewer and stresses potential savings.",
+      "on_screen_text": "Might save hundreds of dollars",
+      "motion": "No evidence or calculation of savings."
+    },
+    {
+      "start_s": 68.3,
+      "end_s": 73.3,
+      "type": "presenter_cutout_over_broll",
+      "shows": "Presenter foreground over older man at laptop.",
+      "on_screen_action": "B-roll as analogy to software subscriptions is explained.",
+      "on_screen_text": "Business owner / software subscriptions",
+      "motion": "Crossfade back near 73.2."
+    },
+    {
+      "start_s": 73.3,
+      "end_s": 79.319365,
+      "type": "talking_head_lower_third",
+      "shows": "Original presenter room with two centered bold identity strips over chest.",
+      "on_screen_action": "Smiles, speaks authority statement and follow CTA.",
+      "on_screen_text": "ALLIE K. MILLER (black on white); #1 VOICE IN AI BUSINESS (black on fluorescent yellow)",
+      "motion": "Stable identity bars; no normal word captions visible in final segment."
+    }
+  ]
+}

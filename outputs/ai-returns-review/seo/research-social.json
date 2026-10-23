@@ -1,0 +1,214 @@
+{
+  "status": "research_review_only",
+  "checked_at_utc": "2026-10-23T10:19:40.156475+00:00",
+  "research_budget_minutes": 3,
+  "primary_keyword": "AI return checklist",
+  "keywords": [
+    {
+      "term": "AI return checklist",
+      "evidence": "Editorial topic match; no exact autocomplete suggestion.",
+      "intent": "Practical return eligibility review",
+      "search_volume": null,
+      "seed": null,
+      "rank": null
+    },
+    {
+      "term": "AI returns assistant",
+      "evidence": "Editorial topic match; no exact autocomplete suggestion.",
+      "intent": "No suggestions returned; absence documented",
+      "search_volume": null,
+      "seed": "ai returns assistant",
+      "rank": null
+    },
+    {
+      "term": "AI shopping returns",
+      "evidence": "Editorial topic match; no exact autocomplete suggestion.",
+      "intent": "No suggestions returned; absence documented",
+      "search_volume": null,
+      "seed": "ai shopping returns",
+      "rank": null
+    },
+    {
+      "term": "ai agents for email management",
+      "evidence": "Google autocomplete for “ai agents email”, returned position 6 on 2026-10-23.",
+      "intent": "Broader connected-email assistance",
+      "search_volume": null,
+      "seed": "ai agents email",
+      "rank": 6
+    }
+  ],
+  "autocomplete": [
+    {
+      "seed": "ai returns assistant",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20returns%20assistant",
+      "suggestions": [],
+      "search_volume": null
+    },
+    {
+      "seed": "ai shopping returns",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20shopping%20returns",
+      "suggestions": [],
+      "search_volume": null
+    },
+    {
+      "seed": "ai agents email",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20agents%20email",
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "ai agents emailing philosophers"
+        },
+        {
+          "rank": 2,
+          "term": "ai agents email"
+        },
+        {
+          "rank": 3,
+          "term": "ai agents email consciousness"
+        },
+        {
+          "rank": 4,
+          "term": "ai agents emailing people"
+        },
+        {
+          "rank": 5,
+          "term": "ai agents email marketing"
+        },
+        {
+          "rank": 6,
+          "term": "ai agents for email management"
+        },
+        {
+          "rank": 7,
+          "term": "ai agents sending emails"
+        },
+        {
+          "rank": 8,
+          "term": "zendesk ai agents email"
+        },
+        {
+          "rank": 9,
+          "term": "6sense ai email agents"
+        },
+        {
+          "rank": 10,
+          "term": "ai agents for outlook email"
+        }
+      ],
+      "search_volume": null
+    }
+  ],
+  "title_patterns": [
+    "AI return checklist: [reviewable task] before [deadline]",
+    "Use an AI agent to check possible returns"
+  ],
+  "hashtags": [
+    {
+      "tag": "#AIAgents",
+      "why": "Names the tool category",
+      "size_verified": false
+    },
+    {
+      "tag": "#AIProductivity",
+      "why": "Matches administrative help",
+      "size_verified": false
+    },
+    {
+      "tag": "#OnlineShopping",
+      "why": "Matches return context",
+      "size_verified": false
+    }
+  ],
+  "caption_recommendations": {
+    "instagram": "AI return checklist: check the deadline before another purchase sits forgotten.\n\nAsk an agent with approved email access for possible returns, policy links, dates, fees and missing information. Choose the items, then review a draft before anything is sent or submitted.\n\nAvailability and permissions vary. A return request is not a refund.\n\nSave this prompt and follow for practical AI workflows.\nAI avatar of me.",
+    "tiktok": "AI return checklist: ask for possible returns, deadlines and policy links, then review the draft before any action. Tools and permissions vary; a request is not a refund. Save this prompt and follow. AI avatar of me.",
+    "facebook": "Use an AI return checklist to organize possible returns before their deadlines. Ask for policy links, relevant dates, fees and any missing information, then review the draft before an action is taken.\n\nThis is an example workflow, not a completed return or a savings guarantee. Agent availability and access vary. Save the prompt and follow for practical AI workflows.\nAI avatar of me."
+  },
+  "alt_text_recommendation": "Draft description to verify against the finished video: Hammad’s AI avatar explains how to create a checklist of possible shopping returns. Original prompt cards request dates, fees, policy sources and unknowns, followed by a draft for review. A hypothetical glasses example distinguishes a return request from a refund.",
+  "alt_text_by_slide": [],
+  "rules": [
+    "Review only. No publishing, scheduling, website edits, DM delivery promises or live-resource claims.",
+    "Google autocomplete is a public wording/relevance proxy, not Instagram/TikTok/Facebook search volume. Returned rank is suggestion position, not measured demand or predicted reach.",
+    "No locale or language parameter was fixed; these are endpoint results from this environment, not UAE-only audience analytics. Arabic suggestions are retained as observed, not translated into inferred volumes.",
+    "Use a clear topic phrase in the first line. Keeping that line under 125 characters is an editorial readability target, not a verified universal truncation rule.",
+    "Use three or four relevant hashtags; exact current Instagram cap could not be retrieved directly. No hashtag size, banned-tag status, or performance rank was verified.",
+    "Alt text should describe visible information and meaningful text, not repeat hashtags or imply hidden actions. For video, retain accurate captions and a descriptive post summary; do not assume a custom Reel alt-text field exists.",
+    "Keep content original. Mark fictional coding counters as skit props and hypothetical return data as examples.",
+    "Use the platform AI disclosure controls when applicable at eventual authorized publication. Avatar videos also get a plain caption disclosure; verify portrait provenance for the static carousel.",
+    "No private account analytics, live competitor engagement, TikTok Creator Search Insights metrics or regional posting-time evidence was acquired."
+  ],
+  "claim_cautions": [
+    "No guarantee of savings, return eligibility, instant label generation or successful refund.",
+    "Do not claim the creator’s colleague anecdote happened to Hammad.",
+    "No claim that Muse or texting a dot is available to every UAE viewer.",
+    "Direct return queries returned no suggestions; do not call the topic trending."
+  ],
+  "sources": [
+    {
+      "url": "https://newsroom.tiktok.com/creator-search-insights?lang=en",
+      "type": "primary",
+      "status": "retrieved",
+      "finding": "TikTok describes searched-topic discovery and content-gap filters. No account-specific topic metrics were accessed."
+    },
+    {
+      "url": "https://about.fb.com/news/2026/03/rewarding-original-creators-on-facebook/",
+      "type": "primary",
+      "status": "retrieved",
+      "finding": "Meta prioritizes original creator content; superficial edits of others’ posts may be deprioritized."
+    },
+    {
+      "url": "https://about.fb.com/news/2025/04/cracking-down-spammy-content-facebook/",
+      "type": "primary",
+      "status": "retrieved",
+      "finding": "Meta discourages unrelated captions and excessive hashtag spam."
+    },
+    {
+      "url": "https://help.instagram.com/351460621611097",
+      "type": "primary",
+      "status": "429 Too Many Requests",
+      "finding": "Five-hashtag cap not directly verified in this bounded pass. Use three or four relevant tags as conservative editorial guidance."
+    },
+    {
+      "url": "https://about.instagram.com/blog/announcements/break-down-how-instagram-search-works",
+      "type": "primary",
+      "status": "429 Too Many Requests",
+      "finding": "Current search-ranking claims not independently reverified here."
+    },
+    {
+      "url": "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+      "type": "primary",
+      "status": "429 Too Many Requests",
+      "finding": "Unavailable; no precise current ranking weights asserted."
+    },
+    {
+      "url": "https://support.tiktok.com/en/using-tiktok/growing-your-audience/creator-search-insights",
+      "type": "primary",
+      "status": "robots.txt denied",
+      "finding": "Newsroom source used for basic tool description only."
+    },
+    {
+      "url": "https://support.tiktok.com/en/using-tiktok/creating-videos/accessibility",
+      "type": "primary",
+      "status": "robots.txt denied",
+      "finding": "Accessibility recommendations below are editorial; current exact upload fields not verified."
+    },
+    {
+      "url": "https://ads.tiktok.com/business/creativecenter/inspiration/popular/hashtag/pc/en",
+      "type": "primary",
+      "status": "redirected to https://ads.tiktok.com/creative/creativeCenter/trends; login shell only",
+      "finding": "No topic hashtag counts or search volumes visible."
+    },
+    {
+      "url": "https://www.facebook.com/help/273947702950567",
+      "type": "primary",
+      "status": "login redirect / temporarily blocked message",
+      "finding": "No current accessibility-field instruction inferred."
+    }
+  ],
+  "limitations": [
+    "Initial Python urllib fetch failed certificate validation; system curl succeeded with normal TLS verification. No verification was disabled.",
+    "No account access used. Primary Instagram cap/search pages and TikTok support pages inaccessible; exact current rules remain unverified.",
+    "Reference captions and local facts provide content context, not evidence of audience performance."
+  ],
+  "publishing_authorized": false
+}

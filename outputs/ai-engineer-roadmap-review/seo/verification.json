@@ -1,0 +1,158 @@
+{
+  "verified_at": "2026-10-23T10:48:44.199438+00:00",
+  "phase": "seo-pack Verify",
+  "status": "copy_checks_passed_owner_review_pending",
+  "owner_approved": false,
+  "publishing_authorized": false,
+  "scheduling_authorized": false,
+  "scope": "SEO JSON/Markdown copy verification only. No source edits, render, upload, scheduling, website or DM action.",
+  "inputs": [
+    {
+      "file": "slides.json",
+      "sha256": "1fcbd6ce2ae8e27ee76071eca62abb88a232a8bda3f37426b2b16dcacc0c8671"
+    },
+    {
+      "file": "carousel.html",
+      "sha256": "a489194b58802097fe6712d81d82366b36055c6cc3cd9bf2a5d95a5bbb976128"
+    },
+    {
+      "file": "build.cjs",
+      "sha256": "b71743a1cf9ebc5223dade6db84bb28d6b239286591f777cddb0c43a876258a7"
+    },
+    {
+      "file": "analysis/facts.md",
+      "sha256": "defbc00f566d20f9134aa0565ddfb4ce68a5543b9809b869ff185be014372b3b"
+    },
+    {
+      "file": "analysis/resources.md",
+      "sha256": "26591ff067738e5e8f62c4d64ad3ba0363c50f9dc665767cdddb1f81d133499c"
+    }
+  ],
+  "roadmap_lesson_json": "Not applicable: static carousel uses slides.json/carousel.html; no lesson.json exists.",
+  "fact_review": "Six stages, five portfolio projects and deployment upgrade match corrected source. Free applies to named learning materials, with compute/API/hosting/certificate caveat. No timeline/hiring guarantees.",
+  "checks": {
+    "owner_review_pending": true,
+    "publishing_disabled": true,
+    "all_applicable_disclosures_present": true,
+    "no_public_resource_urls": true,
+    "no_delivery_or_live_promises": true,
+    "all_have_save_or_bookmark_cta": true,
+    "all_have_follow_or_subscribe_cta": true,
+    "instagram_under_repository_2200_budget": true,
+    "instagram_conservative_hashtag_count": true,
+    "linkedin_under_3000": true,
+    "tiktok_under_applicable_api_limit": true,
+    "facebook_under_editorial_2200_budget": true,
+    "x_under_280_weighted": true,
+    "youtube_title_under_100": true,
+    "youtube_title_under_editorial_70": true,
+    "youtube_description_under_5000_bytes": true,
+    "youtube_tags_under_500": true,
+    "no_new_unsupported_quantitative_claims": true,
+    "tiktok_photo_title_under_90": true,
+    "slide_alt_texts_match_corrected_source": true
+  },
+  "counts": {
+    "instagram": 592,
+    "linkedin": 814,
+    "tiktok": 451,
+    "facebook": 580,
+    "x": 241,
+    "x_weighted": 241,
+    "tiktok_utf16": 451,
+    "tiktok_photo_title_utf16": 48
+  },
+  "fixes": [
+    {
+      "field": "instagram.caption",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "linkedin.text",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "tiktok.caption",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "facebook.caption",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "x.post",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "instagram.slide_alt_texts[8] and accessibility.slides[8]",
+      "change": "Replaced old five-project list with parent-corrected image-classifier/project 4-or 5-deployment grouping."
+    },
+    {
+      "field": "tiktok.title/description/caption_field",
+      "change": "Separated optional photo title from photo description; prevents a full caption being treated as a 90-unit title."
+    },
+    {
+      "field": "writer_checks.character_counts.x_weighted",
+      "change": "Use X weighted character count, not raw codepoint count. Original arrow-based post was 267 weighted, not 262."
+    }
+  ],
+  "outside_seo_findings": [
+    {
+      "status": "resolved_by_parent",
+      "files": [
+        "build.cjs:24",
+        "carousel.html",
+        "analysis/resources.md:13",
+        "analysis/resources.md:21",
+        "analysis/resources.md:68"
+      ],
+      "finding": "Slide9 now includes the small image classifier, moves document and tool assistants to 4/5, and treats deployment as an upgrade. Guide CTA is save-only. Verifier changed SEO alt text only."
+    }
+  ],
+  "sources": [
+    {
+      "platform": "YouTube",
+      "source": "https://developers.google.com/youtube/v3/docs/videos",
+      "verified": "Title 100 characters; description 5000 UTF-8 bytes; aggregate tags 500 characters with separator/space quoting rules."
+    },
+    {
+      "platform": "LinkedIn",
+      "source": "https://www.linkedin.com/help/lms/answer/a528176",
+      "verified": "Post limit 3000 characters."
+    },
+    {
+      "platform": "TikTok video",
+      "source": "https://developers.tiktok.com/docs/en/content-posting-api-reference-direct-post",
+      "verified": "Video caption 2200 UTF-16 units."
+    },
+    {
+      "platform": "TikTok photo",
+      "source": "https://developers.tiktok.com/docs/en/content-posting-api-reference-photo-post",
+      "verified": "Photo title 90 UTF-16 units; description 4000 UTF-16 units."
+    },
+    {
+      "platform": "X",
+      "source": "https://docs.x.com/fundamentals/counting-characters",
+      "verified": "Ordinary post 280 weighted characters; NFC; URLs 23. No URLs or emoji sequences in these drafts."
+    },
+    {
+      "platform": "Instagram",
+      "source": "https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media",
+      "verified": null,
+      "limitation": "Direct official retrieval returned 429; 2200-character budget follows repository guidance, with 3–4 hashtags as conservative editorial choice, not a freshly verified universal cap."
+    },
+    {
+      "platform": "Facebook",
+      "source": null,
+      "verified": null,
+      "limitation": "Current exact surface limit not independently retrieved; drafts checked against conservative 2200-character editorial budget. Verify final composer before any later authorized publication."
+    }
+  ],
+  "limitations": [
+    "Instagram official limit page returned 429; no fresh claim that a universal five-hashtag cap was verified. Three or four tags retained.",
+    "Facebook exact composer limit not independently fetched; copy is below conservative 2200-character editorial budget.",
+    "This is not owner approval or a final-video/frame/accessibility QA pass. Verify actual exported media, spoken captions, labels, crop and platform disclosure controls before any later authorized publication."
+  ],
+  "final_asset_check": "pending in main workflow",
+  "required_owner_action": "Review the carousel, videos and proposed copy before publication or scheduling."
+}

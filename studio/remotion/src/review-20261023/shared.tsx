@@ -1,0 +1,12 @@
+import React from 'react';
+import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
+import {loadFont} from '@remotion/fonts';
+loadFont({family:'ReviewInter',url:staticFile('review-20261023/inter-latin-800-normal.woff2'),weight:'800'});
+loadFont({family:'ReviewInter',url:staticFile('review-20261023/inter-latin-600-normal.woff2'),weight:'600'});
+export const navy='#102439',blue='#a3d8ff';
+export const file=(s:string)=>staticFile('review-20261023/'+s);
+export const Base:React.FC<React.PropsWithChildren>=({children})=><AbsoluteFill style={{fontFamily:'ReviewInter, Arial',fontWeight:600,color:'white',background:navy}}>{children}</AbsoluteFill>;
+export const Caption:React.FC<{items:{startMs:number;endMs:number;text:string}[]}>=({items})=>{const f=useCurrentFrame();const c=items.find(x=>f/30*1000>=x.startMs&&f/30*1000<x.endMs);return c?<div style={{position:'absolute',left:75,top:1300,width:850,display:'flex',justifyContent:'center'}}><div style={{fontSize:48,lineHeight:1.24,fontWeight:800,letterSpacing:-1.2,textAlign:'center',padding:'19px 26px',borderRadius:18,color:'white',background:'rgba(5,20,35,.90)',boxShadow:'0 5px 30px #0004'}}>{c.text}</div></div>:null;};
+export const Label:React.FC<{text:string;dark?:boolean}>=({text,dark})=><div style={{position:'absolute',top:245,left:75,color:dark?navy:blue,fontSize:24,letterSpacing:3,fontWeight:800}}>{text}</div>;
+export const Footer:React.FC=()=> <div style={{position:'absolute',left:78,top:1460,fontSize:21,color:'#bbd3e9',letterSpacing:2}}>WITHHAMMAD · AI AVATAR</div>;
+export const Photo:React.FC<{src:string}>=({src})=>{const f=useCurrentFrame();return <Img src={file(src)} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',transform:`scale(${1.02+f/24000})`}}/>;};

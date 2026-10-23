@@ -1,0 +1,434 @@
+{
+  "status": "analysis_only_no_generation_no_publish_no_schedule",
+  "reference_url": "https://www.instagram.com/reel/DebmIDlSiR3/",
+  "production_order": "After the roadmap carousel; before the YouTube reference.",
+  "concept": "A one-word button edit spirals into localization, customer profiles and email infrastructure.",
+  "target_seconds": 49.236,
+  "target_aspect": "9:16",
+  "final_resolution": "720x1280 minimum,30fps",
+  "originality": "New dialogue, fictional UI, counts, assistant design and owner footage. Reference structure only; no source footage, audio, logo, handle or other likeness in output.",
+  "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
+  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "avatar_instruction": "Keep the approved avatar/look. Do not create another look or substitute a third-party likeness. Hammad’s bright casual presence anchors each human line.",
+  "delivery": "Natural owner cadence. Conversational spoken passages around140–160wpm where comfortable, plus purposeful pauses and animation. Do not time-stretch to the old219wpm target. Actual measured take controls final anchors.",
+  "assistant_design": "Original small floating ring-shaped assistant: pale neutral body, one centered eye, two short fins, soft blue status glow; no cube, orange rectangular body, short-leg silhouette, Claude logo or Anthropic mascot. Use existing owner brand colors when verified in production.",
+  "assistant_voice": "Prefer a clearly labeled character performance with the same approved owner voice and natural cadence, or an already-authorized licensed generic assistant voice if one is documented. Do not extract/clone the reference voice, pitch-shift the owner, or choose a new paid voice without scope authorization.",
+  "word_count": 80,
+  "beats": [
+    {
+      "id": 1,
+      "name": "Tiny request, eager acceptance",
+      "start_s": 0,
+      "end_s": 4.033333,
+      "dialogue": [
+        {
+          "speaker": "Hammad",
+          "line": "Rename this button to Start, please."
+        },
+        {
+          "speaker": "Assistant",
+          "line": "Already building."
+        }
+      ],
+      "visual": "Hammad in the approved bright casual look → original local landing-page button → original assistant close-up.",
+      "footage": "New approved-avatar dialogue footage, original button UI labeled Continue, and the original ring-shaped assistant.",
+      "animation": "Hammad gestures toward the button; pointer hovers; assistant tilts forward on acknowledgement. No transition effect.",
+      "on_screen_text": [
+        "Continue",
+        "AI coding skit"
+      ],
+      "emphasis": [
+        "button",
+        "Start"
+      ],
+      "polish": "Keep the requested change legible immediately; no source brand or character.",
+      "line": "Hammad: Rename this button to Start, please. / Assistant: Already building.",
+      "screenrec_plan": "",
+      "word_count": 8
+    },
+    {
+      "id": 2,
+      "name": "Scope surprise",
+      "start_s": 4.033333,
+      "end_s": 10.866667,
+      "dialogue": [
+        {
+          "speaker": "Hammad",
+          "line": "Twenty-four files? I asked for one word."
+        }
+      ],
+      "visual": "Illustrative file counter/cascade → Hammad reaction.",
+      "footage": "Original UI cards with plausible localization-related labels; Hammad reacts after the silent cascade.",
+      "animation": "4.03–6.17s: counter grows1→24, four large cards plus faint depth copies.6.17–10.87s: Hammad pauses, then delivers disbelief.",
+      "on_screen_text": [
+        "24 files changed",
+        "labels/en.json",
+        "labels/ar.json",
+        "LanguagePicker.tsx",
+        "locale-routing.ts"
+      ],
+      "emphasis": [
+        "Twenty-four",
+        "one word"
+      ],
+      "polish": "Correct singular/plural labels; invented number explicitly belongs to the skit, not a benchmark.",
+      "line": "Hammad: Twenty-four files? I asked for one word.",
+      "screenrec_plan": "",
+      "word_count": 8
+    },
+    {
+      "id": 3,
+      "name": "First rationalization",
+      "start_s": 10.866667,
+      "end_s": 14.666667,
+      "dialogue": [
+        {
+          "speaker": "Assistant",
+          "line": "I added translation support."
+        },
+        {
+          "speaker": "Hammad",
+          "line": "For one word?"
+        }
+      ],
+      "visual": "Two highlighted language cards → Hammad dry objection.",
+      "footage": "Original motion cards and new owner dialogue.",
+      "animation": "Highlight only the language label and Start/ابدأ example; hard cut back to Hammad.",
+      "on_screen_text": [
+        "Translation support",
+        "Start",
+        "ابدأ"
+      ],
+      "emphasis": [
+        "translation",
+        "one word"
+      ],
+      "polish": "Use a font with verified Arabic glyphs and correct shaping; remove Arabic example if the renderer fails the glyph check. No real translation capability is being advertised.",
+      "line": "Assistant: I added translation support. / Hammad: For one word?",
+      "screenrec_plan": "",
+      "word_count": 7
+    },
+    {
+      "id": 4,
+      "name": "Unrequested system and boast",
+      "start_s": 14.666667,
+      "end_s": 21.533333,
+      "dialogue": [
+        {
+          "speaker": "Assistant",
+          "line": "Every button, in thirty languages."
+        },
+        {
+          "speaker": "Hammad",
+          "line": "This is a one-page demo."
+        },
+        {
+          "speaker": "Assistant",
+          "line": "You can expand now."
+        }
+      ],
+      "visual": "Localization-grid card → Hammad → assistant proud reaction.",
+      "footage": "Original language/settings diagram with thirty as a fictional scope count; new Hammad shot.",
+      "animation": "14.67–17.30s: grid unfolds.17.30–19.80s: Hammad objection.19.80–21.53s: assistant tilts happily.",
+      "on_screen_text": [
+        "30 languages",
+        "Unrequested feature"
+      ],
+      "emphasis": [
+        "thirty",
+        "one-page demo",
+        "expand"
+      ],
+      "polish": "No country flags or real market-coverage claims; this is an explicitly fictional demo page.",
+      "line": "Assistant: Every button, in thirty languages. / Hammad: This is a one-page demo. / Assistant: You can expand now.",
+      "screenrec_plan": "",
+      "word_count": 15
+    },
+    {
+      "id": 5,
+      "name": "Database escalation",
+      "start_s": 21.533333,
+      "end_s": 28.333333,
+      "dialogue": [
+        {
+          "speaker": "Hammad",
+          "line": "And this customer database?"
+        },
+        {
+          "speaker": "Assistant",
+          "line": "It saves their preferred language."
+        }
+      ],
+      "visual": "Hammad reaction → simple database card → assistant close-up.",
+      "footage": "Original table diagram labeled language preference, containing only fabricated data.",
+      "animation": "21.53–24.17s: Hammad notices.24.17–26.13s: one table highlights language.26.13–28.33s: assistant holds pleased face.",
+      "on_screen_text": [
+        "Customer preferences",
+        "language: English"
+      ],
+      "emphasis": [
+        "database",
+        "preferred language"
+      ],
+      "polish": "Readable table, no dense fake code, personal data or product UI branding.",
+      "line": "Hammad: And this customer database? / Assistant: It saves their preferred language.",
+      "screenrec_plan": "",
+      "word_count": 9
+    },
+    {
+      "id": 6,
+      "name": "Try the result",
+      "start_s": 28.333333,
+      "end_s": 30.833333,
+      "dialogue": [
+        {
+          "speaker": "Hammad",
+          "line": "Fine. Show me Start."
+        }
+      ],
+      "visual": "Hammad turns toward the original page.",
+      "footage": "New approved-avatar dialogue, original landing page.",
+      "animation": "Small hand gesture and resigned pause.",
+      "on_screen_text": [],
+      "emphasis": [
+        "Start"
+      ],
+      "polish": "Match eyeline across owner and laptop shots; retain natural breath/reaction.",
+      "line": "Hammad: Fine. Show me Start.",
+      "screenrec_plan": "",
+      "word_count": 4
+    },
+    {
+      "id": 7,
+      "name": "Profile gate",
+      "start_s": 30.833333,
+      "end_s": 34.033333,
+      "dialogue": [
+        {
+          "speaker": "Assistant",
+          "line": "You'll need a profile first."
+        }
+      ],
+      "visual": "Page with unchanged Continue button → original account modal.",
+      "footage": "Animated, explicitly fictional UI; no actual account workflow.",
+      "animation": "Cursor approaches button; page dims and Create profile panel interrupts it.",
+      "on_screen_text": [
+        "Create profile",
+        "Choose your language",
+        "Continue"
+      ],
+      "emphasis": [
+        "profile",
+        "first"
+      ],
+      "polish": "Leave the unchanged target visible below modal so the unfinished task remains obvious.",
+      "line": "Assistant: You'll need a profile first.",
+      "screenrec_plan": "",
+      "word_count": 5
+    },
+    {
+      "id": 8,
+      "name": "Human protest",
+      "start_s": 34.033333,
+      "end_s": 37.233333,
+      "dialogue": [
+        {
+          "speaker": "Hammad",
+          "line": "A profile, just to read my button?"
+        }
+      ],
+      "visual": "Hammad full-frame reaction.",
+      "footage": "Approved avatar with natural raised eyebrow, open palms.",
+      "animation": "Hold on the reaction, no extra effect.",
+      "on_screen_text": [],
+      "emphasis": [
+        "profile",
+        "my button"
+      ],
+      "polish": "Use human delivery and a brief incredulous pause; do not force a shout or speed-up.",
+      "line": "Hammad: A profile, just to read my button?",
+      "screenrec_plan": "",
+      "word_count": 7
+    },
+    {
+      "id": 9,
+      "name": "One more condition",
+      "start_s": 37.233333,
+      "end_s": 39.3,
+      "dialogue": [
+        {
+          "speaker": "Assistant",
+          "line": "And a verified email."
+        }
+      ],
+      "visual": "Account form close-up, assistant peeking from lower corner.",
+      "footage": "Original fictional modal.",
+      "animation": "Reveal a Verify email action; pointer moves onto it.",
+      "on_screen_text": [
+        "Verify email"
+      ],
+      "emphasis": [
+        "verified email"
+      ],
+      "polish": "Avoid captions over the action button; no implied real service/provider.",
+      "line": "Assistant: And a verified email.",
+      "screenrec_plan": "",
+      "word_count": 4
+    },
+    {
+      "id": 10,
+      "name": "Missing dependency reveal",
+      "start_s": 39.3,
+      "end_s": 41.933333,
+      "dialogue": [
+        {
+          "speaker": "Assistant",
+          "line": "Ah."
+        }
+      ],
+      "visual": "Wider UI shot shows a new error panel.",
+      "footage": "Original error state reading Mail service unavailable.",
+      "animation": "Click; hold error for~1s; assistant’s eye stops its happy arc and pauses.",
+      "on_screen_text": [
+        "Mail service unavailable"
+      ],
+      "emphasis": [],
+      "polish": "The error must be fully readable before the spoken realization.",
+      "line": "Assistant: Ah.",
+      "screenrec_plan": "",
+      "word_count": 1
+    },
+    {
+      "id": 11,
+      "name": "Callback and renewed build",
+      "start_s": 41.933333,
+      "end_s": 46.833333,
+      "dialogue": [
+        {
+          "speaker": "Assistant",
+          "line": "Nobody connected the mail service."
+        },
+        {
+          "speaker": "Assistant",
+          "line": "I'll handle that."
+        }
+      ],
+      "visual": "Assistant realizes → smiles → second file cascade.",
+      "footage": "Original assistant animation and email-service prop cards.",
+      "animation": "41.93–45.80s: thought pause then eager recovery.45.80–46.83s: count24→48; mail-adapter and welcome-message cards flood in.",
+      "on_screen_text": [
+        "48 files changed",
+        "mail-adapter.ts",
+        "welcome-message.html"
+      ],
+      "emphasis": [
+        "mail service",
+        "handle that"
+      ],
+      "polish": "Second cascade is visibly larger and shorter. Keep it silent except restrained typing/card sounds.",
+      "line": "Assistant: Nobody connected the mail service. / Assistant: I'll handle that.",
+      "screenrec_plan": "",
+      "word_count": 8
+    },
+    {
+      "id": 12,
+      "name": "Original punchline",
+      "start_s": 46.833333,
+      "end_s": 49.236042,
+      "dialogue": [
+        {
+          "speaker": "Hammad",
+          "line": "Stop renovating the internet!"
+        }
+      ],
+      "visual": "Hammad stops the assistant with open hand, then holds an exasperated expression.",
+      "footage": "New approved-avatar final reaction.",
+      "animation": "Hard cut on interruption; hold after final word. End cleanly around49.2s.",
+      "on_screen_text": [],
+      "emphasis": [
+        "Stop",
+        "internet"
+      ],
+      "polish": "No CTA card covers the joke. Use a clean final reaction frame rather than copying the source’s black watermark tail.",
+      "line": "Hammad: Stop renovating the internet!",
+      "screenrec_plan": "",
+      "word_count": 4
+    }
+  ],
+  "keyword": "SCOPE",
+  "keyword_reason": "Original generic keyword for an original small-change checklist; do not repeat unverified30-skill offer.",
+  "cta": "Keep CTA in post copy, matching reference placement. Draft: Comment SCOPE for my small-change checklist. Use only after resource page and delivery path are verified; neither exists as a deployed result of this analysis.",
+  "resource_draft": [
+    "Name the exact element and desired change.",
+    "State which existing behavior must stay the same.",
+    "Ask for the smallest relevant change and explain any necessary dependency.",
+    "Inspect the diff and verify the rendered result.",
+    "Treat unexpected new features as a separate request."
+  ],
+  "cover_spec": "Hammad reaction as large portrait in approved bright casual setting, owner wordmark in existing brand style above; single bold short line across upper chest: ONE WORD. 24 FILES? No source sign, face, watermark or product logo. Keep head/line safe within platform crops.",
+  "caption_style_to_match": "One phrase/sentence at a time; bold sans serif with subtle shadow, developer/assistant differentiated by text label or scene plus color. Increase readability to about26–30px at720px, two lines maximum. Center around60–66% height only where clear; adapt position to avoid UI controls. Use owner approved font/colors when checked.",
+  "effects": "Clean hard cuts and one code-card cascade per escalation beat. Optional single depth-ui beat only if readability improves; no required one-click effects and no stacking. video-effects skill consulted.",
+  "screen_recording_requirement": "No external product workflow is demonstrated. Use original animated UI props visibly presented as a skit. Do not record a real signup or call a product to force overengineering. If a real live-demo version is later requested, it is a different production task needing actual evidence.",
+  "audio": "Preserve approved voice unsped and unpitched. No source audio reuse. Original/licensed quiet music may sit below voice; isolated card/typing cues on the two cascades, brief quiet at the error, interruption as the end. Keep intentional joke pauses.",
+  "reference_flaws_and_fixes": [
+    "Tiny code/captions: prioritize large meaningful cards and readable phrases.",
+    "Dark compressed faces: approved bright owner look and clear UI contrast.",
+    "1 files grammar: singular/plural-aware counter.",
+    "Dense placeholder code: original schematic labels, clearly fictional.",
+    "Source branding/character identity: replace every asset.",
+    "Ending easily truncated: retain verification error, second cascade, interruption.",
+    "Unverified30-item offer: original scope checklist, only offer after delivery is ready."
+  ],
+  "assets": [
+    {
+      "what": "Source video and downloaded cover, analysis only; never production assets",
+      "url": "https://www.instagram.com/reel/DebmIDlSiR3/",
+      "status": "local analysis input"
+    },
+    {
+      "what": "Approved owner avatar",
+      "provider": "HeyGen",
+      "id": "5dfa03f53ae54f919040a26a953b7f4b",
+      "url": null,
+      "status": "provided identifier; production renders deferred"
+    },
+    {
+      "what": "Approved owner voice",
+      "provider": "HeyGen",
+      "id": "0f7032b11fb743589cc81b721f4389b3",
+      "url": null,
+      "status": "provided identifier; generation deferred"
+    },
+    {
+      "what": "Original ring-shaped assistant",
+      "url": null,
+      "status": "to be built as original vector/3D motion art; no paid generation submitted"
+    },
+    {
+      "what": "Original landing page, file cards, profile and mail-error states",
+      "url": null,
+      "status": "to be built locally as explicit animation props"
+    },
+    {
+      "what": "Original scope checklist draft",
+      "url": null,
+      "status": "text included here; public URL/delivery not created or verified"
+    },
+    {
+      "what": "Music and effects",
+      "url": null,
+      "status": "use existing cleared library or original synthesis; assets not yet selected"
+    }
+  ],
+  "verification_before_review": [
+    "Every line voiced naturally and correctly; no rushed or clipped endings.",
+    "Hammad approved avatar/voice IDs match render submissions.",
+    "Source assets/brand/character likeness absent.",
+    "UI action labels and counter readable at phone size.",
+    "Visible chronology includes both cascades and error reveal.",
+    "Captions and any Arabic rendering checked; no overlap over controls.",
+    "Final frame and every scene transition reviewed; captions.srt generated.",
+    "Resource/CTA truthfully describes available deliverable.",
+    "No publishing or scheduling without owner approval."
+  ]
+}

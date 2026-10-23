@@ -1,0 +1,138 @@
+{
+  "verified_at": "2026-10-23T10:48:44.199438+00:00",
+  "phase": "seo-pack Verify",
+  "status": "copy_checks_passed_owner_review_pending",
+  "owner_approved": false,
+  "publishing_authorized": false,
+  "scheduling_authorized": false,
+  "scope": "SEO JSON/Markdown copy verification only. No source edits, render, upload, scheduling, website or DM action.",
+  "inputs": [
+    {
+      "file": "script.txt",
+      "sha256": "ded041c845cfb207784bf81525bd565eb6ad86c3dc65201d78738fe3f6f1bc81"
+    },
+    {
+      "file": "lesson.json",
+      "sha256": "a89693585172caca89cdff8e6adee6f485688f8ac233a61253b1b9620d9d7b78"
+    },
+    {
+      "file": "analysis/facts.md",
+      "sha256": "64af5956aa8aec6d50194b667c309d4fac009b9b33aa6aaa3a23526f5d64b237"
+    },
+    {
+      "file": "analysis/spec.md",
+      "sha256": "75b7df2c5890c4d547f5f23bf3ebbf90283667b6438b6405ced107e9af2fa0bd"
+    },
+    {
+      "file": "analysis/spec.json",
+      "sha256": "5db57762dc5bb02fac90d2496c47db18d334cfbd325fa376ea65d8fbc0ebdadf"
+    }
+  ],
+  "roadmap_lesson_json": null,
+  "fact_review": "Possible returns, exact policies, dates, conditions, fees, unknowns and approval-before-action align with script/facts. No savings, refund, eligibility, shipping label, successful transaction or universal availability guarantee.",
+  "checks": {
+    "owner_review_pending": true,
+    "publishing_disabled": true,
+    "all_applicable_disclosures_present": true,
+    "no_public_resource_urls": true,
+    "no_delivery_or_live_promises": true,
+    "all_have_save_or_bookmark_cta": true,
+    "all_have_follow_or_subscribe_cta": true,
+    "instagram_under_repository_2200_budget": true,
+    "instagram_conservative_hashtag_count": true,
+    "linkedin_under_3000": true,
+    "tiktok_under_applicable_api_limit": true,
+    "facebook_under_editorial_2200_budget": true,
+    "x_under_280_weighted": true,
+    "youtube_title_under_100": true,
+    "youtube_title_under_editorial_70": true,
+    "youtube_description_under_5000_bytes": true,
+    "youtube_tags_under_500": true,
+    "no_new_unsupported_quantitative_claims": true
+  },
+  "counts": {
+    "instagram": 614,
+    "linkedin": 764,
+    "tiktok": 408,
+    "facebook": 572,
+    "x": 214,
+    "x_weighted": 214,
+    "tiktok_utf16": 408,
+    "youtube_title": 45,
+    "youtube_description_utf8_bytes": 758,
+    "youtube_tags_aggregate": 116
+  },
+  "fixes": [
+    {
+      "field": "instagram.caption",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "linkedin.text",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "tiktok.caption",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "facebook.caption",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "x.post",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "youtube.description",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    }
+  ],
+  "outside_seo_findings": [],
+  "sources": [
+    {
+      "platform": "YouTube",
+      "source": "https://developers.google.com/youtube/v3/docs/videos",
+      "verified": "Title 100 characters; description 5000 UTF-8 bytes; aggregate tags 500 characters with separator/space quoting rules."
+    },
+    {
+      "platform": "LinkedIn",
+      "source": "https://www.linkedin.com/help/lms/answer/a528176",
+      "verified": "Post limit 3000 characters."
+    },
+    {
+      "platform": "TikTok video",
+      "source": "https://developers.tiktok.com/docs/en/content-posting-api-reference-direct-post",
+      "verified": "Video caption 2200 UTF-16 units."
+    },
+    {
+      "platform": "TikTok photo",
+      "source": "https://developers.tiktok.com/docs/en/content-posting-api-reference-photo-post",
+      "verified": "Photo title 90 UTF-16 units; description 4000 UTF-16 units."
+    },
+    {
+      "platform": "X",
+      "source": "https://docs.x.com/fundamentals/counting-characters",
+      "verified": "Ordinary post 280 weighted characters; NFC; URLs 23. No URLs or emoji sequences in these drafts."
+    },
+    {
+      "platform": "Instagram",
+      "source": "https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media",
+      "verified": null,
+      "limitation": "Direct official retrieval returned 429; 2200-character budget follows repository guidance, with 3–4 hashtags as conservative editorial choice, not a freshly verified universal cap."
+    },
+    {
+      "platform": "Facebook",
+      "source": null,
+      "verified": null,
+      "limitation": "Current exact surface limit not independently retrieved; drafts checked against conservative 2200-character editorial budget. Verify final composer before any later authorized publication."
+    }
+  ],
+  "limitations": [
+    "Instagram official limit page returned 429; no fresh claim that a universal five-hashtag cap was verified. Three or four tags retained.",
+    "Facebook exact composer limit not independently fetched; copy is below conservative 2200-character editorial budget.",
+    "This is not owner approval or a final-video/frame/accessibility QA pass. Verify actual exported media, spoken captions, labels, crop and platform disclosure controls before any later authorized publication."
+  ],
+  "final_asset_check": "pending in main workflow",
+  "required_owner_action": "Review the carousel, videos and proposed copy before publication or scheduling."
+}

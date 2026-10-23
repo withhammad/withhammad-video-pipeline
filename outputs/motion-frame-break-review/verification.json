@@ -1,0 +1,21 @@
+{
+  "source": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/motion20261020/avatar-voice-v3.mp4",
+  "output": "/Users/hammad/withhammad-video-pipeline/outputs/motion-frame-break-review/full-video.mp4",
+  "effect": "frame-break",
+  "effect_start_s": 0.6,
+  "effect_duration_s": 2,
+  "video_duration_s": 36.833333,
+  "source_duration_s": 36.84,
+  "frames": 1105,
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "codec": "h264",
+  "color_range": "tv",
+  "audio_correlation": 0.9999416753332183,
+  "audio_length_delta_s": 0.0056875,
+  "sha256": "1418b8cb3fa16e12acd486df980a24d5ee552ea30c9d5de0e0c3ad48b05b5e25",
+  "status": "review_only",
+  "publishing_authorized": false
+}

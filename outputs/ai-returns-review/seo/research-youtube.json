@@ -1,0 +1,500 @@
+{
+  "checked_at": "2026-10-23T10:16:50.867304+00:00",
+  "research_scope": "YouTube research only; review draft; no publishing, scheduling, resource deployment, or DM action.",
+  "autocomplete": [
+    {
+      "seed": "ai shopping assistant",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+shopping+assistant&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "ai shopping assistant"
+        },
+        {
+          "rank": 2,
+          "term": "ai shopping assistant demo"
+        },
+        {
+          "rank": 3,
+          "term": "amazon ai shopping assistant"
+        },
+        {
+          "rank": 4,
+          "term": "perplexity ai shopping assistant"
+        },
+        {
+          "rank": 5,
+          "term": "klarna ai shopping assistant"
+        },
+        {
+          "rank": 6,
+          "term": "zave ai shopping assistant"
+        },
+        {
+          "rank": 7,
+          "term": "ai-powered personalized shopping assistant"
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "ai returns",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+returns&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "ai returns"
+        },
+        {
+          "rank": 2,
+          "term": "ai returns to philly"
+        },
+        {
+          "rank": 3,
+          "term": "aj lee returns"
+        },
+        {
+          "rank": 4,
+          "term": "wwe ai returns"
+        },
+        {
+          "rank": 5,
+          "term": "ai hoshino returns from death"
+        },
+        {
+          "rank": 6,
+          "term": "ai wrestling returns"
+        },
+        {
+          "rank": 7,
+          "term": "ai weiwei returns to china"
+        },
+        {
+          "rank": 8,
+          "term": "kizuna ai returns"
+        },
+        {
+          "rank": 9,
+          "term": "ai chris benoit returns"
+        },
+        {
+          "rank": 10,
+          "term": "batman returns ai"
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "return deadline",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=return+deadline&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "tax return deadline"
+        },
+        {
+          "rank": 2,
+          "term": "fbr return deadline"
+        },
+        {
+          "rank": 3,
+          "term": "fbr tax return deadline"
+        },
+        {
+          "rank": 4,
+          "term": "income tax return deadline"
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "ai personal assistant",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+personal+assistant&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "ai personal assistant"
+        },
+        {
+          "rank": 2,
+          "term": "ai personal assistant n8n"
+        },
+        {
+          "rank": 3,
+          "term": "ai personal assistant app"
+        },
+        {
+          "rank": 4,
+          "term": "ai personal assistant using python"
+        },
+        {
+          "rank": 5,
+          "term": "ai personal assistant free"
+        },
+        {
+          "rank": 6,
+          "term": "ai personal assistant make.com"
+        },
+        {
+          "rank": 7,
+          "term": "ai personal assistant robot"
+        },
+        {
+          "rank": 8,
+          "term": "ai personal assistant whatsapp"
+        },
+        {
+          "rank": 9,
+          "term": "ai personal assistant ad"
+        },
+        {
+          "rank": 10,
+          "term": "ai personal assistant for business"
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "ai refund",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+refund&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "master ai refund kaise kare"
+        },
+        {
+          "rank": 2,
+          "term": "master ai refund"
+        },
+        {
+          "rank": 3,
+          "term": "ctool.ai refund"
+        },
+        {
+          "rank": 4,
+          "term": "phant ai refund kaise kare"
+        },
+        {
+          "rank": 5,
+          "term": "font ai refund kaise kare"
+        },
+        {
+          "rank": 6,
+          "term": "pfp ai refund"
+        },
+        {
+          "rank": 7,
+          "term": "supernova ai refund"
+        },
+        {
+          "rank": 8,
+          "term": "ai vs refund scammers"
+        },
+        {
+          "rank": 9,
+          "term": "masteredu ai refund process"
+        },
+        {
+          "rank": 10,
+          "term": "mastered ai refund method"
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "ai return policy",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=ai+return+policy&hl=en&gl=AE",
+      "http_status": 200,
+      "suggestions": [],
+      "error": null
+    }
+  ],
+  "autocomplete_caveat": "Suggestions are wording signals, not query volumes; locale request en/AE does not establish UAE-specific demand. Empty lists are recorded literally.",
+  "api_status": "completed",
+  "authorized_identity": {
+    "verified": true,
+    "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+    "title": "HAMMAD YOUSUF"
+  },
+  "comparator": {
+    "query": "AI returns refund",
+    "params": {
+      "part": "snippet",
+      "q": "AI returns refund",
+      "order": "viewCount",
+      "publishedAfter": "2026-07-25T10:16:50.867304Z",
+      "publishedBefore": "2026-10-23T10:16:50.867304Z",
+      "type": "video",
+      "maxResults": 15,
+      "regionCode": "AE",
+      "relevanceLanguage": "en"
+    },
+    "http_status": 200,
+    "items": [
+      {
+        "video_id": "aO0FymO5hrY",
+        "url": "https://www.youtube.com/watch?v=aO0FymO5hrY",
+        "title": "قبل أن أعود الحلقة الاولى ❤️ #ai",
+        "channel": "    alhikayaai",
+        "published_at": "2026-10-04T03:32:46Z",
+        "description_excerpt": "اكسبلور #مسلسلات_رمضان_2021 #قصص_عراقية #مسلسلات_تركية #aistory #فولو #حيدر_وشجى #drama #قصة_عراقية #تيك_توك ...",
+        "view_count": 383213,
+        "duration": "PT2M2S"
+      },
+      {
+        "video_id": "5sY-HVO2Dlw",
+        "url": "https://www.youtube.com/watch?v=5sY-HVO2Dlw",
+        "title": "吃饭必看的暴爽动漫！家族纨绔激活返还系统，顶级功法全给族人，族人升级直接返还我十倍武力，横扫各路强敌！ #爽文 #动漫",
+        "channel": "玉儿漫剧",
+        "published_at": "2026-10-17T10:00:08Z",
+        "description_excerpt": "男频动漫#有声动漫#动态漫画#AI漫剧#末世#重生#修仙#中文动漫#异能#爆款#热门#修仙.",
+        "view_count": 257233,
+        "duration": "PT2H14M48S"
+      },
+      {
+        "video_id": "YRIYmXZe4BI",
+        "url": "https://www.youtube.com/watch?v=YRIYmXZe4BI",
+        "title": "Greg Eagles Says AI Impacted His Return To Crash Bandicoot",
+        "channel": "Love it Film",
+        "published_at": "2026-10-03T18:28:29Z",
+        "description_excerpt": "Our new episode is live! This week, I'm joined by the legendary actor and voice actor Greg Eagles, best known for voicing Grim in ...",
+        "view_count": 347741,
+        "duration": "PT30S"
+      },
+      {
+        "video_id": "8B2zl0VdiXI",
+        "url": "https://www.youtube.com/watch?v=8B2zl0VdiXI",
+        "title": "VISIONQUEST Episodes 1 & 2 REACTION - Ultron Is Stealing The Show! -Marvel Studios",
+        "channel": "Reel Rejects",
+        "published_at": "2026-10-14T03:00:19Z",
+        "description_excerpt": "Will this be better than WandaVision?! Help Give TRENDING's Pilot the Best Shot at Success! Support Their LIVE Kickstarter: ...",
+        "view_count": 293270,
+        "duration": "PT1H27M3S"
+      },
+      {
+        "video_id": "VWIkjucrbqU",
+        "url": "https://www.youtube.com/watch?v=VWIkjucrbqU",
+        "title": "THUNDERCATS: The Return - Chapter 1 (Dark Fantasy AI Adaptation)",
+        "channel": "Beyond What If",
+        "published_at": "2026-09-05T16:44:02Z",
+        "description_excerpt": "The ThunderCats have fallen. Mumm-Ra the Ever-Living rules Third Earth. This is a complete, fan-made CGI adaptation of the ...",
+        "view_count": 204281,
+        "duration": "PT10M1S"
+      },
+      {
+        "video_id": "F75hfLE4a2k",
+        "url": "https://www.youtube.com/watch?v=F75hfLE4a2k",
+        "title": "AI Just Crossed the Point of No Return",
+        "channel": "There's An AI For That",
+        "published_at": "2026-08-08T20:32:03Z",
+        "description_excerpt": "For over a year, Google has been running an AI called AlphaEvolve with a single mission: improve the company that built it.",
+        "view_count": 116530,
+        "duration": "PT13M38S"
+      },
+      {
+        "video_id": "GRbicl5BJK4",
+        "url": "https://www.youtube.com/watch?v=GRbicl5BJK4",
+        "title": "Brian O’Connor Will Return In Fast Forever With AI?!?",
+        "channel": "DoomBlazer",
+        "published_at": "2026-10-03T19:56:55Z",
+        "description_excerpt": "In this video, we learn Paul Walker might be revived through AI for Fast Forever… 🏎️ Follow Me On Social Media: Instagram: ...",
+        "view_count": 172240,
+        "duration": "PT2M47S"
+      },
+      {
+        "video_id": "xmi01ZQeupw",
+        "url": "https://www.youtube.com/watch?v=xmi01ZQeupw",
+        "title": "Zero to Alpha: Return of the Wolf King #RsBoost #aivideo #aishorts #ai",
+        "channel": "Dash Drama",
+        "published_at": "2026-07-27T08:41:24Z",
+        "description_excerpt": "CEO #Love #Mafia #Romance Unlock the Next Episode Search the title 【1895268】 on the RsBoost app Or tap the ...",
+        "view_count": 93608,
+        "duration": "PT2H5M37S"
+      },
+      {
+        "video_id": "MaPYR2j--9I",
+        "url": "https://www.youtube.com/watch?v=MaPYR2j--9I",
+        "title": "Baahubali 3: The Return | Official Fan Concept Teaser | AI Film",
+        "channel": "Kahani Jagat",
+        "published_at": "2026-09-10T13:15:02Z",
+        "description_excerpt": "Welcome to KahaniJagatt ❤️Experience an epic fan-made concept teaser of \"Baahubali 3: The Return,\" imagined using ...",
+        "view_count": 99721,
+        "duration": "PT1M21S"
+      },
+      {
+        "video_id": "mIXTo2mphBU",
+        "url": "https://www.youtube.com/watch?v=mIXTo2mphBU",
+        "title": "Zeus Was NOT Ready for Kratos’ Return 🔥 Original vs AI",
+        "channel": "Trickster LOKI",
+        "published_at": "2026-10-02T13:30:37Z",
+        "description_excerpt": "GodOfWar #GodOfWar2 #Kratos #Zeus #KratosVsZeus #AIRemake #OriginalVsAI #Shorts.",
+        "view_count": 149538,
+        "duration": "PT16S"
+      },
+      {
+        "video_id": "GP_BW_CPppQ",
+        "url": "https://www.youtube.com/watch?v=GP_BW_CPppQ",
+        "title": "Zero to Alpha: Return of the Wolf King  #reelshort #ai #aivideo",
+        "channel": "Cozy Drama",
+        "published_at": "2026-07-27T11:00:00Z",
+        "description_excerpt": "Continue the story here   Search the title 【1893476】 on Reelshort app or click the link：https://reelslink.com/cps/hNMyD2-014 ...",
+        "view_count": 73351,
+        "duration": "PT2H24M39S"
+      },
+      {
+        "video_id": "X0UCvByW_nY",
+        "url": "https://www.youtube.com/watch?v=X0UCvByW_nY",
+        "title": "THE RETURN — Episode 2 | Filipino AI Drama",
+        "channel": "SAMARI Stories AI",
+        "published_at": "2026-09-14T06:16:25Z",
+        "description_excerpt": "He told her to stop him. She decided to fight back. A battle for home was about to begin. A cinematic AI-generated story by ...",
+        "view_count": 114740,
+        "duration": "PT1M21S"
+      },
+      {
+        "video_id": "B1zQnRsIDHU",
+        "url": "https://www.youtube.com/watch?v=B1zQnRsIDHU",
+        "title": "Sonic's Ultimate Sacrifice! ⚡| Will He Return?#usa #catun #ai #robot#shorts #volg",
+        "channel": "ToonVerse AI",
+        "published_at": "2026-07-26T11:47:33Z",
+        "description_excerpt": "When a dangerous monster threatened the entire city, Sonic pushed beyond his limits to save everyone! ⚡ With an explosive ...",
+        "view_count": 97783,
+        "duration": "PT25S"
+      },
+      {
+        "video_id": "NPX-geJlsiQ",
+        "url": "https://www.youtube.com/watch?v=NPX-geJlsiQ",
+        "title": "【Ai Drama】The King’s Return: The Football Legend Who Hid for 15 Years.",
+        "channel": "Grand  Theater高雅剧院",
+        "published_at": "2026-07-27T14:15:09Z",
+        "description_excerpt": "Title: 《The King's Return》 Synopsis： Once the youngest Triple Crown Champion in football history, Meidon conquered the ...",
+        "view_count": 45810,
+        "duration": "PT1H35M48S"
+      },
+      {
+        "video_id": "47R8eeWAQ0U",
+        "url": "https://www.youtube.com/watch?v=47R8eeWAQ0U",
+        "title": "Ai ka use return Money 😁 #funny #shorts #shortsvideo",
+        "channel": "Nishu simar ",
+        "published_at": "2026-09-15T15:55:44Z",
+        "description_excerpt": "Ai ka use return Money #funny #shorts #shortsvideo #funny #funnyvideo #funnyshorts #funnycomedy #comedy #comedyshorts ...",
+        "view_count": 57627,
+        "duration": "PT46S"
+      }
+    ]
+  },
+  "quota_note": "At most2 search.list calls combined across both topics;1 channels.list identity check and at most1 batched videos.list.202 units using older100-unit/search accounting, below300; current official search docs use a separate Search Queries bucket. No repeated search retries.",
+  "sources": [
+    "https://developers.google.com/youtube/v3/docs/search/list",
+    "https://developers.google.com/youtube/v3/docs/videos",
+    "https://support.google.com/youtube/answer/12948449?hl=en",
+    "https://support.google.com/youtube/answer/146402?hl=en-EN",
+    "https://support.google.com/youtube/answer/6390658?hl=en"
+  ],
+  "primary_keyword": "AI personal assistant",
+  "keywords": [
+    {
+      "term": "AI personal assistant",
+      "evidence": "Autocomplete seed ai personal assistant: exact term rank1, app rank3, for business rank10.",
+      "intent": "Broad assistant use-case discovery; primary descriptor."
+    },
+    {
+      "term": "AI shopping assistant",
+      "evidence": "Autocomplete seed ai shopping assistant: exact term rank1, demo rank2.",
+      "intent": "Adjacent shopping interest, not proof of returns intent."
+    },
+    {
+      "term": "check return deadlines",
+      "evidence": "Editorial description of the verified script. return deadline autocomplete produced tax queries, not shopping returns.",
+      "intent": "Precise user outcome; no demand claim."
+    },
+    {
+      "term": "return policy / possible returns",
+      "evidence": "Script/fact-led wording. ai return policy returned no suggestions; ai returns and ai refund were mostly unrelated entertainment/product-refund queries.",
+      "intent": "Clarify eligibility checking without promising a refund."
+    }
+  ],
+  "selected_comparators": [],
+  "title_patterns": [
+    "No relevant recent comparator was established from the bounded API sample. Do not claim a winning returns title pattern.",
+    "Recommended editorial pattern: broad assistant keyword + specific action + deadline context.",
+    "Avoid guaranteed-refund, saved-money, fully-automatic or universally-available product claims."
+  ],
+  "hashtags": [
+    {
+      "tag": "#AIAssistant",
+      "why": "Accurate broad topic, related to autocomplete."
+    },
+    {
+      "tag": "#AIWorkflows",
+      "why": "Accurate instructional genre, not a demand estimate."
+    },
+    {
+      "tag": "#Shorts",
+      "why": "Optional format label; no reach guarantee."
+    }
+  ],
+  "rules": [
+    {
+      "rule": "Title maximum100 characters; keep proposed titles under60 as an editorial target, not a guaranteed display cutoff.",
+      "source": "https://developers.google.com/youtube/v3/docs/videos"
+    },
+    {
+      "rule": "Description API maximum5000 UTF-8 bytes; Help guidance says5000 characters. Draft stays well below both.",
+      "source": "https://developers.google.com/youtube/v3/docs/videos"
+    },
+    {
+      "rule": "Use the opening lines to explain the video; choose1–2 main topic terms naturally.",
+      "source": "https://support.google.com/youtube/answer/12948449?hl=en"
+    },
+    {
+      "rule": "Tags have minimal discovery value except useful misspellings; title, thumbnail and description matter more.",
+      "source": "https://support.google.com/youtube/answer/146402?hl=en-EN"
+    },
+    {
+      "rule": "Up to3 description hashtags may appear by the title; this is not a limit of3 total. More than60 hashtags makes all ignored. Use3 relevant tags; #Shorts is optional formatting, not a promised ranking boost.",
+      "source": "https://support.google.com/youtube/answer/6390658?hl=en"
+    },
+    {
+      "rule": "Do not describe selected videos as a universal winning pattern. Search sorted by viewCount with date filters can yield incomplete/non-monotonic index results; raw sample is retained.",
+      "source": "https://developers.google.com/youtube/v3/docs/search/list"
+    },
+    {
+      "rule": "No chapters proposed for these short single-flow drafts; this is an editorial choice, not a claimed Shorts prohibition.",
+      "source": null
+    },
+    {
+      "rule": "Keep AI avatar of me disclosure. No live-resource URL, comment-DM promise, automatic return or savings guarantee; owner review first.",
+      "source": "Owner scope and current lesson/facts."
+    }
+  ],
+  "limitations": [
+    "The90-day AI returns refund API query returned15 largely unrelated results: entertainment return plots, game/film news and AI dramas. None is used as direct evidence for shopping-return demand.",
+    "Autocomplete ai returns primarily concerns entertainment; ai refund primarily concerns refunds for AI products; return deadline concerns tax returns.",
+    "No reliable query-volume, CTR, competition or recent directly relevant comparator evidence within the three-minute bound.",
+    "The specific return-check wording is justified by content accuracy, not a measured trend."
+  ],
+  "recommendation": {
+    "title": "AI Personal Assistant: Check Return Deadlines",
+    "title_characters": 45,
+    "alternate_title": "Use AI to Check Possible Returns Before the Deadline",
+    "alternate_title_characters": 52,
+    "description_draft": "AI personal assistant workflow: check possible returns, deadlines and the exact retailer policy.\nReview dates, conditions, fees and the request draft before any action. A request is not a refund.\n\nAI avatar of me.\nSave this workflow, and subscribe for more practical AI tips.",
+    "tags": [
+      "AI personal assistant",
+      "return deadlines",
+      "return policy",
+      "AI workflow"
+    ],
+    "cta": "Save the workflow and subscribe. No deployed resource, DM, or action promise."
+  },
+  "inaccessible_sources": [
+    "Initial bare YouTube Help URLs for tags and hashtags timed out in web.open; official indexed versions with language parameters were subsequently available."
+  ],
+  "research_finished_at": "2026-10-23T10:18:59.508549+00:00"
+}

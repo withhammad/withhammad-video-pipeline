@@ -1,0 +1,93 @@
+{
+  "language": "en",
+  "topic_title": "Check returns with AI",
+  "hook": "Before another return deadline slips past, let your AI help you check what is still eligible.",
+  "key_takeaways": [
+    "Check exact merchant policy, dates, fees and missing information.",
+    "Review a request before any external action; a request is not a refund."
+  ],
+  "script": {
+    "estimated_seconds": 79,
+    "segments": [
+      {
+        "spoken": "Before another return deadline slips past, let your AI help you check what is still eligible.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Agents like Muse, Instinct, and dots need your approved access.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Find recent purchases, check return policies, and list possible returns with deadlines and source links.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Have it include order and delivery dates, item condition, fees, and anything it cannot verify, because a receipt on its own may not establish whether a return is still eligible.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Sort the list by deadline, so a forgotten purchase does not disappear under another week of email.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "Then choose the item numbers and ask for a return request draft. Make it show the next step before sending anything, cancelling anything, or accepting a charge.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "For a pair of glasses, that means checking the exact policy, preparing the request, and showing you the next step. A return label depends on the retailer, and a request is not a refund.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "You still need to check the details and send the item back. The useful part is cutting down all that admin.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "For business software, audit upcoming renewals and check the contract before cancelling.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      },
+      {
+        "spoken": "I’m Hammad. Save this prompt, and follow for practical AI workflows you can actually use.",
+        "on_screen_text": "Check returns with AI",
+        "visual": "avatar+caption"
+      }
+    ]
+  },
+  "demo_steps": [
+    "Check exact merchant policy, dates, fees and missing information.",
+    "Review a request before any external action; a request is not a refund."
+  ],
+  "prompts": [],
+  "tool_links": [],
+  "captions": {
+    "instagram": "Check returns with AI\nSave this for later.\nAI avatar of me.",
+    "youtube_title": "Check returns with AI",
+    "youtube_description": "Check returns with AI\nSave this workflow. AI avatar of me.",
+    "tiktok": "Check returns with AI\nAI avatar of me.",
+    "linkedin": "Check returns with AI\nAI avatar of me."
+  },
+  "hashtags": [
+    "AIWorkflows"
+  ],
+  "manychat_keyword": "RETURNS",
+  "resource_page": {
+    "slug": "ai-return-check",
+    "title": "Check returns with AI",
+    "body_markdown": "# AI return-check prompts\n\nReview draft; not published.\n\n## Find possible returns\n\nReview the receipts I provide. List possible returns with item number, order and delivery dates, deadline, condition requirements, shipping/restocking fees, source policy links, and information you cannot verify. Sort by deadline. Do not submit or send anything.\n\n## Prepare one request\n\nFor item [number], check the exact retailer policy and prepare a return-request draft. Show the proposed next action and any fees. Wait for my approval before sending, submitting, cancelling or accepting a charge.\n\nA receipt alone may not establish eligibility. A request is not a refund. Account access, tools and regional availability vary. Use the actual merchant policy, not a generic return window.\n"
+  },
+  "sources_checked": [
+    {
+      "claim": "Reference mechanism inspected; original adaptation uses different wording and owner identity.",
+      "url": "https://www.youtube.com/shorts/NYR3ccvCOEQ"
+    }
+  ],
+  "originality_note": "Original script, owner avatar and new graphics; third-party media used for analysis only."
+}

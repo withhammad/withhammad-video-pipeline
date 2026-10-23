@@ -1,0 +1,11 @@
+{
+  "video_id": "c14ec3890c96048a070f753aabee4ecb",
+  "status": "completed_downloaded",
+  "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
+  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "engine": "avatar_v",
+  "speed": 1.0,
+  "review_only": true,
+  "source_file": "avatar-source-captioned.mp4",
+  "download_note": "Captioned source; original bottom caption band excluded from final frame with a lower-edge mask; new safe-zone captions use source SRT."
+}

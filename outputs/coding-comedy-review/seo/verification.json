@@ -1,0 +1,149 @@
+{
+  "verified_at": "2026-10-23T10:48:44.199438+00:00",
+  "phase": "seo-pack Verify",
+  "status": "copy_checks_passed_owner_review_pending",
+  "owner_approved": false,
+  "publishing_authorized": false,
+  "scheduling_authorized": false,
+  "scope": "SEO JSON/Markdown copy verification only. No source edits, render, upload, scheduling, website or DM action.",
+  "inputs": [
+    {
+      "file": "script.txt",
+      "sha256": "1ee42c622fb44b44f347a8a237a912ea7077d1ac59644aa48f409047d1d975a2"
+    },
+    {
+      "file": "lesson.json",
+      "sha256": "33f978ed358ab051dd7cbd4c35ba9ed22a643789d49c786813589b7af0aa4e94"
+    },
+    {
+      "file": "analysis/facts.md",
+      "sha256": "0ed42abc22c47ec3e103f0e1a3de3f09e7d4d87986bc2a3875c896eefacd6aaa"
+    },
+    {
+      "file": "analysis/spec.md",
+      "sha256": "c2c78a82a4c83a7860f15b5413f5e4dd5fb869c3b0e6d02bcc0d02aa20969305"
+    },
+    {
+      "file": "analysis/spec.json",
+      "sha256": "1ccef98273e3e31b0ea5cee96af55abe0e5df0c197d0bedfd13f985bcfe376b3"
+    }
+  ],
+  "roadmap_lesson_json": null,
+  "fact_review": "One-word/24-file premise and escalating features match current script. Counts are explicitly fictional; no named-product benchmark or universal overengineering claim.",
+  "checks": {
+    "owner_review_pending": true,
+    "publishing_disabled": true,
+    "all_applicable_disclosures_present": true,
+    "no_public_resource_urls": true,
+    "no_delivery_or_live_promises": true,
+    "all_have_save_or_bookmark_cta": true,
+    "all_have_follow_or_subscribe_cta": true,
+    "instagram_under_repository_2200_budget": true,
+    "instagram_conservative_hashtag_count": true,
+    "linkedin_under_3000": true,
+    "tiktok_under_applicable_api_limit": true,
+    "facebook_under_editorial_2200_budget": true,
+    "x_under_280_weighted": true,
+    "youtube_title_under_100": true,
+    "youtube_title_under_editorial_70": true,
+    "youtube_description_under_5000_bytes": true,
+    "youtube_tags_under_500": true,
+    "no_new_unsupported_quantitative_claims": true
+  },
+  "counts": {
+    "instagram": 509,
+    "linkedin": 623,
+    "tiktok": 346,
+    "facebook": 503,
+    "x": 220,
+    "x_weighted": 220,
+    "tiktok_utf16": 346,
+    "youtube_title": 34,
+    "youtube_description_utf8_bytes": 475,
+    "youtube_tags_aggregate": 85
+  },
+  "fixes": [
+    {
+      "field": "instagram.caption",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "linkedin.text",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "tiktok.caption",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "facebook.caption",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "x.post",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    },
+    {
+      "field": "youtube.description",
+      "change": "Added/repeated save or bookmark CTA near opening and closing while retaining factual wording, disclosure and follow/subscribe CTA."
+    }
+  ],
+  "outside_seo_findings": [
+    {
+      "status": "resolved_by_parent",
+      "files": [
+        "analysis/spec.md:21",
+        "analysis/spec.json:91",
+        "analysis/spec.json:104",
+        "analysis/spec.json:107"
+      ],
+      "finding": "Parent replaced three-words dialogue/emphasis with one word. Verifier confirmed current script/spec match; no outside-SEO edits made."
+    }
+  ],
+  "sources": [
+    {
+      "platform": "YouTube",
+      "source": "https://developers.google.com/youtube/v3/docs/videos",
+      "verified": "Title 100 characters; description 5000 UTF-8 bytes; aggregate tags 500 characters with separator/space quoting rules."
+    },
+    {
+      "platform": "LinkedIn",
+      "source": "https://www.linkedin.com/help/lms/answer/a528176",
+      "verified": "Post limit 3000 characters."
+    },
+    {
+      "platform": "TikTok video",
+      "source": "https://developers.tiktok.com/docs/en/content-posting-api-reference-direct-post",
+      "verified": "Video caption 2200 UTF-16 units."
+    },
+    {
+      "platform": "TikTok photo",
+      "source": "https://developers.tiktok.com/docs/en/content-posting-api-reference-photo-post",
+      "verified": "Photo title 90 UTF-16 units; description 4000 UTF-16 units."
+    },
+    {
+      "platform": "X",
+      "source": "https://docs.x.com/fundamentals/counting-characters",
+      "verified": "Ordinary post 280 weighted characters; NFC; URLs 23. No URLs or emoji sequences in these drafts."
+    },
+    {
+      "platform": "Instagram",
+      "source": "https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media",
+      "verified": null,
+      "limitation": "Direct official retrieval returned 429; 2200-character budget follows repository guidance, with 3–4 hashtags as conservative editorial choice, not a freshly verified universal cap."
+    },
+    {
+      "platform": "Facebook",
+      "source": null,
+      "verified": null,
+      "limitation": "Current exact surface limit not independently retrieved; drafts checked against conservative 2200-character editorial budget. Verify final composer before any later authorized publication."
+    }
+  ],
+  "limitations": [
+    "Instagram official limit page returned 429; no fresh claim that a universal five-hashtag cap was verified. Three or four tags retained.",
+    "Facebook exact composer limit not independently fetched; copy is below conservative 2200-character editorial budget.",
+    "This is not owner approval or a final-video/frame/accessibility QA pass. Verify actual exported media, spoken captions, labels, crop and platform disclosure controls before any later authorized publication."
+  ],
+  "final_asset_check": "pending in main workflow",
+  "required_owner_action": "Review the carousel, videos and proposed copy before publication or scheduling."
+}

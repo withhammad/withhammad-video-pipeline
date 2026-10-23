@@ -1,0 +1,211 @@
+{
+  "fps": 30,
+  "duration": 49.239999999999995,
+  "clips": [
+    {
+      "from": 0,
+      "duration": 96,
+      "start": 0,
+      "end": 3.2,
+      "kind": "take"
+    },
+    {
+      "from": 96,
+      "duration": 90,
+      "start": 3.2,
+      "end": 3.2,
+      "kind": "cascade"
+    },
+    {
+      "from": 186,
+      "duration": 300,
+      "start": 3.2,
+      "end": 13.2,
+      "kind": "take"
+    },
+    {
+      "from": 486,
+      "duration": 36,
+      "start": 13.2,
+      "end": 13.2,
+      "kind": "languages"
+    },
+    {
+      "from": 522,
+      "duration": 240,
+      "start": 13.2,
+      "end": 21.2,
+      "kind": "take"
+    },
+    {
+      "from": 762,
+      "duration": 39,
+      "start": 21.2,
+      "end": 21.2,
+      "kind": "database"
+    },
+    {
+      "from": 801,
+      "duration": 132,
+      "start": 21.2,
+      "end": 25.6,
+      "kind": "take"
+    },
+    {
+      "from": 933,
+      "duration": 39,
+      "start": 25.6,
+      "end": 25.6,
+      "kind": "profile"
+    },
+    {
+      "from": 972,
+      "duration": 168,
+      "start": 25.6,
+      "end": 31.2,
+      "kind": "take"
+    },
+    {
+      "from": 1140,
+      "duration": 54,
+      "start": 31.2,
+      "end": 31.2,
+      "kind": "error"
+    },
+    {
+      "from": 1194,
+      "duration": 108,
+      "start": 31.2,
+      "end": 34.8,
+      "kind": "take"
+    },
+    {
+      "from": 1302,
+      "duration": 60,
+      "start": 34.8,
+      "end": 34.8,
+      "kind": "cascade2"
+    },
+    {
+      "from": 1362,
+      "duration": 55,
+      "start": 34.8,
+      "end": 36.64,
+      "kind": "take"
+    },
+    {
+      "from": 1417,
+      "duration": 60,
+      "start": 36.64,
+      "end": 36.64,
+      "kind": "ending"
+    }
+  ],
+  "captions": [
+    {
+      "startMs": 0,
+      "endMs": 1950,
+      "text": "Rename this button to Start, please."
+    },
+    {
+      "startMs": 2080,
+      "endMs": 2980,
+      "text": "Already building."
+    },
+    {
+      "startMs": 6450,
+      "endMs": 7580,
+      "text": "Twenty-four files?"
+    },
+    {
+      "startMs": 8370,
+      "endMs": 9530,
+      "text": "I asked for one word."
+    },
+    {
+      "startMs": 10110,
+      "endMs": 11630,
+      "text": "I added translation support."
+    },
+    {
+      "startMs": 12630,
+      "endMs": 13330,
+      "text": "For one word?"
+    },
+    {
+      "startMs": 13580,
+      "endMs": 14500,
+      "text": "Every button,"
+    },
+    {
+      "startMs": 14690,
+      "endMs": 15790,
+      "text": "in thirty languages."
+    },
+    {
+      "startMs": 17650,
+      "endMs": 18990,
+      "text": "This is a one-page demo."
+    },
+    {
+      "startMs": 19520,
+      "endMs": 20620,
+      "text": "You can expand now."
+    },
+    {
+      "startMs": 21440,
+      "endMs": 22880,
+      "text": "And this customer database?"
+    },
+    {
+      "startMs": 23650,
+      "endMs": 25200,
+      "text": "It saves their preferred language."
+    },
+    {
+      "startMs": 26960,
+      "endMs": 28790,
+      "text": "Fine. Show me Start."
+    },
+    {
+      "startMs": 29410,
+      "endMs": 30710,
+      "text": "You'll need a profile first."
+    },
+    {
+      "startMs": 32710,
+      "endMs": 33450,
+      "text": "A profile,"
+    },
+    {
+      "startMs": 33790,
+      "endMs": 34960,
+      "text": "just to read my button?"
+    },
+    {
+      "startMs": 35610,
+      "endMs": 36850,
+      "text": "And a verified email."
+    },
+    {
+      "startMs": 37370,
+      "endMs": 37770,
+      "text": "Ah."
+    },
+    {
+      "startMs": 40250,
+      "endMs": 41980,
+      "text": "Nobody connected the mail service."
+    },
+    {
+      "startMs": 42380,
+      "endMs": 43130,
+      "text": "I'll handle that."
+    },
+    {
+      "startMs": 45530,
+      "endMs": 47020,
+      "text": "Stop renovating the internet!"
+    }
+  ]
+}

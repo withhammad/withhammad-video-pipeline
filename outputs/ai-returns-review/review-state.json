@@ -1,0 +1,12 @@
+{
+  "status": "awaiting_owner_review",
+  "publishing_authorized": false,
+  "scheduling_authorized": false,
+  "reference_job": "fd7218f0a2e4",
+  "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
+  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "voice_speed": 1.0,
+  "source_spec": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/fd7218f0a2e4/analysis/spec.json",
+  "public_repository_push_authorized": false,
+  "owner_instruction": "Do not publish; owner needs to review first."
+}

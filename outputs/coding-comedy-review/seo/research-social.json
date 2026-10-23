@@ -1,0 +1,268 @@
+{
+  "status": "research_review_only",
+  "checked_at_utc": "2026-10-23T10:19:40.156475+00:00",
+  "research_budget_minutes": 3,
+  "primary_keyword": "AI coding skit",
+  "keywords": [
+    {
+      "term": "AI coding skit",
+      "evidence": "Editorial topic match; no exact autocomplete suggestion.",
+      "intent": "Recognize the fictional comedy format",
+      "search_volume": null,
+      "seed": null,
+      "rank": null
+    },
+    {
+      "term": "coding with ai",
+      "evidence": "Google autocomplete for “coding with ai”, returned position 1 on 2026-10-23.",
+      "intent": "AI-assisted development",
+      "search_volume": null,
+      "seed": "coding with ai",
+      "rank": 1
+    },
+    {
+      "term": "common ai coding mistakes",
+      "evidence": "Google autocomplete for “ai coding mistakes”, returned position 2 on 2026-10-23.",
+      "intent": "Avoid scope and review mistakes",
+      "search_volume": null,
+      "seed": "ai coding mistakes",
+      "rank": 2
+    },
+    {
+      "term": "vibe coding",
+      "evidence": "Google autocomplete for “vibe coding”, returned position 1 on 2026-10-23.",
+      "intent": "Recognizable coding culture/topic",
+      "search_volume": null,
+      "seed": "vibe coding",
+      "rank": 1
+    }
+  ],
+  "autocomplete": [
+    {
+      "seed": "coding with ai",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=coding%20with%20ai",
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "coding with ai"
+        },
+        {
+          "rank": 2,
+          "term": "coding with ai course"
+        },
+        {
+          "rank": 3,
+          "term": "coding with ai for dummies"
+        },
+        {
+          "rank": 4,
+          "term": "coding with ai planning to production"
+        },
+        {
+          "rank": 5,
+          "term": "coding with ai reddit"
+        },
+        {
+          "rank": 6,
+          "term": "coding with ai for dummies pdf"
+        },
+        {
+          "rank": 7,
+          "term": "coding with ai book"
+        },
+        {
+          "rank": 8,
+          "term": "coding with ai agents"
+        },
+        {
+          "rank": 9,
+          "term": "coding with ai planning to production free download"
+        },
+        {
+          "rank": 10,
+          "term": "coding with ai name"
+        }
+      ],
+      "search_volume": null
+    },
+    {
+      "seed": "ai coding mistakes",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=ai%20coding%20mistakes",
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "ai coding mistakes"
+        },
+        {
+          "rank": 2,
+          "term": "common ai coding mistakes"
+        }
+      ],
+      "search_volume": null
+    },
+    {
+      "seed": "vibe coding",
+      "url": "https://suggestqueries.google.com/complete/search?client=firefox&q=vibe%20coding",
+      "suggestions": [
+        {
+          "rank": 1,
+          "term": "vibe coding"
+        },
+        {
+          "rank": 2,
+          "term": "vibe coding ما هو"
+        },
+        {
+          "rank": 3,
+          "term": "vibe coding jobs"
+        },
+        {
+          "rank": 4,
+          "term": "vibe coding شرح"
+        },
+        {
+          "rank": 5,
+          "term": "vibe coding معنى"
+        },
+        {
+          "rank": 6,
+          "term": "vibe coding ai"
+        },
+        {
+          "rank": 7,
+          "term": "vibe coding course"
+        },
+        {
+          "rank": 8,
+          "term": "vibe coding بالعربي"
+        },
+        {
+          "rank": 9,
+          "term": "vibe coding tools"
+        },
+        {
+          "rank": 10,
+          "term": "vibe coding with ibm bob"
+        }
+      ],
+      "search_volume": null
+    }
+  ],
+  "title_patterns": [
+    "AI coding skit: [small request] becomes [absurd project]",
+    "When AI turns one edit into a whole product"
+  ],
+  "hashtags": [
+    {
+      "tag": "#AICoding",
+      "why": "Exact subject",
+      "size_verified": false
+    },
+    {
+      "tag": "#VibeCoding",
+      "why": "Relevant coding culture term observed in autocomplete",
+      "size_verified": false
+    },
+    {
+      "tag": "#DeveloperHumor",
+      "why": "Clearly identifies comedy",
+      "size_verified": false
+    },
+    {
+      "tag": "#SoftwareDevelopment",
+      "why": "Audience context",
+      "size_verified": false
+    }
+  ],
+  "caption_recommendations": {
+    "instagram": "AI coding skit: when a one-word edit becomes a whole product.\n\nThe file counts and conversation are fictional. The useful takeaway: define the exact change, keep unrelated features out of scope, and review the result.\n\nSave this for your next tiny edit. Follow for practical AI workflows.\nAI avatar of me.",
+    "tiktok": "AI coding skit: I asked for one word. It built an onboarding flow. Fictional example. Save the reminder: set the scope and review the diff. Follow for practical AI workflows. AI avatar of me.",
+    "facebook": "One small AI coding request, one very ambitious fictional assistant. This is a skit, not a product benchmark.\n\nDefine the change, keep extras out of scope, and review what changed. Save the reminder and follow for practical AI workflows.\nAI avatar of me."
+  },
+  "alt_text_recommendation": "Draft description to verify against the finished video: Hammad’s AI avatar performs a fictional conversation about changing a button label to “Start”. Original graphics show the request expanding into translation support, profiles and email verification. The closing joke is “Stop renovating the internet!”",
+  "alt_text_by_slide": [],
+  "rules": [
+    "Review only. No publishing, scheduling, website edits, DM delivery promises or live-resource claims.",
+    "Google autocomplete is a public wording/relevance proxy, not Instagram/TikTok/Facebook search volume. Returned rank is suggestion position, not measured demand or predicted reach.",
+    "No locale or language parameter was fixed; these are endpoint results from this environment, not UAE-only audience analytics. Arabic suggestions are retained as observed, not translated into inferred volumes.",
+    "Use a clear topic phrase in the first line. Keeping that line under 125 characters is an editorial readability target, not a verified universal truncation rule.",
+    "Use three or four relevant hashtags; exact current Instagram cap could not be retrieved directly. No hashtag size, banned-tag status, or performance rank was verified.",
+    "Alt text should describe visible information and meaningful text, not repeat hashtags or imply hidden actions. For video, retain accurate captions and a descriptive post summary; do not assume a custom Reel alt-text field exists.",
+    "Keep content original. Mark fictional coding counters as skit props and hypothetical return data as examples.",
+    "Use the platform AI disclosure controls when applicable at eventual authorized publication. Avatar videos also get a plain caption disclosure; verify portrait provenance for the static carousel.",
+    "No private account analytics, live competitor engagement, TikTok Creator Search Insights metrics or regional posting-time evidence was acquired."
+  ],
+  "claim_cautions": [
+    "Do not describe 24 files or 30 languages as a measured real result.",
+    "Do not imply a free skills pack or scope-checklist DM is available.",
+    "Do not attribute this fictional behavior universally to Claude, Codex or any model."
+  ],
+  "sources": [
+    {
+      "url": "https://newsroom.tiktok.com/creator-search-insights?lang=en",
+      "type": "primary",
+      "status": "retrieved",
+      "finding": "TikTok describes searched-topic discovery and content-gap filters. No account-specific topic metrics were accessed."
+    },
+    {
+      "url": "https://about.fb.com/news/2026/03/rewarding-original-creators-on-facebook/",
+      "type": "primary",
+      "status": "retrieved",
+      "finding": "Meta prioritizes original creator content; superficial edits of others’ posts may be deprioritized."
+    },
+    {
+      "url": "https://about.fb.com/news/2025/04/cracking-down-spammy-content-facebook/",
+      "type": "primary",
+      "status": "retrieved",
+      "finding": "Meta discourages unrelated captions and excessive hashtag spam."
+    },
+    {
+      "url": "https://help.instagram.com/351460621611097",
+      "type": "primary",
+      "status": "429 Too Many Requests",
+      "finding": "Five-hashtag cap not directly verified in this bounded pass. Use three or four relevant tags as conservative editorial guidance."
+    },
+    {
+      "url": "https://about.instagram.com/blog/announcements/break-down-how-instagram-search-works",
+      "type": "primary",
+      "status": "429 Too Many Requests",
+      "finding": "Current search-ranking claims not independently reverified here."
+    },
+    {
+      "url": "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+      "type": "primary",
+      "status": "429 Too Many Requests",
+      "finding": "Unavailable; no precise current ranking weights asserted."
+    },
+    {
+      "url": "https://support.tiktok.com/en/using-tiktok/growing-your-audience/creator-search-insights",
+      "type": "primary",
+      "status": "robots.txt denied",
+      "finding": "Newsroom source used for basic tool description only."
+    },
+    {
+      "url": "https://support.tiktok.com/en/using-tiktok/creating-videos/accessibility",
+      "type": "primary",
+      "status": "robots.txt denied",
+      "finding": "Accessibility recommendations below are editorial; current exact upload fields not verified."
+    },
+    {
+      "url": "https://ads.tiktok.com/business/creativecenter/inspiration/popular/hashtag/pc/en",
+      "type": "primary",
+      "status": "redirected to https://ads.tiktok.com/creative/creativeCenter/trends; login shell only",
+      "finding": "No topic hashtag counts or search volumes visible."
+    },
+    {
+      "url": "https://www.facebook.com/help/273947702950567",
+      "type": "primary",
+      "status": "login redirect / temporarily blocked message",
+      "finding": "No current accessibility-field instruction inferred."
+    }
+  ],
+  "limitations": [
+    "Initial Python urllib fetch failed certificate validation; system curl succeeded with normal TLS verification. No verification was disabled.",
+    "No account access used. Primary Instagram cap/search pages and TikTok support pages inaccessible; exact current rules remain unverified.",
+    "Reference captions and local facts provide content context, not evidence of audience performance."
+  ],
+  "publishing_authorized": false
+}
