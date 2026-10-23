@@ -1,0 +1,529 @@
+{
+ "fps": 30,
+ "frames": 1737,
+ "av": 0.1,
+ "units": [
+  {
+   "kind": "hook",
+   "from": 0,
+   "to": 51,
+   "k3": 13
+  },
+  {
+   "kind": "rec",
+   "from": 51,
+   "to": 140,
+   "src": "R01_hf_modelsize.mp4",
+   "srcStart": 0.3,
+   "h": 540,
+   "num": "2.78T",
+   "numAt": 51,
+   "count": [
+    0,
+    2.78,
+    "T",
+    2
+   ],
+   "unit": "parameters",
+   "unitAt": 98
+  },
+  {
+   "kind": "broll",
+   "from": 140,
+   "to": 187,
+   "src": "cpu.mp4",
+   "chip": [
+    [
+     "0",
+     151,
+     true
+    ],
+    [
+     " GPUs",
+     160,
+     false
+    ]
+   ]
+  },
+  {
+   "kind": "broll",
+   "from": 187,
+   "to": 239,
+   "src": "ram.mp4",
+   "chip": [
+    [
+     "8",
+     187,
+     true
+    ],
+    [
+     " GB",
+     197,
+     false
+    ],
+    [
+     " RAM",
+     213,
+     false
+    ]
+   ]
+  },
+  {
+   "kind": "rule",
+   "from": 239,
+   "to": 362,
+   "flip": 272,
+   "outline": 290,
+   "big": 304,
+   "need": 320,
+   "strike": 341
+  },
+  {
+   "kind": "fullrec",
+   "from": 362,
+   "to": 439,
+   "src": "R02_hf_shards.mp4",
+   "srcStart": 1.6,
+   "dim": 392,
+   "chipAt": 403
+  },
+  {
+   "kind": "ring",
+   "from": 439,
+   "to": 526,
+   "countAt": 470,
+   "of": 497
+  },
+  {
+   "kind": "broll",
+   "from": 526,
+   "to": 553,
+   "src": "ssd.mp4",
+   "chip": [
+    [
+     "Experts",
+     530,
+     false
+    ]
+   ],
+   "serif": true
+  },
+  {
+   "kind": "broll",
+   "from": 553,
+   "to": 598,
+   "src": "dock.mp4",
+   "chip": [
+    [
+     "Fast",
+     553,
+     true
+    ],
+    [
+     " SSD",
+     563,
+     false
+    ]
+   ]
+  },
+  {
+   "kind": "rec",
+   "from": 598,
+   "to": 692,
+   "src": "R03_hf_experts.mp4",
+   "srcStart": 0.4,
+   "h": 540,
+   "num": "16",
+   "numAt": 637,
+   "unit": "of 896 experts",
+   "unitAt": 651,
+   "sub": "per layer",
+   "subAt": 670,
+   "sweep": {
+    "at": 637,
+    "x": 700,
+    "y": 196,
+    "w": 300,
+    "h": 56
+   }
+  },
+  {
+   "kind": "collapse",
+   "from": 692,
+   "to": 808,
+   "tb": 707,
+   "runs": 761,
+   "eight": 778,
+   "gb": 788
+  },
+  {
+   "kind": "same",
+   "from": 808,
+   "to": 897,
+   "more": 814,
+   "rows": 851,
+   "check": 879
+  },
+  {
+   "kind": "catch",
+   "from": 897,
+   "to": 946,
+   "slow": 916
+  },
+  {
+   "kind": "broll",
+   "from": 946,
+   "to": 1026,
+   "src": "typing.mp4",
+   "countTo": 30,
+   "chip": [
+    [
+     "30",
+     946,
+     true
+    ],
+    [
+     " seconds",
+     958,
+     false
+    ]
+   ],
+   "line2": [
+    " per token",
+    975
+   ],
+   "line3": [
+    "on a fast server",
+    992
+   ]
+  },
+  {
+   "kind": "rec",
+   "from": 1026,
+   "to": 1094,
+   "src": "R05_hf_size.mp4",
+   "srcStart": 0.2,
+   "h": 780,
+   "num": "1.56 TB",
+   "numAt": 1026,
+   "unit": "+ 109 GB",
+   "unitAt": 1045,
+   "swap": [
+    "= 1.7 TB free",
+    1067
+   ]
+  },
+  {
+   "kind": "hours",
+   "from": 1094,
+   "to": 1147,
+   "hours": 1101,
+   "note": 1120
+  },
+  {
+   "kind": "terminal",
+   "from": 1147,
+   "to": 1256,
+   "jetson": 1172,
+   "hdd": 1204,
+   "clock": 1231,
+   "clockEnd": 1256
+  },
+  {
+   "kind": "drive",
+   "from": 1256,
+   "to": 1334,
+   "numAt": 1281,
+   "unitAt": 1309
+  },
+  {
+   "kind": "tools",
+   "from": 1334,
+   "to": 1447,
+   "cards": [
+    1353,
+    1367,
+    1376
+   ],
+   "proof": 1406
+  },
+  {
+   "kind": "wall",
+   "from": 1447,
+   "to": 1542,
+   "build": 1454,
+   "moved": 1505,
+   "disk": 1523
+  },
+  {
+   "kind": "rec",
+   "from": 1542,
+   "to": 1633,
+   "src": "R07_gh_about.mp4",
+   "srcStart": 0.0,
+   "h": 600,
+   "num": "8.24 GB",
+   "numAt": 1584,
+   "unit": "of RAM",
+   "unitAt": 1610,
+   "credit": true
+  },
+  {
+   "kind": "cta",
+   "from": 1633,
+   "to": 1737
+  }
+ ],
+ "captions": [
+  {
+   "from": 0,
+   "to": 39,
+   "text": "Kimi K3"
+  },
+  {
+   "from": 41,
+   "to": 98,
+   "text": "all 2.78 trillion"
+  },
+  {
+   "from": 98,
+   "to": 134,
+   "text": "parameters of it"
+  },
+  {
+   "from": 134,
+   "to": 176,
+   "text": "runs with no GPU"
+  },
+  {
+   "from": 176,
+   "to": 229,
+   "text": "on 8 gigs of RAM"
+  },
+  {
+   "from": 239,
+   "to": 272,
+   "text": "one developer's trick"
+  },
+  {
+   "from": 272,
+   "to": 296,
+   "text": "breaks the rule"
+  },
+  {
+   "from": 296,
+   "to": 320,
+   "text": "that big models"
+  },
+  {
+   "from": 320,
+   "to": 362,
+   "text": "need huge memory"
+  },
+  {
+   "from": 362,
+   "to": 392,
+   "text": "because most of it"
+  },
+  {
+   "from": 392,
+   "to": 433,
+   "text": "never sits in RAM"
+  },
+  {
+   "from": 439,
+   "to": 466,
+   "text": "the experts"
+  },
+  {
+   "from": 470,
+   "to": 523,
+   "text": "93% of the file"
+  },
+  {
+   "from": 526,
+   "to": 539,
+   "text": "stay parked"
+  },
+  {
+   "from": 539,
+   "to": 583,
+   "text": "on a fast SSD"
+  },
+  {
+   "from": 593,
+   "to": 626,
+   "text": "and each token reads"
+  },
+  {
+   "from": 626,
+   "to": 661,
+   "text": "just 16 of them"
+  },
+  {
+   "from": 661,
+   "to": 685,
+   "text": "per layer"
+  },
+  {
+   "from": 692,
+   "to": 751,
+   "text": "so a 1.56 terabyte"
+  },
+  {
+   "from": 751,
+   "to": 805,
+   "text": "model runs in 8 gigs"
+  },
+  {
+   "from": 808,
+   "to": 829,
+   "text": "and more RAM"
+  },
+  {
+   "from": 829,
+   "to": 867,
+   "text": "changes the speed"
+  },
+  {
+   "from": 867,
+   "to": 896,
+   "text": "not the answer"
+  },
+  {
+   "from": 897,
+   "to": 931,
+   "text": "here's the catch"
+  },
+  {
+   "from": 937,
+   "to": 968,
+   "text": "about 30 seconds"
+  },
+  {
+   "from": 968,
+   "to": 981,
+   "text": "a token"
+  },
+  {
+   "from": 981,
+   "to": 1018,
+   "text": "on a fast server"
+  },
+  {
+   "from": 1026,
+   "to": 1058,
+   "text": "1.7 terabytes"
+  },
+  {
+   "from": 1058,
+   "to": 1089,
+   "text": "of free disk"
+  },
+  {
+   "from": 1094,
+   "to": 1111,
+   "text": "and hours"
+  },
+  {
+   "from": 1111,
+   "to": 1138,
+   "text": "of downloading"
+  },
+  {
+   "from": 1147,
+   "to": 1172,
+   "text": "on an 8 gig"
+  },
+  {
+   "from": 1172,
+   "to": 1192,
+   "text": "Jetson board"
+  },
+  {
+   "from": 1192,
+   "to": 1227,
+   "text": "with a hard drive"
+  },
+  {
+   "from": 1231,
+   "to": 1251,
+   "text": "one word"
+  },
+  {
+   "from": 1256,
+   "to": 1271,
+   "text": "Paris"
+  },
+  {
+   "from": 1276,
+   "to": 1293,
+   "text": "took nearly"
+  },
+  {
+   "from": 1293,
+   "to": 1328,
+   "text": "16 minutes"
+  },
+  {
+   "from": 1334,
+   "to": 1361,
+   "text": "so don't expect"
+  },
+  {
+   "from": 1361,
+   "to": 1393,
+   "text": "an everyday app"
+  },
+  {
+   "from": 1397,
+   "to": 1440,
+   "text": "think proof of concept"
+  },
+  {
+   "from": 1447,
+   "to": 1468,
+   "text": "the memory wall"
+  },
+  {
+   "from": 1468,
+   "to": 1496,
+   "text": "didn't vanish"
+  },
+  {
+   "from": 1499,
+   "to": 1539,
+   "text": "it moved to your disk"
+  },
+  {
+   "from": 1542,
+   "to": 1565,
+   "text": "so what matters"
+  },
+  {
+   "from": 1565,
+   "to": 1593,
+   "text": "is which bytes"
+  },
+  {
+   "from": 1593,
+   "to": 1624,
+   "text": "stay in RAM"
+  },
+  {
+   "from": 1633,
+   "to": 1655,
+   "text": "comment BYTES"
+  },
+  {
+   "from": 1655,
+   "to": 1676,
+   "text": "and I'll DM you"
+  },
+  {
+   "from": 1676,
+   "to": 1737,
+   "text": "my setup guide"
+  }
+ ]
+}

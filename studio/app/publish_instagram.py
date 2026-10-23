@@ -49,6 +49,8 @@ EXPECTED_USERNAME = os.environ.get('STUDIO_IG_USERNAME', 'hammadagentic.ai')
 CREDENTIALS_FILE = Path(os.environ.get(
     'STUDIO_IG_CREDENTIALS',
     str(Path(__file__).resolve().parents[2] / 'work' / '.secrets' / 'instagram-hammadagentic-ai-oauth.json')))
+# Trial Reel graduation strategies Meta accepts in trial_params (None = a normal reel).
+TRIAL_STRATEGIES = (None, 'MANUAL', 'SS_PERFORMANCE')
 # Owner rule (2026-10-17): every reel goes out as a Collab between the owner's two accounts, so it shows on both.
 DEFAULT_COLLABORATORS = {'with.hammad': ('hammadagentic.ai',), 'hammadagentic.ai': ('with.hammad',)}
 MAX_COLLABORATORS = 3
@@ -615,7 +617,9 @@ def publish(video_path, lesson, *, dry_run=True, state_path=None, **options):
 
     options: url_provider, credentials_path, token, transport, probe, sleep, clock, expected_username, share_to_feed,
     ai_generated, thumb_offset_ms, poll_seconds, timeout, api_version, collaborators (None = the owner's default
-    Collab for the posting account, [] = no Collab), cover_url (an https URL already serving the cover JPEG, or a
+    Collab for the posting account, [] = no Collab), trial (None, 'MANUAL' or 'SS_PERFORMANCE': a Trial Reel shown to
+    non-followers first, graduated by hand in the app or by Meta when it performs well; owner rule 2026-10-24),
+    cover_url (an https URL already serving the cover JPEG, or a
     provider object hosting cover_path the way url_provider hosts the video), cover_path (the local
     cover_1080x1920.jpg; checked, and compared with the hosted size), cover_required and stop_after.
 
@@ -638,9 +642,11 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
              token=None, transport=None, probe=None, sleep=time.sleep, clock=time.monotonic,
              expected_username=EXPECTED_USERNAME, share_to_feed=True, ai_generated=True, thumb_offset_ms=None,
              poll_seconds=POLL_SECONDS, timeout=PROCESS_TIMEOUT, api_version=API_VERSION, collaborators=None,
-             cover_url=None, cover_path=None, cover_required=False, stop_after=None):
+             trial=None, cover_url=None, cover_path=None, cover_required=False, stop_after=None):
     if stop_after not in (None, 'container'):
         raise ValueError("stop_after must be None or 'container'")
+    if trial not in TRIAL_STRATEGIES:
+        raise ValueError(f'trial must be one of {TRIAL_STRATEGIES}')
     caption = caption_for(lesson)
     video = validate_video(video_path, probe=probe)
     if thumb_offset_ms is not None and not 0 <= int(thumb_offset_ms) < video['duration_s'] * 1000:
@@ -797,6 +803,9 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
             if names:   # Collab invite; each account must accept before the reel shows on its profile
                 base_body['collaborators'] = names
             result['collaborators'] = names
+            if trial:   # Trial Reel: Meta shows it to non-followers first [ig-user/media trial_params]
+                base_body['trial_params'] = {'graduation_strategy': trial}
+            result['trial'] = trial
             hosted_cover = None
             if cover_provider is not None:
                 try:
@@ -1057,7 +1066,8 @@ def _release_hosted(state, hosts, warnings):
 
 def main(argv=None):
     """python -m app.publish_instagram <video.mp4> <lesson.json> --video-url URL [--cover-url URL --cover JPG]
-           [--account with.hammad] [--state FILE] [--stop-after container] [--cover-required] [--live]
+           [--account with.hammad] [--trial MANUAL|SS_PERFORMANCE] [--state FILE] [--stop-after container]
+           [--cover-required] [--live]
 
     A dry run unless --live, and --live only together with --stop-after container: this command never posts a reel
     (a post goes through publish() after the owner's explicit OK). Its job is the one-time cover_url check in
@@ -1077,6 +1087,7 @@ def main(argv=None):
     parser.add_argument('--state', help='state file; use a scratch file for the cover test')
     parser.add_argument('--stop-after', choices=('container',), help='never call media_publish')
     parser.add_argument('--cover-required', action='store_true', help='stop instead of dropping a cover that fails')
+    parser.add_argument('--trial', choices=('MANUAL', 'SS_PERFORMANCE'), help='Trial Reel graduation strategy')
     parser.add_argument('--live', action='store_true', help='send the writes (needs --stop-after container)')
     args = parser.parse_args(argv)
     if args.live and args.stop_after != 'container':
@@ -1087,7 +1098,7 @@ def main(argv=None):
                          state_path=args.state, url_provider=args.video_url, cover_url=args.cover_url,
                          cover_path=args.cover, expected_username=account,
                          credentials_path=instagram_tokens.account_file(account),
-                         cover_required=args.cover_required, stop_after=args.stop_after)
+                         cover_required=args.cover_required, stop_after=args.stop_after, trial=args.trial)
     except InstagramPublishError as error:
         print(f'instagram: {error}', file=sys.stderr)
         return 1

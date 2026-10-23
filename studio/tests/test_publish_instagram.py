@@ -904,3 +904,15 @@ def test_short_reel_aac_overhead_is_not_an_audio_bitrate_warning(tmp_path):
     assert not any('audio bitrate' in w for w in short['warnings'])
     loud = ig.validate_video(write_mp4(tmp_path / 'loud.mp4'), probe=probe_ok(audio={'bit_rate': '192000'}))
     assert any('audio bitrate 192 kbps' in w for w in loud['warnings'])
+
+
+def test_trial_reel_adds_trial_params_next_to_the_collab(video, tmp_path):
+    meta, provider = FakeMeta(video.stat().st_size), FakeProvider()
+    plan = run(video, meta, url_provider=provider, state_path=tmp_path / 's.json', trial='SS_PERFORMANCE')
+    create = next(r for r in plan['requests'] if r['step'] == 'create_container')
+    assert create['json']['trial_params'] == {'graduation_strategy': 'SS_PERFORMANCE'}
+    assert create['json']['collaborators'] == ['with.hammad'] and plan['trial'] == 'SS_PERFORMANCE'
+    plain = run(video, FakeMeta(video.stat().st_size), url_provider=FakeProvider(), state_path=tmp_path / 't.json')
+    assert 'trial_params' not in next(r for r in plain['requests'] if r['step'] == 'create_container')['json']
+    with pytest.raises(ValueError, match='trial must be one of'):
+        run(video, meta, url_provider=provider, state_path=tmp_path / 'u.json', trial='AUTO')
