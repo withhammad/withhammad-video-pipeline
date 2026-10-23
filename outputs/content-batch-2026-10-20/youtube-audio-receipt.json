@@ -2,7 +2,10 @@
   "checked_at": "2026-10-20T14:18:39.997513+00:00",
   "projects": {
     "video_id": "WMhrzmEMJuM",
-    "non_english_tracks": "20 tracks verified Draft"
+    "non_english_tracks": "20 tracks verified Draft after native release",
+    "checked_at": "2026-10-23T06:03:29.902Z",
+    "manual_english_captions": "serving",
+    "release_receipt": "outputs/content-batch-2026-10-20/projects-youtube-release-2026-10-23.json"
   },
   "jobkit": {
     "video_id": "v4okdBQy4-I",

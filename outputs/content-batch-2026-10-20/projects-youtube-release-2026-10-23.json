@@ -1,0 +1,201 @@
+{
+  "job": "c9d9bd2b786c",
+  "keyword": "PROJECTS",
+  "checked_at": "2026-10-23T06:04:00Z",
+  "outcome": "native_youtube_schedule_published_verified",
+  "approved_slot_utc": "2026-10-23T06:00:00Z",
+  "public_url": "https://www.youtube.com/shorts/WMhrzmEMJuM",
+  "public_page_verified": true,
+  "public_page_observation": {
+    "channel": "@with.hammad",
+    "title": "85 AI Engineering Projects: Pick Your Next Build #Shorts",
+    "player_available": true,
+    "ai_disclosure_visible": true
+  },
+  "api": {
+    "checked_at": "2026-10-23T06:00:37.515706+00:00",
+    "job": "c9d9bd2b786c",
+    "identity": {
+      "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+      "title": "HAMMAD YOUSUF",
+      "custom_url": "@with.hammad"
+    },
+    "video": [
+      {
+        "kind": "youtube#video",
+        "etag": "uT1cv_4NcwZu5aF7UynztOR-Ak8",
+        "id": "WMhrzmEMJuM",
+        "snippet": {
+          "publishedAt": "2026-10-23T06:00:21Z",
+          "channelId": "UCJtrEDGg1R3kNe7t7PQFiEw",
+          "title": "85 AI Engineering Projects: Pick Your Next Build #Shorts",
+          "description": "Free catalog guide + build checklist: https://withhammad.com/resources/ai-engineering-projects\nChoose your next AI engineering project from 85 ideas.\n\nLanded\u2019s GitHub collection covers AI agents, RAG, fine-tuning and more. Entries list skills, difficulty and learning references. These are project ideas; not every entry is a complete tutorial. Linked tools may have their own costs.\n\nPick one idea that fits your skills, build a working demo, test it, and document what you learned.\nOriginal catalog: https://github.com/landedjobs/ai-engineer-portfolio-projects\n\nGet the catalog and checklist: https://withhammad.com/resources/ai-engineering-projects\nSubscribe for more practical AI builds.\nAI avatar of me.\n\n#AIEngineering #AIProjects #RAG",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/WMhrzmEMJuM/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/WMhrzmEMJuM/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/WMhrzmEMJuM/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/WMhrzmEMJuM/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/WMhrzmEMJuM/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            },
+            "qhd": {
+              "url": "https://i.ytimg.com/vi/WMhrzmEMJuM/qhddefault.jpg",
+              "width": 2560,
+              "height": 1440
+            }
+          },
+          "channelTitle": "HAMMAD YOUSUF",
+          "tags": [
+            "AI agents projects",
+            "AI engineering projects",
+            "AI portfolio projects",
+            "AI projects for beginners",
+            "GitHub AI projects",
+            "RAG project ideas"
+          ],
+          "categoryId": "28",
+          "liveBroadcastContent": "none",
+          "defaultLanguage": "en",
+          "localized": {
+            "title": "85 AI Engineering Projects: Pick Your Next Build #Shorts",
+            "description": "Free catalog guide + build checklist: https://withhammad.com/resources/ai-engineering-projects\nChoose your next AI engineering project from 85 ideas.\n\nLanded\u2019s GitHub collection covers AI agents, RAG, fine-tuning and more. Entries list skills, difficulty and learning references. These are project ideas; not every entry is a complete tutorial. Linked tools may have their own costs.\n\nPick one idea that fits your skills, build a working demo, test it, and document what you learned.\nOriginal catalog: https://github.com/landedjobs/ai-engineer-portfolio-projects\n\nGet the catalog and checklist: https://withhammad.com/resources/ai-engineering-projects\nSubscribe for more practical AI builds.\nAI avatar of me.\n\n#AIEngineering #AIProjects #RAG"
+          },
+          "defaultAudioLanguage": "en"
+        },
+        "status": {
+          "uploadStatus": "processed",
+          "privacyStatus": "public",
+          "license": "youtube",
+          "embeddable": true,
+          "publicStatsViewable": true,
+          "madeForKids": false,
+          "selfDeclaredMadeForKids": false
+        },
+        "processingDetails": {
+          "processingStatus": "succeeded",
+          "fileDetailsAvailability": "available",
+          "processingIssuesAvailability": "available",
+          "tagSuggestionsAvailability": "inProgress",
+          "editorSuggestionsAvailability": "inProgress",
+          "thumbnailsAvailability": "available"
+        }
+      }
+    ],
+    "captions": [
+      {
+        "kind": "youtube#caption",
+        "etag": "SkrFZpBfVs6WQj8Y0kvMExwTLLE",
+        "id": "AUieDabNX-66cnsb0R2KKg4t-c_ABdpqtDuSwU4QNjLwyaVnE9Q",
+        "snippet": {
+          "videoId": "WMhrzmEMJuM",
+          "lastUpdated": "2026-10-20T12:02:15.780738Z",
+          "trackKind": "asr",
+          "language": "en",
+          "name": "",
+          "audioTrackType": "unknown",
+          "isCC": false,
+          "isLarge": false,
+          "isEasyReader": false,
+          "isDraft": false,
+          "isAutoSynced": false,
+          "status": "serving"
+        }
+      },
+      {
+        "kind": "youtube#caption",
+        "etag": "D13aNlugsZz_yCa0OjwZAO3t8Vc",
+        "id": "AUieDaYAW55mZPKUhKuuyCSwgTaW4qaqEPomc4_O4r79Cjx2ZPSKDdSEcbJ6YgtxBQWW2xvzfg",
+        "snippet": {
+          "videoId": "WMhrzmEMJuM",
+          "lastUpdated": "2026-10-20T12:46:13.866646Z",
+          "trackKind": "standard",
+          "language": "en",
+          "name": "English - WithHammad",
+          "audioTrackType": "unknown",
+          "isCC": false,
+          "isLarge": false,
+          "isEasyReader": false,
+          "isDraft": false,
+          "isAutoSynced": false,
+          "status": "serving"
+        }
+      }
+    ]
+  },
+  "audio": {
+    "checked_at": "2026-10-23T06:03:29.902Z",
+    "video_id": "WMhrzmEMJuM",
+    "source": "https://studio.youtube.com/video/WMhrzmEMJuM/translations",
+    "audio_rows": [
+      "Arabic Draft 1 published Published",
+      "Bangla Draft 1 published Published",
+      "Dutch (Netherlands) Draft 1 published Published",
+      "French (France) Draft 1 published Published",
+      "German (Germany) Draft 1 published Published",
+      "Hebrew Draft 1 published Published",
+      "Hindi Draft 1 published Published",
+      "Indonesian Draft 1 published Published",
+      "Italian Draft 1 published Published",
+      "Japanese Draft 1 published Published",
+      "Korean Draft 1 published Published",
+      "Malayalam Draft 1 published Published",
+      "Polish Draft 1 published Published",
+      "Portuguese (Brazil) Draft 1 published Published",
+      "Punjabi Draft 1 published Published",
+      "Russian Draft 1 published Published",
+      "Spanish (United States) Draft 1 published Published",
+      "Tamil Draft 1 published Published",
+      "Telugu Draft 1 published Published",
+      "Ukrainian Draft 1 published Published"
+    ],
+    "non_english_audio_drafts": 20
+  },
+  "schedule_confirmation": {
+    "now": "2026-10-23T06:04:00Z",
+    "dry_run": false,
+    "results": [
+      {
+        "job": "c9d9bd2b786c",
+        "date": "2026-10-23",
+        "platform": "youtube",
+        "slot_utc": "2026-10-23T06:00:00Z",
+        "action": "confirmed_public",
+        "url": "https://www.youtube.com/shorts/WMhrzmEMJuM"
+      }
+    ],
+    "exit_code": 0
+  },
+  "mutations": "Only local PROJECTS YouTube release status and receipts updated. No remote upload, publication or audio mutation.",
+  "remaining_today_gst": {
+    "linkedin": "16:00",
+    "instagram": "17:00",
+    "tiktok": "17:00",
+    "facebook": "17:00",
+    "x": "18:00"
+  },
+  "published_at": "2026-10-23T06:00:21Z",
+  "validation": {
+    "pytest": "529 passed; 1 pre-existing failure",
+    "pre_existing_failure": "test_tracked_schedule_and_slots_are_consistent: duplicate 2026-10-21 date already present at HEAD from owner-approved MOTION exception",
+    "scope_check": "Only PROJECTS YouTube schedule platform changed; all other entries preserved",
+    "git_diff_check": "passed"
+  }
+}

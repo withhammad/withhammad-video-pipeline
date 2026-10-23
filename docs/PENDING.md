@@ -62,6 +62,8 @@ Last update: 2026-10-18 22:20 — MOTION reel (job fef5b7f3b5af, Claude motion g
 
 ## Approved PROJECTS / JOBKIT batch — 20 October 2026
 
+23 October 10:04 GST: PROJECTS YouTube native release verified public, English manual captions serving, all 20 non-English audio tracks Draft. LinkedIn 16:00 GST and Instagram/TikTok/Facebook 17:00 GST, X 18:00 GST remain due later today. Receipt: outputs/content-batch-2026-10-20/projects-youtube-release-2026-10-23.json.
+
 Native YouTube/TikTok/Facebook/X schedules confirmed for 23/24 October. Instagram/LinkedIn timed API publishing and specific-post ManyChat activation remain with heartbeat `publish-approved-projects-and-jobkit-reels`. Recheck JOBKIT automatic audio translations after processing; only English audio should be public. See outputs/content-batch-2026-10-20/publishing-handoff.md and youtube-audio-receipt.json. Do not duplicate Facebook/X schedules because IDs are null.
 
 

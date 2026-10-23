@@ -24,3 +24,5 @@ Existing HARVEST/SKILL/BLUEPRINT flows remain untouched. Verify the @hammadagent
 YouTube created non-English automatic audio dubs despite the English source. PROJECTS tracks were verified all Draft after unpublishing. Check the audio receipt for JOBKIT and finish any pending unpublication before release. Do not change channel-wide settings or old videos.
 
 next-video-ideas.md contains independent research only. It does not authorize automatic new video production.
+
+23 October 10:04 GST: PROJECTS YouTube is public at its existing URL. Manual English SRT serving; all 20 non-English audio tracks still Draft. See projects-youtube-release-2026-10-23.json. Other PROJECTS platforms remain scheduled for later today; no re-upload or early publication.

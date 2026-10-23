@@ -110,7 +110,7 @@
           "https://www.googleapis.com/auth/youtube.force-ssl"
         ],
         "video_publish_tested": true,
-        "identity_last_verified": "2026-10-21",
+        "identity_last_verified": "2026-10-23",
         "last_long_video": "https://www.youtube.com/watch?v=u4J1oQqQoTM",
         "separate_caption_permission": "verified"
       },
@@ -212,7 +212,21 @@
     ],
     "kind": "Codex thread heartbeat",
     "requires": "Mac awake and Codex running for Instagram/LinkedIn and ManyChat activation; native schedules run on their platforms.",
-    "owner_override": "DESIGN Instagram only 20 October 20:00 GST; remaining DESIGN platforms 25 October"
+    "owner_override": "DESIGN Instagram only 20 October 20:00 GST; remaining DESIGN platforms 25 October",
+    "verified_publications": {
+      "c9d9bd2b786c": {
+        "youtube": {
+          "status": "published",
+          "video_id": "WMhrzmEMJuM",
+          "url": "https://www.youtube.com/shorts/WMhrzmEMJuM",
+          "verified_at": "2026-10-23T06:04:00Z",
+          "english_manual_captions": "serving",
+          "non_english_audio": "20 Draft tracks verified",
+          "receipt": "outputs/content-batch-2026-10-20/projects-youtube-release-2026-10-23.json",
+          "published_at": "2026-10-23T06:00:21Z"
+        }
+      }
+    }
   },
   "content_research_preference": {
     "updated": "2026-10-20",
