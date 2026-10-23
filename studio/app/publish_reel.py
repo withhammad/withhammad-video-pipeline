@@ -60,7 +60,12 @@ SITE_DIR = ROOT / 'work' / 'site' / 'withhammad-rebuild'
 SITE_REMOTE = 'https://github.com/withhammad/withhammad-rebuild.git'
 SITE_BRANCH = 'main'
 SITE_BASE = 'https://withhammad.com'
-IG_ACCOUNT = 'with.hammad'
+# Owner rule 2026-10-24: reels go out on @hammadagentic.ai with @with.hammad as the Collab, and anything uploaded from
+# @with.hammad goes out only as a Trial Reel. Each queued entry records its account and trial setting; entries queued
+# before the rule carry account 'with.hammad' and post as they were queued.
+IG_ACCOUNT = 'hammadagentic.ai'
+LEGACY_IG_ACCOUNT = 'with.hammad'
+TRIAL_FOR = {'with.hammad': 'SS_PERFORMANCE'}   # graduation strategy for uploads from that account (new queues)
 COMMIT_TRAILER = 'Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>'
 
 PLATFORMS = ('youtube', 'linkedin', 'instagram', 'tiktok', 'facebook', 'x')
@@ -264,7 +269,7 @@ class Runtime:
 
     def instagram_publish(self, video_path, lesson, **options):
         from . import instagram_tokens, publish_instagram
-        options.setdefault('credentials_path', instagram_tokens.account_file(IG_ACCOUNT))
+        options.setdefault('credentials_path', instagram_tokens.account_file(options.get('expected_username', IG_ACCOUNT)))
         return publish_instagram.publish(video_path, lesson, **options)
 
     def linkedin_publish(self, video_path, lesson, **options):
@@ -780,7 +785,7 @@ def plan_entry(jdir, date, lesson, seo, youtube_at=None):
     if youtube_at is not None and iso_z(youtube_at) != slots['youtube']['utc']:   # the backup slot of the day
         platforms['youtube'].update(slot_utc=iso_z(youtube_at), local_time=local_label(youtube_at),
                                     publish_at=iso_z(youtube_at), slot='backup')
-    platforms['instagram'].update(account=IG_ACCOUNT, **hosted_urls(slug), hosted=False)
+    platforms['instagram'].update(account=IG_ACCOUNT, trial=TRIAL_FOR.get(IG_ACCOUNT), **hosted_urls(slug), hosted=False)
     day = _date(date)
     return {'date': str(day), 'day': DAY_NAMES[day.weekday()], 'job': jdir.name,
             'title': lesson.get('topic_title'), 'keyword': lesson.get('manychat_keyword'), 'slug': slug,
@@ -1149,13 +1154,18 @@ def wait_for_url(url, size, rt, timeout=HOST_WAIT_SECONDS, interval=HOST_POLL_SE
 
 # ---------------------------------------------------------------- run-due
 
-def _default_collaborators():
-    """The Collab run-due sends (publish_instagram's default for @with.hammad; run-due never overrides it)."""
+def ig_account(entry):
+    """The Instagram account a queued entry posts from (entries queued before 2026-10-24 have @with.hammad)."""
+    return ((entry.get('platforms') or {}).get('instagram') or {}).get('account') or LEGACY_IG_ACCOUNT
+
+
+def _default_collaborators(account=IG_ACCOUNT):
+    """The Collab run-due sends (publish_instagram's default for the posting account; run-due never overrides it)."""
     try:
         from . import publish_instagram
-        return list(publish_instagram.DEFAULT_COLLABORATORS.get(IG_ACCOUNT, ()))
+        return list(publish_instagram.DEFAULT_COLLABORATORS.get(account, ()))
     except Exception:
-        return ['hammadagentic.ai']
+        return [a for a in ('hammadagentic.ai', 'with.hammad') if a != account][:1]
 
 
 def _record_post(entry, platform, jdir, record, now):
@@ -1167,7 +1177,8 @@ def _record_post(entry, platform, jdir, record, now):
     pe.pop('error', None)
     if platform == 'instagram':
         update_published(jdir, 'instagram', {
-            'url': record.get('url'), 'account': IG_ACCOUNT, 'media_id': record.get('media_id'), 'via': 'api',
+            'url': record.get('url'), 'account': ig_account(entry), 'media_id': record.get('media_id'), 'via': 'api',
+            'trial': pe.get('trial'),
             'collaborators_invited': record.get('collaborators'),
             'collab_status': 'invited, not yet accepted' if record.get('collaborators') else None,
             'ai_label': True, 'cover': f'cover_url ({pe.get("cover_url")})' if pe.get('cover_url') else None,
@@ -1188,7 +1199,8 @@ def _followups(entry, platform):
     url = entry['platforms']['instagram'].get('url') or 'the new reel'
     return [f'ManyChat: Quick Automation "Auto-DM links from comments" on {url} with keyword {entry.get("keyword")}, '
             f'link {entry.get("resource_url")}',
-            'Owner: accept the Collab on @hammadagentic.ai in the Instagram app']
+            f'Owner: accept the Collab on @{(_default_collaborators(ig_account(entry)) or ["the other account"])[0]} '
+            'in the Instagram app']
 
 
 def _publish_now(platform, jdir, entry, rt, confirm_not_posted):
@@ -1201,7 +1213,8 @@ def _publish_now(platform, jdir, entry, rt, confirm_not_posted):
         if not pe.get('hosted') or not pe.get('video_url'):
             raise ReelError('the Instagram video is not hosted yet; rerun queue for this job')
         result = rt.instagram_publish(jdir / 'final_ig.mp4', lesson, dry_run=False,
-                                      state_path=jdir / STATE_FILES['instagram'], expected_username=IG_ACCOUNT,
+                                      state_path=jdir / STATE_FILES['instagram'], expected_username=ig_account(entry),
+                                      trial=pe.get('trial'),
                                       url_provider=pe['video_url'], cover_url=pe.get('cover_url'),
                                       cover_path=jdir / 'cover_1080x1920.jpg', ai_generated=True)
         record = {'url': result.get('permalink'), 'media_id': result.get('media_id'),
@@ -1290,7 +1303,7 @@ def run_due(now=None, live=False, platforms=None, confirm_not_posted=(), rt=None
                 posted = posted_record(jdir, platform)
                 if posted:     # the publisher already posted it (e.g. a crash before schedule.json was written)
                     if platform == 'instagram' and not posted.get('collaborators'):
-                        posted = {**posted, 'collaborators': _default_collaborators()}
+                        posted = {**posted, 'collaborators': _default_collaborators(ig_account(entry))}
                     if live:
                         _record_post(entry, platform, jdir, posted, now)
                         save_schedule(schedule, schedule_path)

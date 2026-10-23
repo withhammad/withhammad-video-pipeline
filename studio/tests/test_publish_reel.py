@@ -147,8 +147,9 @@ class FakeRuntime:
                                      'permalink': 'https://www.instagram.com/reel/ABC/'}))
         if self.ig_crash_after_post:
             raise RuntimeError('connection dropped after media_publish')
+        other = 'with.hammad' if kw.get('expected_username') == 'hammadagentic.ai' else 'hammadagentic.ai'
         return {'status': 'published', 'media_id': 'IG1', 'permalink': 'https://www.instagram.com/reel/ABC/',
-                'collaborators': ['hammadagentic.ai'], 'warnings': []}
+                'collaborators': [other], 'warnings': []}
 
     def linkedin_publish(self, video_path, lesson, **kw):
         self.calls.append(('linkedin', kw))
@@ -455,7 +456,7 @@ def test_run_due_posts_once_and_a_second_run_posts_nothing(env):
                                                                          ('instagram', 'posted'),
                                                                          ('youtube', 'confirmed_public')}
     ig = next(c[1] for c in rt.calls if c[0] == 'instagram')
-    assert ig['expected_username'] == 'with.hammad' and ig['ai_generated'] is True
+    assert ig['expected_username'] == 'hammadagentic.ai' and ig['ai_generated'] is True and ig['trial'] is None
     assert ig['url_provider'] == f'https://withhammad.com/media/reels/{SLUG}.mp4'
     assert ig['cover_url'] == f'https://withhammad.com/media/covers/{SLUG}.jpg'
     li = next(c[1] for c in rt.calls if c[0] == 'linkedin')
@@ -463,8 +464,8 @@ def test_run_due_posts_once_and_a_second_run_posts_nothing(env):
     ig_result = next(r for r in first['results'] if r['platform'] == 'instagram')
     assert any('ManyChat' in f and KEYWORD in f for f in ig_result['followups'])
     published = json.loads((pr.JOBS_ROOT / 'job1' / 'published.json').read_text())
-    assert published['instagram']['media_id'] == 'IG1'
-    assert published['instagram']['collaborators_invited'] == ['hammadagentic.ai']
+    assert published['instagram']['media_id'] == 'IG1' and published['instagram']['account'] == 'hammadagentic.ai'
+    assert published['instagram']['collaborators_invited'] == ['with.hammad']
     assert published['linkedin']['post_urn'] == 'urn:li:share:1'
     assert published['youtube']['video_id'] == 'VID1' and published['youtube']['privacy'] == 'public'
     rt2 = env['rt']('2026-10-19T13:30:00Z')
@@ -810,7 +811,7 @@ def test_a_post_recovered_after_a_crash_keeps_its_followups(env):
     assert any('ManyChat' in f and KEYWORD in f for f in result['followups'])
     assert any('Collab' in f for f in result['followups'])
     published = json.loads((pr.JOBS_ROOT / 'job1' / 'published.json').read_text())
-    assert published['instagram']['collaborators_invited'] == ['hammadagentic.ai']
+    assert published['instagram']['collaborators_invited'] == ['with.hammad']
     assert published['instagram']['collab_status'] == 'invited, not yet accepted'
 
 
@@ -988,3 +989,18 @@ def test_platform_date_override_does_not_wait_for_original_day_backup(env):
     assert result['results'][0]['action'] == 'missed'
     assert rt.posts() == []
     assert '2026-10-20 17:00 pending' in pr.render_md(schedule)
+
+
+def test_instagram_account_and_trial_follow_the_queued_entry(env):
+    # owner rule 2026-10-24: new queues post on @hammadagentic.ai (Collab @with.hammad); an entry queued before the
+    # rule keeps @with.hammad, and an @with.hammad entry with a trial setting goes out as a Trial Reel
+    queued(env)
+    entry = next(e for e in pr.load_schedule()['queue'] if e.get('job') == 'job1')
+    assert entry['platforms']['instagram']['account'] == 'hammadagentic.ai'
+    assert entry['platforms']['instagram']['trial'] is None
+    legacy = {'platforms': {'instagram': {}}}
+    assert pr.ig_account(legacy) == 'with.hammad'
+    assert pr.ig_account({'platforms': {'instagram': {'account': 'hammadagentic.ai'}}}) == 'hammadagentic.ai'
+    assert pr._default_collaborators('hammadagentic.ai') == ['with.hammad']
+    assert pr._default_collaborators('with.hammad') == ['hammadagentic.ai']
+    assert pr.TRIAL_FOR['with.hammad'] in ('MANUAL', 'SS_PERFORMANCE')
