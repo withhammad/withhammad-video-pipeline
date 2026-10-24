@@ -1,0 +1,1 @@
+{"extends":"../../tsconfig.json","compilerOptions":{"resolveJsonModule":true,"lib":["ES2018","DOM"]},"include":["./*.tsx","./*.ts","./*.json"],"exclude":[]}
