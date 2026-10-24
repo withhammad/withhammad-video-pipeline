@@ -253,7 +253,10 @@
           "cover_bytes": 77727,
           "site_commit": "b3d8917",
           "hosted_at": "2026-10-20T12:09:17Z",
-          "automation_id": "publish-approved-projects-and-jobkit-reels"
+          "automation_id": "publish-approved-projects-and-jobkit-reels",
+          "trial": "SS_PERFORMANCE",
+          "collaborators": [],
+          "owner_note": "2026-10-24 owner: post it as a Trial Reel"
         },
         "tiktok": {
           "via": "composer",
@@ -446,7 +449,8 @@
           "video_bytes": 26541167,
           "cover_bytes": 269852,
           "site_commit": "87e1521",
-          "hosted_at": "2026-10-24T05:21:21Z"
+          "hosted_at": "2026-10-24T05:21:21Z",
+          "collaborators": []
         },
         "tiktok": {
           "via": "composer",
@@ -485,6 +489,22 @@
           "where": "x.com/compose/post as @HammadYousufAI, Schedule",
           "url": "https://x.com/compose/post/unsent/scheduled",
           "marked_at": "2026-10-24T05:33:44Z"
+        },
+        "instagram_trial": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-26T13:00:00Z",
+          "local_time": "Mon 2026-10-26 17:00 GST",
+          "account": "with.hammad",
+          "trial": "SS_PERFORMANCE",
+          "video_url": "https://withhammad.com/media/reels/kimi-k3-on-8gb-ram.mp4",
+          "cover_url": "https://withhammad.com/media/covers/kimi-k3-on-8gb-ram.jpg",
+          "hosted": true,
+          "video_bytes": 26541167,
+          "cover_bytes": 269852,
+          "site_commit": "87e1521",
+          "hosted_at": "2026-10-24T05:21:21Z",
+          "collaborators": []
         }
       },
       "queued_at": "2026-10-24T05:18:55Z"
