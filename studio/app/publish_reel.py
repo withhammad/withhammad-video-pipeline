@@ -66,12 +66,18 @@ SITE_BASE = 'https://withhammad.com'
 IG_ACCOUNT = 'hammadagentic.ai'
 LEGACY_IG_ACCOUNT = 'with.hammad'
 TRIAL_FOR = {'with.hammad': 'SS_PERFORMANCE'}   # graduation strategy for uploads from that account (new queues)
+# Owner choice 2026-10-24 (setup C): the main post on @hammadagentic.ai has no Collab (a Collab reaches @with.hammad's
+# followers, and a Trial Reel cannot carry one); a separate Trial Reel on @with.hammad ('instagram_trial', same slot,
+# same hosted media) carries the comment-keyword DM, because ManyChat runs on @with.hammad.
+IG_TRIAL_ACCOUNT = 'with.hammad'
 COMMIT_TRAILER = 'Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>'
 
 PLATFORMS = ('youtube', 'linkedin', 'instagram', 'tiktok', 'facebook', 'x')
-RUN_DUE_PLATFORMS = ('linkedin', 'instagram')
+RUN_DUE_PLATFORMS = ('linkedin', 'instagram', 'instagram_trial')
+IG_PLATFORMS = ('instagram', 'instagram_trial')
 COMPOSER_PLATFORMS = ('tiktok', 'facebook', 'x')
 STATE_FILES = {'youtube': 'publish_youtube.json', 'instagram': 'publish_instagram.json',
+               'instagram_trial': 'publish_instagram_trial.json',
                'linkedin': 'publish_linkedin.json'}
 FINAL_STATUSES = ('published', 'missed', 'skipped')
 POSTABLE = ('pending', 'failed', 'uncertain', 'posting')   # run-due posts only API entries in one of these
@@ -83,7 +89,7 @@ VIDEO_FILES = ('final.mp4', 'final_ig.mp4', 'final_social.mp4')
 COVERS = {'cover_1080x1920.jpg': 2 * 1024 * 1024, 'cover_720x1280.jpg': 2 * 1024 * 1024}
 X_MAX_WEIGHT = 280
 X_MAX_SECONDS = 140.0
-URL_HOSTS = {'youtube': ('youtube.com', 'youtu.be'), 'instagram': ('instagram.com',), 'linkedin': ('linkedin.com',),
+URL_HOSTS = {'youtube': ('youtube.com', 'youtu.be'), 'instagram': ('instagram.com',), 'instagram_trial': ('instagram.com',), 'linkedin': ('linkedin.com',),
              'tiktok': ('tiktok.com',), 'facebook': ('facebook.com', 'fb.watch'), 'x': ('x.com', 'twitter.com')}
 USER_AGENT = {'User-Agent': 'withhammad-publish-reel/1'}
 HOST_WAIT_SECONDS = 15 * 60
@@ -146,6 +152,7 @@ def slot_time(platform, date, backup=False, slots=None):
     """'HH:MM' GST for platform on date: a weekday-specific rule (e.g. 'fri') beats weekend/weekday, which beat
     'default'. Raises ReelError when the table has no slot (LinkedIn has no weekend backup)."""
     slots = slots or load_slots()
+    platform = 'instagram' if platform == 'instagram_trial' else platform   # the trial post shares the Instagram slot
     if platform not in slots['platforms']:
         raise ReelError(f'unknown platform {platform!r}; one of {", ".join(PLATFORMS)}')
     rules = slots['platforms'][platform]['backup' if backup else 'times']
@@ -456,7 +463,7 @@ def posted_record(jdir, platform):
     state = publisher_state(jdir, platform)
     if platform == 'youtube' and state.get('status') == 'published' and state.get('video_id'):
         return {'video_id': state['video_id'], 'url': state.get('url'), 'privacy': state.get('privacy_status')}
-    if platform == 'instagram' and (state.get('media_id') or state.get('status') in
+    if platform in IG_PLATFORMS and (state.get('media_id') or state.get('status') in
                                     ('published', 'published_media_id_unknown')):
         return {'media_id': state.get('media_id'), 'url': state.get('permalink'), 'status': state.get('status')}
     if platform == 'linkedin' and state.get('status') == 'published':
@@ -469,7 +476,7 @@ def attempt_in_progress(jdir, platform):
     state = publisher_state(jdir, platform) if platform in STATE_FILES else {}
     if platform == 'linkedin':
         return bool(state.get('post_attempt'))
-    if platform == 'instagram':
+    if platform in IG_PLATFORMS:
         return state.get('status') == 'publishing'
     return False
 
@@ -726,7 +733,8 @@ def job_entry(schedule, jid):
 
 def _entry_status(entry):
     platforms = entry.get('platforms') or {}
-    if platforms and all((platforms.get(p) or {}).get('status') in FINAL_STATUSES for p in PLATFORMS):
+    if platforms and all((platforms.get(p) or {}).get('status') in FINAL_STATUSES
+                         for p in (*PLATFORMS, *(k for k in platforms if k not in PLATFORMS))):   # incl. instagram_trial
         return 'done'
     return entry.get('status')
 
@@ -785,7 +793,10 @@ def plan_entry(jdir, date, lesson, seo, youtube_at=None):
     if youtube_at is not None and iso_z(youtube_at) != slots['youtube']['utc']:   # the backup slot of the day
         platforms['youtube'].update(slot_utc=iso_z(youtube_at), local_time=local_label(youtube_at),
                                     publish_at=iso_z(youtube_at), slot='backup')
-    platforms['instagram'].update(account=IG_ACCOUNT, trial=TRIAL_FOR.get(IG_ACCOUNT), **hosted_urls(slug), hosted=False)
+    platforms['instagram'].update(account=IG_ACCOUNT, trial=TRIAL_FOR.get(IG_ACCOUNT), collaborators=[], **hosted_urls(slug),
+                                  hosted=False)
+    platforms['instagram_trial'] = dict(platforms['instagram'], account=IG_TRIAL_ACCOUNT, trial=TRIAL_FOR[IG_TRIAL_ACCOUNT],
+                                        collaborators=[])
     day = _date(date)
     return {'date': str(day), 'day': DAY_NAMES[day.weekday()], 'job': jdir.name,
             'title': lesson.get('topic_title'), 'keyword': lesson.get('manychat_keyword'), 'slug': slug,
@@ -949,8 +960,10 @@ def queue(job, date, live=False, rt=None, schedule_path=None):
             raise ReelError(f'the {jid} entry for {day} disappeared from schedule.json while hosting; rerun queue')
         ig = entry['platforms']['instagram']
         if hosted:
-            ig.update(hosted=True, **hosted)
-            ig.pop('hosting_error', None)
+            for pe in (ig, entry['platforms'].get('instagram_trial')):
+                if pe is not None:
+                    pe.update(hosted=True, **hosted)
+                    pe.pop('hosting_error', None)
         elif hosting_error:
             ig['hosting_error'] = hosting_error
         if entry['status'] in ('queuing', 'queue_incomplete', 'queued'):
@@ -985,7 +998,9 @@ def _queue_steps(jdir, plan, youtube_done, hosted):
                             f'{_rel(SITE_DIR)}/public/media, commit "Host the {plan["keyword"]} reel video '
                             f'and cover for Instagram API publishing", push, wait for 200 at '
                             f'{p["instagram"]["video_url"]} and {p["instagram"]["cover_url"]}'})
-    for platform in ('linkedin', 'instagram'):
+    for platform in ('linkedin', 'instagram', 'instagram_trial'):
+        if platform not in p:
+            continue
         steps.append({'step': platform, 'action': f'run-due --live posts it at {p[platform]["local_time"]} '
                                                   f'({p[platform]["slot_utc"]}); the Mac must be awake'})
     for platform in COMPOSER_PLATFORMS:
@@ -1175,10 +1190,10 @@ def _record_post(entry, platform, jdir, record, now):
         if record.get(key):
             pe[key] = record[key]
     pe.pop('error', None)
-    if platform == 'instagram':
-        update_published(jdir, 'instagram', {
-            'url': record.get('url'), 'account': ig_account(entry), 'media_id': record.get('media_id'), 'via': 'api',
-            'trial': pe.get('trial'),
+    if platform in IG_PLATFORMS:
+        update_published(jdir, platform, {
+            'url': record.get('url'), 'account': pe.get('account') or ig_account(entry), 'media_id': record.get('media_id'),
+            'via': 'api', 'trial': pe.get('trial'),
             'collaborators_invited': record.get('collaborators'),
             'collab_status': 'invited, not yet accepted' if record.get('collaborators') else None,
             'ai_label': True, 'cover': f'cover_url ({pe.get("cover_url")})' if pe.get('cover_url') else None,
@@ -1194,13 +1209,20 @@ def _record_post(entry, platform, jdir, record, now):
 
 
 def _followups(entry, platform):
-    if platform != 'instagram':
+    if platform not in IG_PLATFORMS:
         return []
-    url = entry['platforms']['instagram'].get('url') or 'the new reel'
-    return [f'ManyChat: Quick Automation "Auto-DM links from comments" on {url} with keyword {entry.get("keyword")}, '
-            f'link {entry.get("resource_url")}',
-            f'Owner: accept the Collab on @{(_default_collaborators(ig_account(entry)) or ["the other account"])[0]} '
-            'in the Instagram app']
+    pe = entry['platforms'][platform]
+    url = pe.get('url') or 'the new reel'
+    account = pe.get('account') or ig_account(entry)
+    collabs = pe.get('collaborators')
+    collabs = _default_collaborators(account) if collabs is None else collabs
+    out = []
+    if account == IG_TRIAL_ACCOUNT:   # ManyChat runs on @with.hammad
+        out.append(f'ManyChat: Quick Automation "Auto-DM links from comments" on {url} with keyword {entry.get("keyword")}, '
+                   f'link {entry.get("resource_url")}')
+    if collabs:
+        out.append(f'Owner: accept the Collab on @{collabs[0]} in the Instagram app')
+    return out
 
 
 def _publish_now(platform, jdir, entry, rt, confirm_not_posted):
@@ -1209,12 +1231,16 @@ def _publish_now(platform, jdir, entry, rt, confirm_not_posted):
     seo = _read_json(jdir / 'seo' / 'seo.json', None)
     if seo and seo_differences(lesson, seo):
         raise ReelError(f'lesson.json no longer carries the SEO copy; run apply-seo {jdir.name} first')
-    if platform == 'instagram':
+    if platform in IG_PLATFORMS:
         if not pe.get('hosted') or not pe.get('video_url'):
             raise ReelError('the Instagram video is not hosted yet; rerun queue for this job')
+        if pe.get('caption'):   # a per-post caption (e.g. the guide link where the keyword DM cannot fire)
+            lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'instagram': pe['caption']}}
+        extra = {} if pe.get('collaborators') is None else {'collaborators': pe['collaborators']}
         result = rt.instagram_publish(jdir / 'final_ig.mp4', lesson, dry_run=False,
-                                      state_path=jdir / STATE_FILES['instagram'], expected_username=ig_account(entry),
-                                      trial=pe.get('trial'),
+                                      state_path=jdir / STATE_FILES[platform],
+                                      expected_username=pe.get('account') or ig_account(entry),
+                                      trial=pe.get('trial'), **extra,
                                       url_provider=pe['video_url'], cover_url=pe.get('cover_url'),
                                       cover_path=jdir / 'cover_1080x1920.jpg', ai_generated=True)
         record = {'url': result.get('permalink'), 'media_id': result.get('media_id'),
@@ -1302,15 +1328,16 @@ def run_due(now=None, live=False, platforms=None, confirm_not_posted=(), rt=None
                 base = {'job': entry['job'], 'date': entry['date'], 'platform': platform, 'slot_utc': pe['slot_utc']}
                 posted = posted_record(jdir, platform)
                 if posted:     # the publisher already posted it (e.g. a crash before schedule.json was written)
-                    if platform == 'instagram' and not posted.get('collaborators'):
-                        posted = {**posted, 'collaborators': _default_collaborators(ig_account(entry))}
+                    if platform in IG_PLATFORMS and posted.get('collaborators') is None and pe.get('collaborators') is None:
+                        posted = {**posted, 'collaborators': _default_collaborators(pe.get('account') or ig_account(entry))}
                     if live:
                         _record_post(entry, platform, jdir, posted, now)
                         save_schedule(schedule, schedule_path)
                     results.append({**base, 'action': 'recorded' if live else 'would_record', 'url': posted.get('url'),
                                     'followups': _followups(entry, platform)})
                     continue
-                window, detail = post_window(platform, str(slot.astimezone(gst()).date()), slot, now, slots_cfg)
+                window, detail = post_window('instagram' if platform == 'instagram_trial' else platform,
+                                             str(slot.astimezone(gst()).date()), slot, now, slots_cfg)
                 owner_confirmed = _confirmed(confirm, entry['job'], platform)
                 if window == 'wait':
                     results.append({**base, 'action': 'waiting_for_backup', 'backup_utc': iso_z(detail),
