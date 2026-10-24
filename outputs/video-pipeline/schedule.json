@@ -459,37 +459,45 @@
         },
         "tiktok": {
           "via": "composer",
-          "status": "composer",
+          "status": "composer_scheduled",
           "slot_utc": "2026-10-26T10:00:00Z",
           "local_time": "Mon 2026-10-26 14:00 GST",
           "video": "final_social.mp4",
-          "ai_label": "Turn on TikTok's AI-generated content label.",
+          "ai_label": true,
           "text": "How to track ChatGPT traffic in GA4 and see if AI search visitors convert better. Full guide: link in bio.\nOne Semrush study says 4.4x as valuable as organic, by conversion rate; other studies range from about 1.3x to 20x+, so check your own numbers.\nStep 1: ask ChatGPT, Claude and Gemini what your customers ask.\nStep 2: add \"AI\" to your \"Where did you hear about us?\" form.\nStep 3: compare in the GA4 AI Assistant channel.\nFull guide: withhammad.com/resources/ai-traffic-ga4 (link in bio). Follow for more AI builds.\nAI avatar of me.\n#ChatGPT #AISearch #GA4 #SEO #MarketingTips",
-          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
-          "pinned_comment": "Full GA4 setup guide: link in bio (https://withhammad.com/resources/ai-traffic-ga4)"
+          "cover": "cover_1080x1920.jpg uploaded and saved (option 1)",
+          "pinned_comment": "Full GA4 setup guide: link in bio (https://withhammad.com/resources/ai-traffic-ga4)",
+          "url": "https://www.tiktok.com/@hammadyousuf01/video/7700201511841893653",
+          "marked_at": "2026-10-24T11:55:16Z"
         },
         "facebook": {
           "via": "composer",
-          "status": "composer",
+          "status": "composer_scheduled",
           "slot_utc": "2026-10-26T10:00:00Z",
           "local_time": "Mon 2026-10-26 14:00 GST",
           "video": "final_social.mp4",
-          "ai_label": "Keep Meta's AI info label on.",
+          "ai_label": true,
           "text": "Are customers finding you through ChatGPT? Here's how to track AI traffic in GA4. Free guide: https://withhammad.com/resources/ai-traffic-ga4\n\nOne Semrush study found AI search visitors 4.4x as valuable as organic search visitors, by conversion rate (other studies range from about 1.3x to 20x+, so test your own).\n\n1) Ask ChatGPT, Claude and Gemini what your customers ask. Are you in the answer?\n2) Check GA4 > Traffic acquisition for the AI Assistant channel (many AI clicks still land as Direct).\n3) Add \"AI (ChatGPT, Claude, Gemini)\" to your \"Where did you hear about us?\" form.\n\nFull guide: https://withhammad.com/resources/ai-traffic-ga4\nFollow for more AI builds.\n\nAI avatar of me.\n\n#AISearch #GA4 #ChatGPT #AEO #DigitalMarketing",
-          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
-          "first_comment": "Free GA4 setup guide: https://withhammad.com/resources/ai-traffic-ga4"
+          "cover": "cover_1080x1920.jpg uploaded (option 1)",
+          "first_comment": "Free GA4 setup guide: https://withhammad.com/resources/ai-traffic-ga4",
+          "url": "https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT",
+          "marked_at": "2026-10-24T11:58:48Z",
+          "confirmation": "Content Library > Scheduled: 26 Oct 2026, 14:00 GST"
         },
         "x": {
           "via": "composer",
-          "status": "composer",
+          "status": "composer_scheduled",
           "slot_utc": "2026-10-26T05:00:00Z",
           "local_time": "Mon 2026-10-26 09:00 GST",
-          "video": "final_social.mp4",
-          "ai_label": "'AI avatar of me.' in the post",
+          "video": "final_x.mp4",
+          "ai_label": true,
           "text": "How to track AI traffic in GA4: one Semrush study found AI search visitors 4.4x as valuable as organic, by conversion rate. Test your own: check GA4's AI Assistant channel.\nFree guide: https://withhammad.com/resources/ai-traffic-ga4\nAI avatar of me.\n#GA4 #AISearch",
           "weighted_length": 240,
-          "cover": null,
-          "where": "x.com/compose/post as @HammadYousufAI, Schedule"
+          "cover": "option 1 as the first 6 frames",
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule",
+          "url": "https://x.com/compose/post/unsent/scheduled",
+          "marked_at": "2026-10-24T12:01:08Z",
+          "confirmation": "\"Will send on Mon, Oct 26, 2026 at 9:00 AM\", Made with AI on"
         },
         "instagram_trial": {
           "via": "api",
