@@ -79,3 +79,23 @@ export const SAFE_4x5 = {x: 80, y: 80, w: 920, h: 1190, grid3x4: {x: 34, y: 0, w
 
 // Hook copy limits that keep the type big: line 1 <= 16 chars, line 2 <= 14 chars (longer lines get shrunk).
 export const HOOK_LIMITS = {line1: 16, line2: 14, maxWidth: 1000} as const;
+
+// "glow" variant (owner rule 2026-10-24, one fixed template for every reel cover, like a uniform creator grid):
+// dark navy + electric-blue radial glow, line 1 huge white, line 2 white in a glowing electric-blue pill,
+// the SAME pointing pose every time (public/glow/pose-B-cut.png), two tilted logo tiles beside the head, each glowing
+// in its logo's colour. Everything that matters sits inside the 3:4 grid crop (y 240-1680).
+export const GLOW = {
+  base: '#030918',
+  deep: '#061436',
+  mid: '#0B2A78',
+  core: '#1653D6',
+  electric: '#2F8CFF',
+  pillTop: '#3E93FF',
+  pillBottom: '#1159E6',
+  pillEdge: '#9CCBFF',
+  // The pose cut-out (1072x1920 RGBA, edge fades baked in) and where it sits on the 1080x1920 canvas.
+  pose: {src: 'glow/pose-B-cut.png', srcWidth: 1072, srcHeight: 1920, scale: 0.72, top: 582},
+  line1: {size: 176, maxWidth: 1010, top: 300},
+  line2: {size: 132, maxWidth: 1000},
+  tile: {size: 296, radius: 74, leftX: 30, rightX: 754, y: 778, rotate: 9},
+} as const;

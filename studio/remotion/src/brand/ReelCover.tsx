@@ -1,10 +1,16 @@
 import React from 'react';
 import {AbsoluteFill, Img} from 'remotion';
 import {BlurBg, DarkBg} from './Backgrounds';
+import {CropGuides} from './CropGuides';
+import {GlowCover, GlowCoverProps} from './GlowCover';
 import {HookLine} from './Fit';
-import {AccentName, COLOR, CROPS_9x16, FONT, HOOK_LIMITS, RADIUS, SAFE_9x16, SHADOW, TYPE} from './tokens';
+import {AccentName, COLOR, FONT, HOOK_LIMITS, RADIUS, SHADOW, TYPE} from './tokens';
 
-// The one cover/thumbnail component (1080x1920). Two background variants, both from the latest approved covers:
+export {CropGuides};
+export type {GlowCoverProps, GlowLogo} from './GlowCover';
+
+// The one cover/thumbnail component (1080x1920). Variants:
+//   "glow": the fixed grid template (owner rule 2026-10-24) -> GlowCover.tsx (line1, line2, leftLogo, rightLogo)
 //   "card": blurred scene + presenter card, the head pops out above the card, hook ABOVE the face (Kimi K3)
 //   "dark": teal glow + binary rain, wordmark on top, tilted tiles beside the head, hook BELOW the face (SkillSpector)
 // Rules baked in: the strongest-emotion face (pass the pick), 2 big lines, punch in the accent box, head + hook inside
@@ -15,7 +21,9 @@ export type Logo =
   | {slot: 'top'; src: string; width: number; height: number; y?: number}
   | {slot: 'left' | 'right'; tile: Tile; x?: number; y?: number; size?: number; rotate?: number};
 
-export type ReelCoverProps = {
+export type ReelCoverProps = ClassicCoverProps | GlowCoverProps;
+
+export type ClassicCoverProps = {
   variant: 'card' | 'dark';
   /** cut: the take frame with the background removed (RGBA). full: the same frame unmatted (card variant only). */
   face: {cut: string; full?: string; scale: number; top: number; srcWidth?: number};
@@ -48,14 +56,10 @@ const LogoView: React.FC<{logo: Logo}> = ({logo}) => {
     transform: `rotate(${logo.rotate ?? (left ? -12 : 12)}deg)`, filter: SHADOW.tile}}><TileView tile={logo.tile} size={size}/></div>;
 };
 
-export const CropGuides: React.FC = () => <AbsoluteFill style={{pointerEvents: 'none'}}>
-  {([['3:4 grid', CROPS_9x16.grid3x4, '#FFD400'], ['4:5 feed', CROPS_9x16.feed4x5, '#00E5FF'], ['1:1', CROPS_9x16.square, '#FF4FD8']] as const).map(([name, c, col]) =>
-    <div key={name} style={{position: 'absolute', left: c.x + 4, top: c.y, width: c.w - 8, height: c.h, border: `4px dashed ${col}`}}>
-      <div style={{position: 'absolute', right: 8, top: 4, fontFamily: FONT.sans, fontWeight: 800, fontSize: 26, color: col}}>{name}</div></div>)}
-  <div style={{position: 'absolute', left: SAFE_9x16.core.x, top: SAFE_9x16.core.y, width: SAFE_9x16.core.w, height: SAFE_9x16.core.h, border: '3px solid #7CFF6B'}}/>
-</AbsoluteFill>;
 
-export const ReelCover: React.FC<ReelCoverProps> = (p) => {
+export const ReelCover: React.FC<ReelCoverProps> = (p) => p.variant === 'glow' ? <GlowCover {...p}/> : <ClassicCover {...p}/>;
+
+const ClassicCover: React.FC<ClassicCoverProps> = (p) => {
   const accent = p.accent ?? (p.variant === 'card' ? 'orange' : 'red');
   const line1Look = p.line1Look ?? (p.variant === 'card' ? 'box' : 'plain');
   const sizes = p.sizes ?? (p.variant === 'card' ? [TYPE.hookSmall.size, TYPE.hookBig.size] : [TYPE.hook.size, TYPE.hook.size]);
