@@ -28,12 +28,12 @@
       }
     ],
     "selected_look_id": "5dfa03f53ae54f919040a26a953b7f4b",
-    "assigned_default_voice_id": "0f7032b11fb743589cc81b721f4389b3",
-    "voice_name": "Hammad Yousuf (cloned from original audio)",
+    "assigned_default_voice_id": "46d4ae4996a8476c8227108e3847f401",
+    "voice_name": "Hammad Yousuf (From Avatar, ElevenLabs, Multilingual)",
     "voice_compatibility_verified": true,
     "api_key_location": "work/.secrets/heygen-api-key.txt (not yet provided)",
     "connection_method": "HeyGen MCP",
-    "last_verified": "2026-10-20",
+    "last_verified": "2026-10-23",
     "selected_look_name": "Content creator in olive shirt",
     "digital_twin_motion_reference": null,
     "current_video_id": "9e178b0d855b06b779d397435e0f08d3",
@@ -46,7 +46,14 @@
       "f0d7cc382e5f42398e2a5a1104b4d183"
     ],
     "allow_digital_twin_setup": false,
-    "selected_engine": "avatar_iv"
+    "selected_engine": "avatar_iv",
+    "voice_settings": "saved defaults, no overrides: engine ElevenLabs, model shown as ElevenLabs v4, speed 1.1, stability 50, accent original",
+    "voice_approved_by_owner": "2026-10-23 (test video 1be3b616ecf01374b875c3a84602aea9)",
+    "retired_voice_ids": [
+      "0f7032b11fb743589cc81b721f4389b3"
+    ],
+    "voice_lip_lead_ms": 80,
+    "signed_in_chrome_profile": "Claude in Chrome \"Browser 2\" (Browser 1 profile is signed out of HeyGen)"
   },
   "publishing": {
     "proposed_provider": "Direct platform APIs through Codex MCP",
@@ -194,7 +201,8 @@
     "api_access_status": "upgrade_required",
     "identity_last_verified": "2026-10-20",
     "plan": "Free",
-    "draft_status": "DESIGN LIVE: specific reel 18102296804369794 + DESIGN keyword, private reply and tracked resource link verified after reload. PROJECTS/JOBKIT remain OFF until their approved publication dates."
+    "draft_status": "2026-10-24 17:55 GST: JOBKIT LIVE on reel De4PSqIj5ND (@with.hammad Trial Reel) with keyword JOBKIT; DESIGN trigger turned OFF to free a slot (0 sends); DUET quick automation LIVE. Free plan limit reached; owner chose \"Stay free, rotate\": keep only the newest posts live.",
+    "rotation_rule": "Free plan: only the newest posts keep a live keyword DM; turn the oldest trigger off before setting a new one live (owner 2026-10-24)."
   },
   "browser_preference": "Google Chrome",
   "scheduler_scope": {
