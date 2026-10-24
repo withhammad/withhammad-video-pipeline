@@ -66,9 +66,9 @@ SITE_BASE = 'https://withhammad.com'
 IG_ACCOUNT = 'hammadagentic.ai'
 LEGACY_IG_ACCOUNT = 'with.hammad'
 TRIAL_FOR = {'with.hammad': 'SS_PERFORMANCE'}   # graduation strategy for uploads from that account (new queues)
-# Owner choice 2026-10-24 (setup C): the main post on @hammadagentic.ai has no Collab (a Collab reaches @with.hammad's
-# followers, and a Trial Reel cannot carry one); a separate Trial Reel on @with.hammad ('instagram_trial', same slot,
-# same hosted media) carries the comment-keyword DM, because ManyChat runs on @with.hammad.
+# Owner rule 2026-10-24, for every reel: the main post goes on @hammadagentic.ai with @with.hammad invited as the Collab,
+# and a separate Trial Reel goes on @with.hammad ('instagram_trial', same slot, same hosted media, no Collab: a Trial
+# Reel cannot carry one). The trial post keeps the comment-keyword DM, because ManyChat runs on @with.hammad.
 IG_TRIAL_ACCOUNT = 'with.hammad'
 COMMIT_TRAILER = 'Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>'
 
@@ -793,8 +793,8 @@ def plan_entry(jdir, date, lesson, seo, youtube_at=None):
     if youtube_at is not None and iso_z(youtube_at) != slots['youtube']['utc']:   # the backup slot of the day
         platforms['youtube'].update(slot_utc=iso_z(youtube_at), local_time=local_label(youtube_at),
                                     publish_at=iso_z(youtube_at), slot='backup')
-    platforms['instagram'].update(account=IG_ACCOUNT, trial=TRIAL_FOR.get(IG_ACCOUNT), collaborators=[], **hosted_urls(slug),
-                                  hosted=False)
+    platforms['instagram'].update(account=IG_ACCOUNT, trial=TRIAL_FOR.get(IG_ACCOUNT),
+                                  collaborators=_default_collaborators(IG_ACCOUNT), **hosted_urls(slug), hosted=False)
     platforms['instagram_trial'] = dict(platforms['instagram'], account=IG_TRIAL_ACCOUNT, trial=TRIAL_FOR[IG_TRIAL_ACCOUNT],
                                         collaborators=[])
     day = _date(date)

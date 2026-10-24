@@ -450,7 +450,9 @@
           "cover_bytes": 269852,
           "site_commit": "87e1521",
           "hosted_at": "2026-10-24T05:21:21Z",
-          "collaborators": []
+          "collaborators": [
+            "with.hammad"
+          ]
         },
         "tiktok": {
           "via": "composer",
@@ -550,7 +552,9 @@
           "local_time": "Tue 2026-10-27 17:00 GST",
           "account": "hammadagentic.ai",
           "trial": null,
-          "collaborators": [],
+          "collaborators": [
+            "with.hammad"
+          ],
           "video_url": "https://withhammad.com/media/reels/skillspector-scan-skills.mp4",
           "cover_url": "https://withhammad.com/media/covers/skillspector-scan-skills.jpg",
           "hosted": true,
@@ -561,25 +565,30 @@
         },
         "tiktok": {
           "via": "composer",
-          "status": "composer",
+          "status": "composer_scheduled",
           "slot_utc": "2026-10-27T13:00:00Z",
           "local_time": "Tue 2026-10-27 17:00 GST",
           "video": "final_social.mp4",
-          "ai_label": "Turn on the AI-generated content label when posting.",
+          "ai_label": true,
           "text": "Are Claude Code skills safe? How to use NVIDIA SkillSpector to scan a skill before you install it.\nFull guide: withhammad.com/resources/skillspector-scan-skills (pinned comment)\n\nAbout 1 in 4 marketplace skills had a security flaw and 5.2% showed strong signs of malicious intent (Liu et al., Jan 2026). SkillSpector is NVIDIA's free, open-source skill scanner: a folder, GitHub link or zip in, 17 risk categories checked (prompt injection, data exfiltration, tool misuse), a 0-100 risk score out. Over 50 = don't install. A low score means no red flags found, not proven safe. Claude Code or Codex can run it for you.\n\nCommented SCAN? No DM needed here: the full guide is at withhammad.com/resources/skillspector-scan-skills (pinned comment). Follow for more AI builds.\nAI avatar of me.\n#ClaudeCode #ClaudeSkills #AISecurity #SkillSpector #CyberSecurity",
-          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
-          "pinned_comment": "Commented SCAN? Full setup guide, no DM needed: withhammad.com/resources/skillspector-scan-skills"
+          "cover": "cover_1080x1920.jpg uploaded and saved (option 1)",
+          "pinned_comment": "Commented SCAN? Full setup guide, no DM needed: withhammad.com/resources/skillspector-scan-skills",
+          "url": "https://www.tiktok.com/@hammadyousuf01/video/7700133243110165781",
+          "marked_at": "2026-10-24T07:30:01Z"
         },
         "facebook": {
           "via": "composer",
-          "status": "composer",
+          "status": "composer_scheduled",
           "slot_utc": "2026-10-27T13:00:00Z",
           "local_time": "Tue 2026-10-27 17:00 GST",
           "video": "final_social.mp4",
-          "ai_label": "Turn on AI info when posting. If cross-posted from Instagram, replace the caption with this one (the IG caption asks for a comment keyword that only works on Instagram).",
+          "ai_label": true,
           "text": "Are Claude Code skills safe? NVIDIA SkillSpector, a free open-source scanner, checks a skill before you install it.\nFree guide: https://withhammad.com/resources/skillspector-scan-skills\n\nAbout 1 in 4 marketplace skills had a security flaw, and 5.2% showed strong signs of malicious intent (Liu et al., Jan 2026). One bad skill could leak your API keys. SkillSpector (Apache-2.0) reads a skill folder, GitHub link or zip, checks 17 risk categories such as prompt injection, data exfiltration and tool misuse, and returns a 0-100 risk score. Over 50 means don't install, and a low score means no red flags found, not proven safe. Use --no-llm to keep your code on your machine, or let Claude Code or Codex run it for you.\n\nCommented SCAN? No DM needed here. Setup steps and the safe-install rule: https://withhammad.com/resources/skillspector-scan-skills\nFollow for more AI builds for marketers and founders.\n\nAI avatar of me.\n\n#ClaudeCode #AISecurity #SkillSpector",
-          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
-          "first_comment": "Free guide: https://withhammad.com/resources/skillspector-scan-skills"
+          "cover": "cover_1080x1920.jpg uploaded (option 1)",
+          "first_comment": "Free guide: https://withhammad.com/resources/skillspector-scan-skills",
+          "url": "https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT",
+          "marked_at": "2026-10-24T07:33:59Z",
+          "confirmation": "Creator Dashboard > Content Library > Scheduled: SkillSpector caption, 27 Oct 2026, 17:00 GST; Public; Add AI label on."
         },
         "x": {
           "via": "composer",

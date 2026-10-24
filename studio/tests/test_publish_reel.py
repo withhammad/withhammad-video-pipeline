@@ -456,10 +456,10 @@ def test_run_due_posts_once_and_a_second_run_posts_nothing(env):
                                                                          ('instagram', 'posted'),
                                                                          ('instagram_trial', 'posted'),
                                                                          ('youtube', 'confirmed_public')}
-    # owner setup C (2026-10-24): a normal reel on @hammadagentic.ai with no Collab, plus a Trial Reel on @with.hammad
+    # owner rule 2026-10-24: the reel on @hammadagentic.ai with @with.hammad as Collab, plus a Trial Reel on @with.hammad
     ig, trial = [c[1] for c in rt.calls if c[0] == 'instagram']
     assert ig['expected_username'] == 'hammadagentic.ai' and ig['ai_generated'] is True and ig['trial'] is None
-    assert ig['collaborators'] == [] and Path(ig['state_path']).name == 'publish_instagram.json'
+    assert ig['collaborators'] == ['with.hammad'] and Path(ig['state_path']).name == 'publish_instagram.json'
     assert trial['expected_username'] == 'with.hammad' and trial['trial'] == 'SS_PERFORMANCE' and trial['collaborators'] == []
     assert Path(trial['state_path']).name == 'publish_instagram_trial.json' and trial['url_provider'] == ig['url_provider']
     assert trial['caption'] == SEO['instagram']['caption']           # the keyword DM fires on @with.hammad
@@ -470,11 +470,13 @@ def test_run_due_posts_once_and_a_second_run_posts_nothing(env):
     assert Path(li['thumbnail_path']).name == 'cover_720x1280.jpg' and li['confirm_not_posted'] is False
     ig_result = next(r for r in first['results'] if r['platform'] == 'instagram')
     trial_result = next(r for r in first['results'] if r['platform'] == 'instagram_trial')
-    assert ig_result['followups'] == []                       # ManyChat is not on @hammadagentic.ai; no Collab to accept
+    assert not any('ManyChat' in f for f in ig_result['followups'])     # ManyChat is not on @hammadagentic.ai
+    assert any('Collab' in f and 'with.hammad' in f for f in ig_result['followups'])
     assert any('ManyChat' in f and KEYWORD in f for f in trial_result['followups'])
+    assert not any('Collab' in f for f in trial_result['followups'])
     published = json.loads((pr.JOBS_ROOT / 'job1' / 'published.json').read_text())
     assert published['instagram']['media_id'] == 'IG1' and published['instagram']['account'] == 'hammadagentic.ai'
-    assert published['instagram']['collaborators_invited'] == []
+    assert published['instagram']['collaborators_invited'] == ['with.hammad']
     assert published['instagram_trial']['account'] == 'with.hammad' and published['instagram_trial']['trial'] == 'SS_PERFORMANCE'
     assert published['linkedin']['post_urn'] == 'urn:li:share:1'
     assert published['youtube']['video_id'] == 'VID1' and published['youtube']['privacy'] == 'public'
@@ -1002,12 +1004,12 @@ def test_platform_date_override_does_not_wait_for_original_day_backup(env):
 
 
 def test_instagram_account_and_trial_follow_the_queued_entry(env):
-    # owner setup C (2026-10-24): new queues post a normal reel on @hammadagentic.ai with no Collab, plus a Trial Reel
-    # on @with.hammad (where ManyChat runs); an entry queued before the rule keeps @with.hammad
+    # owner rule 2026-10-24: new queues post on @hammadagentic.ai with @with.hammad as Collab, plus a Trial Reel on
+    # @with.hammad (where ManyChat runs; no Collab on a trial); an entry queued before the rule keeps @with.hammad
     queued(env)
     entry = next(e for e in pr.load_schedule()['queue'] if e.get('job') == 'job1')
     ig, trial = entry['platforms']['instagram'], entry['platforms']['instagram_trial']
-    assert ig['account'] == 'hammadagentic.ai' and ig['trial'] is None and ig['collaborators'] == []
+    assert ig['account'] == 'hammadagentic.ai' and ig['trial'] is None and ig['collaborators'] == ['with.hammad']
     assert trial['account'] == 'with.hammad' and trial['trial'] == 'SS_PERFORMANCE' and trial['collaborators'] == []
     assert trial['video_url'] == ig['video_url'] and trial['status'] == ig['status']
     assert pr.slot_time('instagram_trial', '2026-10-19') == pr.slot_time('instagram', '2026-10-19')
