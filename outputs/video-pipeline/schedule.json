@@ -450,14 +450,16 @@
         },
         "tiktok": {
           "via": "composer",
-          "status": "composer",
+          "status": "composer_scheduled",
           "slot_utc": "2026-10-26T13:00:00Z",
           "local_time": "Mon 2026-10-26 17:00 GST",
           "video": "final_social.mp4",
           "ai_label": "Turn on the AI-generated content label when posting.",
           "text": "Kimi K3 on 8GB RAM with no GPU: can you run a 2.78T AI model locally? Yes, but the catch is your disk.\nFree guide: withhammad.com/resources/kimi-k3-on-8gb-ram (pinned comment)\n\nkimi-k3-in-c, an open-source C engine by Fareed Khan, streams the mixture-of-experts weights from a fast SSD: 16 of 896 experts per layer for each token. You need about 1.7 TB of free SSD, and it takes about 30 seconds per token on a fast server. A local LLM without a GPU, as a proof of concept, not an everyday app.\n\nCommented BYTES? No DM needed: the free guide is at withhammad.com/resources/kimi-k3-on-8gb-ram (pinned comment). Follow for more AI builds.\nAI avatar of me.\n#KimiK3 #LocalLLM #LocalAI #LLM #TechTok",
           "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
-          "pinned_comment": "Commented BYTES? Free setup guide, no DM needed: withhammad.com/resources/kimi-k3-on-8gb-ram"
+          "pinned_comment": "Commented BYTES? Free setup guide, no DM needed: withhammad.com/resources/kimi-k3-on-8gb-ram",
+          "url": "https://www.tiktok.com/@hammadyousuf01/video/7700101285277715732",
+          "marked_at": "2026-10-24T05:26:20Z"
         },
         "facebook": {
           "via": "composer",
@@ -472,7 +474,7 @@
         },
         "x": {
           "via": "composer",
-          "status": "composer",
+          "status": "composer_scheduled",
           "slot_utc": "2026-10-26T14:00:00Z",
           "local_time": "Mon 2026-10-26 18:00 GST",
           "video": "final_social.mp4",
@@ -480,7 +482,9 @@
           "text": "Kimi K3 on 8GB RAM, no GPU. Free guide: https://withhammad.com/resources/kimi-k3-on-8gb-ram\n\nkimi-k3-in-c streams the 2.78T model's experts from a fast SSD. The catch: about 1.7 TB of free disk and about 30 s per token on a fast server.\nFollow for more AI builds.\nAI avatar of me. #KimiK3 #LocalAI",
           "weighted_length": 269,
           "cover": null,
-          "where": "x.com/compose/post as @HammadYousufAI, Schedule"
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule",
+          "url": "https://x.com/compose/post/unsent/scheduled",
+          "marked_at": "2026-10-24T05:33:44Z"
         }
       },
       "queued_at": "2026-10-24T05:18:55Z"
