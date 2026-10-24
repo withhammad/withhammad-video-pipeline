@@ -1,0 +1,493 @@
+{
+ "fps": 30,
+ "frames": 1520,
+ "av": 0.1,
+ "units": [
+  {
+   "kind": "banner",
+   "from": 0,
+   "to": 35,
+   "claude": 15,
+   "code": 23
+  },
+  {
+   "kind": "files",
+   "from": 35,
+   "to": 96,
+   "click": 52,
+   "select": 71
+  },
+  {
+   "kind": "breach",
+   "from": 96,
+   "to": 198,
+   "red": 105,
+   "lock": 125,
+   "leak": 133,
+   "stamp": 152
+  },
+  {
+   "kind": "grid",
+   "from": 198,
+   "to": 325,
+   "sweep": 249,
+   "flag": 277,
+   "count": 293
+  },
+  {
+   "kind": "flip",
+   "from": 325,
+   "to": 449,
+   "flip": 344,
+   "count": 361,
+   "pill": 409
+  },
+  {
+   "kind": "punch",
+   "from": 449,
+   "to": 491
+  },
+  {
+   "kind": "nvidia",
+   "from": 491,
+   "to": 532,
+   "wipe": 491
+  },
+  {
+   "kind": "screen",
+   "from": 532,
+   "to": 581,
+   "src": "R01_readme_top.mp4",
+   "srcStart": 1.94,
+   "cropTop": 150
+  },
+  {
+   "kind": "face",
+   "from": 581,
+   "to": 661
+  },
+  {
+   "kind": "pipeline",
+   "from": 661,
+   "to": 742,
+   "scan": 668,
+   "pass": 692,
+   "reach": 709
+  },
+  {
+   "kind": "face",
+   "from": 742,
+   "to": 835
+  },
+  {
+   "kind": "screen",
+   "from": 835,
+   "to": 1023,
+   "src": "R02_docs_checks.mp4",
+   "srcStart": 0.11,
+   "push": 881
+  },
+  {
+   "kind": "gauge",
+   "from": 1023,
+   "to": 1150,
+   "swing": 1046,
+   "safe": 1129
+  },
+  {
+   "kind": "face",
+   "from": 1150,
+   "to": 1228
+  },
+  {
+   "kind": "flash",
+   "from": 1228,
+   "to": 1277,
+   "free": 1258
+  },
+  {
+   "kind": "screen",
+   "from": 1277,
+   "to": 1395,
+   "src": "R03_readme_quickstart.mp4",
+   "srcStart": 0.58,
+   "cropTop": 150,
+   "apache": 1294,
+   "claude": 1318,
+   "codex": 1342
+  },
+  {
+   "kind": "cta",
+   "from": 1395,
+   "to": 1520,
+   "comment": 1434,
+   "scan": 1442
+  }
+ ],
+ "captions": [
+  {
+   "from": 0,
+   "to": 15,
+   "text": "if your"
+  },
+  {
+   "from": 15,
+   "to": 28,
+   "text": "Claude Code"
+  },
+  {
+   "from": 28,
+   "to": 35,
+   "text": "is"
+  },
+  {
+   "from": 35,
+   "to": 52,
+   "text": "packed with"
+  },
+  {
+   "from": 52,
+   "to": 62,
+   "text": "skills"
+  },
+  {
+   "from": 62,
+   "to": 84,
+   "text": "and plugins"
+  },
+  {
+   "from": 96,
+   "to": 125,
+   "text": "one bad skill"
+  },
+  {
+   "from": 125,
+   "to": 142,
+   "text": "could leak"
+  },
+  {
+   "from": 142,
+   "to": 181,
+   "text": "your API keys"
+  },
+  {
+   "from": 198,
+   "to": 205,
+   "text": "researchers"
+  },
+  {
+   "from": 205,
+   "to": 217,
+   "text": "found"
+  },
+  {
+   "from": 217,
+   "to": 249,
+   "text": "about 1 in 4"
+  },
+  {
+   "from": 249,
+   "to": 277,
+   "text": "marketplace skills"
+  },
+  {
+   "from": 277,
+   "to": 293,
+   "text": "had a"
+  },
+  {
+   "from": 293,
+   "to": 318,
+   "text": "security flaw"
+  },
+  {
+   "from": 325,
+   "to": 334,
+   "text": "and a"
+  },
+  {
+   "from": 334,
+   "to": 344,
+   "text": "worrying"
+  },
+  {
+   "from": 344,
+   "to": 371,
+   "text": "5%"
+  },
+  {
+   "from": 371,
+   "to": 379,
+   "text": "showed"
+  },
+  {
+   "from": 379,
+   "to": 403,
+   "text": "strong signs"
+  },
+  {
+   "from": 403,
+   "to": 421,
+   "text": "of malicious"
+  },
+  {
+   "from": 421,
+   "to": 440,
+   "text": "intent"
+  },
+  {
+   "from": 449,
+   "to": 464,
+   "text": "so to"
+  },
+  {
+   "from": 464,
+   "to": 487,
+   "text": "catch them"
+  },
+  {
+   "from": 491,
+   "to": 501,
+   "text": "NVIDIA"
+  },
+  {
+   "from": 501,
+   "to": 515,
+   "text": "built a"
+  },
+  {
+   "from": 515,
+   "to": 532,
+   "text": "free scanner"
+  },
+  {
+   "from": 532,
+   "to": 546,
+   "text": "called"
+  },
+  {
+   "from": 546,
+   "to": 576,
+   "text": "SkillSpector"
+  },
+  {
+   "from": 581,
+   "to": 602,
+   "text": "which works like"
+  },
+  {
+   "from": 602,
+   "to": 631,
+   "text": "airport security"
+  },
+  {
+   "from": 631,
+   "to": 653,
+   "text": "for skills"
+  },
+  {
+   "from": 661,
+   "to": 675,
+   "text": "you scan"
+  },
+  {
+   "from": 675,
+   "to": 692,
+   "text": "each one"
+  },
+  {
+   "from": 692,
+   "to": 709,
+   "text": "before it"
+  },
+  {
+   "from": 709,
+   "to": 718,
+   "text": "reaches"
+  },
+  {
+   "from": 718,
+   "to": 742,
+   "text": "Claude Code"
+  },
+  {
+   "from": 742,
+   "to": 764,
+   "text": "feed it"
+  },
+  {
+   "from": 764,
+   "to": 784,
+   "text": "a folder"
+  },
+  {
+   "from": 789,
+   "to": 812,
+   "text": "a GitHub link"
+  },
+  {
+   "from": 812,
+   "to": 831,
+   "text": "or a zip"
+  },
+  {
+   "from": 835,
+   "to": 853,
+   "text": "and it checks"
+  },
+  {
+   "from": 853,
+   "to": 881,
+   "text": "17 risk"
+  },
+  {
+   "from": 881,
+   "to": 902,
+   "text": "categories"
+  },
+  {
+   "from": 910,
+   "to": 922,
+   "text": "like prompt"
+  },
+  {
+   "from": 922,
+   "to": 943,
+   "text": "injection"
+  },
+  {
+   "from": 951,
+   "to": 957,
+   "text": "data"
+  },
+  {
+   "from": 957,
+   "to": 982,
+   "text": "exfiltration"
+  },
+  {
+   "from": 985,
+   "to": 995,
+   "text": "and tool"
+  },
+  {
+   "from": 995,
+   "to": 1015,
+   "text": "misuse"
+  },
+  {
+   "from": 1023,
+   "to": 1040,
+   "text": "then you get"
+  },
+  {
+   "from": 1040,
+   "to": 1060,
+   "text": "a risk score"
+  },
+  {
+   "from": 1060,
+   "to": 1101,
+   "text": "from 0 to 100"
+  },
+  {
+   "from": 1113,
+   "to": 1143,
+   "text": "lower is safer"
+  },
+  {
+   "from": 1150,
+   "to": 1173,
+   "text": "and over 50"
+  },
+  {
+   "from": 1173,
+   "to": 1184,
+   "text": "means"
+  },
+  {
+   "from": 1184,
+   "to": 1216,
+   "text": "don't install"
+  },
+  {
+   "from": 1228,
+   "to": 1246,
+   "text": "best part?"
+  },
+  {
+   "from": 1250,
+   "to": 1271,
+   "text": "it's free"
+  },
+  {
+   "from": 1277,
+   "to": 1287,
+   "text": "the code"
+  },
+  {
+   "from": 1287,
+   "to": 1305,
+   "text": "is open"
+  },
+  {
+   "from": 1313,
+   "to": 1334,
+   "text": "and Claude Code"
+  },
+  {
+   "from": 1334,
+   "to": 1356,
+   "text": "or Codex"
+  },
+  {
+   "from": 1356,
+   "to": 1371,
+   "text": "can run it"
+  },
+  {
+   "from": 1371,
+   "to": 1389,
+   "text": "for you"
+  },
+  {
+   "from": 1395,
+   "to": 1416,
+   "text": "want the setup?"
+  },
+  {
+   "from": 1425,
+   "to": 1434,
+   "text": "just"
+  },
+  {
+   "from": 1434,
+   "to": 1459,
+   "text": "comment SCAN"
+  },
+  {
+   "from": 1459,
+   "to": 1479,
+   "text": "and I'll send you"
+  },
+  {
+   "from": 1479,
+   "to": 1520,
+   "text": "the full guide"
+  }
+ ],
+ "scans": {
+  "safe_skill": {
+   "score": 0,
+   "severity": "LOW",
+   "recommendation": "SAFE",
+   "max_issue_severity": "NONE"
+  },
+  "malicious_skill": {
+   "score": 100,
+   "severity": "CRITICAL",
+   "recommendation": "DO_NOT_INSTALL",
+   "max_issue_severity": "CRITICAL"
+  }
+ }
+}
