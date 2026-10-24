@@ -151,7 +151,7 @@
         },
         "instagram": {
           "via": "api",
-          "status": "pending",
+          "status": "missed",
           "slot_utc": "2026-10-23T13:00:00Z",
           "local_time": "Fri 2026-10-23 17:00 GST",
           "account": "with.hammad",
@@ -162,7 +162,9 @@
           "cover_bytes": 76080,
           "site_commit": "8b625f8",
           "hosted_at": "2026-10-20T12:03:58Z",
-          "automation_id": "publish-approved-projects-and-jobkit-reels"
+          "automation_id": "publish-approved-projects-and-jobkit-reels",
+          "missed_at": "2026-10-24T13:27:26Z",
+          "error": "slot passed 1 day, 0:27:26.839037 ago (limit 6:00:00); not posted late"
         },
         "tiktok": {
           "via": "composer",
@@ -242,7 +244,7 @@
         },
         "instagram": {
           "via": "api",
-          "status": "pending",
+          "status": "published",
           "slot_utc": "2026-10-24T13:00:00Z",
           "local_time": "Sat 2026-10-24 17:00 GST",
           "account": "with.hammad",
@@ -250,13 +252,20 @@
           "cover_url": "https://withhammad.com/media/covers/claude-job-search.jpg",
           "hosted": true,
           "video_bytes": 5359241,
-          "cover_bytes": 77727,
+          "cover_bytes": 338024,
           "site_commit": "b3d8917",
           "hosted_at": "2026-10-20T12:09:17Z",
           "automation_id": "publish-approved-projects-and-jobkit-reels",
           "trial": "SS_PERFORMANCE",
           "collaborators": [],
-          "owner_note": "2026-10-24 owner: post it as a Trial Reel"
+          "owner_note": "2026-10-24 owner: post it as a Trial Reel",
+          "attempt_at": "2026-10-24T13:27:26Z",
+          "url": "https://www.instagram.com/reel/De4PSqIj5ND/",
+          "published_at": "2026-10-24T13:27:26Z",
+          "media_id": "18118790194980857",
+          "followups": [
+            "ManyChat: Quick Automation \"Auto-DM links from comments\" on https://www.instagram.com/reel/De4PSqIj5ND/ with keyword JOBKIT, link https://withhammad.com/resources/claude-job-search"
+          ]
         },
         "tiktok": {
           "via": "composer",
@@ -453,7 +462,7 @@
           "cover_url": "https://withhammad.com/media/covers/ai-traffic-ga4.jpg",
           "hosted": true,
           "video_bytes": 47933018,
-          "cover_bytes": 216287,
+          "cover_bytes": 339463,
           "site_commit": "e1b3a54",
           "hosted_at": "2026-10-24T11:52:08Z"
         },
@@ -511,7 +520,7 @@
           "cover_url": "https://withhammad.com/media/covers/ai-traffic-ga4.jpg",
           "hosted": true,
           "video_bytes": 47933018,
-          "cover_bytes": 216287,
+          "cover_bytes": 339463,
           "site_commit": "e1b3a54",
           "hosted_at": "2026-10-24T11:52:08Z"
         },
@@ -620,7 +629,7 @@
           "cover_url": "https://withhammad.com/media/covers/kimi-k3-on-8gb-ram.jpg",
           "hosted": true,
           "video_bytes": 26541167,
-          "cover_bytes": 269852,
+          "cover_bytes": 343375,
           "site_commit": "87e1521",
           "hosted_at": "2026-10-24T05:21:21Z",
           "collaborators": [
@@ -680,7 +689,7 @@
           "cover_url": "https://withhammad.com/media/covers/kimi-k3-on-8gb-ram.jpg",
           "hosted": true,
           "video_bytes": 26541167,
-          "cover_bytes": 269852,
+          "cover_bytes": 343375,
           "site_commit": "87e1521",
           "hosted_at": "2026-10-24T05:21:21Z",
           "collaborators": []
@@ -733,7 +742,7 @@
           "cover_url": "https://withhammad.com/media/covers/skillspector-scan-skills.jpg",
           "hosted": true,
           "video_bytes": 29011735,
-          "cover_bytes": 318333,
+          "cover_bytes": 339339,
           "site_commit": "4e740c8",
           "hosted_at": "2026-10-24T07:25:06Z"
         },
@@ -791,7 +800,7 @@
           "cover_url": "https://withhammad.com/media/covers/skillspector-scan-skills.jpg",
           "hosted": true,
           "video_bytes": 29011735,
-          "cover_bytes": 318333,
+          "cover_bytes": 339339,
           "site_commit": "4e740c8",
           "hosted_at": "2026-10-24T07:25:06Z"
         }
