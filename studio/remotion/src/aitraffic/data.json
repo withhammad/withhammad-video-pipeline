@@ -1,0 +1,1487 @@
+{
+ "fps": 30,
+ "frames": 2113,
+ "av": 0.08,
+ "cut": {
+  "at": 1962,
+  "skip": 15
+ },
+ "units": [
+  {
+   "kind": "face",
+   "from": 0,
+   "to": 252,
+   "zoom": 1.0
+  },
+  {
+   "kind": "face",
+   "from": 252,
+   "to": 287,
+   "zoom": 1.06
+  },
+  {
+   "kind": "split",
+   "from": 287,
+   "to": 337,
+   "src": "r1_semrush.mp4",
+   "srcStart": 3.44,
+   "y0": 150,
+   "h": 860,
+   "logo": "semrush"
+  },
+  {
+   "kind": "face",
+   "from": 337,
+   "to": 390,
+   "zoom": 1.0
+  },
+  {
+   "kind": "face",
+   "from": 390,
+   "to": 413,
+   "zoom": 1.08
+  },
+  {
+   "kind": "face",
+   "from": 413,
+   "to": 517,
+   "zoom": 1.0
+  },
+  {
+   "kind": "face",
+   "from": 517,
+   "to": 626,
+   "zoom": 1.06
+  },
+  {
+   "kind": "cut",
+   "from": 626,
+   "to": 734,
+   "src": "r2_chat_phone.mp4",
+   "srcStart": 0.91,
+   "phone": true
+  },
+  {
+   "kind": "face",
+   "from": 734,
+   "to": 813,
+   "zoom": 1.06
+  },
+  {
+   "kind": "swap",
+   "from": 813,
+   "to": 898
+  },
+  {
+   "kind": "face",
+   "from": 898,
+   "to": 1059,
+   "zoom": 1.0
+  },
+  {
+   "kind": "split",
+   "from": 1059,
+   "to": 1162,
+   "src": "r3_ga4_channel.mp4",
+   "srcStart": 1.02,
+   "y0": 0,
+   "h": 860,
+   "logo": "ga"
+  },
+  {
+   "kind": "face",
+   "from": 1162,
+   "to": 1284,
+   "zoom": 1.0
+  },
+  {
+   "kind": "face",
+   "from": 1284,
+   "to": 1310,
+   "zoom": 1.06
+  },
+  {
+   "kind": "split",
+   "from": 1310,
+   "to": 1442,
+   "src": "r4_ai_check.mp4",
+   "srcStart": 0.5,
+   "rate": 1.6,
+   "y0": 0,
+   "h": 1000
+  },
+  {
+   "kind": "face",
+   "from": 1442,
+   "to": 1486,
+   "zoom": 1.0
+  },
+  {
+   "kind": "face",
+   "from": 1486,
+   "to": 1512,
+   "zoom": 1.06
+  },
+  {
+   "kind": "cut",
+   "from": 1512,
+   "to": 1711,
+   "src": "r5_enquiry_form.mp4",
+   "srcStart": 0.0,
+   "form": true,
+   "rate": 0.922
+  },
+  {
+   "kind": "face",
+   "from": 1711,
+   "to": 1741,
+   "zoom": 1.0
+  },
+  {
+   "kind": "split",
+   "from": 1741,
+   "to": 1811,
+   "src": "r6_ga4_custom.mp4",
+   "srcStart": 2.82,
+   "y0": 40,
+   "h": 900,
+   "logo": "ga"
+  },
+  {
+   "kind": "face",
+   "from": 1811,
+   "to": 1883,
+   "zoom": 1.06
+  },
+  {
+   "kind": "face",
+   "from": 1883,
+   "to": 1962,
+   "zoom": 1.0
+  },
+  {
+   "kind": "face",
+   "from": 1962,
+   "to": 2113,
+   "zoom": 1.06
+  }
+ ],
+ "overlays": [
+  {
+   "kind": "hook",
+   "from": 0,
+   "to": 128,
+   "line1": "MARKETERS: this one AI stat",
+   "line2": "changes how you read traffic"
+  },
+  {
+   "kind": "tile",
+   "from": 161,
+   "to": 210,
+   "img": "chatgpt.svg",
+   "label": "ChatGPT",
+   "side": "right"
+  },
+  {
+   "kind": "mult",
+   "from": 210,
+   "to": 255,
+   "text": "2x",
+   "strike": 223
+  },
+  {
+   "kind": "mult",
+   "from": 257,
+   "to": 302,
+   "text": "3x",
+   "strike": 268
+  },
+  {
+   "kind": "stat",
+   "from": 337,
+   "to": 413,
+   "land": 364,
+   "source": "One Semrush study \u00b7 Jul 2025"
+  },
+  {
+   "kind": "icon",
+   "from": 560,
+   "to": 626,
+   "icon": "bot",
+   "side": "right"
+  },
+  {
+   "kind": "icon",
+   "from": 591,
+   "to": 636,
+   "icon": "users",
+   "side": "left"
+  },
+  {
+   "kind": "icon",
+   "from": 610,
+   "to": 655,
+   "icon": "users",
+   "side": "right",
+   "y": 430
+  },
+  {
+   "kind": "icon",
+   "from": 805,
+   "to": 898,
+   "icon": "funnel",
+   "side": "right"
+  },
+  {
+   "kind": "chat",
+   "from": 915,
+   "to": 1059,
+   "q": "Best CRM for a small agency?",
+   "a": "Here are 3 good options for you:",
+   "dots": 946,
+   "reply": 964
+  },
+  {
+   "kind": "icon",
+   "from": 1021,
+   "to": 1066,
+   "icon": "search",
+   "side": "right"
+  },
+  {
+   "kind": "icon",
+   "from": 1206,
+   "to": 1284,
+   "icon": "megaphone",
+   "side": "left"
+  },
+  {
+   "kind": "pill",
+   "from": 1284,
+   "to": 1442,
+   "text": "1 \u00b7 CHECK YOUR AI VISIBILITY"
+  },
+  {
+   "kind": "icon",
+   "from": 1460,
+   "to": 1505,
+   "icon": "eye",
+   "side": "right"
+  },
+  {
+   "kind": "pill",
+   "from": 1486,
+   "to": 1711,
+   "text": "2 \u00b7 ASK WHERE THEY FOUND YOU"
+  },
+  {
+   "kind": "pill",
+   "from": 1711,
+   "to": 1811,
+   "text": "3 \u00b7 SEGMENT AND COMPARE"
+  },
+  {
+   "kind": "chip",
+   "from": 1856,
+   "to": 1901,
+   "text": "(direct) / (none)",
+   "label": "Source / medium"
+  },
+  {
+   "kind": "name",
+   "from": 1962,
+   "to": 1994
+  },
+  {
+   "kind": "cta",
+   "from": 1994,
+   "to": 2113,
+   "typeAt": 2002,
+   "dmAt": 2041
+  }
+ ],
+ "captions": [
+  {
+   "from": 128,
+   "to": 161,
+   "words": [
+    {
+     "text": "People",
+     "at": 128,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "who",
+     "at": 136,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "find",
+     "at": 144,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "you",
+     "at": 149,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "through",
+     "at": 155,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 161,
+   "to": 252,
+   "words": [
+    {
+     "text": "ChatGPT",
+     "at": 161,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "don't",
+     "at": 188,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "convert",
+     "at": 197,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "two",
+     "at": 210,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "times",
+     "at": 223,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "better.",
+     "at": 231,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 252,
+   "to": 287,
+   "words": [
+    {
+     "text": "Not",
+     "at": 252,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "three",
+     "at": 257,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "times.",
+     "at": 268,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 287,
+   "to": 333,
+   "words": [
+    {
+     "text": "In",
+     "at": 287,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "one",
+     "at": 295,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "Semrush",
+     "at": 304,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "study,",
+     "at": 316,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 337,
+   "to": 386,
+   "words": [
+    {
+     "text": "4.4",
+     "at": 337,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "times.",
+     "at": 364,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 390,
+   "to": 410,
+   "words": [
+    {
+     "text": "Why?",
+     "at": 390,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 413,
+   "to": 467,
+   "words": [
+    {
+     "text": "Because",
+     "at": 413,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "they",
+     "at": 424,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "researched",
+     "at": 435,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "inside",
+     "at": 449,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 467,
+   "to": 508,
+   "words": [
+    {
+     "text": "the",
+     "at": 467,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "chat",
+     "at": 475,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "before",
+     "at": 479,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "clicking.",
+     "at": 490,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 517,
+   "to": 553,
+   "words": [
+    {
+     "text": "If",
+     "at": 517,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "memory",
+     "at": 523,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "is",
+     "at": 532,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "on,",
+     "at": 541,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 553,
+   "to": 602,
+   "words": [
+    {
+     "text": "the",
+     "at": 553,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "assistant",
+     "at": 560,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "may",
+     "at": 570,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "know",
+     "at": 578,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "their",
+     "at": 584,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "budget",
+     "at": 591,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 602,
+   "to": 674,
+   "words": [
+    {
+     "text": "and",
+     "at": 602,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "job,",
+     "at": 610,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "so",
+     "at": 626,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "it",
+     "at": 636,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "answers",
+     "at": 640,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "like",
+     "at": 649,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "a",
+     "at": 656,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "friend.",
+     "at": 662,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 678,
+   "to": 701,
+   "words": [
+    {
+     "text": "Get",
+     "at": 678,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "this",
+     "at": 685,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "one,",
+     "at": 693,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 701,
+   "to": 731,
+   "words": [
+    {
+     "text": "it",
+     "at": 701,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "fits",
+     "at": 706,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "you.",
+     "at": 713,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 734,
+   "to": 782,
+   "words": [
+    {
+     "text": "So",
+     "at": 734,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "that",
+     "at": 740,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "visitor",
+     "at": 747,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "lands",
+     "at": 758,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "much",
+     "at": 769,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 782,
+   "to": 821,
+   "words": [
+    {
+     "text": "further",
+     "at": 782,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "down",
+     "at": 790,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "your",
+     "at": 797,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "funnel",
+     "at": 805,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "than",
+     "at": 813,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 821,
+   "to": 887,
+   "words": [
+    {
+     "text": "scrolling",
+     "at": 821,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "random",
+     "at": 841,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "search",
+     "at": 859,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "results.",
+     "at": 868,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 898,
+   "to": 956,
+   "words": [
+    {
+     "text": "That's",
+     "at": 898,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "why",
+     "at": 905,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "AI",
+     "at": 915,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "traffic",
+     "at": 925,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "needs",
+     "at": 937,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "its",
+     "at": 946,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 956,
+   "to": 1001,
+   "words": [
+    {
+     "text": "own",
+     "at": 956,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "lane",
+     "at": 964,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "in",
+     "at": 970,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "your",
+     "at": 976,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "reports,",
+     "at": 982,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1003,
+   "to": 1049,
+   "words": [
+    {
+     "text": "separate",
+     "at": 1003,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "from",
+     "at": 1013,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "normal",
+     "at": 1021,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "search.",
+     "at": 1031,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1059,
+   "to": 1110,
+   "words": [
+    {
+     "text": "Google",
+     "at": 1059,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "Analytics",
+     "at": 1069,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "now",
+     "at": 1083,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "has",
+     "at": 1090,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "one,",
+     "at": 1097,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1110,
+   "to": 1153,
+   "words": [
+    {
+     "text": "called",
+     "at": 1110,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "AI",
+     "at": 1118,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "Assistant.",
+     "at": 1131,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1162,
+   "to": 1201,
+   "words": [
+    {
+     "text": "Whether",
+     "at": 1162,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "you",
+     "at": 1168,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "run",
+     "at": 1175,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "a",
+     "at": 1180,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "brand,",
+     "at": 1187,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1202,
+   "to": 1259,
+   "words": [
+    {
+     "text": "do",
+     "at": 1202,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "marketing,",
+     "at": 1206,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "or",
+     "at": 1226,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "post",
+     "at": 1232,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "content",
+     "at": 1241,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "like",
+     "at": 1252,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1259,
+   "to": 1307,
+   "words": [
+    {
+     "text": "me,",
+     "at": 1259,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "step",
+     "at": 1284,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "one,",
+     "at": 1288,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1310,
+   "to": 1367,
+   "words": [
+    {
+     "text": "ask",
+     "at": 1310,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "ChatGPT,",
+     "at": 1320,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "Claude,",
+     "at": 1357,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1367,
+   "to": 1413,
+   "words": [
+    {
+     "text": "and",
+     "at": 1367,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "Gemini",
+     "at": 1373,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "what",
+     "at": 1383,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "your",
+     "at": 1394,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "customer",
+     "at": 1406,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1413,
+   "to": 1436,
+   "words": [
+    {
+     "text": "would",
+     "at": 1413,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "ask.",
+     "at": 1421,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1442,
+   "to": 1475,
+   "words": [
+    {
+     "text": "Are",
+     "at": 1442,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "you",
+     "at": 1448,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "in",
+     "at": 1453,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "the",
+     "at": 1456,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "answer?",
+     "at": 1460,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1486,
+   "to": 1553,
+   "words": [
+    {
+     "text": "Step",
+     "at": 1486,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "two,",
+     "at": 1493,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "on",
+     "at": 1512,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "your",
+     "at": 1517,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "enquiry",
+     "at": 1525,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "form,",
+     "at": 1537,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1553,
+   "to": 1604,
+   "words": [
+    {
+     "text": "under",
+     "at": 1553,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "where",
+     "at": 1562,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "did",
+     "at": 1573,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "you",
+     "at": 1577,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "hear",
+     "at": 1582,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "about",
+     "at": 1588,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "us?",
+     "at": 1596,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1604,
+   "to": 1710,
+   "words": [
+    {
+     "text": "add",
+     "at": 1604,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "AI,",
+     "at": 1619,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "like",
+     "at": 1644,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "ChatGPT",
+     "at": 1651,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "or",
+     "at": 1676,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "Claude.",
+     "at": 1682,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1711,
+   "to": 1766,
+   "words": [
+    {
+     "text": "Step",
+     "at": 1711,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "three,",
+     "at": 1715,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "split",
+     "at": 1741,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "those",
+     "at": 1747,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "customers",
+     "at": 1756,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1766,
+   "to": 1801,
+   "words": [
+    {
+     "text": "out",
+     "at": 1766,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "and",
+     "at": 1777,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "compare.",
+     "at": 1784,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1811,
+   "to": 1873,
+   "words": [
+    {
+     "text": "Many",
+     "at": 1811,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "AI",
+     "at": 1820,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "clicks",
+     "at": 1830,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "land",
+     "at": 1839,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "as",
+     "at": 1848,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "Direct,",
+     "at": 1856,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1876,
+   "to": 1936,
+   "words": [
+    {
+     "text": "so",
+     "at": 1876,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "trust",
+     "at": 1883,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "your",
+     "at": 1891,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "own",
+     "at": 1899,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "numbers",
+     "at": 1905,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "over",
+     "at": 1913,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "any",
+     "at": 1926,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1936,
+   "to": 1957,
+   "words": [
+    {
+     "text": "one",
+     "at": 1936,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "stat.",
+     "at": 1943,
+     "emph": false,
+     "br": false
+    }
+   ]
+  }
+ ]
+}

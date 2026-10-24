@@ -300,7 +300,8 @@
           "srt_uploaded": true
         }
       },
-      "queued_at": "2026-10-20T12:04:12Z"
+      "queued_at": "2026-10-20T12:04:12Z",
+      "slot_index": 1
     },
     {
       "date": "2026-10-25",
@@ -404,7 +405,110 @@
         }
       },
       "queued_at": "2026-10-20T13:39:21Z",
-      "note": "Owner exception: Instagram 20 October 20:00 GST; other platforms 25 October. No second Instagram post on 25 October."
+      "note": "Owner exception: Instagram 20 October 20:00 GST; other platforms 25 October. No second Instagram post on 25 October.",
+      "slot_index": 1
+    },
+    {
+      "date": "2026-10-26",
+      "day": "Mon",
+      "slot_index": 0,
+      "job": "b55491077ab1",
+      "title": "AI search traffic converts better? How to track your own AI traffic in GA4",
+      "keyword": "AITRAFFIC",
+      "slug": "ai-traffic-ga4",
+      "resource_url": "https://withhammad.com/resources/ai-traffic-ga4",
+      "status": "queued",
+      "platforms": {
+        "youtube": {
+          "via": "api",
+          "status": "scheduled",
+          "slot_utc": "2026-10-26T05:00:00Z",
+          "local_time": "Mon 2026-10-26 09:00 GST",
+          "privacy": "private",
+          "publish_at": "2026-10-26T05:00:00Z",
+          "video_id": "jRKu70M9QB4",
+          "url": "https://www.youtube.com/shorts/jRKu70M9QB4",
+          "uploaded_at": "2026-10-24T11:47:11Z",
+          "thumbnail": "set",
+          "publish_at_verified": true,
+          "warnings": null
+        },
+        "linkedin": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-26T05:00:00Z",
+          "local_time": "Mon 2026-10-26 09:00 GST"
+        },
+        "instagram": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-26T07:00:00Z",
+          "local_time": "Mon 2026-10-26 11:00 GST",
+          "account": "hammadagentic.ai",
+          "trial": null,
+          "collaborators": [
+            "with.hammad"
+          ],
+          "video_url": "https://withhammad.com/media/reels/ai-traffic-ga4.mp4",
+          "cover_url": "https://withhammad.com/media/covers/ai-traffic-ga4.jpg",
+          "hosted": true,
+          "video_bytes": 47933018,
+          "cover_bytes": 216287,
+          "site_commit": "e1b3a54",
+          "hosted_at": "2026-10-24T11:52:08Z"
+        },
+        "tiktok": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-26T10:00:00Z",
+          "local_time": "Mon 2026-10-26 14:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "Turn on TikTok's AI-generated content label.",
+          "text": "How to track ChatGPT traffic in GA4 and see if AI search visitors convert better. Full guide: link in bio.\nOne Semrush study says 4.4x as valuable as organic, by conversion rate; other studies range from about 1.3x to 20x+, so check your own numbers.\nStep 1: ask ChatGPT, Claude and Gemini what your customers ask.\nStep 2: add \"AI\" to your \"Where did you hear about us?\" form.\nStep 3: compare in the GA4 AI Assistant channel.\nFull guide: withhammad.com/resources/ai-traffic-ga4 (link in bio). Follow for more AI builds.\nAI avatar of me.\n#ChatGPT #AISearch #GA4 #SEO #MarketingTips",
+          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
+          "pinned_comment": "Full GA4 setup guide: link in bio (https://withhammad.com/resources/ai-traffic-ga4)"
+        },
+        "facebook": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-26T10:00:00Z",
+          "local_time": "Mon 2026-10-26 14:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "Keep Meta's AI info label on.",
+          "text": "Are customers finding you through ChatGPT? Here's how to track AI traffic in GA4. Free guide: https://withhammad.com/resources/ai-traffic-ga4\n\nOne Semrush study found AI search visitors 4.4x as valuable as organic search visitors, by conversion rate (other studies range from about 1.3x to 20x+, so test your own).\n\n1) Ask ChatGPT, Claude and Gemini what your customers ask. Are you in the answer?\n2) Check GA4 > Traffic acquisition for the AI Assistant channel (many AI clicks still land as Direct).\n3) Add \"AI (ChatGPT, Claude, Gemini)\" to your \"Where did you hear about us?\" form.\n\nFull guide: https://withhammad.com/resources/ai-traffic-ga4\nFollow for more AI builds.\n\nAI avatar of me.\n\n#AISearch #GA4 #ChatGPT #AEO #DigitalMarketing",
+          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
+          "first_comment": "Free GA4 setup guide: https://withhammad.com/resources/ai-traffic-ga4"
+        },
+        "x": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-26T05:00:00Z",
+          "local_time": "Mon 2026-10-26 09:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "'AI avatar of me.' in the post",
+          "text": "How to track AI traffic in GA4: one Semrush study found AI search visitors 4.4x as valuable as organic, by conversion rate. Test your own: check GA4's AI Assistant channel.\nFree guide: https://withhammad.com/resources/ai-traffic-ga4\nAI avatar of me.\n#GA4 #AISearch",
+          "weighted_length": 240,
+          "cover": null,
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule"
+        },
+        "instagram_trial": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-26T07:00:00Z",
+          "local_time": "Mon 2026-10-26 11:00 GST",
+          "account": "with.hammad",
+          "trial": "SS_PERFORMANCE",
+          "collaborators": [],
+          "video_url": "https://withhammad.com/media/reels/ai-traffic-ga4.mp4",
+          "cover_url": "https://withhammad.com/media/covers/ai-traffic-ga4.jpg",
+          "hosted": true,
+          "video_bytes": 47933018,
+          "cover_bytes": 216287,
+          "site_commit": "e1b3a54",
+          "hosted_at": "2026-10-24T11:52:08Z"
+        }
+      },
+      "queued_at": "2026-10-24T11:46:47Z"
     },
     {
       "date": "2026-10-26",
@@ -513,7 +617,8 @@
           "collaborators": []
         }
       },
-      "queued_at": "2026-10-24T05:18:55Z"
+      "queued_at": "2026-10-24T05:18:55Z",
+      "slot_index": 1
     },
     {
       "date": "2026-10-27",
@@ -622,7 +727,8 @@
           "hosted_at": "2026-10-24T07:25:06Z"
         }
       },
-      "queued_at": "2026-10-24T07:19:31Z"
+      "queued_at": "2026-10-24T07:19:31Z",
+      "slot_index": 1
     }
   ]
 }
