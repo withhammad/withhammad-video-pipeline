@@ -43,6 +43,72 @@
       "note": "in verification"
     },
     {
+      "job": "motion20261020",
+      "date": "2026-10-21",
+      "title": "AI Motion Starter Kit",
+      "keyword": "MOTION",
+      "slug": "ai-motion-starter-kit",
+      "resource_url": "https://withhammad.com/resources/ai-motion-starter-kit",
+      "status": "queued",
+      "owner_override": "Owner explicitly selected Today—21 October for distribution; do not change other planned jobs. Instagram already published.",
+      "platforms": {
+        "youtube": {
+          "via": "api",
+          "status": "published",
+          "slot_utc": "2026-10-21T08:00:00Z",
+          "local_time": "Wed 2026-10-21 12:00 GST",
+          "video_id": "xnL4IfRhR3E",
+          "url": "https://www.youtube.com/shorts/xnL4IfRhR3E",
+          "publish_at": "2026-10-21T08:00:00Z",
+          "thumbnail": "set",
+          "privacy": "public",
+          "verified_at": "2026-10-22T17:39:15Z"
+        },
+        "linkedin": {
+          "via": "api",
+          "status": "missed",
+          "slot_utc": "2026-10-21T12:00:00Z",
+          "local_time": "Wed 2026-10-21 16:00 GST",
+          "automation_id": "publish-motion-linkedin-today",
+          "missed_at": "2026-10-22T17:39:15Z",
+          "error": "slot passed 1 day, 5:39:15.690549 ago (limit 6:00:00); not posted late",
+          "automation_status": "deleted_expired",
+          "requires_owner_date_approval": true,
+          "receipt": "outputs/ai-motion-library-reel/linkedin-expired-2026-10-22.json"
+        },
+        "tiktok": {
+          "via": "composer",
+          "status": "composer_scheduled",
+          "slot_utc": "2026-10-21T13:00:00Z",
+          "local_time": "Wed 2026-10-21 17:00 GST",
+          "url": "https://www.tiktok.com/@hammadyousuf01/video/7698985902042860808",
+          "cover": "custom face cover uploaded and saved",
+          "ai_label": true,
+          "confirmation": "Reloaded TikTok Studio: exact MOTION caption, 00:36, Oct21 5PM, Everyone"
+        },
+        "facebook": {
+          "via": "composer",
+          "status": "pending",
+          "slot_utc": "2026-10-21T13:00:00Z",
+          "local_time": "Wed 2026-10-21 17:00 GST"
+        },
+        "x": {
+          "via": "composer",
+          "status": "pending",
+          "slot_utc": "2026-10-21T14:00:00Z",
+          "local_time": "Wed 2026-10-21 18:00 GST"
+        },
+        "instagram": {
+          "via": "api",
+          "status": "published",
+          "media_id": "18030406115860410",
+          "url": "https://www.instagram.com/reel/Deu0-tsmyWm/",
+          "slot_utc": "2026-10-20T21:44:54Z",
+          "local_time": "Wed 2026-10-21 01:44 GST"
+        }
+      }
+    },
+    {
       "date": "2026-10-22",
       "job": "c366de480853",
       "title": "5 MCP servers for Claude Code",
@@ -338,70 +404,86 @@
       "note": "Owner exception: Instagram 20 October 20:00 GST; other platforms 25 October. No second Instagram post on 25 October."
     },
     {
-      "job": "motion20261020",
-      "date": "2026-10-21",
-      "title": "AI Motion Starter Kit",
-      "keyword": "MOTION",
-      "slug": "ai-motion-starter-kit",
-      "resource_url": "https://withhammad.com/resources/ai-motion-starter-kit",
+      "date": "2026-10-26",
+      "day": "Mon",
+      "job": "c6e60a58849b",
+      "title": "Kimi K3 on 8 GB of RAM: how a 2.78T model runs with no GPU",
+      "keyword": "BYTES",
+      "slug": "kimi-k3-on-8gb-ram",
+      "resource_url": "https://withhammad.com/resources/kimi-k3-on-8gb-ram",
       "status": "queued",
-      "owner_override": "Owner explicitly selected Today—21 October for distribution; do not change other planned jobs. Instagram already published.",
       "platforms": {
         "youtube": {
           "via": "api",
-          "status": "published",
-          "slot_utc": "2026-10-21T08:00:00Z",
-          "local_time": "Wed 2026-10-21 12:00 GST",
-          "video_id": "xnL4IfRhR3E",
-          "url": "https://www.youtube.com/shorts/xnL4IfRhR3E",
-          "publish_at": "2026-10-21T08:00:00Z",
+          "status": "scheduled",
+          "slot_utc": "2026-10-26T08:00:00Z",
+          "local_time": "Mon 2026-10-26 12:00 GST",
+          "privacy": "private",
+          "publish_at": "2026-10-26T08:00:00Z",
+          "video_id": "rFGgZsNyngY",
+          "url": "https://www.youtube.com/shorts/rFGgZsNyngY",
+          "uploaded_at": "2026-10-24T05:19:10Z",
           "thumbnail": "set",
-          "privacy": "public",
-          "verified_at": "2026-10-22T17:39:15Z"
+          "publish_at_verified": true,
+          "warnings": null
         },
         "linkedin": {
           "via": "api",
-          "status": "missed",
-          "slot_utc": "2026-10-21T12:00:00Z",
-          "local_time": "Wed 2026-10-21 16:00 GST",
-          "automation_id": "publish-motion-linkedin-today",
-          "missed_at": "2026-10-22T17:39:15Z",
-          "error": "slot passed 1 day, 5:39:15.690549 ago (limit 6:00:00); not posted late",
-          "automation_status": "deleted_expired",
-          "requires_owner_date_approval": true,
-          "receipt": "outputs/ai-motion-library-reel/linkedin-expired-2026-10-22.json"
-        },
-        "tiktok": {
-          "via": "composer",
-          "status": "composer_scheduled",
-          "slot_utc": "2026-10-21T13:00:00Z",
-          "local_time": "Wed 2026-10-21 17:00 GST",
-          "url": "https://www.tiktok.com/@hammadyousuf01/video/7698985902042860808",
-          "cover": "custom face cover uploaded and saved",
-          "ai_label": true,
-          "confirmation": "Reloaded TikTok Studio: exact MOTION caption, 00:36, Oct21 5PM, Everyone"
-        },
-        "facebook": {
-          "via": "composer",
           "status": "pending",
-          "slot_utc": "2026-10-21T13:00:00Z",
-          "local_time": "Wed 2026-10-21 17:00 GST"
-        },
-        "x": {
-          "via": "composer",
-          "status": "pending",
-          "slot_utc": "2026-10-21T14:00:00Z",
-          "local_time": "Wed 2026-10-21 18:00 GST"
+          "slot_utc": "2026-10-26T12:00:00Z",
+          "local_time": "Mon 2026-10-26 16:00 GST"
         },
         "instagram": {
           "via": "api",
-          "status": "published",
-          "media_id": "18030406115860410",
-          "url": "https://www.instagram.com/reel/Deu0-tsmyWm/",
-          "slot_utc": "2026-10-20T21:44:54Z",
-          "local_time": "Wed 2026-10-21 01:44 GST"
+          "status": "pending",
+          "slot_utc": "2026-10-26T13:00:00Z",
+          "local_time": "Mon 2026-10-26 17:00 GST",
+          "account": "hammadagentic.ai",
+          "trial": null,
+          "video_url": "https://withhammad.com/media/reels/kimi-k3-on-8gb-ram.mp4",
+          "cover_url": "https://withhammad.com/media/covers/kimi-k3-on-8gb-ram.jpg",
+          "hosted": true,
+          "video_bytes": 26541167,
+          "cover_bytes": 269852,
+          "site_commit": "87e1521",
+          "hosted_at": "2026-10-24T05:21:21Z"
+        },
+        "tiktok": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-26T13:00:00Z",
+          "local_time": "Mon 2026-10-26 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "Turn on the AI-generated content label when posting.",
+          "text": "Kimi K3 on 8GB RAM with no GPU: can you run a 2.78T AI model locally? Yes, but the catch is your disk.\nFree guide: withhammad.com/resources/kimi-k3-on-8gb-ram (pinned comment)\n\nkimi-k3-in-c, an open-source C engine by Fareed Khan, streams the mixture-of-experts weights from a fast SSD: 16 of 896 experts per layer for each token. You need about 1.7 TB of free SSD, and it takes about 30 seconds per token on a fast server. A local LLM without a GPU, as a proof of concept, not an everyday app.\n\nCommented BYTES? No DM needed: the free guide is at withhammad.com/resources/kimi-k3-on-8gb-ram (pinned comment). Follow for more AI builds.\nAI avatar of me.\n#KimiK3 #LocalLLM #LocalAI #LLM #TechTok",
+          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
+          "pinned_comment": "Commented BYTES? Free setup guide, no DM needed: withhammad.com/resources/kimi-k3-on-8gb-ram"
+        },
+        "facebook": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-26T13:00:00Z",
+          "local_time": "Mon 2026-10-26 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "Turn on AI info when posting. If cross-posted from Instagram, replace the caption with this one (the IG caption asks for a comment keyword that only works on Instagram).",
+          "text": "Kimi K3 on 8GB RAM with no GPU: how a 2.78-trillion-parameter AI model runs locally, and the 1.7 TB disk catch.\nFree guide: https://withhammad.com/resources/kimi-k3-on-8gb-ram\n\nkimi-k3-in-c, a free open-source C engine by Fareed Khan (Apache-2.0), keeps about 93% of Kimi K3's 1.56 TB on a fast SSD and reads only the 16 of 896 experts per layer that each token needs. RAM peaked at 8.24 GB and the answer was byte-identical from 8 GB to 224 GB. The cost moved to disk: about 1.7 TB free, hours of download and about 30 seconds per token on a fast server. A proof of concept, not an everyday app.\n\nCommented BYTES? No DM needed here. Hardware requirements and setup steps: https://withhammad.com/resources/kimi-k3-on-8gb-ram\nFollow for more AI builds for marketers and founders.\n\nAI avatar of me.\n\n#KimiK3 #LocalAI #LLM",
+          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
+          "first_comment": "Free guide: https://withhammad.com/resources/kimi-k3-on-8gb-ram"
+        },
+        "x": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-26T14:00:00Z",
+          "local_time": "Mon 2026-10-26 18:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "\"AI avatar of me.\" in the post; turn on the X \"Made with AI\" label if the composer offers it.",
+          "text": "Kimi K3 on 8GB RAM, no GPU. Free guide: https://withhammad.com/resources/kimi-k3-on-8gb-ram\n\nkimi-k3-in-c streams the 2.78T model's experts from a fast SSD. The catch: about 1.7 TB of free disk and about 30 s per token on a fast server.\nFollow for more AI builds.\nAI avatar of me. #KimiK3 #LocalAI",
+          "weighted_length": 269,
+          "cover": null,
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule"
         }
-      }
+      },
+      "queued_at": "2026-10-24T05:18:55Z"
     }
   ]
 }
