@@ -1225,6 +1225,31 @@ def _followups(entry, platform):
     return out
 
 
+def ig_caption_for(account, caption, keyword, url):
+    """The Instagram caption as posted from `account`. ManyChat runs only on @with.hammad, so on any other account
+    each comment-keyword ask becomes the guide link (the first one; later ones go) and the follow line names that
+    account."""
+    if account == IG_TRIAL_ACCOUNT or not caption or not keyword:
+        return caption
+    ask = re.compile(rf'\bcomment\s+{re.escape(keyword)}\b[^.\n]*\.?', re.I)
+    link = re.sub(r'^https?://', '', url or '')
+    out, linked = [], False
+    for line in caption.split('\n'):
+        def swap(m):
+            nonlocal linked
+            if linked or not link:
+                return ''
+            linked = True
+            first = not line[:m.start()].strip() or line[:m.start()].rstrip()[-1] in '.!?'
+            stop = '.' if m.group().endswith('.') and line[m.end():].strip() else ''   # a full stop only mid-line
+            return f'{"F" if first else "f"}ull guide: {link}{stop}'
+        new = ask.sub(swap, line)
+        if new != line and not new.strip():
+            continue
+        out.append(re.sub(rf'^Follow @{re.escape(IG_TRIAL_ACCOUNT)}\b', f'Follow @{account}', new.rstrip()))
+    return '\n'.join(out)
+
+
 def _publish_now(platform, jdir, entry, rt, confirm_not_posted):
     pe = entry['platforms'][platform]
     lesson = load_lesson(jdir)
@@ -1234,12 +1259,14 @@ def _publish_now(platform, jdir, entry, rt, confirm_not_posted):
     if platform in IG_PLATFORMS:
         if not pe.get('hosted') or not pe.get('video_url'):
             raise ReelError('the Instagram video is not hosted yet; rerun queue for this job')
-        if pe.get('caption'):   # a per-post caption (e.g. the guide link where the keyword DM cannot fire)
-            lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'instagram': pe['caption']}}
+        account = pe.get('account') or ig_account(entry)
+        caption = pe.get('caption') or ig_caption_for(account, (lesson.get('captions') or {}).get('instagram'),
+                                                      entry.get('keyword'), entry.get('resource_url'))
+        lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'instagram': caption}}
         extra = {} if pe.get('collaborators') is None else {'collaborators': pe['collaborators']}
         result = rt.instagram_publish(jdir / 'final_ig.mp4', lesson, dry_run=False,
                                       state_path=jdir / STATE_FILES[platform],
-                                      expected_username=pe.get('account') or ig_account(entry),
+                                      expected_username=account,
                                       trial=pe.get('trial'), **extra,
                                       url_provider=pe['video_url'], cover_url=pe.get('cover_url'),
                                       cover_path=jdir / 'cover_1080x1920.jpg', ai_generated=True)

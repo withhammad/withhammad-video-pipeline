@@ -138,7 +138,7 @@ class FakeRuntime:
         return {'found': True, 'upload_status': 'processed', 'privacy_status': 'public', 'publish_at': None}
 
     def instagram_publish(self, video_path, lesson, **kw):
-        self.calls.append(('instagram', kw))
+        self.calls.append(('instagram', {**kw, 'caption': (lesson.get('captions') or {}).get('instagram')}))
         state = Path(kw['state_path'])
         data = json.loads(state.read_text()) if state.exists() else {}
         if data.get('media_id'):
@@ -462,6 +462,8 @@ def test_run_due_posts_once_and_a_second_run_posts_nothing(env):
     assert ig['collaborators'] == [] and Path(ig['state_path']).name == 'publish_instagram.json'
     assert trial['expected_username'] == 'with.hammad' and trial['trial'] == 'SS_PERFORMANCE' and trial['collaborators'] == []
     assert Path(trial['state_path']).name == 'publish_instagram_trial.json' and trial['url_provider'] == ig['url_provider']
+    assert trial['caption'] == SEO['instagram']['caption']           # the keyword DM fires on @with.hammad
+    assert KEYWORD not in ig['caption'] and 'full guide: ' in ig['caption'] and 'AI avatar of me.' in ig['caption']
     assert ig['url_provider'] == f'https://withhammad.com/media/reels/{SLUG}.mp4'
     assert ig['cover_url'] == f'https://withhammad.com/media/covers/{SLUG}.jpg'
     li = next(c[1] for c in rt.calls if c[0] == 'linkedin')
@@ -1019,3 +1021,17 @@ def test_instagram_account_and_trial_follow_the_queued_entry(env):
     assert pr._default_collaborators('hammadagentic.ai') == ['with.hammad']
     assert pr._default_collaborators('with.hammad') == ['hammadagentic.ai']
     assert pr.TRIAL_FOR['with.hammad'] in ('MANUAL', 'SS_PERFORMANCE')
+
+
+def test_the_agentic_caption_swaps_the_keyword_ask_for_the_guide_link():
+    url = 'https://withhammad.com/resources/kimi'
+    cap = ("Kimi on 8GB.\nComment BYTES and I'll DM you the guide.\n\nBody text.\n\n"
+           "Comment BYTES and I'll DM you my setup guide.\nFollow @with.hammad for more AI builds.\n\nAI avatar of me.")
+    assert pr.ig_caption_for('hammadagentic.ai', cap, 'BYTES', url) == (
+        'Kimi on 8GB.\nFull guide: withhammad.com/resources/kimi\n\nBody text.\n\n'
+        'Follow @hammadagentic.ai for more AI builds.\n\nAI avatar of me.')
+    assert pr.ig_caption_for('with.hammad', cap, 'BYTES', url) == cap
+    assert pr.ig_caption_for('hammadagentic.ai', 'Roadmap: comment X and I will DM you. #fde', 'X', url) == \
+        'Roadmap: full guide: withhammad.com/resources/kimi. #fde'
+    assert pr.ig_caption_for('hammadagentic.ai', 'Scan first. Comment SCAN and I\'ll DM you. AI avatar.', 'SCAN', url) == \
+        'Scan first. Full guide: withhammad.com/resources/kimi. AI avatar.'
