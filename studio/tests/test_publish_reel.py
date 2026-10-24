@@ -174,6 +174,15 @@ def at(text):
     return pr.parse_moment(text)
 
 
+LIVE_SLOTS = pr.SLOTS_PATH
+
+
+@pytest.fixture(autouse=True)
+def fixed_slots(monkeypatch):
+    # the tests pin the 2026-10-18 one-reel-a-day table; the live app/slots.json is checked on its own below
+    monkeypatch.setattr(pr, 'SLOTS_PATH', Path(__file__).parent / 'fixtures' / 'slots_one_per_day.json')
+
+
 @pytest.fixture
 def env(tmp_path, monkeypatch):
     jobs = tmp_path / 'jobs'
@@ -1061,3 +1070,14 @@ def test_a_day_with_three_reel_slots_takes_three_reels_each_at_its_own_times():
     schedule['queue'].append({'date': day, 'job': 'c', 'slot_index': 1})
     with pytest.raises(pr.ReelError, match='3 reel\\(s\\) per day: 2026-10-19 is full'):
         pr._free_slot(schedule, pr._date(day), 'd', None, 3)
+
+
+def test_the_live_slot_table_has_three_reels_a_day_at_least_three_hours_apart():
+    slots = pr.load_slots(LIVE_SLOTS)
+    assert pr.reels_per_day(slots) == 3
+    for day in ('2026-10-26', '2026-10-30', '2026-10-31'):     # Mon, Fri, Sat
+        for platform in slots['order']:
+            times = [pr.slot_local(platform, day, slots=slots, n=n) for n in range(3)]
+            assert all(b - a >= dt.timedelta(hours=3) for a, b in zip(times, times[1:])), (platform, day)
+        fri = [pr.slot_time(p, '2026-10-30', slots=slots, n=n) for p in slots['order'] for n in range(3)]
+        assert not any('12:15' <= t < '14:00' for t in fri)    # Friday prayer
