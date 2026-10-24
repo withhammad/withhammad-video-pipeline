@@ -4,7 +4,7 @@ Job `955ed21d2fc4` · reference: instagram.com/reel/Dezfw1sMVw2 (@princegupta.ai
 scene with the real logos on the owner's "exactly same" rule; claims corrected: research preview not "released", Grok Bot
 now $30, model claim attributed, US-only waitlist said) · status: **published 2026-10-23 ~23:40 GST** on YouTube,
 Instagram, LinkedIn and TikTok on the owner's "push that ... now" (a third reel on 23 Oct, owner's choice). Facebook and X
-not posted (not asked). ManyChat DUET automation: **not set up** (needs the owner's explicit OK).
+not posted (not asked). ManyChat DUET automation: **live** (24 Oct, owner's OK; BLUEPRINT stopped to stay within Free's 4 live automations).
 
 | Item | Value |
 |------|-------|
@@ -24,10 +24,9 @@ not posted (not asked). ManyChat DUET automation: **not set up** (needs the owne
 | LinkedIn | https://www.linkedin.com/feed/update/urn:li:ugcPost:7519482654527000576/ | API, thumbnail, AI disclosure line |
 | TikTok | https://www.tiktok.com/@hammadyousuf01/video/7699951893019233542 | Chrome, final.mp4, AI-generated label, custom cover; "Content under review" at posting |
 | Resource page | https://withhammad.com/resources/claude-duet | live (HTTP 200), withhammad-rebuild 12a6bdd |
+| ManyChat | automation content20261024052059_019213 on reel De2Vn81gdfg | LIVE: keywords DUET/Duet/duet, 3 rotating public replies, opening DM with "Send me the link", link DM "Get the Duet guide" + follow invite; not yet tested with a real comment |
 
 ## Still to do
 
-- ManyChat: Quick Automation "Auto-DM links from comments" on the Instagram reel, keyword DUET, link
-  https://withhammad.com/resources/claude-duet (owner's OK first).
 - Owner: accept the Collab on @hammadagentic.ai in the Instagram app.
 - TikTok: confirm the post is public after review; check the bio link points to withhammad.com/resources.
