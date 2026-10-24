@@ -592,15 +592,18 @@
         },
         "x": {
           "via": "composer",
-          "status": "composer",
+          "status": "composer_scheduled",
           "slot_utc": "2026-10-27T14:00:00Z",
           "local_time": "Tue 2026-10-27 18:00 GST",
-          "video": "final_social.mp4",
-          "ai_label": "\"AI avatar of me.\" in the post; turn on the X \"Made with AI\" label if the composer offers it.",
+          "video": "final_x.mp4",
+          "ai_label": true,
           "text": "Are Claude Code skills safe? Scan them with NVIDIA SkillSpector before you install. Free guide: https://withhammad.com/resources/skillspector-scan-skills\n\n17 risk categories, a 0-100 risk score, over 50 = don't install. Free, Apache-2.0.\nFollow for more AI builds.\nAI avatar of me. #ClaudeCode #AISecurity",
           "weighted_length": 271,
-          "cover": null,
-          "where": "x.com/compose/post as @HammadYousufAI, Schedule"
+          "cover": "cover option 1 as the first 6 frames of final_x.mp4 (X has no cover upload)",
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule",
+          "url": "https://x.com/compose/post/unsent/scheduled",
+          "marked_at": "2026-10-24T07:39:03Z",
+          "confirmation": "x.com Drafts > Scheduled: \"Will send on Tue, Oct 27, 2026 at 6:00 PM\", Made with AI on"
         },
         "instagram_trial": {
           "via": "api",
