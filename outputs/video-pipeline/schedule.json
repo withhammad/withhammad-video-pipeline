@@ -467,14 +467,18 @@
         },
         "facebook": {
           "via": "composer",
-          "status": "composer",
+          "status": "composer_scheduled",
           "slot_utc": "2026-10-26T13:00:00Z",
           "local_time": "Mon 2026-10-26 17:00 GST",
           "video": "final_social.mp4",
-          "ai_label": "Turn on AI info when posting. If cross-posted from Instagram, replace the caption with this one (the IG caption asks for a comment keyword that only works on Instagram).",
+          "ai_label": true,
           "text": "Kimi K3 on 8GB RAM with no GPU: how a 2.78-trillion-parameter AI model runs locally, and the 1.7 TB disk catch.\nFree guide: https://withhammad.com/resources/kimi-k3-on-8gb-ram\n\nkimi-k3-in-c, a free open-source C engine by Fareed Khan (Apache-2.0), keeps about 93% of Kimi K3's 1.56 TB on a fast SSD and reads only the 16 of 896 experts per layer that each token needs. RAM peaked at 8.24 GB and the answer was byte-identical from 8 GB to 224 GB. The cost moved to disk: about 1.7 TB free, hours of download and about 30 seconds per token on a fast server. A proof of concept, not an everyday app.\n\nCommented BYTES? No DM needed here. Hardware requirements and setup steps: https://withhammad.com/resources/kimi-k3-on-8gb-ram\nFollow for more AI builds for marketers and founders.\n\nAI avatar of me.\n\n#KimiK3 #LocalAI #LLM",
-          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
-          "first_comment": "Free guide: https://withhammad.com/resources/kimi-k3-on-8gb-ram"
+          "cover": "cover_1080x1920.jpg uploaded (pick 3)",
+          "first_comment": "Free guide: https://withhammad.com/resources/kimi-k3-on-8gb-ram",
+          "url": "https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT",
+          "marked_at": "2026-10-24T07:26:03Z",
+          "confirmation": "Creator Dashboard > Content Library > Scheduled: Kimi K3 caption, 26 Oct 2026, 17:00 GST; Public; Add AI label on.",
+          "early_post": "2026-10-24 09:28 GST misclick published the reel early (no AI label, no cover; 131 views at 11:27); the owner deletes it"
         },
         "x": {
           "via": "composer",
@@ -508,6 +512,105 @@
         }
       },
       "queued_at": "2026-10-24T05:18:55Z"
+    },
+    {
+      "date": "2026-10-27",
+      "day": "Tue",
+      "job": "d61788123d13",
+      "title": "NVIDIA SkillSpector: scan Claude Code skills before you install them",
+      "keyword": "SCAN",
+      "slug": "skillspector-scan-skills",
+      "resource_url": "https://withhammad.com/resources/skillspector-scan-skills",
+      "status": "queued",
+      "platforms": {
+        "youtube": {
+          "via": "api",
+          "status": "scheduled",
+          "slot_utc": "2026-10-27T08:00:00Z",
+          "local_time": "Tue 2026-10-27 12:00 GST",
+          "privacy": "private",
+          "publish_at": "2026-10-27T08:00:00Z",
+          "video_id": "rTUd66Teik0",
+          "url": "https://www.youtube.com/shorts/rTUd66Teik0",
+          "uploaded_at": "2026-10-24T07:19:53Z",
+          "thumbnail": "set",
+          "publish_at_verified": true,
+          "warnings": null
+        },
+        "linkedin": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-27T12:00:00Z",
+          "local_time": "Tue 2026-10-27 16:00 GST"
+        },
+        "instagram": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-27T13:00:00Z",
+          "local_time": "Tue 2026-10-27 17:00 GST",
+          "account": "hammadagentic.ai",
+          "trial": null,
+          "collaborators": [],
+          "video_url": "https://withhammad.com/media/reels/skillspector-scan-skills.mp4",
+          "cover_url": "https://withhammad.com/media/covers/skillspector-scan-skills.jpg",
+          "hosted": true,
+          "video_bytes": 29011735,
+          "cover_bytes": 318333,
+          "site_commit": "4e740c8",
+          "hosted_at": "2026-10-24T07:25:06Z"
+        },
+        "tiktok": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-27T13:00:00Z",
+          "local_time": "Tue 2026-10-27 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "Turn on the AI-generated content label when posting.",
+          "text": "Are Claude Code skills safe? How to use NVIDIA SkillSpector to scan a skill before you install it.\nFull guide: withhammad.com/resources/skillspector-scan-skills (pinned comment)\n\nAbout 1 in 4 marketplace skills had a security flaw and 5.2% showed strong signs of malicious intent (Liu et al., Jan 2026). SkillSpector is NVIDIA's free, open-source skill scanner: a folder, GitHub link or zip in, 17 risk categories checked (prompt injection, data exfiltration, tool misuse), a 0-100 risk score out. Over 50 = don't install. A low score means no red flags found, not proven safe. Claude Code or Codex can run it for you.\n\nCommented SCAN? No DM needed here: the full guide is at withhammad.com/resources/skillspector-scan-skills (pinned comment). Follow for more AI builds.\nAI avatar of me.\n#ClaudeCode #ClaudeSkills #AISecurity #SkillSpector #CyberSecurity",
+          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
+          "pinned_comment": "Commented SCAN? Full setup guide, no DM needed: withhammad.com/resources/skillspector-scan-skills"
+        },
+        "facebook": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-27T13:00:00Z",
+          "local_time": "Tue 2026-10-27 17:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "Turn on AI info when posting. If cross-posted from Instagram, replace the caption with this one (the IG caption asks for a comment keyword that only works on Instagram).",
+          "text": "Are Claude Code skills safe? NVIDIA SkillSpector, a free open-source scanner, checks a skill before you install it.\nFree guide: https://withhammad.com/resources/skillspector-scan-skills\n\nAbout 1 in 4 marketplace skills had a security flaw, and 5.2% showed strong signs of malicious intent (Liu et al., Jan 2026). One bad skill could leak your API keys. SkillSpector (Apache-2.0) reads a skill folder, GitHub link or zip, checks 17 risk categories such as prompt injection, data exfiltration and tool misuse, and returns a 0-100 risk score. Over 50 means don't install, and a low score means no red flags found, not proven safe. Use --no-llm to keep your code on your machine, or let Claude Code or Codex run it for you.\n\nCommented SCAN? No DM needed here. Setup steps and the safe-install rule: https://withhammad.com/resources/skillspector-scan-skills\nFollow for more AI builds for marketers and founders.\n\nAI avatar of me.\n\n#ClaudeCode #AISecurity #SkillSpector",
+          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
+          "first_comment": "Free guide: https://withhammad.com/resources/skillspector-scan-skills"
+        },
+        "x": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-27T14:00:00Z",
+          "local_time": "Tue 2026-10-27 18:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "\"AI avatar of me.\" in the post; turn on the X \"Made with AI\" label if the composer offers it.",
+          "text": "Are Claude Code skills safe? Scan them with NVIDIA SkillSpector before you install. Free guide: https://withhammad.com/resources/skillspector-scan-skills\n\n17 risk categories, a 0-100 risk score, over 50 = don't install. Free, Apache-2.0.\nFollow for more AI builds.\nAI avatar of me. #ClaudeCode #AISecurity",
+          "weighted_length": 271,
+          "cover": null,
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule"
+        },
+        "instagram_trial": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-27T13:00:00Z",
+          "local_time": "Tue 2026-10-27 17:00 GST",
+          "account": "with.hammad",
+          "trial": "SS_PERFORMANCE",
+          "collaborators": [],
+          "video_url": "https://withhammad.com/media/reels/skillspector-scan-skills.mp4",
+          "cover_url": "https://withhammad.com/media/covers/skillspector-scan-skills.jpg",
+          "hosted": true,
+          "video_bytes": 29011735,
+          "cover_bytes": 318333,
+          "site_commit": "4e740c8",
+          "hosted_at": "2026-10-24T07:25:06Z"
+        }
+      },
+      "queued_at": "2026-10-24T07:19:31Z"
     }
   ]
 }
