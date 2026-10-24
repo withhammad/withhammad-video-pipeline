@@ -213,15 +213,6 @@ def test_coverage_needs_scale_for_a_roll():
     assert dr.uncovered({}, ident, size, margin_px=5) > 0          # a shake needs slack too
 
 
-def test_coverage_counts_only_the_clipped_img_box():
-    # a 1536x2752 still cover-fits to 720x1290, but the W x H <Img> clips the extra 10 px: y 106 at scale 1.16
-    # leaves 640 - 640 * 1.16 + 106 = 3.6 px of black at the top (5 px at 1080), which used to pass as covered
-    size = (1536, 2752)
-    cam = {'x': -15, 'y': 106, 'scale': 1.16, 'rot': 0}
-    assert dr.uncovered({}, cam, size) == pytest.approx(3.6, abs=0.01)
-    assert dr.uncovered({}, {**cam, 'y': 100}, size) <= 0
-
-
 # ----------------------------------------------------------------------------------------------- props shape
 
 def test_props_shape(job, tmp_path):

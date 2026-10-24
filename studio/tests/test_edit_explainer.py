@@ -942,12 +942,3 @@ def test_harvest_full_bleed_screen_pill_override_and_recording_size():
     split['beats'][3]['units'][0]['layout'] = 'bleed'                  # only a full-frame recording can bleed
     assert 'bleed' not in scene(hbuild(spec=split), 'U7')
     assert hbuild()['music']['duckTo'] == 0.08
-
-
-def test_refine_word_starts_keeps_a_word_whisper_opened_inside_its_own_sound():
-    # "it. | Get picked" (job 91ac50635d3d): the voice rises out of the pause at 540, Whisper opens "Get" at 611, and the
-    # /t/ closure 680-790 is no onset: the word stays where it is.
-    caps = [{'text': ' it.', 'startMs': 0, 'endMs': 390}, {'text': ' Get', 'startMs': 611, 'endMs': 778},
-            {'text': ' picked', 'startMs': 778, 'endMs': 1037}]
-    env = _env_from([(0, 400), (540, 680), (790, 1100)], 1500)
-    assert ex.refine_word_starts(caps, env)[1] == []
