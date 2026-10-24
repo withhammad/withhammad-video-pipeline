@@ -1,0 +1,1467 @@
+{
+ "fps": 30,
+ "frames": 2075,
+ "cut": {
+  "at": 314,
+  "skip": 21
+ },
+ "units": [
+  {
+   "kind": "face",
+   "from": 0,
+   "to": 86,
+   "zoom": 1.0
+  },
+  {
+   "kind": "face",
+   "from": 86,
+   "to": 136,
+   "zoom": 1.07
+  },
+  {
+   "kind": "face",
+   "from": 136,
+   "to": 245,
+   "zoom": 1.0
+  },
+  {
+   "kind": "face",
+   "from": 245,
+   "to": 314,
+   "zoom": 1.12,
+   "push": true
+  },
+  {
+   "kind": "face",
+   "from": 314,
+   "to": 409,
+   "zoom": 1.0
+  },
+  {
+   "kind": "split",
+   "from": 409,
+   "to": 489,
+   "src": "r1_champ_hero.mp4",
+   "srcStart": 0.4,
+   "y0": 230,
+   "h": 980,
+   "logo": "champ"
+  },
+  {
+   "kind": "split",
+   "from": 489,
+   "to": 589,
+   "gfx": "launch"
+  },
+  {
+   "kind": "split",
+   "from": 589,
+   "to": 659,
+   "gfx": "apps"
+  },
+  {
+   "kind": "face",
+   "from": 659,
+   "to": 730,
+   "zoom": 1.08
+  },
+  {
+   "kind": "face",
+   "from": 730,
+   "to": 772,
+   "zoom": 1.0
+  },
+  {
+   "kind": "split",
+   "from": 772,
+   "to": 865,
+   "gfx": "steps"
+  },
+  {
+   "kind": "split",
+   "from": 865,
+   "to": 1072,
+   "src": "r3_categories.mp4",
+   "srcStart": 0.0,
+   "y0": 180,
+   "h": 980,
+   "roll": true
+  },
+  {
+   "kind": "face",
+   "from": 1072,
+   "to": 1195,
+   "zoom": 1.0
+  },
+  {
+   "kind": "face",
+   "from": 1195,
+   "to": 1249,
+   "zoom": 1.07
+  },
+  {
+   "kind": "split",
+   "from": 1249,
+   "to": 1313,
+   "gfx": "year"
+  },
+  {
+   "kind": "face",
+   "from": 1313,
+   "to": 1379,
+   "zoom": 1.0
+  },
+  {
+   "kind": "split",
+   "from": 1379,
+   "to": 1499,
+   "gfx": "faq"
+  },
+  {
+   "kind": "face",
+   "from": 1499,
+   "to": 1553,
+   "zoom": 1.08
+  },
+  {
+   "kind": "face",
+   "from": 1553,
+   "to": 1598,
+   "zoom": 1.0
+  },
+  {
+   "kind": "split",
+   "from": 1598,
+   "to": 1738,
+   "src": "r5_timeline.mp4",
+   "srcStart": 1.2,
+   "y0": 140,
+   "h": 980,
+   "logo": "chamber"
+  },
+  {
+   "kind": "face",
+   "from": 1738,
+   "to": 1835,
+   "zoom": 1.06
+  },
+  {
+   "kind": "face",
+   "from": 1835,
+   "to": 1919,
+   "zoom": 1.0
+  },
+  {
+   "kind": "split",
+   "from": 1919,
+   "to": 1993,
+   "src": "r6_register_form.mp4",
+   "srcStart": 4.6,
+   "y0": 0,
+   "h": 980,
+   "logo": "chamber"
+  },
+  {
+   "kind": "face",
+   "from": 1993,
+   "to": 2075,
+   "zoom": 1.08
+  }
+ ],
+ "overlays": [
+  {
+   "kind": "money",
+   "from": 0,
+   "to": 136,
+   "value": 150000,
+   "land": 52,
+   "sub": "to build one AI agent",
+   "aed": "about AED 550,000"
+  },
+  {
+   "kind": "rain",
+   "from": 8,
+   "to": 72
+  },
+  {
+   "kind": "hook",
+   "from": 0,
+   "to": 314,
+   "phrases": [
+    {
+     "at": 3,
+     "small": "A hundred and fifty",
+     "big": "thousand dollars."
+    },
+    {
+     "at": 86,
+     "small": "That's what",
+     "big": "Dubai will give you"
+    },
+    {
+     "at": 136,
+     "small": "for building one AI agent",
+     "big": "that fixes a real problem"
+    },
+    {
+     "at": 245,
+     "small": "And you can enter",
+     "big": "without writing code."
+    }
+   ]
+  },
+  {
+   "kind": "flash",
+   "from": 310,
+   "to": 316
+  },
+  {
+   "kind": "place",
+   "from": 319,
+   "to": 385,
+   "text": "DUBAI, UAE"
+  },
+  {
+   "kind": "money",
+   "from": 1072,
+   "to": 1195,
+   "value": 150000,
+   "land": 1167,
+   "sub": "grant per category winner",
+   "aed": "about AED 550,000"
+  },
+  {
+   "kind": "burst",
+   "from": 1321,
+   "to": 1379
+  },
+  {
+   "kind": "strike",
+   "from": 1508,
+   "to": 1553,
+   "text": "ENGINEERS ONLY",
+   "strikeAt": 1508
+  },
+  {
+   "kind": "chip",
+   "from": 1562,
+   "to": 1607,
+   "text": "FREE TO ENTER",
+   "icon": "check"
+  },
+  {
+   "kind": "chip",
+   "from": 1614,
+   "to": 1659,
+   "text": "WORKSHOPS",
+   "icon": "cap",
+   "slot": 0
+  },
+  {
+   "kind": "chip",
+   "from": 1635,
+   "to": 1738,
+   "text": "MENTORS",
+   "icon": "users",
+   "slot": 1
+  },
+  {
+   "kind": "register",
+   "from": 1738,
+   "to": 1835,
+   "closeAt": 1786
+  },
+  {
+   "kind": "cta",
+   "from": 1835,
+   "to": 1919,
+   "typeAt": 1835,
+   "dmAt": 1878
+  }
+ ],
+ "gfx": {
+  "launch": {
+   "name": 507,
+   "title": 534
+  },
+  "apps": {
+   "strike": 604,
+   "agents": 631
+  },
+  "steps": [
+   772,
+   815,
+   838
+  ],
+  "roll": [
+   928,
+   948,
+   974,
+   997,
+   1026
+  ],
+  "year": {
+   "title": 1257,
+   "one": 1249
+  },
+  "faq": {
+   "open": 1387,
+   "count": 1396,
+   "land": 1458
+  }
+ },
+ "captions": [
+  {
+   "from": 319,
+   "to": 350,
+   "words": [
+    {
+     "text": "I",
+     "at": 319,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "live",
+     "at": 323,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "in",
+     "at": 328,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "Dubai,",
+     "at": 334,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 352,
+   "to": 402,
+   "words": [
+    {
+     "text": "and",
+     "at": 352,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "this",
+     "at": 358,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "one",
+     "at": 367,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "is",
+     "at": 373,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "real.",
+     "at": 385,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 409,
+   "to": 460,
+   "words": [
+    {
+     "text": "It's",
+     "at": 409,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "the",
+     "at": 416,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "Create",
+     "at": 422,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "AI",
+     "at": 432,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "Agents",
+     "at": 449,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 460,
+   "to": 507,
+   "words": [
+    {
+     "text": "Championship,",
+     "at": 460,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "launched",
+     "at": 489,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "by",
+     "at": 497,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 507,
+   "to": 555,
+   "words": [
+    {
+     "text": "Sheikh",
+     "at": 507,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "Hamdan,",
+     "at": 514,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "the",
+     "at": 534,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "Crown",
+     "at": 540,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "Prince",
+     "at": 548,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 555,
+   "to": 576,
+   "words": [
+    {
+     "text": "of",
+     "at": 555,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "Dubai.",
+     "at": 560,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 589,
+   "to": 643,
+   "words": [
+    {
+     "text": "This",
+     "at": 589,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "year,",
+     "at": 598,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "it's",
+     "at": 604,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "all",
+     "at": 613,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "about",
+     "at": 621,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "AI",
+     "at": 631,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 643,
+   "to": 683,
+   "words": [
+    {
+     "text": "agents,",
+     "at": 643,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "because",
+     "at": 659,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "that's",
+     "at": 668,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "where",
+     "at": 679,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 683,
+   "to": 716,
+   "words": [
+    {
+     "text": "software",
+     "at": 683,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "is",
+     "at": 695,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "going.",
+     "at": 703,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 730,
+   "to": 769,
+   "words": [
+    {
+     "text": "The",
+     "at": 730,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "idea",
+     "at": 735,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "is",
+     "at": 743,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "simple.",
+     "at": 751,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 772,
+   "to": 822,
+   "words": [
+    {
+     "text": "Pick",
+     "at": 772,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "a",
+     "at": 778,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "real",
+     "at": 787,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "problem",
+     "at": 794,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "and",
+     "at": 806,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "build",
+     "at": 815,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 822,
+   "to": 865,
+   "words": [
+    {
+     "text": "an",
+     "at": 822,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "agent",
+     "at": 831,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "that",
+     "at": 838,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "solves",
+     "at": 847,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "it.",
+     "at": 854,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 865,
+   "to": 919,
+   "words": [
+    {
+     "text": "There",
+     "at": 865,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "are",
+     "at": 880,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "four",
+     "at": 886,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "categories,",
+     "at": 894,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 928,
+   "to": 968,
+   "words": [
+    {
+     "text": "societal,",
+     "at": 928,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "personal,",
+     "at": 948,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 974,
+   "to": 1012,
+   "words": [
+    {
+     "text": "business,",
+     "at": 974,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "and",
+     "at": 992,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "youth,",
+     "at": 997,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1013,
+   "to": 1057,
+   "words": [
+    {
+     "text": "for",
+     "at": 1013,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "founders",
+     "at": 1017,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "under",
+     "at": 1026,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "twenty-one.",
+     "at": 1034,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1072,
+   "to": 1117,
+   "words": [
+    {
+     "text": "Every",
+     "at": 1072,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "category",
+     "at": 1082,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "winner",
+     "at": 1096,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "gets",
+     "at": 1103,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "a",
+     "at": 1112,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1117,
+   "to": 1186,
+   "words": [
+    {
+     "text": "$150,000",
+     "at": 1117,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "grant.",
+     "at": 1167,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1195,
+   "to": 1233,
+   "words": [
+    {
+     "text": "Then,",
+     "at": 1195,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "one",
+     "at": 1208,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "of",
+     "at": 1215,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "those",
+     "at": 1217,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "four",
+     "at": 1227,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1233,
+   "to": 1302,
+   "words": [
+    {
+     "text": "winners",
+     "at": 1233,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "is",
+     "at": 1240,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "named",
+     "at": 1249,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "Dubai",
+     "at": 1257,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "AI",
+     "at": 1272,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "Agent",
+     "at": 1286,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "of",
+     "at": 1295,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1302,
+   "to": 1371,
+   "words": [
+    {
+     "text": "the",
+     "at": 1302,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "Year",
+     "at": 1307,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "and",
+     "at": 1313,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "gets",
+     "at": 1321,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "extra",
+     "at": 1329,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "funding",
+     "at": 1341,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "on",
+     "at": 1349,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "top.",
+     "at": 1358,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1379,
+   "to": 1469,
+   "words": [
+    {
+     "text": "That's",
+     "at": 1379,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "$750,000",
+     "at": 1396,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "in",
+     "at": 1442,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "grants,",
+     "at": 1458,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1469,
+   "to": 1490,
+   "words": [
+    {
+     "text": "in",
+     "at": 1469,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "total.",
+     "at": 1476,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1499,
+   "to": 1551,
+   "words": [
+    {
+     "text": "And",
+     "at": 1499,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "you",
+     "at": 1504,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "don't",
+     "at": 1508,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "need",
+     "at": 1514,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "to",
+     "at": 1520,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "be",
+     "at": 1525,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "an",
+     "at": 1528,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "engineer.",
+     "at": 1535,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1553,
+   "to": 1592,
+   "words": [
+    {
+     "text": "It's",
+     "at": 1553,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "free",
+     "at": 1562,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "to",
+     "at": 1571,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "enter.",
+     "at": 1579,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1598,
+   "to": 1635,
+   "words": [
+    {
+     "text": "They",
+     "at": 1598,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "give",
+     "at": 1603,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "you",
+     "at": 1607,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "workshops",
+     "at": 1614,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "and",
+     "at": 1626,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1635,
+   "to": 1693,
+   "words": [
+    {
+     "text": "mentors",
+     "at": 1635,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "to",
+     "at": 1647,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "get",
+     "at": 1655,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "you",
+     "at": 1658,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "from",
+     "at": 1663,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "idea",
+     "at": 1670,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "to",
+     "at": 1683,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1693,
+   "to": 1727,
+   "words": [
+    {
+     "text": "working",
+     "at": 1693,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "agent.",
+     "at": 1705,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1738,
+   "to": 1786,
+   "words": [
+    {
+     "text": "Registration",
+     "at": 1738,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "is",
+     "at": 1753,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "open",
+     "at": 1759,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "now",
+     "at": 1766,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "and",
+     "at": 1777,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1786,
+   "to": 1826,
+   "words": [
+    {
+     "text": "closes",
+     "at": 1786,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "in",
+     "at": 1797,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "January.",
+     "at": 1807,
+     "emph": true,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1835,
+   "to": 1886,
+   "words": [
+    {
+     "text": "Comment",
+     "at": 1835,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "AGENT,",
+     "at": 1844,
+     "emph": true,
+     "br": true
+    },
+    {
+     "text": "and",
+     "at": 1863,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "I'll",
+     "at": 1871,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "send",
+     "at": 1878,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "you",
+     "at": 1881,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1886,
+   "to": 1938,
+   "words": [
+    {
+     "text": "my",
+     "at": 1886,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "step-by-step",
+     "at": 1892,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "guide",
+     "at": 1911,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "on",
+     "at": 1919,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "how",
+     "at": 1925,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "to",
+     "at": 1931,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1938,
+   "to": 1985,
+   "words": [
+    {
+     "text": "register",
+     "at": 1938,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "and",
+     "at": 1948,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "pick",
+     "at": 1957,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "your",
+     "at": 1963,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "idea.",
+     "at": 1970,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 1993,
+   "to": 2023,
+   "words": [
+    {
+     "text": "A",
+     "at": 1993,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "year",
+     "at": 1998,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "from",
+     "at": 2002,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "now,",
+     "at": 2007,
+     "emph": false,
+     "br": false
+    }
+   ]
+  },
+  {
+   "from": 2025,
+   "to": 2057,
+   "words": [
+    {
+     "text": "you'll",
+     "at": 2025,
+     "emph": false,
+     "br": false
+    },
+    {
+     "text": "wish",
+     "at": 2032,
+     "emph": true,
+     "br": false
+    },
+    {
+     "text": "you'd",
+     "at": 2036,
+     "emph": false,
+     "br": true
+    },
+    {
+     "text": "entered.",
+     "at": 2048,
+     "emph": true,
+     "br": false
+    }
+   ]
+  }
+ ]
+}

@@ -25,6 +25,8 @@ export const LOGO = {
   remotion: {src: g('remotion.png'), bg: DARK, glow: '#0B84F3', fit: 0.64},
   scrapegraph: {src: g('scrapegraphai.svg'), bg: WHITE, glow: '#AC6DFF', fit: 0.64},
   aiText: {text: 'AI', color: '#FFFFFF', bg: `linear-gradient(160deg, ${GLOW.pillTop} 0%, #0B3FB0 100%)`, glow: GLOW.electric},
+  champ: {src: g('champ-mark.png'), bg: WHITE, glow: '#B44FD0', fit: 0.66},
+  dubaiChamber: {src: g('dubai-chamber-digital-white.png'), bg: 'linear-gradient(160deg, #13235C 0%, #0A1230 100%)', glow: GLOW.electric, fit: 0.72},
   typeText: {text: 'Aa', color: '#FFFFFF', bg: DARK, glow: '#A78BFA'},
 } satisfies Record<string, GlowLogo>;
 
@@ -32,6 +34,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'd24ed130c3d9', date: 'queued', title: 'Dubai AI Agents Championship', cover: c('$150,000', 'For 1 AI Agent', LOGO.champ, LOGO.dubaiChamber)},
   {job: 'd61788123d13', date: '2026-10-27', title: 'NVIDIA SkillSpector', cover: c('NVIDIA Scanner', 'For Bad Skills', LOGO.nvidia, LOGO.claude)},
   {job: 'c6e60a58849b', date: '2026-10-26 12:00', title: 'Kimi K3 on 8 GB RAM', cover: c('2.78T AI Model', 'On 8 GB RAM', LOGO.kimi, LOGO.huggingface)},
   {job: 'b55491077ab1', date: '2026-10-26 09:00', title: 'AI traffic in GA4', cover: c('AI Visitors', 'Worth 4.4x More?', LOGO.chatgpt, LOGO.googleAnalytics)},
