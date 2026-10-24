@@ -148,9 +148,14 @@ def _date(value):
         raise ReelError(f'{value!r} is not a date (YYYY-MM-DD)') from None
 
 
-def slot_time(platform, date, backup=False, slots=None):
+def reels_per_day(slots=None):
+    return int((slots or load_slots()).get('reels_per_day', 1))
+
+
+def slot_time(platform, date, backup=False, slots=None, n=0):
     """'HH:MM' GST for platform on date: a weekday-specific rule (e.g. 'fri') beats weekend/weekday, which beat
-    'default'. Raises ReelError when the table has no slot (LinkedIn has no weekend backup)."""
+    'default'. A rule is one time or a list with one time per reel of the day; n picks the day's n-th reel (0-based).
+    Raises ReelError when the table has no slot (LinkedIn has no weekend backup)."""
     slots = slots or load_slots()
     platform = 'instagram' if platform == 'instagram_trial' else platform   # the trial post shares the Instagram slot
     if platform not in slots['platforms']:
@@ -160,19 +165,26 @@ def slot_time(platform, date, backup=False, slots=None):
     kind = 'weekend' if day in slots['weekend'] else 'weekday'
     for key in (day, kind, 'default'):
         if key in rules:
-            return rules[key]
+            value = rules[key]
+            if isinstance(value, str):
+                if n == 0:
+                    return value
+                raise ReelError(f'{platform} has one {"backup " if backup else ""}slot on a {kind} ({day}), not {n + 1}')
+            if n < len(value):
+                return value[n]
+            raise ReelError(f'{platform} has {len(value)} {"backup " if backup else ""}slots on a {kind} ({day}), not {n + 1}')
     raise ReelError(f'{platform} has no {"backup " if backup else ""}slot on a {kind} ({day})')
 
 
-def slot_local(platform, date, backup=False, slots=None):
-    hour, minute = (int(part) for part in slot_time(platform, date, backup, slots).split(':'))
+def slot_local(platform, date, backup=False, slots=None, n=0):
+    hour, minute = (int(part) for part in slot_time(platform, date, backup, slots, n).split(':'))
     day = _date(date)
     return dt.datetime(day.year, day.month, day.day, hour, minute, tzinfo=gst())
 
 
-def slot_utc(platform, date, backup=False, slots=None):
+def slot_utc(platform, date, backup=False, slots=None, n=0):
     """The UTC datetime of platform's slot on the GST date (what the APIs and run-due compare against)."""
-    return slot_local(platform, date, backup, slots).astimezone(dt.timezone.utc)
+    return slot_local(platform, date, backup, slots, n).astimezone(dt.timezone.utc)
 
 
 def iso_z(moment):
@@ -198,12 +210,12 @@ def local_label(moment):
     return f'{DAY_NAMES[local.weekday()]} {local:%Y-%m-%d %H:%M} GST'
 
 
-def day_slots(date, slots=None):
+def day_slots(date, slots=None, n=0):
     slots = slots or load_slots()
     out = {}
     for platform in slots['order']:
-        moment = slot_utc(platform, date, slots=slots)
-        out[platform] = {'gst': slot_time(platform, date, slots=slots), 'utc': iso_z(moment),
+        moment = slot_utc(platform, date, slots=slots, n=n)
+        out[platform] = {'gst': slot_time(platform, date, slots=slots, n=n), 'utc': iso_z(moment),
                          'local': local_label(moment), 'via': slots['platforms'][platform]['via']}
     return out
 
@@ -715,11 +727,17 @@ def _holds_short(entry):
     return bool(yt.get('video_id')) and yt.get('status') in ('scheduled', 'published')
 
 
-def date_holder(schedule, date):
-    """The entry (queue or history) that owns this GST date, if any."""
+def date_holders(schedule, date):
+    """The entries (queue or history) that hold this GST date, each in its own slot (`slot_index`, 0 when absent)."""
     date = str(_date(date))
-    for entry in schedule.get('history', []) + schedule.get('queue', []):
-        if entry.get('date') == date and (entry.get('status') != 'cancelled' or _holds_short(entry)):
+    return [entry for entry in schedule.get('history', []) + schedule.get('queue', [])
+            if entry.get('date') == date and (entry.get('status') != 'cancelled' or _holds_short(entry))]
+
+
+def date_holder(schedule, date, n=None):
+    """The entry that owns this GST date (its slot n when given), if any."""
+    for entry in date_holders(schedule, date):
+        if n is None or entry.get('slot_index', 0) == n:
             return entry
     return None
 
@@ -779,8 +797,8 @@ def composer_entry(platform, seo, slot):
     return entry
 
 
-def plan_entry(jdir, date, lesson, seo, youtube_at=None):
-    slots = day_slots(date)
+def plan_entry(jdir, date, lesson, seo, youtube_at=None, n=0):
+    slots = day_slots(date, n=n)
     slug = lesson['resource_page']['slug']
     platforms = {}
     for platform in PLATFORMS:
@@ -798,7 +816,7 @@ def plan_entry(jdir, date, lesson, seo, youtube_at=None):
     platforms['instagram_trial'] = dict(platforms['instagram'], account=IG_TRIAL_ACCOUNT, trial=TRIAL_FOR[IG_TRIAL_ACCOUNT],
                                         collaborators=[])
     day = _date(date)
-    return {'date': str(day), 'day': DAY_NAMES[day.weekday()], 'job': jdir.name,
+    return {'date': str(day), 'day': DAY_NAMES[day.weekday()], 'slot_index': n, 'job': jdir.name,
             'title': lesson.get('topic_title'), 'keyword': lesson.get('manychat_keyword'), 'slug': slug,
             'resource_url': resource_url(lesson, seo), 'status': 'queued', 'platforms': platforms}
 
@@ -817,14 +835,14 @@ def _movable(entry):
     return True
 
 
-def _youtube_slot(day, now, lead):
+def _youtube_slot(day, now, lead, n=0):
     """The day's YouTube slot that is still at least `lead` ahead: the primary, else the backup (BEST_TIMES.md:
     the backup is used when the primary cannot be). Raises when neither is."""
-    primary = slot_utc('youtube', day)
+    primary = slot_utc('youtube', day, n=n)
     if primary >= now + lead:
         return primary
     try:
-        backup = slot_utc('youtube', day, backup=True)
+        backup = slot_utc('youtube', day, backup=True, n=n)
     except ReelError:
         backup = None
     if backup and backup >= now + lead:
@@ -844,7 +862,7 @@ def _save_reel_state(jdir, **values):
     _write_json(Path(jdir) / REEL_STATE, data)
 
 
-def _youtube_adoptable(jdir, day):
+def _youtube_adoptable(jdir, day, n=0):
     """A Short the publisher already uploaded for this GST day (its state says published and publish_reel.json
     says the session started with one of this day's YouTube slots) whose schedule.json record was lost in a crash."""
     record = posted_record(jdir, 'youtube')
@@ -852,16 +870,40 @@ def _youtube_adoptable(jdir, day):
     if not record or not started:
         return None
     started = parse_moment(started)
-    slots = [slot_utc('youtube', day)]
+    slots = [slot_utc('youtube', day, n=n)]
     with contextlib.suppress(ReelError):
-        slots.append(slot_utc('youtube', day, backup=True))
+        slots.append(slot_utc('youtube', day, backup=True, n=n))
     if started not in slots:
         return None
     return {**record, 'publish_at': iso_z(started)}
 
 
-def queue(job, date, live=False, rt=None, schedule_path=None):
-    """Put a verified reel on its GST date. Dry run by default: checks and returns the plan, writes nothing."""
+def _free_slot(schedule, day, jid, slot, per_day):
+    """The day's slot index for this reel: its own when it already holds one, the asked one (0-based), else the
+    lowest free one. Raises when the day is full or the asked slot is taken."""
+    holders = [h for h in date_holders(schedule, day) if h.get('job') != jid]
+    taken = {h.get('slot_index', 0): h for h in holders}
+    own = next((h for h in date_holders(schedule, day) if h.get('job') == jid), None)
+    if slot is None and own is not None:
+        slot = own.get('slot_index', 0)
+    if slot is not None:
+        if not 0 <= slot < per_day:
+            raise ReelError(f'slot {slot + 1} does not exist; a day has {per_day} reel slot(s) (app/slots.json)')
+        if slot in taken:
+            h = taken[slot]
+            raise ReelError(f'slot {slot + 1} on {day} is already held by {h.get("job") or h.get("jobs")} '
+                            f'({h.get("keyword") or h.get("title")}); pick another slot or day')
+        return slot
+    for n in range(per_day):
+        if n not in taken:
+            return n
+    names = ', '.join(f'{h.get("job") or h.get("jobs")} ({h.get("keyword") or h.get("title")})' for h in holders)
+    raise ReelError(f'{per_day} reel(s) per day: {day} is full ({names}); pick the next free day')
+
+
+def queue(job, date, live=False, rt=None, schedule_path=None, slot=None):
+    """Put a verified reel on its GST date, in the day's first free reel slot (or `slot`, 0-based). Dry run by
+    default: checks and returns the plan, writes nothing."""
     rt = rt or Runtime()
     jdir = job_dir(job)
     jid = jdir.name
@@ -869,10 +911,7 @@ def queue(job, date, live=False, rt=None, schedule_path=None):
     slots_cfg = load_slots()
     with schedule_lock(schedule_path):
         schedule = load_schedule(schedule_path)
-        holder = date_holder(schedule, day)
-        if holder and holder.get('job') != jid:
-            raise ReelError(f'one reel per day: {day} is already held by {holder.get("job") or holder.get("jobs")} '
-                            f'({holder.get("keyword") or holder.get("title")}); pick the next free day')
+        n = _free_slot(schedule, day, jid, slot, reels_per_day(slots_cfg))
         existing = job_entry(schedule, jid)
         if existing and existing.get('date') != str(day):
             if existing.get('status') != 'planned' and not _movable(existing):
@@ -884,19 +923,19 @@ def queue(job, date, live=False, rt=None, schedule_path=None):
         resume = bool(existing and existing.get('date') == str(day) and existing.get('platforms'))
         own = existing.get('platforms', {}) if resume else {}
         youtube_done = (own.get('youtube') or {}).get('status') in ('scheduled', 'published')
-        adopt = None if youtube_done else _youtube_adoptable(jdir, day)
+        adopt = None if youtube_done else _youtube_adoptable(jdir, day, n)
         lead = dt.timedelta(minutes=slots_cfg.get('youtube_min_lead_minutes', 30))
         if youtube_done:
             yt_at = parse_moment(own['youtube'].get('publish_at') or own['youtube']['slot_utc'])
         elif adopt:
             yt_at = parse_moment(adopt['publish_at'])
         else:
-            yt_at = _youtube_slot(day, now, lead)
+            yt_at = _youtube_slot(day, now, lead, n)
         if not resume:   # every run-due slot of the day must still be ahead (weekend LinkedIn is before YouTube)
             for platform in RUN_DUE_PLATFORMS:
-                slot = slot_utc(platform, day)
-                if slot < now + dt.timedelta(minutes=HOST_WAIT_SECONDS // 60):
-                    raise ReelError(f'the {platform} slot {local_label(slot)} is already past or less than '
+                slot_at = slot_utc(platform, day, n=n)
+                if slot_at < now + dt.timedelta(minutes=HOST_WAIT_SECONDS // 60):
+                    raise ReelError(f'the {platform} slot {local_label(slot_at)} is already past or less than '
                                     f'{HOST_WAIT_SECONDS // 60} minutes away; queue the reel on a later day')
         ignore = [p for p, pe in own.items() if (pe or {}).get('status') not in (None, 'pending', 'composer')]
         if adopt:
@@ -906,7 +945,7 @@ def queue(job, date, live=False, rt=None, schedule_path=None):
             return {'job': jid, 'date': str(day), 'status': 'refused', 'dry_run': not live,
                     'blockers': [b['message'] for b in report['blockers']], 'warnings': report['warnings']}
         lesson, seo = load_lesson(jdir), load_seo(jdir)
-        plan = plan_entry(jdir, day, lesson, seo, youtube_at=yt_at)
+        plan = plan_entry(jdir, day, lesson, seo, youtube_at=yt_at, n=n)
         if resume:   # keep everything this entry already did (ids, hosting, posts)
             for platform, pe in own.items():
                 if platform == 'youtube' and not youtube_done:
@@ -928,7 +967,7 @@ def queue(job, date, live=False, rt=None, schedule_path=None):
         plan['status'] = 'queuing'
         plan['queued_at'] = iso_z(now)
         schedule['queue'].append(plan)
-        schedule['queue'].sort(key=lambda e: e['date'])
+        schedule['queue'].sort(key=lambda e: (e['date'], e.get('slot_index', 0)))
         save_schedule(schedule, schedule_path)
         warnings, errors = list(report['warnings']), []
         if not youtube_done:
@@ -1297,7 +1336,7 @@ def _confirmed(confirm, job, platform):
     return any(p == platform and (j is None or j == job) for j, p in confirm)
 
 
-def post_window(platform, date, slot, now, slots=None):
+def post_window(platform, date, slot, now, slots=None, n=0):
     """('post' | 'wait' | 'missed', detail). Inside late_grace_minutes of the slot: post. Later, when the day has a
     later backup slot (BEST_TIMES.md: used when the primary cannot be), wait for it and post within the same grace;
     after that grace the slot is missed. Without a later backup a late post may still go out up to
@@ -1309,7 +1348,7 @@ def post_window(platform, date, slot, now, slots=None):
     if late <= grace:
         return 'post', None
     try:
-        backup = slot_utc(platform, date, backup=True, slots=slots)
+        backup = slot_utc(platform, date, backup=True, slots=slots, n=n)
     except ReelError:
         backup = None
     if backup and backup > slot:
@@ -1364,7 +1403,8 @@ def run_due(now=None, live=False, platforms=None, confirm_not_posted=(), rt=None
                                     'followups': _followups(entry, platform)})
                     continue
                 window, detail = post_window('instagram' if platform == 'instagram_trial' else platform,
-                                             str(slot.astimezone(gst()).date()), slot, now, slots_cfg)
+                                             str(slot.astimezone(gst()).date()), slot, now, slots_cfg,
+                                             n=entry.get('slot_index', 0))
                 owner_confirmed = _confirmed(confirm, entry['job'], platform)
                 if window == 'wait':
                     results.append({**base, 'action': 'waiting_for_backup', 'backup_utc': iso_z(detail),
@@ -1668,6 +1708,7 @@ def main(argv=None, rt=None):
     p.add_argument('job')
     p.add_argument('--date', required=True)
     p.add_argument('--live', action='store_true', help='upload to YouTube (scheduled), host the IG media, record')
+    p.add_argument('--slot', type=int, default=None, help="the day's reel slot, 1-based (default: the first free one)")
     p = sub.add_parser('run-due', help='post LinkedIn/Instagram whose slot has passed (dry run unless --live)')
     p.add_argument('--now', default=None, help='dry runs only: ISO time (Z or offset; no offset = GST)')
     p.add_argument('--live', action='store_true', help='post for real, always on the real clock (not with --now)')
@@ -1699,7 +1740,7 @@ def main(argv=None, rt=None):
             _print(apply_seo(args.job, write=not args.dry_run))
             return 0
         if args.command == 'queue':
-            result = queue(args.job, args.date, live=args.live, rt=rt)
+            result = queue(args.job, args.date, live=args.live, rt=rt, slot=None if args.slot is None else args.slot - 1)
             _print(result)
             if args.live:
                 SCHEDULE_MD.write_text(render_md())

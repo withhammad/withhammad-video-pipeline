@@ -332,9 +332,9 @@ def test_one_reel_per_day_refuses_a_second_job_on_a_held_date(env):
     env['schedule']([{'date': '2026-10-19', 'job': 'job1', 'status': 'planned'}],
                     history=[{'date': '2026-10-18', 'jobs': ['a', 'b'], 'keyword': 'SKILL', 'status': 'published'}])
     rt = env['rt']()
-    with pytest.raises(pr.ReelError, match='one reel per day'):
+    with pytest.raises(pr.ReelError, match='reel\(s\) per day'):
         pr.queue('job2', '2026-10-19', live=True, rt=rt)
-    with pytest.raises(pr.ReelError, match='one reel per day'):
+    with pytest.raises(pr.ReelError, match='reel\(s\) per day'):
         pr.queue('job2', '2026-10-18', live=True, rt=rt)
     assert rt.posts() == [] and not [c for c in rt.calls if c[0] == 'run']
 
@@ -933,7 +933,7 @@ def test_a_cancelled_entry_with_a_scheduled_short_still_holds_its_day(env):
     schedule['queue'][0]['status'] = 'cancelled'
     pr.save_schedule(schedule)
     env['make_job']('job2')
-    with pytest.raises(pr.ReelError, match='one reel per day'):
+    with pytest.raises(pr.ReelError, match='reel\(s\) per day'):
         pr.queue('job2', '2026-10-19', live=True, rt=env['rt']())
     # a cancelled entry that never reached YouTube frees the day
     schedule['queue'][0]['platforms']['youtube'] = {'status': 'failed', 'slot_utc': '2026-10-19T08:00:00Z'}
@@ -1037,3 +1037,27 @@ def test_the_agentic_caption_swaps_the_keyword_ask_for_the_guide_link():
         'Roadmap: full guide: withhammad.com/resources/kimi. #fde'
     assert pr.ig_caption_for('hammadagentic.ai', 'Scan first. Comment SCAN and I\'ll DM you. AI avatar.', 'SCAN', url) == \
         'Scan first. Full guide: withhammad.com/resources/kimi. AI avatar.'
+
+
+def test_a_day_with_three_reel_slots_takes_three_reels_each_at_its_own_times():
+    slots = json.loads(json.dumps(pr.load_slots()))
+    slots['reels_per_day'] = 3
+    for platform, cfg in slots['platforms'].items():
+        cfg['times'] = {'default': ['09:00', '13:00', '19:00']}
+        cfg['backup'] = {'default': ['10:00', '14:00', '20:00']}
+    assert pr.slot_time('tiktok', '2026-10-19', slots=slots, n=2) == '19:00'
+    assert pr.slot_time('instagram_trial', '2026-10-19', backup=True, slots=slots, n=1) == '14:00'
+    with pytest.raises(pr.ReelError, match='not 4'):
+        pr.slot_time('x', '2026-10-19', slots=slots, n=3)
+    with pytest.raises(pr.ReelError, match='not 2'):
+        pr.slot_time('x', '2026-10-19', slots=pr.load_slots(), n=1)   # a single-time rule has one slot
+    day = '2026-10-19'
+    schedule = {'queue': [{'date': day, 'job': 'a', 'slot_index': 0}, {'date': day, 'job': 'b', 'slot_index': 2}],
+                'history': []}
+    assert pr._free_slot(schedule, pr._date(day), 'c', None, 3) == 1
+    assert pr._free_slot(schedule, pr._date(day), 'b', None, 3) == 2              # a queued reel keeps its slot
+    with pytest.raises(pr.ReelError, match='already held by b'):
+        pr._free_slot(schedule, pr._date(day), 'c', 2, 3)
+    schedule['queue'].append({'date': day, 'job': 'c', 'slot_index': 1})
+    with pytest.raises(pr.ReelError, match='3 reel\\(s\\) per day: 2026-10-19 is full'):
+        pr._free_slot(schedule, pr._date(day), 'd', None, 3)
