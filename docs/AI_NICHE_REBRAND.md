@@ -309,3 +309,22 @@ is done in Chrome: the stored token only has w_member_social and cannot edit the
 - TikTok limits and website-link rule (secondary; check in the app): https://replug.io/blog/tiktok-bio-character-limit ,
   https://stan.store/blog/tiktok-link-bio-requirements-2026-guide/
 - Funnel and policy context: docs/FUNNEL.md. Earlier profile work: docs/INSTAGRAM_PROFILE.md, docs/X_PROFILE.md.
+
+## Applied 2026-10-24 (owner: "Apply all of it", "Unlist them", "Keep name + badge")
+
+Verified by read-back (studio/.local/rebrand/youtube_applied.json, git-ignored):
+- YouTube API: description, keywords, country AE, banner, watermark (set; no read endpoint), 6 AI playlists
+  created and filled, 8 old playlists private, 61 non-AI videos unlisted (undo record:
+  studio/.local/rebrand/youtube_unlisted.json). Trailer via API did not stick; the Home tab already shows an AI
+  trailer (How to Build Effective AI Agents) and featured video.
+- YouTube Studio (Chrome): links (Free AI guides, Instagram, X, LinkedIn, TikTok), Home sections (Shorts, Created
+  playlists), upload defaults (Private, AI tags, description template, Science & Technology, English). Channel name
+  NOT changed: renaming removes the verification badge; the owner chose to keep "Hammad Yousuf" and the badge.
+  Legacy custom URL /c/TravellingBuggy kept (deleting cannot be undone).
+- X @HammadYousufAI: name, bio, website, new header (checked on the live profile).
+- Facebook: bio and links (Free AI guides, YouTube).
+- Instagram @with.hammad: bio (live) and name "Hammad Yousuf | AI Agents & Claude Code" (Accounts Center).
+- LinkedIn: left as is. It already has an AI ENGINEER banner and an Open-to-Work recruiter headline.
+
+Still for the owner (phone app): Instagram links, category, highlights, pins; TikTok name, bio, Business switch,
+website; @hammadagentic.ai after its re-authorization (token error 190).
