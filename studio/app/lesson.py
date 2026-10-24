@@ -54,6 +54,8 @@ Rules:
   licence or price, and states only facts you verified in sources_checked: never call a tool free or open
   source unless its own documentation says so, and never attach a claim about one tool to another."""
 
+CAROUSEL_CAPTIONS = ('instagram_carousel', 'linkedin_carousel')
+
 SCHEMA = {
     'type': 'object',
     'additionalProperties': False,
@@ -92,8 +94,11 @@ SCHEMA = {
         'captions': {
             'type': 'object', 'additionalProperties': False,
             'required': ['instagram', 'youtube_title', 'youtube_description', 'tiktok', 'linkedin'],
+            # instagram_carousel / linkedin_carousel: optional carousel post copy (app.publish_reel), added after
+            # production like caption_file, never asked of the lesson writer (api_schema drops them)
             'properties': {k: {'type': 'string'} for k in
-                           ('instagram', 'youtube_title', 'youtube_description', 'tiktok', 'linkedin')},
+                           ('instagram', 'youtube_title', 'youtube_description', 'tiktok', 'linkedin',
+                            *CAROUSEL_CAPTIONS)},
         },
         'hashtags': {'type': 'array', 'items': {'type': 'string'}, 'maxItems': 8},
         'manychat_keyword': {'type': 'string', 'pattern': '^[A-Z]{4,10}$'},
@@ -137,6 +142,8 @@ def api_schema():
     schema = strip(SCHEMA)
     # Publishing metadata is attached after production, never invented by the lesson writer.
     schema['properties'].pop('caption_file')
+    for key in CAROUSEL_CAPTIONS:
+        schema['properties']['captions']['properties'].pop(key)
     schema['required'] = schema['required'] + [k for k in OPTIONAL_KEYS if k not in schema['required']]
     return schema
 

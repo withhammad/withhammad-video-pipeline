@@ -916,3 +916,136 @@ def test_trial_reel_adds_trial_params_next_to_the_collab(video, tmp_path):
     assert 'trial_params' not in next(r for r in plain['requests'] if r['step'] == 'create_container')['json']
     with pytest.raises(ValueError, match='trial must be one of'):
         run(video, meta, url_provider=provider, state_path=tmp_path / 'u.json', trial='AUTO')
+
+
+# --- carousels --------------------------------------------------------------------------------------------------------
+
+SLIDES = [f'https://img.example.test/carousels/ai-traffic-ga4/{i:02d}.jpg' for i in range(1, 4)]
+SLIDE_SIZE = 4321
+
+
+class FakeCarouselMeta(FakeMeta):
+    """FakeMeta plus distinct child container ids (K1, K2, ...) and a JPEG image host."""
+
+    def __init__(self, **kwargs):
+        super().__init__(SLIDE_SIZE, **kwargs)
+        self.children = 0
+        self.image_type = 'image/jpeg'
+
+    def handler(self, request):
+        key = (request.method, request.url.path)
+        if key not in self.overrides:
+            if request.url.host == 'img.example.test':
+                self.requests.append(request)
+                return httpx.Response(200, headers={'content-length': str(SLIDE_SIZE), 'content-type': self.image_type})
+            if key == ('POST', f'/{V}/{IG_ID}/media') and json.loads(request.content).get('is_carousel_item'):
+                self.requests.append(request)
+                self.children += 1
+                return httpx.Response(200, json={'id': f'K{self.children}'})
+            if request.method == 'GET' and request.url.path.startswith(f'/{V}/K'):
+                self.requests.append(request)
+                return httpx.Response(200, json={'id': request.url.path.rsplit('/', 1)[1], 'status_code': 'FINISHED'})
+            if key == ('GET', f'/{V}/M1'):
+                self.requests.append(request)
+                return httpx.Response(200, json={'id': 'M1', 'permalink': 'https://www.instagram.com/p/CAR/'})
+        return super().handler(request)
+
+    def bodies(self, path_end='/media'):
+        return [json.loads(r.content) for r in self.requests if r.method == 'POST' and r.url.path.endswith(path_end)]
+
+
+CAROUSEL_LESSON = {'captions': {'instagram': 'Track AI traffic in GA4.\n\nFull guide: withhammad.com/resources/x\n#GA4'}}
+
+
+def run_carousel(meta, **kwargs):
+    kwargs.setdefault('sleep', lambda s: None)
+    kwargs.setdefault('image_sizes', [SLIDE_SIZE] * len(kwargs.get('urls', SLIDES)))
+    urls = kwargs.pop('urls', SLIDES)
+    return ig.publish_carousel(urls, kwargs.pop('lesson', CAROUSEL_LESSON), token=TOKEN,
+                               transport=httpx.MockTransport(meta.handler), **kwargs)
+
+
+def test_carousel_dry_run_sends_only_gets_and_plans_children_then_the_carousel(tmp_path):
+    meta = FakeCarouselMeta()
+    state = tmp_path / 'c.json'
+    plan = run_carousel(meta, state_path=state)
+    assert meta.writes() == [] and not state.exists() and plan['status'] == 'planned'
+    steps = [r['step'] for r in plan['requests']]
+    assert steps == ['identity', 'publishing_limit', 'check_image_url', 'check_image_url', 'check_image_url',
+                     'create_child', 'create_child', 'create_child', 'child_status', 'child_status', 'child_status',
+                     'create_container', 'container_status', 'publish', 'permalink']
+    carousel = next(r for r in plan['requests'] if r['step'] == 'create_container')['json']
+    assert carousel == {'media_type': 'CAROUSEL', 'children': '<CHILD_CONTAINER_ID_1>,<CHILD_CONTAINER_ID_2>,'
+                                                              '<CHILD_CONTAINER_ID_3>',
+                        'caption': CAROUSEL_LESSON['captions']['instagram'], 'collaborators': ['with.hammad'],
+                        'is_ai_generated': True}
+    assert plan['trial'] is None and 'trial_params' not in json.dumps(plan)
+
+
+def test_carousel_publishes_children_then_the_carousel_once(tmp_path):
+    meta = FakeCarouselMeta()
+    state = tmp_path / 'c.json'
+    result = run_carousel(meta, state_path=state, dry_run=False)
+    assert result['status'] == 'published' and result['media_id'] == 'M1'
+    assert result['permalink'] == 'https://www.instagram.com/p/CAR/'
+    children, carousel = meta.bodies()[:3], meta.bodies()[3]
+    assert children == [{'image_url': u, 'is_carousel_item': True} for u in SLIDES]   # no caption, no AI flag on a child
+    assert carousel['children'] == 'K1,K2,K3' and carousel['media_type'] == 'CAROUSEL'
+    assert carousel['collaborators'] == ['with.hammad'] and carousel['is_ai_generated'] is True
+    assert 'trial_params' not in carousel
+    assert meta.bodies('/media_publish') == [{'creation_id': 'C1'}]
+    assert [c for c in meta.calls() if c[1] == 'img.example.test'] == [('HEAD', 'img.example.test', p.split(
+        'img.example.test', 1)[1]) for p in SLIDES]
+    saved = json.loads(state.read_text())
+    assert saved['status'] == 'published' and [c['container_id'] for c in saved['children']] == ['K1', 'K2', 'K3']
+    assert TOKEN not in state.read_text()
+    again_meta = FakeCarouselMeta()
+    again = run_carousel(again_meta, state_path=state, dry_run=False)
+    assert again['status'] == 'already_published' and again_meta.requests == []
+
+
+def test_carousel_lost_publish_is_reconciled_by_carousel_media_only(tmp_path):
+    meta = FakeCarouselMeta(statuses=('FINISHED',))
+    meta.overrides[('POST', f'/{V}/{IG_ID}/media_publish')] = httpx.Response(500, json={'error': {
+        'message': 'oops', 'type': 'OAuthException', 'code': 2, 'is_transient': True}})
+    state = tmp_path / 'c.json'
+    with pytest.raises(ig.InstagramPublishError):
+        run_carousel(meta, state_path=state, dry_run=False)
+    assert json.loads(state.read_text())['status'] == 'publishing'
+    caption = CAROUSEL_LESSON['captions']['instagram']
+    meta2 = FakeCarouselMeta(statuses=('PUBLISHED',))
+    meta2.overrides[('GET', f'/{V}/{IG_ID}/media')] = httpx.Response(200, json={'data': [
+        {'id': 'R9', 'caption': caption, 'media_type': 'VIDEO', 'permalink': 'https://www.instagram.com/reel/R9/'},
+        {'id': 'M7', 'caption': caption, 'media_type': 'CAROUSEL_ALBUM', 'permalink': 'https://www.instagram.com/p/M7/'}]})
+    result = run_carousel(meta2, state_path=state, dry_run=False)
+    assert result['status'] == 'already_published' and result['media_id'] == 'M7'     # never the reel's twin caption
+    assert meta2.writes() == []
+
+
+def test_carousel_resume_reuses_finished_children(tmp_path):
+    meta = FakeCarouselMeta(statuses=('ERROR',))
+    state = tmp_path / 'c.json'
+    with pytest.raises(ig.ContainerFailedError):
+        run_carousel(meta, state_path=state, dry_run=False)
+    meta2 = FakeCarouselMeta(statuses=('ERROR', 'FINISHED'))      # the old carousel container is still ERROR
+    result = run_carousel(meta2, state_path=state, dry_run=False)
+    assert result['status'] == 'published'
+    assert json.loads(state.read_text())['previous_containers'][0]['id'] == 'C1'
+    bodies = meta2.bodies()
+    assert len(bodies) == 1 and bodies[0]['children'] == 'K1,K2,K3'      # only a new carousel container
+
+
+def test_carousel_input_checks(tmp_path):
+    meta = FakeCarouselMeta()
+    with pytest.raises(ig.InstagramPublishError, match='2-20 images'):
+        run_carousel(meta, urls=SLIDES[:1])
+    with pytest.raises(ig.InstagramPublishError, match='2-20 images'):
+        run_carousel(meta, urls=[f'https://img.example.test/{i}.jpg' for i in range(21)])
+    with pytest.raises(ig.InstagramPublishError, match='https'):
+        run_carousel(meta, urls=['http://img.example.test/1.jpg', SLIDES[1]])
+    meta.image_type = 'image/png'
+    with pytest.raises(ig.InstagramPublishError, match='JPEG only'):
+        run_carousel(meta, state_path=tmp_path / 'c.json', dry_run=False)
+    assert [w for w in meta.writes() if w[2].endswith('/media')] == []
+    with pytest.raises(ig.InstagramPublishError, match='bytes but the local file'):
+        run_carousel(FakeCarouselMeta(), state_path=tmp_path / 'd.json', dry_run=False, image_sizes=[1, 2, 3])

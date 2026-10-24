@@ -61,6 +61,11 @@ VIDEOS_URL = f'{API}/rest/videos'
 INITIALIZE_URL = f'{VIDEOS_URL}?action=initializeUpload'
 FINALIZE_URL = f'{VIDEOS_URL}?action=finalizeUpload'
 POSTS_URL = f'{API}/rest/posts'
+DOCUMENTS_URL = f'{API}/rest/documents'
+DOCUMENT_INITIALIZE_URL = f'{DOCUMENTS_URL}?action=initializeUpload'
+DOCUMENT_STATE_FILENAME = 'publish_linkedin_carousel.json'
+DOCUMENT_MAX_BYTES = 100 * 1000 * 1000      # Documents API: "can't exceed 100MB and 300 pages"
+DOCUMENT_MAX_PAGES = 300
 REQUIRED_SCOPE = 'w_member_social'
 
 PART_SIZE = 4 * 1024 * 1024
@@ -389,9 +394,31 @@ class LinkedInClient:
         response = self.send(step, 'GET', video_status_url(video_urn), headers=self.rest_headers(), expect=(200,))
         return self._json(response, step)
 
+    def initialize_document_upload(self, body):
+        response = self.send('initialize_document_upload', 'POST', DOCUMENT_INITIALIZE_URL,
+                             headers=self.rest_headers(True), json_body=body, expect=(200, 201))
+        return self._json(response, 'initialize_document_upload', 'value')
+
+    def upload_document(self, url, data):
+        """PUT the PDF to uploadUrl. The Documents API sample (curl --upload-file) sends the Authorization header."""
+        self.send('upload_document', 'PUT', url, headers={'Authorization': f'Bearer {self._token}',
+                                                          'Content-Type': 'application/octet-stream'},
+                  content=data, expect=(200, 201))
+
+    def get_document(self, document_urn, step='document_status'):
+        response = self.send(step, 'GET', document_status_url(document_urn), headers=self.rest_headers(),
+                             expect=(200,))
+        return self._json(response, step)
+
     def create_post(self, body):
         return self.send('create_post', 'POST', POSTS_URL, headers=self.rest_headers(True), json_body=body,
                          expect=(201,))
+
+
+def document_status_url(document_urn):
+    if document_urn.startswith('<'):
+        return f'{DOCUMENTS_URL}/<url-encoded document URN>'
+    return f"{DOCUMENTS_URL}/{quote(document_urn, safe='')}"
 
 
 def video_status_url(video_urn):
@@ -740,10 +767,20 @@ def _execute(client, state, state_path, video_path, video, commentary, title, no
     state['video_status'] = status
     _save_state(state_path, state)
 
-    state['post_attempt'] = {'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'video_urn': upload['video_urn']}
+    post_urn = _create_post(client, state, state_path, upload['video_urn'], commentary, title, warnings,
+                            urn_key='video_urn')
+    return {'platform': 'linkedin', 'dry_run': False, 'status': 'published', 'post_urn': post_urn,
+            'post_url': post_url(post_urn), 'video_urn': upload['video_urn'], 'state_path': str(state_path),
+            'warnings': warnings}
+
+
+def _create_post(client, state, state_path, media_urn, commentary, title, warnings, urn_key='video_urn'):
+    """POST /rest/posts once. The attempt is saved first: an answer that never arrives (5xx, transport) leaves the
+    post_attempt in the state and raises UncertainPostError, so a rerun never posts a second time on its own."""
+    state['post_attempt'] = {'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), urn_key: media_urn}
     _save_state(state_path, state)
     try:
-        response = client.create_post(post_body(upload['video_urn'], commentary, title))
+        response = client.create_post(post_body(media_urn, commentary, title))
     except LinkedInAPIError as error:
         if 400 <= error.status < 500:          # LinkedIn answered and refused: nothing was created
             state.pop('post_attempt', None)
@@ -767,9 +804,191 @@ def _execute(client, state, state_path, video_path, video, commentary, title, no
     _save_state(state_path, state)
     if not post_urn:
         warnings.append('201 Created without x-restli-id; post id unknown, check the profile')
-    return {'platform': 'linkedin', 'dry_run': False, 'status': 'published', 'post_urn': post_urn,
-            'post_url': post_url(post_urn), 'video_urn': upload['video_urn'], 'state_path': str(state_path),
-            'warnings': warnings}
+    return post_urn
+
+
+# ---------------------------------------------------------------- document (PDF carousel) posts
+# Documents API (Microsoft Learn, community-management/shares/documents-api, li-lms-2026-10, checked 2026-10-24):
+#   POST /rest/documents?action=initializeUpload  {"initializeUploadRequest": {"owner": <person URN>}}
+#        -> {"value": {"uploadUrlExpiresAt", "uploadUrl", "document": "urn:li:document:..."}}
+#   PUT  <uploadUrl>  the file (sample: curl --upload-file with the Authorization header) -> 201
+#   GET  /rest/documents/{urn}  status PROCESSING | PROCESSING_FAILED | AVAILABLE | WAITING_UPLOAD
+#   POST /rest/posts  content.media {title, id: <document URN>} -> 201, URN in x-restli-id
+#   PPT, PPTX, DOC, DOCX and PDF; at most 100 MB and 300 pages; scope w_member_social for a member author.
+
+def validate_document(path):
+    path = Path(path)
+    if not path.is_file():
+        raise LinkedInError(f'document not found: {path}')
+    data = path.read_bytes()
+    problems = []
+    if path.suffix.lower() != '.pdf' or not data.startswith(b'%PDF-'):
+        problems.append(f'{path.name} is not a PDF')
+    if not 0 < len(data) <= DOCUMENT_MAX_BYTES:
+        problems.append(f'{path.name} is {len(data)} bytes (LinkedIn takes at most 100 MB)')
+    pages = len(re.findall(rb'/Type\s*/Page(?![a-zA-Z])', data))
+    if pages > DOCUMENT_MAX_PAGES:
+        problems.append(f'{path.name} has {pages} pages (LinkedIn takes at most {DOCUMENT_MAX_PAGES})')
+    if problems:
+        raise LinkedInError('the LinkedIn document cannot be posted: ' + '; '.join(problems))
+    return {'path': str(path), 'size': len(data), 'pages': pages or None,
+            'sha256': hashlib.sha256(data).hexdigest()}
+
+
+def document_title(lesson, title=None):
+    text = ' '.join(str(title or (lesson or {}).get('topic_title') or '').split())
+    if not text:
+        raise LinkedInError('a document post needs a title (the name LinkedIn shows on the document)')
+    return text
+
+
+def publish_document(document_path, lesson: dict, *, title=None, dry_run=True, state_path=None,
+                     credentials_path=None, transport=None, confirm_not_posted=False, version=None,
+                     poll_seconds=POLL_SECONDS, processing_timeout=PROCESSING_TIMEOUT,
+                     status_forbidden_wait=STATUS_FORBIDDEN_WAIT, sleep=time.sleep, clock=time.monotonic,
+                     now=time.time) -> dict:
+    """Post a PDF carousel (a LinkedIn document post) to the owner's feed with lesson['captions']['linkedin'] as the
+    commentary and `title` (default: lesson.topic_title) as the document's name.
+
+    dry_run (default True): only the read-only identity GET is sent; returns the ordered request plan. Posting
+    happens only when dry_run is exactly False. state_path defaults to <pdf folder>/publish_linkedin_carousel.json
+    (publish_reel passes <job>/publish_linkedin_carousel.json). The same double-post guards as publish(): an
+    exclusive lock, every remote id saved at once, and an unclear post answer needs confirm_not_posted=True."""
+    dry = dry_run is not False
+    document_path = Path(document_path)
+    state_path = Path(state_path) if state_path else document_path.parent / DOCUMENT_STATE_FILENAME
+    with (contextlib.nullcontext() if dry else _exclusive(state_path)):
+        return _publish_document(document_path, lesson, title, dry, state_path, credentials_path, transport,
+                                 confirm_not_posted, version, poll_seconds, processing_timeout,
+                                 status_forbidden_wait, sleep, clock, now)
+
+
+def _publish_document(document_path, lesson, title, dry, state_path, credentials_path, transport, confirm_not_posted,
+                      version, poll_seconds, processing_timeout, status_forbidden_wait, sleep, clock, now):
+    state = _load_state(state_path)
+    if state.get('status') == 'published':
+        warnings = []
+        if state.get('document_sha256') and document_path.is_file() and _sha256(document_path) != state['document_sha256']:
+            warnings.append(f'{document_path.name} changed after it was posted; nothing was sent (a second post needs '
+                            "the owner's explicit OK and a new state_path)")
+        return {'platform': 'linkedin', 'kind': 'document', 'dry_run': dry, 'status': 'already_published',
+                'post_urn': state.get('post_urn'), 'post_url': state.get('post_url'),
+                'document_urn': (state.get('document') or {}).get('urn'), 'published_at': state.get('published_at'),
+                'state_path': str(state_path), 'warnings': warnings, 'requests': []}
+    commentary = build_commentary(lesson)
+    title = document_title(lesson, title)
+    document = validate_document(document_path)
+    if state.get('author') and state['author'] != author_urn():
+        raise StateError(f"State file {state_path.name} belongs to {state['author']}, not {author_urn()}")
+    if state.get('document') and state.get('document_sha256') not in (None, document['sha256']):
+        raise StateError(f'State file {state_path.name} tracks a different document (sha256 changed); use a new '
+                         'state path for a re-made PDF')
+    credentials = load_credentials(credentials_path or CREDENTIALS_PATH, now=now)
+    client = LinkedInClient(credentials['access_token'], version or LINKEDIN_VERSION, transport)
+    try:
+        identity = client.userinfo()
+        if identity.get('sub') != credentials['member_sub']:
+            raise IdentityMismatchError(f"LinkedIn token is signed in as {identity.get('name')!r} "
+                                        f"(sub {identity.get('sub')!r}), not the owner (sub {OWNER_SUB!r}); nothing was sent")
+        checks = list(client.log)
+        warnings = []
+        if state.get('post_attempt') and not confirm_not_posted:
+            warnings.append(_uncertain_message(state['post_attempt']))
+        if dry:
+            rest_json, rest_get = _public_headers(client.rest_headers(True)), _public_headers(client.rest_headers())
+            known = state.get('document') or {}
+            urn = known.get('urn') if known.get('uploaded') else '<document URN from initializeUpload>'
+            plan = []
+            if not known.get('uploaded'):
+                plan.append({'step': 'initialize_document_upload', 'method': 'POST', 'url': DOCUMENT_INITIALIZE_URL,
+                             'headers': rest_json, 'json': {'initializeUploadRequest': {'owner': author_urn()}}})
+                plan.append({'step': 'upload_document', 'method': 'PUT', 'url': '<uploadUrl from initializeUpload>',
+                             'headers': {'Authorization': 'Bearer ' + REDACTED,
+                                         'Content-Type': 'application/octet-stream'},
+                             'size': document['size'], 'source': document['path']})
+            plan.append({'step': 'wait_until_available', 'method': 'GET', 'url': document_status_url(urn),
+                         'headers': rest_get, 'repeat': f'until status AVAILABLE (gives up after '
+                                                         f'{processing_timeout:g} s; a 403 waits a fixed time)'})
+            plan.append({'step': 'create_post', 'method': 'POST', 'url': POSTS_URL, 'headers': rest_json,
+                         'json': post_body(urn, commentary, title), 'expect': '201 with x-restli-id header'})
+            return {'platform': 'linkedin', 'kind': 'document', 'dry_run': True, 'status': 'planned',
+                    'author': author_urn(), 'identity': {'sub': identity.get('sub'), 'name': identity.get('name'),
+                                                         'verified': True},
+                    'token_expires_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(credentials['expires_at_unix'])),
+                    'linkedin_version': client.version, 'document': document, 'title': title,
+                    'commentary': commentary, 'state_path': str(state_path), 'warnings': warnings,
+                    'checks_performed': checks, 'requests': plan}
+        if warnings:
+            raise UncertainPostError(warnings[0])
+        state.setdefault('platform', 'linkedin')
+        state['kind'] = 'document'
+        state['author'] = author_urn()
+        state.update(document_path=str(document_path), document_sha256=document['sha256'],
+                     document_size=document['size'])
+        warnings = []
+        doc = state.get('document') or {}
+        if doc and not doc.get('uploaded') and (doc.get('expires_at_ms') or 0) - UPLOAD_URL_MARGIN_MS <= now() * 1000:
+            state.setdefault('abandoned_documents', []).append({'urn': doc.get('urn'), 'reason': 'upload URL expired'})
+            state.pop('document', None)
+            _save_state(state_path, state)
+        if not state.get('document'):
+            value = client.initialize_document_upload({'initializeUploadRequest': {'owner': author_urn()}})
+            if not value.get('uploadUrl') or not value.get('document'):
+                raise LinkedInError('LinkedIn initializeUpload (documents) returned no uploadUrl or document URN')
+            state['document'] = {'urn': value['document'], 'upload_url': value['uploadUrl'],
+                                 'expires_at_ms': value.get('uploadUrlExpiresAt') or 0, 'uploaded': False}
+            _save_state(state_path, state)
+        doc = state['document']
+        if not doc.get('uploaded'):
+            try:
+                client.upload_document(doc['upload_url'], document_path.read_bytes())
+            except LinkedInAPIError as error:
+                if _upload_url_expired(error, put=True):
+                    state.setdefault('abandoned_documents', []).append(
+                        {'urn': doc.get('urn'), 'reason': f'upload URL rejected (HTTP {error.status})'})
+                    state.pop('document', None)
+                    _save_state(state_path, state)
+                raise
+            doc['uploaded'] = True
+            doc.pop('upload_url', None)       # a signed URL; not needed once the file is up
+            _save_state(state_path, state)
+        deadline = clock() + processing_timeout
+        interval, status = poll_seconds, None
+        while True:
+            try:
+                info = client.get_document(doc['urn'], step='wait_until_available')
+            except LinkedInAPIError as error:
+                if not _status_forbidden(error):
+                    raise
+                warnings.append(f'LinkedIn refused the document status check (HTTP 403), so the post was sent after '
+                                f'a fixed {status_forbidden_wait:g} s wait instead of after confirmed processing')
+                sleep(status_forbidden_wait)
+                status = 'UNCONFIRMED'
+                break
+            status = info.get('status')
+            if status == 'AVAILABLE':
+                break
+            if status == 'PROCESSING_FAILED':
+                state.setdefault('abandoned_documents', []).append({'urn': doc['urn'], 'reason': 'PROCESSING_FAILED'})
+                state.pop('document', None)
+                _save_state(state_path, state)
+                raise VideoProcessingError(f"LinkedIn could not process document {doc['urn']}. A rerun uploads it "
+                                           'again.')
+            if clock() >= deadline:
+                raise VideoProcessingError(f"LinkedIn document {doc['urn']} still {status} after "
+                                           f'{processing_timeout:g} s; rerun later to resume from the saved state')
+            sleep(interval)
+            interval = min(interval * 2, max(poll_seconds, MAX_POLL_SECONDS))
+        state['document_status'] = status
+        _save_state(state_path, state)
+        post_urn = _create_post(client, state, state_path, doc['urn'], commentary, title, warnings,
+                                urn_key='document_urn')
+        return {'platform': 'linkedin', 'kind': 'document', 'dry_run': False, 'status': 'published',
+                'post_urn': post_urn, 'post_url': post_url(post_urn), 'document_urn': doc['urn'], 'title': title,
+                'state_path': str(state_path), 'warnings': warnings, 'requests': client.log[len(checks):],
+                'checks_performed': checks}
+    finally:
+        client.close()
 
 
 if __name__ == '__main__':   # dry run only: python -m app.publish_linkedin <video.mp4> <lesson.json>

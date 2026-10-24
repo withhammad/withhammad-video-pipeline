@@ -24,6 +24,8 @@
       "how": "Posted by `app.publish_reel run-due --live` at the slot (the Mac must be awake).",
       "times": {"weekday": "16:00", "weekend": "10:00"},
       "backup": {"weekday": "11:00"},
+      "carousel": {"weekday": "11:00", "weekend": "17:00"},
+      "carousel_backup": {"weekday": "15:00", "weekend": "12:00"},
       "confidence": "low"
     },
     "instagram": {
@@ -32,6 +34,8 @@
       "how": "Posted by `app.publish_reel run-due --live` at the slot (no API scheduling; the Mac must be awake); video and cover hosted on withhammad.com/media.",
       "times": {"default": "17:00"},
       "backup": {"default": "20:00"},
+      "carousel": {"default": "21:00"},
+      "carousel_backup": {"default": "22:00"},
       "confidence": "medium"
     },
     "tiktok": {

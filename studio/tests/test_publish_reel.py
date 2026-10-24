@@ -166,8 +166,41 @@ class FakeRuntime:
         return {'status': 'published', 'post_urn': urn, 'post_url': f'https://www.linkedin.com/feed/update/{urn}/',
                 'warnings': []}
 
+    def instagram_carousel_publish(self, image_urls, lesson, **kw):
+        self.calls.append(('instagram_carousel', {**kw, 'image_urls': list(image_urls),
+                                                  'caption': (lesson.get('captions') or {}).get('instagram')}))
+        state = Path(kw['state_path'])
+        data = json.loads(state.read_text()) if state.exists() else {}
+        if data.get('media_id'):
+            return {'status': 'already_published', 'media_id': data['media_id'], 'permalink': data['permalink']}
+        state.write_text(json.dumps({'status': 'published', 'media_id': 'IGC1',
+                                     'permalink': 'https://www.instagram.com/p/CAR/'}))
+        return {'status': 'published', 'media_id': 'IGC1', 'permalink': 'https://www.instagram.com/p/CAR/',
+                'collaborators': kw.get('collaborators', ['with.hammad']), 'warnings': []}
+
+    def linkedin_document_publish(self, document_path, lesson, **kw):
+        self.calls.append(('linkedin_carousel', {**kw, 'document': str(document_path),
+                                                 'text': (lesson.get('captions') or {}).get('linkedin')}))
+        state = Path(kw['state_path'])
+        data = json.loads(state.read_text()) if state.exists() else {}
+        if data.get('status') == 'published':
+            return {'status': 'already_published', 'post_urn': data['post_urn'], 'post_url': data['post_url']}
+        if self.li_uncertain and not kw.get('confirm_not_posted'):
+            state.write_text(json.dumps({'post_attempt': {'at': '2026-10-19T07:00:05Z'}}))
+            raise UncertainPostError('A LinkedIn post request ended without a clear answer')
+        urn = 'urn:li:share:2'
+        state.write_text(json.dumps({'status': 'published', 'post_urn': urn,
+                                     'post_url': f'https://www.linkedin.com/feed/update/{urn}/'}))
+        return {'status': 'published', 'post_urn': urn, 'post_url': f'https://www.linkedin.com/feed/update/{urn}/',
+                'warnings': []}
+
+    def to_jpeg(self, source, dest, quality=90):
+        self.calls.append(('to_jpeg', Path(source).name, quality))
+        Path(dest).write_bytes(b'\xff\xd8\xff\xe0' + Path(source).read_bytes())
+
     def posts(self):
-        return [c for c in self.calls if c[0] in ('youtube', 'instagram', 'linkedin')]
+        return [c for c in self.calls if c[0] in ('youtube', 'instagram', 'linkedin', 'instagram_carousel',
+                                                  'linkedin_carousel')]
 
 
 def at(text):
@@ -1081,3 +1114,230 @@ def test_the_live_slot_table_has_three_reels_a_day_at_least_three_hours_apart():
             assert all(b - a >= dt.timedelta(hours=3) for a, b in zip(times, times[1:])), (platform, day)
         fri = [pr.slot_time(p, '2026-10-30', slots=slots, n=n) for p in slots['order'] for n in range(3)]
         assert not any('12:15' <= t < '14:00' for t in fri)    # Friday prayer
+
+
+# ---------------------------------------------------------------- carousels (owner rule 2026-10-24)
+
+def png(width=1080, height=1350, salt=b''):
+    import struct as _struct
+    ihdr = _struct.pack('>IIBBBBB', width, height, 8, 2, 0, 0, 0)
+    return b'\x89PNG\r\n\x1a\n' + _struct.pack('>I', 13) + b'IHDR' + ihdr + b'\0\0\0\0' + b'IDAT' + salt * 40
+
+
+def add_carousel(jdir, slides=3, pdf=True, size=(1080, 1350)):
+    folder = Path(jdir) / 'carousel'
+    folder.mkdir(exist_ok=True)
+    for i in range(1, slides + 1):
+        (folder / f'instagram-{i:02d}.png').write_bytes(png(*size, salt=str(i).encode()))
+        (folder / f'linkedin-{i:02d}.png').write_bytes(png(salt=b'li'))
+    if pdf:
+        (folder / 'carousel-linkedin.pdf').write_bytes(b'%PDF-1.7\n' + b'<< /Type /Page >>\n' * slides + b'%%EOF')
+    return folder
+
+
+CAROUSEL_URLS = [f'https://withhammad.com/media/carousels/{SLUG}/{i:02d}.jpg' for i in (1, 2, 3)]
+
+
+def test_carousel_slots_come_from_the_carousel_rules():
+    assert pr.slot_time('instagram_carousel', '2026-10-19') == '21:00'
+    assert pr.slot_time('instagram_carousel', '2026-10-19', backup=True) == '22:00'
+    assert pr.slot_time('linkedin_carousel', '2026-10-19') == '11:00'            # weekday
+    assert pr.slot_time('linkedin_carousel', '2026-10-24') == '17:00'            # Sat
+    assert pr.slot_time('linkedin_carousel', '2026-10-24', backup=True) == '12:00'
+    assert pr.slot_time('instagram_carousel', '2026-10-19', n=2) == '21:00'     # one carousel a day, whatever the reel
+    live = pr.load_slots(LIVE_SLOTS)
+    assert pr.slot_time('instagram_carousel', '2026-10-26', slots=live) == '20:00'
+    assert pr.slot_time('linkedin_carousel', '2026-10-26', slots=live) == '11:00'
+    assert pr.slot_time('linkedin_carousel', '2026-10-31', slots=live) == '17:00'
+    slots = json.loads(json.dumps(pr.load_slots()))
+    del slots['platforms']['linkedin']['carousel']
+    with pytest.raises(pr.ReelError, match='no carousel slot'):
+        pr.slot_time('linkedin_carousel', '2026-10-19', slots=slots)
+
+
+def test_queue_adds_and_hosts_the_carousel_when_the_job_has_one(env):
+    jdir = env['make_job']()
+    add_carousel(jdir)
+    env['schedule']()
+    rt = env['rt']()
+    dry = pr.queue('job1', '2026-10-19', rt=rt)
+    assert set(dry['entry']['platforms']) >= {'instagram_carousel', 'linkedin_carousel'}
+    assert any(s['step'] == 'host_carousel_slides' for s in dry['steps'])
+    assert not [c for c in rt.calls if c[0] == 'to_jpeg']                         # a dry run converts nothing
+    result = pr.queue('job1', '2026-10-19', live=True, rt=rt)
+    assert result['status'] == 'queued', result
+    p = pr.load_schedule()['queue'][0]['platforms']
+    ic, lc = p['instagram_carousel'], p['linkedin_carousel']
+    assert ic['slot_utc'] == '2026-10-19T17:00:00Z' and lc['slot_utc'] == '2026-10-19T07:00:00Z'
+    assert ic['account'] == 'hammadagentic.ai' and ic['collaborators'] == ['with.hammad'] and ic['trial'] is None
+    assert ic['hosted'] is True and ic['image_urls'] == CAROUSEL_URLS and len(ic['image_bytes']) == 3
+    assert lc['document'] == 'carousel/carousel-linkedin.pdf' and lc['title'] == 'FDE roadmap'
+    for i, url in enumerate(CAROUSEL_URLS, 1):
+        hosted = pr.SITE_DIR / 'public' / 'media' / 'carousels' / SLUG / f'{i:02d}.jpg'
+        assert hosted.read_bytes()[:3] == b'\xff\xd8\xff' and ('head', url) in rt.calls
+    assert [c[2] for c in rt.calls if c[0] == 'to_jpeg'] == [90, 90, 90]
+    commits = [c[1] for c in rt.calls if c[0] == 'run' and c[1][:2] == ['git', 'commit']]
+    assert len(commits) == 1          # the reel and the slides go out in one website commit
+    assert commits[0][3] == 'Host the ROADMAP reel video and cover and carousel slides for Instagram API publishing'
+
+
+def test_queue_without_a_carousel_folder_adds_no_carousel(env):
+    queued(env)
+    p = pr.load_schedule()['queue'][0]['platforms']
+    assert not set(p) & set(pr.CAROUSEL_PLATFORMS)
+
+
+def test_run_due_posts_both_carousels_at_their_slots_once(env):
+    jdir = env['make_job']()
+    add_carousel(jdir)
+    env['schedule']()
+    pr.queue('job1', '2026-10-19', live=True, rt=env['rt']())
+    early = env['rt']('2026-10-19T06:59:00Z')
+    assert pr.run_due(live=True, rt=early)['results'] == [] and early.posts() == []
+    rt = env['rt']('2026-10-19T07:05:00Z')                       # LinkedIn carousel 11:00 GST
+    out = pr.run_due(live=True, rt=rt)
+    assert [(r['platform'], r['action']) for r in out['results']] == [('linkedin_carousel', 'posted')]
+    li = next(c[1] for c in rt.calls if c[0] == 'linkedin_carousel')
+    assert li['document'].endswith('carousel/carousel-linkedin.pdf') and li['title'] == 'FDE roadmap'
+    assert li['text'] == SEO['linkedin']['text'] and Path(li['state_path']).name == 'publish_linkedin_carousel.json'
+    assert li['confirm_not_posted'] is False
+    rt2 = env['rt']('2026-10-19T17:10:00Z')                      # Instagram carousel 21:00 GST
+    out2 = pr.run_due(live=True, rt=rt2, platforms=['instagram_carousel'])
+    assert [(r['platform'], r['action']) for r in out2['results']] == [('instagram_carousel', 'posted')]
+    call = next(c[1] for c in rt2.calls if c[0] == 'instagram_carousel')
+    assert call['expected_username'] == 'hammadagentic.ai' and call['collaborators'] == ['with.hammad']
+    assert 'trial' not in call and call['image_urls'] == CAROUSEL_URLS and call['ai_generated'] is True
+    assert len(call['image_sizes']) == 3 and Path(call['state_path']).name == 'publish_instagram_carousel.json'
+    assert KEYWORD not in call['caption'] and 'full guide: ' in call['caption']   # no ManyChat on @hammadagentic.ai
+    result = out2['results'][0]
+    assert any('Collab' in f for f in result['followups']) and not any('ManyChat' in f for f in result['followups'])
+    published = json.loads((jdir / 'published.json').read_text())
+    assert published['instagram_carousel']['media_id'] == 'IGC1' and published['instagram_carousel']['slides'] == 3
+    assert published['linkedin_carousel']['post_urn'] == 'urn:li:share:2'
+    p = pr.load_schedule()['queue'][0]['platforms']
+    assert p['instagram_carousel']['status'] == p['linkedin_carousel']['status'] == 'published'
+    rt3 = env['rt']('2026-10-19T17:30:00Z')
+    pr.run_due(live=True, rt=rt3, platforms=list(pr.CAROUSEL_PLATFORMS))
+    assert rt3.posts() == []
+
+
+def test_carousel_caption_prefers_seo_then_lesson_then_the_reel_caption(env):
+    jdir = env['make_job']()
+    lesson, seo = pr.load_lesson(jdir), pr.load_seo(jdir)
+    text, source = pr.carousel_caption('linkedin_carousel', lesson, seo)
+    assert text == SEO['linkedin']['text'] and source.startswith('derived from the reel caption')
+    lesson['captions']['linkedin_carousel'] = 'Swipe through the 3 steps. AI avatar of me.'
+    assert pr.carousel_caption('linkedin_carousel', lesson, seo) == (
+        'Swipe through the 3 steps. AI avatar of me.', 'lesson.json captions.linkedin_carousel')
+    seo2 = {**seo, 'linkedin_carousel': {'text': 'SEO carousel copy', 'title': 'The 3-step GA4 check'}}
+    assert pr.carousel_caption('linkedin_carousel', lesson, seo2) == ('SEO carousel copy',
+                                                                      'seo.json linkedin_carousel.text')
+    assert pr.carousel_title(lesson, seo2) == 'The 3-step GA4 check' and pr.carousel_title(lesson, seo) == 'FDE roadmap'
+    seo3 = {**seo, 'carousel': {'instagram': {'caption': f'Slides. Comment {KEYWORD} for the guide.'}}}
+    text, source = pr.carousel_caption('instagram_carousel', lesson, seo3)
+    assert source == 'seo.json carousel.instagram.caption' and KEYWORD not in text and 'Full guide' in text
+    from app import lesson as lesson_schema
+    assert lesson_schema.schema_problem(lesson) is None        # the optional carousel captions are valid lesson copy
+
+
+def test_queue_carousel_adds_entries_to_an_already_queued_reel(env, capsys):
+    queued(env)                       # queued before the carousel existed (like b55491077ab1)
+    jdir = pr.JOBS_ROOT / 'job1'
+    with pytest.raises(pr.ReelError, match='no carousel/ folder'):
+        pr.queue_carousel('job1', rt=env['rt']())
+    add_carousel(jdir)
+    before = pr.SCHEDULE_PATH.read_text()
+    rt = env['rt']('2026-10-18T10:00:00Z')
+    dry = pr.queue_carousel('job1', rt=rt)
+    assert dry['status'] == 'planned' and set(dry['entries']) == set(pr.CAROUSEL_PLATFORMS)
+    assert dry['captions']['linkedin_carousel']['source'].startswith('derived')
+    assert pr.SCHEDULE_PATH.read_text() == before and not [c for c in rt.calls if c[0] in ('run', 'to_jpeg')]
+    live = pr.queue_carousel('job1', live=True, rt=rt)
+    assert live['status'] == 'queued', live
+    entry = pr.load_schedule()['queue'][0]
+    assert entry['platforms']['instagram']['hosted'] and entry['platforms']['youtube']['status'] == 'scheduled'
+    ic = entry['platforms']['instagram_carousel']
+    assert ic['hosted'] and ic['image_urls'] == CAROUSEL_URLS
+    commit = next(c[1] for c in rt.calls if c[0] == 'run' and c[1][:2] == ['git', 'commit'])
+    assert commit[3] == 'Host the ROADMAP carousel slides for Instagram API publishing'
+    assert not any(c[1][:3] == ['git', 'add', '--'] and any(a.endswith('.mp4') for a in c[1])
+                   for c in rt.calls if c[0] == 'run')      # the reel video is not hosted again
+    # a rerun keeps the hosting and does not convert or push again
+    rt2 = env['rt']('2026-10-18T11:00:00Z')
+    again = pr.queue_carousel('job1', live=True, rt=rt2)
+    assert again['status'] == 'queued' and not [c for c in rt2.calls if c[0] in ('to_jpeg', 'run')]
+    # CLI
+    code = pr.main(['queue-carousel', 'job1'], rt=env['rt']('2026-10-18T12:00:00Z'))
+    assert code == 0 and json.loads(capsys.readouterr().out)['status'] == 'planned'
+    md = pr.render_md(pr.load_schedule())
+    assert '| Instagram carousel | LinkedIn carousel |' in md and '21:00 pending' in md
+    assert '| LinkedIn carousel | weekday 11:00, weekend 17:00 | weekday 15:00, weekend 12:00 |' in md
+    status = pr.format_status(pr.load_schedule(), at('2026-10-18T12:00:00Z'))
+    assert 'IG-C' in status and 'Next due: linkedin_carousel' in status
+
+
+def test_queue_carousel_leaves_out_a_past_slot_and_a_day_that_has_its_carousel(env):
+    queued(env)
+    add_carousel(pr.JOBS_ROOT / 'job1')
+    late = pr.queue_carousel('job1', rt=env['rt']('2026-10-19T08:00:00Z'))   # LinkedIn carousel 11:00 GST passed
+    assert set(late['entries']) == {'instagram_carousel'}
+    assert any('linkedin_carousel not queued' in n and 'past' in n for n in late['notes'])
+    with pytest.raises(pr.ReelError, match='no carousel post can be queued'):
+        pr.queue_carousel('job1', rt=env['rt']('2026-10-19T17:00:00Z'))
+    schedule = pr.load_schedule()
+    other = {'date': '2026-10-19', 'job': 'job2', 'slot_index': 1, 'keyword': 'OTHER', 'status': 'queued',
+             'platforms': {'instagram_carousel': {'status': 'pending', 'slot_utc': '2026-10-19T17:00:00Z'}}}
+    schedule['queue'].append(other)
+    pr.save_schedule(schedule)
+    plan = pr.queue_carousel('job1', rt=env['rt']('2026-10-18T10:00:00Z'))
+    assert set(plan['entries']) == {'linkedin_carousel'}
+    assert any('one carousel per platform per day' in n for n in plan['notes'])
+
+
+def test_queue_carousel_reports_file_problems(env):
+    queued(env)
+    add_carousel(pr.JOBS_ROOT / 'job1', slides=1, pdf=False)
+    with pytest.raises(pr.ReelError) as error:
+        pr.queue_carousel('job1', rt=env['rt']())
+    assert '1 instagram-NN slides' in str(error.value) and 'carousel-linkedin.pdf is missing' in str(error.value)
+    folder = add_carousel(pr.JOBS_ROOT / 'job1', slides=3, size=(1080, 1920))
+    plan = pr.queue_carousel('job1', rt=env['rt']())
+    assert set(plan['entries']) == {'linkedin_carousel'} and any('4:5 to 1.91:1' in n for n in plan['notes'])
+    assert (folder / 'instagram-01.png').exists()
+
+
+def test_a_carousel_crash_after_posting_is_recorded_and_an_uncertain_linkedin_waits(env):
+    jdir = env['make_job']()
+    add_carousel(jdir)
+    env['schedule']()
+    pr.queue('job1', '2026-10-19', live=True, rt=env['rt']())
+    (jdir / 'publish_instagram_carousel.json').write_text(json.dumps({'status': 'published', 'media_id': 'IGC9',
+                                                                      'permalink': 'https://www.instagram.com/p/X/'}))
+    rt = env['rt']('2026-10-19T17:05:00Z')
+    out = pr.run_due(live=True, rt=rt, platforms=['instagram_carousel'])
+    assert out['results'][0]['action'] == 'recorded' and rt.posts() == []
+    assert pr.load_schedule()['queue'][0]['platforms']['instagram_carousel']['url'] == 'https://www.instagram.com/p/X/'
+    rt2 = env['rt']('2026-10-19T07:05:00Z')
+    rt2.li_uncertain = True
+    res = pr.run_due(live=True, rt=rt2, platforms=['linkedin_carousel'])
+    assert res['results'][0]['action'] == 'uncertain' and res['exit_code'] == 1
+    rt3 = env['rt']('2026-10-19T07:20:00Z')
+    rt3.li_uncertain = True
+    assert pr.run_due(live=True, rt=rt3, platforms=['linkedin_carousel'])['results'][0]['action'] == 'uncertain'
+    done = pr.run_due(live=True, rt=rt3, platforms=['linkedin_carousel'],
+                      confirm_not_posted=('job1:linkedin_carousel',))
+    assert done['results'][0]['action'] == 'posted'
+
+
+def test_a_late_linkedin_carousel_waits_for_its_backup_and_mark_records_a_manual_post(env):
+    jdir = env['make_job']()
+    add_carousel(jdir)
+    env['schedule']()
+    pr.queue('job1', '2026-10-19', live=True, rt=env['rt']())
+    wait = pr.run_due(live=True, rt=env['rt']('2026-10-19T08:30:00Z'), platforms=['linkedin_carousel'])
+    assert wait['results'][0]['action'] == 'waiting_for_backup'
+    assert wait['results'][0]['backup_utc'] == '2026-10-19T11:00:00Z'                # 15:00 GST
+    pr.mark('job1', 'instagram_carousel', 'https://www.instagram.com/p/MANUAL/', rt=env['rt']('2026-10-19T17:30:00Z'))
+    assert pr.load_schedule()['queue'][0]['platforms']['instagram_carousel']['status'] == 'published'
+    with pytest.raises(pr.ReelError, match='not an https linkedin_carousel URL'):
+        pr.mark('job1', 'linkedin_carousel', 'https://x.com/a/1', rt=env['rt']())

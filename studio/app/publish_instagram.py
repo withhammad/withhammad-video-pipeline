@@ -79,7 +79,12 @@ RETRY_PUBLISH_SUBCODES = {2207027, 2207008}  # "not ready" / "builder does not e
 # A 400 on a container request that carried cover_url is retried without the cover, except for errors that are
 # clearly not about it: rate limit (4), publishing limit (9), restricted account (25), token (190), video format (352).
 NOT_COVER_ERROR_CODES = {4, 9, 25, 190, 352}
-URL_FIELDS = ('video_url', 'cover_url')
+URL_FIELDS = ('video_url', 'cover_url', 'image_url')
+REEL_MEDIA_TYPES = ('VIDEO', 'REELS')
+CAROUSEL_MEDIA_TYPES = ('CAROUSEL_ALBUM',)
+CAROUSEL_MIN, CAROUSEL_MAX = 2, 20
+IMAGE_MAX_BYTES = 8 * 1000 * 1000
+IMAGE_MIME = 'image/jpeg'
 _URL_QUERY = re.compile(r'(https?://[^\s?#\'"]+)\?[^\s\'")]+')
 HINTS = {
     190: 'the access token is invalid or expired: redo the Instagram OAuth consent and replace the token file',
@@ -551,6 +556,40 @@ class InstagramClient:
         return {'status': response.status_code, 'content_length': size, 'content_type': content_type}
 
 
+def _identity_and_quota(steps, client, expected_username, state, result, live):
+    """GET /me (the token must belong to the expected professional account before anything is written), then the
+    publishing quota. Returns the identity; raises on a mismatch or (live) on a used-up quota."""
+    me = steps.get('identity', client.path('me'), {'fields': 'user_id,username,account_type'})
+    if isinstance(me.get('data'), list) and me['data']:
+        me = me['data'][0]
+    identity = {'username': me.get('username'), 'ig_user_id': str(me.get('user_id') or ''),
+                'account_type': me.get('account_type')}
+    result['account'] = identity
+    if identity['username'] != expected_username:
+        raise IdentityMismatchError(f"token belongs to @{identity['username']}, expected @{expected_username}; "
+                                    'nothing was written', step='identity')
+    if not identity['ig_user_id']:
+        raise IdentityMismatchError('GET /me returned no user_id (IG professional account id)', step='identity')
+    if identity['account_type'] and str(identity['account_type']).upper() not in PUBLISHING_ACCOUNT_TYPES:
+        raise IdentityMismatchError(f"@{identity['username']} is a {identity['account_type']} account; "
+                                    'only Business/Creator accounts can publish', step='identity')
+    if state.get('account', {}).get('ig_user_id') not in (None, identity['ig_user_id']):
+        raise IdentityMismatchError('the state file belongs to a different Instagram account', step='identity')
+    ig_id = identity['ig_user_id']
+    limit = steps.get('publishing_limit', client.path(ig_id, 'content_publishing_limit'),
+                      {'fields': 'quota_usage,config'})
+    row = (limit.get('data') or [{}])[0]
+    usage, total = row.get('quota_usage'), (row.get('config') or {}).get('quota_total')
+    result['publishing_limit'] = {'quota_usage': usage, 'quota_total': total,
+                                  'quota_duration_s': (row.get('config') or {}).get('quota_duration')}
+    if isinstance(usage, int) and isinstance(total, int) and usage >= total:
+        message = f'publishing limit reached ({usage}/{total} in the last 24 h)'
+        if live:
+            raise PublishingLimitError(message, step='publishing_limit', retriable=True)
+        result['blockers'].append(message)
+    return identity
+
+
 class _Steps:
     """Runs the publishing sequence or, in a dry run, records what would be sent. Only GETs ever run in a dry run."""
 
@@ -684,36 +723,9 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
     caption_sha = _caption_sha(caption)
     try:
         # 1. identity: the token must belong to the expected professional account before anything is written
-        me = steps.get('identity', client.path('me'), {'fields': 'user_id,username,account_type'})
-        if isinstance(me.get('data'), list) and me['data']:
-            me = me['data'][0]
-        identity = {'username': me.get('username'), 'ig_user_id': str(me.get('user_id') or ''),
-                    'account_type': me.get('account_type')}
-        result['account'] = identity
-        if identity['username'] != expected_username:
-            raise IdentityMismatchError(f"token belongs to @{identity['username']}, expected @{expected_username}; "
-                                        'nothing was written', step='identity')
-        if not identity['ig_user_id']:
-            raise IdentityMismatchError('GET /me returned no user_id (IG professional account id)', step='identity')
-        if identity['account_type'] and str(identity['account_type']).upper() not in PUBLISHING_ACCOUNT_TYPES:
-            raise IdentityMismatchError(f"@{identity['username']} is a {identity['account_type']} account; "
-                                        'only Business/Creator accounts can publish', step='identity')
-        if state.get('account', {}).get('ig_user_id') not in (None, identity['ig_user_id']):
-            raise IdentityMismatchError('the state file belongs to a different Instagram account', step='identity')
-        ig_id = identity['ig_user_id']
-
         # 2. publishing quota
-        limit = steps.get('publishing_limit', client.path(ig_id, 'content_publishing_limit'),
-                          {'fields': 'quota_usage,config'})
-        row = (limit.get('data') or [{}])[0]
-        usage, total = row.get('quota_usage'), (row.get('config') or {}).get('quota_total')
-        result['publishing_limit'] = {'quota_usage': usage, 'quota_total': total,
-                                      'quota_duration_s': (row.get('config') or {}).get('quota_duration')}
-        if isinstance(usage, int) and isinstance(total, int) and usage >= total:
-            message = f'publishing limit reached ({usage}/{total} in the last 24 h)'
-            if live:
-                raise PublishingLimitError(message, step='publishing_limit', retriable=True)
-            result['blockers'].append(message)
+        identity = _identity_and_quota(steps, client, expected_username, state, result, live)
+        ig_id = identity['ig_user_id']
 
         # 3. an earlier container is checked before anything is written. It is resumed only when it carries this exact
         #    file, caption and cover; the cover decides only whether the container can be reused, never whether this
@@ -1012,15 +1024,17 @@ def _wait_for_container(steps, client, container_id, state, state_path, live, sl
 
 
 def _reconcile(steps, client, ig_id, container_id, caption, state, state_path, result, live, required=True,
-               hosts=(None, None), earlier_caption_sha=None):
+               hosts=(None, None), earlier_caption_sha=None, media_types=REEL_MEDIA_TYPES):
     """The container is (or may be) PUBLISHED but its media id was never recorded: find the post (by this caption or
     by the caption of the earlier attempt) instead of posting again. With required=False a miss returns None so the
-    caller can go on."""
+    caller can go on. A post whose media_type is not one of media_types never matches (a carousel can carry the
+    reel's caption on the same account); a post without media_type in the answer is judged by its caption alone."""
     recent = steps.get('reconcile', client.path(ig_id, 'media'),
-                       {'fields': 'id,caption,permalink,timestamp', 'limit': 10})
+                       {'fields': 'id,caption,media_type,permalink,timestamp', 'limit': 10})
     wanted = {_caption_sha(caption), earlier_caption_sha} - {None}
     match = next((m for m in recent.get('data') or []
-                  if _caption_sha((m.get('caption') or '').strip()) in wanted), None)
+                  if _caption_sha((m.get('caption') or '').strip()) in wanted
+                  and (not m.get('media_type') or m['media_type'] in media_types)), None)
     if not match and not required:
         return None
     result['container_id'] = container_id
@@ -1060,6 +1074,259 @@ def _release_hosted(state, hosts, warnings):
             provider.release(url)
         except Exception as exc:  # the post is live; a hosting cleanup failure is only worth a warning
             warnings.append(f'could not release the hosted {label}: {_mask_urls(str(exc))}')
+
+
+# --- carousels -------------------------------------------------------------------------------------------------------
+# Verified against Meta's docs on 2026-10-24 (developers.facebook.com/docs/instagram-platform/content-publishing and
+# instagram-graph-api/reference/ig-user/media):
+#   POST /<IG_ID>/media  image_url, is_carousel_item=true             -> one item container per slide (no caption:
+#        "Not supported on images or videos in carousels"; is_ai_generated on a child "will result in an error")
+#   POST /<IG_ID>/media  media_type=CAROUSEL, children=<id,id,...>, caption, collaborators, is_ai_generated
+#        ("For carousels, only the carousel container needs to have the is_ai_generated parameter set to true";
+#        collaborators: "For Feed image, Reels and Carousels only", up to 3)
+#   POST /<IG_ID>/media_publish  creation_id=<carousel container>    ("Carousels count as a single post")
+# Up to 20 items; images JPEG only, at most 8 MB, aspect 4:5 to 1.91:1. trial_params needs media_type REELS ("The
+# media_type must be REELS if this parameter is included"), so a carousel is never a Trial post.
+
+def validate_carousel_images(image_urls, image_sizes=None):
+    """2-20 public https JPEG URLs (sizes, when given, are the local byte counts the hosted files must match)."""
+    urls = [_check_public_url(u, f'image_url {i + 1}', 'carousel_images') for i, u in enumerate(image_urls or [])]
+    if not CAROUSEL_MIN <= len(urls) <= CAROUSEL_MAX:
+        raise InstagramPublishError(f'a carousel takes {CAROUSEL_MIN}-{CAROUSEL_MAX} images, got {len(urls)}',
+                                    step='carousel_images')
+    if len(set(urls)) != len(urls):
+        raise InstagramPublishError('the carousel image URLs repeat a slide', step='carousel_images')
+    sizes = list(image_sizes) if image_sizes is not None else [None] * len(urls)
+    if len(sizes) != len(urls):
+        raise InstagramPublishError(f'{len(sizes)} image sizes for {len(urls)} images', step='carousel_images')
+    for i, size in enumerate(sizes):
+        if size is not None and size > IMAGE_MAX_BYTES:
+            raise InstagramPublishError(f'slide {i + 1} is {size} bytes; Instagram images are at most 8 MB',
+                                        step='carousel_images')
+    return urls, sizes
+
+
+def check_public_image(client, url, expected_size=None, index=None):
+    """HEAD (or a one-byte GET) on a hosted slide, with no credentials: 200, image/jpeg, at most 8 MB, the local size."""
+    shown, name = safe_url(url), f'slide {index}' if index else 'image'
+    try:
+        response = client.public.head(url)
+        if response.status_code in (403, 405, 501):
+            response = client.public.get(url, headers={'Range': 'bytes=0-0'})
+    except httpx.HTTPError as exc:
+        raise InstagramPublishError(f'hosted {name} {shown} is not reachable ({type(exc).__name__})',
+                                    step='check_image_url') from None
+    if response.status_code not in (200, 206):
+        raise InstagramPublishError(f'hosted {name} {shown} answered HTTP {response.status_code}; Meta needs 200',
+                                    step='check_image_url')
+    content_type = (response.headers.get('content-type') or '').split(';')[0].strip().lower()
+    if content_type != IMAGE_MIME:
+        raise InstagramPublishError(f'hosted {name} {shown} is served as {content_type or "no content type"}, not '
+                                    f'{IMAGE_MIME} (Instagram takes JPEG only)', step='check_image_url')
+    length = response.headers.get('content-length')
+    if response.status_code == 206:
+        length = (response.headers.get('content-range') or '').rpartition('/')[2] or None
+    size = int(length) if length and length.isdigit() else None
+    if size is not None and size > IMAGE_MAX_BYTES:
+        raise InstagramPublishError(f'hosted {name} {shown} is {size} bytes; the limit is 8 MB', step='check_image_url')
+    if size is not None and expected_size is not None and size != expected_size:
+        raise InstagramPublishError(f'hosted {name} {shown} is {size} bytes but the local file is {expected_size}',
+                                    step='check_image_url')
+    return {'status': response.status_code, 'content_length': size, 'content_type': content_type}
+
+
+def _carousel_key(urls, sizes, caption):
+    blob = json.dumps({'urls': urls, 'sizes': sizes, 'caption': _caption_sha(caption)}, sort_keys=True)
+    return hashlib.sha256(blob.encode()).hexdigest()
+
+
+def publish_carousel(image_urls, lesson, *, dry_run=True, state_path=None, **options):
+    """Publish an image carousel (slides already served at public https URLs, in order) with
+    lesson['captions']['instagram'] as the caption. Anything other than dry_run=False is a dry run: GETs only, and
+    the return value lists every request that would be sent. Progress (each child container, the carousel container,
+    the publish attempt) is saved to state_path, so a rerun resumes and never posts twice.
+
+    options: image_sizes (local byte count per slide, compared with the hosted Content-Length), credentials_path,
+    token, transport, sleep, clock, expected_username, collaborators (None = the owner's default Collab for the posting
+    account, [] = none), ai_generated (sets is_ai_generated on the carousel container only), poll_seconds, timeout,
+    api_version. There is no trial option: Meta accepts trial_params only with media_type REELS."""
+    live = dry_run is False
+    if live and not state_path:
+        raise InstagramPublishError('publishing needs a state_path: it records every remote id so a retry never '
+                                    'posts twice', step='state')
+    with _StateLock(state_path) if live else contextlib.nullcontext():
+        return _publish_carousel(image_urls, lesson, live=live, state_path=state_path, **options)
+
+
+def _publish_carousel(image_urls, lesson, *, live, state_path, image_sizes=None, credentials_path=None, token=None,
+                      transport=None, sleep=time.sleep, clock=time.monotonic, expected_username=EXPECTED_USERNAME,
+                      collaborators=None, ai_generated=True, poll_seconds=POLL_SECONDS, timeout=PROCESS_TIMEOUT,
+                      api_version=API_VERSION):
+    caption = caption_for(lesson)
+    urls, sizes = validate_carousel_images(image_urls, image_sizes)
+    names = resolve_collaborators(collaborators, expected_username)
+    key = _carousel_key(urls, sizes, caption)
+    state = load_state(state_path)
+    result = {'platform': 'instagram', 'kind': 'carousel', 'dry_run': not live,
+              'state_path': str(state_path) if state_path else None, 'slides': len(urls),
+              'caption': {'text': caption, 'length': len(caption), 'hashtags': len(HASHTAG_RE.findall(caption)),
+                          'mentions': len(MENTION_RE.findall(caption))},
+              'collaborators': names, 'trial': None, 'warnings': [], 'blockers': []}
+    if state.get('status') in PUBLISHED_STATES or state.get('media_id'):
+        if state.get('carousel_key') not in (None, key):
+            result['warnings'].append('state shows an earlier carousel with other slides or caption; nothing was '
+                                      'posted again')
+        result.update(status='already_published', media_id=state.get('media_id'), permalink=state.get('permalink'),
+                      container_id=state.get('container_id'), requests=[])
+        return result
+    if token is None:
+        token = load_credentials(credentials_path)['access_token']
+    client = InstagramClient(token, transport=transport, version=api_version)
+    steps = _Steps(client, live)
+    result['requests'] = steps.log
+    try:
+        identity = _identity_and_quota(steps, client, expected_username, state, result, live)
+        ig_id = identity['ig_user_id']
+        same_input = state.get('carousel_key') == key
+        old = state.get('container_id')
+        container_id = None
+        if old:
+            status = steps.get('container_status', client.path(old), {'fields': 'id,status,status_code'})
+            code = status.get('status_code')
+            result['resume'] = {'container_id': old, 'status_code': code, 'same_input': same_input}
+            if code == 'PUBLISHED':
+                return _reconcile(steps, client, ig_id, old, caption, state, state_path, result, live,
+                                  media_types=CAROUSEL_MEDIA_TYPES,
+                                  earlier_caption_sha=state.get('caption_sha256'))
+            if state.get('status') == 'publishing':
+                found = _reconcile(steps, client, ig_id, old, caption, state, state_path, result, live,
+                                   required=False, media_types=CAROUSEL_MEDIA_TYPES,
+                                   earlier_caption_sha=state.get('caption_sha256'))
+                if found:
+                    if not same_input:
+                        found['warnings'].append('the earlier publish went through, so the changed slides or '
+                                                 'caption were not posted')
+                    return found
+            if same_input and code in ('FINISHED', 'IN_PROGRESS'):
+                container_id = old
+            else:
+                _archive_container(state, old, code if same_input else f'superseded ({code}): slides or caption changed')
+        if not same_input:
+            if state.get('children'):
+                state.setdefault('previous_children', []).append(
+                    {'ids': [c.get('container_id') for c in state['children']], 'reason': 'slides or caption changed',
+                     'at': _now()})
+            state['children'] = []
+        state.update({'platform': 'instagram', 'kind': 'carousel',
+                      'account': {'username': identity['username'], 'ig_user_id': ig_id},
+                      'carousel_key': key, 'caption_sha256': _caption_sha(caption), 'image_urls': urls})
+        if live:
+            save_state(state_path, state)
+
+        if not container_id:
+            # 3. the slides must be public JPEGs before Meta is asked to fetch them
+            for i, (url, size) in enumerate(zip(urls, sizes), 1):
+                check = steps.note('check_image_url', 'HEAD', url=url, headers={}, slide=i,
+                                   expect={'status': 200, 'content_type': IMAGE_MIME, 'max_bytes': IMAGE_MAX_BYTES,
+                                           'content_length': size}, executed=live)
+                if live:
+                    check['result'] = check_public_image(client, url, size, i)
+            # 4. one item container per slide (kept across reruns while FINISHED / IN_PROGRESS)
+            children = state.setdefault('children', [])
+            while len(children) < len(urls):
+                children.append({})
+            child_ids = []
+            for i, url in enumerate(urls):
+                child = children[i]
+                if child.get('container_id') and child.get('image_url') == url:
+                    status = steps.get('child_status', client.path(child['container_id']),
+                                       {'fields': 'id,status,status_code'}, run=live)
+                    code = (status or {}).get('status_code')
+                    if code in ('FINISHED', 'IN_PROGRESS'):
+                        child_ids.append(child['container_id'])
+                        continue
+                    state.setdefault('previous_children', []).append(
+                        {'ids': [child['container_id']], 'reason': f'slide {i + 1} {code}', 'at': _now()})
+                created = steps.post('create_child', client.path(ig_id, 'media'),
+                                     {'image_url': url, 'is_carousel_item': True}, slide=i + 1)
+                child_id = str(created['id']) if live else f'<CHILD_CONTAINER_ID_{i + 1}>'
+                children[i] = {'image_url': url, 'container_id': child_id, 'created_at': _now()}
+                child_ids.append(child_id)
+                if live:
+                    state['status'] = 'children_created'
+                    save_state(state_path, state)
+            # image containers are usually FINISHED at once; wait for each before the carousel references it
+            for i, child_id in enumerate(child_ids):
+                _wait_for_child(steps, client, child_id, i + 1, live, sleep, clock, poll_seconds, timeout)
+            # 5. the carousel container
+            body = {'media_type': 'CAROUSEL', 'children': ','.join(child_ids), 'caption': caption}
+            if names:
+                body['collaborators'] = names
+            if ai_generated:
+                body['is_ai_generated'] = True
+            created = steps.post('create_container', client.path(ig_id, 'media'), body)
+            container_id = str(created['id']) if live else '<IG_CAROUSEL_CONTAINER_ID>'
+            if live:
+                state.update(container_id=container_id, container_created_at=_now(), status='container_created',
+                             container_status='IN_PROGRESS')
+                save_state(state_path, state)
+        result['container_id'] = container_id
+        outcome = _wait_for_container(steps, client, container_id, state, state_path, live, sleep, clock,
+                                      poll_seconds, timeout)
+        if outcome == 'PUBLISHED':
+            return _reconcile(steps, client, ig_id, container_id, caption, state, state_path, result, live,
+                              media_types=CAROUSEL_MEDIA_TYPES)
+        # 6. publish (the attempt is recorded first so a lost response is reconciled, not re-posted)
+        if live:
+            state.update(status='publishing', publish_attempted_at=_now())
+            save_state(state_path, state)
+        published = None
+        for attempt in range(3):
+            try:
+                published = steps.post('publish', client.path(ig_id, 'media_publish'), {'creation_id': container_id})
+                break
+            except InstagramPublishError as exc:
+                if exc.subcode in RETRY_PUBLISH_SUBCODES and attempt < 2:
+                    sleep(poll_seconds)
+                    continue
+                if exc.http_status is None:
+                    exc.args = (f'{exc.args[0]}; the publish outcome is unknown - rerun with the same state file to '
+                                'reconcile (it checks the container before posting again)',)
+                raise
+        media_id = str(published['id']) if live else '<IG_MEDIA_ID>'
+        if live:
+            state.update(media_id=media_id, status='published', published_at=_now())
+            save_state(state_path, state)
+        _finish(steps, client, media_id, (None, None), state, state_path, result, live)
+        if not live and result['blockers']:
+            result['status'] = 'blocked'
+        return result
+    finally:
+        client.close()
+
+
+def _wait_for_child(steps, client, child_id, index, live, sleep, clock, poll_seconds, timeout):
+    if not live:
+        steps.get('child_status', client.path(child_id), {'fields': 'id,status,status_code'}, run=False)
+        steps.log[-1]['repeat'] = f'until status_code is FINISHED (max {timeout:g}s)'
+        return
+    deadline = clock() + timeout
+    while True:
+        status = steps.get('child_status', client.path(child_id), {'fields': 'id,status,status_code'})
+        code = status.get('status_code')
+        if code == 'FINISHED':
+            return
+        if code in ('ERROR', 'EXPIRED', 'PUBLISHED'):
+            error = ContainerFailedError(f"carousel slide {index} container {child_id} is {code}: "
+                                         f"{status.get('status')} (a rerun makes that slide again)",
+                                         step='child_status')
+            error.container_status = code
+            raise error
+        if clock() >= deadline:
+            raise InstagramPublishError(f'carousel slide {index} container {child_id} is still {code} after '
+                                        f'{timeout:g}s; rerun with the same state file to keep waiting',
+                                        step='child_status', retriable=True)
+        sleep(poll_seconds)
 
 
 # --- command line ---------------------------------------------------------------------------------------------------

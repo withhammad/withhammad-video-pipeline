@@ -120,8 +120,9 @@ def test_schema_is_strict_everywhere():
             if node.get('type') == 'object':
                 assert node.get('additionalProperties') is False and 'required' in node
                 assert set(node['required']) == set(node['properties']) - optional
-            for v in node.values():
-                walk(v)
+            for k, v in node.items():
+                # carousel post copy is optional in the stored lesson (added after production, never asked for)
+                walk(v, frozenset(lesson.CAROUSEL_CAPTIONS) if k == 'captions' else frozenset())
         elif isinstance(node, list):
             for v in node:
                 walk(v)
@@ -131,6 +132,7 @@ def test_schema_is_strict_everywhere():
     walk(lesson.SCHEMA, optional=frozenset(lesson.OPTIONAL_KEYS) | {'caption_file'})
     sent = lesson.api_schema()
     assert 'caption_file' not in sent['properties']
+    assert not set(lesson.CAROUSEL_CAPTIONS) & set(sent['properties']['captions']['properties'])
     walk(sent)
     assert 'maxLength' not in json.dumps(sent) and 'minLength' not in json.dumps(sent)
     assert 'maxLength' in json.dumps(lesson.SCHEMA)

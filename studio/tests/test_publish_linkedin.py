@@ -686,3 +686,160 @@ def test_long_form_landscape_is_explicit(video):
     info['format']['duration'] = '1801'
     with pytest.raises(li.VideoValidationError, match='duration'):
         li.validate_video(video, info, long_form=True)
+
+
+# ---------------------------------------------------------------- document (PDF carousel) posts
+
+DOC_URN = 'urn:li:document:D5510AQ-test'
+DOC_UPLOAD_URL = 'https://www.linkedin.com/dms-uploads/D5510AQ/ads-uploadedDocument/0?ut=SIGNED-DOC'
+
+
+class FakeDocuments:
+    def __init__(self, statuses=('PROCESSING', 'AVAILABLE'), fail=None, expires=None):
+        self.statuses, self.fail, self.requests = list(statuses), dict(fail or {}), []
+        self.expires = FAR_FUTURE_MS if expires is None else expires
+
+    @staticmethod
+    def key(request):
+        if request.url.host == 'www.linkedin.com':
+            return 'put'
+        path = request.url.path
+        if path == '/v2/userinfo':
+            return 'userinfo'
+        if path == '/rest/documents' and request.url.params.get('action') == 'initializeUpload':
+            return 'init'
+        if path.startswith('/rest/documents/'):
+            return 'status'
+        if path == '/rest/posts':
+            return 'post'
+        raise AssertionError(f'unexpected request {request.method} {request.url}')
+
+    def sequence(self):
+        return [(r.method, self.key(r)) for r in self.requests]
+
+    def __call__(self, request):
+        self.requests.append(request)
+        key = self.key(request)
+        if key in self.fail:
+            outcome = self.fail.pop(key)
+            if isinstance(outcome, Exception):
+                raise outcome
+            return outcome
+        if key == 'userinfo':
+            return httpx.Response(200, json={'sub': OWNER, 'name': 'Hammad Yousuf'})
+        if key == 'init':
+            return httpx.Response(200, json={'value': {'uploadUrlExpiresAt': self.expires, 'uploadUrl': DOC_UPLOAD_URL,
+                                                       'document': DOC_URN}})
+        if key == 'put':
+            return httpx.Response(201)
+        if key == 'status':
+            status = self.statuses.pop(0) if len(self.statuses) > 1 else self.statuses[0]
+            return httpx.Response(200, json={'id': DOC_URN, 'status': status})
+        if key == 'post':
+            return httpx.Response(201, headers={'x-restli-id': POST_URN})
+
+
+@pytest.fixture
+def pdf(tmp_path):
+    path = tmp_path / 'carousel' / 'carousel-linkedin.pdf'
+    path.parent.mkdir()
+    path.write_bytes(b'%PDF-1.7\n' + b'1 0 obj << /Type /Page >> endobj\n' * 10 + b'%%EOF\n')
+    return path
+
+
+@pytest.fixture
+def run_doc(pdf, creds, tmp_path):
+    state = tmp_path / 'publish_linkedin_carousel.json'
+
+    def _run(fake, **kwargs):
+        kwargs.setdefault('state_path', state)
+        kwargs.setdefault('sleep', lambda s: None)
+        return li.publish_document(pdf, kwargs.pop('lesson', LESSON), credentials_path=creds,
+                                   transport=httpx.MockTransport(fake), **kwargs)
+    _run.state = state
+    return _run
+
+
+def test_document_dry_run_sends_only_the_identity_get(run_doc):
+    fake = FakeDocuments()
+    plan = run_doc(fake, title='AI traffic in GA4')
+    assert fake.sequence() == [('GET', 'userinfo')] and not run_doc.state.exists()
+    assert plan['status'] == 'planned' and plan['kind'] == 'document' and plan['document']['pages'] == 10
+    assert [r['step'] for r in plan['requests']] == ['initialize_document_upload', 'upload_document',
+                                                     'wait_until_available', 'create_post']
+    post = plan['requests'][-1]['json']
+    assert post['content']['media']['title'] == 'AI traffic in GA4'
+    assert post['commentary'] == 'Use it \\(carefully\\) #claudecode'
+    assert TOKEN not in json.dumps(plan)
+
+
+def test_document_post_initializes_uploads_waits_and_posts_once(run_doc, pdf):
+    fake = FakeDocuments()
+    result = run_doc(fake, dry_run=False)
+    assert fake.sequence() == [('GET', 'userinfo'), ('POST', 'init'), ('PUT', 'put'), ('GET', 'status'),
+                               ('GET', 'status'), ('POST', 'post')]
+    init = json.loads(fake.requests[1].content)
+    assert init == {'initializeUploadRequest': {'owner': f'urn:li:person:{OWNER}'}}
+    put = fake.requests[2]
+    assert put.content == pdf.read_bytes() and put.headers['authorization'] == f'Bearer {TOKEN}'
+    status = fake.requests[3]
+    assert status.url.raw_path.decode().endswith('urn%3Ali%3Adocument%3AD5510AQ-test')
+    assert status.headers['linkedin-version'] == li.LINKEDIN_VERSION
+    body = json.loads(fake.requests[-1].content)
+    assert body['content'] == {'media': {'title': LESSON['topic_title'], 'id': DOC_URN}}
+    assert body['author'] == f'urn:li:person:{OWNER}' and body['lifecycleState'] == 'PUBLISHED'
+    assert result['status'] == 'published' and result['post_urn'] == POST_URN and result['document_urn'] == DOC_URN
+    state = read_state(run_doc.state)
+    assert state['status'] == 'published' and state['document']['uploaded'] and 'upload_url' not in state['document']
+    assert 'post_attempt' not in state and TOKEN not in run_doc.state.read_text()
+    again = run_doc(FakeDocuments(), dry_run=False)
+    assert again['status'] == 'already_published' and again['post_urn'] == POST_URN
+
+
+def test_document_unknown_post_outcome_needs_the_owner(run_doc):
+    fake = FakeDocuments(fail={'post': httpx.Response(502, json={'message': 'gateway'})})
+    with pytest.raises(li.UncertainPostError):
+        run_doc(fake, dry_run=False)
+    assert read_state(run_doc.state)['post_attempt']['document_urn'] == DOC_URN
+    blocked = FakeDocuments()
+    with pytest.raises(li.UncertainPostError):
+        run_doc(blocked, dry_run=False)
+    assert ('POST', 'post') not in blocked.sequence()
+    resumed = FakeDocuments(statuses=("AVAILABLE",))
+    result = run_doc(resumed, dry_run=False, confirm_not_posted=True)
+    assert result['status'] == 'published'
+    assert resumed.sequence() == [('GET', 'userinfo'), ('GET', 'status'), ('POST', 'post')]   # no second upload
+
+
+def test_document_expired_upload_url_starts_over_and_processing_failure_abandons(run_doc):
+    fake = FakeDocuments(fail={'put': httpx.Response(401, text='expired')})
+    with pytest.raises(li.LinkedInAPIError):
+        run_doc(fake, dry_run=False)
+    state = read_state(run_doc.state)
+    assert 'document' not in state and state['abandoned_documents'][0]['urn'] == DOC_URN
+    failing = FakeDocuments(statuses=('PROCESSING_FAILED',))
+    with pytest.raises(li.VideoProcessingError):
+        run_doc(failing, dry_run=False)
+    assert 'document' not in read_state(run_doc.state)
+    ok = run_doc(FakeDocuments(), dry_run=False)
+    assert ok['status'] == 'published'
+
+
+def test_document_status_403_waits_then_posts(run_doc):
+    waits = []
+    fake = FakeDocuments(fail={'status': httpx.Response(403, json={'message': 'forbidden'})})
+    result = run_doc(fake, dry_run=False, sleep=waits.append, status_forbidden_wait=7)
+    assert result['status'] == 'published' and waits == [7]
+    assert any('403' in w for w in result['warnings'])
+
+
+def test_document_validation(tmp_path, run_doc, pdf):
+    bad = tmp_path / 'x.pdf'
+    bad.write_bytes(b'not a pdf')
+    with pytest.raises(li.LinkedInError, match='not a PDF'):
+        li.validate_document(bad)
+    with pytest.raises(li.LinkedInError, match='title'):
+        run_doc(FakeDocuments(), lesson={'captions': {'linkedin': 'x'}})
+    pdf.write_bytes(b'%PDF-1.7\n' + b'<< /Type /Page >>\n' * 301)
+    with pytest.raises(li.LinkedInError, match='301 pages'):
+        li.validate_document(pdf)

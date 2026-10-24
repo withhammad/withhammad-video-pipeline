@@ -9,6 +9,7 @@ From studio/ (every command is a dry run unless it says --live; nothing here ena
   .venv/bin/python -m app.publish_reel check <job>
   .venv/bin/python -m app.publish_reel apply-seo <job> [--dry-run]
   .venv/bin/python -m app.publish_reel queue <job> --date 2026-10-19 [--live]
+  .venv/bin/python -m app.publish_reel queue-carousel <job> [--live]   (carousel posts for an already queued reel)
   .venv/bin/python -m app.publish_reel run-due [--now 2026-10-19T13:05:00Z]          (dry run at a chosen time)
   .venv/bin/python -m app.publish_reel run-due --live [--platform linkedin] [--confirm-not-posted [JOB:]linkedin]
   .venv/bin/python -m app.publish_reel mark <job> tiktok <url> [--scheduled]
@@ -32,6 +33,12 @@ of posting it again. An uncertain post needs the owner to check the profile, the
 Exit codes: 0 ok / nothing due, 1 failure or uncertain post, 2 slot missed, 75 another run holds the lock.
 TikTok, Facebook and X are scheduled by the owner in Chrome; `mark` records their URLs (`mark --scheduled` on
 LinkedIn or Instagram hands that slot to Chrome, and run-due leaves it alone).
+
+Carousels (owner rule 2026-10-24): when <job>/carousel/ exists, queue also adds 'instagram_carousel' (@hammadagentic.ai,
+Collab @with.hammad, slides hosted as JPEG at withhammad.com/media/carousels/<slug>/NN.jpg) and 'linkedin_carousel'
+(carousel-linkedin.pdf as a document post) at the date's carousel slot; queue-carousel adds them to a reel queued
+before. run-due posts them like the reel entries. Copy: seo.json carousel copy, else lesson captions
+instagram_carousel / linkedin_carousel, else the reel's own caption.
 
 Tokens are read only by the publishers from work/.secrets; this module never reads, prints or stores one."""
 import argparse
@@ -73,12 +80,27 @@ IG_TRIAL_ACCOUNT = 'with.hammad'
 COMMIT_TRAILER = 'Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>'
 
 PLATFORMS = ('youtube', 'linkedin', 'instagram', 'tiktok', 'facebook', 'x')
-RUN_DUE_PLATFORMS = ('linkedin', 'instagram', 'instagram_trial')
+# Owner rule 2026-10-24: a carousel goes with every reel on Instagram (@hammadagentic.ai, Collab @with.hammad, never a
+# trial: Meta takes trial_params only on REELS) and LinkedIn (a PDF document post), at the day's carousel slot
+# (slots.json `carousel` / `carousel_backup`). Files: <job>/carousel/instagram-NN.png and carousel-linkedin.pdf.
+CAROUSEL_PLATFORMS = ('instagram_carousel', 'linkedin_carousel')
+CAROUSEL_BASE = {'instagram_carousel': 'instagram', 'linkedin_carousel': 'linkedin'}
+CAROUSEL_DIR = 'carousel'
+CAROUSEL_PDF = 'carousel-linkedin.pdf'
+CAROUSEL_SLIDE = re.compile(r'instagram-(\d{2,3})\.(png|jpe?g)', re.I)
+CAROUSEL_JPEG_QUALITY = 90
+REEL_RUN_DUE = ('linkedin', 'instagram', 'instagram_trial')
+RUN_DUE_PLATFORMS = (*REEL_RUN_DUE, *CAROUSEL_PLATFORMS)
 IG_PLATFORMS = ('instagram', 'instagram_trial')
+IG_STATE_PLATFORMS = (*IG_PLATFORMS, 'instagram_carousel')     # publish_instagram state files
+LI_STATE_PLATFORMS = ('linkedin', 'linkedin_carousel')          # publish_linkedin state files
 COMPOSER_PLATFORMS = ('tiktok', 'facebook', 'x')
+MARKABLE = (*PLATFORMS, 'instagram_trial', *CAROUSEL_PLATFORMS)
 STATE_FILES = {'youtube': 'publish_youtube.json', 'instagram': 'publish_instagram.json',
                'instagram_trial': 'publish_instagram_trial.json',
-               'linkedin': 'publish_linkedin.json'}
+               'linkedin': 'publish_linkedin.json',
+               'instagram_carousel': 'publish_instagram_carousel.json',
+               'linkedin_carousel': 'publish_linkedin_carousel.json'}
 FINAL_STATUSES = ('published', 'missed', 'skipped')
 POSTABLE = ('pending', 'failed', 'uncertain', 'posting')   # run-due posts only API entries in one of these
 REEL_STATE = 'publish_reel.json'       # <job>/publish_reel.json: the publishAt each YouTube upload session started with
@@ -90,6 +112,7 @@ COVERS = {'cover_1080x1920.jpg': 2 * 1024 * 1024, 'cover_720x1280.jpg': 2 * 1024
 X_MAX_WEIGHT = 280
 X_MAX_SECONDS = 140.0
 URL_HOSTS = {'youtube': ('youtube.com', 'youtu.be'), 'instagram': ('instagram.com',), 'instagram_trial': ('instagram.com',), 'linkedin': ('linkedin.com',),
+             'instagram_carousel': ('instagram.com',), 'linkedin_carousel': ('linkedin.com',),
              'tiktok': ('tiktok.com',), 'facebook': ('facebook.com', 'fb.watch'), 'x': ('x.com', 'twitter.com')}
 USER_AGENT = {'User-Agent': 'withhammad-publish-reel/1'}
 HOST_WAIT_SECONDS = 15 * 60
@@ -157,6 +180,8 @@ def slot_time(platform, date, backup=False, slots=None, n=0):
     'default'. A rule is one time or a list with one time per reel of the day; n picks the day's n-th reel (0-based).
     Raises ReelError when the table has no slot (LinkedIn has no weekend backup)."""
     slots = slots or load_slots()
+    if platform in CAROUSEL_PLATFORMS:
+        return carousel_slot_time(platform, date, backup, slots)
     platform = 'instagram' if platform == 'instagram_trial' else platform   # the trial post shares the Instagram slot
     if platform not in slots['platforms']:
         raise ReelError(f'unknown platform {platform!r}; one of {", ".join(PLATFORMS)}')
@@ -174,6 +199,21 @@ def slot_time(platform, date, backup=False, slots=None, n=0):
                 return value[n]
             raise ReelError(f'{platform} has {len(value)} {"backup " if backup else ""}slots on a {kind} ({day}), not {n + 1}')
     raise ReelError(f'{platform} has no {"backup " if backup else ""}slot on a {kind} ({day})')
+
+
+def carousel_slot_time(platform, date, backup=False, slots=None):
+    """'HH:MM' GST of the day's one carousel slot (slots.json `carousel` / `carousel_backup` on the base platform; the
+    same day-key order as slot_time). Raises ReelError when the table has none."""
+    slots = slots or load_slots()
+    base = CAROUSEL_BASE[platform]
+    rules = (slots['platforms'].get(base) or {}).get('carousel_backup' if backup else 'carousel') or {}
+    day = DAY_KEYS[_date(date).weekday()]
+    kind = 'weekend' if day in slots['weekend'] else 'weekday'
+    for key in (day, kind, 'default'):
+        if key in rules:
+            value = rules[key]
+            return value if isinstance(value, str) else value[0]
+    raise ReelError(f'{base} has no carousel {"backup " if backup else ""}slot on a {kind} ({day}) in app/slots.json')
 
 
 def slot_local(platform, date, backup=False, slots=None, n=0):
@@ -295,6 +335,23 @@ class Runtime:
         from . import publish_linkedin
         return publish_linkedin.publish(video_path, lesson, **options)
 
+    def instagram_carousel_publish(self, image_urls, lesson, **options):
+        from . import instagram_tokens, publish_instagram
+        options.setdefault('credentials_path', instagram_tokens.account_file(options.get('expected_username', IG_ACCOUNT)))
+        return publish_instagram.publish_carousel(image_urls, lesson, **options)
+
+    def linkedin_document_publish(self, document_path, lesson, **options):
+        from . import publish_linkedin
+        return publish_linkedin.publish_document(document_path, lesson, **options)
+
+    def to_jpeg(self, source, dest, quality=CAROUSEL_JPEG_QUALITY):
+        """PNG (or JPEG) -> baseline JPEG at `quality` (Instagram takes JPEG only): macOS sips, else ffmpeg."""
+        if shutil.which('sips'):
+            self.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', str(quality), str(source),
+                      '--out', str(dest)])
+        else:   # ffmpeg's -q:v 2 is its near-top JPEG quality (no 0-100 scale)
+            self.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(source), '-q:v', '2', str(dest)])
+
 
 # ---------------------------------------------------------------- small file helpers
 
@@ -378,6 +435,181 @@ def resource_url(lesson, seo=None):
 
 def hosted_urls(slug):
     return {'video_url': f'{SITE_BASE}/media/reels/{slug}.mp4', 'cover_url': f'{SITE_BASE}/media/covers/{slug}.jpg'}
+
+
+# ---------------------------------------------------------------- carousels
+
+def hosted_carousel_urls(slug, count):
+    """Where the Instagram slides are served (JPEG, 1-based two-digit names), in slide order."""
+    return [f'{SITE_BASE}/media/carousels/{slug}/{i:02d}.jpg' for i in range(1, count + 1)]
+
+
+def carousel_files(jdir):
+    """The job's carousel: {'instagram': [slide paths in order], 'linkedin_pdf': path or None}, or None without a
+    <job>/carousel folder."""
+    folder = Path(jdir) / CAROUSEL_DIR
+    if not folder.is_dir():
+        return None
+    slides = sorted((p for p in folder.iterdir() if CAROUSEL_SLIDE.fullmatch(p.name)),
+                    key=lambda p: int(CAROUSEL_SLIDE.fullmatch(p.name).group(1)))
+    pdf = folder / CAROUSEL_PDF
+    return {'dir': folder, 'instagram': slides, 'linkedin_pdf': pdf if pdf.is_file() else None}
+
+
+def image_size(path):
+    """(width, height) of a PNG or JPEG from its header, or None."""
+    with open(path, 'rb') as fh:
+        head = fh.read(32)
+        if head[:8] == b'\x89PNG\r\n\x1a\n' and head[12:16] == b'IHDR':
+            return int.from_bytes(head[16:20], 'big'), int.from_bytes(head[20:24], 'big')
+        if head[:3] != b'\xff\xd8\xff':
+            return None
+        fh.seek(2)
+        while True:
+            marker = fh.read(2)
+            if len(marker) < 2 or marker[0] != 0xFF:
+                return None
+            if 0xC0 <= marker[1] <= 0xCF and marker[1] not in (0xC4, 0xC8, 0xCC):
+                fh.read(3)
+                height, width = int.from_bytes(fh.read(2), 'big'), int.from_bytes(fh.read(2), 'big')
+                return width, height
+            length = int.from_bytes(fh.read(2), 'big')
+            fh.seek(length - 2, 1)
+
+
+def _first_text(data, paths):
+    for path in paths:
+        value = _get(data, path)
+        if isinstance(value, str) and value.strip():
+            return value, path
+    return None, None
+
+
+SEO_CAROUSEL_COPY = {
+    'instagram_carousel': (('instagram_carousel', 'caption'), ('carousel', 'instagram', 'caption'),
+                           ('carousel', 'instagram'), ('instagram', 'carousel_caption')),
+    'linkedin_carousel': (('linkedin_carousel', 'text'), ('linkedin_carousel', 'caption'),
+                          ('carousel', 'linkedin', 'text'), ('carousel', 'linkedin'), ('linkedin', 'carousel_text')),
+}
+SEO_CAROUSEL_TITLE = (('linkedin_carousel', 'title'), ('carousel', 'linkedin', 'title'), ('carousel', 'title'),
+                      ('linkedin', 'carousel_title'))
+
+
+def carousel_caption(platform, lesson, seo=None, entry=None):
+    """(caption, source) for a carousel post: seo.json carousel copy if it has any, else lesson
+    captions.<platform> (instagram_carousel / linkedin_carousel), else the reel's own caption. On Instagram the
+    keyword ask becomes the guide link unless the post goes out on @with.hammad (ManyChat), as for reels."""
+    text, path = _first_text(seo or {}, SEO_CAROUSEL_COPY[platform])
+    source = f'seo.json {".".join(path)}' if text else None
+    if not text:
+        text = ((lesson or {}).get('captions') or {}).get(platform)
+        source = f'lesson.json captions.{platform}' if isinstance(text, str) and text.strip() else None
+    if not source:
+        base = CAROUSEL_BASE[platform]
+        text = ((lesson or {}).get('captions') or {}).get(base) or ''
+        source = f'derived from the reel caption (lesson.json captions.{base})'
+    text = text.strip()
+    if platform == 'instagram_carousel':
+        entry = entry or {}
+        pe = (entry.get('platforms') or {}).get(platform) or {}
+        keyword = entry.get('keyword') or (lesson or {}).get('manychat_keyword')
+        url = entry.get('resource_url') or resource_url(lesson or {}, seo)
+        text = ig_caption_for(pe.get('account') or IG_ACCOUNT, text, keyword, url)
+    return text, source
+
+
+def carousel_title(lesson, seo=None):
+    text, _ = _first_text(seo or {}, SEO_CAROUSEL_TITLE)
+    return ' '.join(str(text or (lesson or {}).get('topic_title') or '').split()) or None
+
+
+def carousel_problems(jdir, lesson, seo=None):
+    """{platform: [problems]} for the job's carousel files and copy (empty lists = ready). None without a folder."""
+    files = carousel_files(jdir)
+    if files is None:
+        return None
+    from . import publish_instagram, publish_linkedin
+    out = {platform: [] for platform in CAROUSEL_PLATFORMS}
+    ig = out['instagram_carousel']
+    slides = files['instagram']
+    if not publish_instagram.CAROUSEL_MIN <= len(slides) <= publish_instagram.CAROUSEL_MAX:
+        ig.append(f'{len(slides)} instagram-NN slides in {CAROUSEL_DIR}/ (Instagram takes '
+                  f'{publish_instagram.CAROUSEL_MIN}-{publish_instagram.CAROUSEL_MAX})')
+    numbers = [int(CAROUSEL_SLIDE.fullmatch(p.name).group(1)) for p in slides]
+    if numbers and numbers != list(range(1, len(numbers) + 1)):
+        ig.append(f'the slides are not numbered 01..{len(numbers):02d} without gaps ({", ".join(p.name for p in slides)})')
+    for path in slides:
+        size = image_size(path)
+        if not size:
+            ig.append(f'{path.name} is not a PNG or JPEG')
+            continue
+        ratio = size[0] / size[1]
+        if not 0.8 - 0.005 <= ratio <= 1.91 + 0.005:
+            ig.append(f'{path.name} is {size[0]}x{size[1]}; Instagram feed images must be 4:5 to 1.91:1')
+    try:
+        caption, _ = carousel_caption('instagram_carousel', lesson, seo)
+        publish_instagram.caption_for({'captions': {'instagram': caption}})
+    except Exception as error:
+        ig.append(f'caption: {error}')
+    li = out['linkedin_carousel']
+    if not files['linkedin_pdf']:
+        li.append(f'{CAROUSEL_DIR}/{CAROUSEL_PDF} is missing')
+    else:
+        try:
+            publish_linkedin.validate_document(files['linkedin_pdf'])
+        except Exception as error:
+            li.append(str(error))
+    try:
+        text, _ = carousel_caption('linkedin_carousel', lesson, seo)
+        publish_linkedin.build_commentary({'captions': {'linkedin': text}})
+        publish_linkedin.document_title(lesson, carousel_title(lesson, seo))
+    except Exception as error:
+        li.append(f'copy: {error}')
+    return out
+
+
+def carousel_plan(schedule, jdir, day, lesson, seo, now, own=None):
+    """The carousel entries this reel adds on `day` ({platform: entry}) and notes on any it cannot add: no carousel
+    folder, a file or copy problem, no carousel slot in the table, a slot less than HOST_WAIT_SECONDS away, or
+    another reel already holding that day's carousel slot (one carousel per platform per day)."""
+    problems = carousel_problems(jdir, lesson, seo)
+    if problems is None:
+        return {}, []
+    jid, slug = Path(jdir).name, lesson['resource_page']['slug']
+    own = own or {}
+    entries, notes = {}, []
+    for platform in CAROUSEL_PLATFORMS:
+        if (own.get(platform) or {}).get('status') not in (None, 'pending'):
+            continue          # this entry already did something with it; queue keeps it as it is
+        if problems[platform]:
+            notes.append(f'{platform} not queued: ' + '; '.join(problems[platform]))
+            continue
+        try:
+            slot = slot_utc(platform, day)
+        except ReelError as error:
+            notes.append(f'{platform} not queued: {error}')
+            continue
+        if slot < now + dt.timedelta(seconds=HOST_WAIT_SECONDS):
+            notes.append(f'{platform} not queued: its slot {local_label(slot)} is already past or less than '
+                         f'{HOST_WAIT_SECONDS // 60} minutes away')
+            continue
+        holder = next((h for h in date_holders(schedule, day) if h.get('job') != jid and h.get('status') != 'cancelled'
+                       and ((h.get('platforms') or {}).get(platform) or {}).get('status') not in (None, 'skipped')), None)
+        if holder:
+            notes.append(f'{platform} not queued: {day} already has a carousel there from {holder.get("job")} '
+                         f'({holder.get("keyword")}); one carousel per platform per day')
+            continue
+        pe = {'via': 'api', 'status': 'pending', 'kind': 'carousel', 'slot_utc': iso_z(slot),
+              'local_time': local_label(slot)}
+        if platform == 'instagram_carousel':
+            slides = carousel_files(jdir)['instagram']
+            pe.update(account=IG_ACCOUNT, trial=None, collaborators=_default_collaborators(IG_ACCOUNT),
+                      slides=len(slides), slide_files=[f'{CAROUSEL_DIR}/{p.name}' for p in slides],
+                      image_urls=hosted_carousel_urls(slug, len(slides)), hosted=False)
+        else:
+            pe.update(document=f'{CAROUSEL_DIR}/{CAROUSEL_PDF}', title=carousel_title(lesson, seo))
+        entries[platform] = pe
+    return entries, notes
 
 
 # ---------------------------------------------------------------- SEO copy wins
@@ -475,10 +707,10 @@ def posted_record(jdir, platform):
     state = publisher_state(jdir, platform)
     if platform == 'youtube' and state.get('status') == 'published' and state.get('video_id'):
         return {'video_id': state['video_id'], 'url': state.get('url'), 'privacy': state.get('privacy_status')}
-    if platform in IG_PLATFORMS and (state.get('media_id') or state.get('status') in
-                                    ('published', 'published_media_id_unknown')):
+    if platform in IG_STATE_PLATFORMS and (state.get('media_id') or state.get('status') in
+                                          ('published', 'published_media_id_unknown')):
         return {'media_id': state.get('media_id'), 'url': state.get('permalink'), 'status': state.get('status')}
-    if platform == 'linkedin' and state.get('status') == 'published':
+    if platform in LI_STATE_PLATFORMS and state.get('status') == 'published':
         return {'post_urn': state.get('post_urn'), 'url': state.get('post_url')}
     return None
 
@@ -486,9 +718,9 @@ def posted_record(jdir, platform):
 def attempt_in_progress(jdir, platform):
     """True when the publisher started a post whose outcome it does not know (a crash mid-publish)."""
     state = publisher_state(jdir, platform) if platform in STATE_FILES else {}
-    if platform == 'linkedin':
+    if platform in LI_STATE_PLATFORMS:
         return bool(state.get('post_attempt'))
-    if platform in IG_PLATFORMS:
+    if platform in IG_STATE_PLATFORMS:
         return state.get('status') == 'publishing'
     return False
 
@@ -932,7 +1164,7 @@ def queue(job, date, live=False, rt=None, schedule_path=None, slot=None):
         else:
             yt_at = _youtube_slot(day, now, lead, n)
         if not resume:   # every run-due slot of the day must still be ahead (weekend LinkedIn is before YouTube)
-            for platform in RUN_DUE_PLATFORMS:
+            for platform in REEL_RUN_DUE:      # a carousel whose slot is too near is left out, not a refusal
                 slot_at = slot_utc(platform, day, n=n)
                 if slot_at < now + dt.timedelta(minutes=HOST_WAIT_SECONDS // 60):
                     raise ReelError(f'the {platform} slot {local_label(slot_at)} is already past or less than '
@@ -946,6 +1178,9 @@ def queue(job, date, live=False, rt=None, schedule_path=None, slot=None):
                     'blockers': [b['message'] for b in report['blockers']], 'warnings': report['warnings']}
         lesson, seo = load_lesson(jdir), load_seo(jdir)
         plan = plan_entry(jdir, day, lesson, seo, youtube_at=yt_at, n=n)
+        carousels, carousel_notes = carousel_plan(schedule, jdir, day, lesson, seo, now, own)
+        plan['platforms'].update(carousels)
+        report['warnings'].extend(carousel_notes)
         if resume:   # keep everything this entry already did (ids, hosting, posts)
             for platform, pe in own.items():
                 if platform == 'youtube' and not youtube_done:
@@ -953,6 +1188,12 @@ def queue(job, date, live=False, rt=None, schedule_path=None, slot=None):
                 if (pe or {}).get('status') not in (None, 'pending', 'composer') or (pe or {}).get('hosted'):
                     plan['platforms'][platform] = {**plan['platforms'].get(platform, {}), **pe}
         steps = _queue_steps(jdir, plan, youtube_done, bool((own.get('instagram') or {}).get('hosted')))
+        if 'instagram_carousel' in plan['platforms']:
+            ic = plan['platforms']['instagram_carousel']
+            steps.insert(2, {'step': 'host_carousel_slides', 'skip': bool(ic.get('hosted')),
+                             'action': f'convert {ic["slides"]} {CAROUSEL_DIR}/instagram-NN slides to JPEG (quality '
+                                       f'{CAROUSEL_JPEG_QUALITY}), copy them to {_rel(SITE_DIR)}/public/media/carousels/'
+                                       f'{plan["slug"]}/, commit, push, wait for 200 at each URL'})
         if adopt:
             steps[0].update(skip=False, action=f'record the Short {adopt["video_id"]} the publisher already uploaded '
                                                f'for publishAt {adopt["publish_at"]} (nothing is uploaded again)')
@@ -981,13 +1222,17 @@ def queue(job, date, live=False, rt=None, schedule_path=None, slot=None):
                 errors.append(f'youtube: {_short(error)}')
             save_schedule(schedule, schedule_path)
         need_host = not plan['platforms']['instagram'].get('hosted')
+        need_carousel = bool(plan['platforms'].get('instagram_carousel')) and \
+            not plan['platforms']['instagram_carousel'].get('hosted')
     # the website push and the deploy wait take minutes: run them without the schedule lock, so a run-due at a
     # slot is not refused meanwhile (the date is already claimed above)
-    hosted, hosting_error = None, None
-    if need_host:
+    hosted, hosted_carousel, hosting_error = None, None, None
+    if need_host or need_carousel:
         try:
             with site_lock(rt=rt):
-                hosted = host_instagram_media(jdir, plan['slug'], plan['keyword'], rt)
+                media = host_site_media(jdir, plan['slug'], plan['keyword'], rt, reel=need_host,
+                                        carousel=need_carousel)
+                hosted, hosted_carousel = media['reel'], media['carousel']
         except Exception as error:
             hosting_error = _short(error)
             errors.append(f'instagram hosting: {hosting_error}')
@@ -1003,13 +1248,106 @@ def queue(job, date, live=False, rt=None, schedule_path=None, slot=None):
                 if pe is not None:
                     pe.update(hosted=True, **hosted)
                     pe.pop('hosting_error', None)
-        elif hosting_error:
+        elif hosting_error and need_host:
             ig['hosting_error'] = hosting_error
+        ic = entry['platforms'].get('instagram_carousel')
+        if ic is not None and hosted_carousel:
+            ic.update(hosted=True, **hosted_carousel)
+            ic.pop('hosting_error', None)
+        elif ic is not None and hosting_error and need_carousel:
+            ic['hosting_error'] = hosting_error
         if entry['status'] in ('queuing', 'queue_incomplete', 'queued'):
             entry['status'] = 'queued' if not errors else 'queue_incomplete'
         save_schedule(schedule, schedule_path)
     return {'job': jid, 'date': str(day), 'dry_run': False, 'warnings': warnings, 'steps': steps,
             'status': entry['status'], 'errors': errors, 'entry': entry}
+
+
+def queue_carousel(job, live=False, rt=None, schedule_path=None):
+    """Add the carousel posts (instagram_carousel, linkedin_carousel) to a reel that is ALREADY queued, at the
+    carousel slot of its date, and host the Instagram slides. Dry run by default: checks and returns the plan and the
+    exact captions, writes nothing. A rerun keeps what the entry already did (hosting, posts)."""
+    rt = rt or Runtime()
+    jdir = job_dir(job)
+    jid = jdir.name
+    with schedule_lock(schedule_path):
+        schedule = load_schedule(schedule_path)
+        entry = job_entry(schedule, jid)
+        if not entry or not entry.get('platforms'):
+            raise ReelError(f'{jid} has no queued entry with platforms; queue the reel first (queue adds the carousel '
+                            'itself when the job has a carousel/ folder)')
+        lesson = load_lesson(jdir)
+        seo = _read_json(jdir / 'seo' / 'seo.json', None) or {}
+        if carousel_problems(jdir, lesson, seo) is None:
+            raise ReelError(f'{jid} has no {CAROUSEL_DIR}/ folder (instagram-NN.png slides + {CAROUSEL_PDF})')
+        now = rt.now()
+        day = _date(entry['date'])
+        own = entry['platforms']
+        entries, notes = carousel_plan(schedule, jdir, day, lesson, seo, now, own)
+        for platform in list(entries):
+            posted = posted_record(jdir, platform)
+            if posted:
+                entries.pop(platform)
+                notes.append(f'{platform} not queued: {STATE_FILES[platform]} says it was already posted '
+                             f'({posted.get("url") or posted}); record it with `mark {jid} {platform} <url>`')
+                continue
+            prior = own.get(platform) or {}
+            if prior.get('hosted') and prior.get('image_urls') == entries[platform].get('image_urls'):
+                entries[platform].update({k: prior[k] for k in ('hosted', 'image_urls', 'image_bytes', 'site_commit',
+                                                                'hosted_at') if k in prior})
+        kept = [p for p in CAROUSEL_PLATFORMS if (own.get(p) or {}).get('status') not in (None, 'pending')]
+        if not entries:
+            if kept:
+                return {'job': jid, 'date': str(day), 'status': 'unchanged', 'dry_run': not live, 'kept': kept,
+                        'notes': notes}
+            raise ReelError('no carousel post can be queued: ' + '; '.join(notes))
+        merged = {**entry, 'platforms': {**own, **entries}}
+        captions = {}
+        for platform in entries:
+            text, source = carousel_caption(platform, lesson, seo, merged)
+            captions[platform] = {'source': source, 'text': text}
+        steps = []
+        if 'instagram_carousel' in entries:
+            ic = entries['instagram_carousel']
+            steps.append({'step': 'host_carousel_slides', 'skip': bool(ic.get('hosted')),
+                          'action': f'convert {ic["slides"]} slides to JPEG (quality {CAROUSEL_JPEG_QUALITY}), copy '
+                                    f'to {_rel(SITE_DIR)}/public/media/carousels/{lesson["resource_page"]["slug"]}/, '
+                                    'commit, push, wait for 200 at each URL'})
+        for platform, pe in entries.items():
+            steps.append({'step': platform, 'action': f'run-due --live posts it at {pe["local_time"]} '
+                                                      f'({pe["slot_utc"]}); the Mac must be awake'})
+        result = {'job': jid, 'date': str(day), 'dry_run': not live, 'entries': entries, 'captions': captions,
+                  'steps': steps, 'notes': notes, 'kept': kept}
+        if not live:
+            return {**result, 'status': 'planned',
+                    'notes': notes + ["Dry run: nothing was hosted or written. Rerun with --live after the owner's OK."]}
+        own.update(entries)
+        if entry.get('status') == 'done':
+            entry['status'] = 'queued'
+        save_schedule(schedule, schedule_path)
+        need_host = 'instagram_carousel' in entries and not entries['instagram_carousel'].get('hosted')
+        keyword = entry.get('keyword') or lesson.get('manychat_keyword')
+    errors, hosted = [], None
+    if need_host:
+        try:
+            with site_lock(rt=rt):
+                hosted = host_carousel_media(jdir, lesson['resource_page']['slug'], keyword, rt)
+        except Exception as error:
+            errors.append(f'carousel hosting: {_short(error)}')
+    with schedule_lock(schedule_path, wait=RUN_DUE_LOCK_WAIT, rt=rt):
+        schedule = load_schedule(schedule_path)
+        entry = job_entry(schedule, jid)
+        if entry is None:
+            raise ReelError(f'the {jid} entry disappeared from schedule.json while hosting; rerun queue-carousel')
+        ic = entry['platforms'].get('instagram_carousel')
+        if ic is not None and hosted:
+            ic.update(hosted=True, **hosted)
+            ic.pop('hosting_error', None)
+        elif ic is not None and errors:
+            ic['hosting_error'] = errors[-1]
+        save_schedule(schedule, schedule_path)
+    return {**result, 'status': 'queued' if not errors else 'queue_incomplete', 'errors': errors,
+            'entries': {p: entry['platforms'][p] for p in entries}}
 
 
 def _rel(path):
@@ -1037,7 +1375,7 @@ def _queue_steps(jdir, plan, youtube_done, hosted):
                             f'{_rel(SITE_DIR)}/public/media, commit "Host the {plan["keyword"]} reel video '
                             f'and cover for Instagram API publishing", push, wait for 200 at '
                             f'{p["instagram"]["video_url"]} and {p["instagram"]["cover_url"]}'})
-    for platform in ('linkedin', 'instagram', 'instagram_trial'):
+    for platform in (*REEL_RUN_DUE, *CAROUSEL_PLATFORMS):
         if platform not in p:
             continue
         steps.append({'step': platform, 'action': f'run-due --live posts it at {p[platform]["local_time"]} '
@@ -1153,42 +1491,99 @@ def _push_site(site, rt, attempts=3):
 def host_instagram_media(jdir, slug, keyword, rt, site_dir=None):
     """Serve final_ig.mp4 and the cover at withhammad.com/media (Meta fetches the video from a public URL). The
     hosted video is byte-identical to final_ig.mp4: publish_instagram compares the hosted size with the local file."""
+    return host_site_media(jdir, slug, keyword, rt, site_dir=site_dir, reel=True, carousel=False)['reel']
+
+
+def host_carousel_media(jdir, slug, keyword, rt, site_dir=None):
+    """Serve the Instagram carousel slides as JPEGs at withhammad.com/media/carousels/<slug>/NN.jpg."""
+    return host_site_media(jdir, slug, keyword, rt, site_dir=site_dir, reel=False, carousel=True)['carousel']
+
+
+def _carousel_jpegs(jdir, rt):
+    """Each instagram-NN slide as a JPEG (quality CAROUSEL_JPEG_QUALITY) in a temp folder: [(index, path)]."""
+    slides = (carousel_files(jdir) or {}).get('instagram') or []
+    if not slides:
+        raise ReelError(f'{Path(jdir).name} has no {CAROUSEL_DIR}/instagram-NN slides to host')
+    tmp = Path(tempfile.mkdtemp(prefix='carousel-jpeg-'))
+    out = []
+    for i, src in enumerate(slides, 1):
+        dest = tmp / f'{i:02d}.jpg'
+        rt.to_jpeg(src, dest, CAROUSEL_JPEG_QUALITY)
+        if not dest.is_file() or dest.read_bytes()[:3] != b'\xff\xd8\xff':
+            raise ReelError(f'converting {src.name} to JPEG produced no JPEG')
+        out.append((i, dest))
+    return tmp, out
+
+
+def host_site_media(jdir, slug, keyword, rt, site_dir=None, reel=True, carousel=False):
+    """One commit and push in the website clone for what Instagram must fetch: the reel (final_ig.mp4 byte for byte +
+    cover_1080x1920.jpg) and/or the carousel slides (PNG -> JPEG quality 90 at public/media/carousels/<slug>/NN.jpg),
+    then wait until withhammad.com serves each file with HTTP 200 and its exact size. Returns {'reel': {...} or None,
+    'carousel': {...} or None}."""
     site = Path(site_dir or SITE_DIR)
-    source = Path(jdir) / 'final_ig.mp4'
-    if rt.mp4_edit_lists(source):
-        raise ReelError('final_ig.mp4 has MP4 edit lists, which Meta rejects; run app.exports on final.mp4 first')
-    if not (site / '.git').exists():
-        site.parent.mkdir(parents=True, exist_ok=True)
-        rt.run(['git', 'clone', SITE_REMOTE, str(site)])
-    branch = rt.run(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], cwd=site).strip()
-    if branch != SITE_BRANCH:
-        raise ReelError(f'{site} is on branch {branch!r}, expected {SITE_BRANCH}; fix the clone by hand')
-    rt.run(['git', 'pull', '--rebase'], cwd=site)
-    video_rel, cover_rel = f'public/media/reels/{slug}.mp4', f'public/media/covers/{slug}.jpg'
-    video_dest, cover_dest = site / video_rel, site / cover_rel
-    video_dest.parent.mkdir(parents=True, exist_ok=True)
-    cover_dest.parent.mkdir(parents=True, exist_ok=True)
-    if not video_dest.exists() or _sha256(video_dest) != _sha256(source):
-        shutil.copyfile(source, video_dest)
-    cover_src = Path(jdir) / 'cover_1080x1920.jpg'
-    if not cover_dest.exists() or _sha256(cover_dest) != _sha256(cover_src):
-        shutil.copyfile(cover_src, cover_dest)
-    if rt.run(['git', 'status', '--porcelain', '--', video_rel, cover_rel], cwd=site).strip():
-        rt.run(['git', 'add', '--', video_rel, cover_rel], cwd=site)
-        rt.run(['git', 'commit', '-m', f'Host the {keyword} reel video and cover for Instagram API publishing',
-                '-m', COMMIT_TRAILER], cwd=site)
-    commit = None
-    # push whenever local main is ahead of origin, not only when this run committed: a commit whose push failed
-    # last time (network, or a race with another push) must go out on the rerun
-    if _git_ahead(site, rt):
-        _push_site(site, rt)
-        commit = rt.run(['git', 'rev-parse', '--short', 'HEAD'], cwd=site).strip()
-    urls = hosted_urls(slug)
-    sizes = {'video_url': video_dest.stat().st_size, 'cover_url': cover_dest.stat().st_size}
-    for key in ('video_url', 'cover_url'):
-        wait_for_url(urls[key], sizes[key], rt)
-    return {**urls, 'video_bytes': sizes['video_url'], 'cover_bytes': sizes['cover_url'], 'site_commit': commit,
-            'hosted_at': iso_z(rt.now())}
+    jdir = Path(jdir)
+    if reel:
+        source = jdir / 'final_ig.mp4'
+        if rt.mp4_edit_lists(source):
+            raise ReelError('final_ig.mp4 has MP4 edit lists, which Meta rejects; run app.exports on final.mp4 first')
+    tmp, jpegs = _carousel_jpegs(jdir, rt) if carousel else (None, [])
+    try:
+        if not (site / '.git').exists():
+            site.parent.mkdir(parents=True, exist_ok=True)
+            rt.run(['git', 'clone', SITE_REMOTE, str(site)])
+        branch = rt.run(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], cwd=site).strip()
+        if branch != SITE_BRANCH:
+            raise ReelError(f'{site} is on branch {branch!r}, expected {SITE_BRANCH}; fix the clone by hand')
+        rt.run(['git', 'pull', '--rebase'], cwd=site)
+        copies = []          # (relative path in the clone, source file, public url)
+        if reel:
+            urls = hosted_urls(slug)
+            copies += [(f'public/media/reels/{slug}.mp4', jdir / 'final_ig.mp4', urls['video_url']),
+                       (f'public/media/covers/{slug}.jpg', jdir / 'cover_1080x1920.jpg', urls['cover_url'])]
+        image_urls = hosted_carousel_urls(slug, len(jpegs))
+        copies += [(f'public/media/carousels/{slug}/{i:02d}.jpg', path, image_urls[i - 1]) for i, path in jpegs]
+        rels = []
+        for rel, src, _ in copies:
+            dest = site / rel
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            if not dest.exists() or _sha256(dest) != _sha256(src):
+                shutil.copyfile(src, dest)
+            rels.append(rel)
+        if carousel:     # slides beyond today's count (a re-made carousel with fewer slides) must not linger
+            folder = site / f'public/media/carousels/{slug}'
+            for extra in sorted(folder.glob('*.jpg')):
+                if f'public/media/carousels/{slug}/{extra.name}' not in rels:
+                    rt.run(['git', 'rm', '-q', '--ignore-unmatch', '--', f'public/media/carousels/{slug}/{extra.name}'],
+                           cwd=site)
+                    extra.unlink(missing_ok=True)
+        what = ' and '.join(x for x in ('reel video and cover' if reel else '', 'carousel slides' if carousel else '') if x)
+        if rt.run(['git', 'status', '--porcelain', '--', *rels], cwd=site).strip():
+            rt.run(['git', 'add', '--', *rels], cwd=site)
+            rt.run(['git', 'commit', '-m', f'Host the {keyword} {what} for Instagram API publishing',
+                    '-m', COMMIT_TRAILER], cwd=site)
+        commit = None
+        # push whenever local main is ahead of origin, not only when this run committed: a commit whose push failed
+        # last time (network, or a race with another push) must go out on the rerun
+        if _git_ahead(site, rt):
+            _push_site(site, rt)
+            commit = rt.run(['git', 'rev-parse', '--short', 'HEAD'], cwd=site).strip()
+        sizes = {rel: (site / rel).stat().st_size for rel, _, _ in copies}
+        for rel, _, url in copies:
+            wait_for_url(url, sizes[rel], rt)
+    finally:
+        if tmp:
+            shutil.rmtree(tmp, ignore_errors=True)
+    hosted_at = iso_z(rt.now())
+    out = {'reel': None, 'carousel': None}
+    if reel:
+        urls = hosted_urls(slug)
+        out['reel'] = {**urls, 'video_bytes': sizes[copies[0][0]], 'cover_bytes': sizes[copies[1][0]],
+                       'site_commit': commit, 'hosted_at': hosted_at}
+    if carousel:
+        rels_c = [rel for rel, _, _ in copies if '/carousels/' in rel]
+        out['carousel'] = {'image_urls': image_urls, 'image_bytes': [sizes[r] for r in rels_c], 'site_commit': commit,
+                           'hosted_at': hosted_at}
+    return out
 
 
 def wait_for_url(url, size, rt, timeout=HOST_WAIT_SECONDS, interval=HOST_POLL_SECONDS):
@@ -1238,6 +1633,18 @@ def _record_post(entry, platform, jdir, record, now):
             'ai_label': True, 'cover': f'cover_url ({pe.get("cover_url")})' if pe.get('cover_url') else None,
             'posted_at': pe['published_at']})
         pe['followups'] = _followups(entry, platform)
+    elif platform == 'instagram_carousel':
+        update_published(jdir, platform, {
+            'url': record.get('url'), 'account': pe.get('account') or IG_ACCOUNT, 'media_id': record.get('media_id'),
+            'via': 'api', 'kind': 'carousel', 'slides': pe.get('slides'), 'trial': None,
+            'collaborators_invited': record.get('collaborators'),
+            'collab_status': 'invited, not yet accepted' if record.get('collaborators') else None,
+            'posted_at': pe['published_at']})
+        pe['followups'] = _followups(entry, platform)
+    elif platform == 'linkedin_carousel':
+        update_published(jdir, platform, {'url': record.get('url'), 'post_urn': record.get('post_urn'), 'via': 'api',
+                                          'kind': 'document', 'document': pe.get('document'), 'title': pe.get('title'),
+                                          'posted_at': pe['published_at']})
     elif platform == 'linkedin':
         update_published(jdir, 'linkedin', {'url': record.get('url'), 'post_urn': record.get('post_urn'),
                                             'via': 'api', 'thumbnail': 'cover_720x1280.jpg',
@@ -1248,7 +1655,7 @@ def _record_post(entry, platform, jdir, record, now):
 
 
 def _followups(entry, platform):
-    if platform not in IG_PLATFORMS:
+    if platform not in IG_STATE_PLATFORMS:
         return []
     pe = entry['platforms'][platform]
     url = pe.get('url') or 'the new reel'
@@ -1295,7 +1702,27 @@ def _publish_now(platform, jdir, entry, rt, confirm_not_posted):
     seo = _read_json(jdir / 'seo' / 'seo.json', None)
     if seo and seo_differences(lesson, seo):
         raise ReelError(f'lesson.json no longer carries the SEO copy; run apply-seo {jdir.name} first')
-    if platform in IG_PLATFORMS:
+    if platform == 'instagram_carousel':
+        if not pe.get('hosted') or not pe.get('image_urls'):
+            raise ReelError(f'the carousel slides are not hosted yet; rerun queue-carousel {jdir.name}')
+        account = pe.get('account') or IG_ACCOUNT
+        caption = pe.get('caption') or carousel_caption(platform, lesson, seo, entry)[0]
+        lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'instagram': caption}}
+        extra = {} if pe.get('collaborators') is None else {'collaborators': pe['collaborators']}
+        result = rt.instagram_carousel_publish(pe['image_urls'], lesson, dry_run=False,
+                                               state_path=jdir / STATE_FILES[platform], expected_username=account,
+                                               image_sizes=pe.get('image_bytes'), ai_generated=True, **extra)
+        record = {'url': result.get('permalink'), 'media_id': result.get('media_id'),
+                  'collaborators': result.get('collaborators')}
+    elif platform == 'linkedin_carousel':
+        text = pe.get('caption') or carousel_caption(platform, lesson, seo, entry)[0]
+        lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'linkedin': text}}
+        result = rt.linkedin_document_publish(jdir / (pe.get('document') or f'{CAROUSEL_DIR}/{CAROUSEL_PDF}'), lesson,
+                                              dry_run=False, state_path=jdir / STATE_FILES[platform],
+                                              title=pe.get('title') or carousel_title(lesson, seo),
+                                              confirm_not_posted=confirm_not_posted)
+        record = {'url': result.get('post_url'), 'post_urn': result.get('post_urn')}
+    elif platform in IG_PLATFORMS:
         if not pe.get('hosted') or not pe.get('video_url'):
             raise ReelError('the Instagram video is not hosted yet; rerun queue for this job')
         account = pe.get('account') or ig_account(entry)
@@ -1327,7 +1754,8 @@ def parse_confirm(values):
     for value in values or ():
         job, _, platform = str(value).rpartition(':')
         if platform not in RUN_DUE_PLATFORMS:
-            raise ReelError(f'--confirm-not-posted {value!r}: use linkedin, instagram or JOB:linkedin / JOB:instagram')
+            raise ReelError(f'--confirm-not-posted {value!r}: use one of {", ".join(RUN_DUE_PLATFORMS)}, optionally as '
+                            'JOB:platform')
         out.append((job or None, platform))
     return tuple(out)
 
@@ -1394,7 +1822,7 @@ def run_due(now=None, live=False, platforms=None, confirm_not_posted=(), rt=None
                 base = {'job': entry['job'], 'date': entry['date'], 'platform': platform, 'slot_utc': pe['slot_utc']}
                 posted = posted_record(jdir, platform)
                 if posted:     # the publisher already posted it (e.g. a crash before schedule.json was written)
-                    if platform in IG_PLATFORMS and posted.get('collaborators') is None and pe.get('collaborators') is None:
+                    if platform in IG_STATE_PLATFORMS and posted.get('collaborators') is None and pe.get('collaborators') is None:
                         posted = {**posted, 'collaborators': _default_collaborators(pe.get('account') or ig_account(entry))}
                     if live:
                         _record_post(entry, platform, jdir, posted, now)
@@ -1404,7 +1832,7 @@ def run_due(now=None, live=False, platforms=None, confirm_not_posted=(), rt=None
                     continue
                 window, detail = post_window('instagram' if platform == 'instagram_trial' else platform,
                                              str(slot.astimezone(gst()).date()), slot, now, slots_cfg,
-                                             n=entry.get('slot_index', 0))
+                                             n=0 if platform in CAROUSEL_PLATFORMS else entry.get('slot_index', 0))
                 owner_confirmed = _confirmed(confirm, entry['job'], platform)
                 if window == 'wait':
                     results.append({**base, 'action': 'waiting_for_backup', 'backup_utc': iso_z(detail),
@@ -1430,7 +1858,7 @@ def run_due(now=None, live=False, platforms=None, confirm_not_posted=(), rt=None
                     continue
                 notes = []
                 yt_status = (entry['platforms'].get('youtube') or {}).get('status')
-                if yt_status in ('failed', 'pending'):
+                if yt_status in ('failed', 'pending') and platform not in CAROUSEL_PLATFORMS:
                     notes.append(f'YouTube for this reel is {yt_status}; requeue it (backup slot or a later day) or '
                                  'tell the owner')
                 if not live:
@@ -1503,8 +1931,8 @@ def _confirm_youtube(entry, jdir, yt, now, live, rt, schedule, schedule_path):
 def mark(job, platform, url, scheduled=False, rt=None, schedule_path=None):
     """Record a post made (or scheduled) in the owner's Chrome: schedule.json + published.json."""
     rt = rt or Runtime()
-    if platform not in PLATFORMS:
-        raise ReelError(f'platform must be one of {", ".join(PLATFORMS)}')
+    if platform not in MARKABLE:
+        raise ReelError(f'platform must be one of {", ".join(MARKABLE)}')
     parts = urlsplit(str(url))
     host = (parts.hostname or '').lower()
     if parts.scheme != 'https' or not any(host == h or host.endswith('.' + h) for h in URL_HOSTS[platform]):
@@ -1563,7 +1991,8 @@ def status_rows(schedule, now):
         rows.append({'date': entry['date'], 'day': DAY_NAMES[_date(entry['date']).weekday()],
                      'keyword': entry.get('keyword'), 'job': entry.get('job'),
                      'status': _entry_status(entry) or entry.get('status'),
-                     'platforms': {p: (entry.get('platforms') or {}).get(p, {}).get('status') for p in PLATFORMS}})
+                     'platforms': {p: (entry.get('platforms') or {}).get(p, {}).get('status')
+                                   for p in (*PLATFORMS, *CAROUSEL_PLATFORMS)}})
     return rows
 
 
@@ -1602,11 +2031,12 @@ def overdue(schedule, now):
 
 def format_status(schedule, now):
     rows = status_rows(schedule, now)
-    head = ['Date', 'Day', 'Keyword', 'Job', 'Status', 'YT', 'LI', 'IG', 'TT', 'FB', 'X']
+    head = ['Date', 'Day', 'Keyword', 'Job', 'Status', 'YT', 'LI', 'IG', 'TT', 'FB', 'X', 'IG-C', 'LI-C']
     table = [head]
     for row in rows:
         cells = [row['date'], row['day'], str(row['keyword'] or '-'), str(row['job']), str(row['status'] or '-')]
-        cells += [SHORT.get(row['platforms'].get(p), row['platforms'].get(p) or '-') for p in PLATFORMS]
+        cells += [SHORT.get(row['platforms'].get(p), row['platforms'].get(p) or '-')
+                  for p in (*PLATFORMS, *CAROUSEL_PLATFORMS)]
         table.append(cells)
     widths = [max(len(r[i]) for r in table) for i in range(len(head))]
     lines = ['  '.join(cell.ljust(widths[i]) for i, cell in enumerate(r)).rstrip() for r in table]
@@ -1653,11 +2083,12 @@ def render_md(schedule=None, slots=None):
     queued = [e for e in sorted(schedule.get('queue', []), key=lambda e: e['date']) if e.get('platforms')]
     if queued:
         out += ['', 'Per-platform state of queued reels (GST; UTC for the APIs in schedule.json):', '',
-                '| Date | Reel | ' + ' | '.join(slots['platforms'][p]['label'] for p in PLATFORMS) + ' |',
-                '|---|---|' + '---|' * len(PLATFORMS)]
+                '| Date | Reel | ' + ' | '.join(slots['platforms'][p]['label'] for p in PLATFORMS) +
+                ' | Instagram carousel | LinkedIn carousel |',
+                '|---|---|' + '---|' * (len(PLATFORMS) + len(CAROUSEL_PLATFORMS))]
         for entry in queued:
             cells = []
-            for platform in PLATFORMS:
+            for platform in (*PLATFORMS, *CAROUSEL_PLATFORMS):
                 pe = entry['platforms'].get(platform) or {}
                 local_slot = parse_moment(pe['slot_utc']).astimezone(gst()) if pe.get('slot_utc') else None
                 hhmm = local_slot.strftime('%H:%M') if local_slot else ''
@@ -1678,10 +2109,22 @@ def render_md(schedule=None, slots=None):
         b += f' (Fri {backup["fri"]})' if 'fri' in backup else ''
         b += ' weekdays' if 'weekday' in backup and 'default' not in backup else ''
         out.append(f'| {slots["platforms"][platform]["label"]} | {weekday} | {weekend} | {b} |')
+    carousel_rows = []
+    for platform in CAROUSEL_PLATFORMS:
+        cfg = slots['platforms'].get(CAROUSEL_BASE[platform]) or {}
+        if cfg.get('carousel'):
+            def fmt(rules):
+                return ', '.join(f'{k} {v if isinstance(v, str) else v[0]}' for k, v in (rules or {}).items()) or '-'
+            carousel_rows.append(f'| {cfg.get("label", platform).split(" (")[0]} carousel | {fmt(cfg["carousel"])} | '
+                                 f'{fmt(cfg.get("carousel_backup"))} |')
+    if carousel_rows:
+        out += ['', 'Carousel slot (one a day per platform, added with the reel when the job has carousel/):', '',
+                '| Platform | Slot (GST) | Backup |', '|---|---|---|', *carousel_rows]
     out += ['', 'How each platform goes out:', '']
     for platform in slots['order']:
         out.append(f'- {slots["platforms"][platform]["label"]}: {slots["platforms"][platform]["how"]}')
     out += ['', 'Commands (from studio/): `check <job>`, `apply-seo <job>`, `queue <job> --date YYYY-MM-DD [--live]`, '
+                '`queue-carousel <job> [--live]`, '
                 '`run-due [--live]`, `mark <job> <platform> <url>`, `status`, `render-md` '
                 '(`.venv/bin/python -m app.publish_reel ...`). Nothing runs on a timer until the owner enables one.', '']
     return '\n'.join(out)
@@ -1709,6 +2152,10 @@ def main(argv=None, rt=None):
     p.add_argument('--date', required=True)
     p.add_argument('--live', action='store_true', help='upload to YouTube (scheduled), host the IG media, record')
     p.add_argument('--slot', type=int, default=None, help="the day's reel slot, 1-based (default: the first free one)")
+    p = sub.add_parser('queue-carousel', help='add the Instagram + LinkedIn carousel posts to an already queued reel '
+                                              '(dry run unless --live)')
+    p.add_argument('job')
+    p.add_argument('--live', action='store_true', help='record the entries and host the Instagram slides')
     p = sub.add_parser('run-due', help='post LinkedIn/Instagram whose slot has passed (dry run unless --live)')
     p.add_argument('--now', default=None, help='dry runs only: ISO time (Z or offset; no offset = GST)')
     p.add_argument('--live', action='store_true', help='post for real, always on the real clock (not with --now)')
@@ -1719,7 +2166,7 @@ def main(argv=None, rt=None):
                         'the post; past it the slot is marked missed')
     p = sub.add_parser('mark', help='record a Chrome-scheduled or manual post')
     p.add_argument('job')
-    p.add_argument('platform', choices=PLATFORMS)
+    p.add_argument('platform', choices=MARKABLE)
     p.add_argument('url')
     p.add_argument('--scheduled', action='store_true', help='scheduled in the composer, not live yet')
     p = sub.add_parser('status', help='queue table and the next due slot')
@@ -1745,6 +2192,12 @@ def main(argv=None, rt=None):
             if args.live:
                 SCHEDULE_MD.write_text(render_md())
             return 0 if result['status'] in ('planned', 'queued') else 1
+        if args.command == 'queue-carousel':
+            result = queue_carousel(args.job, live=args.live, rt=rt)
+            _print(result)
+            if args.live:
+                SCHEDULE_MD.write_text(render_md())
+            return 0 if result['status'] in ('planned', 'queued', 'unchanged') else 1
         if args.command == 'run-due':
             result = run_due(args.now, live=args.live, platforms=args.platform,
                              confirm_not_posted=tuple(args.confirm_not_posted), rt=rt)

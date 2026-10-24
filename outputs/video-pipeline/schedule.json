@@ -514,6 +514,67 @@
           "cover_bytes": 216287,
           "site_commit": "e1b3a54",
           "hosted_at": "2026-10-24T11:52:08Z"
+        },
+        "instagram_carousel": {
+          "via": "api",
+          "status": "pending",
+          "kind": "carousel",
+          "slot_utc": "2026-10-26T16:00:00Z",
+          "local_time": "Mon 2026-10-26 20:00 GST",
+          "account": "hammadagentic.ai",
+          "trial": null,
+          "collaborators": [
+            "with.hammad"
+          ],
+          "slides": 10,
+          "slide_files": [
+            "carousel/instagram-01.png",
+            "carousel/instagram-02.png",
+            "carousel/instagram-03.png",
+            "carousel/instagram-04.png",
+            "carousel/instagram-05.png",
+            "carousel/instagram-06.png",
+            "carousel/instagram-07.png",
+            "carousel/instagram-08.png",
+            "carousel/instagram-09.png",
+            "carousel/instagram-10.png"
+          ],
+          "image_urls": [
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/01.jpg",
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/02.jpg",
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/03.jpg",
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/04.jpg",
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/05.jpg",
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/06.jpg",
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/07.jpg",
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/08.jpg",
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/09.jpg",
+            "https://withhammad.com/media/carousels/ai-traffic-ga4/10.jpg"
+          ],
+          "hosted": true,
+          "image_bytes": [
+            263835,
+            230222,
+            232967,
+            224545,
+            221331,
+            241197,
+            238400,
+            241275,
+            220550,
+            250775
+          ],
+          "site_commit": "e852931",
+          "hosted_at": "2026-10-24T12:24:02Z"
+        },
+        "linkedin_carousel": {
+          "via": "api",
+          "status": "pending",
+          "kind": "carousel",
+          "slot_utc": "2026-10-26T07:00:00Z",
+          "local_time": "Mon 2026-10-26 11:00 GST",
+          "document": "carousel/carousel-linkedin.pdf",
+          "title": "AI search traffic converts better? How to track your own AI traffic in GA4"
         }
       },
       "queued_at": "2026-10-24T11:46:47Z"
