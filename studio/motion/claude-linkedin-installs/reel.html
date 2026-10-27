@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>27 Claude installs for LinkedIn, 9:16</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  /* 9:16 cut for TikTok and YouTube Shorts: the 4:5 poster in the middle, a hook band above, the brand band below.
+     Both bands sit inside the platforms' safe zone (the poster's own title stays readable under the UI). */
+  html, body { margin: 0; height: 100%; background: #fff; overflow: hidden; }
+  .stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 0 0; background: #fff;
+    font-family: 'Inter', system-ui, sans-serif; color: #111; }
+  .hook { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-weight: 800; font-size: 58px;
+    letter-spacing: -0.04em; line-height: 64px; }
+  .hook span { background: #0a72e8; color: #fff; padding: 0 16px; border-radius: 12px; }
+  iframe { position: absolute; left: 0; top: 330px; width: 1080px; height: 1350px; border: 0; }
+  .brand { position: absolute; left: 0; right: 0; top: 1716px; text-align: center; }
+  .brand b { display: block; font-size: 30px; font-weight: 800; letter-spacing: .18em; }
+  .brand span { font-size: 22px; color: #4b5563; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="hook">Save this before your<br>next <span>LinkedIn</span> post</div>
+  <iframe src="poster.html" id="poster"></iframe>
+  <div class="brand"><b>WITHHAMMAD</b><span>Follow for a new Claude setup every day</span></div>
+</div>
+<script>
+  const stage = document.getElementById('stage'), poster = document.getElementById('poster');
+  const fit = () => { const s = Math.min(innerWidth / 1080, innerHeight / 1920);
+    stage.style.transform = `translate(${(innerWidth - 1080 * s) / 2}px, ${(innerHeight - 1920 * s) / 2}px) scale(${s})`; };
+  fit(); addEventListener('resize', fit);
+  window.__seek = (t) => poster.contentWindow.__seek(t);
+  window.__ready = new Promise((r) => poster.addEventListener('load', r)).then(() => poster.contentWindow.__ready);
+</script>
+</body>
+</html>
