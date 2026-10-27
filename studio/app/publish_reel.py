@@ -745,17 +745,20 @@ def _failed_checks(node, path='checks'):
 
 def _disclosure_checks(seo, url, blockers, warnings):
     """Require the resource link and explicit AI disclosure. Approved non-twin presenters may say
-    "AI presenter" instead of claiming the avatar depicts the owner. API disclosure flags remain required."""
+    "AI presenter" instead of claiming the avatar depicts the owner. API disclosure flags remain required.
+    seo.json "presenter": "none" marks a job with no avatar and no AI image of the owner at all (a pure diagram
+    or motion graphic): its copy then needs no AI-avatar line, which would be false."""
+    no_avatar = seo.get('presenter') == 'none'
     post = _get(seo, ('x', 'post'))
     if isinstance(post, str) and post.strip():
-        if X_DISCLOSURE not in post.lower() and not re.search(r'\bAI presenter\b', post, re.I):
+        if not no_avatar and X_DISCLOSURE not in post.lower() and not re.search(r'\bAI presenter\b', post, re.I):
             _blocker(blockers, 'disclosure', 'seo.json x.post lacks "AI avatar of me" or "AI presenter"', 'x')
         bare = re.sub(r'^https?://', '', url or '').rstrip('/')
         if not bare or bare.lower() not in post.lower():
             _blocker(blockers, 'x_link', f'seo.json x.post lacks the resource link {url or "(none)"}', 'x')
     for platform, field in DISCLOSED_COPY:
         value = _get(seo, (platform, field))
-        if isinstance(value, str) and value.strip() and not AI_DISCLOSURE.search(value):
+        if not no_avatar and isinstance(value, str) and value.strip() and not AI_DISCLOSURE.search(value):
             _blocker(blockers, 'disclosure', f'seo.json {platform}.{field} has no AI-avatar disclosure line', platform)
     for path, detail in _failed_checks(seo.get('checks')):
         if 'disclosure' in path.lower():

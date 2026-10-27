@@ -1011,6 +1011,18 @@ def test_check_accepts_truthful_non_twin_presenter_disclosure(env):
     assert not any(b['code'] == 'disclosure' for b in report['blockers'])
 
 
+def test_check_skips_the_ai_line_only_for_a_job_with_no_avatar_at_all(env):
+    seo = json.loads(json.dumps(SEO))
+    for platform, field in (('x', 'post'), *pr.DISCLOSED_COPY):
+        seo[platform][field] = seo[platform][field].replace('AI avatar of me.', '').replace('AI avatar of Hammad.', '')
+    env['make_job'](seo=seo)
+    assert any(b['code'] == 'disclosure' for b in pr.check_report('job1', rt=env['rt']())['blockers'])
+    seo['presenter'] = 'none'
+    env['make_job']('job2', seo=seo)
+    report = pr.check_report('job2', rt=env['rt']())
+    assert not any(b['code'] == 'disclosure' for b in report['blockers'])
+
+
 def test_check_blocks_copy_without_the_ai_disclosure_or_the_x_resource_link(env):
     seo = json.loads(json.dumps(SEO))
     for platform, field in (('x', 'post'), ('instagram', 'caption'), ('linkedin', 'text'), ('tiktok', 'caption'),
