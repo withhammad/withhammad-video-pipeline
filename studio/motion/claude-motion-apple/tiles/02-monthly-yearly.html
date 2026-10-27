@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>02 Monthly → yearly</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .track { left: 120px; top: 34px; width: 320px; height: 70px; border-radius: 35px; }
+  .pill { position: absolute; top: 41px; height: 56px; border-radius: 28px;
+    background: linear-gradient(180deg, #3D9BFF 0%, #0A84FF 60%, #0074EC 100%);
+    box-shadow: 0 12px 22px -10px rgba(10,132,255,.8), 0 3px 6px -2px rgba(0,60,150,.3), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -2px 5px rgba(0,50,140,.25); }
+  .opt { position: absolute; top: 34px; height: 70px; width: 153px; display: flex; align-items: center; justify-content: center;
+    font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
+  .card { left: 44px; top: 132px; width: 472px; height: 330px; border-radius: 40px; }
+  .pro { position: absolute; left: 80px; top: 166px; display: flex; align-items: center; gap: 14px; }
+  .pro .squircle { position: relative; width: 54px; height: 54px; }
+  .pro .squircle svg { position: absolute; left: 11px; top: 11px; width: 32px; height: 32px; z-index: 1; }
+  .pro span { font-size: 32px; font-weight: 700; letter-spacing: -.025em; }
+  .badge { position: absolute; right: 78px; top: 176px; height: 36px; padding: 0 16px; border-radius: 18px; display: flex; align-items: center;
+    font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -.005em; overflow: hidden; transform-origin: 80% 50%;
+    background: linear-gradient(180deg, #4ADE72 0%, #30D158 55%, #24BE4C 100%);
+    box-shadow: 0 8px 16px -8px rgba(48,209,88,.85), inset 0 1px 0 rgba(255,255,255,.5); }
+  .badge i { position: absolute; top: -10px; bottom: -10px; width: 34px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.75), rgba(255,255,255,0)); transform: skewX(-20deg); }
+  .price { position: absolute; left: 44px; width: 472px; top: 252px; height: 170px; display: flex; justify-content: center; align-items: flex-start; }
+  .cur { font-size: 34px; font-weight: 700; letter-spacing: -.02em; margin-top: 30px; margin-right: 8px; color: var(--a-ink); }
+  .num { display: flex; font-size: 156px; font-weight: 800; letter-spacing: -.055em; font-variant-numeric: tabular-nums; color: var(--a-ink); }
+  .col { height: 1.12em; overflow: hidden; position: relative; }
+  .strip { display: flex; flex-direction: column; }
+  .strip b { display: block; height: 1.12em; line-height: 1.12em; font-weight: 800; padding-right: .055em; }
+  .per { position: relative; width: 58px; margin-top: 116px; margin-left: 6px; font-size: 26px; font-weight: 600; color: var(--a-grey); letter-spacing: -.01em; }
+  .per span { position: absolute; left: 0; top: 0; }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#0A84FF; left: -60px; top: 120px"></div>
+  <div class="tint" style="--c:#30D158; left: 300px; top: 40px; opacity: .1"></div>
+  <div class="glass track"></div>
+  <div class="pill"></div>
+  <div class="opt" style="left: 127px">Monthly</div><div class="opt" style="left: 280px">Yearly</div>
+  <div class="glass card"></div>
+  <div class="pro"><div class="squircle" style="--c1:#5AB4FF;--c2:#0A6EF0">
+    <svg viewBox="0 0 32 32"><path d="M9 6h14l6 7-13 14L3 13z" fill="#fff"/><path d="M3 13h26M12 6l4 21M20 6l-4 21M9 6l3 7m11-7-3 7" fill="none" stroke="#0A84FF" stroke-opacity=".35" stroke-width="1.4" stroke-linejoin="round"/></svg>
+  </div><span>Pro</span></div>
+  <div class="badge">2 months free<i></i></div>
+  <div class="price"><div class="cur">AED</div><div class="num"></div><div class="per"><span>/mo</span><span>/yr</span></div></div>
+</div>
+<script>
+// Scene line: a Monthly | Yearly switch over a "Pro" price card: the pill springs across, AED 29 rolls to AED 290 and a
+// "2 months free" badge pops in. Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp } = Motion;
+const pill = document.querySelector('.pill'), opts = document.querySelectorAll('.opt'), badge = document.querySelector('.badge'),
+  shine = badge.querySelector('i'), num = document.querySelector('.num'), pers = document.querySelectorAll('.per span');
+// three mechanical digit columns, each a strip 0..9,0 that rolls
+const cols = [0, 1, 2].map(() => { const c = document.createElement('div'); c.className = 'col';
+  const s = document.createElement('div'); s.className = 'strip'; s.innerHTML = '0123456789012'.split('').map((d) => `<b>${d}</b>`).join('');
+  c.appendChild(s); num.appendChild(c); return { c, s }; });
+let colW = 0;
+// digit positions: col0 2 -> 12, col1 9 -> 19, col2 0 -> 10 (a full turn each, landing on 2, 9, 0), staggered
+const pos = (t, i) => {
+  const a = [.72, .8, .88][i], fwd = ease.spring(seg(t, a, a + .95), .5);
+  const b = [4.62, 4.5, 4.4][i], back = ease.spring(seg(t, b, b + .9), .5);
+  return [2, 9, 0][i] + 10 * (fwd - back);
+};
+const CHIP = 1.12 * 156;
+run((t) => {
+  if (!colW) colW = cols[0].c.offsetWidth;
+  // the pill springs across (and stretches while it travels), then back for the loop
+  const go = ease.spring(seg(t, .45, 1.1), .7), ret = ease.spring(seg(t, 4.3, 4.95), .7), k = go - ret;
+  const lin = Math.sin(Math.PI * seg(t, .45, .85)) + Math.sin(Math.PI * seg(t, 4.3, 4.7));
+  const w = 146 + 34 * lin, x = lerp(134, 280, k) + 73 - w / 2;
+  pill.style.left = `${x}px`; pill.style.width = `${w}px`;
+  const on = clamp(k);
+  opts[0].style.color = Motion.mix('#ffffff', '#86868b', on); opts[1].style.color = Motion.mix('#86868b', '#ffffff', on);
+  // digits roll like a counter, blurred while they move fast
+  cols.forEach(({ c, s }, i) => {
+    const p = pos(t, i), v = (pos(t + .02, i) - pos(t - .02, i)) / .04;
+    s.style.transform = `translateY(${-(((p % 10) + 10) % 10) * CHIP}px)`;
+    s.style.filter = `blur(${Math.min(7, Math.abs(v) * .28)}px)`;
+  });
+  const grow = ease.spring(seg(t, .78, 1.35), .6) - ease.inOut(seg(t, 4.85, 5.4));
+  cols[2].c.style.width = `${Math.max(0, colW * grow)}px`;
+  cols[2].c.style.opacity = clamp(grow * 1.5);
+  // /mo -> /yr swap with a short blur
+  const sw = ease.inOut(seg(t, .85, 1.15)) - ease.inOut(seg(t, 4.55, 4.85));
+  pers[0].style.opacity = 1 - sw; pers[1].style.opacity = sw;
+  pers[0].style.filter = `blur(${6 * sw}px)`; pers[1].style.filter = `blur(${6 * (1 - sw)}px)`;
+  pers[0].style.transform = `translateY(${-10 * sw}px)`; pers[1].style.transform = `translateY(${10 * (1 - sw)}px)`;
+  // the badge pops in with a spring and a glint, then shrinks away with blur when we go back to monthly
+  const pop = ease.spring(seg(t, 1.6, 2.15), 1), out = ease.inOut(seg(t, 4.3, 4.6));
+  badge.style.opacity = clamp(seg(t, 1.6, 1.72) * (1 - out));
+  badge.style.transform = `scale(${lerp(.3, 1, pop) * (1 - .3 * out)})`;
+  badge.style.filter = out ? `blur(${8 * out}px)` : '';
+  shine.style.left = `${lerp(-50, 200, ease.inOut(seg(t, 2.15, 2.75)))}px`;
+});
+</script></body></html>

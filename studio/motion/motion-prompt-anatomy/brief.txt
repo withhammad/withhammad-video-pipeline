@@ -1,0 +1,25 @@
+Build me a motion graphic. Stick to this brief line by line:
+
+## Quality bar
+Make it look like [an Apple keynote]: every frame a UI moment from [a product launch page], [tactile, physical, polished, premium].
+
+## Format
+Canvas [1080 x 1350]. Length [6 seconds]. A seamless loop: the final frame equals the first.
+
+## One rule
+ONE hero object fills [60-70%] of the frame, makes ONE satisfying change, then resets smoothly.
+
+## Look
+Real depth: soft layered shadows, frosted glass with a bright 1px edge. [System colours], one or two per piece: blue #0A84FF, green #30D158.
+
+## Motion
+Springs on everything that moves: real mass and a small settle. Hold each end state [1.2 seconds] so it reads.
+
+## Never
+No grey placeholder bars, stock icons, emoji or clip art. No dark, noisy or full-frame gradient backgrounds.
+
+## Self-check
+Screenshot a frame every second. Review each one as [a senior Apple designer], then again at 200px wide.
+
+## Scene
+[A big glossy "Publish" button. A cursor clicks it, it squashes into a circle, a blue ring fills, it snaps to a green tick with a ripple and widens to read "Published".]

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>The 8 Parts of a Claude Motion Prompt — reel</title>
+<link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="anatomy.css">
+<script src="../motion.js"></script><script src="anatomy.js"></script>
+<style>
+  /* 1080x1920, 25.5 s on an 80 bpm grid (beat 0.75 s). No presenter, no voice: on-screen text and a music bed.
+     A 0-2.25 s  hook over the brief card (opener only)     B 2.25-14.25 s the card drops to a ghost and the 8 parts light up one by one, every 1.45 s
+     C 14.25-15.75 s every part but the scene dims           D 15.75-22.5 s the scene, built, in a player with Export
+     E 22.5-25.5 s comment CTA */
+  html, body { width: 1080px; height: 1920px; }
+  body { position: relative; overflow: hidden; background: #f8f7fb;
+    background-image: linear-gradient(rgba(110,100,160,.065) 1px, transparent 1px), linear-gradient(90deg, rgba(110,100,160,.065) 1px, transparent 1px);
+    background-size: 54px 54px; }
+  .rays { position: absolute; width: 760px; height: 760px; top: -380px; border-radius: 50%;
+    background: repeating-conic-gradient(from 3deg, rgba(255,160,150,.17) 0deg 6deg, transparent 6deg 20deg);
+    -webkit-mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%); mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%); }
+  .rays.l { left: -420px; } .rays.r { right: -420px; }
+  .abs { position: absolute; }
+  .grad { background: linear-gradient(90deg, #ff8a00, #ff3d7f 38%, #b23cff 68%, #3d7bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .head { left: 0; right: 0; top: 150px; text-align: center; font-weight: 800; letter-spacing: -.05em; color: #0b0b12; line-height: 1.04; }
+  .head .a { font-size: 74px; } .head .b { font-size: 84px; }
+  .head mark { background: #fff0e5; color: #e8590c; border-radius: 14px; padding: 0 14px; }
+  .card { top: 420px; }
+  .row { will-change: transform, opacity; }
+  .byline { left: 0; right: 0; top: 1560px; display: flex; justify-content: center; align-items: center; gap: 16px; font-size: 30px; color: #6b6880; letter-spacing: -.015em; }
+  .byline img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 3px #fff, 0 3px 10px rgba(40,20,90,.18); }
+  .byline b { color: #121019; font-weight: 700; }
+  .scenebox { left: 60px; top: 430px; width: 960px; padding: 26px 34px; border-radius: 26px; background: #fff; border: 2px solid #ffd2b5;
+    box-shadow: 0 30px 60px -30px rgba(232,89,12,.35); font-size: 34px; line-height: 1.38; color: #e8590c; letter-spacing: -.02em; }
+  .scenebox .h { font: 500 26px var(--mono); color: #F2652D; margin-bottom: 8px; letter-spacing: 0; }
+  .scenebox mark { background: #fff0e5; color: #e8590c; border-radius: 6px; padding: 0 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .player { left: 140px; top: 760px; width: 800px; border-radius: 28px; background: #fff; overflow: hidden;
+    box-shadow: 0 0 0 1px #e6e3ee, 0 50px 90px -40px rgba(30,20,80,.45); }
+  .player .top { height: 70px; display: flex; align-items: center; gap: 12px; padding: 0 26px; background: #f4f3f8; border-bottom: 1px solid #e9e7f0; }
+  .player .top i { width: 15px; height: 15px; border-radius: 50%; background: #ff5f57; } .player .top i:nth-child(2) { background: #febc2e; } .player .top i:nth-child(3) { background: #28c840; }
+  .player .name { margin-left: 16px; font-size: 26px; font-weight: 600; color: #3a3846; letter-spacing: -.01em; }
+  .export { margin-left: auto; height: 46px; padding: 0 20px; border-radius: 23px; display: flex; align-items: center; gap: 10px; font-size: 23px; font-weight: 700;
+    color: #fff; background: linear-gradient(180deg, #3D9BFF, #0A84FF); box-shadow: 0 8px 16px -8px rgba(10,132,255,.8); }
+  .export svg { width: 22px; height: 22px; }
+  .player .view { width: 800px; height: 714px; position: relative; }
+  .player iframe { width: 800px; height: 714px; border: 0; display: block; }
+  .scrub { height: 66px; display: flex; align-items: center; gap: 18px; padding: 0 28px; border-top: 1px solid #efedf3; }
+  .scrub .play { width: 0; height: 0; border-left: 20px solid #1d1d1f; border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
+  .scrub .bar { flex: 1; height: 8px; border-radius: 4px; background: #e9e7f0; position: relative; overflow: hidden; }
+  .scrub .fill { position: absolute; left: 0; top: 0; bottom: 0; background: #0A84FF; border-radius: 4px; }
+  .scrub .tc { font: 500 22px var(--mono); color: #8b889a; }
+  .toast { left: 0; right: 0; top: 1640px; display: flex; justify-content: center; }
+  .toast span { padding: 16px 30px; border-radius: 40px; background: #1d1d1f; color: #fff; font-size: 30px; font-weight: 600; letter-spacing: -.01em; }
+  .cta { left: 0; right: 0; top: 150px; text-align: center; font-weight: 800; letter-spacing: -.05em; color: #0b0b12; line-height: 1; }
+  .cta .a { font-size: 70px; } .cta .b { font-size: 190px; margin-top: 8px; }
+  .cta2 { left: 70px; right: 70px; top: 1540px; text-align: center; font-size: 40px; font-weight: 600; letter-spacing: -.02em; color: #17151f; line-height: 1.3; }
+  .cta2 span { color: #e8590c; }
+  .cursor { position: absolute; width: 50px; height: 50px; filter: drop-shadow(0 4px 5px rgba(0,0,0,.28)); }
+</style></head>
+<body>
+  <div class="rays l"></div><div class="rays r"></div>
+  <div class="abs head" id="h0"><div class="a">Stop writing Claude Motion</div><div class="b"><span class="grad">prompts from scratch.</span></div></div>
+  <div class="abs head" id="h1"><div class="a">Write parts 1-7</div><div class="b"><span class="grad">once.</span></div></div>
+  <div class="abs head" id="h2"><div class="a">Then each time, rewrite</div><div class="b">only <mark>the scene.</mark></div></div>
+  <div class="abs head" id="h3"><div class="a">One line in.</div><div class="b"><span class="grad">This out.</span></div></div>
+  <div class="card" id="card"></div>
+  <div class="abs byline" id="byline"><img src="assets/hammad.jpg" alt=""><b>Hammad Yousuf</b><span>· 1 brief, any scene</span></div>
+  <div class="abs scenebox" id="scenebox"></div>
+  <div class="abs player" id="player">
+    <div class="top"><i></i><i></i><i></i><div class="name">publish-button</div>
+      <div class="export" id="export"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 19h14" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Export MP4</div></div>
+    <div class="view"><iframe id="tile" src="../claude-motion-apple/tiles/06-click-done.html" scrolling="no" title="Publish button scene"></iframe></div>
+    <div class="scrub"><div class="play"></div><div class="bar"><div class="fill" id="fill"></div></div><div class="tc" id="tc">0:00 / 0:06</div></div>
+  </div>
+  <svg class="cursor" id="cursor" viewBox="0 0 24 24"><path d="M5 2.5v17l4.6-4.3 2.9 6.3 2.6-1.2-2.9-6.2 6.3-.4z" fill="#1d1d1f" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+  <div class="abs toast" id="toast"><span>✓ publish-button.mp4 saved</span></div>
+  <div class="abs cta" id="cta"><div class="a">Comment</div><div class="b"><span class="grad">BRIEF</span></div></div>
+  <div class="abs cta2" id="cta2">I'll send you the <span>full brief</span>, free.<br>Paste it, swap the <span>orange bits</span>, go.</div>
+<script>
+const { ease, seg, lerp, clamp } = Motion;
+document.getElementById('card').innerHTML = anatomyRows();
+const rows = [...document.querySelectorAll('.card .row')];
+const scene = ANATOMY.parts[7];
+document.getElementById('scenebox').innerHTML = `<div class="h">## ${scene.head}</div>${anatomyHTML(scene.text)}`;
+const show = (id, o, dy = 0, s = 1, blur = 0) => { const e = document.getElementById(id); e.style.opacity = o; e.style.visibility = o > 0.001 ? 'visible' : 'hidden';
+  e.style.transform = `translateY(${dy}px) scale(${s})`; e.style.filter = blur > .05 ? `blur(${blur}px)` : ''; };
+// a heading arrives with blur and scale together and leaves the same way
+const head = (id, a, b) => { const i = ease.out(seg(T, a, a + .4)), o = ease.inOut(seg(T, b - .3, b)), k = i * (1 - o);
+  show(id, k, (1 - i) * 30 - o * 30, .96 + .04 * k, 12 * (1 - k)); };
+const ROW0 = 2.6, GAP = 1.45;
+let T = 0;
+
+window.__seek = (t) => {
+  T = t;
+  head('h0', -1, 2.5); head('h1', 2.45, 12.8); head('h2', 12.75, 15.9); head('h3', 15.9, 22.6);
+  // B: each part lands with blur + scale; C: everything but the scene dims; D: the card leaves
+  const out = ease.inOut(seg(t, 15.6, 16.2));
+  const dim = ease.inOut(seg(t, 14.25, 14.75));
+  // A: the whole card shows under the hook; B: it drops to a ghost and each part lights up in turn with blur + scale
+  const ghost = ease.inOut(seg(t, 2.2, 2.5));
+  rows.forEach((r, i) => {
+    const at = i === 0 ? 2.5 : ROW0 + (i - 1) * GAP;
+    const k = ease.spring(seg(t, at, at + .6), .5), b = ease.out(seg(t, at, at + .45));
+    const lit = i === 0 ? 1 : Math.max(1 - ghost, b);
+    const o = (.12 + .88 * lit) * (i === 8 ? 1 : 1 - .78 * dim);
+    r.style.opacity = o;
+    const pop = t >= at ? (1 - k) : 0;
+    r.style.transform = `translateY(${pop * 18}px) scale(${1 - .02 * pop})`;
+    r.style.filter = t >= at && b < .999 ? `blur(${8 * (1 - b)}px)` : '';
+    const flash = i > 0 ? Math.sin(Math.PI * seg(t, at, at + 1.3)) : 0;
+    r.style.background = flash > .01 ? `rgba(255,240,229,${.55 * flash})` : '';
+    const lb = i === 0 || t < 2.2 ? 1 : ease.out(seg(t, at + .15, at + .55));
+    const br = r.querySelector('.br'); br.style.transform = `scaleY(${Math.max(lb, 1 - ghost)})`;
+    const lt = r.querySelector('.lt'); const lk = t < at ? 1 : ease.spring(seg(t, at + .25, at + .85), .6);
+    lt.style.transform = `translateX(${(1 - lk) * 30}px)`;
+  });
+  const card = document.getElementById('card');
+  card.style.transform = `translateY(${out * 140}px) scale(${1 - .05 * out})`; card.style.opacity = 1 - out;
+  card.style.visibility = out < .999 ? 'visible' : 'hidden';
+  show('byline', 1 - seg(t, 13.9, 14.3));
+  // D: the scene line pops out of the card into its own box, then the player springs up under it
+  const sb = ease.spring(seg(t, 15.75, 16.4), .6), sbOut = ease.inOut(seg(t, 22.2, 22.6));
+  show('scenebox', seg(t, 15.75, 16.0) * (1 - sbOut), (1 - sb) * 700 - sbOut * 40, .94 + .06 * sb, 14 * (1 - seg(t, 15.75, 16.1)));
+  const pl = ease.spring(seg(t, 16.15, 16.85), .6), plOut = ease.inOut(seg(t, 22.2, 22.6));
+  show('player', seg(t, 16.15, 16.4) * (1 - plOut), (1 - pl) * 140 + plOut * 60, .94 + .06 * pl, 20 * (1 - seg(t, 16.15, 16.55)));
+  const local = clamp(t - 16.5, 0, 5.2);          // the scene plays once: click, ring, tick, "Published"
+  document.getElementById('tile').contentWindow.__seek?.(local);
+  document.getElementById('fill').style.width = `${local / 6 * 100}%`;
+  document.getElementById('tc').textContent = `0:0${Math.floor(local)} / 0:06`;
+  // the cursor clicks Export at 21.3 s, the button presses, a saved toast springs up
+  const cIn = ease.out(seg(t, 20.4, 21.2)), cOut = ease.inOut(seg(t, 21.9, 22.4));
+  const cur = document.getElementById('cursor');
+  cur.style.left = `${lerp(lerp(820, 850, cIn), 960, cOut)}px`; cur.style.top = `${lerp(lerp(1450, 806, cIn), 880, cOut)}px`;
+  cur.style.opacity = seg(t, 20.4, 20.6) * (1 - seg(t, 22.1, 22.4));
+  const press = Math.sin(Math.PI * seg(t, 21.25, 21.45));
+  document.getElementById('export').style.transform = `scale(${1 - .08 * press})`;
+  const ts = ease.spring(seg(t, 21.45, 22.0), .7);
+  show('toast', seg(t, 21.45, 21.6) * (1 - seg(t, 22.3, 22.55)), (1 - ts) * 60);
+  // E
+  const c = ease.spring(seg(t, 22.6, 23.2), .6);
+  show('cta', seg(t, 22.6, 22.85), (1 - c) * -40, .94 + .06 * c, 14 * (1 - seg(t, 22.6, 22.9)));
+  show('cta2', ease.out(seg(t, 23.1, 23.5)), (1 - ease.out(seg(t, 23.1, 23.5))) * 30);
+};
+window.__ready = document.fonts.ready;
+</script></body></html>

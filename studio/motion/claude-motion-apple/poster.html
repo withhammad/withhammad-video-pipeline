@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Claude Motion: 16 Apple-style animations</title>
+<link rel="stylesheet" href="../tokens.css"><script src="../motion.js"></script><script src="scenes.js"></script>
+<style>
+  /* 1080x1350 LinkedIn image post: title (its last word cycles every 1.5 s), byline, 4x4 grid of live tiles (the reference post's layout). */
+  html, body { width: 1080px; height: 1350px; }
+  body { position: relative; background: #f7f7fa; overflow: hidden;
+    background-image: linear-gradient(rgba(120,100,180,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(120,100,180,.07) 1px, transparent 1px);
+    background-size: 54px 54px; background-position: -1px 26px; }
+  .rays { position: absolute; width: 640px; height: 640px; top: -330px; border-radius: 50%;
+    background: repeating-conic-gradient(from 3deg, rgba(230,190,170,.22) 0deg 6deg, transparent 6deg 20deg);
+    -webkit-mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%);
+            mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%); }
+  .rays.l { left: -380px; } .rays.r { right: -380px; }
+  h1 { position: absolute; left: 0; right: 0; top: 44px; height: 90px; font-size: 78px; font-weight: 800; letter-spacing: -.055em; color: #0b0b12; line-height: 1; }
+  h1 .w { position: absolute; top: 0; white-space: nowrap; }
+  h1 em { font-style: normal; -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .04em; }
+  .by { position: absolute; left: 0; right: 0; top: 136px; display: flex; justify-content: center; align-items: center; gap: 16px;
+    font-size: 26px; color: #6b6880; letter-spacing: -.015em; }
+  .by img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px #fff, 0 3px 10px rgba(40,20,90,.18); }
+  .by b { color: #121019; font-weight: 700; font-size: 24px; margin-left: -6px; }
+  .grid { position: absolute; left: 32px; top: 200px; display: grid; grid-template-columns: repeat(4, 242px); gap: 14px 16px; }
+  .card { width: 242px; height: 262px; background: #fff; border-radius: 18px; border: 1px solid #ececf1;
+    box-shadow: 0 2px 10px rgba(20,20,40,.05); position: relative; }
+  .media { position: absolute; left: 8px; top: 8px; width: 224px; height: 200px; border-radius: 12px; overflow: hidden; background: #f4f5f8; }
+  .media iframe { width: 224px; height: 200px; border: 0; display: block; }
+  .label { position: absolute; left: 16px; top: 222px; display: flex; align-items: baseline; gap: 9px; font-size: 21px;
+    font-weight: 600; color: #17151f; letter-spacing: -.02em; white-space: nowrap; }
+  .label .n { font: 500 14px var(--mono); color: #a39fb3; letter-spacing: 0; }
+  .label .ar { color: #9a96aa; font-weight: 500; }
+</style></head>
+<body>
+  <div class="rays l"></div><div class="rays r"></div>
+  <h1 id="title"></h1>
+  <div class="by"><span>16 Apple-style moments: charts, logos and apps.</span><img src="assets/hammad.jpg" alt=""><b>Hammad Yousuf</b></div>
+  <div class="grid"></div>
+<script>
+const grid = document.querySelector('.grid');
+for (const s of SCENES) {
+  const card = document.createElement('div'); card.className = 'card';
+  card.innerHTML = `<div class="media"><iframe src="tiles/${s.slug}.html" scrolling="no" title="${s.object} to ${s.change}"></iframe></div>
+    <div class="label"><span class="n">${s.n}</span><span>${s.object}</span><span class="ar">→</span><span>${s.change}</span></div>`;
+  grid.appendChild(card);
+}
+// The title's last word cycles Graphics -> Charts -> Logos -> Apps (1.5 s each, 6 s loop) and "Motion" shifts its gradient
+// with it; each swap is a blur + scale crossfade, and the line re-centres on the new width.
+const WORDS = ['Graphics', 'Charts', 'Logos', 'Apps'];
+const GRADS = ['#ff8a00, #ff3d7f 55%, #c43cff', '#ff3d9a, #b23cff 55%, #6b5cff', '#b23cff, #6b5cff 50%, #2f8bff', '#2f8bff, #6b5cff 50%, #ff8a00'];
+const title = document.getElementById('title');
+title.innerHTML = WORDS.map((w, i) => `<div class="w">Claude <em style="background-image:linear-gradient(90deg, ${GRADS[i]})">Motion</em> ${w}</div>`).join('');
+const lines = [...title.children];
+let widths = null;
+const { seg, ease } = Motion;
+function draw(t) {
+  t = ((t % 6) + 6) % 6;
+  if (!widths) widths = lines.map((l) => l.getBoundingClientRect().width);
+  const slot = Math.floor(t / 1.5), swap = ease.inOut(seg(t - slot * 1.5, 1.22, 1.5));
+  lines.forEach((l, i) => {
+    const o = i === slot ? 1 - swap : i === (slot + 1) % 4 ? swap : 0;
+    l.style.opacity = o;
+    l.style.visibility = o > .001 ? 'visible' : 'hidden';
+    l.style.left = `${(1080 - widths[i]) / 2}px`;
+    l.style.filter = o > 0 && o < 1 ? `blur(${(1 - o) * 10}px)` : '';
+    l.style.transform = `scale(${.96 + .04 * o})`;
+  });
+}
+// capture.mjs drives the title and every tile from one clock; opened by hand, the page and each tile play on their own
+let seeking = false;
+// tiles run half a loop ahead, so the first frame (the feed thumbnail) shows their finished states, like the reference
+const PHASE = SCENES.map((s) => s.n === '15' ? 3.4 : 4.2);
+window.__seek = (t) => { seeking = true; draw(t); document.querySelectorAll('iframe').forEach((f, i) => f.contentWindow.__seek(t + PHASE[i])); };
+window.__ready = document.fonts.ready;
+document.fonts.ready.then(() => { const tick = (now) => { if (seeking) return; draw(now / 1000); requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+</script></body></html>

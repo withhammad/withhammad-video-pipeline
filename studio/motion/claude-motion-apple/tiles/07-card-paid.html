@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>07 Card → paid</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .card { position: absolute; left: 82px; width: 396px; height: 248px; border-radius: 26px; overflow: hidden;
+    background: linear-gradient(135deg, #4FA8FF 0%, #1C8CFF 38%, #0A6FE6 72%, #0657C4 100%);
+    box-shadow: 0 2px 4px rgba(0,40,110,.18), 0 18px 36px -12px rgba(0,60,160,.45), inset 0 1px 0 rgba(255,255,255,.45); }
+  .card .sheen { position: absolute; left: -40%; top: -60%; width: 90%; height: 220%; transform: rotate(24deg);
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.22) 50%, rgba(255,255,255,0)); }
+  .card .wave { position: absolute; right: -60px; bottom: -90px; width: 300px; height: 300px; border-radius: 50%;
+    border: 38px solid rgba(255,255,255,.07); }
+  .chip { position: absolute; left: 30px; top: 30px; width: 58px; height: 44px; border-radius: 10px;
+    background: linear-gradient(135deg, #f4f6fa 0%, #c9ced8 45%, #eef1f6 70%, #b7bdc9 100%);
+    box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,.25); }
+  .chip i { position: absolute; background: rgba(90,96,110,.35); }
+  .mark { position: absolute; right: 30px; top: 30px; width: 46px; height: 46px; }
+  .num { position: absolute; left: 32px; top: 150px; color: rgba(255,255,255,.95); font: 600 22px 'JetBrains Mono', monospace; letter-spacing: .06em; }
+  .holder { position: absolute; left: 32px; top: 192px; color: rgba(255,255,255,.75); font-size: 17px; font-weight: 600; letter-spacing: .08em; }
+  .pocket { left: 40px; top: 206px; width: 480px; height: 250px; border-radius: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,.66) 0%, rgba(255,255,255,.86) 30%, rgba(255,255,255,.95) 100%);
+    -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5); }
+  .lip { position: absolute; left: 40px; top: 206px; width: 480px; height: 30px; border-radius: 36px 36px 0 0;
+    background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,0)); pointer-events: none; }
+  .pill { position: absolute; left: 280px; top: 350px; height: 100px; border-radius: 50px; overflow: hidden;
+    background: linear-gradient(180deg, #3D9BFF 0%, #0A84FF 55%, #0070E8 100%);
+    box-shadow: 0 22px 36px -16px rgba(10,132,255,.75), 0 6px 12px -6px rgba(0,60,140,.35), inset 0 -4px 10px rgba(0,50,140,.22); }
+  .pill .green { position: absolute; inset: 0; background: linear-gradient(180deg, #5BE07E 0%, #30D158 55%, #22B84A 100%); }
+  .pill::after { content: ''; position: absolute; left: 6%; right: 6%; top: 5%; height: 44%; border-radius: 40px 40px 30px 30px;
+    background: linear-gradient(180deg, rgba(255,255,255,.4), rgba(255,255,255,0)); }
+  .lbl { position: absolute; left: 50%; top: 50%; display: flex; align-items: center; gap: 14px; white-space: nowrap;
+    color: #fff; font-size: 40px; font-weight: 800; letter-spacing: -.03em; font-variant-numeric: tabular-nums; z-index: 2; }
+  .lbl .tk { width: 52px; height: 52px; border-radius: 50%; background: #fff; display: grid; place-items: center;
+    box-shadow: 0 2px 6px rgba(0,90,30,.3); }
+  .halo { position: absolute; left: 280px; top: 350px; width: 420px; height: 128px; margin: -64px 0 0 -210px; overflow: visible; }
+  .ripple { position: absolute; left: 280px; top: 350px; height: 100px; border-radius: 50px; border: 3px solid #30D158; opacity: 0; }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#0A84FF; left: 100px; top: 40px"></div>
+  <div class="card">
+    <div class="sheen"></div><div class="wave"></div>
+    <div class="chip"><i style="left:0;right:0;top:15px;height:1.5px"></i><i style="left:0;right:0;top:28px;height:1.5px"></i>
+      <i style="left:20px;top:0;bottom:0;width:1.5px"></i><i style="left:38px;top:0;bottom:0;width:1.5px"></i></div>
+    <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.95)" stroke-width="2.2" stroke-linecap="round">
+      <path d="M7 8.5a5 5 0 0 1 0 7"/><path d="M11 6a8.5 8.5 0 0 1 0 12"/><path d="M15 3.5a12 12 0 0 1 0 17"/></svg>
+    <div class="num">•••• •••• •••• 4417</div>
+    <div class="holder">PREMIUM DEBIT</div>
+  </div>
+  <div class="glass pocket"></div><div class="lip"></div>
+  <div class="ripple"></div><div class="ripple"></div>
+  <div class="pill"><div class="green"></div><div class="lbl" id="pay">Pay AED 4,850</div>
+    <div class="lbl" id="paid"><span class="tk"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 7.8" fill="none" stroke="#22B84A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Paid</div></div>
+  <svg class="halo" viewBox="-210 -64 420 128">
+    <defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter></defs>
+    <rect id="runB" x="-196" y="-56" width="392" height="112" rx="56" fill="none" stroke="#3D9BFF" stroke-width="20" pathLength="1000" filter="url(#glow)" stroke-linecap="round"/>
+    <rect id="runA" x="-196" y="-56" width="392" height="112" rx="56" fill="none" stroke="#fff" stroke-width="5" pathLength="1000" stroke-linecap="round"/>
+  </svg>
+</div>
+<script>
+// Scene line: a blue card rises out of a wallet pocket, light runs round "Pay AED 4,850", a green tick lands with
+// "Paid" and the card slides home. Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp } = Motion;
+const card = document.querySelector('.card'), pill = document.querySelector('.pill'), green = document.querySelector('.green'),
+  pay = document.getElementById('pay'), paid = document.getElementById('paid'), halo = document.querySelector('.halo'),
+  runA = document.getElementById('runA'), runB = document.getElementById('runB'), ripples = document.querySelectorAll('.ripple');
+const HOME = 116, UP = 26, W_PAY = 392, W_PAID = 268;
+run((t) => {
+  // card: rises with a spring, waits for the payment, slides home after "Paid" lands
+  const up = ease.spring(seg(t, .25, 1.15), .7), down = ease.spring(seg(t, 3.35, 4.25), .45);
+  const y = lerp(lerp(HOME, UP, up), HOME, down);
+  const tilt = 1.6 * Math.sin(Math.PI * seg(t, .25, .9)) - 1.2 * Math.sin(Math.PI * seg(t, 3.35, 3.9));
+  card.style.top = `${y}px`;
+  card.style.transform = `rotate(${tilt}deg)`;
+  // light runs round the button (just over one lap), then the green fill blooms from the centre
+  const lap = seg(t, 1.2, 2.35), lapE = ease.inOut(lap);
+  const runOn = Math.sin(Math.PI * lap);
+  [runA, runB].forEach((r, i) => { r.style.strokeDasharray = `${i ? 320 : 240} 1000`; r.style.strokeDashoffset = `${-(lapE * 1150) + 640}`; r.style.opacity = runOn * (i ? .9 : 1); });
+  const bloom = ease.out(seg(t, 2.25, 2.65));
+  const back = seg(t, 5.0, 5.85), backE = ease.inOut(back);
+  const greenK = t < 5.0 ? bloom : 1 - backE;
+  green.style.clipPath = `inset(0 ${50 * (1 - greenK)}% round 50px)`;
+  // pill width: full for the price, narrower for "Paid"
+  const shrink = ease.spring(seg(t, 2.5, 3.2), .7);
+  let w = t < 5.0 ? lerp(W_PAY, W_PAID, shrink) : lerp(W_PAID, W_PAY, backE);
+  const pop = Math.sin(Math.PI * seg(t, 2.45, 2.75));
+  let s = 1 + .05 * pop - .03 * Math.sin(Math.PI * seg(t, 2.2, 2.45));
+  let blur = 0;
+  if (t >= 5.0) { blur = 9 * Math.sin(Math.PI * back); s *= 1 - .05 * Math.sin(Math.PI * back); }
+  pill.style.width = `${w}px`;
+  pill.style.transform = `translate(-50%, -50%) scale(${s})`;
+  pill.style.filter = blur ? `blur(${blur}px)` : '';
+  // labels: the price blurs out under the bloom; tick + "Paid" spring in; on the reset they swap back mid-blur
+  const payOut = t < 5.0 ? seg(t, 2.25, 2.5) : 1 - seg(t, 5.35, 5.55);
+  pay.style.opacity = 1 - payOut;
+  pay.style.transform = `translate(-50%, -50%) scale(${1 - .15 * payOut})`;
+  pay.style.filter = payOut > 0 && payOut < 1 ? `blur(${6 * payOut}px)` : '';
+  const pin = ease.spring(seg(t, 2.5, 3.2), 1);
+  const paidOn = t < 5.0 ? clamp(seg(t, 2.5, 2.62)) : 1 - seg(t, 5.3, 5.5);
+  paid.style.opacity = paidOn;
+  paid.style.transform = `translate(-50%, -50%) scale(${t < 5.0 ? lerp(.55, 1, pin) : 1})`;
+  // ripple out of the green pill
+  ripples.forEach((r, i) => {
+    const k = seg(t, 2.55 + i * .18, 3.4 + i * .18);
+    r.style.width = `${W_PAID}px`;
+    r.style.opacity = k > 0 && k < 1 ? (1 - k) * .6 : 0;
+    r.style.transform = `translate(-50%, -50%) scale(${1 + k * .35}, ${1 + k * 1.0})`;
+  });
+});
+</script></body></html>

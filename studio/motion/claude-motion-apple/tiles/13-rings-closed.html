@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>13 Rings → closed</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .base { position: absolute; left: 280px; top: 250px; width: 384px; height: 384px; margin: -192px; border-radius: 50%;
+    background: linear-gradient(160deg, #ffffff 0%, #f1f3f6 100%);
+    box-shadow: 0 2px 4px rgba(0,0,0,.05), 0 18px 40px -10px rgba(0,0,0,.16), 0 50px 90px -30px rgba(0,0,0,.18), inset 0 2px 0 #fff, inset 0 -3px 8px rgba(0,0,0,.04); }
+  .disc { position: absolute; left: 280px; top: 250px; width: 244px; height: 244px; margin: -122px; border-radius: 50%;
+    background: radial-gradient(120% 120% at 40% 20%, #ffffff 0%, #f6f7f9 60%, #eef0f3 100%);
+    box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 22px -8px rgba(0,0,0,.18), inset 0 2px 0 #fff; }
+  svg.ring { position: absolute; left: 0; top: 0; width: 560px; height: 500px; overflow: visible; }
+  .word { position: absolute; left: 280px; top: 250px; width: 300px; margin-left: -150px; text-align: center; transform-origin: 50% 50%;
+    font-size: 78px; line-height: .98; font-weight: 800; letter-spacing: -.05em; color: var(--a-ink); }
+  .word span { display: block; }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" id="tint" style="--c:#30D158; left: 100px; top: 70px"></div>
+  <div class="base"></div>
+  <svg class="ring" viewBox="0 0 560 500">
+    <defs>
+      <linearGradient id="g" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#5BE07E"/><stop offset=".55" stop-color="#30D158"/><stop offset="1" stop-color="#1FAE45"/></linearGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+      <filter id="tipglow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="7"/></filter>
+    </defs>
+    <circle cx="280" cy="250" r="156" fill="none" stroke="rgba(48,209,88,.16)" stroke-width="44"/>
+    <g id="burst"></g>
+    <circle id="glowArc" cx="280" cy="250" r="156" fill="none" stroke="#30D158" stroke-width="44" stroke-linecap="round" filter="url(#glow)" opacity=".45" transform="rotate(-90 280 250)" stroke-dasharray="0 980.2"/>
+    <circle id="arc" cx="280" cy="250" r="156" fill="none" stroke="url(#g)" stroke-width="44" stroke-linecap="round" transform="rotate(-90 280 250)" stroke-dasharray="0 980.2"/>
+    <circle id="inner" cx="280" cy="250" r="137" fill="none" stroke="rgba(0,90,35,.16)" stroke-width="4" stroke-linecap="round" transform="rotate(-90 280 250)" stroke-dasharray="0 861"/>
+    <circle id="shine" cx="280" cy="250" r="166" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="5" stroke-linecap="round" transform="rotate(-90 280 250)" stroke-dasharray="0 1043"/>
+    <circle id="tipGlow" r="26" fill="#7CF09A" filter="url(#tipglow)" opacity="0"/>
+    <circle id="tip" r="15" fill="#E9FFF0" opacity="0"/>
+  </svg>
+  <div class="disc"></div>
+  <div class="word"><span>Goal</span><span>hit</span></div>
+</div>
+<script>
+// Scene line: a green ring sweeps round with a glowing tip, closes with a small burst and "Goal hit" lands big in the
+// middle. Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp, rng } = Motion;
+const R = 156, C = 2 * Math.PI * R, RS = 166, CS = 2 * Math.PI * RS;
+const arc = document.getElementById('arc'), glowArc = document.getElementById('glowArc'), shine = document.getElementById('shine'), inner = document.getElementById('inner'),
+  tip = document.getElementById('tip'), tipGlow = document.getElementById('tipGlow'), word = document.querySelector('.word'),
+  burst = document.getElementById('burst'), base = document.querySelector('.base'), disc = document.querySelector('.disc'),
+  ring = document.querySelector('svg.ring'), tint = document.getElementById('tint');
+// burst rays, fixed once (seeded)
+const r0 = rng(13), RAYS = [];
+for (let i = 0; i < 18; i++) {
+  const a = (i / 18) * Math.PI * 2 + (r0() - .5) * .12, l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  l.setAttribute('stroke', '#30D158'); l.setAttribute('stroke-linecap', 'round'); l.setAttribute('stroke-width', 5);
+  burst.appendChild(l); RAYS.push({ a, l, len: .7 + r0() * .5, d: r0() * .06 });
+}
+const setArc = (el, k, circ) => el.setAttribute('stroke-dasharray', `${Math.max(0, k * circ - .001)} ${circ + 10}`);
+run((t) => {
+  // sweep 0.35 → 2.45 s, unwinds 5.2 → 5.95 s back to the dot at the top
+  const fill = ease.inOut(seg(t, .35, 2.45)) * (1 - ease.inOut(seg(t, 5.2, 5.92)));
+  setArc(arc, fill, C); setArc(glowArc, fill, C); setArc(shine, fill, CS); setArc(inner, fill, 2 * Math.PI * 137);
+  // a closed ring is drawn as a full circle (no cap seam)
+  const closed = t > 2.45 && t < 5.2;
+  if (closed) { arc.setAttribute('stroke-dasharray', 'none'); glowArc.setAttribute('stroke-dasharray', 'none'); shine.setAttribute('stroke-dasharray', 'none'); inner.setAttribute('stroke-dasharray', 'none'); }
+  // the glowing tip rides the head of the arc; it rests as a breathing dot at the top while the ring is empty
+  const ang = -Math.PI / 2 + fill * Math.PI * 2;
+  const tx = 280 + R * Math.cos(ang), ty = 250 + R * Math.sin(ang);
+  const moving = seg(t, .3, .6) * (1 - seg(t, 2.35, 2.6)) + seg(t, 5.15, 5.35);
+  const idle = t < .45 || t > 5.85 ? 1 : 0;
+  const breathe = .5 + .5 * Math.sin(2 * Math.PI * t / 1.5);
+  const tipOn = clamp(Math.max(moving, idle));
+  [tip, tipGlow].forEach((c) => { c.setAttribute('cx', tx); c.setAttribute('cy', ty); });
+  tip.setAttribute('opacity', tipOn * .95);
+  const idleW = t < 1 ? 1 - seg(t, .3, .5) : seg(t, 5.75, 6);
+  tip.setAttribute('r', 15 + 2 * breathe * idleW);
+  tipGlow.setAttribute('opacity', tipOn * (.55 + .35 * lerp(1, breathe, idleW)));
+  if (fill < .002) { arc.setAttribute('stroke-dasharray', '0.001 ' + (C + 10)); }
+  // close: the ring pops and a burst of short rays flies out
+  const pop = ease.spring(seg(t, 2.4, 3.1), 1) - ease.out(seg(t, 2.4, 2.55)) * 0;
+  const kick = Math.sin(Math.PI * seg(t, 2.4, 2.7)) * .05 * (1 - seg(t, 2.4, 3.1));
+  const s = 1 + kick;
+  ring.style.transform = base.style.transform = `scale(${s})`;
+  ring.style.transformOrigin = '280px 250px';
+  const b = seg(t, 2.42, 3.05);
+  RAYS.forEach(({ a, l, len, d }) => {
+    const k = ease.out(clamp((b - d) / (1 - d)));
+    const r1 = 196 + 40 * k, r2 = r1 + 26 * len * (1 - k);
+    l.setAttribute('x1', 280 + r1 * Math.cos(a)); l.setAttribute('y1', 250 + r1 * Math.sin(a));
+    l.setAttribute('x2', 280 + r2 * Math.cos(a)); l.setAttribute('y2', 250 + r2 * Math.sin(a));
+    l.setAttribute('opacity', b > 0 && b < 1 ? (1 - k) * .9 : 0);
+  });
+  // "Goal hit" lands big: from large and blurred into place with a spring; it melts away (blur + shrink) at the end
+  const land = ease.spring(seg(t, 2.55, 3.25), .7), leave = ease.inOut(seg(t, 5.05, 5.6));
+  const on = clamp(seg(t, 2.55, 2.8)) * (1 - leave);
+  const sc = lerp(1.5, 1, land) * lerp(1, .85, leave);
+  const blur = 14 * (1 - clamp(seg(t, 2.55, 2.95))) + 12 * leave;
+  word.style.opacity = on;
+  word.style.transform = `translateY(-50%) scale(${sc})`;
+  word.style.filter = blur > .05 ? `blur(${blur}px)` : '';
+  tint.style.opacity = .1 + .1 * fill;
+});
+</script></body></html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>14 Dock → open</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .dockbar { position: absolute; height: 92px; border-radius: 30px; transform-origin: 50% 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,.88) 0%, rgba(244,246,250,.78) 100%); border: 1px solid #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 10px 26px -6px rgba(0,0,0,.14), 0 30px 60px -20px rgba(0,0,0,.18), inset 0 1px 0 #fff; }
+  .ic { position: absolute; width: 64px; height: 64px; transform-origin: 50% 100%; }
+  .ic svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+  .dot { position: absolute; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 3px; background: #3a3a3f; opacity: 0; }
+  .tip { position: absolute; padding: 7px 14px; border-radius: 12px; font-size: 18px; font-weight: 600; color: var(--a-ink); letter-spacing: -.01em;
+    background: rgba(255,255,255,.96); box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 18px -4px rgba(0,0,0,.18); white-space: nowrap; transform-origin: 50% 100%; }
+  .win { position: absolute; left: 50px; top: 26px; width: 460px; height: 300px; border-radius: 26px; overflow: hidden; transform-origin: 50% 50%;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%); border: 1px solid rgba(255,255,255,.98);
+    box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 14px 30px rgba(0,0,0,.10), 0 40px 80px -16px rgba(0,0,0,.24); }
+  .win .bar { position: absolute; left: 0; right: 0; top: 0; height: 58px; display: flex; align-items: center; gap: 11px; padding: 0 20px;
+    background: linear-gradient(180deg, #fbfbfd, #f2f3f6); border-bottom: 1px solid rgba(0,0,0,.06); font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
+  .win .bar .squircle { position: relative; width: 30px; height: 30px; }
+  .win .bar .lights { margin-left: auto; display: flex; gap: 7px; }
+  .win .bar .lights i { width: 12px; height: 12px; border-radius: 6px; background: #dcdde2; display: block; }
+  .win .k { position: absolute; left: 26px; top: 76px; font-size: 18px; font-weight: 600; color: var(--a-grey); }
+  .win .num { position: absolute; left: 22px; top: 96px; font-size: 98px; line-height: 1; display: flex; align-items: center; gap: 14px; }
+  .up { width: 44px; height: 44px; border-radius: 22px; background: linear-gradient(180deg, #5BE07E, #22B84A); box-shadow: 0 6px 12px -4px rgba(0,110,40,.5); flex: none; }
+  .up svg { display: block; width: 100%; height: 100%; }
+  .win svg.chart { position: absolute; left: 0; bottom: 0; width: 460px; height: 110px; }
+  .cursor { position: absolute; width: 40px; height: 40px; filter: drop-shadow(0 4px 5px rgba(0,0,0,.28)); z-index: 30; }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#0A84FF; left: 100px; top: 40px"></div>
+  <div class="dockbar"></div>
+  <div id="icons"></div>
+  <div class="tip">Reports</div>
+  <div class="win">
+    <div class="bar"><div class="squircle" style="--c1:#5AB0FF;--c2:#0A6FE8"><svg viewBox="0 0 64 64" style="position:absolute;inset:0"><g fill="#fff"><rect x="17" y="34" width="7" height="14" rx="3"/><rect x="28.5" y="24" width="7" height="24" rx="3"/><rect x="40" y="16" width="7" height="32" rx="3"/></g></svg></div>
+      Campaign report<div class="lights"><i></i><i></i><i></i></div></div>
+    <div class="k">Conversions</div>
+    <div class="num hero-num"><span id="pct">+38%</span><div class="up"><svg viewBox="0 0 44 44"><path d="M22 31V14M14.5 20.5L22 13l7.5 7.5" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <svg class="chart" viewBox="0 0 460 110">
+      <defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A84FF" stop-opacity=".22"/><stop offset="1" stop-color="#0A84FF" stop-opacity="0"/></linearGradient>
+        <clipPath id="reveal"><rect id="revealRect" x="0" y="0" width="0" height="110"/></clipPath></defs>
+      <g clip-path="url(#reveal)">
+        <path id="area" fill="url(#fill)"/>
+        <path id="line" fill="none" stroke="#0A84FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <circle id="end" r="7" fill="#fff" stroke="#0A84FF" stroke-width="4"/>
+    </svg>
+  </div>
+  <svg class="cursor" viewBox="0 0 24 24"><path d="M5 2.5v17l4.6-4.3 2.9 6.3 2.6-1.2-2.9-6.2 6.3-.4z" fill="#1d1d1f" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+</div>
+<script>
+// Scene line: a dock of six original glossy icons: a cursor glides along, they magnify, one bounces twice and a window
+// zooms out of it: "Campaign report +38%". Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp } = Motion;
+// six original icons (our own glyphs): compass ring, list, sparkle, bar chart, check, folder
+const G = {
+  compass: '<circle cx="32" cy="32" r="15" fill="none" stroke="#0A84FF" stroke-width="5"/><circle cx="32" cy="32" r="5.5" fill="#0A84FF"/>',
+  list: '<g stroke="#8a8f99" stroke-width="4.5" stroke-linecap="round"><path d="M27 22h18M27 32h18M27 42h18"/></g><g fill="#5c616b"><circle cx="19.5" cy="22" r="3"/><circle cx="19.5" cy="32" r="3"/><circle cx="19.5" cy="42" r="3"/></g>',
+  sparkle: '<path d="M32 13c1.6 9.2 5.3 13 15 15-9.7 2-13.4 5.8-15 15-1.6-9.2-5.3-13-15-15 9.7-2 13.4-5.8 15-15z" fill="#fff"/><path d="M46 13c.6 3 1.7 4.2 4.8 4.8-3.1.6-4.2 1.8-4.8 4.8-.6-3-1.7-4.2-4.8-4.8 3.1-.6 4.2-1.8 4.8-4.8z" fill="#fff" opacity=".85"/>',
+  chart: '<g fill="#fff"><rect x="17" y="34" width="7" height="14" rx="3"/><rect x="28.5" y="24" width="7" height="24" rx="3"/><rect x="40" y="16" width="7" height="32" rx="3"/></g>',
+  check: '<circle cx="32" cy="32" r="16" fill="#30D158"/><path d="M24.5 32.5l5 5 10-10.5" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>',
+  folder: '<path d="M16 23a4 4 0 0 1 4-4h8l4 4h12a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4z" fill="#fff"/><path d="M16 29h32" stroke="#9fd0ff" stroke-width="2.5"/>',
+};
+const ICONS = [
+  { g: 'compass', c1: '#ffffff', c2: '#e6e9ef' }, { g: 'list', c1: '#f4f5f7', c2: '#d9dce2' }, { g: 'sparkle', c1: '#3a3b41', c2: '#111114' },
+  { g: 'chart', c1: '#5AB0FF', c2: '#0A6FE8' }, { g: 'check', c1: '#ffffff', c2: '#e6e9ef' }, { g: 'folder', c1: '#8ccaff', c2: '#3D9BFF' },
+];
+const HOT = 3, BASE = 62, GAP = 11, PAD = 14;
+const box = document.getElementById('icons');
+const els = ICONS.map((ic) => {
+  const d = document.createElement('div'); d.className = 'ic squircle'; d.style.setProperty('--c1', ic.c1); d.style.setProperty('--c2', ic.c2);
+  d.innerHTML = `<svg viewBox="0 0 64 64">${G[ic.g]}</svg>`; box.appendChild(d); return d;
+});
+const dotEl = document.createElement('div'); dotEl.className = 'dot'; box.appendChild(dotEl);
+const bar = document.querySelector('.dockbar'), tip = document.querySelector('.tip'), win = document.querySelector('.win'),
+  cursor = document.querySelector('.cursor'), pct = document.getElementById('pct');
+// the chart: a rising line with small wiggles, ending top right
+const PTS = [[0, 92], [40, 88], [80, 90], [120, 80], [160, 82], [200, 72], [240, 70], [280, 58], [320, 54], [360, 40], [400, 30], [440, 14]];
+const smooth = (p) => p.reduce((s, [x, y], i) => {
+  if (!i) return `M${x} ${y}`;
+  const [px, py] = p[i - 1]; const cx = (px + x) / 2; return s + ` C${cx} ${py} ${cx} ${y} ${x} ${y}`;
+}, '');
+const LINE = smooth(PTS);
+document.getElementById('line').setAttribute('d', LINE);
+document.getElementById('area').setAttribute('d', LINE + ' L440 110 L0 110 Z');
+const revealRect = document.getElementById('revealRect'), endDot = document.getElementById('end');
+const yAt = (x) => { for (let i = 1; i < PTS.length; i++) if (x <= PTS[i][0]) { const [x0, y0] = PTS[i - 1], [x1, y1] = PTS[i]; const k = (x - x0) / (x1 - x0); return lerp(y0, y1, (1 - Math.cos(Math.PI * k)) / 2); } return PTS[PTS.length - 1][1]; };
+
+run((t) => {
+  // dock: centred and big, then it sinks to the bottom and shrinks while the window is open, and comes back for the reset
+  const away = ease.spring(seg(t, 2.45, 3.2), .5) * (1 - ease.inOut(seg(t, 5.2, 5.9)));
+  const dScale = lerp(1, .72, away), dockY = lerp(300, 458, away); // dockY = baseline of the icons
+  // cursor: in from the bottom right, glides left along the dock, comes back to the chart icon, clicks at 1.75 s
+  const glide = ease.inOut(seg(t, .2, 1.05)), back = ease.inOut(seg(t, 1.05, 1.6));
+  const exit = ease.inOut(seg(t, 5.25, 5.9));
+  // cursor x in "dock space" (relative to dock centre, unscaled)
+  const xs = [300, -180, 30];
+  let cx = lerp(lerp(xs[0], xs[1], glide), xs[2], back);
+  const hover = clamp(seg(t, .15, .45)) * (1 - ease.inOut(seg(t, 2.3, 2.9)));
+  // magnification: each icon grows by a gaussian of its distance to the cursor
+  const centersBase = ICONS.map((_, i) => (i - (ICONS.length - 1) / 2) * (BASE + GAP));
+  const scales = centersBase.map((c) => 1 + .5 * hover * Math.exp(-Math.pow((c - cx) / 80, 2)));
+  const widths = scales.map((s) => BASE * s);
+  const total = widths.reduce((a, b) => a + b, 0) + GAP * (ICONS.length - 1);
+  // bounce: the chart icon jumps twice after the click
+  const b1 = Math.sin(Math.PI * seg(t, 1.85, 2.2)), b2 = Math.sin(Math.PI * seg(t, 2.2, 2.45)) * .5;
+  const jump = -34 * (b1 + b2);
+  const press = Math.sin(Math.PI * seg(t, 1.72, 1.86));
+  let x = 280 - total / 2 * dScale;
+  const pos = [];
+  els.forEach((el, i) => {
+    const w = widths[i] * dScale;
+    const sq = i === HOT ? 1 - .08 * press : 1;
+    el.style.width = el.style.height = `${BASE}px`;
+    el.style.left = `${x + w / 2 - BASE / 2}px`;
+    el.style.top = `${dockY - BASE - 14 * dScale}px`;
+    el.style.transform = `translateY(${i === HOT ? jump * dScale : 0}px) scale(${scales[i] * dScale * sq})`;
+    pos.push({ cx: x + w / 2, w });
+    x += w + GAP * dScale;
+  });
+  const barW = total * dScale + PAD * 2 * dScale, barH = (BASE + 28) * dScale;
+  bar.style.width = `${barW}px`; bar.style.height = `${barH}px`;
+  bar.style.left = `${280 - barW / 2}px`; bar.style.top = `${dockY - barH + 0 * dScale}px`;
+  // running-app dot under the chart icon once it is opened
+  const dotOn = clamp(seg(t, 2.0, 2.3)) * (1 - seg(t, 5.3, 5.6));
+  dotEl.style.left = `${pos[HOT].cx}px`; dotEl.style.top = `${dockY - 8 * dScale}px`; dotEl.style.opacity = dotOn * .8;
+  // tooltip over the hovered chart icon
+  const tipOn = ease.spring(seg(t, 1.35, 1.7), .8) * (1 - ease.inOut(seg(t, 2.05, 2.3)));
+  tip.style.left = `${pos[HOT].cx}px`;
+  tip.style.top = `${dockY - 14 * dScale - BASE * scales[HOT] * dScale - 52}px`;
+  tip.style.transform = `translateX(-50%) scale(${.6 + .4 * tipOn})`;
+  tip.style.opacity = clamp(tipOn * 1.5);
+  // cursor in screen space: over the icons' middle height
+  const cyIcon = dockY - 14 * dScale - BASE * scales[HOT] * dScale * .45;
+  const csx = 280 + cx * dScale + (exit ? 0 : 0);
+  const enter = ease.out(seg(t, 0, .35));
+  cursor.style.left = `${lerp(csx, 560, exit) - 6}px`;
+  cursor.style.top = `${lerp(lerp(520, cyIcon, enter), 540, exit) - 4 + (t > 2.45 ? (dockY - 300) * .0 : 0)}px`;
+  const ccx = t > 2.45 ? pos[HOT].cx : null;
+  if (ccx !== null && t < 5.25) { cursor.style.left = `${ccx - 6}px`; cursor.style.top = `${dockY - 14 * dScale - BASE * dScale * .55 - 4}px`; }
+  if (ccx !== null && t >= 5.25) {
+    cursor.style.left = `${lerp(ccx, 600, exit) - 6}px`; cursor.style.top = `${lerp(dockY - 14 * dScale - BASE * dScale * .55, 560, exit) - 4}px`;
+  }
+  cursor.style.opacity = clamp(seg(t, 0, .2)) * (1 - seg(t, 5.6, 5.9));
+  cursor.style.transform = `scale(${1 - .14 * press})`;
+  // the window zooms out of the chart icon (from its rect, blurred, to full size), then folds back into it at the end
+  const open = ease.spring(seg(t, 2.3, 3.05), .5), shut = ease.inOut(seg(t, 5.15, 5.75));
+  const k = open * (1 - shut);
+  const iconX = pos[HOT].cx, iconY = dockY - 14 * dScale - BASE * dScale / 2;
+  const s0 = BASE / 460;
+  const wx = lerp(iconX - 280, 0, k), wy = lerp(iconY - 176, 0, k);
+  win.style.transform = `translate(${wx}px, ${wy}px) scale(${lerp(s0, 1, k)})`;
+  win.style.opacity = clamp(seg(t, 2.3, 2.45)) * (1 - clamp(seg(t, 5.6, 5.75)));
+  const wb = 10 * (1 - clamp(seg(t, 2.35, 2.75))) + 10 * shut;
+  win.style.filter = wb > .05 ? `blur(${wb}px)` : '';
+  // the number counts up and the line draws while the window lands
+  const cnt = ease.out(seg(t, 2.6, 3.6));
+  pct.textContent = `+${Math.round(38 * cnt)}%`;
+  const draw = ease.inOut(seg(t, 2.65, 3.7));
+  const rx = 440 * draw;
+  revealRect.setAttribute('width', rx + 8);
+  endDot.setAttribute('cx', rx); endDot.setAttribute('cy', yAt(rx));
+  endDot.setAttribute('opacity', clamp(seg(t, 2.65, 2.8)));
+});
+</script></body></html>

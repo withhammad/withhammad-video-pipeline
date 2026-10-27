@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>10 Sketch → app</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .phone { position: absolute; left: 114px; top: 18px; width: 332px; height: 600px; border-radius: 62px;
+    background: linear-gradient(160deg, #3a3a3e 0%, #111113 40%, #2a2a2d 100%);
+    box-shadow: 0 1px 0 1px rgba(255,255,255,.6) inset, 0 30px 60px -20px rgba(0,0,0,.35), 0 12px 24px -12px rgba(0,0,0,.3); }
+  .side { position: absolute; width: 4px; border-radius: 2px; background: #2a2a2d; }
+  .screen { position: absolute; left: 128px; top: 32px; width: 304px; height: 580px; border-radius: 50px; overflow: hidden; background: #F7F8FA; }
+  .layer { position: absolute; left: 0; top: 0; width: 304px; height: 580px; }
+  .app { background: linear-gradient(180deg, #ffffff 0%, #f3f5f9 100%); }
+  .sketch { background-color: #fbfbf9;
+    background-image: radial-gradient(circle, rgba(60,60,67,.13) 1px, transparent 1.3px); background-size: 16px 16px; background-position: 4px 6px; }
+  .island { position: absolute; left: 50%; top: 11px; width: 100px; height: 30px; margin-left: -50px; border-radius: 15px; background: #000; z-index: 5; }
+  .title { position: absolute; left: 22px; top: 62px; font-size: 27px; font-weight: 700; letter-spacing: -.025em; color: var(--a-ink); }
+  .plus { position: absolute; left: 252px; top: 62px; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;
+    background: linear-gradient(180deg, #3D9BFF, #0A84FF); box-shadow: 0 4px 10px -3px rgba(10,132,255,.6); }
+  .ring { position: absolute; left: 47px; top: 112px; width: 210px; height: 210px; }
+  .pct { position: absolute; left: 0; top: 112px; width: 304px; height: 210px; display: flex; align-items: center; justify-content: center; }
+  .pct b { font-size: 70px; font-weight: 800; letter-spacing: -.05em; color: var(--a-ink); }
+  .pct i { font-style: normal; font-size: 26px; font-weight: 600; color: var(--a-grey); margin: 22px 0 0 2px; }
+  .tile { position: absolute; top: 342px; width: 132px; height: 100px; border-radius: 22px; background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 20px -8px rgba(0,0,0,.12); padding: 14px 14px 0; }
+  .tile small { display: block; font-size: 17px; font-weight: 500; color: var(--a-grey); letter-spacing: -.01em; }
+  .tile b { display: block; font-size: 27px; font-weight: 700; letter-spacing: -.03em; color: var(--a-ink); margin-top: 2px; }
+  .bar { position: absolute; left: 14px; right: 14px; bottom: 14px; height: 6px; border-radius: 3px; background: rgba(10,132,255,.14); }
+  .bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 72%; border-radius: 3px; background: #0A84FF; }
+  .dots { position: absolute; left: 14px; bottom: 12px; display: flex; gap: 5px; }
+  .dots i { width: 10px; height: 10px; border-radius: 50%; background: #30D158; }
+  .status { position: absolute; top: 18px; height: 14px; }
+  .handle { position: absolute; top: 32px; width: 0; height: 468px; }
+  .handle .line { position: absolute; left: -1.5px; top: 0; width: 3px; height: 100%; border-radius: 2px;
+    background: linear-gradient(180deg, rgba(255,255,255,.95), #fff 50%, rgba(255,255,255,.95)); box-shadow: 0 0 0 1px rgba(10,132,255,.25), 0 0 14px rgba(10,132,255,.55); }
+  .knob { position: absolute; left: -31px; top: 155px; width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center;
+    background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(246,248,252,.94)); border: 1px solid #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 18px rgba(0,0,0,.14), 0 18px 34px -10px rgba(10,60,140,.25); }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#0A84FF; left: 100px; top: 40px; opacity: .13"></div>
+  <div class="side" style="left:110px;top:150px;height:56px"></div><div class="side" style="left:110px;top:220px;height:56px"></div>
+  <div class="side" style="left:446px;top:180px;height:90px"></div>
+  <div class="phone"></div>
+  <div class="screen">
+    <div class="layer app">
+      <svg class="status" style="left:26px" width="22" height="14" viewBox="0 0 22 14"><rect x="0" y="9" width="4" height="5" rx="1" fill="#1d1d1f"/><rect x="6" y="6" width="4" height="8" rx="1" fill="#1d1d1f"/><rect x="12" y="3" width="4" height="11" rx="1" fill="#1d1d1f"/><rect x="18" y="0" width="4" height="14" rx="1" fill="#1d1d1f"/></svg>
+      <svg class="status" style="left:250px" width="28" height="14" viewBox="0 0 28 14"><rect x=".75" y=".75" width="23" height="12.5" rx="4" fill="none" stroke="#1d1d1f" stroke-opacity=".4" stroke-width="1.5"/><rect x="3" y="3" width="17" height="8" rx="2" fill="#1d1d1f"/><rect x="25.5" y="4.5" width="2" height="5" rx="1" fill="#1d1d1f" fill-opacity=".4"/></svg>
+      <div class="title">Daily Focus</div>
+      <div class="plus"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 2.5v11M2.5 8h11" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg></div>
+      <svg class="ring" viewBox="0 0 210 210">
+        <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5AB8FF"/><stop offset="1" stop-color="#0A6FE6"/></linearGradient>
+          <filter id="rs" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0A84FF" flood-opacity=".35"/></filter></defs>
+        <circle cx="105" cy="105" r="86" fill="rgba(10,132,255,.05)"/>
+        <circle cx="105" cy="105" r="86" fill="none" stroke="rgba(10,132,255,.13)" stroke-width="22"/>
+        <circle id="arc" cx="105" cy="105" r="86" fill="none" stroke="url(#rg)" stroke-width="22" stroke-linecap="round" transform="rotate(-90 105 105)"
+          pathLength="100" stroke-dasharray="86 100" filter="url(#rs)"/>
+      </svg>
+      <div class="pct"><b>86</b><i>%</i></div>
+      <div class="tile" style="left:16px"><small>Deep work</small><b>3h 40m</b><div class="bar"><i></i></div></div>
+      <div class="tile" style="left:156px"><small>Streak</small><b>12</b><div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+    <div class="layer sketch"><svg id="pencil" width="304" height="580" viewBox="0 0 304 580"></svg></div>
+    <div class="island"></div>
+  </div>
+  <div class="handle"><div class="line"></div><div class="knob">
+    <svg width="30" height="20" viewBox="0 0 30 20"><path d="M10 4L4 10l6 6M20 4l6 6-6 6" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+</div>
+<script>
+// Scene line: a pencil wireframe of a "Daily Focus" app inside a phone; a wipe handle sweeps across and the finished
+// screen is underneath: an 86% ring and two cards. Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp, rng } = Motion;
+const sketch = document.querySelector('.sketch'), handle = document.querySelector('.handle'), knob = document.querySelector('.knob'),
+  pencil = document.getElementById('pencil');
+// ---- the pencil drawing: same layout as the app, hand-drawn twice over with a seeded wobble (built once, static)
+(function draw() {
+  const R = rng(10), j = (a) => (R() - .5) * 2 * a, P = '#6b6b70', L = 'rgba(80,80,90,.22)';
+  const out = [];
+  const line = (x1, y1, x2, y2, w = 1.5, c = P, o = 1) => {
+    for (let k = 0; k < 2; k++) { const mx = (x1 + x2) / 2 + j(1.4), my = (y1 + y2) / 2 + j(1.4);
+      out.push(`<path d="M${x1 + j(1.2)} ${y1 + j(1.2)} Q${mx} ${my} ${x2 + j(1.2)} ${y2 + j(1.2)}" stroke="${c}" stroke-width="${k ? w * .6 : w}" opacity="${k ? o * .55 : o}" fill="none" stroke-linecap="round"/>`); } };
+  const rrect = (x, y, w, h, r) => {
+    for (let k = 0; k < 2; k++) { const d = k ? 1.6 : 0, e = () => j(1.3) + d * .4;
+      out.push(`<path d="M${x + r + e()} ${y + e()} L${x + w - r + e()} ${y + e()} Q${x + w} ${y} ${x + w + e()} ${y + r + e()} L${x + w + e()} ${y + h - r + e()} Q${x + w} ${y + h} ${x + w - r + e()} ${y + h + e()} L${x + r + e()} ${y + h + e()} Q${x} ${y + h} ${x + e()} ${y + h - r + e()} L${x + e()} ${y + r + e()} Q${x} ${y} ${x + r + e() + 6} ${y + e()}" fill="none" stroke="${P}" stroke-width="${k ? 1 : 1.6}" opacity="${k ? .5 : 1}" stroke-linejoin="round"/>`); } };
+  const circ = (cx, cy, r, w = 1.6) => {
+    for (let k = 0; k < 2; k++) { const pts = []; const a0 = j(.4);
+      for (let i = 0; i <= 40; i++) { const a = a0 + i / 40 * Math.PI * 2.06, rr = r + j(1.1) + k * 1.2; pts.push(`${(cx + rr * Math.cos(a)).toFixed(1)} ${(cy + rr * Math.sin(a)).toFixed(1)}`); }
+      out.push(`<path d="M${pts.join(' L')}" fill="none" stroke="${P}" stroke-width="${k ? w * .6 : w}" opacity="${k ? .5 : 1}" stroke-linejoin="round"/>`); } };
+  const text = (x, y, s, size, wgt = 700, anchor = 'start') =>
+    out.push(`<text x="${x}" y="${y}" font-family="Inter" font-weight="${wgt}" font-size="${size}" letter-spacing="-.5" text-anchor="${anchor}" fill="rgba(110,110,115,.10)" stroke="${P}" stroke-width="1.1">${s}</text>`);
+  // layout guides
+  [22, 152, 282].forEach((x) => out.push(`<path d="M${x} 50V580" stroke="${L}" stroke-dasharray="4 5" stroke-width="1"/>`));
+  [104, 334, 450].forEach((y) => out.push(`<path d="M0 ${y}H304" stroke="${L}" stroke-dasharray="4 5" stroke-width="1"/>`));
+  // status bar
+  [0, 6, 12, 18].forEach((dx, i) => line(26 + dx + 2, 32, 26 + dx + 2, 32 - 5 - i * 3, 2.2));
+  rrect(250, 18, 24, 13, 4);
+  text(22, 89, 'Daily Focus', 27);
+  circ(268, 78, 16); line(268, 70, 268, 86, 1.8); line(260, 78, 276, 78, 1.8);
+  // the ring: inner and outer rims plus pencil hatching where the stroke goes
+  circ(152, 217, 97); circ(152, 217, 75);
+  const R2 = rng(4);
+  for (let i = 0; i < 64; i++) { const a = -Math.PI / 2 + i / 64 * Math.PI * 2 * .86, a2 = a + .12;
+    out.push(`<path d="M${152 + 77 * Math.cos(a)} ${217 + 77 * Math.sin(a)} L${152 + 95 * Math.cos(a2)} ${217 + 95 * Math.sin(a2)}" stroke="${P}" stroke-width="1" opacity="${.45 + R2() * .35}" stroke-linecap="round"/>`); }
+  text(144, 240, '86', 70, 800, 'middle'); text(194, 240, '%', 26, 600, 'start');
+  // two cards
+  rrect(16, 342, 132, 100, 22); rrect(156, 342, 132, 100, 22);
+  text(30, 373, 'Deep work', 17, 500); text(30, 408, '3h 40m', 27, 700);
+  text(170, 373, 'Streak', 17, 500); text(170, 408, '12', 27, 700);
+  rrect(30, 422, 104, 6, 3); line(32, 425, 104, 425, 3, P, .7);
+  for (let i = 0; i < 7; i++) circ(175 + i * 15, 425, 5, 1.2);
+  pencil.innerHTML = out.join('');
+})();
+const SX = 128, SW = 304; // screen left and width on the stage
+run((t) => {
+  // handle: parked on the left edge, sweeps right revealing the app, settles, later sweeps back and covers it again
+  const go = ease.inOut(seg(t, .7, 2.0)), ret = ease.inOut(seg(t, 4.4, 5.55));
+  let k = go * (1 - ret);
+  // a small spring settle when it parks on either side
+  const s1 = seg(t, 2.0, 2.6), s2 = seg(t, 5.55, 6.0);
+  const settle = (x) => (x > 0 && x < 1 ? Math.exp(-6 * x) * Math.sin(2 * Math.PI * 1.5 * x) : 0);
+  const x = SX + SW * k + 10 * settle(s1) - 10 * settle(s2);
+  handle.style.left = `${x}px`;
+  sketch.style.clipPath = `inset(0 0 0 ${clamp(x - SX, 0, SW)}px)`;
+  // the knob swells while it is being dragged
+  const drag = Math.sin(Math.PI * seg(t, .55, 2.15)) + Math.sin(Math.PI * seg(t, 4.25, 5.7));
+  knob.style.transform = `scale(${1 + .08 * clamp(drag)})`;
+});
+</script></body></html>

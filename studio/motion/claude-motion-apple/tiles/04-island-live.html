@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>04 Island → live</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .clip { position: absolute; left: 0; top: 0; width: 560px; height: 500px; overflow: hidden; }
+  .phone { position: absolute; left: 34px; top: 12px; width: 492px; height: 600px; border-radius: 84px; padding: 13px;
+    background: linear-gradient(180deg, #2a2a2e, #111113);
+    box-shadow: 0 0 0 2px #d8d8de, 0 0 0 3px #a9a9b2, 0 30px 60px -20px rgba(0,0,0,.35), 0 10px 24px -10px rgba(0,0,0,.25); }
+  .screen { position: relative; width: 100%; height: 100%; border-radius: 72px; overflow: hidden;
+    background:
+      radial-gradient(46% 38% at 22% 30%, rgba(255,186,92,.85) 0%, rgba(255,186,92,0) 100%),
+      radial-gradient(40% 34% at 84% 52%, rgba(255,110,96,.75) 0%, rgba(255,110,96,0) 100%),
+      radial-gradient(60% 40% at 40% 78%, rgba(255,214,170,.9) 0%, rgba(255,214,170,0) 100%),
+      linear-gradient(180deg, #FFF3E6 0%, #FFE6D8 100%); }
+  .status { position: absolute; top: 20px; left: 44px; right: 40px; display: flex; justify-content: space-between; align-items: center;
+    font-size: 19px; font-weight: 600; letter-spacing: -.01em; color: #1d1d1f; }
+  .dock { position: absolute; left: 22px; right: 22px; top: 368px; height: 102px; border-radius: 40px;
+    background: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.8); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+    display: flex; justify-content: space-around; align-items: center; padding: 0 12px; box-shadow: inset 0 1px 0 rgba(255,255,255,.7); }
+  .dock .squircle { position: relative; width: 70px; height: 70px; }
+  .dock svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+  .island { position: absolute; left: 280px; top: 34px; background: #000; overflow: hidden;
+    box-shadow: 0 18px 40px -14px rgba(0,0,0,.55), 0 4px 10px -4px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.12); }
+  .island .sheen { position: absolute; inset: 0; background: radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.10), rgba(255,255,255,0) 60%); }
+  .mini { position: absolute; top: 9px; width: 24px; height: 24px; }
+  .content { position: absolute; left: 280px; top: 34px; width: 448px; height: 266px; margin-left: -224px; }
+  .appic { position: absolute; left: 26px; top: 24px; width: 38px; height: 38px; }
+  .appic svg { position: absolute; inset: 0; z-index: 1; }
+  .starting { position: absolute; left: 76px; top: 31px; font-size: 20px; font-weight: 600; color: #a1a1a6; letter-spacing: -.01em; }
+  .flip { position: absolute; left: 160px; top: 76px; width: 128px; height: 160px; perspective: 1600px; }
+  .half { position: absolute; left: 0; width: 128px; height: 80px; overflow: hidden; background: linear-gradient(180deg, #3a3a3e, #2a2a2d); backface-visibility: hidden; }
+  .half.t { top: 0; border-radius: 22px 22px 0 0; transform-origin: 50% 100%; }
+  .half.b { top: 80px; border-radius: 0 0 22px 22px; transform-origin: 50% 0%; background: linear-gradient(180deg, #2a2a2d, #1f1f22); }
+  .half span { position: absolute; left: 0; width: 128px; height: 160px; line-height: 160px; text-align: center; color: #fff;
+    font-size: 124px; font-weight: 800; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+  .half.b span { top: -80px; }
+  .seam { position: absolute; left: 0; top: 79px; width: 128px; height: 2px; background: #0b0b0c; z-index: 5; }
+  .live { position: absolute; left: 0; right: 0; top: 70px; display: flex; flex-direction: column; align-items: center; }
+  .live .row { display: flex; align-items: center; gap: 22px; }
+  .live b { font-size: 104px; line-height: 1; font-weight: 800; letter-spacing: -.05em; color: #fff; }
+  .dot { position: relative; width: 34px; height: 34px; margin-top: 6px; }
+  .dot i { position: absolute; inset: 0; border-radius: 50%; }
+  .dot .core { background: radial-gradient(circle at 35% 30%, #FF8A80 0%, #FF453A 45%, #D92B21 100%); box-shadow: 0 0 22px rgba(255,69,58,.85); }
+  .dot .ring { border: 2px solid rgba(255,69,58,.75); }
+  .live p { margin-top: 18px; font-size: 25px; font-weight: 600; color: #d1d1d6; letter-spacing: -.015em; }
+</style></head>
+<body class="apple"><div class="stage"><div class="clip">
+  <div class="tint" style="--c:#FF9F0A; left: -80px; top: 220px; opacity: .14"></div>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>09:30</span>
+      <svg width="74" height="20" viewBox="0 0 74 20"><g fill="#1d1d1f"><rect x="0" y="12" width="4" height="6" rx="1.2"/><rect x="6" y="9" width="4" height="9" rx="1.2"/><rect x="12" y="6" width="4" height="12" rx="1.2"/><rect x="18" y="3" width="4" height="15" rx="1.2"/></g>
+        <rect x="36" y="3.5" width="32" height="14" rx="4.5" fill="none" stroke="#1d1d1f" stroke-opacity=".45" stroke-width="1.6"/><rect x="38.5" y="6" width="22" height="9" rx="2.5" fill="#1d1d1f"/><rect x="69.5" y="8" width="2.4" height="5" rx="1.2" fill="#1d1d1f" fill-opacity=".45"/></svg></div>
+    <div class="dock">
+      <div class="squircle" style="--c1:#FFB547;--c2:#FF5E3A"><svg viewBox="0 0 70 70"><rect x="17" y="21" width="36" height="26" rx="7" fill="none" stroke="#fff" stroke-width="4.5"/><circle cx="35" cy="34" r="5" fill="#fff"/><path d="M28 54h14" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/></svg></div>
+      <div class="squircle" style="--c1:#5AB4FF;--c2:#0A6EF0"><svg viewBox="0 0 70 70"><rect x="16" y="22" width="38" height="28" rx="6" fill="#fff"/><path d="M18 25l17 13 17-13" fill="none" stroke="#0A84FF" stroke-width="3.5" stroke-linejoin="round"/></svg></div>
+      <div class="squircle" style="--c1:#5BE07E;--c2:#1FAE45"><svg viewBox="0 0 70 70"><path d="M17 48l11-12 9 7 15-17" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="squircle" style="--c1:#D58BFF;--c2:#8E4BF0"><svg viewBox="0 0 70 70"><path d="M19 22h32a5 5 0 0 1 5 5v15a5 5 0 0 1-5 5H33l-10 8v-8h-4a5 5 0 0 1-5-5V27a5 5 0 0 1 5-5z" fill="#fff"/></svg></div>
+    </div>
+  </div></div>
+  <div class="island"><div class="sheen"></div>
+    <div class="mini squircle" style="--c1:#FFB547;--c2:#FF5E3A; left: 9px"></div>
+    <svg class="mini" style="right: 11px" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="rgba(255,159,10,.3)" stroke-width="3"/><circle cx="12" cy="12" r="8.5" fill="none" stroke="#FF9F0A" stroke-width="3" stroke-dasharray="40 60" stroke-linecap="round" transform="rotate(-90 12 12)"/></svg>
+  </div>
+  <div class="content">
+    <div class="appic squircle" style="--c1:#FFB547;--c2:#FF5E3A"><svg viewBox="0 0 38 38"><rect x="9" y="11" width="20" height="14" rx="4" fill="none" stroke="#fff" stroke-width="2.8"/><circle cx="19" cy="18" r="2.8" fill="#fff"/><path d="M15 29h8" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg></div>
+    <div class="starting">Starting in</div>
+    <div class="flip">
+      <div class="half t" id="ts"><span></span></div><div class="half b" id="bs"><span></span></div>
+      <div class="half t" id="tf"><span></span></div><div class="half b" id="bf"><span></span></div>
+      <div class="seam"></div>
+    </div>
+    <div class="live"><div class="row"><div class="dot"><i class="ring"></i><i class="ring"></i><i class="core"></i></div><b>LIVE</b></div><p>Webinar starts now</p></div>
+  </div>
+</div></div>
+<script>
+// Scene line: the black pill at the top of a phone stretches into a live card: 3, 2, 1 flips, then a pulsing red dot and
+// "LIVE · Webinar starts now", and it shrinks back. Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp } = Motion;
+const $ = (s) => document.querySelector(s);
+const island = $('.island'), content = $('.content'), minis = document.querySelectorAll('.island .mini'),
+  appic = $('.appic'), starting = $('.starting'), flip = $('.flip'), live = $('.live'), rings = document.querySelectorAll('.dot .ring'), core = $('.dot .core');
+const ts = $('#ts span'), bs = $('#bs span'), tf = $('#tf'), bf = $('#bf'), tfs = $('#tf span'), bfs = $('#bf span');
+const PILL = [140, 42], CARD = [448, 266];
+const set = (el, v) => { if (el.textContent !== v) el.textContent = v; };
+const FLIPS = [[1.78, '3', '2'], [2.68, '2', '1']];
+run((t) => {
+  // island: pill -> card (spring), card -> pill at the end (spring), with a small squash as it lands
+  const grow = ease.spring(seg(t, .35, 1.05), .55), shrink = ease.spring(seg(t, 5.18, 5.92), .45);
+  const g = grow - shrink;
+  const gh = ease.spring(seg(t, .4, 1.1), .5) - ease.spring(seg(t, 5.12, 5.85), .45);
+  const w = lerp(PILL[0], CARD[0], g), h = lerp(PILL[1], CARD[1], gh);
+  island.style.width = `${w}px`; island.style.height = `${h}px`; island.style.marginLeft = `${-w / 2}px`;
+  island.style.borderRadius = `${lerp(21, 48, clamp(gh))}px`;
+  // the tiny live-activity glyphs sit in the pill only while it is small
+  const small = 1 - clamp(seg(t, .3, .5)) + clamp(seg(t, 5.65, 5.85));
+  minis.forEach((m) => { m.style.opacity = clamp(small); m.style.transform = `scale(${.6 + .4 * clamp(small)})`; });
+  // card content: in after the island opens, blurred out before it closes
+  const cin = seg(t, .78, 1.05), cout = seg(t, 5.02, 5.25), ck = clamp(cin) * (1 - cout);
+  content.style.opacity = ck; content.style.filter = ck < 1 ? `blur(${(1 - ck) * 10}px)` : '';
+  content.style.transform = `scale(${.92 + .08 * ck})`;
+  // countdown 3, 2, 1 on a split-flap tile
+  let cur = '3', next = '3', f = 0;
+  for (const [at, a, b] of FLIPS) { if (t >= at + .42) { cur = b; next = b; } else if (t >= at) { cur = a; next = b; f = (t - at) / .42; } }
+  if (t < FLIPS[0][0]) { cur = next = '3'; }
+  set(ts, next); set(bs, cur); set(tfs, cur); set(bfs, next);
+  const fa = ease.inOut(Math.min(1, f * 2)), fb = f > .5 ? ease.spring((f - .5) * 2, .3) : 0;
+  tf.style.transform = `rotateX(${-90 * fa}deg)`; tf.style.visibility = f > 0 && f < .5 ? 'visible' : 'hidden';
+  bf.style.transform = `rotateX(${90 * (1 - fb)}deg)`; bf.style.visibility = f >= .5 && f < 1 ? 'visible' : 'hidden';
+  tf.style.filter = `brightness(${1 - .35 * fa})`;
+  // 1 -> LIVE: the tile and label leave with blur + scale, LIVE springs in
+  const away = ease.inOut(seg(t, 3.5, 3.78));
+  flip.style.opacity = 1 - away; flip.style.filter = away ? `blur(${10 * away}px)` : '';
+  const intro = ease.spring(seg(t, .95, 1.4), .8);
+  flip.style.transform = `scale(${(1 - .25 * away) * lerp(.7, 1, intro)})`;
+  starting.style.opacity = 1 - away;
+  const lv = ease.spring(seg(t, 3.62, 4.15), .9);
+  live.style.opacity = clamp(seg(t, 3.62, 3.8));
+  live.style.transform = `scale(${lerp(.6, 1, lv)})`; live.style.filter = lv < .6 ? `blur(${(1 - lv / .6) * 10}px)` : '';
+  // the red dot breathes and sends out rings while live
+  const on = t > 3.8 && t < 5.1;
+  rings.forEach((r, i) => { const k = on ? ((t - 3.8 + i * .45) / .9) % 1 : 0;
+    r.style.opacity = on ? (1 - k) * .8 : 0; r.style.transform = `scale(${1 + 1.4 * ease.out(k)})`; });
+  core.style.transform = `scale(${1 + .08 * Math.sin(2 * Math.PI * (t - 3.8) / .9) * (on ? 1 : 0)})`;
+});
+</script></body></html>

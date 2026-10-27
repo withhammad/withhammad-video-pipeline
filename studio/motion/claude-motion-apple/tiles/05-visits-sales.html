@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>05 Visits → sales</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .counter { left: 128px; top: 372px; width: 304px; height: 104px; border-radius: 30px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 12px; }
+  .num { display: flex; font-size: 86px; line-height: 1; font-weight: 800; letter-spacing: -.05em; font-variant-numeric: tabular-nums; color: var(--a-ink); }
+  .col { height: 1.1em; overflow: hidden; }
+  .strip b { display: block; height: 1.1em; line-height: 1.1em; font-weight: 800; padding-right: .05em; }
+  .unit { margin-left: 10px; margin-bottom: 14px; font-size: 26px; font-weight: 700; color: var(--a-green-deep); letter-spacing: -.015em; }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#0A84FF; left: 100px; top: 0px; opacity: .13"></div>
+  <div class="tint" style="--c:#30D158; left: 140px; top: 300px; width: 280px; height: 200px; opacity: .1"></div>
+  <div class="glass counter"><div class="num"></div><div class="unit">sales</div></div>
+</div>
+<script>
+// Scene line: a tilted glass funnel: a shower of glowing dots pours in, a few drip out the bottom and a counter rolls up
+// to "600 sales". Every value is a function of t alone (6 s loop): each dot's age is (t - spawn) mod 6, so the pour has
+// no seam, and the counter rolls back down to 0 at the end.
+const { ease, seg, run, lerp, clamp, rng, hold } = Motion;
+const stage = document.querySelector('.stage');
+const { ctx } = Motion.canvas(stage);
+stage.insertBefore(ctx.canvas, document.querySelector('.counter'));
+const CX = 280, RIM = 120, RX = 200, RY = 42, NECK = 318, NR = 22, SPOUT = 350;
+const rad = (p) => NR + (RX - NR) * Math.pow(1 - p, 1.55);   // cone radius from rim (p=0) to neck (p=1)
+const yAt = (p) => lerp(RIM, NECK, p);
+
+// glowing dot sprites (blue visits, green sales)
+const sprite = (core, hi, glow) => { const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d');
+  const g = x.createRadialGradient(32, 32, 0, 32, 32, 32); g.addColorStop(0, glow); g.addColorStop(1, 'rgba(255,255,255,0)');
+  x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+  const d = x.createRadialGradient(28, 27, 1, 32, 32, 13); d.addColorStop(0, hi); d.addColorStop(.55, core); d.addColorStop(1, core);
+  x.fillStyle = d; x.beginPath(); x.arc(32, 32, 12.5, 0, 7); x.fill(); return c; };
+const BLUE = sprite('#0A7BFF', '#9FD0FF', 'rgba(10,132,255,.30)'), BLUE2 = sprite('#3D9BFF', '#CFE7FF', 'rgba(90,170,255,.26)'), GREEN = sprite('#1FB84A', '#B6F5C6', 'rgba(48,209,88,.45)');
+
+// particles: spawn times over the loop, dense while the pour is on
+const R = rng(5), parts = [];
+for (let i = 0; i < 900; i++) {
+  const s = R() * 6, dens = .16 + .84 * hold(s, .25, .7, 3.0, 3.5, ease.sine);
+  const keep = R() < dens;
+  const p = { s, f0: Math.sqrt(R()) * .92, a0: R() * Math.PI * 2, y0: -30 - R() * 120, t1: .5 + R() * .3, t2: .75 + R() * .25,
+    size: 2.8 + R() * 3.8, drip: R() < .12, light: R() < .4, spin: (R() < .5 ? -1 : 1) * (2 + R() * 2) };
+  if (keep) parts.push(p);
+}
+
+function funnelPath(c, inset = 0) {
+  c.beginPath();
+  c.moveTo(CX - RX + inset, RIM);
+  for (let i = 1; i <= 40; i++) { const p = i / 40; c.lineTo(CX - rad(p) + inset * (1 - p), yAt(p)); }
+  c.lineTo(CX + NR - inset * 0, NECK);
+  for (let i = 39; i >= 0; i--) { const p = i / 40; c.lineTo(CX + rad(p) - inset * (1 - p), yAt(p)); }
+  c.ellipse(CX, RIM, RX - inset, RY - inset * .2, 0, 0, Math.PI, false);
+  c.closePath();
+}
+
+const ODO = [...Array(3)].map(() => { const c = document.createElement('div'); c.className = 'col';
+  const s = document.createElement('div'); s.className = 'strip'; s.innerHTML = '01234567890'.split('').map((d) => `<b>${d}</b>`).join('');
+  c.appendChild(s); document.querySelector('.num').prepend(c); return { c, s }; }); // prepended: hundreds, tens, units
+let colW = 0;
+const value = (t) => 600 * ease.out(seg(t, 1.15, 3.75), 1) * (1 - ease.inOut(seg(t, 5.2, 5.88)));
+// odometer position of column k (k=0 units): moves only while the lower columns roll over
+const colPos = (v, k) => { const m = Math.pow(10, k), r = v % m; return Math.floor(v / m) + Math.max(0, r - (m - 1)); };
+
+run((t) => {
+  ctx.clearRect(0, 0, 560, 500);
+  const flow = hold(t, 1.0, 1.4, 3.5, 4.1, ease.sine); // how much is dripping out: lights the spout
+  // soft blue bloom inside the cone and a green bloom at the spout
+  ctx.save(); ctx.filter = 'blur(30px)';
+  ctx.fillStyle = 'rgba(10,132,255,.20)'; ctx.beginPath(); ctx.ellipse(CX, 210, 120, 70, 0, 0, 7); ctx.fill();
+  ctx.fillStyle = `rgba(48,209,88,${.12 + .3 * flow})`; ctx.beginPath(); ctx.ellipse(CX, SPOUT + 6, 46, 26, 0, 0, 7); ctx.fill();
+  ctx.restore();
+  // back half of the glass: tinted body, the open rim and its back edge
+  funnelPath(ctx);
+  const body = ctx.createLinearGradient(CX - RX, 0, CX + RX, 0);
+  body.addColorStop(0, 'rgba(90,160,255,.50)'); body.addColorStop(.16, 'rgba(150,200,255,.26)'); body.addColorStop(.5, 'rgba(185,215,255,.16)');
+  body.addColorStop(.84, 'rgba(150,200,255,.26)'); body.addColorStop(1, 'rgba(90,160,255,.50)');
+  ctx.fillStyle = body; ctx.fill();
+  const mouth = ctx.createLinearGradient(0, RIM - RY, 0, RIM + RY); mouth.addColorStop(0, 'rgba(10,110,255,.20)'); mouth.addColorStop(1, 'rgba(10,132,255,.06)');
+  ctx.fillStyle = mouth; ctx.beginPath(); ctx.ellipse(CX, RIM, RX, RY, 0, 0, 7); ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,.75)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.ellipse(CX, RIM, RX - 2, RY - 1, 0, Math.PI, 2 * Math.PI); ctx.stroke();
+
+  // dots: fall from above, spiral down inside the cone, and a few drip out green
+  const above = [], inside = [], below = [];
+  for (const p of parts) {
+    const age = (((t - p.s) % 6) + 6) % 6;
+    if (age > p.t1 + p.t2 + .55) continue;
+    const ex = p.f0 * Math.cos(p.a0), ey = p.f0 * Math.sin(p.a0);
+    if (age < p.t1) {
+      const u = age / p.t1, y = lerp(p.y0, RIM + RY * ey, u * u);
+      above.push([CX + RX * ex, y, p.size, clamp(age / .12) * .95, p.light ? BLUE2 : BLUE]);
+    } else if (age < p.t1 + p.t2) {
+      const u = (age - p.t1) / p.t2, q = Math.pow(u, 1.25), a = p.a0 + p.spin * q;
+      const r = rad(q) * p.f0 * (1 - .6 * q), x = CX + r * Math.cos(a), y = yAt(q) + RY * (rad(q) / RX) * p.f0 * Math.sin(a);
+      const fade = p.drip ? 1 : 1 - u * u;
+      inside.push([x, y, p.size * (1 - .3 * q), .95 * fade, p.light ? BLUE2 : BLUE]);
+    } else if (p.drip) {
+      const u = (age - p.t1 - p.t2) / .55, y = lerp(NECK, 392, u * u);
+      below.push([CX, y, 4.2 + 1.2 * (1 - u), clamp((1 - u) * 3) * clamp(u * 6 + .4), GREEN]);
+    }
+  }
+  const dots = (arr) => { for (const [x, y, s, a, img] of arr) { if (a <= 0) continue; ctx.globalAlpha = a; ctx.drawImage(img, x - s * 2.5, y - s * 2.5, s * 5, s * 5); } ctx.globalAlpha = 1; };
+  dots(inside);
+
+  // front of the glass: sheen, edges, front rim, a long specular streak
+  ctx.save(); funnelPath(ctx); ctx.clip();
+  const sheen = ctx.createLinearGradient(CX - RX, 0, CX + RX, 0);
+  sheen.addColorStop(0, 'rgba(255,255,255,.0)'); sheen.addColorStop(.12, 'rgba(255,255,255,.55)'); sheen.addColorStop(.2, 'rgba(255,255,255,.08)');
+  sheen.addColorStop(.7, 'rgba(255,255,255,0)'); sheen.addColorStop(.86, 'rgba(255,255,255,.3)'); sheen.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = sheen; ctx.fillRect(0, 0, 560, 500); ctx.restore();
+  ctx.save(); funnelPath(ctx); ctx.strokeStyle = 'rgba(30,100,200,.22)'; ctx.lineWidth = 1.2; ctx.stroke(); ctx.restore();
+  ctx.save(); ctx.shadowColor = 'rgba(10,90,200,.35)'; ctx.shadowBlur = 10;
+  ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.lineWidth = 2;
+  ctx.beginPath(); for (let i = 0; i <= 40; i++) { const p = i / 40; i ? ctx.lineTo(CX - rad(p), yAt(p)) : ctx.moveTo(CX - rad(p), yAt(p)); } ctx.stroke();
+  ctx.beginPath(); for (let i = 0; i <= 40; i++) { const p = i / 40; i ? ctx.lineTo(CX + rad(p), yAt(p)) : ctx.moveTo(CX + rad(p), yAt(p)); } ctx.stroke();
+  ctx.restore();
+  // the glass lip: a thick bright ring with a thin blue inner edge
+  ctx.save(); ctx.shadowColor = 'rgba(10,90,200,.3)'; ctx.shadowBlur = 10;
+  ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.beginPath(); ctx.ellipse(CX, RIM, RX + 3, RY + 2, 0, 0, 7); ctx.ellipse(CX, RIM + 1, RX - 6, RY - 4, 0, 0, 7, true); ctx.fill('evenodd'); ctx.restore();
+  ctx.strokeStyle = 'rgba(30,110,220,.35)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.ellipse(CX, RIM + 1, RX - 6, RY - 4, 0, 0, 7); ctx.stroke();
+  ctx.strokeStyle = 'rgba(30,110,220,.22)'; ctx.beginPath(); ctx.ellipse(CX, RIM, RX + 3.5, RY + 2.5, 0, 0, 7); ctx.stroke();
+  ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  ctx.beginPath(); for (let i = 2; i <= 30; i++) { const p = i / 40; const x = CX - rad(p) * .82, y = yAt(p) + RY * (rad(p) / RX) * .45; i > 2 ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke();
+  // the spout: a short glass tube with a brushed metal collar, lit green while sales drip out
+  const tube = ctx.createLinearGradient(CX - 18, 0, CX + 18, 0);
+  tube.addColorStop(0, 'rgba(150,200,255,.55)'); tube.addColorStop(.35, 'rgba(255,255,255,.75)'); tube.addColorStop(1, 'rgba(150,200,255,.5)');
+  ctx.fillStyle = tube; ctx.beginPath(); ctx.roundRect(CX - 17, NECK + 10, 34, SPOUT - NECK - 10, [0, 0, 10, 10]); ctx.fill();
+  ctx.fillStyle = `rgba(48,209,88,${.15 + .6 * flow})`; ctx.beginPath(); ctx.roundRect(CX - 11, NECK + 14, 22, SPOUT - NECK - 18, [0, 0, 7, 7]); ctx.fill();
+  const metal = ctx.createLinearGradient(CX - 22, 0, CX + 22, 0);
+  metal.addColorStop(0, '#9aa3ad'); metal.addColorStop(.3, '#f4f6f8'); metal.addColorStop(.55, '#c3c9d0'); metal.addColorStop(1, '#8b939c');
+  ctx.fillStyle = metal; ctx.beginPath(); ctx.roundRect(CX - 23, NECK - 2, 46, 16, 5); ctx.fill();
+  dots(below);
+  dots(above);
+
+  // counter: a mechanical odometer, blurred while it spins
+  if (!colW) colW = ODO[0].c.offsetWidth;
+  const v = value(t), dv = Math.abs(value(t + .02) - value(t - .02)) / .04;
+  ODO.forEach(({ c, s }, k) => {
+    const pos = colPos(v, k), m = Math.pow(10, k);
+    s.style.transform = `translateY(${-(pos % 10) * 1.1 * 86}px)`;
+    s.style.filter = `blur(${Math.min(6, dv / m * .05)}px)`;
+    const show = k === 0 ? 1 : clamp((v - (m - 1)) / (m * .6));
+    c.style.width = `${colW * ease.inOut(show)}px`; c.style.opacity = show;
+  });
+});
+</script></body></html>

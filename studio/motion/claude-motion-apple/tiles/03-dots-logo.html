@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>03 Dots → logo</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+</head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#0A84FF; left: 100px; top: 80px; opacity: .14"></div>
+  <div class="tint" style="--c:#5E5CE6; left: 220px; top: 200px; width: 240px; height: 240px; opacity: .1"></div>
+</div>
+<script>
+// Scene line: about 150 glossy blue beads drift in, swirl once and click together into an original squircle mark with a
+// cut-out arc, then a glint crosses it. Every value is a function of t alone (6 s loop): the loop opens on the finished
+// mark, which breaks into beads, swirls a full turn as a tilted ring and clicks back together.
+const { ease, seg, run, lerp, clamp, rng } = Motion;
+const stage = document.querySelector('.stage');
+const { ctx } = Motion.canvas(stage);
+const CX = 280, CY = 238, S = 152, NEXP = 4.6;     // squircle half-size and superellipse exponent
+const RM = 74, T = 32, GAP_AT = -Math.PI / 4, GAP = 1.05; // the cut-out arc: mid radius, width, gap direction and size
+const A0 = GAP_AT + GAP / 2, A1 = GAP_AT - GAP / 2 + 2 * Math.PI;
+const RES = 3;
+
+function squirclePath(c, s) {
+  c.beginPath();
+  for (let i = 0; i <= 160; i++) {
+    const a = i / 160 * 2 * Math.PI, ca = Math.cos(a), sa = Math.sin(a);
+    const x = s * Math.sign(ca) * Math.pow(Math.abs(ca), 2 / NEXP), y = s * Math.sign(sa) * Math.pow(Math.abs(sa), 2 / NEXP);
+    i ? c.lineTo(x, y) : c.moveTo(x, y);
+  }
+  c.closePath();
+}
+const inSquircle = (x, y, s) => Math.pow(Math.abs(x / s), NEXP) + Math.pow(Math.abs(y / s), NEXP) <= 1;
+function distArc(x, y) { // distance from a point to the centre line of the cut-out arc
+  let a = Math.atan2(y, x); while (a < A0) a += 2 * Math.PI;
+  if (a <= A1) return Math.abs(Math.hypot(x, y) - RM);
+  return Math.min(Math.hypot(x - RM * Math.cos(A0), y - RM * Math.sin(A0)), Math.hypot(x - RM * Math.cos(A1), y - RM * Math.sin(A1)));
+}
+
+// --- the solid mark, drawn once at 3x into an offscreen canvas
+const PAD = 40, MS = (S + PAD) * 2;
+const mark = document.createElement('canvas'); mark.width = mark.height = MS * RES;
+{
+  const c = mark.getContext('2d'); c.scale(RES, RES); c.translate(MS / 2, MS / 2);
+  squirclePath(c, S);
+  const g = c.createLinearGradient(-S, -S, S, S); g.addColorStop(0, '#5DB2FF'); g.addColorStop(.5, '#1A86FF'); g.addColorStop(1, '#2E63F0');
+  c.fillStyle = g; c.fill();
+  c.save(); squirclePath(c, S); c.clip();
+  const pg = c.createRadialGradient(S * .9, S * .9, 0, S * .9, S * .9, S * 1.3); pg.addColorStop(0, 'rgba(110,92,255,.75)'); pg.addColorStop(1, 'rgba(110,92,255,0)');
+  c.fillStyle = pg; c.fillRect(-S, -S, 2 * S, 2 * S);
+  const gl = c.createLinearGradient(0, -S, 0, 0); gl.addColorStop(0, 'rgba(255,255,255,.38)'); gl.addColorStop(1, 'rgba(255,255,255,0)');
+  c.fillStyle = gl; c.fillRect(-S, -S, 2 * S, S);
+  c.restore();
+  // the arc is cut out, then its edges get a soft inner shade so it reads as a recess
+  c.globalCompositeOperation = 'destination-out';
+  c.lineCap = 'round'; c.lineWidth = T; c.beginPath(); c.arc(0, 0, RM, A0, A1); c.stroke();
+  c.globalCompositeOperation = 'source-atop';
+  c.filter = 'blur(5px)'; c.strokeStyle = 'rgba(0,40,140,.35)'; c.lineWidth = T + 10; c.beginPath(); c.arc(0, 0, RM, A0, A1); c.stroke();
+  c.filter = 'none'; c.globalCompositeOperation = 'source-over';
+  // bright rim on the upper edge
+  c.save(); squirclePath(c, S - 1.5); const rg = c.createLinearGradient(0, -S, 0, S);
+  rg.addColorStop(0, 'rgba(255,255,255,.85)'); rg.addColorStop(.35, 'rgba(255,255,255,.12)'); rg.addColorStop(1, 'rgba(255,255,255,.25)');
+  c.strokeStyle = rg; c.lineWidth = 3; c.stroke(); c.restore();
+}
+const tmp = document.createElement('canvas'); tmp.width = tmp.height = MS * RES; const tc = tmp.getContext('2d');
+
+// --- bead targets: a hex grid inside the squircle, outside the cut-out arc
+const D = 22.2, RB = 10.6;
+const beads = [];
+for (let row = -12; row <= 12; row++) for (let col = -12; col <= 12; col++) {
+  const x = col * D + (row & 1 ? D / 2 : 0), y = row * D * .866;
+  if (!inSquircle(x, y, S - RB * .55)) continue;
+  if (distArc(x, y) < T / 2 + RB * .45) continue;
+  beads.push({ x, y });
+}
+const R = rng(31);
+beads.forEach((b) => {
+  b.r0 = Math.hypot(b.x, b.y); b.a0 = Math.atan2(b.y, b.x);
+  b.ring = 175 + R() * 70; b.z = R(); b.d = R() * .2; b.ph = R(); b.tone = clamp((b.x + b.y) / (2 * S) * .9 + .25 + (R() - .5) * .25);
+});
+// glossy bead sprites, blue to indigo
+const TONES = 6, SPR = 64;
+const sprites = [...Array(TONES)].map((_, k) => {
+  const cv = document.createElement('canvas'); cv.width = cv.height = SPR; const c = cv.getContext('2d'), r = SPR / 2 - 1;
+  const base = Motion.mix('#1E8BFF', '#6A55F5', k / (TONES - 1)), dark = Motion.mix('#0057D0', '#4330C8', k / (TONES - 1));
+  const g = c.createRadialGradient(SPR * .36, SPR * .3, 1, SPR / 2, SPR / 2, r);
+  g.addColorStop(0, '#E4F2FF'); g.addColorStop(.22, Motion.mix('#7CC0FF', '#A595FF', k / (TONES - 1))); g.addColorStop(.62, base); g.addColorStop(1, dark);
+  c.fillStyle = g; c.beginPath(); c.arc(SPR / 2, SPR / 2, r, 0, 7); c.fill();
+  c.fillStyle = 'rgba(255,255,255,.85)'; c.beginPath(); c.ellipse(SPR * .36, SPR * .27, SPR * .1, SPR * .065, -.5, 0, 7); c.fill();
+  return cv;
+});
+const shadow = document.createElement('canvas'); shadow.width = shadow.height = 64;
+{ const c = shadow.getContext('2d'), g = c.createRadialGradient(32, 32, 0, 32, 32, 32); g.addColorStop(0, 'rgba(0,30,90,.22)'); g.addColorStop(1, 'rgba(0,30,90,0)'); c.fillStyle = g; c.fillRect(0, 0, 64, 64); }
+
+function drawMark(t, scale, alpha) {
+  if (alpha <= 0) return;
+  // a glint crosses the mark (clipped to the mark's own pixels)
+  const gk = seg(t, 4.25, 5.0);
+  let src = mark;
+  if (gk > 0 && gk < 1) {
+    tc.setTransform(1, 0, 0, 1, 0, 0); tc.clearRect(0, 0, tmp.width, tmp.height); tc.drawImage(mark, 0, 0);
+    tc.globalCompositeOperation = 'source-atop';
+    const gx = lerp(-MS * .6, MS * 1.4, ease.inOut(gk)) * RES;
+    tc.setTransform(1, 0, 0, 1, gx, 0); tc.rotate(.45);
+    const g = tc.createLinearGradient(-60 * RES, 0, 60 * RES, 0);
+    g.addColorStop(0, 'rgba(255,255,255,0)'); g.addColorStop(.42, 'rgba(255,255,255,.55)'); g.addColorStop(.5, 'rgba(255,255,255,.85)');
+    g.addColorStop(.58, 'rgba(255,255,255,.55)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+    tc.fillStyle = g; tc.fillRect(-60 * RES, -MS * RES, 120 * RES, MS * 3 * RES);
+    tc.globalCompositeOperation = 'source-over'; src = tmp;
+  }
+  ctx.save(); ctx.globalAlpha = alpha; ctx.translate(CX, CY); ctx.scale(scale, scale);
+  // coloured contact shadow under the mark
+  ctx.filter = 'blur(22px)'; ctx.fillStyle = 'rgba(10,110,255,.35)';
+  ctx.beginPath(); ctx.ellipse(0, S + 18, S * .78, 20, 0, 0, 7); ctx.fill(); ctx.filter = 'none';
+  ctx.drawImage(src, -MS / 2, -MS / 2, MS, MS);
+  ctx.restore();
+}
+
+run((t) => {
+  ctx.clearRect(0, 0, 560, 500);
+  // the mark breathes, breaks into beads at 0.8 s and is whole again from 3.7 s ("click": a small spring pop)
+  const markA = 1 - seg(t, .8, .98) + seg(t, 3.62, 3.82);
+  const beadA = seg(t, .74, .84) * (1 - seg(t, 3.74, 3.92));
+  const pop = Math.sin(Math.PI * seg(t, 3.62, 4.0)) * (1 - seg(t, 3.62, 4.0));
+  const breathe = .022 * Math.sin(Math.PI * seg(t, .35, .9));
+  drawMark(t, 1 + breathe + .06 * pop, clamp(markA));
+  if (beadA <= 0) return;
+  // ground shadow of the bead cloud
+  const spread = hold(t);
+  ctx.save(); ctx.globalAlpha = beadA * (1 - spread * .6); ctx.filter = 'blur(22px)'; ctx.fillStyle = 'rgba(10,110,255,.3)';
+  ctx.beginPath(); ctx.ellipse(CX, CY + S + 18, S * .78 * (1 + spread * .5), 20, 0, 0, 7); ctx.fill(); ctx.restore();
+  const list = beads.map((b) => {
+    const out = ease.out(seg(t, .92 + b.d * .6, 1.95 + b.d));
+    const back = ease.spring(seg(t, 2.3 + b.d, 3.42 + b.d * .7), .55);
+    const k = out * (1 - back);
+    const spin = 2 * Math.PI * ease.inOut(seg(t, .92 + b.d * .4, 3.3 + b.d * .6));
+    const wob = Math.abs(k) * 9 * Math.sin(2 * Math.PI * (t * .8 + b.ph));
+    const r = b.r0 + k * (b.ring - b.r0) + wob, a = b.a0 + spin;
+    const tilt = 1 - .38 * clamp(k);                       // the swirl reads as a tilted ring
+    const s = 1 + k * (b.z * 1.1 - .1) + .18 * clamp(k) * Math.sin(a); // nearer beads (front of the ring) look bigger
+    return { x: CX + r * Math.cos(a), y: CY + r * Math.sin(a) * tilt, s, tone: b.tone };
+  }).sort((p, q) => p.s - q.s);
+  ctx.save(); ctx.globalAlpha = beadA;
+  for (const p of list) { const rr = RB * p.s; ctx.drawImage(shadow, p.x - rr * 1.3, p.y - rr * .9, rr * 2.6, rr * 2.6); }
+  for (const p of list) { const rr = RB * p.s; ctx.drawImage(sprites[Math.round(p.tone * (TONES - 1))], p.x - rr, p.y - rr, rr * 2, rr * 2); }
+  ctx.restore();
+});
+function hold(t) { return Motion.hold(t, .92, 1.95, 2.3, 3.4); }
+</script></body></html>

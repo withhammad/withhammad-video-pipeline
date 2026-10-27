@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>15 Card → 360°</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .scene { position: absolute; left: 0; top: 0; width: 560px; height: 500px; perspective: 1100px; perspective-origin: 280px 230px; }
+  .floor { position: absolute; left: 280px; top: 474px; width: 290px; height: 28px; margin: -14px -145px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(20,40,80,.30), rgba(20,40,80,0)); filter: blur(4px); }
+  .card { position: absolute; left: 130px; top: 22px; width: 300px; height: 436px; transform-style: preserve-3d; }
+  .face { position: absolute; inset: 0; border-radius: 34px; backface-visibility: hidden; -webkit-backface-visibility: hidden; overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #f6f7fa 100%); border: 1px solid rgba(255,255,255,.98);
+    box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(0,0,0,.04), 0 0 0 1px rgba(0,0,0,.035), 0 6px 16px rgba(0,0,0,.06), 0 22px 48px -8px rgba(0,0,0,.14); overflow: hidden; }
+  .back { transform: rotateY(180deg); }
+  .edge { position: absolute; top: 18px; bottom: 18px; width: 10px; margin-left: -5px; background: linear-gradient(180deg, #e9ecf1, #d6dae1); border-radius: 5px; }
+  .hl { position: absolute; left: -60%; top: -20%; width: 70%; height: 140%; transform: rotate(18deg);
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.75) 50%, rgba(255,255,255,0)); mix-blend-mode: screen; pointer-events: none; }
+  .shade { position: absolute; inset: 0; background: #0b1a33; opacity: 0; pointer-events: none; }
+  .well { position: absolute; left: 14px; top: 14px; right: 14px; height: 248px; border-radius: 24px; overflow: hidden;
+    background: radial-gradient(70% 60% at 50% 45%, #f7fbff 0%, #e2efff 70%, #d5e7ff 100%); box-shadow: inset 0 1px 2px rgba(0,40,120,.08); }
+  .well svg { position: absolute; left: 0; top: 0; width: 272px; height: 248px; }
+  .name { position: absolute; left: 26px; top: 298px; font-size: 19px; font-weight: 600; color: var(--a-grey); letter-spacing: -.01em; }
+  .price { position: absolute; left: 22px; top: 328px; font-size: 66px; line-height: 1; display: flex; align-items: baseline; gap: 8px; }
+  .price small { font-size: 26px; font-weight: 800; letter-spacing: -.02em; color: var(--a-ink); }
+  .plus { position: absolute; right: 22px; top: 334px; width: 56px; height: 56px; border-radius: 28px; background: linear-gradient(180deg, #3D9BFF, #0A84FF 55%, #0070E8);
+    box-shadow: 0 10px 18px -8px rgba(10,132,255,.8), inset 0 2px 1px rgba(255,255,255,.4); }
+  .plus svg { width: 100%; height: 100%; display: block; }
+  .bk-head { position: absolute; left: 22px; top: 24px; display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+  .bk-head .squircle { position: relative; width: 52px; height: 52px; --c1: #5AB0FF; --c2: #0A6FE8; }
+  .bk-head .squircle svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+  .bk-tint { position: absolute; left: -40px; top: -60px; width: 260px; height: 220px; border-radius: 50%; background: #0A84FF; opacity: .14; filter: blur(40px); }
+  .feat { position: absolute; left: 16px; right: 16px; height: 90px; border-radius: 22px; display: flex; align-items: center; gap: 14px; padding: 0 16px;
+    background: linear-gradient(180deg, #ffffff, #f7f8fb); box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 8px 18px -8px rgba(0,0,0,.14); font-size: 20px; font-weight: 600; letter-spacing: -.02em; }
+  .chk { position: relative; width: 36px; height: 36px; border-radius: 18px; border: 2px solid #d9dce2; flex: none; }
+  .chk i { position: absolute; inset: -2px; border-radius: 50%; background: linear-gradient(180deg, #5BE07E, #22B84A); box-shadow: 0 4px 10px -3px rgba(0,120,40,.55); }
+  .chk svg { position: absolute; inset: -2px; width: 36px; height: 36px; }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#0A84FF; left: 100px; top: 60px"></div>
+  <div class="floor"></div>
+  <div class="scene"><div class="card">
+    <div class="edge" style="left:0; transform: rotateY(90deg)"></div>
+    <div class="edge" style="left:300px; transform: rotateY(90deg)"></div>
+    <div class="face front">
+      <div class="well"><svg viewBox="0 0 272 248">
+        <defs>
+          <linearGradient id="band" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5AB0FF"/><stop offset="1" stop-color="#0A6FE8"/></linearGradient>
+          <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6CB8FF"/><stop offset=".55" stop-color="#1E86F5"/><stop offset="1" stop-color="#0A5FD0"/></linearGradient>
+          <linearGradient id="pad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b5fc0"/><stop offset="1" stop-color="#0d3f8c"/></linearGradient>
+          <radialGradient id="shadowG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0b3a80" stop-opacity=".28"/><stop offset="1" stop-color="#0b3a80" stop-opacity="0"/></radialGradient>
+        </defs>
+        <ellipse cx="136" cy="214" rx="96" ry="12" fill="url(#shadowG)"/>
+        <!-- headband: a thick glossy arc with a darker inner cushion -->
+        <path d="M66 150 V118 a70 70 0 0 1 140 0 V150" fill="none" stroke="url(#band)" stroke-width="20" stroke-linecap="round"/>
+        <path d="M78 122 a58 58 0 0 1 116 0" fill="none" stroke="#0d3f8c" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+        <path d="M74 104 a64 62 0 0 1 58 -46" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+        <!-- sliders -->
+        <rect x="61" y="132" width="10" height="34" rx="5" fill="#c9d3e2"/><rect x="201" y="132" width="10" height="34" rx="5" fill="#c9d3e2"/>
+        <!-- ear cups -->
+        <rect x="80" y="146" width="22" height="64" rx="11" fill="url(#pad)"/>
+        <rect x="170" y="146" width="22" height="64" rx="11" fill="url(#pad)"/>
+        <rect x="40" y="140" width="56" height="76" rx="26" fill="url(#cup)"/>
+        <rect x="176" y="140" width="56" height="76" rx="26" fill="url(#cup)"/>
+        <path d="M50 160 a18 18 0 0 1 18 -14" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".6"/>
+        <path d="M186 160 a18 18 0 0 1 18 -14" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".6"/>
+      </svg></div>
+      <div class="name">Aura One</div>
+      <div class="price hero-num"><small>AED</small>549</div>
+      <div class="plus"><svg viewBox="0 0 56 56"><path d="M28 18v20M18 28h20" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/></svg></div>
+      <div class="hl"></div><div class="shade"></div>
+    </div>
+    <div class="face back">
+      <div class="bk-tint"></div>
+      <div class="bk-head"><div class="squircle"><svg viewBox="0 0 52 52"><path d="M14 31v-4a12 12 0 0 1 24 0v4" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><rect x="11" y="28" width="9" height="13" rx="4" fill="#fff"/><rect x="32" y="28" width="9" height="13" rx="4" fill="#fff"/></svg></div>Aura One</div>
+      <div class="feat" style="top:104px"><div class="chk"><i></i><svg viewBox="0 0 36 36"><path d="M11 18.5l4.6 4.6L25.5 13" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Noise cancelling</div>
+      <div class="feat" style="top:210px"><div class="chk"><i></i><svg viewBox="0 0 36 36"><path d="M11 18.5l4.6 4.6L25.5 13" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>40 h battery</div>
+      <div class="feat" style="top:316px"><div class="chk"><i></i><svg viewBox="0 0 36 36"><path d="M11 18.5l4.6 4.6L25.5 13" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Spatial audio</div>
+      <div class="hl"></div><div class="shade"></div>
+    </div>
+  </div></div>
+</div>
+<script>
+// Scene line: a product card for "Aura One" headphones, AED 549, turns a full 360° with a moving highlight, shows three
+// feature ticks on its back and lands front. Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp } = Motion;
+const card = document.querySelector('.card'), floor = document.querySelector('.floor'),
+  hls = document.querySelectorAll('.hl'), shades = document.querySelectorAll('.shade'), chks = document.querySelectorAll('.chk');
+run((t) => {
+  // first half turn 0.9 → 1.75 s (to the back), second half turn 4.05 → 5.05 s with a spring settle on landing (front)
+  const a1 = ease.inOut(seg(t, .9, 1.75)), a2 = ease.spring(seg(t, 4.05, 5.15), .5);
+  const ang = 180 * a1 + 180 * a2;
+  const spin = Math.abs(Math.sin(Math.PI * seg(t, .9, 1.75))) + Math.abs(Math.sin(Math.PI * seg(t, 4.05, 4.8)));
+  // a gentle idle float, one cycle per loop (seamless)
+  const bob = 5 * Math.sin(2 * Math.PI * t / 6);
+  const tilt = 4 * Math.sin(2 * Math.PI * t / 6 + 1);
+  card.style.transform = `translateY(${bob - 10 * spin}px) rotateX(${tilt * .4}deg) rotateY(${ang}deg) scale(${1 - .04 * spin})`;
+  // the floor shadow narrows as the card turns edge-on
+  const c = Math.abs(Math.cos(ang * Math.PI / 180));
+  floor.style.transform = `scaleX(${.35 + .65 * c}) scale(${1 - .1 * spin})`;
+  floor.style.opacity = .7 + .3 * c;
+  // highlight band sweeps across the face as it turns; faces darken slightly when angled away
+  const sweep = ((ang % 180) / 180);
+  hls.forEach((h) => { h.style.transform = `translateX(${lerp(-40, 560, sweep)}px) rotate(18deg)`; h.style.opacity = sweep > .02 && sweep < .98 ? .9 : 0; });
+  const dark = (1 - c) * .22;
+  shades.forEach((s) => { s.style.opacity = dark; });
+  // the ticks pop on one by one while the back faces us; they clear while the back is turned away
+  chks.forEach((el, i) => {
+    const k = ease.spring(seg(t, 1.95 + i * .28, 2.45 + i * .28), .9) * (1 - seg(t, 5.2, 5.25));
+    const fill = el.querySelector('i'), mark = el.querySelector('svg');
+    fill.style.transform = mark.style.transform = `scale(${k})`;
+    fill.style.opacity = mark.style.opacity = clamp(k * 3);
+  });
+});
+</script></body></html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>11 Drag → booked</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .win { left: 22px; top: 30px; width: 516px; height: 440px; border-radius: 30px; overflow: hidden; }
+  .dots { position: absolute; left: 24px; top: 22px; display: flex; gap: 8px; }
+  .dots i { width: 12px; height: 12px; border-radius: 50%; background: rgba(0,0,0,.12); }
+  .nav { position: absolute; right: 22px; top: 16px; }
+  .day { position: absolute; top: 46px; display: flex; align-items: baseline; gap: 8px; }
+  .day small { font-size: 19px; font-weight: 600; color: var(--a-grey); letter-spacing: 0; }
+  .day b { font-size: 56px; font-weight: 800; letter-spacing: -.05em; line-height: 1; }
+  .hr { position: absolute; left: 0; right: 0; height: 1px; background: rgba(0,0,0,.07); }
+  .vr { position: absolute; top: 116px; bottom: 0; width: 1px; background: rgba(0,0,0,.07); }
+  .time { position: absolute; left: 20px; font-size: 17px; font-weight: 500; color: var(--a-grey); letter-spacing: 0; font-variant-numeric: tabular-nums; }
+  .ghost { position: absolute; border-radius: 16px; border: 2px dashed rgba(10,132,255,.55); background: rgba(10,132,255,.06); }
+  .ev { position: absolute; width: 196px; height: 92px; border-radius: 16px; overflow: hidden; transform-origin: 50% 50%; }
+  .ev::after { content: ''; position: absolute; left: 4%; right: 4%; top: 3px; height: 42%; border-radius: 13px 13px 20px 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,0)); height: 34%; }
+  .ev .tm { position: absolute; left: 16px; top: 12px; color: #fff; font-size: 26px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .ev .grip { position: absolute; left: 50%; bottom: 9px; width: 30px; height: 4px; margin-left: -15px; border-radius: 2px; background: rgba(255,255,255,.75); }
+  .ev .ttl { position: absolute; left: 16px; top: 12px; color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
+  .ev .sm { position: absolute; right: 14px; bottom: 12px; color: rgba(255,255,255,.92); font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .ava { position: absolute; left: 14px; bottom: 10px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+    background: linear-gradient(160deg, #ffffff 0%, #EBDDFB 100%); border: 2px solid rgba(255,255,255,.9);
+    box-shadow: 0 3px 8px -2px rgba(70,0,120,.45); color: #9A3FD6; font-size: 18px; font-weight: 800; letter-spacing: 0; }
+  .cursor { position: absolute; width: 40px; height: 40px; filter: drop-shadow(0 4px 5px rgba(0,0,0,.28)); transform-origin: 6px 4px; }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#BF5AF2; left: 280px; top: -110px; opacity: .14"></div>
+  <div class="tint" style="--c:#0A84FF; left: -120px; top: 240px; opacity: .13"></div>
+  <div class="glass win">
+    <div class="dots"><i></i><i></i><i></i></div>
+    <svg class="nav" width="44" height="22" viewBox="0 0 44 22"><path d="M14 5l-6 6 6 6M30 5l6 6-6 6" fill="none" stroke="#86868b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="day" style="left:110px"><small>Thu</small><b style="color:#1d1d1f">16</b></div>
+    <div class="day" style="left:320px"><small>Fri</small><b style="color:#b8b8bd">17</b></div>
+    <div class="hr" style="top:116px"></div>
+    <div class="hr" style="top:140px;left:92px"></div><div class="hr" style="top:240px;left:92px"></div>
+    <div class="hr" style="top:340px;left:92px"></div><div class="hr" style="top:440px;left:92px"></div>
+    <div class="vr" style="left:92px"></div><div class="vr" style="left:304px"></div>
+    <div class="time" style="top:129px">10:00</div><div class="time" style="top:229px">11:00</div><div class="time" style="top:329px">12:00</div>
+  </div>
+  <div class="ghost"></div>
+  <div class="ev"><div class="tm">10:00</div><div class="grip"></div>
+    <div class="ttl">Call with Sam</div><div class="sm">11:00</div><div class="ava">S</div></div>
+  <svg class="cursor" viewBox="0 0 24 24"><path d="M5 2.5v17l4.6-4.3 2.9 6.3 2.6-1.2-2.9-6.2 6.3-.4z" fill="#1d1d1f" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+</div>
+<script>
+// Scene line: a glass week calendar: a cursor drags an event onto Thursday 11:00, it snaps into the slot, turns purple,
+// reads "Call with Sam" and an avatar drops in. Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp, mix } = Motion;
+const ev = document.querySelector('.ev'), tm = ev.querySelector('.tm'), grip = ev.querySelector('.grip'), ttl = ev.querySelector('.ttl'),
+  sm = ev.querySelector('.sm'), ava = ev.querySelector('.ava'), ghost = document.querySelector('.ghost'), cursor = document.querySelector('.cursor');
+// stage coordinates: the window starts at (22, 30); 10:00 is at y 170, an hour is 100 px; columns start at x 115 (Thu) and 327 (Fri)
+const FRI = { x: 333, y: 174 }, THU = { x: 121, y: 274 }, GRAB = { x: 148, y: 58 }, REST = { x: 470, y: 420 };
+const fmt = (y) => { const m = Math.round(((y - 174) / 100 * 60) / 15) * 15, h = 10 + Math.floor(m / 60); return `${h}:${String(((m % 60) + 60) % 60).padStart(2, '0')}`; };
+ghost.style.cssText += `left:${THU.x}px;top:${THU.y}px;width:196px;height:92px`;
+run((t) => {
+  // event position: lifted and carried along a gentle arc, dropped with a spring snap, and on the reset sprung back home
+  const drag = ease.inOut(seg(t, .85, 1.95));
+  const back = ease.spring(seg(t, 4.85, 5.75), .5);
+  const arc = Math.sin(Math.PI * drag) * -34;
+  let x = lerp(FRI.x, THU.x, drag), y = lerp(FRI.y, THU.y, drag) + arc;
+  // snap: tiny overshoot into the slot
+  const snap = seg(t, 1.95, 2.45), sn = snap > 0 && snap < 1 ? Math.exp(-6 * snap) * Math.sin(2 * Math.PI * 1.5 * snap) : 0;
+  y += 6 * sn;
+  const barc = Math.sin(Math.PI * clamp(back)) * -28;
+  x = lerp(x, FRI.x, back); y = lerp(y, FRI.y, back) + barc;
+  const lift = ease.out(seg(t, .6, .85)) * (1 - ease.out(seg(t, 1.9, 2.1))) + Math.sin(Math.PI * seg(t, 4.85, 5.75)) * .7;
+  const tilt = -3.5 * lift * (t < 3 ? 1 : -1);
+  ev.style.left = `${x}px`; ev.style.top = `${y}px`;
+  ev.style.transform = `rotate(${tilt}deg) scale(${1 + .05 * lift})`;
+  // colour: blue while it is a free slot, purple once booked
+  const booked = ease.inOut(seg(t, 2.05, 2.45)) * (1 - ease.inOut(seg(t, 4.55, 4.9)));
+  const c1 = mix('#4AA3FF', '#CF7BFA', booked), c2 = mix('#0A84FF', '#A445E0', booked);
+  ev.style.background = `linear-gradient(180deg, ${c1} 0%, ${c2} 100%)`;
+  const glowC = booked > .5 ? '164,69,224' : '10,132,255';
+  ev.style.boxShadow = `0 ${4 + 18 * lift}px ${12 + 26 * lift}px -6px rgba(${glowC},${.45 + .25 * lift}), 0 1px 2px rgba(0,0,0,.08), inset 0 -3px 8px rgba(0,0,0,.12)`;
+  // labels: the time follows the drag in 15-minute steps; after the drop it blurs into "Call with Sam"
+  tm.textContent = fmt(y - arc * (1 - back) - barc);
+  const swap = seg(t, 2.15, 2.5), unswap = seg(t, 4.55, 4.85);
+  const tOut = clamp(swap - unswap);
+  tm.style.opacity = grip.style.opacity = 1 - tOut;
+  tm.style.filter = tOut > 0 && tOut < 1 ? `blur(${6 * Math.sin(Math.PI * tOut)}px)` : '';
+  const tin = ease.spring(seg(t, 2.3, 2.9), .6) * (1 - ease.inOut(unswap));
+  ttl.style.opacity = sm.style.opacity = clamp(seg(t, 2.3, 2.5) - unswap);
+  ttl.style.transform = `translateY(${(1 - tin) * 10}px) scale(${lerp(.9, 1, tin)})`;
+  ttl.style.filter = sm.style.filter = tin < 1 && tin > 0 ? `blur(${5 * (1 - clamp(tin))}px)` : '';
+  // avatar drops in with a bounce
+  const drop = ease.spring(seg(t, 2.6, 3.25), 1) * (1 - ease.inOut(seg(t, 4.5, 4.8)));
+  ava.style.opacity = clamp(seg(t, 2.6, 2.7)) * (1 - seg(t, 4.55, 4.8));
+  ava.style.transform = `translateY(${(1 - drop) * -46}px) scale(${lerp(.6, 1, clamp(drop))})`;
+  // dashed target slot glows while the event is on its way
+  const g = seg(t, 1.0, 1.4) * (1 - seg(t, 1.9, 2.1));
+  ghost.style.opacity = g; ghost.style.transform = `scale(${.96 + .04 * g})`;
+  // cursor: rests, glides onto the event, presses, carries it, lets go and drifts off; returns on the reset
+  const toEv = ease.inOut(seg(t, .15, .65)), away = ease.inOut(seg(t, 2.05, 2.75)), home = ease.inOut(seg(t, 4.9, 5.8));
+  let cx = lerp(REST.x, x + GRAB.x, toEv), cy = lerp(REST.y, y + GRAB.y, toEv);
+  const off = { x: THU.x + 250, y: THU.y + 140 };
+  cx = lerp(cx, off.x, away); cy = lerp(cy, off.y, away);
+  cx = lerp(cx, REST.x, home); cy = lerp(cy, REST.y, home);
+  cursor.style.left = `${cx}px`; cursor.style.top = `${cy}px`;
+  const press = Math.sin(Math.PI * seg(t, .62, .82)) + Math.sin(Math.PI * seg(t, 1.9, 2.05)) * .6;
+  cursor.style.transform = `scale(${1 - .14 * press})`;
+});
+</script></body></html>

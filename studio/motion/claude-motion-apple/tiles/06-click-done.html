@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>06 Click → done</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .btn { position: absolute; left: 280px; top: 250px; height: 132px; border-radius: 66px; display: flex; align-items: center; justify-content: center;
+    gap: 16px; color: #fff; font-size: 56px; font-weight: 700; letter-spacing: -.03em; white-space: nowrap; overflow: hidden; }
+  .btn::after { content: ''; position: absolute; left: 7%; right: 7%; top: 5%; height: 44%; border-radius: 60px 60px 40px 40px;
+    background: linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,0)); pointer-events: none; }
+  .blue { background: linear-gradient(180deg, #3D9BFF 0%, #0A84FF 55%, #0070E8 100%);
+    box-shadow: 0 26px 44px -18px rgba(10,132,255,.75), 0 8px 16px -8px rgba(0,60,140,.4), inset 0 -4px 10px rgba(0,50,140,.25); }
+  .green { background: linear-gradient(180deg, #5BE07E 0%, #30D158 55%, #22B84A 100%);
+    box-shadow: 0 26px 44px -18px rgba(48,209,88,.7), 0 8px 16px -8px rgba(0,90,30,.35), inset 0 -4px 10px rgba(0,90,30,.2); }
+  .ring { position: absolute; left: 280px; top: 250px; width: 160px; height: 160px; margin: -80px; }
+  .ripple { position: absolute; left: 280px; top: 250px; width: 132px; height: 132px; margin: -66px; border-radius: 50%; border: 3px solid #30D158; opacity: 0; }
+  .cursor { position: absolute; width: 44px; height: 44px; filter: drop-shadow(0 4px 5px rgba(0,0,0,.28)); }
+  svg.icon { width: 56px; height: 56px; flex: none; }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#0A84FF; left: 100px; top: 70px"></div>
+  <div class="ripple"></div><div class="ripple"></div>
+  <div class="btn blue"></div>
+  <svg class="ring" viewBox="0 0 160 160"><circle cx="80" cy="80" r="72" fill="none" stroke="rgba(10,132,255,.16)" stroke-width="8"/>
+    <circle id="arc" cx="80" cy="80" r="72" fill="none" stroke="#0A84FF" stroke-width="8" stroke-linecap="round" transform="rotate(-90 80 80)"
+      stroke-dasharray="452.4" stroke-dashoffset="452.4"/></svg>
+  <svg class="cursor" viewBox="0 0 24 24"><path d="M5 2.5v17l4.6-4.3 2.9 6.3 2.6-1.2-2.9-6.2 6.3-.4z" fill="#1d1d1f" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+</div>
+<script>
+// Scene line: a big glossy "Publish" button: a cursor clicks, it squashes, becomes a circle whose blue ring fills,
+// snaps to a green tick with a ripple and reads "Published". Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp } = Motion;
+const btn = document.querySelector('.btn'), cursor = document.querySelector('.cursor'), ring = document.querySelector('.ring'),
+  arc = document.getElementById('arc'), ripples = document.querySelectorAll('.ripple');
+const ARROW = '<svg class="icon" viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const TICK = '<svg class="icon" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const FULL = 360, DONE = 430, ROUND = 132;
+let state = '';
+const set = (cls, html) => { if (state !== cls + html) { btn.className = 'btn ' + cls; btn.innerHTML = html; state = cls + html; } };
+run((t) => {
+  // cursor glides in, clicks at 1.0 s, drifts away once the button is busy
+  const inK = ease.out(seg(t, .15, .95)), outK = ease.inOut(seg(t, 1.35, 2.1));
+  cursor.style.left = `${lerp(lerp(500, 330, inK), 540, outK)}px`;
+  cursor.style.top = `${lerp(lerp(460, 262, inK), 520, outK)}px`;
+  cursor.style.opacity = seg(t, .05, .35) * (1 - seg(t, 1.8, 2.1));
+  // the click squashes the button (wider and flatter), then it springs back
+  const press = Math.sin(Math.PI * seg(t, .95, 1.18));
+  let w, sx = 1 + .05 * press, sy = 1 - .1 * press, blur = 0;
+  const toRound = ease.spring(seg(t, 1.15, 1.75), .6);
+  if (t < 1.25) { set('blue', '<span>Publish</span>'); w = FULL; }
+  else if (t < 2.85) { set('blue', ARROW); w = Math.max(ROUND * .96, lerp(FULL, ROUND, toRound)); }
+  else { // snaps to green, then grows back reading "Published"
+    const grow = ease.spring(seg(t, 3.15, 3.85), .8);
+    set('green', grow > .3 ? TICK + '<span>Published</span>' : TICK);
+    w = lerp(ROUND, DONE, grow);
+    const snap = Math.sin(Math.PI * seg(t, 2.85, 3.15));
+    sx *= 1 + .12 * snap; sy *= 1 + .12 * snap;
+  }
+  // loop seam: Published melts back into Publish (blur and scale together, never a plain fade)
+  const back = seg(t, 5.25, 5.95);
+  if (t >= 5.25) {
+    if (back < .5) { set('green', TICK + '<span>Published</span>'); w = lerp(DONE, FULL, ease.inOut(back)); }
+    else { set('blue', '<span>Publish</span>'); w = lerp(DONE, FULL, ease.inOut(back)); }
+    blur = 10 * Math.sin(Math.PI * back); const k = 1 - .06 * Math.sin(Math.PI * back); sx *= k; sy *= k;
+  }
+  btn.style.width = `${w}px`;
+  btn.style.transform = `translate(-50%, -50%) scale(${sx}, ${sy})`;
+  btn.style.filter = blur ? `blur(${blur}px)` : '';
+  // the progress ring fills while the button is a circle
+  const ringOn = clamp(seg(t, 1.55, 1.75)) * (1 - seg(t, 2.8, 2.95));
+  ring.style.opacity = ringOn;
+  ring.style.transform = `scale(${.92 + .08 * ringOn})`;
+  arc.style.strokeDashoffset = 452.4 * (1 - ease.inOut(seg(t, 1.7, 2.75)));
+  ripples.forEach((r, i) => {
+    const k = seg(t, 2.9 + i * .2, 3.8 + i * .2);
+    r.style.opacity = k > 0 && k < 1 ? (1 - k) * .7 : 0;
+    r.style.transform = `scale(${1 + k * 1.9})`;
+  });
+});
+</script></body></html>

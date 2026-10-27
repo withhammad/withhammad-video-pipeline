@@ -1,0 +1,17 @@
+/* The brief card shared by poster.html and reel.html. */
+.card { position: absolute; left: 46px; top: 270px; width: 988px; background: #fff; border-radius: 30px; border: 1px solid #ece9f2;
+  box-shadow: 0 2px 6px rgba(40,20,90,.04), 0 30px 60px -30px rgba(40,20,90,.18); padding: 14px 0 10px; }
+.row { position: relative; display: flex; align-items: center; padding: 13px 0 13px 26px; min-height: 76px; }
+.row + .row { border-top: 1px solid #efedf3; }
+.txt { width: 700px; font-size: 20.5px; line-height: 1.38; color: #1a1823; letter-spacing: -.012em; }
+.txt .h { font: 500 16.5px var(--mono); letter-spacing: 0; margin-bottom: 2px; }
+.opener .txt { font-weight: 700; font-size: 21px; }
+mark { background: #fff0e5; color: #e8590c; border-radius: 5px; padding: 0 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.txt mark, .nw { white-space: nowrap; } .scene mark { white-space: normal; }
+.sw { display: inline-block; width: 18px; height: 18px; border-radius: 4px; vertical-align: -2px; margin: 0 6px 0 2px; }
+.lab { position: absolute; left: 740px; top: 0; bottom: 0; display: flex; align-items: center; }
+.br { width: 13px; align-self: stretch; margin: 9px 0; border: 3px solid currentColor; border-left: 0; border-radius: 0 10px 10px 0; flex: none; }
+.lt { margin-left: 22px; }
+.lt b { display: block; font-size: 25px; font-weight: 700; letter-spacing: -.025em; line-height: 1.15; }
+.lt span { display: block; font-size: 17px; color: #8b889a; letter-spacing: -.01em; margin-top: 3px; }
+.opener .lt b { color: #a3a0b0; } .opener .br { color: #b9b6c4; }

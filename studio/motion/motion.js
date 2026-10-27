@@ -16,6 +16,8 @@
     inOut: (x) => { x = clamp(x); return x < .5 ? 8 * x ** 4 : 1 - Math.pow(-2 * x + 2, 4) / 2; },
     sine: (x) => .5 - Math.cos(Math.PI * clamp(x)) / 2,
     back: (x) => { x = clamp(x); const c = 1.70158, c3 = c + 1; return 1 + c3 * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); },
+    // damped spring for the Apple-style tiles: ~10 % overshoot, one small settle, exactly 1 at x = 1
+    spring: (x, bounce = 1) => { x = clamp(x); if (x >= 1) return 1; return 1 - Math.exp(-7 * x) * Math.cos(2 * Math.PI * (1.2 + .4 * bounce) * x) * (1 - x ** 8); },
   };
   // goes 0 -> 1 over [a, b] and back 1 -> 0 over [c, d]
   const hold = (t, a, b, c, d, f = ease.inOut) => f(seg(t, a, b)) * (1 - f(seg(t, c, d)));

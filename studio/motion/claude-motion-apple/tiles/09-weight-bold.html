@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>09 Weight → bold</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../apple.css"><script src="../../motion.js"></script>
+<style>
+  .card { left: 26px; top: 40px; width: 508px; height: 420px; border-radius: 40px; background: linear-gradient(180deg, #ffffff 0%, #fdfdfe 100%); }
+  .ch { position: absolute; top: 0; height: 1px; }
+  .ch span { position: absolute; left: 0; top: 0; transform: translateX(-50%); line-height: 1; white-space: pre; color: #1d1d1f; }
+  .meta { position: absolute; left: 72px; right: 72px; top: 372px; display: flex; justify-content: space-between; align-items: baseline; }
+  .meta b { font-size: 19px; font-weight: 600; color: var(--a-grey); letter-spacing: -.005em; }
+  .meta i { font-style: normal; font-size: 21px; font-weight: 700; color: var(--a-ink); font-variant-numeric: tabular-nums; }
+  .track { position: absolute; left: 72px; top: 414px; width: 416px; height: 6px; border-radius: 3px; background: rgba(0,0,0,.08); }
+  .fill { position: absolute; left: 0; top: 0; height: 6px; border-radius: 3px; background: linear-gradient(90deg, #3D9BFF, #0A84FF); }
+  .knob { position: absolute; top: 3px; width: 32px; height: 32px; margin: -16px 0 0 -16px; border-radius: 50%; background: #fff;
+    box-shadow: 0 0 0 .5px rgba(0,0,0,.06), 0 3px 8px rgba(0,0,0,.16), 0 1px 2px rgba(0,0,0,.1); }
+  .dot { position: absolute; border-radius: 50%; }
+  .dotglow { position: absolute; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(10,132,255,.32) 0%, rgba(10,132,255,0) 65%); }
+</style></head>
+<body class="apple"><div class="stage">
+  <div class="tint" style="--c:#0A84FF; left: 260px; top: 60px; opacity: .1"></div>
+  <div class="glass card"></div>
+  <svg width="0" height="0" style="position:absolute"><defs>
+    <filter id="e1"><feMorphology operator="erode" radius="1"/></filter><filter id="e2"><feMorphology operator="erode" radius="2"/></filter>
+    <filter id="e3"><feMorphology operator="erode" radius="3"/></filter>
+  </defs></svg>
+  <div id="txt"></div>
+  <div class="dotglow"></div><div class="dot"></div>
+  <div class="meta"><b>Weight</b><i id="val">100</i></div>
+  <div class="track"><div class="fill"></div><div class="knob"></div></div>
+</div>
+<script>
+// Scene line: "Make it move." sweeps from hairline to heavy letter by letter like a wave, a weight slider follows, and the
+// full stop turns into a blue dot that bounces. Only static Inter 400-900 exist, so each letter stacks the six weights
+// and crossfades between neighbours; below 400 the 400 glyph is eroded (SVG feMorphology, whole pixels) and two
+// neighbouring erosions crossfade, so the hairline thins continuously.
+// Every value is a function of t alone (6 s loop).
+const { ease, seg, run, lerp, clamp, mix } = Motion;
+const LINES = ['Make it', 'move.'], WEIGHTS = [400, 500, 600, 700, 800, 900];
+const txt = document.getElementById('txt'), dot = document.querySelector('.dot'), glow = document.querySelector('.dotglow'),
+  val = document.getElementById('val'), fill = document.querySelector('.fill'), knob = document.querySelector('.knob');
+const BG = '#fefefe', INK = '#1d1d1f';
+const c0 = (g) => g.c === '.'; // the full stop shrinks instead of eroding (erosion squares it off)
+let G = null; // glyph table, built on the first frame (fonts are in by then)
+function init() {
+  const cv = document.createElement('canvas').getContext('2d');
+  const width = (c, w, fs) => { cv.font = `${w} ${fs}px Inter`; return cv.measureText(c).width; };
+  const FS = Math.min(132, 100 * 410 / width(LINES[0], 900, 100));
+  cv.font = `900 ${FS}px Inter`;
+  const pm = cv.measureText('.');
+  G = { FS, glyphs: [], periodH: pm.actualBoundingBoxAscent, periodW: pm.actualBoundingBoxRight + pm.actualBoundingBoxLeft };
+  let idx = 0;
+  LINES.forEach((line, li) => {
+    line.split('').forEach((c) => {
+      const g = { c, li, w: WEIGHTS.map((w) => width(c, w, FS)), i: c === ' ' ? -1 : idx++ };
+      if (c !== ' ') {
+        g.el = document.createElement('div'); g.el.className = 'ch';
+        g.layers = WEIGHTS.map((w) => { const s = document.createElement('span'); s.textContent = c;
+          s.style.fontWeight = w; s.style.fontSize = FS + 'px'; g.el.appendChild(s); return s; });
+        g.thin = [1, 2, 3].map((r) => { const s = document.createElement('span'); s.textContent = c;
+          s.style.fontWeight = 400; s.style.fontSize = FS + 'px'; s.style.filter = `url(#e${r})`; g.el.appendChild(s); return s; });
+        txt.appendChild(g.el);
+      }
+      G.glyphs.push(g);
+    });
+  });
+  G.count = idx;
+}
+// continuous weight 100..~950 of glyph i: a wave up (spring with a small settle) and a quicker wave back down
+function weight(i, t) {
+  const up = ease.spring(seg(t, .4 + i * .1, 1.25 + i * .1), .35);
+  const down = ease.inOut(seg(t, 4.75 + i * .055, 5.35 + i * .055));
+  return 100 + 800 * up * (1 - down);
+}
+run((t) => {
+  if (!G) init();
+  const { FS } = G;
+  const TOP = [74, 74 + FS * 1.0], tr = (W) => lerp(.02, -.004, clamp((W - 100) / 800)) * FS;
+  // per-line layout from the interpolated advance widths
+  const lines = [[], []];
+  G.glyphs.forEach((g) => {
+    const W = g.i < 0 ? weight(3, t) : weight(g.i, t);
+    const Wc = clamp(W, 400, 900), lo = Math.min(4, Math.floor((Wc - 400) / 100)), f = (Wc - 400) / 100 - lo;
+    g.W = W; g.lo = lo; g.f = f; g.adv = lerp(g.w[lo], g.w[lo + 1], f) + tr(W);
+    lines[g.li].push(g);
+  });
+  lines.forEach((ln, li) => {
+    const total = ln.reduce((a, g) => a + g.adv, 0) - ln[ln.length - 1].adv * 0; // trailing tracking kept for balance
+    let x = 280 - total / 2;
+    ln.forEach((g) => {
+      if (g.el) {
+        g.el.style.left = `${x + (g.adv - tr(g.W)) / 2}px`; g.el.style.top = `${TOP[li]}px`;
+        const thin = clamp((400 - g.W) / 300), heavy = clamp((g.W - 900) / 60);
+        // erosion r in px: n+1 drawn solid underneath, n on top fading out, so the edge moves smoothly
+        const r = c0(g) ? 0 : thin * 2.999, n = Math.floor(r), fr = r - n;
+        const all = [g.layers[0], ...g.thin];
+        g.layers.forEach((s, k) => {
+          if (k > 0) s.style.opacity = k === g.lo ? 1 : k === g.lo + 1 ? g.f : 0;
+          s.style.webkitTextStroke = k === 5 && heavy > 0 ? `${(heavy * .02 * FS).toFixed(2)}px ${INK}` : '';
+        });
+        g.layers[0].style.transform = c0(g) ? `translateX(-50%) scale(${1 - .38 * thin})` : '';
+        g.layers[0].style.transformOrigin = '50% 86%';
+        if (thin > 0) all.forEach((s, j) => { s.style.opacity = j === n ? 1 - fr : j === n + 1 ? 1 : 0; s.style.zIndex = j === n ? 2 : 1; });
+        else { g.thin.forEach((s) => (s.style.opacity = 0)); g.layers[0].style.opacity = g.lo === 0 ? 1 : 0; g.layers[0].style.zIndex = ''; }
+        g.x = x + (g.adv - tr(g.W)) / 2; g.y = TOP[li];
+      }
+      x += g.adv;
+    });
+  });
+  // the full stop becomes a glossy blue dot that hops twice, then turns back into ink before the wave goes down
+  const P = G.glyphs[G.glyphs.length - 1];
+  const on = seg(t, 2.25, 2.4) * (1 - seg(t, 4.62, 4.72));
+  const grow = ease.spring(seg(t, 2.3, 2.9), .6) * (1 - ease.inOut(seg(t, 4.35, 4.7)));
+  const blue = seg(t, 2.3, 2.6) * (1 - seg(t, 4.35, 4.65));
+  const d0 = G.periodW * 1.02, d = lerp(d0, FS * .3, grow);
+  let hop = 0, sq = 0;
+  const h1 = seg(t, 2.6, 3.15), h2 = seg(t, 3.15, 3.5);
+  if (h1 > 0 && h1 < 1) hop = 4 * h1 * (1 - h1) * FS * .55;
+  else if (h2 > 0 && h2 < 1) hop = 4 * h2 * (1 - h2) * FS * .18;
+  sq = Math.sin(Math.PI * seg(t, 3.12, 3.24)) * .22 + Math.sin(Math.PI * seg(t, 3.47, 3.57)) * .1;
+  const base = P.y + FS * .868; // Inter's baseline inside a line-height:1 box
+  const cx = P.x + (d - d0) * .5, cy = base - d / 2 - hop;
+  dot.style.width = dot.style.height = `${d}px`;
+  dot.style.left = `${cx - d / 2}px`; dot.style.top = `${cy - d / 2}px`;
+  dot.style.transformOrigin = '50% 100%';
+  dot.style.transform = `scale(${1 + sq}, ${1 - sq})`;
+  dot.style.opacity = on;
+  dot.style.background = blue > 0
+    ? `radial-gradient(circle at 34% 28%, ${mix('#1d1d1f', '#9FD0FF', blue)} 0%, ${mix('#1d1d1f', '#2B95FF', blue)} 38%, ${mix('#1d1d1f', '#0062D6', blue)} 100%)` : INK;
+  dot.style.boxShadow = blue > 0 ? `0 ${6 + hop * .08}px ${14 + hop * .1}px -4px rgba(10,132,255,${.55 * blue})` : 'none';
+  glow.style.left = `${cx}px`; glow.style.top = `${cy}px`; glow.style.opacity = blue * on;
+  [...P.layers, ...P.thin].forEach((s) => (s.style.visibility = on >= 1 ? 'hidden' : ''));
+  // slider follows the average weight
+  const avg = G.glyphs.filter((g) => g.el).reduce((a, g) => a + clamp(g.W, 100, 900), 0) / G.count;
+  const k = (avg - 100) / 800;
+  val.textContent = Math.round(avg);
+  fill.style.width = `${416 * k}px`; knob.style.left = `${416 * k}px`;
+});
+</script></body></html>

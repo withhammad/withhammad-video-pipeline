@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>The 8 Parts of a Claude Motion Prompt</title>
+<link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="anatomy.css"><script src="anatomy.js"></script>
+<style>
+  /* 1080x1350 LinkedIn / Instagram image post: title, byline, the brief as one card with a labelled bracket per part
+     (the reference post's layout). */
+  html, body { width: 1080px; height: 1350px; }
+  body { position: relative; background: #f8f7fb; overflow: hidden;
+    background-image: linear-gradient(rgba(110,100,160,.065) 1px, transparent 1px), linear-gradient(90deg, rgba(110,100,160,.065) 1px, transparent 1px);
+    background-size: 54px 54px; background-position: -1px 20px; }
+  .rays { position: absolute; width: 640px; height: 640px; top: -330px; border-radius: 50%;
+    background: repeating-conic-gradient(from 3deg, rgba(255,160,150,.17) 0deg 6deg, transparent 6deg 20deg);
+    -webkit-mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%); mask: radial-gradient(circle, transparent 0 16%, #000 30%, #000 46%, transparent 68%); }
+  .rays.l { left: -380px; } .rays.r { right: -380px; }
+  h1 { position: absolute; left: 0; right: 0; top: 34px; text-align: center; font-weight: 800; letter-spacing: -.05em; color: #0b0b12; line-height: 1.02; }
+  h1 .a { font-size: 64px; } h1 .b { font-size: 78px; }
+  h1 em { font-style: normal; background: linear-gradient(90deg, #ff8a00, #ff3d7f 38%, #b23cff 68%, #3d7bff);
+    -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .03em; }
+  .by { position: absolute; left: 0; right: 0; top: 204px; display: flex; justify-content: center; align-items: center; gap: 14px;
+    font-size: 25px; color: #6b6880; letter-spacing: -.015em; }
+  .by mark { background: #ffe7d6; color: #d9480f; font-weight: 700; border-radius: 6px; padding: 0 6px; }
+  .by img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px #fff, 0 3px 10px rgba(40,20,90,.18); margin-left: 8px; }
+  .by b { color: #121019; font-weight: 700; font-size: 24px; margin-left: -4px; }
+</style></head>
+<body>
+  <div class="rays l"></div><div class="rays r"></div>
+  <h1><div class="a">The 8 Parts of a</div><div class="b"><em>Claude Motion</em> Prompt</div></h1>
+  <div class="by"><span>Write parts 1-7 once. Swap only the <mark>[orange bits]</mark>.</span><img src="assets/hammad.jpg" alt=""><b>Hammad Yousuf</b></div>
+  <div class="card" id="card"></div>
+<script>
+document.getElementById('card').innerHTML = anatomyRows();
+window.__seek = () => {};
+window.__ready = document.fonts.ready;
+</script></body></html>

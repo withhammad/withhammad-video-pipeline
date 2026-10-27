@@ -34,6 +34,11 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'applemotion20261027', date: 'queued', title: 'Claude Motion: 16 Apple-style animations', cover: c('Claude Motion', 'Apple-Style UI', LOGO.claude,
+    {text: '16', color: '#FFFFFF', bg: 'linear-gradient(160deg, #3D9BFF 0%, #0062D6 100%)', glow: '#0A84FF'})},
+  {job: 'anatomy20261027', date: 'queued', title: 'The 8 parts of a Claude Motion prompt', cover: c('Claude Motion', '8-Part Prompt', LOGO.claude,
+    {text: '8', color: '#FFFFFF', bg: 'linear-gradient(160deg, #FF9A4D 0%, #E8590C 100%)', glow: '#FF8A3D'})},
+  {job: 'fef5b7f3b5af', date: 'queued', title: 'Claude Code motion graphics (BRAND)', cover: c('16 Animations', 'In Claude Code', LOGO.claude, LOGO.typeText)},
   {job: 'd24ed130c3d9', date: 'queued', title: 'Dubai AI Agents Championship', cover: c('$150,000', 'For 1 AI Agent', LOGO.champ, LOGO.dubaiChamber)},
   {job: 'd61788123d13', date: '2026-10-27', title: 'NVIDIA SkillSpector', cover: c('NVIDIA Scanner', 'For Bad Skills', LOGO.nvidia, LOGO.claude)},
   {job: 'c6e60a58849b', date: '2026-10-26 12:00', title: 'Kimi K3 on 8 GB RAM', cover: c('2.78T AI Model', 'On 8 GB RAM', LOGO.kimi, LOGO.huggingface)},
