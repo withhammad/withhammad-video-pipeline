@@ -1,0 +1,10 @@
+{
+  "duration_s": 28.8,
+  "music": {
+    "style": "glow",
+    "bpm": 100,
+    "seed": 27,
+    "gain": 1.0
+  },
+  "sfx": []
+}

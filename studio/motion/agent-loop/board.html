@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>How an AI Agent Works</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  /* 1080x1350 LinkedIn image post: the reference's black flowchart (job agent-loop, analysis/breakdown.md), drawn in a
+     720x900 design space and scaled 1.5x. Every part starts dim and lights up in the order the agent runs (16 s), with
+     a glow on arrival, then the whole harness frame turns solid and holds. */
+  html, body { width: 1080px; height: 1350px; }
+  body { position: relative; overflow: hidden; background: #000; color: #fff; }
+  .s { position: absolute; left: 0; top: 0; width: 720px; height: 900px; transform: scale(1.5); transform-origin: 0 0; }
+  .el { position: absolute; }
+  .box { position: absolute; border: 2.5px solid #fff; border-radius: 9px; text-align: center; background: #000; }
+  .box h3 { font-size: 17px; font-weight: 700; letter-spacing: -.01em; margin-top: 8px; }
+  .box p { font-size: 12.5px; color: #c9c9cf; line-height: 1.45; }
+  .h1 { position: absolute; left: 0; right: 0; top: 20px; text-align: center; font-size: 38px; font-weight: 800; letter-spacing: -.025em; }
+  .h2 { position: absolute; left: 0; right: 0; top: 68px; text-align: center; font-size: 16.5px; color: #b9b9c2; }
+  .frame { position: absolute; left: 47px; top: 179px; width: 627px; height: 559px; border-radius: 12px; }
+  .frame .dash, .frame .solid { position: absolute; inset: 0; border-radius: 12px; }
+  .frame .dash { border: 2px dashed rgba(255,255,255,.75); }
+  .frame .solid { border: 3px solid #fff; }
+  .htag { position: absolute; left: 60px; top: 189px; display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: #c9c9cf; }
+  .htag b { font-size: 12.5px; letter-spacing: .08em; padding: 2px 7px; border-radius: 4px; border: 1.5px solid #fff; color: #fff; }
+  svg.w { position: absolute; left: 0; top: 0; width: 720px; height: 900px; overflow: visible; }
+  .lbl { position: absolute; z-index: 3; font-size: 11.5px; color: #c9c9cf; line-height: 1.35; }
+  .lbl.r { text-align: right; }
+  .lbl b { color: #fff; font-size: 14px; }
+  .dia { position: absolute; left: 290px; top: 455px; width: 140px; height: 84px; }
+  .dia svg { position: absolute; inset: 0; }
+  .dia div { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; font-size: 12.5px; font-weight: 700; line-height: 1.3; }
+  .evals { position: absolute; left: 80px; top: 664px; width: 141px; height: 46px; border-radius: 6px; background: #fff; color: #000; text-align: center; }
+  .evals h4 { font-size: 15px; font-weight: 800; margin-top: 4px; letter-spacing: .02em; }
+  .evals p { font-size: 10.5px; color: #333; }
+  .foot { position: absolute; left: 0; right: 0; top: 826px; display: flex; justify-content: center; align-items: center; gap: 11px; font-size: 16px; color: #c9c9cf; }
+  .foot img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1.5px solid #fff; }
+  .foot b { color: #fff; }
+  .foot i { font-style: italic; }
+  .rule { position: absolute; left: 54px; right: 54px; top: 818px; border-top: 1px solid #333; }
+  .brand { position: absolute; right: 54px; top: 874px; font-size: 10px; font-weight: 800; letter-spacing: .24em; color: #777; }
+</style></head>
+<body><div class="s">
+  <div class="h1">How an AI Agent Works</div>
+  <div class="h2">An agent is a model inside a harness that runs a loop</div>
+
+  <div class="el frame" data-k="frame"><div class="dash"></div><div class="solid"></div></div>
+  <div class="el htag" data-k="htag"><b>HARNESS</b><span>the code that makes a model act</span></div>
+
+  <svg class="w" viewBox="0 0 720 900">
+    <defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#fff"/></marker></defs>
+    <g stroke="#fff" stroke-width="2.5" fill="none" marker-end="url(#ah)">
+      <path data-k="a_trig" d="M360 156 V226"/>
+      <path data-k="a_mem" d="M209 256 H231"/>
+      <path data-k="a_mem" d="M231 292 H209"/>
+      <path data-k="a_llm" d="M360 314 V348"/>
+      <path data-k="a_dia" d="M360 434 V452"/>
+      <path data-k="a_no" d="M430 496 H501"/>
+      <path data-k="a_obs" d="M580 431 V270 H489"/>
+      <path data-k="a_yes" d="M360 539 V747"/>
+    </g>
+  </svg>
+  <div class="el lbl" data-k="a_mem" style="left:210px;top:240px;font-size:10px">read</div>
+  <div class="el lbl" data-k="a_mem" style="left:210px;top:295px;font-size:10px">write</div>
+  <div class="el lbl" data-k="a_no" style="left:446px;top:478px">No:</div>
+  <div class="el lbl" data-k="a_no" style="left:440px;top:503px">use a tool</div>
+  <div class="el lbl r" data-k="a_obs" style="left:458px;top:319px;width:112px"><b>4 · Observe</b><br>the result goes back<br>into the context<br><span style="color:#fff">loops 0+ times</span></div>
+  <div class="el lbl" data-k="a_yes" style="left:371px;top:580px">Yes: answer<br>(can be the first pass,<br>with zero tool calls)</div>
+
+  <div class="el box" data-k="trig" style="left:233px;top:103px;width:254px;height:53px"><h3>Trigger</h3><p>you · an event · a timer · another agent</p></div>
+  <div class="el box" data-k="mem" style="left:65px;top:228px;width:143px;height:127px"><h3>Memory</h3>
+    <p style="color:#fff;margin-top:4px">Short-term</p><p style="margin-top:-2px">= the context window</p>
+    <p style="color:#fff;margin-top:5px">Long-term</p><p style="margin-top:-2px">save → recall</p><p style="font-size:11px;margin-top:-2px">(automatic, or via a tool)</p></div>
+  <div class="el box" data-k="ctx" style="left:233px;top:228px;width:254px;height:86px"><h3>1 · Build context</h3>
+    <p style="margin-top:3px">instructions · tool list<br>chat so far · recalled memory<br>results of earlier tool calls</p></div>
+  <div class="el box llm" data-k="llm" style="left:250px;top:351px;width:220px;height:83px"><h3 style="font-size:18px;margin-top:20px">2 · Model decides</h3><p style="margin-top:6px">think · choose the next step</p></div>
+  <div class="el dia" data-k="dia"><svg viewBox="0 0 140 84"><path d="M70 2 L138 42 L70 82 L2 42 Z" fill="#000" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/></svg><div>Done, or need<br>a tool?</div></div>
+  <div class="el box" data-k="act" style="left:503px;top:432px;width:154px;height:129px"><h3>3 · Act (tools)</h3>
+    <p style="margin-top:3px">web search · run code<br>files · APIs · databases<br>memory search<br>MCP servers<br>sub-agents</p></div>
+  <div class="el box" data-k="guard" style="left:65px;top:439px;width:170px;height:137px"><h3>Guardrails</h3>
+    <p style="margin-top:3px">permissions<br>a human signs off<br>step and budget caps<br>errors and retries</p><p style="color:#fff;font-size:11px;margin-top:5px">around every action</p></div>
+  <div class="el box" data-k="obs" style="left:65px;top:589px;width:170px;height:134px"><h3>Observability</h3>
+    <p style="margin-top:3px">traces · logs<br>cost · latency</p></div>
+  <div class="el evals" data-k="evals"><h4>★ EVALS</h4><p>is the answer actually right?</p></div>
+  <div class="el box" data-k="final" style="left:233px;top:751px;width:254px;height:51px"><h3 style="margin-top:6px">Final output</h3><p>an answer · an action done · a handoff</p></div>
+
+  <div class="rule"></div>
+  <div class="foot"><img src="../claude-motion-graphics/assets/hammad.jpg" alt=""><span><i>Follow</i> <b>Hammad Yousuf</b> for more on AI agents</span></div>
+  <div class="brand">WITHHAMMAD</div>
+</div>
+<script>
+// when each part lights up (s). Dim parts sit at 14 % opacity, like the reference's first frame.
+const ON = { trig: 0.6, frame: 1.2, htag: 1.2, a_trig: 1.2, ctx: 1.8, a_mem: 2.5, mem: 2.5, a_llm: 3.4, llm: 3.4, a_dia: 4.3, dia: 4.3,
+  a_no: 5.1, act: 5.4, a_obs: 6.3, a_yes: 8.6, final: 9.3, guard: 10.2, obs: 10.9, evals: 11.5 };
+// second glow as the loop comes round: context, decide, check, then the answer
+const PULSE = { ctx: [7.0], llm: [7.6], dia: [8.2], act: [6.3] };
+const SOLID = 12.4, END = 15.9;
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const els = [...document.querySelectorAll('[data-k]')];
+const glow = (t, at) => { const d = t - at; return d < 0 ? 0 : Math.exp(-d / 0.45) * clamp(d / 0.08); };
+function draw(t) {
+  t = Math.min(t, END);
+  for (const el of els) {
+    const k = el.dataset.k, on = ON[k];
+    if (on === undefined) continue;
+    const a = clamp((t - on) / 0.25);
+    el.style.opacity = 0.14 + 0.86 * a;
+    let g = glow(t, on); for (const p of PULSE[k] || []) g = Math.max(g, glow(t, p));
+    const f = el.tagName === 'path' ? 'filter' : 'filter';
+    el.style.filter = g > 0.01 ? `drop-shadow(0 0 ${4 + 10 * g}px rgba(255,255,255,${0.85 * g}))` : 'none';
+  }
+  // the model box fills white once it is on; the harness frame goes from dashed to solid, its tag inverts
+  const llm = document.querySelector('.llm'), fill = clamp((t - 3.6) / 0.6);
+  llm.style.background = `rgb(${255 * fill},${255 * fill},${255 * fill})`; llm.style.color = fill > .5 ? '#000' : '#fff';
+  llm.querySelector('p').style.color = fill > .5 ? '#333' : '#c9c9cf';
+  const sol = clamp((t - SOLID) / 0.5);
+  const frame = document.querySelector('.frame');
+  frame.querySelector('.dash').style.opacity = 1 - sol; frame.querySelector('.solid').style.opacity = sol;
+  const fg = glow(t, SOLID + 0.3) + 0.35 * glow(t, SOLID + 1.2);
+  frame.style.filter = fg > 0.01 ? `drop-shadow(0 0 ${6 + 16 * fg}px rgba(255,255,255,${0.9 * fg}))` : 'none';
+  const tag = document.querySelector('.htag b'), inv = clamp((t - SOLID - 0.4) / 0.3);
+  tag.style.background = `rgba(255,255,255,${inv})`; tag.style.color = inv > .5 ? '#000' : '#fff';
+}
+let seeking = false;
+window.__seek = (t) => { seeking = true; draw(t); };
+window.__ready = document.fonts.ready;
+document.fonts.ready.then(() => { const t0 = performance.now(); const tick = (now) => { if (seeking) return; draw(((now - t0) / 1000) % (END + 4)); requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+draw(0);
+</script></body></html>

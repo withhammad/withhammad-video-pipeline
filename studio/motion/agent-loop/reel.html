@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>How an AI Agent Works (reel)</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  /* 1080x1920 reel, 20 s: the board builds while the camera follows the part that lights up (it reads on a phone),
+     pulls back as the harness turns solid, then holds with the CTA. ?cta=comment ends on the keyword, else the link. */
+  html, body { width: 1080px; height: 1920px; }
+  body { position: relative; overflow: hidden; background: #000; color: #fff; }
+  .hook { position: absolute; left: 0; right: 0; top: 110px; text-align: center; font-weight: 800; font-size: 64px; letter-spacing: -.035em; line-height: 1.08; }
+  .hook span { color: #9a9aa5; }
+  .view { position: absolute; left: 0; top: 330px; width: 1080px; height: 1350px; overflow: hidden; }
+  .view iframe { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; border: 0; transform-origin: 0 0; }
+  .bottom { position: absolute; left: 0; right: 0; top: 1700px; text-align: center; }
+  .cta { display: inline-flex; align-items: center; gap: 16px; padding: 20px 32px; border-radius: 20px; background: #fff; color: #000;
+    font-weight: 800; font-size: 38px; letter-spacing: -.02em; }
+  .cta b { font-weight: 900; }
+</style></head>
+<body>
+  <div class="hook">Most people can't explain this.<br><span>Here's the whole loop.</span></div>
+  <div class="view"><iframe src="board.html" scrolling="no" title="How an AI agent works flowchart"></iframe></div>
+  <div class="bottom"><div class="cta"></div></div>
+<script>
+const COMMENT = new URLSearchParams(location.search).get('cta') === 'comment';
+const END = 20, PULL = 12.0;
+const cta = document.querySelector('.cta');
+cta.innerHTML = COMMENT ? 'Comment <b>LOOP</b> for the free guide' : 'Free guide: <b>withhammad.com</b>';
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = (x) => { x = clamp(x); return x < .5 ? 4 * x ** 3 : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+// where the camera looks (board design px, 720x900) as each part lights up
+const KEYS = [[0, 360, 450, 1], [0.6, 360, 300, 1.25], [1.8, 360, 300, 1.35], [2.5, 250, 300, 1.35], [3.4, 360, 400, 1.35],
+  [4.3, 380, 470, 1.35], [5.4, 470, 470, 1.35], [6.3, 470, 380, 1.35], [7.0, 380, 320, 1.35], [8.2, 360, 470, 1.35],
+  [8.6, 360, 560, 1.35], [9.3, 360, 700, 1.35], [10.2, 210, 560, 1.35], [10.9, 210, 640, 1.35], [PULL, 360, 450, 1]];
+function cam(t) {
+  let i = 0; while (i < KEYS.length - 1 && KEYS[i + 1][0] <= t) i++;
+  const a = KEYS[i], b = KEYS[Math.min(i + 1, KEYS.length - 1)];
+  const k = b === a ? 0 : ease((t - a[0]) / Math.min(0.7, b[0] - a[0]));
+  return { x: a[1] + (b[1] - a[1]) * k, y: a[2] + (b[2] - a[2]) * k, s: a[3] + (b[3] - a[3]) * k };
+}
+const frame = document.querySelector('iframe');
+function draw(t) {
+  const c = cam(Math.min(t, PULL + 1));
+  // keep the board edge-to-edge: never pan past it
+  const S = 1.5 * c.s, W = 1080, H = 1350;
+  let tx = W / 2 - c.x * S, ty = H / 2 - c.y * S;
+  tx = Math.min(0, Math.max(W - 720 * S, tx)); ty = Math.min(0, Math.max(H - 900 * S, ty));
+  frame.style.transform = `translate(${tx}px, ${ty}px) scale(${c.s})`;
+  frame.contentWindow.__seek(t);
+  document.querySelector('.bottom').style.opacity = t < 1.6 ? 1 : ease((t - PULL - 1.2) / 0.5);
+}
+let seeking = false;
+window.__seek = (t) => { seeking = true; draw(t); };
+window.__ready = new Promise((r) => frame.addEventListener('load', () => frame.contentWindow.__ready.then(r)));
+window.__ready.then(() => { const t0 = performance.now(); const tick = (now) => { if (seeking) return; draw(((now - t0) / 1000) % END); requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+</script></body></html>

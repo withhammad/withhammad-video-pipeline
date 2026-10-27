@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>9 Agentic AI Concepts (reel)</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  /* 1080x1920 reel, 30 s: the board, then the camera flies to each card in turn (2.6 s, four beats at 92.3 bpm) so
+     every diagram is readable on a phone, then pulls back for the CTA. ?cta=comment ends on the keyword, else the link. */
+  html, body { width: 1080px; height: 1920px; }
+  body { position: relative; overflow: hidden; background: linear-gradient(180deg, #fbefe4 0%, #f3f1fb 45%, #fbe6d6 100%); color: #0d1330; }
+  .top { position: absolute; left: 0; right: 0; top: 96px; height: 230px; text-align: center; }
+  .hook { position: absolute; left: 0; right: 0; top: 0; font-weight: 900; font-size: 72px; letter-spacing: -.045em; line-height: 1.04; }
+  .hook span { color: #ff5a1f; }
+  .step { position: absolute; left: 0; right: 0; top: 18px; font-weight: 900; font-size: 64px; letter-spacing: -.04em; }
+  .step small { display: block; font: 600 26px var(--font); letter-spacing: .2em; color: #6a6f88; margin-bottom: 12px; }
+  .view { position: absolute; left: 0; top: 330px; width: 1080px; height: 1215px; overflow: hidden; }
+  .view iframe { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; border: 0; transform-origin: 0 0; }
+  .say { position: absolute; left: 70px; right: 70px; top: 1572px; text-align: center; font-weight: 700; font-size: 40px;
+    line-height: 1.22; letter-spacing: -.02em; color: #1b2140; }
+  .bottom { position: absolute; left: 0; right: 0; top: 1590px; text-align: center; }
+  .cta { display: inline-flex; align-items: center; gap: 18px; padding: 22px 34px; border-radius: 22px; background: #0b0d19;
+    color: #fff; font-weight: 800; font-size: 40px; letter-spacing: -.02em; box-shadow: 0 18px 40px -18px rgba(11,13,25,.6); }
+  .cta b { color: #ffb054; font-weight: 900; }
+  .brand { margin-top: 26px; font-weight: 900; letter-spacing: .22em; font-size: 26px; color: #ff6a1f; }
+</style></head>
+<body>
+  <div class="top"><div class="hook">Building AI agents?<br><span>Learn these 9 first.</span></div>
+    <div class="step"><small></small><div></div></div></div>
+  <div class="view"><iframe src="board.html" scrolling="no" title="9 agentic AI concepts board"></iframe></div>
+  <div class="say"></div>
+  <div class="bottom"><div class="cta"></div><div class="brand">WITHHAMMAD</div></div>
+<script>
+const COMMENT = new URLSearchParams(location.search).get('cta') === 'comment';
+const T_INTRO = 2.4, SHOT = 2.6, N = 9, T_OUT = T_INTRO + N * SHOT, END = 30;
+const SAYS = ['Short-term: the chat so far. Long-term: what it saves and recalls later.',
+  'A planner splits the goal and sends each task to the right worker.',
+  'Search your docs first, add the best matches to the prompt, then answer.',
+  'The code around the model: context in, tools run, limits held, progress saved.',
+  'Fixed test cases plus a grader show if a change helped or hurt.',
+  'Open protocol: build a connector once, and any MCP app can use it.',
+  'A SKILL.md folder: only its name and description load until needed.',
+  'Open protocol: agents publish what they can do, then hand off tasks.',
+  'Focused agents, one role each, working toward one shared goal.'];
+const say = document.querySelector('.say');
+const NAMES = ['Memory & State', 'Orchestration', 'RAG', 'Harness', 'Evals', 'MCP', 'Skills', 'A2A', 'Multi-Agent'];
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = (x) => { x = clamp(x); return x < .5 ? 4 * x ** 3 : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const VW = 1080, VH = 1215;
+const full = { x: 540, y: 675, s: 0.9 };
+const cam = (i) => ({ x: 45 + 336 * (i % 3) + 159, y: 246 + 306 * Math.floor(i / 3) + 148, s: 3.05 });
+const mixc = (a, b, k) => ({ x: a.x + (b.x - a.x) * k, y: a.y + (b.y - a.y) * k, s: Math.exp(Math.log(a.s) + (Math.log(b.s) - Math.log(a.s)) * k) });
+const frame = document.querySelector('iframe'), hook = document.querySelector('.hook'), step = document.querySelector('.step');
+const cta = document.querySelector('.cta');
+cta.innerHTML = COMMENT ? 'Comment <b>AGENTIC</b> for the free guide' : 'Free guide: <b>withhammad.com</b>';
+const MOVE = 0.55; // seconds the camera spends travelling at the start of each shot
+
+function draw(t) {
+  let c, focus = null, label = -1;
+  if (t < T_INTRO) { c = full; }
+  else if (t < T_OUT) {
+    const i = Math.floor((t - T_INTRO) / SHOT), u = t - T_INTRO - i * SHOT;
+    const from = i === 0 ? full : cam(i - 1);
+    c = mixc(from, cam(i), ease(u / MOVE)); focus = i + .5; label = i;
+  } else { c = mixc(cam(N - 1), full, ease((t - T_OUT) / 0.8)); }
+  frame.style.transform = `translate(${VW / 2 - c.x * c.s}px, ${VH / 2 - c.y * c.s}px) scale(${c.s})`;
+  frame.contentWindow.__draw(t, focus);
+  const showHook = t < T_INTRO + 0.25 || t > T_OUT + 0.4;
+  hook.style.opacity = showHook ? 1 : 0;
+  step.style.opacity = showHook ? 0 : 1;
+  if (label >= 0) { step.querySelector('small').textContent = `CONCEPT ${String(label + 1).padStart(2, '0')} OF 09`; step.querySelector('div').textContent = NAMES[label]; }
+  say.textContent = label >= 0 ? SAYS[label] : '';
+  say.style.opacity = label >= 0 ? clamp((t - T_INTRO - label * SHOT - 0.25) / 0.3) * clamp((T_INTRO + (label + 1) * SHOT - t) / 0.15) : 0;
+  const k = t > T_OUT ? ease((t - T_OUT - 0.5) / 0.5) : 0;
+  cta.parentElement.style.opacity = t < T_OUT ? 0.0001 + clamp(1 - (t - T_INTRO) / 0.4) : k;
+  cta.style.transform = `scale(${0.9 + 0.1 * (t < T_OUT ? 1 : k)})`;
+}
+let seeking = false;
+window.__seek = (t) => { seeking = true; draw(t); };
+window.__ready = new Promise((r) => frame.addEventListener('load', () => frame.contentWindow.__ready.then(r)));
+window.__ready.then(() => { const t0 = performance.now(); const tick = (now) => { if (seeking) return; draw(((now - t0) / 1000) % END); requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+</script></body></html>

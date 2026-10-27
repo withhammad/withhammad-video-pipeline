@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Inside Harness Engineering</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  /* 1080x1350 LinkedIn image post: the reference's harness diagram (job harness-engineering, analysis/breakdown.md),
+     drawn in a 720x900 design space at 1.5x. Layout and arrows hold still; the icons and dashed lines move on a 3 s loop. */
+  html, body { width: 1080px; height: 1350px; }
+  body { position: relative; overflow: hidden; background: #fff; color: #161b26; }
+  .s { position: absolute; left: 0; top: 0; width: 720px; height: 900px; transform: scale(1.5); transform-origin: 0 0; }
+  .a { position: absolute; }
+  .bar { left: 16px; top: 16px; width: 6px; height: 60px; border-radius: 3px; background: #1fb26b; }
+  .ttl { left: 32px; top: 14px; font-size: 33px; font-weight: 800; letter-spacing: -.03em; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+  .ttl span { background: #1677ff; color: #fff; padding: 2px 12px 5px; border-radius: 9px; }
+  .sub { left: 34px; top: 64px; font-size: 13.5px; color: #4b5563; }
+  .logo { right: 22px; top: 22px; display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 15px; letter-spacing: .14em; color: #1d2433; }
+  .logo i { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; font-style: normal; color: #fff; font-size: 16px; letter-spacing: 0;
+    background: linear-gradient(145deg, #ff9a3c, #ff5a1f); }
+  .panel { left: 34px; top: 156px; width: 652px; height: 614px; border-radius: 18px; background: #eef3f8; border: 1.5px solid #8ea3bb; }
+  .htag { left: 52px; top: 141px; padding: 6px 14px; border-radius: 8px; background: #5b7593; color: #fff; font-size: 12.5px; font-weight: 800; letter-spacing: .04em; }
+  .box { border-radius: 12px; border: 2px solid; text-align: center; }
+  .box h4 { font-size: 15.5px; font-weight: 800; letter-spacing: -.01em; }
+  .box p { font-size: 10.5px; color: #3c4453; }
+  .n { width: 24px; height: 24px; border-radius: 50%; background: #161b26; color: #fff; font-size: 12px; font-weight: 800; display: grid; place-items: center; }
+  .ic { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; font-size: 10.5px; font-weight: 700; color: #1d2433; }
+  .ic svg { width: 29px; height: 29px; overflow: visible; }
+  .lbl { font-size: 10.5px; color: #2b3240; font-weight: 500; white-space: nowrap; }
+  .lbl.r { color: #a5502a; font-weight: 700; }
+  .lbl.g { color: #2f9a54; font-weight: 600; }
+  svg.w { position: absolute; left: 0; top: 0; width: 720px; height: 900px; overflow: visible; }
+  .save { right: 24px; bottom: 14px; font-size: 11px; color: #6b7280; font-weight: 600; }
+</style></head>
+<body><div class="s">
+  <div class="a bar"></div>
+  <div class="a ttl">Inside <span>Harness Engineering</span></div>
+  <div class="a sub">What makes an LLM reliable</div>
+  <div class="a logo"><i>W</i>WITHHAMMAD</div>
+
+  <div class="a panel"></div>
+  <div class="a htag">THE HARNESS</div>
+
+  <svg class="w" viewBox="0 0 720 900">
+    <defs>
+      <marker id="k" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#161b26" stroke-width="1.6"/></marker>
+      <marker id="r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#b5583a" stroke-width="1.6"/></marker>
+      <marker id="g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2f9a54" stroke-width="1.6"/></marker>
+    </defs>
+    <!-- the main path: solid and still -->
+    <g stroke="#161b26" stroke-width="1.8" fill="none" marker-end="url(#k)">
+      <path d="M360 124 V170"/><path d="M360 270 V300"/><path d="M360 402 V428"/><path d="M360 536 V560"/><path d="M360 654 V676"/>
+      <path d="M242 618 H170 a10 10 0 0 1 -10 -10 V362 a10 10 0 0 1 10 -10 H248"/>
+    </g>
+    <path d="M360 744 V798" stroke="#2f9a54" stroke-width="1.8" fill="none" marker-end="url(#g)"/>
+    <!-- moving dashed lines: feedback, rules, observability -->
+    <g class="dash" stroke="#b5583a" stroke-width="1.6" fill="none" stroke-dasharray="7 6">
+      <path d="M242 712 H96 V222 H238" marker-end="url(#r)"/>
+      <path d="M528 532 C500 532 494 508 466 496" marker-end="url(#r)"/>
+      <path d="M528 600 H486" marker-end="url(#r)"/>
+    </g>
+    <g class="dot" stroke="#7d8796" stroke-width="1.3" fill="none" stroke-dasharray="4 4">
+      <path d="M512 330 L478 236"/><path d="M510 392 H470"/><path d="M512 450 L456 474"/><path d="M540 468 L478 702"/>
+    </g>
+  </svg>
+  <div class="a lbl" style="left:368px;top:140px">intent</div>
+  <div class="a lbl" style="left:368px;top:277px">relevant context</div>
+  <div class="a lbl" style="left:368px;top:408px">suggested action</div>
+  <div class="a lbl" style="left:368px;top:540px">allowed</div>
+  <div class="a lbl" style="left:368px;top:658px">output</div>
+  <div class="a lbl g" style="left:368px;top:766px">passed</div>
+  <div class="a lbl" style="left:172px;top:336px;font-weight:700">tool result</div>
+  <div class="a lbl r" style="left:104px;top:694px">lessons fed back</div>
+  <div class="a lbl r" style="left:468px;top:540px">enforces</div>
+  <div class="a lbl r" style="left:484px;top:584px">scopes</div>
+
+  <!-- goal -->
+  <div class="a box" style="left:262px;top:62px;width:196px;height:62px;border-color:#2b3240;background:#fff;display:flex;align-items:center;justify-content:center;gap:12px">
+    <svg viewBox="0 0 40 40" width="40" height="40" id="target"><circle cx="20" cy="20" r="16" fill="#58c4d6" stroke="#161b26" stroke-width="2"/><circle cx="20" cy="20" r="10.5" fill="#fff" stroke="#161b26" stroke-width="2"/><circle class="bull" cx="20" cy="20" r="5" fill="#1aa4b8" stroke="#161b26" stroke-width="2"/></svg>
+    <h4 style="font-size:17px">Your Goal</h4></div>
+
+  <!-- 1 context -->
+  <div class="a box" style="left:242px;top:172px;width:236px;height:98px;border-color:#7590bb;background:#e2eaf6">
+    <h4 style="margin-top:6px">Context Builder</h4><p>the right facts, up front</p>
+    <div style="display:flex;justify-content:space-around;margin-top:6px">
+      <div class="ic"><svg viewBox="0 0 34 34"><path d="M9 4h12l6 6v19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="#cfe0ff" stroke="#161b26" stroke-width="1.8"/><path d="M12 15h10M12 20h10M12 25h7" stroke="#3b6fd8" stroke-width="1.8"/></svg>Docs</div>
+      <div class="ic"><svg viewBox="0 0 34 34"><ellipse cx="17" cy="8" rx="11" ry="4" fill="#bcd3f2" stroke="#161b26" stroke-width="1.8"/><path d="M6 8v18c0 2.2 4.9 4 11 4s11-1.8 11-4V8" fill="#bcd3f2" stroke="#161b26" stroke-width="1.8"/><path d="M6 14c0 2.2 4.9 4 11 4s11-1.8 11-4M6 20c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#161b26" stroke-width="1.8"/></svg>Data</div>
+      <div class="ic"><svg viewBox="0 0 34 34"><rect x="6" y="4" width="22" height="26" rx="3" fill="#8fb1e8" stroke="#161b26" stroke-width="1.8"/><circle cx="17" cy="15" r="7" fill="#fff" stroke="#161b26" stroke-width="1.6"/><path id="hand" d="M17 15 V10.5" stroke="#161b26" stroke-width="1.8" stroke-linecap="round"/><path d="M17 15 L20 16.5" stroke="#161b26" stroke-width="1.6" stroke-linecap="round"/></svg>Memory</div>
+    </div></div>
+  <div class="a n" style="left:228px;top:160px">1</div>
+
+  <!-- 2 model -->
+  <svg class="a" style="left:248px;top:302px" width="224" height="102" viewBox="0 0 224 102"><ellipse cx="112" cy="51" rx="110" ry="49" fill="#ebe4f6" stroke="#8c74c4" stroke-width="2"/></svg>
+  <div class="a" style="left:248px;top:306px;width:224px;text-align:center">
+    <svg viewBox="0 0 44 44" width="40" height="40" style="overflow:visible"><g id="ring"><path d="M22 3 A19 19 0 0 1 41 22" stroke="#4fc3a1" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M22 41 A19 19 0 0 1 3 22" stroke="#f0a43a" stroke-width="2.6" fill="none" stroke-linecap="round"/></g>
+      <path d="M22 12c-3-3-9-2-9 3-3 1-3 6 0 7-2 3 1 7 5 6 1 3 4 3 4 0zM22 12c3-3 9-2 9 3 3 1 3 6 0 7 2 3-1 7-5 6-1 3-4 3-4 0z" fill="#b48ef0" stroke="#161b26" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <h4 style="font-size:20px;font-weight:800;margin-top:-2px">Model</h4><p style="font-size:11px;color:#4b5563">plans the next step</p></div>
+  <div class="a n" style="left:232px;top:290px">2</div>
+
+  <!-- 3 permission check -->
+  <svg class="a" style="left:252px;top:430px" width="216" height="106" viewBox="0 0 216 106"><path d="M108 2 L214 53 L108 104 L2 53 Z" fill="#f6eed6" stroke="#c7ae74" stroke-width="2" stroke-linejoin="round"/></svg>
+  <div class="a" style="left:252px;top:440px;width:216px;text-align:center">
+    <svg viewBox="0 0 34 36" width="30" height="32" id="lock1" style="overflow:visible"><path d="M10 16v-5a7 7 0 0 1 14 0v5" fill="none" stroke="#161b26" stroke-width="2.2"/><rect x="6" y="15" width="22" height="18" rx="3" fill="#f7a92e" stroke="#161b26" stroke-width="2"/><circle cx="17" cy="23" r="2.4" fill="#161b26"/><path d="M17 24v4" stroke="#161b26" stroke-width="2"/></svg>
+    <h4 style="font-size:14.5px;font-weight:800">Permission Check</h4><p style="font-size:10.5px;color:#3c4453">allow · block · ask</p></div>
+  <div class="a n" style="left:278px;top:428px">3</div>
+
+  <!-- 4 tools -->
+  <div class="a box" style="left:242px;top:562px;width:236px;height:92px;border-color:#c58e72;background:#f6e5da">
+    <h4 style="margin-top:5px">Tools &amp; Runtime</h4><p>least-privilege access</p>
+    <div style="display:flex;justify-content:space-around;margin-top:5px">
+      <div class="ic"><svg viewBox="0 0 34 34" id="crm"><rect x="4" y="9" width="26" height="19" rx="3" fill="#f3c9a8" stroke="#161b26" stroke-width="1.8"/><circle cx="12" cy="17" r="3.2" fill="#fff" stroke="#161b26" stroke-width="1.5"/><path d="M7.5 25c1-3 7.5-3 9 0" stroke="#161b26" stroke-width="1.5" fill="none"/><path class="crmline" d="M19 15h7M19 20h5" stroke="#161b26" stroke-width="1.8"/><circle cx="17" cy="7" r="2.4" fill="#fff" stroke="#161b26" stroke-width="1.5"/></svg>CRM</div>
+      <div class="ic"><svg viewBox="0 0 34 34"><path d="M9 25a6 6 0 0 1 0-12 8 8 0 0 1 15-2 6 6 0 0 1 1 14z" fill="#fff" stroke="#161b26" stroke-width="1.8"/><g id="gear"><circle cx="17" cy="20" r="4.6" fill="#f27a3f" stroke="#161b26" stroke-width="1.6"/><path d="M17 13.6v2.2M17 24.2v2.2M10.6 20h2.2M21.2 20h2.2M12.5 15.5l1.6 1.6M19.9 22.9l1.6 1.6M12.5 24.5l1.6-1.6M19.9 17.1l1.6-1.6" stroke="#161b26" stroke-width="1.8"/></g><circle cx="17" cy="20" r="1.6" fill="#fff"/></svg>APIs</div>
+      <div class="ic"><svg viewBox="0 0 34 34"><rect x="5" y="4" width="8" height="8" rx="1.5" fill="#fff" stroke="#161b26" stroke-width="1.8"/><rect x="21" y="13" width="8" height="8" rx="1.5" fill="#fff" stroke="#161b26" stroke-width="1.8"/><rect x="5" y="22" width="8" height="8" rx="1.5" fill="#fff" stroke="#161b26" stroke-width="1.8"/><path d="M9 12v10M9 17h12" stroke="#161b26" stroke-width="1.8"/><circle class="pulse" cx="9" cy="17" r="2" fill="#f27a3f"/></svg>MCP</div>
+    </div></div>
+  <div class="a n" style="left:228px;top:550px">4</div>
+
+  <!-- 5 verify -->
+  <div class="a box" style="left:242px;top:678px;width:236px;height:66px;border-color:#cf8a7e;background:#f9e0db;display:flex;align-items:center;justify-content:center;gap:16px">
+    <svg viewBox="0 0 44 44" width="44" height="44" style="overflow:visible"><path d="M8 4h17l9 9v25a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="#fbc2b8" stroke="#161b26" stroke-width="2"/><g id="mag"><circle cx="27" cy="27" r="7.5" fill="#fff" stroke="#161b26" stroke-width="2.4"/><path d="M32.5 32.5 L38 38" stroke="#161b26" stroke-width="3" stroke-linecap="round"/></g></svg>
+    <div style="text-align:left"><h4 style="font-size:17px">Verification</h4><p style="font-size:11px">tests · checks · proof</p></div></div>
+  <div class="a n" style="left:228px;top:666px">5</div>
+
+  <!-- 6 result -->
+  <div class="a box" style="left:250px;top:800px;width:220px;height:58px;border-color:#7fae86;background:#e3efe3;display:flex;align-items:center;justify-content:center;gap:12px">
+    <svg viewBox="0 0 48 40" width="52" height="44" style="overflow:visible"><g id="bot"><path d="M14 6v4" stroke="#161b26" stroke-width="2"/><circle cx="14" cy="5" r="2" fill="#fff" stroke="#161b26" stroke-width="1.6"/><rect x="4" y="10" width="20" height="15" rx="4" fill="#4cbcd0" stroke="#161b26" stroke-width="2"/><circle cx="10" cy="17" r="2.3" fill="#fff" stroke="#161b26" stroke-width="1.4"/><circle cx="18" cy="17" r="2.3" fill="#fff" stroke="#161b26" stroke-width="1.4"/><rect x="7" y="27" width="14" height="9" rx="2" fill="#4cbcd0" stroke="#161b26" stroke-width="2"/></g><path d="M36 14l9 3v7c0 6-4 9-9 11-5-2-9-5-9-11v-7z" fill="#4cbcd0" stroke="#161b26" stroke-width="2"/><path d="M32 24l3 3 5-6" fill="none" stroke="#161b26" stroke-width="2"/></svg>
+    <div style="text-align:left"><h4 style="font-size:16px">Trusted Result</h4><p>in bounds, and checked</p></div></div>
+  <div class="a n" style="left:236px;top:788px">6</div>
+
+  <!-- observability -->
+  <div class="a box" style="left:510px;top:316px;width:154px;height:154px;border-color:#8b95a4;background:#eceef1">
+    <h4 style="margin-top:10px;font-size:15px">Observability</h4><p>traces · calls · errors</p>
+    <svg viewBox="0 0 120 64" width="120" height="64" style="margin-top:8px;overflow:visible">
+      <rect x="6" y="4" width="62" height="38" rx="4" fill="#4cbcd0" stroke="#161b26" stroke-width="2"/>
+      <path class="beat" d="M10 24 H22 L27 13 L33 34 L39 18 L44 24 H64" fill="none" stroke="#161b26" stroke-width="2" stroke-dasharray="70 70"/>
+      <path d="M24 42 v6 M37 42 v6 M50 42 v6" stroke="#161b26" stroke-width="2"/><circle cx="24" cy="51" r="3" fill="#fff" stroke="#161b26" stroke-width="1.6"/><circle cx="37" cy="51" r="3" fill="#fff" stroke="#161b26" stroke-width="1.6"/><circle cx="50" cy="51" r="3" fill="#fff" stroke="#161b26" stroke-width="1.6"/>
+      <g id="eye"><path d="M78 40 C86 30 106 30 114 40 C106 50 86 50 78 40z" fill="#fff" stroke="#161b26" stroke-width="2"/><circle cx="96" cy="40" r="6" fill="#4cbcd0" stroke="#161b26" stroke-width="1.8"/></g>
+    </svg>
+    <p style="font-weight:700;color:#161b26;margin-top:2px">sees every step</p></div>
+
+  <!-- rules -->
+  <div class="a box" style="left:528px;top:498px;width:136px;height:126px;border-color:#c7ae74;background:#f6efd8">
+    <h4 style="margin-top:10px;font-size:14.5px">Rules &amp; Limits</h4><p>who may do what</p>
+    <svg viewBox="0 0 100 52" width="100" height="52" style="margin-top:6px;overflow:visible">
+      <path d="M6 14l5 5 9-11" fill="none" stroke="#161b26" stroke-width="2.6"/><path d="M7 32l11 11M18 32 7 43" stroke="#161b26" stroke-width="2.6"/>
+      <path d="M28 10h22M28 18h22M28 30h22M28 38h22" stroke="#161b26" stroke-width="2.6"/>
+      <g id="lock2"><path d="M69 26v-5a7 7 0 0 1 14 0v5" fill="none" stroke="#161b26" stroke-width="2.2"/><rect x="65" y="25" width="22" height="20" rx="3" fill="#f7a92e" stroke="#161b26" stroke-width="2"/><circle cx="76" cy="33" r="2.4" fill="#161b26"/><path d="M76 34v5" stroke="#161b26" stroke-width="2"/></g>
+    </svg></div>
+
+  <div class="a save">Save this for your next agent build · withhammad.com</div>
+</div>
+<script>
+const LOOP = 3;
+const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
+const TAU = Math.PI * 2;
+function draw(t) {
+  t = ((t % LOOP) + LOOP) % LOOP; const u = t / LOOP;
+  for (const p of $$('.dash path')) p.style.strokeDashoffset = String(-u * 52);
+  for (const p of $$('.dot path')) p.style.strokeDashoffset = String(-u * 32);
+  $('.bull').setAttribute('r', String(5 + 1.6 * Math.sin(u * TAU * 2)));
+  $('#target').style.transform = `rotate(${4 * Math.sin(u * TAU)}deg)`;
+  $('#hand').setAttribute('transform', `rotate(${u * 360} 17 15)`);
+  $('#ring').setAttribute('transform', `rotate(${u * 360} 22 22)`);
+  $('#lock1').style.transform = `rotate(${7 * Math.sin(u * TAU * 2)}deg)`;
+  $('#lock2').setAttribute('transform', `rotate(${6 * Math.sin(u * TAU * 2 + 1)} 76 46)`);
+  $('#gear').setAttribute('transform', `rotate(${u * 360} 17 20)`);
+  $('.pulse').setAttribute('cy', String(17 + 0 * u)); $('.pulse').setAttribute('cx', String(9 + 12 * ((u * 2) % 1)));
+  $('.crmline').style.opacity = String(0.4 + 0.6 * Math.abs(Math.sin(u * TAU)));
+  $('#mag').setAttribute('transform', `translate(${3.5 * Math.cos(u * TAU)} ${3.5 * Math.sin(u * TAU)})`);
+  $('.beat').style.strokeDashoffset = String(70 - 140 * u);
+  const blink = Math.max(0, 1 - Math.abs(t - 2.5) / 0.12);
+  $('#eye').setAttribute('transform', `translate(0 ${40 * blink * 0.9}) scale(1 ${1 - 0.9 * blink})`);
+  $('#bot').setAttribute('transform', `translate(0 ${-2.5 * Math.abs(Math.sin(u * TAU))})`);
+}
+let seeking = false;
+window.__seek = (t) => { seeking = true; draw(t); };
+window.__ready = document.fonts.ready;
+document.fonts.ready.then(() => { const t0 = performance.now(); const tick = (now) => { if (seeking) return; draw((now - t0) / 1000); requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+draw(0);
+</script></body></html>
