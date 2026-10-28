@@ -1,10 +1,10 @@
 {
-  "status": "proposal_only",
+  "status": "superseded",
   "timezone": "Asia/Dubai",
   "posts_per_day": 2,
   "dates_assigned": false,
   "scheduler_enabled": false,
-  "reason": "Owner reviews each final first. Existing LinkedIn time proposals are low-confidence proxies, not direct LinkedIn audience analytics. Confirm eligible slots and existing queue before scheduling.",
+  "reason": "Owner approved six ready posts on 28 October; use approved-schedule.json.",
   "items": [
     {
       "post": 1,

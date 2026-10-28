@@ -15,3 +15,7 @@ All 20 Charlie reel effects and the shared engine are already installed in Codex
 
 ## Reference-design revision — 28 October
 Rebuilt the six review drafts around their reference formats: three-column coloured agent diagram; handwritten blue-ink 20-page notebook; wide monospace course-page layout; dark browser/README Firecrawl page; unframed model-hype illustration; and a labelled four-by-four concept grid. Original wording and WITHHAMMAD attribution retained. All 26 HTML exports pass overflow checks; video files decode successfully. No publishing or scheduling.
+
+
+## Publication authorized — 28 October
+Owner approved publishing and scheduling the six revised posts. approved-schedule.json is the active queue; the old draft-queue.json is superseded. Media uploaded to LinkedIn. Codex heartbeat publish-approved-six-post-linkedin-batch runs hourly; Mac must be awake and Codex running. Durable receipts prevent duplicate posts. Missed slots over two hours require rescheduling.
