@@ -1,0 +1,113 @@
+[
+  {
+    "number": 1,
+    "title": "How LLM inference works",
+    "reference": "https://www.linkedin.com/posts/arindam2004_someone-just-made-an-entire-explainer-video-ugcPost-7520718403016212480-hKHH/",
+    "status": "blocked_narration_visual_preview_only",
+    "primary_file": "01-inference-visual-preview.mp4",
+    "linkedin_caption": "Why does an AI answer pause before it starts, then arrive piece by piece?\n\nPrefill and decode do different work. The prompt is tokenized and processed, the model builds reusable key-value state, and each ordinary decoding step selects another token. Scheduling and memory movement matter as much as the visible chat interface.\n\nThis explainer follows one example through that path and separates time to first token from output speed. If you build AI applications, measure both before choosing an optimization.\n\nSave this for your next latency investigation. Follow Hammad for practical AI engineering explanations.\n\n#LLM #AIEngineering #Inference",
+    "alt_text": "Cream-and-blue diagrams show tokenization, transformer blocks, token selection, cached keys and values, prefill, decoding and batching. Marked visual preview; narration pending.",
+    "sources_checked": [
+      "https://huggingface.co/docs/transformers/main/cache_explanation",
+      "https://huggingface.co/docs/transformers/main/llm_tutorial_optimization",
+      "https://arxiv.org/abs/1706.03762"
+    ],
+    "approval": false,
+    "published": false,
+    "scheduled": false
+  },
+  {
+    "number": 2,
+    "title": "The AI agent blueprint",
+    "reference": "https://www.linkedin.com/posts/most-people-think-an-ai-agent-is-just-an-share-7520322284373352448-K8pO/",
+    "status": "ready_for_owner_review",
+    "primary_file": "02-agent-blueprint.png",
+    "linkedin_caption": "A useful AI agent starts with a clear task and a way to check the result.\n\nThis map separates six pieces that are often bundled together: skills, knowledge sources, subagents, the agent loop, MCP connections and plugins. They solve different problems. Installing more of them does not automatically make an agent more reliable.\n\nStart with the smallest working system. Add retrieval when evidence is missing, delegation when a bounded task benefits from it, and integrations when the task requires an external action. Keep permissions and verification explicit.\n\nSave the map. Which part of your current agent causes the most friction?\n\n#AIAgents #MCP #AIEngineering",
+    "alt_text": "Six labelled panels explain skills, knowledge, subagents, agent loops, MCP connections and plugins, with practical checks.",
+    "sources_checked": [
+      "https://www.anthropic.com/research/building-effective-agents",
+      "https://modelcontextprotocol.io/docs/learn/architecture"
+    ],
+    "approval": false,
+    "published": false,
+    "scheduled": false
+  },
+  {
+    "number": 3,
+    "title": "NLP: a developer’s field notebook",
+    "reference": "https://www.linkedin.com/posts/rahul-y-642ba13a3_nlp-naturallanguageprocessing-artificialintelligence-ugcPost-7519937454473273344-HpYY/",
+    "status": "ready_for_owner_review",
+    "primary_file": "03-nlp-field-notebook.pdf",
+    "linkedin_caption": "You can learn NLP as a connected system instead of a list of acronyms.\n\nI put together a 20-page field notebook that moves from text preprocessing and representations to transformers, retrieval, RAG, evaluation and deployment. Each page explains the decision behind the technique and a common mistake to avoid.\n\nA useful way to study it: choose one support-document assistant, build a small baseline, and use the same evaluation questions as you improve it. That makes the tradeoffs visible.\n\nSave the notebook and try one chapter in a real project. Which topic should I explain next?\n\n#NLP #MachineLearning #AIEngineering",
+    "alt_text": "Twenty original study pages cover NLP from preprocessing through models, retrieval, evaluation and deployment, in blue text on white paper.",
+    "sources_checked": [
+      "https://web.stanford.edu/~jurafsky/slp3/",
+      "https://scikit-learn.org/stable/modules/feature_extraction.html",
+      "https://huggingface.co/docs/peft/main/conceptual_guides/lora"
+    ],
+    "approval": false,
+    "published": false,
+    "scheduled": false
+  },
+  {
+    "number": 4,
+    "title": "AI engineering from scratch",
+    "reference": "https://www.linkedin.com/posts/arynnraj_ai-engineering-from-scratch-an-excellent-share-7520399245598670848-Vv9I/",
+    "status": "ready_for_owner_review",
+    "primary_file": "04-ai-engineering.png",
+    "linkedin_caption": "A large AI curriculum is easier to use when you choose a destination first.\n\nAI Engineering from Scratch, maintained by Rohit Ghumare and contributors, currently lists 542 lessons across 20 phases. Its four core paths connect AI applications, software foundations, agent-assisted engineering and product delivery.\n\nChoose one path, build one working artifact, and keep the test results. Progress becomes easier to assess when you can show what works and where it fails.\n\nThe course is open source under MIT. Counts checked on 28 October 2026. Explore the original project: https://aiengineeringfromscratch.com/\n\nWhich path fits the work you want to do?\n\n#AIEngineering #OpenSource #Learning",
+    "alt_text": "A four-path diagram for AI Engineering from Scratch shows AI applications, software foundations, coding agents and product delivery.",
+    "sources_checked": [
+      "https://aiengineeringfromscratch.com/",
+      "https://github.com/rohitg00/ai-engineering-from-scratch"
+    ],
+    "approval": false,
+    "published": false,
+    "scheduled": false
+  },
+  {
+    "number": 5,
+    "title": "Track website changes with Firecrawl",
+    "reference": "https://www.linkedin.com/posts/digcreator_your-ai-agent-can-now-git-diff-a-website-share-7520499925621665792-t8fz/",
+    "status": "ready_for_owner_review",
+    "primary_file": "05-firecrawl.png",
+    "linkedin_caption": "An agent monitoring a web page should be able to tell you what changed.\n\nFirecrawl’s change tracking compares a tracked scrape with its previous snapshot. You can request a Git-style line diff or a structured field comparison, then decide which changes matter to your workflow.\n\nThat is useful for documentation, release notes and other sources that evolve. The first scrape establishes a baseline; a later scrape can return the difference. Scheduling those checks is a separate part of the system.\n\nThe prices in this graphic are illustrative. Documentation: https://docs.firecrawl.dev/features/change-tracking\n\nWhat page would you want an agent to keep up with?\n\n#AIAgents #WebData #Firecrawl",
+    "alt_text": "A dark comparison graphic shows an illustrative price change from $19 to $24, followed by baseline, comparison and decision steps.",
+    "sources_checked": [
+      "https://docs.firecrawl.dev/features/change-tracking"
+    ],
+    "approval": false,
+    "published": false,
+    "scheduled": false
+  },
+  {
+    "number": 6,
+    "title": "The new-model hype cycle",
+    "reference": "https://www.linkedin.com/posts/luc-ebert_every-new-ai-model-gets-the-same-treatment-ugcPost-7520175287364620288-fgsm/",
+    "status": "ready_for_owner_review",
+    "primary_file": "06-model-hype.mp4",
+    "linkedin_caption": "A new model drops. We declare a new era. Then the next model drops.\n\nThe excitement is understandable. But the useful question stays the same: does this model perform better on the work you actually need done?\n\nKeep a small set of real tasks. Compare quality, latency, cost and the failures you can tolerate. Let that evidence decide what goes into your workflow.\n\nOriginal AI-assisted illustration and coded animation.\n\nWhat test do you run before switching models?\n\n#ArtificialIntelligence #AIModels #AIEngineering",
+    "alt_text": "A cartoon group alternately cheers, bows and points at a tablet labelled GPT, Gemini and Claude, satirizing the cycle of excitement around new AI models.",
+    "sources_checked": [],
+    "approval": false,
+    "published": false,
+    "scheduled": false
+  },
+  {
+    "number": 7,
+    "title": "16 AI concepts worth understanding",
+    "reference": "https://www.linkedin.com/feed/update/urn:li:groupPost:2066905-7520723848208572417/",
+    "status": "ready_for_owner_review",
+    "primary_file": "07-ai-concepts.mp4",
+    "linkedin_caption": "Sixteen AI concepts become much easier to remember when you can see how they connect.\n\nThe first row covers model foundations. The next adds knowledge and context. Training and evaluation shape behavior, while agents and production controls turn model output into useful actions.\n\nThese are building blocks, not a requirement to put all sixteen into every product. Start with the task, identify what is missing, and test the next addition.\n\nSave this visual map. Which concept would you like to see explained with a worked example?\n\n#GenerativeAI #AIAgents #AIEngineering",
+    "alt_text": "A four-by-four diagram grid illustrates sixteen AI concepts, from transformers and tokenization through retrieval, training, agents and guardrails.",
+    "sources_checked": [
+      "https://modelcontextprotocol.io/docs/learn/architecture",
+      "https://arxiv.org/abs/2203.02155",
+      "https://arxiv.org/abs/1706.03762"
+    ],
+    "approval": false,
+    "published": false,
+    "scheduled": false
+  }
+]

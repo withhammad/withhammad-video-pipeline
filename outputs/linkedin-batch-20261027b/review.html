@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WITHHAMMAD batch review</title><style>body{font:17px/1.6 system-ui;background:#f2f5f8;color:#172b43;margin:0;padding:55px 24px;max-width:1100px;margin:auto}h1{font-size:43px;line-height:1.15}h2{font-size:30px}.lead{font-size:21px}article{background:white;margin:42px 0;padding:32px;border-radius:18px;box-shadow:0 5px 28px #172b4310}.number{font-size:13px;letter-spacing:2px;color:#166b77;font-weight:700}.status{background:#eff5f7;padding:10px 15px;border-radius:8px}img,video{display:block;max-width:100%;max-height:850px;margin:auto}video{width:100%;background:#172b43}a{color:#00687e}pre{white-space:pre-wrap;font:inherit}details{border-top:1px solid #ddd;padding-top:18px}summary{cursor:pointer;font-weight:600}.carousel{text-align:center}.carousel div{padding:18px}button{padding:10px 15px;background:#173a55;color:white;border:0;border-radius:7px;cursor:pointer}#page{padding:20px}.banner{width:100%}footer{text-align:center;font-size:14px}</style></head><body><h1>WITHHAMMAD · Seven-post review</h1><p class="lead">Six posts are ready for your review. The LLM explainer has a 60-second visual draft and a complete original script; its final narration is blocked by HeyGen’s “Insufficient generative credits” response.</p><p>Nothing has been posted or scheduled. The two-per-day queue is a proposal without dates.</p><article id="post-1"><div class="number">POST 01</div><h2>How LLM inference works</h2><p class="status">blocked narration visual preview only</p><video controls preload="metadata" src="01-inference-visual-preview.mp4" poster="01-inference-storyboard.jpg"></video><p><a href="01-inference-visual-preview.mp4" download>Download asset</a> · <a href="inference-script.txt">Read the narration script</a></p><details><summary>Post copy, alt text and sources</summary><pre>Why does an AI answer pause before it starts, then arrive piece by piece?
+
+Prefill and decode do different work. The prompt is tokenized and processed, the model builds reusable key-value state, and each ordinary decoding step selects another token. Scheduling and memory movement matter as much as the visible chat interface.
+
+This explainer follows one example through that path and separates time to first token from output speed. If you build AI applications, measure both before choosing an optimization.
+
+Save this for your next latency investigation. Follow Hammad for practical AI engineering explanations.
+
+#LLM #AIEngineering #Inference</pre><p><b>Alt text:</b> Cream-and-blue diagrams show tokenization, transformer blocks, token selection, cached keys and values, prefill, decoding and batching. Marked visual preview; narration pending.</p><ul><li><a href="https://huggingface.co/docs/transformers/main/cache_explanation">https://huggingface.co/docs/transformers/main/cache_explanation</a></li><li><a href="https://huggingface.co/docs/transformers/main/llm_tutorial_optimization">https://huggingface.co/docs/transformers/main/llm_tutorial_optimization</a></li><li><a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a></li></ul></details></article><article id="post-2"><div class="number">POST 02</div><h2>The AI agent blueprint</h2><p class="status">ready for owner review</p><img src="02-agent-blueprint.png" alt="Six labelled panels explain skills, knowledge, subagents, agent loops, MCP connections and plugins, with practical checks."><p><a href="02-agent-blueprint.png" download>Download asset</a></p><details><summary>Post copy, alt text and sources</summary><pre>A useful AI agent starts with a clear task and a way to check the result.
+
+This map separates six pieces that are often bundled together: skills, knowledge sources, subagents, the agent loop, MCP connections and plugins. They solve different problems. Installing more of them does not automatically make an agent more reliable.
+
+Start with the smallest working system. Add retrieval when evidence is missing, delegation when a bounded task benefits from it, and integrations when the task requires an external action. Keep permissions and verification explicit.
+
+Save the map. Which part of your current agent causes the most friction?
+
+#AIAgents #MCP #AIEngineering</pre><p><b>Alt text:</b> Six labelled panels explain skills, knowledge, subagents, agent loops, MCP connections and plugins, with practical checks.</p><ul><li><a href="https://www.anthropic.com/research/building-effective-agents">https://www.anthropic.com/research/building-effective-agents</a></li><li><a href="https://modelcontextprotocol.io/docs/learn/architecture">https://modelcontextprotocol.io/docs/learn/architecture</a></li></ul></details></article><article id="post-3"><div class="number">POST 03</div><h2>NLP: a developer’s field notebook</h2><p class="status">ready for owner review</p><div class="carousel"><img id="nlp" src="nlp-01.png"><div><button onclick="showPage(-1)">← Previous</button><span id="page">1 / 20</span><button onclick="showPage(1)">Next →</button></div></div><p><a href="03-nlp-field-notebook.pdf" download>Download asset</a></p><details><summary>Post copy, alt text and sources</summary><pre>You can learn NLP as a connected system instead of a list of acronyms.
+
+I put together a 20-page field notebook that moves from text preprocessing and representations to transformers, retrieval, RAG, evaluation and deployment. Each page explains the decision behind the technique and a common mistake to avoid.
+
+A useful way to study it: choose one support-document assistant, build a small baseline, and use the same evaluation questions as you improve it. That makes the tradeoffs visible.
+
+Save the notebook and try one chapter in a real project. Which topic should I explain next?
+
+#NLP #MachineLearning #AIEngineering</pre><p><b>Alt text:</b> Twenty original study pages cover NLP from preprocessing through models, retrieval, evaluation and deployment, in blue text on white paper.</p><ul><li><a href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a></li><li><a href="https://scikit-learn.org/stable/modules/feature_extraction.html">https://scikit-learn.org/stable/modules/feature_extraction.html</a></li><li><a href="https://huggingface.co/docs/peft/main/conceptual_guides/lora">https://huggingface.co/docs/peft/main/conceptual_guides/lora</a></li></ul></details></article><article id="post-4"><div class="number">POST 04</div><h2>AI engineering from scratch</h2><p class="status">ready for owner review</p><img src="04-ai-engineering.png" alt="A four-path diagram for AI Engineering from Scratch shows AI applications, software foundations, coding agents and product delivery."><p><a href="04-ai-engineering.png" download>Download asset</a></p><details><summary>Post copy, alt text and sources</summary><pre>A large AI curriculum is easier to use when you choose a destination first.
+
+AI Engineering from Scratch, maintained by Rohit Ghumare and contributors, currently lists 542 lessons across 20 phases. Its four core paths connect AI applications, software foundations, agent-assisted engineering and product delivery.
+
+Choose one path, build one working artifact, and keep the test results. Progress becomes easier to assess when you can show what works and where it fails.
+
+The course is open source under MIT. Counts checked on 28 October 2026. Explore the original project: https://aiengineeringfromscratch.com/
+
+Which path fits the work you want to do?
+
+#AIEngineering #OpenSource #Learning</pre><p><b>Alt text:</b> A four-path diagram for AI Engineering from Scratch shows AI applications, software foundations, coding agents and product delivery.</p><ul><li><a href="https://aiengineeringfromscratch.com/">https://aiengineeringfromscratch.com/</a></li><li><a href="https://github.com/rohitg00/ai-engineering-from-scratch">https://github.com/rohitg00/ai-engineering-from-scratch</a></li></ul></details></article><article id="post-5"><div class="number">POST 05</div><h2>Track website changes with Firecrawl</h2><p class="status">ready for owner review</p><img src="05-firecrawl.png" alt="A dark comparison graphic shows an illustrative price change from $19 to $24, followed by baseline, comparison and decision steps."><p><a href="05-firecrawl.png" download>Download asset</a></p><details><summary>Post copy, alt text and sources</summary><pre>An agent monitoring a web page should be able to tell you what changed.
+
+Firecrawl’s change tracking compares a tracked scrape with its previous snapshot. You can request a Git-style line diff or a structured field comparison, then decide which changes matter to your workflow.
+
+That is useful for documentation, release notes and other sources that evolve. The first scrape establishes a baseline; a later scrape can return the difference. Scheduling those checks is a separate part of the system.
+
+The prices in this graphic are illustrative. Documentation: https://docs.firecrawl.dev/features/change-tracking
+
+What page would you want an agent to keep up with?
+
+#AIAgents #WebData #Firecrawl</pre><p><b>Alt text:</b> A dark comparison graphic shows an illustrative price change from $19 to $24, followed by baseline, comparison and decision steps.</p><ul><li><a href="https://docs.firecrawl.dev/features/change-tracking">https://docs.firecrawl.dev/features/change-tracking</a></li></ul></details></article><article id="post-6"><div class="number">POST 06</div><h2>The new-model hype cycle</h2><p class="status">ready for owner review</p><video controls preload="metadata" src="06-model-hype.mp4" poster="06-model-hype.png"></video><p><a href="06-model-hype.mp4" download>Download asset</a></p><details><summary>Post copy, alt text and sources</summary><pre>A new model drops. We declare a new era. Then the next model drops.
+
+The excitement is understandable. But the useful question stays the same: does this model perform better on the work you actually need done?
+
+Keep a small set of real tasks. Compare quality, latency, cost and the failures you can tolerate. Let that evidence decide what goes into your workflow.
+
+Original AI-assisted illustration and coded animation.
+
+What test do you run before switching models?
+
+#ArtificialIntelligence #AIModels #AIEngineering</pre><p><b>Alt text:</b> A cartoon group alternately cheers, bows and points at a tablet labelled GPT, Gemini and Claude, satirizing the cycle of excitement around new AI models.</p><ul></ul></details></article><article id="post-7"><div class="number">POST 07</div><h2>16 AI concepts worth understanding</h2><p class="status">ready for owner review</p><video controls preload="metadata" src="07-ai-concepts.mp4" poster="07-ai-concepts.png"></video><p><a href="07-ai-concepts.mp4" download>Download asset</a></p><details><summary>Post copy, alt text and sources</summary><pre>Sixteen AI concepts become much easier to remember when you can see how they connect.
+
+The first row covers model foundations. The next adds knowledge and context. Training and evaluation shape behavior, while agents and production controls turn model output into useful actions.
+
+These are building blocks, not a requirement to put all sixteen into every product. Start with the task, identify what is missing, and test the next addition.
+
+Save this visual map. Which concept would you like to see explained with a worked example?
+
+#GenerativeAI #AIAgents #AIEngineering</pre><p><b>Alt text:</b> A four-by-four diagram grid illustrates sixteen AI concepts, from transformers and tokenization through retrieval, training, agents and guardrails.</p><ul><li><a href="https://modelcontextprotocol.io/docs/learn/architecture">https://modelcontextprotocol.io/docs/learn/architecture</a></li><li><a href="https://arxiv.org/abs/2203.02155">https://arxiv.org/abs/2203.02155</a></li><li><a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a></li></ul></details></article><article><h2>Profile banner</h2><img class="banner" src="linkedin-banner.png"><p><a href="linkedin-banner.png" download>Static LinkedIn banner</a> · <a href="animated-banner-preview.mp4">Animated version for video use</a></p></article><footer>Prepared 28 October 2026 · WITHHAMMAD · Owner review required</footer><script>let n=1;function showPage(d){n=Math.max(1,Math.min(20,n+d));document.getElementById("nlp").src="nlp-"+String(n).padStart(2,"0")+".png";document.getElementById("page").textContent=n+" / 20"}</script></body></html>

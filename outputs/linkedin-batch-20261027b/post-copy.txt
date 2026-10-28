@@ -1,0 +1,132 @@
+1. How LLM inference works
+
+Why does an AI answer pause before it starts, then arrive piece by piece?
+
+Prefill and decode do different work. The prompt is tokenized and processed, the model builds reusable key-value state, and each ordinary decoding step selects another token. Scheduling and memory movement matter as much as the visible chat interface.
+
+This explainer follows one example through that path and separates time to first token from output speed. If you build AI applications, measure both before choosing an optimization.
+
+Save this for your next latency investigation. Follow Hammad for practical AI engineering explanations.
+
+#LLM #AIEngineering #Inference
+
+ALT TEXT: Cream-and-blue diagrams show tokenization, transformer blocks, token selection, cached keys and values, prefill, decoding and batching. Marked visual preview; narration pending.
+
+SOURCES:
+https://huggingface.co/docs/transformers/main/cache_explanation
+https://huggingface.co/docs/transformers/main/llm_tutorial_optimization
+https://arxiv.org/abs/1706.03762
+
+2. The AI agent blueprint
+
+A useful AI agent starts with a clear task and a way to check the result.
+
+This map separates six pieces that are often bundled together: skills, knowledge sources, subagents, the agent loop, MCP connections and plugins. They solve different problems. Installing more of them does not automatically make an agent more reliable.
+
+Start with the smallest working system. Add retrieval when evidence is missing, delegation when a bounded task benefits from it, and integrations when the task requires an external action. Keep permissions and verification explicit.
+
+Save the map. Which part of your current agent causes the most friction?
+
+#AIAgents #MCP #AIEngineering
+
+ALT TEXT: Six labelled panels explain skills, knowledge, subagents, agent loops, MCP connections and plugins, with practical checks.
+
+SOURCES:
+https://www.anthropic.com/research/building-effective-agents
+https://modelcontextprotocol.io/docs/learn/architecture
+
+3. NLP: a developer’s field notebook
+
+You can learn NLP as a connected system instead of a list of acronyms.
+
+I put together a 20-page field notebook that moves from text preprocessing and representations to transformers, retrieval, RAG, evaluation and deployment. Each page explains the decision behind the technique and a common mistake to avoid.
+
+A useful way to study it: choose one support-document assistant, build a small baseline, and use the same evaluation questions as you improve it. That makes the tradeoffs visible.
+
+Save the notebook and try one chapter in a real project. Which topic should I explain next?
+
+#NLP #MachineLearning #AIEngineering
+
+ALT TEXT: Twenty original study pages cover NLP from preprocessing through models, retrieval, evaluation and deployment, in blue text on white paper.
+
+SOURCES:
+https://web.stanford.edu/~jurafsky/slp3/
+https://scikit-learn.org/stable/modules/feature_extraction.html
+https://huggingface.co/docs/peft/main/conceptual_guides/lora
+
+4. AI engineering from scratch
+
+A large AI curriculum is easier to use when you choose a destination first.
+
+AI Engineering from Scratch, maintained by Rohit Ghumare and contributors, currently lists 542 lessons across 20 phases. Its four core paths connect AI applications, software foundations, agent-assisted engineering and product delivery.
+
+Choose one path, build one working artifact, and keep the test results. Progress becomes easier to assess when you can show what works and where it fails.
+
+The course is open source under MIT. Counts checked on 28 October 2026. Explore the original project: https://aiengineeringfromscratch.com/
+
+Which path fits the work you want to do?
+
+#AIEngineering #OpenSource #Learning
+
+ALT TEXT: A four-path diagram for AI Engineering from Scratch shows AI applications, software foundations, coding agents and product delivery.
+
+SOURCES:
+https://aiengineeringfromscratch.com/
+https://github.com/rohitg00/ai-engineering-from-scratch
+
+5. Track website changes with Firecrawl
+
+An agent monitoring a web page should be able to tell you what changed.
+
+Firecrawl’s change tracking compares a tracked scrape with its previous snapshot. You can request a Git-style line diff or a structured field comparison, then decide which changes matter to your workflow.
+
+That is useful for documentation, release notes and other sources that evolve. The first scrape establishes a baseline; a later scrape can return the difference. Scheduling those checks is a separate part of the system.
+
+The prices in this graphic are illustrative. Documentation: https://docs.firecrawl.dev/features/change-tracking
+
+What page would you want an agent to keep up with?
+
+#AIAgents #WebData #Firecrawl
+
+ALT TEXT: A dark comparison graphic shows an illustrative price change from $19 to $24, followed by baseline, comparison and decision steps.
+
+SOURCES:
+https://docs.firecrawl.dev/features/change-tracking
+
+6. The new-model hype cycle
+
+A new model drops. We declare a new era. Then the next model drops.
+
+The excitement is understandable. But the useful question stays the same: does this model perform better on the work you actually need done?
+
+Keep a small set of real tasks. Compare quality, latency, cost and the failures you can tolerate. Let that evidence decide what goes into your workflow.
+
+Original AI-assisted illustration and coded animation.
+
+What test do you run before switching models?
+
+#ArtificialIntelligence #AIModels #AIEngineering
+
+ALT TEXT: A cartoon group alternately cheers, bows and points at a tablet labelled GPT, Gemini and Claude, satirizing the cycle of excitement around new AI models.
+
+SOURCES:
+
+
+7. 16 AI concepts worth understanding
+
+Sixteen AI concepts become much easier to remember when you can see how they connect.
+
+The first row covers model foundations. The next adds knowledge and context. Training and evaluation shape behavior, while agents and production controls turn model output into useful actions.
+
+These are building blocks, not a requirement to put all sixteen into every product. Start with the task, identify what is missing, and test the next addition.
+
+Save this visual map. Which concept would you like to see explained with a worked example?
+
+#GenerativeAI #AIAgents #AIEngineering
+
+ALT TEXT: A four-by-four diagram grid illustrates sixteen AI concepts, from transformers and tokenization through retrieval, training, agents and guardrails.
+
+SOURCES:
+https://modelcontextprotocol.io/docs/learn/architecture
+https://arxiv.org/abs/2203.02155
+https://arxiv.org/abs/1706.03762

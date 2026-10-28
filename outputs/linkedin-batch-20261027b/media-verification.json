@@ -1,0 +1,77 @@
+{
+  "animated-banner-preview.mp4": {
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1584,
+          "height": 396
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    },
+    "decode_ok": true,
+    "errors": ""
+  },
+  "06-model-hype.mp4": {
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1080,
+          "height": 1120
+        },
+        {
+          "codec_name": "aac"
+        }
+      ],
+      "format": {
+        "duration": "15.500000"
+      }
+    },
+    "decode_ok": true,
+    "errors": ""
+  },
+  "01-inference-visual-preview.mp4": {
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080
+        }
+      ],
+      "format": {
+        "duration": "60.000000"
+      }
+    },
+    "decode_ok": true,
+    "errors": ""
+  },
+  "07-ai-concepts.mp4": {
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1080,
+          "height": 1350
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    },
+    "decode_ok": true,
+    "errors": ""
+  }
+}

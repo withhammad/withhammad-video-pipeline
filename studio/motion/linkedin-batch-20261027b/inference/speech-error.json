@@ -1,0 +1,9 @@
+{
+  "status_code": 402,
+  "error_code": "insufficient_credit",
+  "message": "Insufficient generative credits.",
+  "voice_id": "46d4ae4996a8476c8227108e3847f401",
+  "attempted_chunk": "01",
+  "audio_generated": false,
+  "retried": false
+}

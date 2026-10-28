@@ -1,0 +1,59 @@
+{
+  "status": "proposal_only",
+  "timezone": "Asia/Dubai",
+  "posts_per_day": 2,
+  "dates_assigned": false,
+  "scheduler_enabled": false,
+  "reason": "Owner reviews each final first. Existing LinkedIn time proposals are low-confidence proxies, not direct LinkedIn audience analytics. Confirm eligible slots and existing queue before scheduling.",
+  "items": [
+    {
+      "post": 1,
+      "day_in_batch": 1,
+      "slot": 1,
+      "publish_at": null,
+      "approval": false
+    },
+    {
+      "post": 2,
+      "day_in_batch": 1,
+      "slot": 2,
+      "publish_at": null,
+      "approval": false
+    },
+    {
+      "post": 3,
+      "day_in_batch": 2,
+      "slot": 1,
+      "publish_at": null,
+      "approval": false
+    },
+    {
+      "post": 4,
+      "day_in_batch": 2,
+      "slot": 2,
+      "publish_at": null,
+      "approval": false
+    },
+    {
+      "post": 5,
+      "day_in_batch": 3,
+      "slot": 1,
+      "publish_at": null,
+      "approval": false
+    },
+    {
+      "post": 6,
+      "day_in_batch": 3,
+      "slot": 2,
+      "publish_at": null,
+      "approval": false
+    },
+    {
+      "post": 7,
+      "day_in_batch": 4,
+      "slot": 1,
+      "publish_at": null,
+      "approval": false
+    }
+  ]
+}
