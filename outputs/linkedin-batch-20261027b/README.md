@@ -11,3 +11,7 @@ All seven references recovered, including the signed-in group post and all 20 NL
 Repository test suite: 558 passed, 1 failed. Existing test_tracked_schedule_and_slots_are_consistent fails because the pre-existing schedule has duplicate dates; this batch did not modify schedule.json.
 
 All 20 Charlie reel effects and the shared engine are already installed in Codex and Claude Code. Engine and runtime dependencies verified. Use appropriate effects per beat, preserving brand, avatar, natural voice pace and audio.
+
+
+## Reference-design revision — 28 October
+Rebuilt the six review drafts around their reference formats: three-column coloured agent diagram; handwritten blue-ink 20-page notebook; wide monospace course-page layout; dark browser/README Firecrawl page; unframed model-hype illustration; and a labelled four-by-four concept grid. Original wording and WITHHAMMAD attribution retained. All 26 HTML exports pass overflow checks; video files decode successfully. No publishing or scheduling.

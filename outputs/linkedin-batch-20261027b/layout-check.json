@@ -1,102 +1,106 @@
 [
   {
     "file": "02-agent-blueprint.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "04-ai-engineering.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "05-firecrawl.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "06-model-hype.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "07-ai-concepts.html",
-    "checks": []
+    "bad": []
+  },
+  {
+    "file": "banner.html",
+    "bad": []
   },
   {
     "file": "nlp-01.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-02.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-03.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-04.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-05.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-06.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-07.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-08.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-09.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-10.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-11.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-12.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-13.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-14.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-15.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-16.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-17.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-18.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-19.html",
-    "checks": []
+    "bad": []
   },
   {
     "file": "nlp-20.html",
-    "checks": []
+    "bad": []
   }
 ]
