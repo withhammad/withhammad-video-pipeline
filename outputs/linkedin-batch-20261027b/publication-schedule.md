@@ -5,7 +5,7 @@ Timezone: Asia/Dubai (GST). Approved by owner on 28 October 2026.
 | Post | Status / time |
 |---|---|
 | AI agent blueprint | Published 28 October, 16:15 |
-| NLP notebook | 29 October, 09:00 |
+| NLP notebook | 28 October, 20:00 |
 | AI engineering learning paths | 29 October, 17:00 |
 | Firecrawl | 30 October, 09:00 |
 | Model hype cycle | 30 October, 17:00 |

@@ -21,7 +21,7 @@
       "sha256": "89891218f63a2ae6f2a9a1252df771d67a45c54dd1fdc4747184f09f48075765",
       "caption": "You can learn NLP as a connected system instead of a list of acronyms.\n\nI put together a 20-page field notebook that moves from text preprocessing and representations to transformers, retrieval, RAG, evaluation and deployment. Each page explains the decision behind the technique and a common mistake to avoid.\n\nA useful way to study it: choose one support-document assistant, build a small baseline, and use the same evaluation questions as you improve it. That makes the tradeoffs visible.\n\nSave the notebook and try one chapter in a real project. Which topic should I explain next?\n\n#NLP #MachineLearning #AIEngineering",
       "approval": true,
-      "publish_at": "2026-10-29T09:00:00+04:00"
+      "publish_at": "2026-10-28T20:00:00+04:00"
     },
     {
       "number": 4,
