@@ -28,6 +28,7 @@ SCOPES = ['pages_show_list', 'pages_manage_metadata', 'pages_messaging', 'pages_
 GRAPH = 'https://graph.facebook.com/v25.0'
 SECRET_FILE = SECRETS / 'facebook-app-secret.txt'
 OUTPUT = SECRETS / 'facebook-page-oauth.json'
+PAGE_ID = '1394106800452348'  # With Hammad AI (page asset id)
 
 
 def exchange(code, page_name):
@@ -37,10 +38,20 @@ def exchange(code, page_name):
     long = request_json(f'{GRAPH}/oauth/access_token?' + urlencode(
         {'grant_type': 'fb_exchange_token', 'client_id': APP_ID, 'client_secret': secret,
          'fb_exchange_token': short['access_token']}))
+    user_token = long['access_token']
+    granted = request_json(f'{GRAPH}/me/permissions?' + urlencode({'access_token': user_token}))
+    note('Granted: ' + ', '.join(p['permission'] for p in granted.get('data', []) if p.get('status') == 'granted'))
     pages = request_json(f'{GRAPH}/me/accounts?' + urlencode(
-        {'fields': 'id,name,access_token,tasks', 'access_token': long['access_token']}))
+        {'fields': 'id,name,access_token,tasks', 'access_token': user_token}))
     names = [p['name'] for p in pages.get('data', [])]
     page = next((p for p in pages.get('data', []) if p['name'] == page_name), None)
+    if not page and PAGE_ID:
+        # Business-portfolio Pages sometimes miss from /me/accounts; the Page node still answers.
+        note(f'/me/accounts listed {names or "nothing"}; reading the Page {PAGE_ID} directly.')
+        page = request_json(f'{GRAPH}/{PAGE_ID}?' + urlencode(
+            {'fields': 'id,name,access_token', 'access_token': user_token}))
+        if not page.get('access_token'):
+            page = None
     if not page:
         raise RuntimeError(f'Page "{page_name}" not among the Pages this login manages: {names}')
     record = {'page_id': page['id'], 'page_name': page['name'], 'access_token': page['access_token'],
