@@ -377,12 +377,33 @@
     ],
     "flow": "comment keyword -> public reply + DM asking to follow with \"I followed\" quick reply -> is_user_follow_business checked -> link",
     "vercel_env": [
-      "IG_WEBHOOK_VERIFY_TOKEN",
+      "FB_APP_SECRET",
+      "FB_PAGE_ID",
+      "FB_PAGE_TOKEN",
+      "IG_ACCESS_TOKEN",
       "IG_APP_SECRET",
       "IG_USER_ID",
-      "IG_ACCESS_TOKEN"
+      "IG_WEBHOOK_VERIFY_TOKEN"
     ],
     "verified": "2026-10-31 12:45 UTC LIVE: quranbeat DM \"SCOPE\" -> gated while not following -> after follow, link sent in 2 s. Quick-reply tap was not delivered as an event; texts now say \"or send the keyword again\". Comment path: test on first post.",
-    "token_renewal": "app.instagram_tokens refresh writes the file; IG_ACCESS_TOKEN in Vercel must be updated too (vercel env add IG_ACCESS_TOKEN production --force)"
+    "token_renewal": "app.instagram_tokens refresh writes the file; IG_ACCESS_TOKEN in Vercel must be updated too (vercel env add IG_ACCESS_TOKEN production --force)",
+    "facebook": {
+      "page_id": "1394106800452348",
+      "page_name": "With Hammad AI",
+      "token_file": "work/.secrets/facebook-page-oauth.json",
+      "oauth_script": "outputs/video-pipeline/facebook_oauth.py",
+      "subscribed_fields": [
+        "feed",
+        "messages"
+      ],
+      "vercel_env": [
+        "FB_APP_SECRET",
+        "FB_PAGE_TOKEN",
+        "FB_PAGE_ID"
+      ],
+      "flow": "comment keyword on a Page post -> Messenger private reply with the link + public comment reply; Messenger keyword -> link",
+      "verified": "2026-10-31 21:48 UTC: signed synthetic feed event accepted (200, feed:1), rule SCOPE matched, Graph me/messages + /comments called with the Page token; live human-comment test pending",
+      "note": "openssl-signed tests gave false 401s; sign test events with node crypto"
+    }
   }
 }
