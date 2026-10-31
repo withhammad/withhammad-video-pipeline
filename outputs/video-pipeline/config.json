@@ -135,7 +135,8 @@
         "profile_url": "https://www.tiktok.com/@hammadyousuf01",
         "connection_status": "chrome_session_verified_native_schedule",
         "provider": "owner_chrome",
-        "identity_last_verified": "2026-10-21"
+        "identity_last_verified": "2026-10-31",
+        "verification_note": "TikTok Studio upload page open and logged in 2026-10-31"
       },
       {
         "key": "linkedin",
@@ -155,9 +156,10 @@
         ],
         "expires_at": "2026-12-16T09:32:17+00:00",
         "video_publish_tested": true,
-        "identity_last_verified": "2026-10-21",
+        "identity_last_verified": "2026-10-31",
         "last_long_video": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7517491828477276160/",
-        "english_srt_upload_tested": true
+        "english_srt_upload_tested": true,
+        "verification_note": "API userinfo answered 2026-10-31 (HAMMAD YOUSUF, w_member_social), token to 2026-12-16"
       },
       {
         "key": "x",
@@ -173,7 +175,9 @@
         "pinned_post": "https://x.com/HammadYousufAI/status/2111673313701597275",
         "api_connection_status": "developer_enrollment_required",
         "api_pricing_checked": "2026-10-20",
-        "api_pricing_source": "https://docs.x.com/x-api/getting-started/pricing"
+        "api_pricing_source": "https://docs.x.com/x-api/getting-started/pricing",
+        "identity_last_verified": "2026-10-31",
+        "verification_note": "x.com home logged in as @HammadYousufAI 2026-10-31"
       },
       {
         "key": "facebook_page",
@@ -231,7 +235,9 @@
     "local_checkout": "/Users/hammad/withhammad (owner has uncommitted work there; agents use a fresh clone)",
     "vercel_project": "withhammad-rebuild (production = main, ~70 s deploy)",
     "not_the_site": "withhammad-next / Vercel withhammad-site do NOT serve withhammad.com",
-    "resources_path": "/resources/<slug> (src/app/(site)/resources/<slug>/page.tsx + src/content/resources/<slug>.ts, sitemap + /resources index link)"
+    "resources_path": "/resources/<slug> (src/app/(site)/resources/<slug>/page.tsx + src/content/resources/<slug>.ts, sitemap + /resources index link)",
+    "identity_last_verified": "2026-10-31",
+    "verification_note": "/resources 200; hosted reels under /media/reels answer 200"
   },
   "manychat": {
     "connected": false,
@@ -246,10 +252,11 @@
     "browser_session_verified": true,
     "instagram_handle": "with.hammad",
     "api_access_status": "upgrade_required",
-    "identity_last_verified": "2026-10-20",
+    "identity_last_verified": "2026-10-31",
     "plan": "Free",
     "draft_status": "2026-10-24 17:55 GST: JOBKIT LIVE on reel De4PSqIj5ND (@with.hammad Trial Reel) with keyword JOBKIT; DESIGN trigger turned OFF to free a slot (0 sends); DUET quick automation LIVE. Free plan limit reached; owner chose \"Stay free, rotate\": keep only the newest posts live.",
-    "rotation_rule": "Free plan: only the newest posts keep a live keyword DM; turn the oldest trigger off before setting a new one live (owner 2026-10-24)."
+    "rotation_rule": "Free plan: only the newest posts keep a live keyword DM; turn the oldest trigger off before setting a new one live (owner 2026-10-24).",
+    "verification_note": "Logged in; Free-plan limit popup on the dashboard; still bound to @with.hammad, @withhammad.ai not connected as a channel"
   },
   "browser_preference": "Google Chrome",
   "scheduler_scope": {
