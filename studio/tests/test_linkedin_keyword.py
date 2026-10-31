@@ -34,7 +34,15 @@ def test_match_is_whole_word_case_insensitive():
     assert lk.match('', RULES) is None
 
 
-def test_reply_posts_once_and_records_state(tmp_path, cred):
+def test_reply_defaults_to_chrome_even_with_a_comment_urn(tmp_path, cred, monkeypatch):
+    monkeypatch.setattr(lk, 'API_REPLY', False)
+    out = lk.reply('urn:li:ugcPost:1', 'urn:li:comment:(urn:li:ugcPost:1,9)', 'Sara Ali', 'SCOPE',
+                   state_path=tmp_path / 's.json', credential=cred, send=lambda *a: (201, '{}'), rules=RULES)
+    assert out['status'] == 'type_in_chrome'
+
+
+def test_reply_posts_once_and_records_state(tmp_path, cred, monkeypatch):
+    monkeypatch.setattr(lk, 'API_REPLY', True)
     calls = []
 
     def send(url, headers, body):
@@ -66,7 +74,8 @@ def test_reply_without_urn_hands_message_to_chrome_then_marks(tmp_path, cred):
                     rules=RULES)['status'] == 'already_replied'
 
 
-def test_reply_raises_on_api_error(tmp_path, cred):
+def test_reply_raises_on_api_error(tmp_path, cred, monkeypatch):
+    monkeypatch.setattr(lk, 'API_REPLY', True)
     with pytest.raises(RuntimeError):
         lk.reply('urn:li:ugcPost:1', 'urn:li:comment:(urn:li:ugcPost:1,9)', 'A', 'SCOPE', state_path=tmp_path / 's.json',
                  credential=cred, send=lambda *a: (403, '{"message":"no"}'), rules=RULES)

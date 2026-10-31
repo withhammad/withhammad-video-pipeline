@@ -1,9 +1,11 @@
 """LinkedIn keyword bot: the data side of the scheduled Chrome run.
 
-LinkedIn's free w_member_social scope cannot READ comments on our own posts (partnerApiSocialActions
-is partner-only), so a scheduled Claude routine reads them in the owner's Chrome. This module gives
-that routine everything else: the posts to watch, the keyword rules, the "already replied" state
-and the API call that posts the reply (w_member_social CAN write comments).
+LinkedIn's free w_member_social scope can neither READ nor CREATE comments on our own posts
+(partnerApiSocialActions GET_ALL/CREATE are partner-only; both verified 403 on 2026-10-31), so a
+scheduled Claude routine (desktop task `linkedin-keyword-replies`) reads comments in the owner's
+Chrome and types the replies there. This module gives that routine everything else: the posts to
+watch, the keyword rules, the reply text, and the "already replied" state. The API reply path stays
+behind STUDIO_LINKEDIN_API_REPLY=1 for the day the app gets partner access.
 
     python -m app.linkedin_keyword watchlist            # posts (last 14 days) + rules, JSON
     python -m app.linkedin_keyword match "text"         # rule for a comment text, or null
@@ -15,6 +17,7 @@ and the API call that posts the reply (w_member_social CAN write comments).
 """
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -32,6 +35,10 @@ CREDENTIAL = ROOT / 'work' / '.secrets' / 'linkedin-oauth.json'
 AUTHOR = 'urn:li:person:yWP7me7dep'
 WINDOW_DAYS = 14
 REPLY = '{author}, sent it: {link}\nFollow for the next one 🙌'
+# Verified 2026-10-31: with the free scope the REST comment create answers 403
+# partnerApiSocialActions.CREATE (partner-only), so the routine types replies in Chrome.
+# Flip this on only once the app holds Community Management partner access.
+API_REPLY = os.environ.get('STUDIO_LINKEDIN_API_REPLY') == '1'
 
 
 def load_state(path=STATE):
@@ -139,7 +146,7 @@ def reply(post_urn, comment_urn, author, text, *, state_path=STATE, credential=C
     message = reply_text(rule, author)
     record = {'post': post_urn, 'keyword': rule['keyword'], 'author': author,
               'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
-    if comment_urn and not mark_only:
+    if comment_urn and API_REPLY and not mark_only:
         post_reply(post_urn, comment_urn, message, credential=credential, send=send)
         record['via'] = 'api'
     elif not mark_only:
