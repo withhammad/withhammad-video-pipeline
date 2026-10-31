@@ -408,10 +408,11 @@
     },
     "linkedin": {
       "status": "built 2026-10-31, awaiting first real keyword comment",
-      "how": "scheduled routine linkedin-keyword-replies (*/30 7-23 local, desktop app) reads comments in the owner's Chrome; studio/app/linkedin_keyword.py supplies watchlist (published.json, 14 days), rules (site dm-rules.json), dedupe state (studio/.local/linkedin-keyword-state.json) and the API reply (w_member_social can write comments; reading them is partner-only)",
+      "how": "scheduled routine linkedin-keyword-replies (*/30 7-23 local, desktop app) reads the owner's recent-activity page (last ~12 posts) plus API-posted reels in the owner's Chrome; studio/app/linkedin_keyword.py supplies watchlist (published.json, 14 days), rules (site dm-rules.json), dedupe state (studio/.local/linkedin-keyword-state.json) and the API reply (w_member_social can write comments; reading them is partner-only)",
       "fallback": "no comment URN -> routine types the reply in Chrome, then --mark",
       "runs_only_while": "the Claude desktop app is open and Chrome is logged in to LinkedIn",
-      "verified": "module tests green (5); both watched posts had 0 comments, so the Chrome read path is untested on real comments"
+      "verified": "module tests green (5); both watched posts had 0 comments, so the Chrome read path is untested on real comments",
+      "first_run": "2026-10-31 18:35 UTC: 2 API posts checked, 0 comments; routine then widened to the activity page because most LinkedIn posts come from other lanes and are not in published.json"
     }
   }
 }
