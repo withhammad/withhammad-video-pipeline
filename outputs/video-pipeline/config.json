@@ -154,12 +154,12 @@
           "profile",
           "w_member_social"
         ],
-        "expires_at": "2026-12-16T09:32:17+00:00",
+        "expires_at": "2026-12-30T01:04:04+00:00",
         "video_publish_tested": true,
         "identity_last_verified": "2026-10-31",
         "last_long_video": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7517491828477276160/",
         "english_srt_upload_tested": true,
-        "verification_note": "API userinfo answered 2026-10-31 (HAMMAD YOUSUF, w_member_social), token to 2026-12-16"
+        "verification_note": "Token ROTATED 2026-10-31 (old one exposed in tool output; app removed from permitted services, new token via developer-portal generator, clipboard -> file). userinfo answered, token to 2026-12-30"
       },
       {
         "key": "x",
