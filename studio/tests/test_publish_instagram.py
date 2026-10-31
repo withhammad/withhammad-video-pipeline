@@ -62,7 +62,7 @@ class FakeProvider:
 class FakeMeta:
     """graph.instagram.com plus the public file host, recording every request."""
 
-    def __init__(self, video_size, username='hammadagentic.ai', statuses=('IN_PROGRESS', 'FINISHED'), quota=(1, 100)):
+    def __init__(self, video_size, username='withhammad.ai', statuses=('IN_PROGRESS', 'FINISHED'), quota=(1, 100)):
         self.requests, self.video_size, self.username = [], video_size, username
         self.statuses, self.quota = list(statuses), quota
         self.overrides = {}
@@ -122,10 +122,10 @@ def test_dry_run_sends_only_gets_and_returns_the_ordered_plan(video, tmp_path):
     assert create['url'] == f'https://graph.instagram.com/{V}/{IG_ID}/media'
     assert create['json'] == {'media_type': 'REELS', 'video_url': VIDEO_URL, 'caption': CAPTION,
                               'share_to_feed': True, 'is_ai_generated': True,
-                              'collaborators': ['with.hammad']}
+                              'collaborators': ['with.hammad', 'hammadagentic.ai']}
     assert create['headers']['Authorization'] == 'Bearer <redacted>' and create['file_size'] == video.stat().st_size
     assert plan['requests'][6]['json'] == {'creation_id': '<IG_CONTAINER_ID>'}
-    assert plan['account'] == {'username': 'hammadagentic.ai', 'ig_user_id': IG_ID, 'account_type': 'MEDIA_CREATOR'}
+    assert plan['account'] == {'username': 'withhammad.ai', 'ig_user_id': IG_ID, 'account_type': 'MEDIA_CREATOR'}
     assert plan['publishing_limit'] == {'quota_usage': 1, 'quota_total': 100, 'quota_duration_s': 86400}
     assert TOKEN not in json.dumps(plan)
 
@@ -166,7 +166,7 @@ def test_happy_path_sequence_bodies_and_state(video, tmp_path):
     assert all('access_token' not in str(r.url) for r in reqs)
     assert json.loads(reqs[3].content) == {'media_type': 'REELS', 'video_url': VIDEO_URL, 'caption': CAPTION,
                                            'share_to_feed': True, 'is_ai_generated': True,
-                              'collaborators': ['with.hammad']}
+                              'collaborators': ['with.hammad', 'hammadagentic.ai']}
     assert json.loads(reqs[6].content) == {'creation_id': 'C1'}
     assert dict(reqs[0].url.params) == {'fields': 'user_id,username,account_type'}
     assert dict(reqs[4].url.params) == {'fields': 'id,status,status_code'}
@@ -250,7 +250,7 @@ def test_lost_publish_response_is_reconciled_not_reposted(video, tmp_path):
 def test_identity_mismatch_aborts_before_any_write(video, tmp_path):
     meta, provider = FakeMeta(video.stat().st_size, username='with.hammad'), FakeProvider()
     state_path = tmp_path / 'ig_state.json'
-    with pytest.raises(ig.IdentityMismatchError, match='@with.hammad, expected @hammadagentic.ai'):
+    with pytest.raises(ig.IdentityMismatchError, match='@with.hammad, expected @withhammad.ai'):
         run(video, meta, dry_run=False, state_path=state_path, url_provider=provider)
     assert meta.calls() == [('GET', 'graph.instagram.com', f'/{V}/me')]
     assert provider.hosted == [] and not state_path.exists()
@@ -504,6 +504,7 @@ def test_resolve_collaborators_defaults_to_the_other_owner_account():
     assert ig.resolve_collaborators(None, 'with.hammad') == ['hammadagentic.ai']
     assert ig.resolve_collaborators(None, '@Hammadagentic.ai') == ['with.hammad']
     assert ig.resolve_collaborators(None, 'someone.else') == []
+    assert ig.resolve_collaborators(None, 'withhammad.ai') == ['with.hammad', 'hammadagentic.ai']   # owner 2026-10-31
 
 
 def test_resolve_collaborators_explicit_lists_are_cleaned():
@@ -888,8 +889,8 @@ def test_cli_is_a_dry_run_and_live_only_stops_after_the_container(monkeypatch, t
     monkeypatch.setattr(ig, 'publish', lambda *a, **kw: calls.append((a, kw)) or {'status': 'planned'})
     base = ['final.mp4', str(lesson_path), '--video-url', VIDEO_URL, '--cover-url', COVER_URL, '--cover', 'c.jpg']
     assert ig.main(base) == 0
-    assert calls[0][1]['dry_run'] is True and calls[0][1]['expected_username'] == 'with.hammad'
-    assert calls[0][1]['credentials_path'].name == 'instagram-with-hammad-oauth.json'
+    assert calls[0][1]['dry_run'] is True and calls[0][1]['expected_username'] == 'withhammad.ai'
+    assert calls[0][1]['credentials_path'].name == 'instagram-withhammad-ai-oauth.json'
     assert ig.main(base + ['--live', '--stop-after', 'container', '--state', 's.json']) == 0
     assert calls[1][1]['dry_run'] is False and calls[1][1]['stop_after'] == 'container'
     with pytest.raises(SystemExit):
@@ -911,7 +912,7 @@ def test_trial_reel_adds_trial_params_next_to_the_collab(video, tmp_path):
     plan = run(video, meta, url_provider=provider, state_path=tmp_path / 's.json', trial='SS_PERFORMANCE')
     create = next(r for r in plan['requests'] if r['step'] == 'create_container')
     assert create['json']['trial_params'] == {'graduation_strategy': 'SS_PERFORMANCE'}
-    assert create['json']['collaborators'] == ['with.hammad'] and plan['trial'] == 'SS_PERFORMANCE'
+    assert create['json']['collaborators'] == ['with.hammad', 'hammadagentic.ai'] and plan['trial'] == 'SS_PERFORMANCE'
     plain = run(video, FakeMeta(video.stat().st_size), url_provider=FakeProvider(), state_path=tmp_path / 't.json')
     assert 'trial_params' not in next(r for r in plain['requests'] if r['step'] == 'create_container')['json']
     with pytest.raises(ValueError, match='trial must be one of'):
@@ -977,7 +978,7 @@ def test_carousel_dry_run_sends_only_gets_and_plans_children_then_the_carousel(t
     carousel = next(r for r in plan['requests'] if r['step'] == 'create_container')['json']
     assert carousel == {'media_type': 'CAROUSEL', 'children': '<CHILD_CONTAINER_ID_1>,<CHILD_CONTAINER_ID_2>,'
                                                               '<CHILD_CONTAINER_ID_3>',
-                        'caption': CAROUSEL_LESSON['captions']['instagram'], 'collaborators': ['with.hammad'],
+                        'caption': CAROUSEL_LESSON['captions']['instagram'], 'collaborators': ['with.hammad', 'hammadagentic.ai'],
                         'is_ai_generated': True}
     assert plan['trial'] is None and 'trial_params' not in json.dumps(plan)
 
@@ -991,7 +992,7 @@ def test_carousel_publishes_children_then_the_carousel_once(tmp_path):
     children, carousel = meta.bodies()[:3], meta.bodies()[3]
     assert children == [{'image_url': u, 'is_carousel_item': True} for u in SLIDES]   # no caption, no AI flag on a child
     assert carousel['children'] == 'K1,K2,K3' and carousel['media_type'] == 'CAROUSEL'
-    assert carousel['collaborators'] == ['with.hammad'] and carousel['is_ai_generated'] is True
+    assert carousel['collaborators'] == ['with.hammad', 'hammadagentic.ai'] and carousel['is_ai_generated'] is True
     assert 'trial_params' not in carousel
     assert meta.bodies('/media_publish') == [{'creation_id': 'C1'}]
     assert [c for c in meta.calls() if c[1] == 'img.example.test'] == [('HEAD', 'img.example.test', p.split(

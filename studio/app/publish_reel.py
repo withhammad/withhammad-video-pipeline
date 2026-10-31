@@ -70,13 +70,18 @@ SITE_BASE = 'https://withhammad.com'
 # Owner rule 2026-10-24: reels go out on @hammadagentic.ai with @with.hammad as the Collab, and anything uploaded from
 # @with.hammad goes out only as a Trial Reel. Each queued entry records its account and trial setting; entries queued
 # before the rule carry account 'with.hammad' and post as they were queued.
-IG_ACCOUNT = 'hammadagentic.ai'
+# Owner 2026-10-31: fresh Meta accounts. Reels post from @withhammad.ai (Creator, linked to the Page With Hammad AI)
+# with @with.hammad and @hammadagentic.ai invited as Collabs; the old accounts get no posts of their own (no Trial Reel).
+IG_ACCOUNT = 'withhammad.ai'
 LEGACY_IG_ACCOUNT = 'with.hammad'
 TRIAL_FOR = {'with.hammad': 'SS_PERFORMANCE'}   # graduation strategy for uploads from that account (new queues)
 # Owner rule 2026-10-24, for every reel: the main post goes on @hammadagentic.ai with @with.hammad invited as the Collab,
 # and a separate Trial Reel goes on @with.hammad ('instagram_trial', same slot, same hosted media, no Collab: a Trial
 # Reel cannot carry one). The trial post keeps the comment-keyword DM, because ManyChat runs on @with.hammad.
-IG_TRIAL_ACCOUNT = 'with.hammad'
+IG_TRIAL_ACCOUNT = None   # was 'with.hammad' (2026-10-24 rule), retired 2026-10-31
+# The account whose comments ManyChat answers: its captions keep the comment-keyword ask; any other account gets the
+# guide link instead. Owner 2026-10-31: ManyChat moves to the main account @withhammad.ai.
+MANYCHAT_ACCOUNT = 'withhammad.ai'
 COMMIT_TRAILER = 'Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>'
 
 PLATFORMS = ('youtube', 'linkedin', 'instagram', 'tiktok', 'facebook', 'x')
@@ -1048,8 +1053,9 @@ def plan_entry(jdir, date, lesson, seo, youtube_at=None, n=0):
                                     publish_at=iso_z(youtube_at), slot='backup')
     platforms['instagram'].update(account=IG_ACCOUNT, trial=TRIAL_FOR.get(IG_ACCOUNT),
                                   collaborators=_default_collaborators(IG_ACCOUNT), **hosted_urls(slug), hosted=False)
-    platforms['instagram_trial'] = dict(platforms['instagram'], account=IG_TRIAL_ACCOUNT, trial=TRIAL_FOR[IG_TRIAL_ACCOUNT],
-                                        collaborators=[])
+    if IG_TRIAL_ACCOUNT:
+        platforms['instagram_trial'] = dict(platforms['instagram'], account=IG_TRIAL_ACCOUNT, trial=TRIAL_FOR[IG_TRIAL_ACCOUNT],
+                                            collaborators=[])
     day = _date(date)
     return {'date': str(day), 'day': DAY_NAMES[day.weekday()], 'slot_index': n, 'job': jdir.name,
             'title': lesson.get('topic_title'), 'keyword': lesson.get('manychat_keyword'), 'slug': slug,
@@ -1666,7 +1672,7 @@ def _followups(entry, platform):
     collabs = pe.get('collaborators')
     collabs = _default_collaborators(account) if collabs is None else collabs
     out = []
-    if account == IG_TRIAL_ACCOUNT:   # ManyChat runs on @with.hammad
+    if account == MANYCHAT_ACCOUNT:
         out.append(f'ManyChat: Quick Automation "Auto-DM links from comments" on {url} with keyword {entry.get("keyword")}, '
                    f'link {entry.get("resource_url")}')
     if collabs:
@@ -1675,11 +1681,14 @@ def _followups(entry, platform):
 
 
 def ig_caption_for(account, caption, keyword, url):
-    """The Instagram caption as posted from `account`. ManyChat runs only on @with.hammad, so on any other account
+    """The Instagram caption as posted from `account`. ManyChat runs only on MANYCHAT_ACCOUNT, so on any other account
     each comment-keyword ask becomes the guide link (the first one; later ones go) and the follow line names that
     account."""
-    if account == IG_TRIAL_ACCOUNT or not caption or not keyword:
+    if not caption:
         return caption
+    follow = lambda line: re.sub(rf'^Follow @{re.escape(LEGACY_IG_ACCOUNT)}\b', f'Follow @{account}', line)
+    if account == MANYCHAT_ACCOUNT or not keyword:   # the keyword ask stays: ManyChat answers it here
+        return '\n'.join(follow(line) for line in caption.split('\n'))
     ask = re.compile(rf'\bcomment\s+{re.escape(keyword)}\b[^.\n]*\.?', re.I)
     link = re.sub(r'^https?://', '', url or '')
     out, linked = [], False
@@ -1695,7 +1704,7 @@ def ig_caption_for(account, caption, keyword, url):
         new = ask.sub(swap, line)
         if new != line and not new.strip():
             continue
-        out.append(re.sub(rf'^Follow @{re.escape(IG_TRIAL_ACCOUNT)}\b', f'Follow @{account}', new.rstrip()))
+        out.append(follow(new.rstrip()))
     return '\n'.join(out)
 
 

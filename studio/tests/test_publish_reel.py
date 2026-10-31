@@ -147,9 +147,9 @@ class FakeRuntime:
                                      'permalink': 'https://www.instagram.com/reel/ABC/'}))
         if self.ig_crash_after_post:
             raise RuntimeError('connection dropped after media_publish')
-        other = 'with.hammad' if kw.get('expected_username') == 'hammadagentic.ai' else 'hammadagentic.ai'
+        other = [a for a in ('with.hammad', 'hammadagentic.ai') if a != kw.get('expected_username')]
         return {'status': 'published', 'media_id': 'IG1', 'permalink': 'https://www.instagram.com/reel/ABC/',
-                'collaborators': kw['collaborators'] if 'collaborators' in kw else [other], 'warnings': []}
+                'collaborators': kw['collaborators'] if 'collaborators' in kw else other, 'warnings': []}
 
     def linkedin_publish(self, video_path, lesson, **kw):
         self.calls.append(('linkedin', kw))
@@ -496,30 +496,23 @@ def test_run_due_posts_once_and_a_second_run_posts_nothing(env):
     assert first['exit_code'] == 0
     assert {(r['platform'], r['action']) for r in first['results']} == {('linkedin', 'posted'),
                                                                          ('instagram', 'posted'),
-                                                                         ('instagram_trial', 'posted'),
                                                                          ('youtube', 'confirmed_public')}
-    # owner rule 2026-10-24: the reel on @hammadagentic.ai with @with.hammad as Collab, plus a Trial Reel on @with.hammad
-    ig, trial = [c[1] for c in rt.calls if c[0] == 'instagram']
-    assert ig['expected_username'] == 'hammadagentic.ai' and ig['ai_generated'] is True and ig['trial'] is None
-    assert ig['collaborators'] == ['with.hammad'] and Path(ig['state_path']).name == 'publish_instagram.json'
-    assert trial['expected_username'] == 'with.hammad' and trial['trial'] == 'SS_PERFORMANCE' and trial['collaborators'] == []
-    assert Path(trial['state_path']).name == 'publish_instagram_trial.json' and trial['url_provider'] == ig['url_provider']
-    assert trial['caption'] == SEO['instagram']['caption']           # the keyword DM fires on @with.hammad
-    assert KEYWORD not in ig['caption'] and 'full guide: ' in ig['caption'] and 'AI avatar of me.' in ig['caption']
+    # owner 2026-10-31: the reel on @withhammad.ai with both old accounts as Collabs; no Trial Reel; ManyChat runs here
+    [ig] = [c[1] for c in rt.calls if c[0] == 'instagram']
+    assert ig['expected_username'] == 'withhammad.ai' and ig['ai_generated'] is True and ig['trial'] is None
+    assert ig['collaborators'] == ['with.hammad', 'hammadagentic.ai'] and Path(ig['state_path']).name == 'publish_instagram.json'
+    assert ig['caption'] == SEO['instagram']['caption']           # the keyword DM fires on @withhammad.ai
     assert ig['url_provider'] == f'https://withhammad.com/media/reels/{SLUG}.mp4'
     assert ig['cover_url'] == f'https://withhammad.com/media/covers/{SLUG}.jpg'
     li = next(c[1] for c in rt.calls if c[0] == 'linkedin')
     assert Path(li['thumbnail_path']).name == 'cover_720x1280.jpg' and li['confirm_not_posted'] is False
     ig_result = next(r for r in first['results'] if r['platform'] == 'instagram')
-    trial_result = next(r for r in first['results'] if r['platform'] == 'instagram_trial')
-    assert not any('ManyChat' in f for f in ig_result['followups'])     # ManyChat is not on @hammadagentic.ai
+    assert any('ManyChat' in f and KEYWORD in f for f in ig_result['followups'])
     assert any('Collab' in f and 'with.hammad' in f for f in ig_result['followups'])
-    assert any('ManyChat' in f and KEYWORD in f for f in trial_result['followups'])
-    assert not any('Collab' in f for f in trial_result['followups'])
     published = json.loads((pr.JOBS_ROOT / 'job1' / 'published.json').read_text())
-    assert published['instagram']['media_id'] == 'IG1' and published['instagram']['account'] == 'hammadagentic.ai'
-    assert published['instagram']['collaborators_invited'] == ['with.hammad']
-    assert published['instagram_trial']['account'] == 'with.hammad' and published['instagram_trial']['trial'] == 'SS_PERFORMANCE'
+    assert published['instagram']['media_id'] == 'IG1' and published['instagram']['account'] == 'withhammad.ai'
+    assert published['instagram']['collaborators_invited'] == ['with.hammad', 'hammadagentic.ai']
+    assert 'instagram_trial' not in published
     assert published['linkedin']['post_urn'] == 'urn:li:share:1'
     assert published['youtube']['video_id'] == 'VID1' and published['youtube']['privacy'] == 'public'
     rt2 = env['rt']('2026-10-19T13:30:00Z')
@@ -553,7 +546,7 @@ def test_run_due_dry_run_sends_and_writes_nothing(env):
     rt = env['rt']('2026-10-19T13:05:00Z')
     result = pr.run_due(rt=rt)
     assert {(r['platform'], r['action']) for r in result['results']} == {
-        ('linkedin', 'would_post'), ('instagram', 'would_post'), ('instagram_trial', 'would_post'),
+        ('linkedin', 'would_post'), ('instagram', 'would_post'),
         ('youtube', 'would_confirm_public')}
     assert rt.calls == [] and pr.SCHEDULE_PATH.read_text() == before
 
@@ -859,14 +852,14 @@ def test_a_post_recovered_after_a_crash_keeps_its_followups(env):
     queued(env)
     rt = env['rt']('2026-10-19T13:05:00Z')
     rt.ig_crash_after_post = True
-    pr.run_due(live=True, rt=rt, platforms=['instagram_trial'])
-    second = pr.run_due(live=True, rt=env['rt']('2026-10-19T13:20:00Z'), platforms=['instagram_trial'])
+    pr.run_due(live=True, rt=rt, platforms=['instagram'])
+    second = pr.run_due(live=True, rt=env['rt']('2026-10-19T13:20:00Z'), platforms=['instagram'])
     result = second['results'][0]
     assert result['action'] == 'recorded'
     assert any('ManyChat' in f and KEYWORD in f for f in result['followups'])
-    assert not any('Collab' in f for f in result['followups'])
+    assert any('Collab' in f for f in result['followups'])
     published = json.loads((pr.JOBS_ROOT / 'job1' / 'published.json').read_text())
-    assert published['instagram_trial']['account'] == 'with.hammad' and not published['instagram_trial'].get('collab_status')
+    assert published['instagram']['account'] == 'withhammad.ai'
 
 
 def test_a_rejected_or_late_short_fails_and_shows_as_overdue(env):
@@ -1057,36 +1050,30 @@ def test_platform_date_override_does_not_wait_for_original_day_backup(env):
     assert '2026-10-20 17:00 pending' in pr.render_md(schedule)
 
 
-def test_instagram_account_and_trial_follow_the_queued_entry(env):
-    # owner rule 2026-10-24: new queues post on @hammadagentic.ai with @with.hammad as Collab, plus a Trial Reel on
-    # @with.hammad (where ManyChat runs; no Collab on a trial); an entry queued before the rule keeps @with.hammad
+def test_instagram_account_and_collabs_follow_the_queued_entry(env):
+    # owner 2026-10-31: new queues post on @withhammad.ai with @with.hammad and @hammadagentic.ai as Collabs and no
+    # Trial Reel; an entry queued before 2026-10-24 keeps @with.hammad
     queued(env)
     entry = next(e for e in pr.load_schedule()['queue'] if e.get('job') == 'job1')
-    ig, trial = entry['platforms']['instagram'], entry['platforms']['instagram_trial']
-    assert ig['account'] == 'hammadagentic.ai' and ig['trial'] is None and ig['collaborators'] == ['with.hammad']
-    assert trial['account'] == 'with.hammad' and trial['trial'] == 'SS_PERFORMANCE' and trial['collaborators'] == []
-    assert trial['video_url'] == ig['video_url'] and trial['status'] == ig['status']
-    assert pr.slot_time('instagram_trial', '2026-10-19') == pr.slot_time('instagram', '2026-10-19')
+    ig = entry['platforms']['instagram']
+    assert 'instagram_trial' not in entry['platforms']
+    assert ig['account'] == 'withhammad.ai' and ig['trial'] is None
+    assert ig['collaborators'] == ['with.hammad', 'hammadagentic.ai']
     done = {'platforms': {p: {'status': 'published'} for p in pr.PLATFORMS}}
     assert pr._entry_status(done) == 'done'
-    done['platforms']['instagram_trial'] = {'status': 'pending'}
-    assert pr._entry_status({**done, 'status': 'queued'}) == 'queued'   # the trial post is still to go
-    legacy = {'platforms': {'instagram': {}}}
-    assert pr.ig_account(legacy) == 'with.hammad'
-    assert pr.ig_account({'platforms': {'instagram': {'account': 'hammadagentic.ai'}}}) == 'hammadagentic.ai'
-    assert pr._default_collaborators('hammadagentic.ai') == ['with.hammad']
-    assert pr._default_collaborators('with.hammad') == ['hammadagentic.ai']
-    assert pr.TRIAL_FOR['with.hammad'] in ('MANUAL', 'SS_PERFORMANCE')
+    assert pr.ig_account({'platforms': {'instagram': {}}}) == 'with.hammad'
+    assert pr.ig_account({'platforms': {'instagram': {'account': 'withhammad.ai'}}}) == 'withhammad.ai'
+    assert pr._default_collaborators('withhammad.ai') == ['with.hammad', 'hammadagentic.ai']
 
 
-def test_the_agentic_caption_swaps_the_keyword_ask_for_the_guide_link():
+def test_captions_keep_the_keyword_only_where_manychat_runs():
     url = 'https://withhammad.com/resources/kimi'
     cap = ("Kimi on 8GB.\nComment BYTES and I'll DM you the guide.\n\nBody text.\n\n"
            "Comment BYTES and I'll DM you my setup guide.\nFollow @with.hammad for more AI builds.\n\nAI avatar of me.")
+    assert pr.ig_caption_for('withhammad.ai', cap, 'BYTES', url) == cap.replace('Follow @with.hammad', 'Follow @withhammad.ai')
     assert pr.ig_caption_for('hammadagentic.ai', cap, 'BYTES', url) == (
         'Kimi on 8GB.\nFull guide: withhammad.com/resources/kimi\n\nBody text.\n\n'
         'Follow @hammadagentic.ai for more AI builds.\n\nAI avatar of me.')
-    assert pr.ig_caption_for('with.hammad', cap, 'BYTES', url) == cap
     assert pr.ig_caption_for('hammadagentic.ai', 'Roadmap: comment X and I will DM you. #fde', 'X', url) == \
         'Roadmap: full guide: withhammad.com/resources/kimi. #fde'
     assert pr.ig_caption_for('hammadagentic.ai', 'Scan first. Comment SCAN and I\'ll DM you. AI avatar.', 'SCAN', url) == \
@@ -1181,7 +1168,7 @@ def test_queue_adds_and_hosts_the_carousel_when_the_job_has_one(env):
     p = pr.load_schedule()['queue'][0]['platforms']
     ic, lc = p['instagram_carousel'], p['linkedin_carousel']
     assert ic['slot_utc'] == '2026-10-19T17:00:00Z' and lc['slot_utc'] == '2026-10-19T07:00:00Z'
-    assert ic['account'] == 'hammadagentic.ai' and ic['collaborators'] == ['with.hammad'] and ic['trial'] is None
+    assert ic['account'] == 'withhammad.ai' and ic['collaborators'] == ['with.hammad', 'hammadagentic.ai'] and ic['trial'] is None
     assert ic['hosted'] is True and ic['image_urls'] == CAROUSEL_URLS and len(ic['image_bytes']) == 3
     assert lc['document'] == 'carousel/carousel-linkedin.pdf' and lc['title'] == 'FDE roadmap'
     for i, url in enumerate(CAROUSEL_URLS, 1):
@@ -1217,12 +1204,12 @@ def test_run_due_posts_both_carousels_at_their_slots_once(env):
     out2 = pr.run_due(live=True, rt=rt2, platforms=['instagram_carousel'])
     assert [(r['platform'], r['action']) for r in out2['results']] == [('instagram_carousel', 'posted')]
     call = next(c[1] for c in rt2.calls if c[0] == 'instagram_carousel')
-    assert call['expected_username'] == 'hammadagentic.ai' and call['collaborators'] == ['with.hammad']
+    assert call['expected_username'] == 'withhammad.ai' and call['collaborators'] == ['with.hammad', 'hammadagentic.ai']
     assert 'trial' not in call and call['image_urls'] == CAROUSEL_URLS and call['ai_generated'] is True
     assert len(call['image_sizes']) == 3 and Path(call['state_path']).name == 'publish_instagram_carousel.json'
-    assert KEYWORD not in call['caption'] and 'full guide: ' in call['caption']   # no ManyChat on @hammadagentic.ai
+    assert KEYWORD in call['caption']   # ManyChat runs on @withhammad.ai
     result = out2['results'][0]
-    assert any('Collab' in f for f in result['followups']) and not any('ManyChat' in f for f in result['followups'])
+    assert any('Collab' in f for f in result['followups']) and any('ManyChat' in f for f in result['followups'])
     published = json.loads((jdir / 'published.json').read_text())
     assert published['instagram_carousel']['media_id'] == 'IGC1' and published['instagram_carousel']['slides'] == 3
     assert published['linkedin_carousel']['post_urn'] == 'urn:li:share:2'
@@ -1247,7 +1234,7 @@ def test_carousel_caption_prefers_seo_then_lesson_then_the_reel_caption(env):
     assert pr.carousel_title(lesson, seo2) == 'The 3-step GA4 check' and pr.carousel_title(lesson, seo) == 'FDE roadmap'
     seo3 = {**seo, 'carousel': {'instagram': {'caption': f'Slides. Comment {KEYWORD} for the guide.'}}}
     text, source = pr.carousel_caption('instagram_carousel', lesson, seo3)
-    assert source == 'seo.json carousel.instagram.caption' and KEYWORD not in text and 'Full guide' in text
+    assert source == 'seo.json carousel.instagram.caption' and KEYWORD in text   # ManyChat runs on @withhammad.ai, the keyword ask stays
     from app import lesson as lesson_schema
     assert lesson_schema.schema_problem(lesson) is None        # the optional carousel captions are valid lesson copy
 

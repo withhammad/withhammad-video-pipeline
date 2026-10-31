@@ -45,14 +45,14 @@ import httpx
 
 HOST = 'https://graph.instagram.com'
 API_VERSION = os.environ.get('STUDIO_IG_API_VERSION', 'v25.0')
-EXPECTED_USERNAME = os.environ.get('STUDIO_IG_USERNAME', 'hammadagentic.ai')
+EXPECTED_USERNAME = os.environ.get('STUDIO_IG_USERNAME', 'withhammad.ai')
 CREDENTIALS_FILE = Path(os.environ.get(
     'STUDIO_IG_CREDENTIALS',
-    str(Path(__file__).resolve().parents[2] / 'work' / '.secrets' / 'instagram-hammadagentic-ai-oauth.json')))
+    str(Path(__file__).resolve().parents[2] / 'work' / '.secrets' / 'instagram-withhammad-ai-oauth.json')))
 # Trial Reel graduation strategies Meta accepts in trial_params (None = a normal reel).
 TRIAL_STRATEGIES = (None, 'MANUAL', 'SS_PERFORMANCE')
 # Owner rule (2026-10-17): every reel goes out as a Collab between the owner's two accounts, so it shows on both.
-DEFAULT_COLLABORATORS = {'with.hammad': ('hammadagentic.ai',), 'hammadagentic.ai': ('with.hammad',)}
+DEFAULT_COLLABORATORS = {'withhammad.ai': ('with.hammad', 'hammadagentic.ai'), 'with.hammad': ('hammadagentic.ai',), 'hammadagentic.ai': ('with.hammad',)}
 MAX_COLLABORATORS = 3
 POLL_SECONDS = float(os.environ.get('STUDIO_IG_POLL_SECONDS', '20'))
 PROCESS_TIMEOUT = float(os.environ.get('STUDIO_IG_TIMEOUT', '600'))
@@ -1346,7 +1346,7 @@ def main(argv=None):
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('video')
     parser.add_argument('lesson', help='lesson.json (its captions.instagram is the caption)')
-    parser.add_argument('--account', default='with.hammad',
+    parser.add_argument('--account', default='withhammad.ai',
                         help='posting account; the token is work/.secrets/instagram-<account>-oauth.json')
     parser.add_argument('--video-url', required=True, help='public https URL already serving the video')
     parser.add_argument('--cover-url', help='public https URL already serving the cover JPEG')
