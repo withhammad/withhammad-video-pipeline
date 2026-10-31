@@ -169,6 +169,10 @@ def main():
     parser.add_argument('--timeout', type=int, default=300)
     parser.add_argument('--force-reauth', action='store_true',
                         help='force a fresh Instagram login (use to switch accounts)')
+    parser.add_argument('--scopes', default=','.join(SCOPES),
+                        help='comma-separated scopes (default: basic + content_publish; add '
+                             'instagram_business_manage_comments,instagram_business_manage_messages '
+                             'for the keyword-DM webhook)')
     parser.add_argument('--state', help='reuse a state from an earlier run whose listener '
                         'was gone when the redirect arrived; then reload that redirect tab')
     args = parser.parse_args()
@@ -180,6 +184,7 @@ def main():
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     context.load_cert_chain(str(CERT), str(KEY))
     server.socket = context.wrap_socket(server.socket, server_side=True)
+    SCOPES[:] = [scope.strip() for scope in args.scopes.split(',') if scope.strip()]
     params = {'client_id': CLIENT_ID, 'redirect_uri': REDIRECT, 'response_type': 'code',
               'scope': ','.join(SCOPES), 'state': state}
     if args.force_reauth:
