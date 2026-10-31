@@ -80,7 +80,9 @@
           "hammadagentic.ai"
         ],
         "first_publish": "https://www.instagram.com/reel/DemtmtXn_AT/",
-        "identity_last_verified": "2026-10-20"
+        "identity_last_verified": "2026-10-20",
+        "retired": "2026-10-31",
+        "retired_note": "Owner 2026-10-31: replaced by the new Instagram linked to the With Hammad AI Page; no new posts here (existing posts stay)."
       },
       {
         "key": "instagram_secondary",
@@ -101,7 +103,9 @@
         "default_collaborators": [
           "with.hammad"
         ],
-        "note": "Meta error 190: session invalidated, seen after Chrome Instagram switched to @with.hammad. Re-authorize only in a separate browser profile so the @with.hammad session stays logged in."
+        "note": "Meta error 190: session invalidated, seen after Chrome Instagram switched to @with.hammad. Re-authorize only in a separate browser profile so the @with.hammad session stays logged in.",
+        "retired": "2026-10-31",
+        "retired_note": "Owner 2026-10-31: replaced by the new Instagram linked to the With Hammad AI Page; no new posts here (existing posts stay)."
       },
       {
         "key": "youtube",
@@ -167,6 +171,24 @@
         "api_connection_status": "developer_enrollment_required",
         "api_pricing_checked": "2026-10-20",
         "api_pricing_source": "https://docs.x.com/x-api/getting-started/pricing"
+      },
+      {
+        "key": "facebook_page",
+        "handle": "With Hammad AI",
+        "account_id": "61595704034607",
+        "profile_url": "https://www.facebook.com/profile.php?id=61595704034607",
+        "category": "Digital creator",
+        "connection_status": "page_exists_owner_admin_not_connected",
+        "provider": "chrome_page_composer (Graph API once a Page token is authorized)",
+        "added": "2026-10-31",
+        "note": "Owner 2026-10-31: replaces the personal profile 100090938416059 for every new Facebook post. Not in a Business portfolio yet (portfolio Merciful Light is empty)."
+      },
+      {
+        "key": "instagram_new",
+        "handle": null,
+        "connection_status": "not_created",
+        "added": "2026-10-31",
+        "note": "Owner creates it, links it to the With Hammad AI Page (Page settings > Linked accounts), then Instagram OAuth with the owner logging in. Replaces @with.hammad and @hammadagentic.ai for new posts."
       }
     ],
     "provider_connection_verified": true,
