@@ -422,13 +422,13 @@
       "scheduler_note": "launchd agent would be cheaper (no Claude session per run); plist text is in the 2026-11-01 session transcript if the owner wants to install it himself"
     },
     "x": {
-      "status": "module ready 2026-11-01; routine creation refused by auto mode, pending owner OK",
+      "status": "scheduled 2026-11-01 (routine x-keyword-replies, 10 past the hour 07-23 local, Auto mode); first run 07:10",
       "handle": "@HammadYousufAI",
       "how": "Chrome routine x-keyword-replies (prompt in docs/routines/), replies via app.linkedin_keyword --platform x",
       "why_chrome": "no free comment API (X Basic $100/mo; TikTok comments partner-only)"
     },
     "tiktok": {
-      "status": "module ready 2026-11-01; routine creation refused by auto mode, pending owner OK",
+      "status": "scheduled 2026-11-01 (routine tiktok-keyword-replies, 40 past the hour 07-23 local, Auto mode); first run 07:40; stops on captcha",
       "handle": "@hammadyousuf01",
       "how": "Chrome routine tiktok-keyword-replies (prompt in docs/routines/), replies via app.linkedin_keyword --platform tiktok",
       "why_chrome": "no free comment API (X Basic $100/mo; TikTok comments partner-only)"
