@@ -13,10 +13,10 @@ Probed live today (tokens called, Chrome sessions opened). Not from memory.
 
 | # | Connection | Status today | What is needed |
 |---|---|---|---|
-| 1 | **Instagram @withhammad.ai** (main; Creator; linked to Page With Hammad AI; portfolio "Hammad Yousuf \| AI Agents & Claude Code") | Account live. **No API token yet** (`work/.secrets/instagram-withhammad-ai-oauth.json` missing) | Owner: one Instagram Login consent in Chrome (Log in with Facebook, 2FA). Command: `python3 outputs/video-pipeline/instagram_oauth.py --account withhammad.ai`. Then `app.instagram_tokens status`. |
+| 1 | **Instagram @withhammad.ai** (main; Creator; linked to Page With Hammad AI; portfolio "Hammad Yousuf \| AI Agents & Claude Code") | **Connected 2026-10-31 15:57**: token valid to 2026-12-30, identity confirmed, dry-run container from @withhammad.ai with Collabs @with.hammad + @hammadagentic.ai OK | Nothing. (First consent went to the old session: log Chrome out of Instagram before the consent link.) |
 | 2 | Instagram @with.hammad, @hammadagentic.ai | **Both tokens invalidated** (Meta: session invalidated, password changed). Retired 2026-10-31: no new posts, only Collab invites | Nothing. Collab invites need only the usernames. Owner accepts each invite in the app. |
 | 3 | **Facebook Page With Hammad AI** (61595704034607) | Page live with cover, picture, bio, link. **No Page token** | Same consent as #1 covers Facebook Reels if the app has `pages_manage_posts`; otherwise Chrome composer. |
-| 4 | **YouTube** HAMMAD YOUSUF (UCJtrEDGg1R3kNe7t7PQFiEw) | **Refresh token expired/revoked** (`invalid_grant` today) | Owner: re-consent once: `python3 outputs/video-pipeline/youtube_oauth.py` opens Chrome; approve. |
+| 4 | **YouTube** HAMMAD YOUSUF (UCJtrEDGg1R3kNe7t7PQFiEw) | **Re-connected 2026-10-31 15:58**: refresh works, channels.list answers (547k subs, 30 videos), scopes upload + readonly | Nothing. |
 | 5 | **LinkedIn** urn:li:person:yWP7me7dep | OK (userinfo answered). Token to 2026-12-16 | Nothing. Carousels (PDF) and video posts already supported. |
 | 6 | **TikTok** @hammadyousuf01 | OK: Chrome session on TikTok Studio upload page | Posting stays through Chrome (API app not reviewed). |
 | 7 | **X** @HammadYousufAI | OK: Chrome compose box opens, logged in | Chrome only (no API, paid plans not approved). |
@@ -26,8 +26,7 @@ Probed live today (tokens called, Chrome sessions opened). Not from memory.
 | 11 | **HeyGen** | Logged in (Browser 1, hammadbhat1234@gmail.com); 9 looks; ElevenLabs voice 46d4ae… | Credits page not reachable from the settings URL; read the balance from the Home credit badge before each batch. The `heygen` MCP needs `/mcp` auth for API runs; Chrome AI Studio works now. |
 | 12 | Scheduler (`app.publish_reel run-due`) | Code green: 558 tests pass; one failing test is `schedule.json` carrying two reels on 2026-10-21 and 2026-10-26 (data from the 3-a-day change, not code) | Re-key the queue by (date, slot_index) when the new slots land. |
 
-Blocked until the owner does #1 and #4 (two consents, about 2 minutes each): automated Instagram and YouTube posting.
-Everything else posts today.
+Both consents done 2026-10-31: automated Instagram and YouTube posting is unblocked.
 
 ## 2. What happens when a link is pasted
 
@@ -99,8 +98,8 @@ the blog post for the same topic is linked for search traffic. Following is a re
 
 ## 4. Order of work
 
-1. Owner: Instagram consent (#1) and YouTube consent (#4). ManyChat plan decision (#8).
-2. Agent: `app.instagram_tokens status`; test post dry-run from @withhammad.ai with both Collabs; Facebook Page token check.
+1. ~~Instagram consent (#1) and YouTube consent (#4)~~ done 2026-10-31. Owner: ManyChat plan decision (#8).
+2. ~~`app.instagram_tokens status`; dry-run with both Collabs~~ done. Agent: Facebook Page token check.
 3. Agent: add `linkedin_post`, `linkedin_newsletter` (Chrome), `facebook_reel` lanes and the weekly `youtube_long` lane to
    publish_reel; add the blog-post + reel-embed steps to the resource-page workflow; re-key schedule.json; commit.
 4. Resume the paused Harvey reel (job ffd6572d7c9f) as the first reel through v2; then one reference link a day from the owner.

@@ -116,14 +116,17 @@
         "provider": "youtube_direct_api",
         "channel_title": "HAMMAD YOUSUF",
         "scopes": [
-          "https://www.googleapis.com/auth/youtube.readonly",
-          "https://www.googleapis.com/auth/youtube.upload",
-          "https://www.googleapis.com/auth/youtube.force-ssl"
+          "youtube.upload",
+          "youtube.readonly"
         ],
         "video_publish_tested": true,
-        "identity_last_verified": "2026-10-23",
+        "identity_last_verified": "2026-10-31",
         "last_long_video": "https://www.youtube.com/watch?v=u4J1oQqQoTM",
-        "separate_caption_permission": "verified"
+        "separate_caption_permission": "verified",
+        "reconsented": "2026-10-31",
+        "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+        "token_file": "work/.secrets/youtube-oauth.json",
+        "note": "refresh token had expired (invalid_grant) on 2026-10-31; re-consent via outputs/video-pipeline/youtube_oauth.py"
       },
       {
         "key": "tiktok",
@@ -187,13 +190,30 @@
       {
         "key": "instagram_new",
         "handle": "withhammad.ai",
-        "connection_status": "linked_to_facebook_page_api_token_pending",
+        "connection_status": "identity_and_scopes_verified",
         "added": "2026-10-31",
         "note": "Owner created and linked it on 2026-10-31. Replaces @with.hammad and @hammadagentic.ai for new posts. Needs Instagram API token before automated posting; ManyChat not connected yet.",
-        "account_type": "creator",
+        "account_type": "MEDIA_CREATOR",
         "category": "Digital creator",
         "linked_page": "With Hammad AI (page asset 1394106800452348)",
-        "business_portfolio": "Hammad Yousuf | AI Agents & Claude Code (1124153953688412)"
+        "business_portfolio": "Hammad Yousuf | AI Agents & Claude Code (1124153953688412)",
+        "provider": "instagram_login_api",
+        "ig_login_user_id": "30478611728406214",
+        "ig_user_id": "17841429263270808",
+        "scopes": [
+          "instagram_business_basic",
+          "instagram_business_content_publish"
+        ],
+        "token_expires_at": "2026-12-30",
+        "token_file": "work/.secrets/instagram-withhammad-ai-oauth.json",
+        "login_method": "Log out of Instagram in Chrome first, type the username withhammad.ai on the consent login page (Chrome autofills its saved password), owner clicks Log in + approves; listener instagram_oauth.py --account withhammad.ai --force-reauth",
+        "default_collaborators": [
+          "with.hammad",
+          "hammadagentic.ai"
+        ],
+        "dry_run_collabs_verified": "2026-10-31",
+        "identity_last_verified": "2026-10-31",
+        "role": "main posting account (publish_reel IG_ACCOUNT)"
       }
     ],
     "provider_connection_verified": true,
