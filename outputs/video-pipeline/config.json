@@ -414,11 +414,12 @@
       "first_run": "2026-10-31 18:35 UTC: 2 API posts checked, 0 comments; routine then widened to the activity page because most LinkedIn posts come from other lanes and are not in published.json"
     },
     "youtube": {
-      "status": "built 2026-11-01; live reply test pending",
+      "status": "scheduled 2026-11-01 (desktop routine youtube-keyword-replies, 15/45 past the hour 07-23 local, Auto mode); live reply test pending a keyword comment",
       "how": "studio/app/youtube_keyword.py: commentThreads.list over the channel + comments.insert reply, same dm-rules.json; scheduled desktop task youtube-keyword-replies (15,45 past the hour, 07-23 local); state studio/.local/youtube-keyword-state.json",
       "scope": "youtube.force-ssl added to work/.secrets/youtube-oauth.json 2026-11-01 (youtube_oauth.py --captions)",
       "verified": "dry run 2026-11-01: 500 comment threads read via API, 0 keyword matches (no SCOPE/SKILL/LINKEDIN/MOTION comments exist yet)",
-      "reply_text": "Here it is 👇 {link} / Subscribe for the next one 🙌"
+      "reply_text": "Here it is 👇 {link} / Subscribe for the next one 🙌",
+      "scheduler_note": "launchd agent would be cheaper (no Claude session per run); plist text is in the 2026-11-01 session transcript if the owner wants to install it himself"
     }
   }
 }
