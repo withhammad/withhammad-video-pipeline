@@ -407,13 +407,11 @@
       "app_subscription": "POST /1098576635873878/subscriptions object=page fields=feed,messages (app token) — was missing; added 2026-10-31 22:19"
     },
     "linkedin": {
-      "status": "not built",
-      "finding_2026-10-31": "Reading comments on own posts needs r_member_social (partnerApiSocialActions.GET_ALL -> 403 on every version with w_member_social). Partner-only, not free. Replying (POST comment) is allowed by w_member_social.",
-      "options": [
-        "scheduled Claude session with Claude in Chrome: read comments on watched posts, reply via API",
-        "Playwright on a persistent Chrome profile, launchd every 10 min (account-restriction risk)",
-        "no bot: resource link stays in the LinkedIn post text"
-      ]
+      "status": "built 2026-10-31, awaiting first real keyword comment",
+      "how": "scheduled routine linkedin-keyword-replies (*/30 7-23 local, desktop app) reads comments in the owner's Chrome; studio/app/linkedin_keyword.py supplies watchlist (published.json, 14 days), rules (site dm-rules.json), dedupe state (studio/.local/linkedin-keyword-state.json) and the API reply (w_member_social can write comments; reading them is partner-only)",
+      "fallback": "no comment URN -> routine types the reply in Chrome, then --mark",
+      "runs_only_while": "the Claude desktop app is open and Chrome is logged in to LinkedIn",
+      "verified": "module tests green (5); both watched posts had 0 comments, so the Chrome read path is untested on real comments"
     }
   }
 }
