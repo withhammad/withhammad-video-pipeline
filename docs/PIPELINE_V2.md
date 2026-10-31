@@ -20,7 +20,7 @@ Probed live today (tokens called, Chrome sessions opened). Not from memory.
 | 5 | **LinkedIn** urn:li:person:yWP7me7dep | OK (userinfo answered). Token to 2026-12-16 | Nothing. Carousels (PDF) and video posts already supported. |
 | 6 | **TikTok** @hammadyousuf01 | OK: Chrome session on TikTok Studio upload page | Posting stays through Chrome (API app not reviewed). |
 | 7 | **X** @HammadYousufAI | OK: Chrome compose box opens, logged in | Chrome only (no API, paid plans not approved). |
-| 8 | **ManyChat** (fb5064597) | Logged in, but **Free plan limit hit** (25 active contacts banner) and still bound to @with.hammad | Owner decision: Essential trial/plan, or stay free. Then connect @withhammad.ai as the channel. Every keyword DM lives here. |
+| 8 | **Keyword DM** (was ManyChat) | **Replaced 2026-10-31** by our own webhook: withhammad.com/api/instagram/webhook (Meta app 1098576635873878, published; fields comments + messages). Flow = ManyChat's: comment keyword -> ask to follow -> "I followed" tap -> follow checked -> link. Rules: site `src/content/dm-rules.json`, one per reel via `python -m app.dm_rules add`. ManyChat stays only for old posts. | Live comment test on the first @withhammad.ai post. |
 | 9 | **withhammad.com** (withhammad-rebuild on Vercel) | OK: /resources answers 200; write path verified; `pr.host_instagram_media` hosts reels/covers at withhammad.com/media | Nothing. |
 | 10 | **GitHub** (gh as withhammad) | OK: logged in; pipeline repo + site repo reachable | Keep: commit and push every change. |
 | 11 | **HeyGen** | Logged in (Browser 1, hammadbhat1234@gmail.com); 9 looks; ElevenLabs voice 46d4ae… | Credits page not reachable from the settings URL; read the balance from the Home credit badge before each batch. The `heygen` MCP needs `/mcp` auth for API runs; Chrome AI Studio works now. |
@@ -50,7 +50,7 @@ link (Instagram / YouTube / LinkedIn / TikTok / X / GitHub repo)
   -> queue         app.publish_reel queue: slot per platform from slots.json (analytics-picked)
   -> post          run-due at each slot: YouTube (API), Instagram @withhammad.ai + Collab @with.hammad,
                    @hammadagentic.ai (API), LinkedIn (API), Facebook Page, TikTok + X (Chrome)
-  -> automation    ManyChat keyword DM on the Instagram post, pinned comment, follow-up checklist
+  -> automation    dm_rules add (keyword -> follow-gated DM via our webhook) in the resource-page commit, pinned comment
   -> record        docs/videos/<date>-<slug>.md, published.json, git commit + push
 ```
 

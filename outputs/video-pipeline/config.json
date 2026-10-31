@@ -248,7 +248,7 @@
       "DESIGN": "content20261020133756_436865"
     },
     "followup_destination": null,
-    "connection_status": "browser_authenticated_api_plan_blocked",
+    "connection_status": "superseded_free_plan_kept_for_old_posts",
     "browser_session_verified": true,
     "instagram_handle": "with.hammad",
     "api_access_status": "upgrade_required",
@@ -256,7 +256,8 @@
     "plan": "Free",
     "draft_status": "2026-10-24 17:55 GST: JOBKIT LIVE on reel De4PSqIj5ND (@with.hammad Trial Reel) with keyword JOBKIT; DESIGN trigger turned OFF to free a slot (0 sends); DUET quick automation LIVE. Free plan limit reached; owner chose \"Stay free, rotate\": keep only the newest posts live.",
     "rotation_rule": "Free plan: only the newest posts keep a live keyword DM; turn the oldest trigger off before setting a new one live (owner 2026-10-24).",
-    "verification_note": "Logged in; Free-plan limit popup on the dashboard; still bound to @with.hammad, @withhammad.ai not connected as a channel"
+    "verification_note": "Logged in; Free-plan limit popup on the dashboard; still bound to @with.hammad, @withhammad.ai not connected as a channel",
+    "replaced_by": "own Instagram keyword-DM webhook (withhammad.com/api/instagram/webhook), 2026-10-31"
   },
   "browser_preference": "Google Chrome",
   "scheduler_scope": {
@@ -352,5 +353,36 @@
     "payment_method": null,
     "created": "2026-10-31",
     "note": "Owner accepted Meta terms. No payment method yet; no ads run without owner OK."
+  },
+  "keyword_dm": {
+    "provider": "own webhook on withhammad.com (Instagram API, no ManyChat)",
+    "route": "withhammad-rebuild src/app/api/instagram/webhook/route.ts",
+    "rules_file": "withhammad-rebuild src/content/dm-rules.json (studio/app/dm_rules.py adds one per reel)",
+    "meta_app": {
+      "facebook_app_id": "1098576635873878",
+      "instagram_app_id": "2225240621741205",
+      "published": "2026-10-31",
+      "webhook_fields": [
+        "comments",
+        "messages"
+      ],
+      "callback": "https://withhammad.com/api/instagram/webhook"
+    },
+    "account": "withhammad.ai",
+    "token_scopes": [
+      "instagram_business_basic",
+      "instagram_business_content_publish",
+      "instagram_business_manage_comments",
+      "instagram_business_manage_messages"
+    ],
+    "flow": "comment keyword -> public reply + DM asking to follow with \"I followed\" quick reply -> is_user_follow_business checked -> link",
+    "vercel_env": [
+      "IG_WEBHOOK_VERIFY_TOKEN",
+      "IG_APP_SECRET",
+      "IG_USER_ID",
+      "IG_ACCESS_TOKEN"
+    ],
+    "verified": "2026-10-31 signed synthetic comment accepted (200), bad signature 401; live comment test pending first post",
+    "token_renewal": "app.instagram_tokens refresh writes the file; IG_ACCESS_TOKEN in Vercel must be updated too (vercel env add IG_ACCESS_TOKEN production --force)"
   }
 }
