@@ -405,6 +405,15 @@
       "verified": "LIVE 2026-10-31 18:20 UTC: Hammad Yousuf commented SCOPE on post 122103552249523467 at 18:20:32 -> Messenger DM with link 18:20:40 -> comment reply 'Sent you a DM' 18:20:41 (9 s end to end)",
       "note": "openssl-signed tests gave false 401s; sign test events with node crypto",
       "app_subscription": "POST /1098576635873878/subscriptions object=page fields=feed,messages (app token) — was missing; added 2026-10-31 22:19"
+    },
+    "linkedin": {
+      "status": "not built",
+      "finding_2026-10-31": "Reading comments on own posts needs r_member_social (partnerApiSocialActions.GET_ALL -> 403 on every version with w_member_social). Partner-only, not free. Replying (POST comment) is allowed by w_member_social.",
+      "options": [
+        "scheduled Claude session with Claude in Chrome: read comments on watched posts, reply via API",
+        "Playwright on a persistent Chrome profile, launchd every 10 min (account-restriction risk)",
+        "no bot: resource link stays in the LinkedIn post text"
+      ]
     }
   }
 }
