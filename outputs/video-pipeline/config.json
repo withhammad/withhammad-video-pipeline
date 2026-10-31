@@ -315,5 +315,15 @@
         "time": "18:00"
       }
     }
+  },
+  "meta_ads": {
+    "ad_account_id": "act_2983053245405014",
+    "name": "With Hammad AI",
+    "currency": "AED",
+    "timezone": "Asia/Dubai",
+    "business_portfolio": "Hammad Yousuf | AI Agents & Claude Code (1124153953688412)",
+    "payment_method": null,
+    "created": "2026-10-31",
+    "note": "Owner accepted Meta terms. No payment method yet; no ads run without owner OK."
   }
 }
