@@ -420,6 +420,19 @@
       "verified": "dry run 2026-11-01: 500 comment threads read via API, 0 keyword matches (no SCOPE/SKILL/LINKEDIN/MOTION comments exist yet)",
       "reply_text": "Here it is 👇 {link} / Subscribe for the next one 🙌",
       "scheduler_note": "launchd agent would be cheaper (no Claude session per run); plist text is in the 2026-11-01 session transcript if the owner wants to install it himself"
-    }
+    },
+    "x": {
+      "status": "module ready 2026-11-01; routine creation refused by auto mode, pending owner OK",
+      "handle": "@HammadYousufAI",
+      "how": "Chrome routine x-keyword-replies (prompt in docs/routines/), replies via app.linkedin_keyword --platform x",
+      "why_chrome": "no free comment API (X Basic $100/mo; TikTok comments partner-only)"
+    },
+    "tiktok": {
+      "status": "module ready 2026-11-01; routine creation refused by auto mode, pending owner OK",
+      "handle": "@hammadyousuf01",
+      "how": "Chrome routine tiktok-keyword-replies (prompt in docs/routines/), replies via app.linkedin_keyword --platform tiktok",
+      "why_chrome": "no free comment API (X Basic $100/mo; TikTok comments partner-only)"
+    },
+    "routines_doc": "docs/routines/README.md"
   }
 }

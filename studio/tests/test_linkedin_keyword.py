@@ -74,6 +74,20 @@ def test_reply_without_urn_hands_message_to_chrome_then_marks(tmp_path, cred):
                     rules=RULES)['status'] == 'already_replied'
 
 
+def test_platform_templates_and_cli(tmp_path, cred, monkeypatch, capsys):
+    rule = RULES[0]
+    assert lk.reply_text(rule, 'Omar K', lk.PLATFORMS['tiktok']['reply']) == \
+        'Omar it is at withhammad.com/resources/scope (link in bio → Resources) 🙌 Follow for the next one'
+    assert 'https://withhammad.com/resources/scope' in lk.reply_text(rule, 'Ana', lk.PLATFORMS['x']['reply'])
+    monkeypatch.setitem(lk.PLATFORMS, 'x', {'state': tmp_path / 'x.json', 'reply': lk.PLATFORMS['x']['reply']})
+    monkeypatch.setattr(lk.dm_rules, 'load', lambda *a: {'rules': RULES})
+    lk.main(['reply', '--platform', 'x', '--post', 'tweet 1', '--author', 'Ana', '--text', 'scope'])
+    assert json.loads(capsys.readouterr().out)['status'] == 'type_in_chrome'
+    lk.main(['reply', '--platform', 'x', '--post', 'tweet 1', '--author', 'Ana', '--text', 'scope', '--mark'])
+    assert json.loads(capsys.readouterr().out)['via'] == 'chrome'
+    assert 'tweet 1|ana|scope' in json.loads((tmp_path / 'x.json').read_text())['replied']
+
+
 def test_reply_raises_on_api_error(tmp_path, cred, monkeypatch):
     monkeypatch.setattr(lk, 'API_REPLY', True)
     with pytest.raises(RuntimeError):

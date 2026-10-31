@@ -35,6 +35,15 @@ CREDENTIAL = ROOT / 'work' / '.secrets' / 'linkedin-oauth.json'
 AUTHOR = 'urn:li:person:yWP7me7dep'
 WINDOW_DAYS = 14
 REPLY = '{author}, sent it: {link}\nFollow for the next one 🙌'
+# X and TikTok reuse this module (same rules, own state file, own wording). TikTok comments cannot
+# carry a clickable link, so the reply spells the path and points at the bio link.
+PLATFORMS = {
+    'linkedin': {'state': STATE, 'reply': REPLY},
+    'x': {'state': ROOT / 'studio' / '.local' / 'x-keyword-state.json',
+          'reply': '{author} here it is 👇 {link}\nFollow for the next one 🙌'},
+    'tiktok': {'state': ROOT / 'studio' / '.local' / 'tiktok-keyword-state.json',
+               'reply': '{author} it is at {path} (link in bio → Resources) 🙌 Follow for the next one'},
+}
 # Verified 2026-10-31: with the free scope the REST comment create answers 403
 # partnerApiSocialActions.CREATE (partner-only), so the routine types replies in Chrome.
 # Flip this on only once the app holds Community Management partner access.
@@ -95,9 +104,10 @@ def match(text, rules=None):
     return None
 
 
-def reply_text(rule, author):
+def reply_text(rule, author, template=REPLY):
     first = (author or '').strip().split(' ')[0] or 'Hey'
-    return REPLY.format(author=first, link=rule['link'])
+    path = rule['link'].replace('https://', '')
+    return template.format(author=first, link=rule['link'], path=path)
 
 
 def _curl(url, headers, body):
@@ -129,7 +139,7 @@ def dedupe_key(post_urn, comment_urn, author, text):
 
 
 def reply(post_urn, comment_urn, author, text, *, state_path=STATE, credential=CREDENTIAL, send=_curl, rules=None,
-          mark_only=False):
+          mark_only=False, template=REPLY):
     """Keyword check + dedupe + reply; returns what happened.
 
     With a comment URN the reply goes through the API. Without one (Chrome did not expose it) the
@@ -143,7 +153,7 @@ def reply(post_urn, comment_urn, author, text, *, state_path=STATE, credential=C
     rule = match(text, rules)
     if not rule:
         return {'status': 'no_keyword', 'key': key}
-    message = reply_text(rule, author)
+    message = reply_text(rule, author, template)
     record = {'post': post_urn, 'keyword': rule['keyword'], 'author': author,
               'at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
     if comment_urn and API_REPLY and not mark_only:
@@ -169,6 +179,7 @@ def main(argv=None):
     r.add_argument('--post', required=True); r.add_argument('--comment', default='')
     r.add_argument('--author', default=''); r.add_argument('--text', required=True)
     r.add_argument('--mark', action='store_true', help='record a reply already typed in Chrome')
+    r.add_argument('--platform', choices=sorted(PLATFORMS), default='linkedin')
     args = parser.parse_args(argv)
     if args.cmd == 'watchlist':
         out = {'posts': watched_posts(), 'rules': dm_rules.load()['rules'], 'replied': sorted(load_state()['replied'])}
@@ -182,7 +193,9 @@ def main(argv=None):
             {'urn': args.post, 'url': args.url, 'at': time.strftime('%Y-%m-%d')}]
         save_state(state); out = state['extra_posts']
     else:
-        out = reply(args.post, args.comment, args.author, args.text, mark_only=args.mark)
+        p = PLATFORMS[args.platform]
+        out = reply(args.post, args.comment if args.platform == 'linkedin' else '', args.author, args.text,
+                    mark_only=args.mark, state_path=p['state'], template=p['reply'])
     json.dump(out, sys.stdout, indent=2, ensure_ascii=False); print()
 
 
