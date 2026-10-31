@@ -330,7 +330,9 @@ def _invert(t, p):
 def uncovered(fit, cam, still_size, margin_px=0.0, margin_rot=0.0):
     """How far (px) the worst frame corner falls outside the still after fit and camera; <= 0 means covered.
     margin_px / margin_rot: shake amplitude, applied in the worst direction."""
-    sw, sh = cover_size(*still_size)
+    # Stills.tsx draws the still in a W x H <Img> with objectFit "cover": the overflow past the frame box is clipped,
+    # so only min(cover, frame) of it can ever cover a corner
+    sw, sh = (min(a, b) for a, b in zip(cover_size(*still_size), (W, H)))
     f = {'dx': fit.get('dx', 0.0), 'dy': fit.get('dy', 0.0), 'scale': fit.get('scale', 1.0), 'rot': fit.get('rot', 0.0)}
     worst = -1e9
     for rot_m in ((-margin_rot, margin_rot) if margin_rot else (0.0,)):

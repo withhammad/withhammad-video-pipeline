@@ -1,15 +1,17 @@
 {
   "status": "review_only",
-  "owner_review_status": "pending",
+  "owner_review_status": "cut and cover approved 2026-10-23; CTA copy added after approval, owner OK pending",
   "owner_approved": false,
   "publishing_authorized": false,
   "scheduling_authorized": false,
   "checked_at": "2026-10-23",
   "resource_delivery": {
-    "status": "local_draft_only",
-    "public_url": null,
+    "status": "page_not_live_yet",
+    "public_url": "https://withhammad.com/resources/small-change-checklist",
     "automation_enabled": false,
-    "promise_in_copy": false
+    "promise_in_copy": true,
+    "delivers": "small-change checklist (lesson.resource_page)",
+    "channel": "ManyChat comment-keyword DM on Instagram; link in post elsewhere"
   },
   "workflow_phase": "Verify complete for copy; owner review and final-asset checks pending",
   "caption_format": "Hashtags are already included in the caption/text/post. Hashtag arrays are metadata; do not append them again.",
@@ -19,7 +21,7 @@
   "youtube": {
     "applicable": true,
     "title": "AI Coding Skit: One Word, 24 Files",
-    "description": "AI coding skit: a one-word button change turns into translation support, profiles and a missing mail service.\nSave this for your next scope review.\n\nThe file and language counts are fictional comedy props. The practical takeaway: define the exact change, inspect the diff and treat unexpected features as separate requests.\n\nSave this for your next scope review, and subscribe for more practical AI builds and coding stories.\n\nAI avatar of me.\n\n#AICoding #CodingHumor #Shorts",
+    "description": "Small-change checklist: https://withhammad.com/resources/small-change-checklist\nAI coding skit: a one-word button change turns into translation support, profiles and a missing mail service.\n\nThe file and language counts are fictional comedy props. The practical takeaway: define the exact change, inspect the diff and treat unexpected features as separate requests.\n\nGet the checklist: https://withhammad.com/resources/small-change-checklist\nSubscribe for more practical AI builds and coding stories.\n\nAI avatar of me.\n\n#AICoding #CodingHumor #Shorts",
     "tags": [
       "AI coding",
       "AI coding skit",
@@ -35,19 +37,19 @@
     ]
   },
   "instagram": {
-    "caption": "AI coding skit: one word becomes 24 files.\n\nSave this for your next tiny edit.\n\n“Rename this button to Start.” Somehow we now have translation support, customer profiles and an email problem.\n\nThe numbers are part of the joke. The useful habit is real: state the exact change, review the diff and give unexpected features their own scope.\n\nSave this for your next tiny edit. Follow @with.hammad for practical AI builds and the occasional coding spiral.\n\nAI avatar of me.\n\n#AICoding #VibeCoding #DeveloperHumor",
+    "caption": "AI coding skit: one word became 24 files. Comment SCOPE for the small-change checklist.\n\n“Rename this button to Start.” Somehow we now have translation support, customer profiles and an email problem.\n\nThe numbers are part of the joke. The useful habit is real: state the exact change, review the diff and give unexpected features their own scope.\n\nComment SCOPE and I’ll DM you the checklist. Follow @with.hammad for practical AI builds and the occasional coding spiral.\n\nAI avatar of me.\n\n#AICoding #VibeCoding #DeveloperHumor",
     "hashtags": [
       "#AICoding",
       "#VibeCoding",
       "#DeveloperHumor"
     ],
-    "alt_text": "Draft video description: Hammad’s AI avatar performs a fictional exchange with an animated coding assistant while original interface cards show a button-label request expanding into extra files, language support and account requirements."
+    "alt_text": "Comedy skit in a dark-blue animated interface. Hammad asks an animated coding assistant to rename one button to Start; illustrated cards show the change growing to 24 files, 30 languages, a customer database, a profile form, an email check and a mail-service error, while a wall of video tiles appears on the line about 24 files. He ends by telling it to stop renovating the internet. Captions are burned in."
   },
   "linkedin": {
-    "text": "AI coding skit: one button label, 24 changed files.\n\nSave this for your next tiny edit.\n\nA tiny request becomes translation support, customer profiles and a mail-service dependency. The numbers are fictional; the scope-review lesson is useful.\n\nBefore accepting a change, check what was requested, what actually changed and why each extra dependency is needed. Keep new features as separate decisions.\n\nSave this for your next code review. What is the smallest request that grew into a much bigger change on your team?\n\nFollow for practical AI workflows and coding stories.\n\nAI avatar of me.\n\n#AICoding #SoftwareDevelopment"
+    "text": "AI coding skit: one button label, 24 changed files. Get the small-change checklist: https://withhammad.com/resources/small-change-checklist\n\nA tiny request becomes translation support, customer profiles and a mail-service dependency. The numbers are fictional; the scope-review lesson is useful.\n\nBefore accepting a change, check what was requested, what actually changed and why each extra dependency is needed. Keep new features as separate decisions.\n\nWhat is the smallest request that grew into a much bigger change on your team?\n\nUse the checklist on your next review: https://withhammad.com/resources/small-change-checklist\nFollow for practical AI workflows and coding stories.\n\nAI avatar of me.\n\n#AICoding #SoftwareDevelopment"
   },
   "tiktok": {
-    "caption": "AI coding skit: I asked for one word. We got 24 files.\n\nSave this for your next tiny edit.\n\nTranslation support. Profiles. Email verification. The button is still waiting.\n\nFictional counters, familiar scope creep. Save this for your next diff review and follow for more AI coding stories.\n\nAI avatar of me.\n\n#AICoding #VibeCoding #DeveloperHumor",
+    "caption": "AI coding skit: I asked for one word. We got 24 files. Get the small-change checklist: https://withhammad.com/resources/small-change-checklist\n\nTranslation support. Profiles. Email verification. The button is still waiting.\n\nFictional counters, familiar scope creep. Get the checklist at the address above and follow for more AI coding stories.\n\nAI avatar of me.\n\n#AICoding #VibeCoding #DeveloperHumor",
     "hashtags": [
       "#AICoding",
       "#VibeCoding",
@@ -55,21 +57,21 @@
     ]
   },
   "facebook": {
-    "caption": "AI coding skit: a one-word change gets a little out of hand.\n\nSave this for your next tiny edit.\n\nThe assistant adds translation support, a customer database and email verification. This is a fictional sketch, including the file and language counts.\n\nThe takeaway: make the requested change clear and review the result before accepting unrelated features.\n\nSave this for your next code review and follow for practical AI builds with a little developer humor.\n\nAI avatar of me.\n\n#AICoding #DeveloperHumor",
+    "caption": "AI coding skit: a one-word change gets a little out of hand. Get the small-change checklist: https://withhammad.com/resources/small-change-checklist\n\nThe assistant adds translation support, a customer database and email verification. This is a fictional sketch, including the file and language counts.\n\nThe takeaway: make the requested change clear and review the result before accepting unrelated features.\n\nGet the checklist: https://withhammad.com/resources/small-change-checklist\nFollow for practical AI builds with a little developer humor.\n\nAI avatar of me.\n\n#AICoding #DeveloperHumor",
     "hashtags": [
       "#AICoding",
       "#DeveloperHumor"
     ]
   },
   "x": {
-    "post": "AI coding skit. Bookmark for your next edit: one word becomes 24 files, profiles and email verification. Fictional counters; scope the change and review the diff. Save and follow for AI builds. AI avatar of me. #AICoding",
+    "post": "AI coding skit: one word became 24 files. Small-change checklist: https://withhammad.com/resources/small-change-checklist\nState the change, review the diff. Follow for AI builds.\nAI avatar of me. #AICoding",
     "hashtags": [
       "#AICoding"
     ]
   },
   "accessibility": {
-    "video_description": "Fictional comedy with Hammad’s AI avatar, an original animated coding assistant and interface cards that escalate a button-label edit into unrelated features.",
-    "status": "Draft from script and spec; verify against the final cut. Keep spoken captions and the skit label readable.",
+    "video_description": "Comedy skit in a dark-blue animated interface. Hammad asks an animated coding assistant to rename one button to Start; illustrated cards show the change growing to 24 files, 30 languages, a customer database, a profile form, an email check and a mail-service error, while a wall of video tiles appears on the line about 24 files. He ends by telling it to stop renovating the internet. Captions are burned in.",
+    "status": "Checked against final.mp4 / final_ig.mp4 on 2026-10-23.",
     "custom_reel_alt_text_support": "Not assumed."
   },
   "editorial_notes": [
@@ -93,20 +95,20 @@
   ],
   "writer_checks": {
     "character_counts": {
-      "instagram": 509,
-      "linkedin": 623,
-      "tiktok": 346,
-      "facebook": 503,
-      "x": 220,
-      "x_weighted": 220,
-      "tiktok_utf16": 346,
+      "instagram": 528,
+      "linkedin": 733,
+      "tiktok": 401,
+      "facebook": 590,
+      "x": 205,
+      "x_weighted": 173,
+      "tiktok_utf16": 401,
       "youtube_title": 34,
-      "youtube_description_utf8_bytes": 475,
+      "youtube_description_utf8_bytes": 550,
       "youtube_tags_aggregate": 85
     },
     "x_under_280": true,
     "reel_youtube_title_under_70": true,
-    "public_resource_links": 0,
+    "public_resource_links": 5,
     "slide_alt_text_count": 0,
     "independent_verification": "complete for copy; see verification.json",
     "owner_review": "pending"
@@ -117,5 +119,7 @@
     "verified_at": "2026-10-23T10:48:44.199438+00:00",
     "final_asset_check": "pending",
     "owner_review": "pending"
-  }
+  },
+  "manychat_keyword": "SCOPE",
+  "resource_url": "https://withhammad.com/resources/small-change-checklist"
 }

@@ -78,20 +78,25 @@
   "prompts": [],
   "tool_links": [],
   "captions": {
-    "instagram": "One word. 24 files?\nSave this for later.\nAI avatar of me.",
-    "youtube_title": "One word. 24 files?",
-    "youtube_description": "One word. 24 files?\nSave this workflow. AI avatar of me.",
-    "tiktok": "One word. 24 files?\nAI avatar of me.",
-    "linkedin": "One word. 24 files?\nAI avatar of me."
+    "instagram": "AI coding skit: one word became 24 files. Comment SCOPE for the small-change checklist.\n\n“Rename this button to Start.” Somehow we now have translation support, customer profiles and an email problem.\n\nThe numbers are part of the joke. The useful habit is real: state the exact change, review the diff and give unexpected features their own scope.\n\nComment SCOPE and I’ll DM you the checklist. Follow @with.hammad for practical AI builds and the occasional coding spiral.\n\nAI avatar of me.\n\n#AICoding #VibeCoding #DeveloperHumor",
+    "youtube_title": "AI Coding Skit: One Word, 24 Files",
+    "youtube_description": "Small-change checklist: https://withhammad.com/resources/small-change-checklist\nAI coding skit: a one-word button change turns into translation support, profiles and a missing mail service.\n\nThe file and language counts are fictional comedy props. The practical takeaway: define the exact change, inspect the diff and treat unexpected features as separate requests.\n\nGet the checklist: https://withhammad.com/resources/small-change-checklist\nSubscribe for more practical AI builds and coding stories.\n\nAI avatar of me.\n\n#AICoding #CodingHumor #Shorts",
+    "tiktok": "AI coding skit: I asked for one word. We got 24 files. Get the small-change checklist: https://withhammad.com/resources/small-change-checklist\n\nTranslation support. Profiles. Email verification. The button is still waiting.\n\nFictional counters, familiar scope creep. Get the checklist at the address above and follow for more AI coding stories.\n\nAI avatar of me.\n\n#AICoding #VibeCoding #DeveloperHumor",
+    "linkedin": "AI coding skit: one button label, 24 changed files. Get the small-change checklist: https://withhammad.com/resources/small-change-checklist\n\nA tiny request becomes translation support, customer profiles and a mail-service dependency. The numbers are fictional; the scope-review lesson is useful.\n\nBefore accepting a change, check what was requested, what actually changed and why each extra dependency is needed. Keep new features as separate decisions.\n\nWhat is the smallest request that grew into a much bigger change on your team?\n\nUse the checklist on your next review: https://withhammad.com/resources/small-change-checklist\nFollow for practical AI workflows and coding stories.\n\nAI avatar of me.\n\n#AICoding #SoftwareDevelopment"
   },
   "hashtags": [
-    "AICoding"
+    "AI coding",
+    "AI coding skit",
+    "vibe coding",
+    "coding humor",
+    "scope creep",
+    "code review"
   ],
   "manychat_keyword": "SCOPE",
   "resource_page": {
     "slug": "small-change-checklist",
-    "title": "One word. 24 files?",
-    "body_markdown": "# Small-change checklist\n\nReview draft; not published.\n\n1. Identify the exact element and intended change.\n2. State existing behavior that must remain.\n3. Request the smallest relevant change and an explanation for dependencies.\n4. Inspect the diff and rendered result.\n5. Treat unexpected new features as separate requests.\n\nPrompt: “Change only the specified button label to Start. Preserve current behavior. Explain any necessary change outside that component before implementing it. Show the diff and verify the result.”\n\nThis can clarify scope; it does not guarantee model behavior.\n"
+    "title": "Small-change checklist",
+    "body_markdown": "# Small-change checklist\n\n1. Identify the exact element and intended change.\n2. State existing behavior that must remain.\n3. Request the smallest relevant change and an explanation for dependencies.\n4. Inspect the diff and rendered result.\n5. Treat unexpected new features as separate requests.\n\nPrompt: “Change only the specified button label to Start. Preserve current behavior. Explain any necessary change outside that component before implementing it. Show the diff and verify the result.”\n\nThis can clarify scope; it does not guarantee model behavior.\n"
   },
   "sources_checked": [
     {
@@ -99,5 +104,11 @@
       "url": "https://www.instagram.com/reel/DebmIDlSiR3/"
     }
   ],
-  "originality_note": "Original script, owner avatar and new graphics; third-party media used for analysis only."
+  "originality_note": "Original script, owner avatar and new graphics; third-party media used for analysis only.",
+  "cover": {
+    "kicker": "AI coding skit · fictional UI",
+    "hook": "One word became",
+    "pill_strong": "24",
+    "pill_serif": "files"
+  }
 }

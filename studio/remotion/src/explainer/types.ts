@@ -116,6 +116,51 @@ export type Scene = {
   push?: number;
   /** Theme "harvest": the caption pill of this scene, overriding the default for its type and tone. */
   pill?: "dark" | "light" | "none";
+  /** Theme "seam": layout B, the flip (presenter in the top panel, the recording in the bottom one). */
+  flip?: boolean;
+  /** Theme "seam": the CTA plate: the recording's frame at recording.inMs, frozen, blurred and darkened; saturate
+   *  (default 1) mutes a saturated page element that would blur into a bright blob behind the CTA. */
+  plate?: { blur: number; darken: number; saturate?: number };
+  /** Theme "seam": a fixed zoom of the recording inside its panel (< 1 insets a page that runs to the panel edges). */
+  recScale?: number;
+  /** Theme "seam": the point ([x, y] fractions of the panel) recScale and push grow about; default the centre. */
+  recOrigin?: [number, number];
+  /** Theme "seam": a page-coloured veil over the panel, fading in from fromPx to solid at toPx and beyond (px from
+   *  the panel top; fromPx > toPx fades upward): hides half-cut lines at the seam or the panel edge. */
+  fade?: { fromPx: number; toPx: number; color: string };
+  /** Theme "seam": the scene's overlays (scene-relative ms; edit_explainer._seam_overlays). */
+  overlays?: SeamOverlay[];
+};
+
+/** Theme "seam" overlays. Every time is scene-relative ms; an overlay is up from atMs until untilMs (default: the
+ *  scene's end). Boxes and points are fractions of the scene recording's frame; sizes are px on the 720x1280 canvas
+ *  (fitted by edit_explainer.seam_fit from the fonts' advance widths). */
+type SeamTimed = { atMs: number; untilMs?: number };
+export type SeamOverlay =
+  | (SeamTimed & { kind: "hook"; boxText: string; boxSize: number; bar: string; barLines: string[]; barSize: number })
+  | (SeamTimed & { kind: "pill"; text: string; size: number; tone?: "yellow" | "white"; y: number; x?: number })
+  | (SeamTimed & {
+      kind: "count"; from: number; to: number; steps?: number[]; prefix?: string; suffix?: string; landMs: number; dim?: number; blur?: number; size: number;
+      pill?: string; pillSize?: number; underline?: boolean;
+    })
+  | (SeamTimed & { kind: "marker"; box: [number, number, number, number]; lines?: number; wipeMs?: number; style?: "fill" | "outline"; color?: string })
+  | (SeamTimed & { kind: "ellipse"; box: [number, number, number, number]; drawMs?: number; color?: string; fill?: string; power?: number; tilt?: number })
+  | (SeamTimed & { kind: "ripple"; point: [number, number] })
+  | (SeamTimed & {
+      kind: "cta"; keyword: string; charMs: number; keySize: number; keyW?: number; stripAtMs: number; arrowAtMs: number; strip: string; stripSize: number;
+      fine?: string; fineLines?: string[]; fineSize?: number; arrow?: boolean;
+    });
+
+/** Theme "seam": where the take sits per layout (its top-left on the canvas, scale, and the face centre the punch-ins
+ *  scale around: edit_explainer.seam_framing), and the presenter panel's scale steps (absolute ms, seam_punches). */
+export type SeamFrame = { scale: number; x: number; y: number; cx: number; cy: number };
+export type SeamLayout = {
+  y: number;
+  frames: { A: SeamFrame; B: SeamFrame };
+  punches: { atMs: number; scale: number }[];
+  captionPx?: number;
+  /** Doto weight of the LED captions (500; seam/fonts.ts loads it). */
+  captionWeight?: number;
 };
 
 export type HarvestCard =
@@ -126,7 +171,7 @@ export type HarvestCard =
   | { kind: "kinetic"; small: string; big: string };
 
 /** Theme "harvest" caption chunk: up to two lines, each hard-cutting on at startMs (absolute ms). */
-export type ChunkLine = { text: string; startMs: number; serif?: boolean; color?: "white" | "teal" | "red" };
+export type ChunkLine = { text: string; startMs: number; serif?: boolean; color?: "white" | "teal" | "red" | "yellow" };
 export type CaptionChunk = { startMs: number; endMs: number; lines: ChunkLine[] };
 
 export type Word = { text: string; startMs: number; endMs: number; em?: boolean };
@@ -163,9 +208,12 @@ export type AvatarSrc = { src: string; loop?: boolean; faceBox?: FaceBox };
 export type TailSrc = { src: string; startMs: number; loop?: boolean; faceBox?: FaceBox; durationMs?: number };
 
 export type ExplainerProps = {
-  /** "harvest": the Nate Herk reference format (src/explainer/harvest). Default: the original Explainer look. */
-  theme?: "default" | "harvest";
-  /** Theme "harvest": caption chunks (edit_explainer.harvest_chunks). */
+  /** "harvest": the Nate Herk reference format (src/explainer/harvest); "seam": the news split-screen format
+   *  (src/explainer/seam). Default: the original Explainer look. */
+  theme?: "default" | "harvest" | "seam";
+  /** Theme "seam": the seam, the presenter's framing per layout and its punch steps. */
+  seam?: SeamLayout;
+  /** Themes "harvest" and "seam": caption chunks (edit_explainer.harvest_chunks). */
   chunks?: CaptionChunk[];
   avatar: AvatarSrc;
   tail?: TailSrc | null;

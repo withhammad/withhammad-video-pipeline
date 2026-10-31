@@ -10,6 +10,7 @@ import {
   SHEET_W,
   sheetHeight,
 } from "./Cover";
+import { calculateCoverStackMetadata, CoverStack, coverStackDefaults } from "./CoverStack";
 import { DeskReelComposition } from "./deskreel/DeskReel";
 import { ExplainerComposition } from "./explainer/Explainer";
 
@@ -24,6 +25,14 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
         defaultProps={coverDefaults}
         calculateMetadata={calculateCoverMetadata}
+      />
+      <Still
+        id="CoverStack"
+        component={CoverStack}
+        width={1080}
+        height={1920}
+        defaultProps={coverStackDefaults}
+        calculateMetadata={calculateCoverStackMetadata}
       />
       <Still
         id="CoverSheet"

@@ -1,12 +1,18 @@
 {
-  "status": "awaiting_owner_review",
+  "status": "skipped_by_owner",
   "publishing_authorized": false,
   "scheduling_authorized": false,
   "reference_job": "reference-DebmIDlSiR3",
   "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
-  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
-  "voice_speed": 1.0,
+  "voice_id": "46d4ae4996a8476c8227108e3847f401",
+  "voice_speed": "saved default (1.1 shown in HeyGen)",
   "source_spec": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/reference-DebmIDlSiR3/analysis/spec.json",
   "public_repository_push_authorized": false,
-  "owner_instruction": "Do not publish; owner needs to review first."
+  "owner_instruction": "Do not publish; owner needs to review first.",
+  "heygen_video_id": "40d87e6353ba45baa1e9c344aa027411",
+  "previous_voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "updated": "2026-10-23",
+  "owner_approved_cut": "2026-10-23 (\"Approved\", after seeing final.mp4 and cover.png)",
+  "approved_sha256": "da09ed2063ef281ec632b3e8ef5e451795c6289105d251dca312674f0143f75c",
+  "skipped": "2026-10-23: owner said \"skip this ... 24 files. Skip this one. We don't need this one.\" (relayed by session local_175349bc)"
 }

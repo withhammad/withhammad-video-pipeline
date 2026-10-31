@@ -175,9 +175,12 @@ def reference_profile(path):
 
 # ----------------------------------------------------------------------------- gates
 
-def run(voice, master=None, cuts=None, source=None, captions=None, reference=None):
+def run(voice, master=None, cuts=None, source=None, captions=None, reference=None, av_offset_ms=0.0):
     """Measure the voice stem (and the master, the cut list and the source take when given). Returns rows:
-    [{'gate', 'value', 'target', 'pass'}] (pass None = information only)."""
+    [{'gate', 'value', 'target', 'pass'}] (pass None = information only). av_offset_ms: the lip-sync correction
+    app.tighten applied (cuts.json "av_offset_ms"): its source times are on the corrected sound, so the source take
+    is shifted the same way before the removed audio is measured (unshifted, a -100 ms HeyGen job compared every
+    splice 100 ms off and flagged speech as removed tails)."""
     ref = {**REFERENCE, **(reference or {})}
     x = _mono(voice)
     lufs = audio._ebur128(str(voice))['lufs']
@@ -193,6 +196,8 @@ def run(voice, master=None, cuts=None, source=None, captions=None, reference=Non
             v_start = tighten.probe(source)['v_start']
             src = tighten.decode_on_video_clock(source, v_start)
             src_chain = audio.voice_chain_pcm(source)[int(round(v_start * SR)):]
+            if av_offset_ms:
+                src, src_chain = tighten.shift_pcm(src, av_offset_ms), tighten.shift_pcm(src_chain, av_offset_ms)
         checks = splice_checks(x, cuts, src, src_chain)
         bad = [c for c in checks if not c['ok']]
         tails = [v for c in checks for v in (c.get('removed_tail_over_db') or []) if v is not None]
@@ -261,7 +266,8 @@ def check_job(job_dir, strict=False, out=sys.stderr):
     caps = json.loads((job / 'captions.json').read_text()) if (job / 'captions.json').exists() else None
     master = job / 'final.mp4' if (job / 'final.mp4').exists() else None
     return check(job / 'avatar_enhanced.mp4', strict=strict, out=out, master=master,
-                 cuts=cuts['cuts'] if cuts else None, source=source, captions=caps)
+                 cuts=cuts['cuts'] if cuts else None, source=source, captions=caps,
+                 av_offset_ms=float((cuts or {}).get('av_offset_ms') or 0.0))
 
 
 def main(argv=None):
@@ -286,7 +292,8 @@ def main(argv=None):
             cuts = json.loads(Path(a.cuts).read_text()) if a.cuts else None
             caps = json.loads(Path(a.captions).read_text()) if a.captions else None
             res = check(a.voice, strict=a.strict, out=sys.stdout, master=a.master, cuts=cuts['cuts'] if cuts else None,
-                        source=a.source or (cuts or {}).get('source'), captions=caps)
+                        source=a.source or (cuts or {}).get('source'), captions=caps,
+                        av_offset_ms=float((cuts or {}).get('av_offset_ms') or 0.0))
     except GateFailure as e:
         print(e, file=sys.stderr)
         return 1

@@ -20,6 +20,14 @@ def test_validate_rejects_bad_plans():
     assert screenrec.validate({'url': 'file:///x.html', 'actions': [{'wait': 100}, {'scrollBy': {'y': 10}}]})
 
 
+def test_validate_accepts_pointer_by_coordinates_or_selector():
+    plan = {'url': 'https://example.com', 'actions': [{'pointer': {'x': 143.5, 'y': 151, 'ms': 900}},
+                                                      {'pointer': {'selector': '#stage', 'dx': 20}}]}
+    assert screenrec.validate(plan) == plan
+    with pytest.raises(screenrec.ScreenRecError, match='pointer needs'):
+        screenrec.validate({'url': 'https://example.com', 'actions': [{'pointer': {'x': 10}}]})
+
+
 @pytest.mark.skipif(not CHROME.exists() or not shutil.which('node') or not shutil.which('ffmpeg'),
                     reason='needs Google Chrome, node and ffmpeg')
 def test_records_a_local_page_with_scroll_cursor_and_text_selector(tmp_path):
@@ -38,6 +46,20 @@ def test_records_a_local_page_with_scroll_cursor_and_text_selector(tmp_path):
                                       capture_output=True, text=True).stdout)
     assert probe['streams'][0]['width'] == 400 and probe['streams'][0]['r_frame_rate'] == '25/1'
     assert 1.0 < float(probe['format']['duration']) < 10
+
+
+@pytest.mark.skipif(not CHROME.exists() or not shutil.which('node') or not shutil.which('ffmpeg'),
+                    reason='needs Google Chrome, node and ffmpeg')
+def test_pointer_sends_real_hover_to_the_page(tmp_path):
+    page = tmp_path / 'hover.html'
+    page.write_text('<style>body{margin:0;background:#fff}#box{position:absolute;left:100px;top:100px;width:100px;'
+                    'height:100px;background:rgb(0,0,255)}#box:hover{background:rgb(255,0,0)}</style><div id="box"></div>')
+    out = tmp_path / 'hover.mp4'
+    screenrec.record({'url': page.as_uri(), 'width': 300, 'height': 300, 'fps': 25, 'settleMs': 200,
+                      'actions': [{'pointer': {'x': 150, 'y': 150, 'ms': 300}}, {'wait': 300}]}, out)
+    rgb = subprocess.run(['ffmpeg', '-v', 'error', '-sseof', '-0.1', '-i', str(out), '-vf', 'format=rgb24,crop=1:1:120:180',
+                          '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
+    assert rgb[0] > 200 and rgb[2] < 60, f'box did not turn red under the pointer: {tuple(rgb)}'
 
 
 @pytest.mark.skipif(not CHROME.exists() or not shutil.which('node'), reason='needs Google Chrome and node')

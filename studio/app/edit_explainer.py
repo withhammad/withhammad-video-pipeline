@@ -6,6 +6,9 @@
   python -m app.edit_explainer master <in.mp4> <out.mp4>                 # the loudness master on its own
   python -m app.edit_explainer synth <spec.json> <captions_out.json>     # placeholder timings for layout work
 
+Theme "seam" (the news split-screen format, job 91ac50635d3d): seam_normalise() and _seam_overlays() document the
+units-spec fields; `build` prints the layout per scene (A/B) and every authoring warning.
+
 Inputs (defaults inside <job_dir>): analysis/spec.json (beats -> units, written from the reference breakdown),
 captions.json (word timestamps of OUR take(s): Whisper on avatar_main.mp4, take B words offset by the tail start),
 optional cuts.json ([ms, ...] where pause tightening spliced the take). Output: edit_explainer.json.
@@ -60,6 +63,13 @@ Mapping, in order:
    (end scale) and the caption pill at 0.50H; unit "caption_pill" ("dark" | "light" | "none") overrides the pill of
    one scene (a dark split over dense page text); the CTA's timing (typing, hand, tap, shrink, morph, notification)
    is computed once here (cta_timing) and drives both Remotion and the tap/notification SFX.
+15. spec "theme": "seam" (the news split-screen format, job 91ac50635d3d) writes props.theme = "seam": every unit is a
+   split cut at the fixed seam (y 560): unit "layout" "A" (recording top / presenter bottom) or "B" (the flip), hard
+   cuts; the presenter is one continuous take framed per layout from the face box (seam_framing), and every jump cut
+   steps its panel 1.00/1.06 (seam_punches) instead of splitting the scene; LED caption chunks on the seam from beat
+   "captions" / "emphasis" (or phrase_chunks); unit "overlays" (hook, pill, count, marker, ellipse, ripple, punch, cta)
+   are timed on spoken words or on the recording's clock (measured highlights: shots/recordings.json); unit "plate"
+   is the CTA plate. Authoring problems come back in meta.warnings.
 Standard library only.
 """
 import argparse
@@ -487,8 +497,9 @@ def _keyed_highlight(key, plan, src_len=None):
 
 
 def recording_plans(job_dir, spec_path=None):
-    """Screen recording plans by recording id: <job>/analysis/screenrec/plans/<id>.json, else next to the spec."""
-    dirs = [Path(job_dir) / 'analysis' / 'screenrec' / 'plans']
+    """Screen recording plans by recording id: <job>/shots/plans/<id>.json (the plans that recorded the production
+    shots), else <job>/analysis/screenrec/plans/<id>.json, else next to the spec."""
+    dirs = [Path(job_dir) / 'shots' / 'plans', Path(job_dir) / 'analysis' / 'screenrec' / 'plans']
     if isinstance(spec_path, (str, Path)):
         dirs.append(Path(spec_path).parent / 'screenrec' / 'plans')
     out = {}
@@ -697,6 +708,12 @@ def refine_word_starts(caps, env, candidates=None, hop_ms=ONSET_HOP_MS):
         nxt = out[i + 1]['startMs'] if i + 1 < len(out) else w['endMs'] + 300
         f0, f1 = int(w['startMs'] // hop_ms), int(nxt // hop_ms)
         if f0 >= len(env) or f1 <= f0:
+            continue
+        # Whisper opened the word late, inside its own sound: the voice already rose out of a pause after the
+        # previous word and before this start ("it. | Get picked": silence 2400-2520, "Get" 2540-2660, Whisper 2611).
+        # The pause found after it is the word's own stop closure (the /t/ of "Get"), never its onset.
+        p0 = max(int(out[i - 1]['endMs'] // hop_ms) if i else 0, f0 - ONSET_RUN_START_MS // hop_ms)
+        if 0 < f0 <= len(env) and env[f0 - 1] >= sil and any(v < sil for v in env[p0:f0 - 1]):
             continue
         start_level, run = env[f0], None
         for k in range(f0, min(f1, f0 + ONSET_RUN_START_MS // hop_ms + 1, len(env))):
@@ -915,7 +932,8 @@ def _quiet(spans, a_ms, b_ms):
 
 def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/avatar_main.mp4', tail=None,
                 tail_start_ms=None, loop=False, anchors=None, durations=None, probe=probe_ms, music=True,
-                speech=None, duration_ms=None, plans=None, highlights=None, face_boxes=None, envelope=None, sizes=None):
+                speech=None, duration_ms=None, plans=None, highlights=None, face_boxes=None, envelope=None, sizes=None,
+                measured=None):
     """Props for the Explainer composition. spec_json / captions_json: paths or already-loaded objects.
     envelope: the take's voice level per ONSET_HOP_MS (voice_envelope; default: measured on <job>/<avatar> when it
     exists, False skips) moves word starts that sit on a pause onto the voice (refine_word_starts).
@@ -924,7 +942,9 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
     "second setup" on); tail_start_ms: where take B starts on the timeline (default: that beat's cut).
     plans: screen recording plans by id (default: read from the job / next to the spec).
     highlights: {recording id: highlight_boxes()} (default: found in <job>/shots/<id>.mp4).
-    face_boxes: {'avatar': [x, y, w, h], 'tail': [...]} fractions (default: spec heygen take_A / take_B face_box)."""
+    face_boxes: {'avatar': [x, y, w, h], 'tail': [...]} fractions (default: spec heygen take_A / take_B face_box).
+    measured: theme "seam": {recording id: [{'startMs', 'endMs', 'box'?}]} highlight times measured on the shots
+    (default: <job>/shots/recordings.json, see seam_measured_highlights)."""
     job_dir = Path(job_dir)
     if plans is None:
         plans = recording_plans(job_dir, spec_json)
@@ -945,6 +965,10 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
     keyword = spec.get('keyword') or ''
     theme = spec.get('theme') or 'default'
     harvest = theme == 'harvest'
+    seam = theme == 'seam'
+    if seam:
+        spec = seam_normalise(spec)
+    split_theme = harvest or seam      # the units-spec formats: splits, no flip-in, scene changes on the jump cuts
     anchors = dict(anchors or {})
     if durations is None:
         durations = recording_durations(job_dir, spec, probe)
@@ -957,7 +981,7 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
 
     last_end = caps[-1]['endMs']
     total = duration_ms or last_end + END_HOLD_MS
-    if harvest and not duration_ms and avatar.startswith('job/'):
+    if split_theme and not duration_ms and avatar.startswith('job/'):
         # No end card: the reel ends on the CTA close-up, so it never runs past the take (no frozen last frame).
         take_len = probe(job_dir / Path(avatar).name)
         if take_len:
@@ -988,7 +1012,7 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
                     scene['flipCaptionY'] = flip_caption_y(faces.get('avatar'))
             elif st != 'endcard':
                 scene['system'] = 'explainer'
-            if harvest and st == 'avatar':
+            if split_theme and st == 'avatar':
                 scene['system'] = 'talk'          # the reference opens on a split: no flip-in, one caption system
                 scene.pop('flipIn', None)
                 scene.pop('flipHoldMs', None)
@@ -999,6 +1023,10 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
                     scene[out_key] = unit[key]
             if unit.get('layout') == 'bleed' and st == 'card':
                 scene['bleed'] = True             # the recording fills the frame (the reference's full-screen UI)
+            if seam and st == 'split' and seam_layout(unit) == 'B':
+                scene['flip'] = True              # theme "seam": presenter on top, the proof page below
+            if seam and st == 'split':
+                scene.update(seam_panel_framing(unit))
             plan = _recording_plan(unit, durations, plans, highlights)
             if plan and st in ('card', 'stat', 'split', 'text', 'pip'):
                 scene['_rec'] = plan
@@ -1041,10 +1069,11 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
     tail_ms = tail_obj['startMs'] if tail_obj else None
 
     scenes = _cap_breathers(scenes, caps, tail_ms)
-    if harvest:
+    if split_theme:
         scenes = _merge_same_shots(scenes)
-        _snap_to_cuts(scenes, sorted(cuts or []))
-    scenes = _cover_cuts(scenes, sorted(cuts or []))
+        _snap_to_cuts(scenes, sorted(cuts or []), SEAM_SNAP_MS if seam else SNAP_MS)
+    if not seam:                     # theme "seam" keeps its splits whole: every jump cut steps the presenter panel
+        scenes = _cover_cuts(scenes, sorted(cuts or []))
     if scenes[-1]['type'] == 'endcard':
         end = scenes[-1]
         # Never over the voice: the scene before it (the talking head with captions) runs on to the last word.
@@ -1056,8 +1085,12 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
         end['endMs'] = max(end['endMs'], end['startMs'] + max(ENDCARD_MIN_MS, typed_end + ENDCARD_READ_MS),
                            last_end + ENDCARD_MIN_MS)
     total = scenes[-1]['endMs']
-    if harvest:
+    if split_theme:
         scenes = _content_swaps(scenes, caps, durations, plans, highlights)
+    if seam:
+        for s in scenes:             # the highlight boxes found in the shot, before _finish_recordings drops the plan
+            if s.get('_rec'):
+                s['_hl'] = s['_rec'].get('hl')
     _finish_recordings(scenes, caps)
     for s in scenes:                 # a recording that is not 4:5 carries its size (HarvestRecording fits it)
         rec = s.get('recording')
@@ -1093,6 +1126,11 @@ def build_props(job_dir, spec_json, captions_json, cuts=None, *, avatar='job/ava
         cta = {'keyword': keyword, 'atMs': hit['startMs'], 'handle': 'with.hammad', 'reply': 'Here you go!'}
 
     spans_ms = speech if speech is not None else [(w['startMs'], w['endMs']) for w in words]
+    if seam:
+        props = _seam_props(job_dir, spec, scenes, words, beats, word_ranges, spans_ms, total, avatar, faces, music,
+                            starts, ends, cuts, sizes, measured)
+        props['meta']['onsets'] = [{'word': caps[i]['text'].strip(), 'fromMs': a, 'toMs': b} for i, a, b in onsets_moved]
+        return props
     if harvest:
         props = _harvest_props(spec, scenes, words, beats, word_ranges, cta, spans_ms, total, avatar, faces, music, starts, ends, cuts)
         props['meta']['onsets'] = [{'word': caps[i]['text'].strip(), 'fromMs': a, 'toMs': b} for i, a, b in onsets_moved]
@@ -1145,7 +1183,7 @@ CHUNK_MIN_MS = 350         # a chunk is up at least this long (the reference cha
 CHUNK_MERGE_CHARS = 16     # ...a shorter one joins the next chunk's sans line when the two fit one line, else holds
 CTA_TICK_VOLUME = 0.12     # the CTA tap (reel #1 level): it lands on the CTA line, so it stays under the voice
 CTA_NOTIF_VOLUME_ON_WORD = 0.07
-_CAP_COLOR = re.compile(r'^\{(teal|red|white)\}\s*')
+_CAP_COLOR = re.compile(r'^\{(teal|red|white|yellow)\}\s*')   # yellow: theme "seam" emphasis chunks
 
 
 def cta_timing(keyword):
@@ -1318,6 +1356,49 @@ def hold_short_chunks(chunks, min_ms=CHUNK_MIN_MS, merge_chars=CHUNK_MERGE_CHARS
                 l['startMs'] = max(l['startMs'], want)
         else:
             c['endMs'] = max(c['endMs'], min(want, nxt['startMs']))
+        q += 1
+    return out
+
+
+def seam_hold_short_chunks(chunks, min_ms=CHUNK_MIN_MS, max_chars=None, max_delay_ms=FRAME_MS):
+    """Theme "seam": a chunk up for less than min_ms never pushes the next one past its first word (the harvest rule
+    held "THINK" 350 ms and showed "CREATOR BRANDS" 240 ms late). It joins the chunk after it when the two fit one
+    caption (SEAM_CHUNK_MAX_CHARS), else the one before it, as extra lines that come up on their own words ("THINK" ->
+    "THINK CREATOR BRANDS"; each line keeps its own colour), unless it ends on a function word: appended, it would
+    leave the chunk dangling ("AND SIX WEEKS WITH", review r3), so it stays on its own; else it holds only as long as
+    the next chunk can still start within max_delay_ms of its own start. Returns new chunk dicts."""
+    max_chars = SEAM_CHUNK_MAX_CHARS if max_chars is None else max_chars
+    out = [{**c, 'lines': [dict(l) for l in c['lines']]} for c in chunks]
+
+    def text(c):
+        return ' '.join(l['text'] for l in c['lines'])
+
+    q = 0
+    while q < len(out):
+        c = out[q]
+        if c['endMs'] - c['startMs'] >= min_ms:
+            q += 1
+            continue
+        nxt = out[q + 1] if q + 1 < len(out) else None
+        prv = out[q - 1] if q else None
+        if nxt is not None and nxt['startMs'] - c['endMs'] <= 40 and len(text(c)) + 1 + len(text(nxt)) <= max_chars:
+            out[q] = {'startMs': c['startMs'], 'endMs': nxt['endMs'], 'lines': c['lines'] + nxt['lines']}
+            del out[q + 1]
+            continue
+        dangling = clean(c['lines'][-1]['text'].split()[-1]) in _FN_WORDS if c['lines'][-1]['text'].split() else False
+        if (prv is not None and not dangling and c['startMs'] - prv['endMs'] <= 40
+                and len(text(prv)) + 1 + len(text(c)) <= max_chars):
+            prv['lines'] += c['lines']
+            prv['endMs'] = c['endMs']
+            del out[q]
+            q = max(0, q - 1)
+            continue
+        want = c['startMs'] + min_ms
+        c['endMs'] = max(c['endMs'], want if nxt is None else min(want, nxt['startMs'] + max_delay_ms))
+        if nxt is not None and c['endMs'] > nxt['startMs']:
+            nxt['startMs'] = c['endMs']
+            for l in nxt['lines']:
+                l['startMs'] = max(l['startMs'], nxt['startMs'])
         q += 1
     return out
 
@@ -1504,6 +1585,683 @@ def _harvest_props(spec, scenes, words, beats, word_ranges, cta, spans_ms, total
         'meta': {'job': spec.get('job'), 'theme': 'harvest',
                  'beats': [{'name': b.get('name'), 'startMs': starts[k], 'endMs': ends[k]} for k, b in enumerate(beats)],
                  'cuts': sorted(cuts or [])},
+    }
+
+
+# ----------------------------------------------------------------------------------------------- theme "seam"
+# The news split-screen format (job 91ac50635d3d, analysis/visual.md section 2): the frame is cut at a fixed seam,
+# y 560 of 1280 (43.75 %, the reference's 420 of 960). Layout A (the default) puts the recording in the top panel
+# (720x560: a 1080x840 recording at exactly 2/3) and the presenter in the bottom one (720x720); layout B flips them
+# for proof beats: the presenter on top in a tighter crop, the page in the bigger bottom panel (a 1080x1080
+# recording). Flips are hard cuts; the seam and the caption slot never move. Captions are LED dot-matrix chunks
+# (Doto 500) on the seam; the overlays (hook box + title bar, pills, count-up, marker wipes, a hand-drawn ellipse, a
+# click ripple, the twist punch-in, the CTA plate) are authored per unit. seam_normalise() lists the spec fields.
+
+SEAM_W, SEAM_H = CANVAS_W, CANVAS_H
+SEAM_Y = 560
+SEAM_PANEL = {'A': {'rec': (0, 0, 720, 560), 'face': (0, 560, 720, 720)},
+              'B': {'rec': (0, 560, 720, 720), 'face': (0, 0, 720, 560)}}
+SEAM_FACE_Y = {'A': 0.42, 'B': 0.52}   # face centre, fraction of the presenter panel's height (spec.md layout)
+SEAM_SCALE = {'A': 1.0, 'B': 1.05}     # layout B is the tighter crop (1.15 cut the hair at the frame top; the
+                                       # reference keeps ~90 px of shelf over the head)
+SEAM_HAIR_GAP = 60                     # A: the hair top stays this far under the seam (the caption box clears the head)
+SEAM_CHIN_GAP = 50                     # B: the chin stays this far above the seam
+SEAM_FACE_BOX = (0.32, 0.145, 0.41, 0.33)   # hair top to chin, ear to ear, of the podcast look (job 91ac50635d3d)
+# Scene changes snap onto a jump cut this close (theme "seam"; harvest keeps SNAP_MS). A cut always sits in a pause, so
+# a unit start within 7 frames of it belongs on it: Whisper opens a word at the end of the one before ("Dubai. It":
+# "It" 18667, its voice 18820, the cut 18800) and refine_word_starts can take a /t/ closure for the pause ("Get"
+# 2611 -> 2748, voice from 2530, the cut 2480). Off the cut the reel showed the jump and the swap 4-5 frames apart.
+SEAM_SNAP_MS = 280
+SEAM_TWIST_PUNCH = 1.14                # overlay "punch": the twist lands on a hard push-in of the presenter panel
+SEAM_ASPECT_TOL = 0.02                 # a recording off its panel's aspect by more than this is cropped (warned)
+# Captions: the reference's LED chunks (~36 px at 720 w, cut every 2 words) ~30 % larger, 1-3 words cut on phrases.
+SEAM_CAP_PX = 47
+# Doto 500: separate round dots like a real LED sign. At 900 the dots grow until they touch and the strokes read as
+# an 8-bit bitmap font (review of job 91ac50635d3d). Every Doto weight advances 0.6 em (seam_fonts.json).
+SEAM_CAP_WEIGHT = 500
+SEAM_CAP_FONT = f'Doto|{SEAM_CAP_WEIGHT}|normal'
+SEAM_CAP_EM = 0.6                      # Doto is monospaced: every glyph advances 0.6 em (seam_fonts.json)
+SEAM_CAP_PAD_X = 14
+SEAM_CAP_MAX_W = SEAM_W - 2 * 24       # the caption box's outer width at most
+SEAM_CHUNK_MAX_CHARS = 20
+SEAM_CHUNK_MAX_WORDS = 3               # ...4 only when the chunk is at most SEAM_CHUNK_SHORT_CHARS long
+SEAM_CHUNK_SHORT_CHARS = 14
+SEAM_PILL_PX, SEAM_PILL_MIN_PX, SEAM_PILL_MAX_W = 30, 20, 620
+SEAM_PILL_GAP = 92                     # default pill centre: this far above the seam (A) or below it (B)
+SEAM_HOOK_BOX_PX, SEAM_HOOK_BOX_MAX_W = 40, 640
+SEAM_HOOK_BAR_PX, SEAM_HOOK_BAR_MIN_PX, SEAM_HOOK_BAR_MAX_W = 30, 24, 680
+SEAM_STRIP_PX, SEAM_STRIP_MAX_W = 28, 652
+SEAM_FINE_PX, SEAM_FINE_MAX_W = 26, 660   # the CTA trust line: 19 px read at ~6 pt on a phone (review r3)
+SEAM_COUNT_PX, SEAM_COUNT_MAX_W = 116, 640
+SEAM_KEY_PX, SEAM_KEY_MAX_W = 44, 380
+SEAM_COUNT_LAND_MS = 700               # a count-up without "land" lands this long after it starts...
+SEAM_COUNT_MIN_MS = 500                # ...and never in less than this (the reference: ~0.5 s from $4,000 to $10,000)
+SEAM_WIPE_MS = 350                     # marker wipe per line (the reference: ~0.4 s per line)
+SEAM_DRAW_MS = 350                     # the ellipse draws on in this long
+SEAM_TYPE_CHAR_MS = 80                 # the CTA keyword types a letter every 80 ms (the reference: 50-100)
+SEAM_STRIP_AFTER_MS = 150              # the CTA strip lands this long after the last typed letter...
+SEAM_ARROW_AFTER_MS = 250              # ...and the arrow starts drawing this long after the strip
+SEAM_WORD_LEAD_MS = 300                # a word said this long before a scene's cut still counts as said in it
+SEAM_TICK_VOLUME = 0.05                # typed letters and the click: ~26 dB under the voice (spec: optional, soft)
+SEAM_LAND_VOLUME = 0.08                # the count-up landing
+SEAM_MINT, SEAM_YELLOW, SEAM_RED, SEAM_ELLIPSE = '#A8E6D2', '#F9D700', '#C3141A', '#E0262B'
+_SEAM_KINDS = ('hook', 'pill', 'count', 'marker', 'ellipse', 'ripple', 'punch', 'cta')
+# Words a caption chunk never ends on (they open the phrase that follows): articles, prepositions, conjunctions,
+# possessives.
+_FN_WORDS = {"a", "an", "the", "to", "of", "for", "in", "on", "at", "with", "from", "by", "as", "into", "and", "or",
+             "but", "so", "if", "your", "my", "our", "his", "her", "their", "its"}
+_SEAM_METRICS = {}
+
+
+def seam_metrics():
+    """Advance widths (em per character) of the theme's faces: Doto (captions, every weight 0.6 em) and Inter 900 (everything else)."""
+    if not _SEAM_METRICS:
+        _SEAM_METRICS.update(json.loads(Path(__file__).with_name('seam_fonts.json').read_text())['fonts'])
+    return _SEAM_METRICS
+
+
+def seam_text_width(text, size, font='Inter|900|normal', spacing=0.0):
+    """Estimated rendered width in px (advance widths, no kerning) plus letter spacing."""
+    m = seam_metrics()[font]
+    return sum(m['w'].get(c, m['avg']) for c in text) * size + spacing * max(0, len(text) - 1)
+
+
+def seam_fit(text, base, max_w, font='Inter|900|normal', spacing=0.0):
+    """The font size (<= base) at which text fits max_w on one line."""
+    w = seam_text_width(text, base, font, spacing)
+    return round(base if w <= max_w else base * max_w / w, 1)
+
+
+def seam_missing_glyphs(text, font='Inter|900|normal'):
+    m = seam_metrics()[font]['w']
+    return sorted({c for c in text if c not in m and c not in '\n'})
+
+
+def seam_layout(unit):
+    """'A' (recording top / presenter bottom, the default) or 'B' (presenter top / recording bottom: a flip)."""
+    v = str(unit.get('layout') or 'A').strip().lower().replace('-', '_')
+    return 'B' if v in ('b', 'avatar_top', 'flip', 'recording_bottom') else 'A'
+
+
+def _chunk_norm(text):
+    return ' '.join(tokens(text))
+
+
+def _strip_punct(text):
+    return re.sub(r'[.,!?;:]+(["\')]?)$', r'\1', text)
+
+
+def _chunk_fits(ws):
+    chars = len(_strip_punct(' '.join(ws)))
+    return chars <= SEAM_CHUNK_MAX_CHARS and (len(ws) <= SEAM_CHUNK_MAX_WORDS or (len(ws) == 4 and chars <= SEAM_CHUNK_SHORT_CHARS))
+
+
+def _chunk_cost(ws, clause_len, nxt):
+    """Cost of a chunk ending before word nxt (None at the clause end): breaks belong before function words, never
+    after one or between a number and what it counts; orphans and 4-word chunks are avoided, fewer chunks preferred."""
+    last = clean(ws[-1])
+    cost = 0.4
+    if nxt is not None:
+        if last in _FN_WORDS:
+            cost += 1.0               # "MENTORSHIP A", "A 6": the article belongs to the next chunk
+        elif clean(nxt) in _FN_WORDS:
+            cost -= 0.15              # a phrase starts at "and" / "with" / "for"
+        if _word_value(last) is not None or re.search(r'\d', last):
+            cost += 0.5               # "AND SIX | WEEKS": the number stays with its noun
+    if len(ws) == 1 and clause_len > 1:
+        cost += 0.6                   # an orphan word
+    if len(ws) == 4:
+        cost += 0.2
+    return cost
+
+
+def phrase_chunks(text, emphasis=()):
+    """Phrase-aware caption chunks of a line (the reference's weakness was a fixed 2-word cut: "MENTORSHIP A",
+    "ECONOMY THEY"): chunks never cross punctuation, hold at most SEAM_CHUNK_MAX_WORDS words (4 when they stay within
+    SEAM_CHUNK_SHORT_CHARS) and SEAM_CHUNK_MAX_CHARS characters, and each clause is cut where the fewest chunks end on
+    a function word ("a", "the", "and", ...) or leave a word alone (a small dynamic programme per clause). Returns
+    [(text, yellow)]: yellow when it holds an emphasis phrase, a number or money."""
+    words = (text or '').split()
+    clauses, cur = [], []
+    for w in words:
+        cur.append(w)
+        if ends_clause(w):
+            clauses.append(cur)
+            cur = []
+    if cur:
+        clauses.append(cur)
+    chunks = []
+    for cl in clauses:
+        n = len(cl)
+        best = [0.0] + [float('inf')] * n
+        back = [0] * (n + 1)
+        for j in range(1, n + 1):
+            for i in range(max(0, j - 4), j):
+                ws = cl[i:j]
+                if not _chunk_fits(ws) and j - i > 1:
+                    continue
+                c = best[i] + _chunk_cost(ws, n, cl[j] if j < n else None)
+                if c < best[j]:
+                    best[j], back[j] = c, i
+        cuts, j = [], n
+        while j > 0:
+            cuts.append((back[j], j))
+            j = back[j]
+        chunks += [cl[i:j] for i, j in reversed(cuts)]
+    em = [_chunk_norm(e) for e in emphasis or [] if _chunk_norm(e)]
+    out = []
+    for c in chunks:
+        t = _strip_punct(' '.join(c))
+        if not t:
+            continue
+        norm = _chunk_norm(t)
+        yellow = bool(re.search(r'[\d$€£]', t)) or any(e and (f' {e} ' in f' {norm} ' or f' {norm} ' in f' {e} ') for e in em)
+        out.append((t, yellow))
+    return out
+
+
+def seam_caption_text(beat):
+    """A seam beat's caption chunks as on_screen_text ("|" chunks, "{yellow}" on emphasis chunks):
+    - beat["captions"]: the chunks as authored, in spoken order (e.g. ["GET PICKED", "AND YOU GET", "$10,000"]), the
+      ones listed in beat["emphasis"] in yellow; an empty list shows no captions in the beat (the hook's title bar
+      holds the seam slot);
+    - else beat["on_screen_text"] as written ({yellow}/{white} per chunk);
+    - else phrase_chunks() of the spoken line, yellow on beat["emphasis"], numbers and money."""
+    caps = beat.get('captions')
+    if isinstance(caps, list):
+        em = {_chunk_norm(e) for e in beat.get('emphasis') or []}
+        return ' | '.join(('{yellow}' if _chunk_norm(c) in em else '') + re.sub(r'[|/*]', ' ', c).strip() for c in caps if str(c).strip())
+    if beat.get('on_screen_text') is not None:
+        return beat['on_screen_text']
+    return ' | '.join(('{yellow}' if y else '') + t for t, y in phrase_chunks(beat.get('line'), beat.get('emphasis')))
+
+
+def seam_normalise(spec):
+    """A copy of a theme "seam" units spec in the shape build_props reads.
+
+    Spec (top level): "theme": "seam", "keyword" (the CTA keyword), heygen.take_A.face_box ([x, y, w, h] fractions
+    of the take, hair top to chin: frames the presenter panels; default SEAM_FACE_BOX), "beats".
+    Beat: "name", "line" (as spoken, aligned to captions.json), "ref_window" or "ref_window_s" ([a, b] s of the
+    reference), "captions" / "emphasis" (seam_caption_text), "units".
+    Unit: "id"; "t" ([a, b] s of the reference, default the beat window); "anchor" (the spoken word the unit starts
+    on: a word, a phrase or {"word", "occurrence"}; give one to every unit after a beat's first); "layout": "A"
+    (default) | "B" (the flip: presenter top, recording bottom); "screenrec" (shots/<id>.mp4) with "use" ("a-b s" of
+    the recording to play), "key", "focus_y", "push" (a slow push-in to this scale over the scene), "zoom": true (keep
+    the push-ins on the recorder's boxes; off by default: the recordings are made at the panel size);
+    "plate": {"still_ms", "blur", "darken", "saturate"} (the CTA plate: one frame of our own recording, blurred,
+    darkened and optionally desaturated);
+    "scale" / "origin" / "fade" / "fade_color" (the panel framing: seam_panel_framing);
+    "overlays": [{"kind", ...}] (see _seam_overlays). "type" defaults to "avatar + recording" ("avatar + plate" with a
+    plate); a unit without a screenrec is a full-frame talking head."""
+    spec = json.loads(json.dumps(spec))
+    for beat in spec.get('beats') or []:
+        if 'ref_window' not in beat:
+            beat['ref_window'] = list(beat.get('ref_window_s') or [0.0, 1.0])
+        for u in beat.get('units') or []:
+            u.setdefault('t', list(beat['ref_window']))
+            t = str(u.get('type') or '').lower()
+            if not t.startswith('avatar'):
+                u['type'] = ('avatar + plate' if u.get('plate') is not None else 'avatar + recording' if u.get('screenrec')
+                             else 'avatar full-frame')
+        beat['on_screen_text'] = seam_caption_text(beat)
+    return spec
+
+
+def seam_panel_framing(unit):
+    """The recording panel's static framing of a seam unit, in Scene props: "scale" (a fixed zoom of the recording
+    inside its panel, < 1 insets a page that runs to the panel edges), "origin" ([x, y] fractions of the panel the
+    scale and the push grow about; default the centre), "fade" ([from, to] px of the panel from its top: a page-white
+    veil fading in from `from` to solid at `to` and beyond, so half-cut lines at the seam or the panel's bottom edge
+    never show; from > to fades upward instead) and "fade_color" (default white)."""
+    out = {}
+    if unit.get('scale') is not None and float(unit['scale']) != 1.0:
+        out['recScale'] = float(unit['scale'])
+    if unit.get('origin') is not None:
+        ox, oy = (float(v) for v in unit['origin'])
+        out['recOrigin'] = [round(min(1.0, max(0.0, ox)), 4), round(min(1.0, max(0.0, oy)), 4)]
+    if unit.get('fade') is not None:
+        a, b = (int(v) for v in unit['fade'])
+        if a != b:
+            out['fade'] = {'fromPx': a, 'toPx': b, 'color': str(unit.get('fade_color') or '#FFFFFF')}
+    return out
+
+
+def seam_framing(face=None, w=SEAM_W, h=SEAM_H):
+    """Where the take sits in each layout: {'A'|'B': {'scale', 'x', 'y' (the take's top-left on the canvas, px),
+    'cx', 'cy' (the face centre on the canvas)}}. The face centre lands at SEAM_FACE_Y of its panel, the hair top
+    stays SEAM_HAIR_GAP under the seam (A), the chin SEAM_CHIN_GAP above it (B), and the take always covers its
+    panel. face: [x, y, w, h] fractions of the take, hair top to chin."""
+    fx, fy, fw, fh = face or SEAM_FACE_BOX
+    out = {}
+    for lay in ('A', 'B'):
+        px, py, pw, ph = SEAM_PANEL[lay]['face']
+        s = SEAM_SCALE[lay]
+        cx, cy = (fx + fw / 2) * w * s, (fy + fh / 2) * h * s
+        y = py + SEAM_FACE_Y[lay] * ph - cy
+        if lay == 'A':
+            y = max(y, py + SEAM_HAIR_GAP - fy * h * s)
+        else:
+            y = min(y, py + ph - SEAM_CHIN_GAP - (fy + fh) * h * s)
+        y = min(py, max(py + ph - h * s, y))
+        x = min(px, max(px + pw - w * s, px + pw / 2 - cx))
+        out[lay] = {'scale': s, 'x': round(x, 1), 'y': round(y, 1), 'cx': round(x + cx, 1), 'cy': round(y + cy, 1)}
+    return out
+
+
+def seam_punches(cuts, punches, total):
+    """[{'atMs', 'scale'}] (absolute ms): the presenter panel's scale from atMs on. Every jump cut steps it 1.00/1.06
+    (alternating, a hard 0 ms step: never a bare jump); a twist punch ({'atMs', 'endMs', 'scale'}) holds its scale
+    over [atMs, endMs)."""
+    cuts = sorted(c for c in cuts or [] if 0 < c < total)
+
+    def scale_at(t):
+        hit = [p['scale'] for p in punches if p['atMs'] <= t < p['endMs']]
+        return hit[-1] if hit else PUNCH[sum(1 for c in cuts if c <= t) % 2]
+
+    pts = sorted({0, *cuts, *(p['atMs'] for p in punches), *(p['endMs'] for p in punches if p['endMs'] < total)})
+    out = []
+    for t in pts:
+        sc = scale_at(t)
+        if not out or out[-1]['scale'] != sc:
+            out.append({'atMs': int(t), 'scale': sc})
+    return out
+
+
+def _seconds_or_ms(h, ms_keys, s_keys):
+    for k in ms_keys:
+        if h.get(k) is not None:
+            return float(h[k])
+    for k in s_keys:
+        if h.get(k) is not None:
+            return float(h[k]) * 1000
+    return None
+
+
+def seam_measured_highlights(job_dir, sizes=None, grab=_frame_rgb):
+    """{recording id: [{'startMs', 'endMs', 'box'?}]} from <job>/shots/recordings.json (the highlight times measured
+    on the final shots). Accepted shapes: {id: {...}}, {"recordings": [{"id", ...}]} or a list, each recording
+    holding "highlight_ms" ([[on, off], ...] ms, the screen-recording pass of job 91ac50635d3d), "highlight_on_s"
+    ([[on, off], ...] s, like analysis/screenrec/timing.json) or "highlights" ([on, off] s or {"start_ms"|"startMs"|
+    "on_ms" | "start_s"|"on_s", "end_ms"|"endMs"|"off_ms" | "end_s"|"off_s", "box"?}).
+    A box is [x, y, w, h] in fractions of the frame, or in source px when any value is over 1 (converted with the
+    recording's "width"/"height" or its probed size); without one, the recorder's outline is looked up in the shot
+    halfway through the highlight (yellow_box)."""
+    path = Path(job_dir) / 'shots' / 'recordings.json'
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text())
+    except (OSError, ValueError):
+        return {}
+    items = data.get('recordings', data) if isinstance(data, dict) else data
+    if isinstance(items, list):
+        items = {str(x.get('id')): x for x in items if isinstance(x, dict) and x.get('id')}
+    out = {}
+    for rid, rec in (items or {}).items():
+        if not isinstance(rec, dict):
+            continue
+        raw, pair_ms = rec.get('highlights') or rec.get('highlight_on_s') or [], 1000.0
+        if rec.get('highlight_ms') and not rec.get('highlights'):
+            raw, pair_ms = rec['highlight_ms'], 1.0
+        size = (rec.get('width'), rec.get('height')) if rec.get('width') and rec.get('height') else (sizes or {}).get(rid)
+        video = Path(job_dir) / 'shots' / f'{rid}.mp4'
+        hs = []
+        for h in raw if isinstance(raw, list) else []:
+            box = None
+            if isinstance(h, (list, tuple)) and len(h) >= 2:
+                a, b = float(h[0]) * pair_ms, float(h[1]) * pair_ms
+            elif isinstance(h, dict):
+                a = _seconds_or_ms(h, ('start_ms', 'startMs', 'on_ms', 'onMs'), ('start_s', 'on_s', 'start', 'on'))
+                b = _seconds_or_ms(h, ('end_ms', 'endMs', 'off_ms', 'offMs'), ('end_s', 'off_s', 'end', 'off'))
+                box = h.get('box')
+                if a is None:
+                    continue
+                b = a + 1000 if b is None else b
+            else:
+                continue
+            if isinstance(box, (list, tuple)) and len(box) == 4:
+                box = [float(v) for v in box]
+                if max(box) > 1.0:
+                    box = [round(box[0] / size[0], 4), round(box[1] / size[1], 4), round(box[2] / size[0], 4),
+                           round(box[3] / size[1], 4)] if size else None
+            else:
+                box = None
+            if box is None and video.exists():
+                rgb = grab(video, (a + b) / 2)
+                box = yellow_box(rgb) if rgb else None
+            hs.append({'startMs': round(a), 'endMs': round(b), **({'box': box} if box else {})})
+        out[rid] = hs
+    return out
+
+
+def _seam_word_at(at, scene, words, lead_ms=SEAM_WORD_LEAD_MS):
+    """Absolute ms where `at` is said in the scene: a word or a phrase ("six weeks", matched on normalised tokens so
+    "ten" finds Whisper's "$10"), or {"word", "occurrence"} counted from the scene start. A word said up to lead_ms
+    before the cut counts (it was said on the cut). None when it is not said in the scene."""
+    if isinstance(at, dict):
+        phrase, occ = str(at.get('word') or at.get('phrase') or ''), int(at.get('occurrence', 1))
+    else:
+        phrase, occ = str(at), 1
+    want = tokens(phrase)
+    if not want:
+        return None
+    pool = [w for w in words if scene['startMs'] - lead_ms <= w['startMs'] < scene['endMs']]
+    flat = [(t, n, j == 0) for n, w in enumerate(pool) for j, t in enumerate(tokens(w['text']))]
+    seen = 0
+    for i in range(len(flat) - len(want) + 1):
+        whole = i + len(want) == len(flat) or flat[i + len(want)][2]     # "$1" never matches the "one" of "100"
+        if flat[i][2] and whole and [x[0] for x in flat[i:i + len(want)]] == want:
+            seen += 1
+            if seen == occ:
+                return pool[flat[i][1]]['startMs']
+    return None
+
+
+def _seam_time(o, prefix, scene, words, rec):
+    """(scene-relative ms or None, missing): an overlay moment from "<prefix>" (a spoken word or phrase, or a number
+    of scene ms), "<prefix>_ms" (scene ms) or "<prefix>_rec_ms" (ms on the scene recording's own clock, e.g. a
+    measured highlight time). missing: it was given but is not said in the scene."""
+    if o.get(f'{prefix}_ms') is not None:
+        return int(o[f'{prefix}_ms']), False
+    if o.get(f'{prefix}_rec_ms') is not None and rec:
+        return round((float(o[f'{prefix}_rec_ms']) - rec['inMs']) / rec.get('playbackRate', 1.0)), False
+    v = o.get(prefix)
+    if isinstance(v, (int, float)) and not isinstance(v, bool):
+        return int(v), False
+    if v:
+        t = _seam_word_at(v, scene, words)
+        return (None, True) if t is None else (max(0, t - scene['startMs']), False)
+    return None, False
+
+
+def _rec_size(rec, sizes):
+    if rec and rec.get('size'):
+        return tuple(rec['size'])
+    return tuple((sizes or {}).get(Path(rec['src']).stem) or (REC_W, REC_H)) if rec else None
+
+
+def _seam_box(o, scene, sizes, measured, key='box'):
+    """[x, y, w, h] fractions of the scene's recording frame: o["box"] (fractions), o["box_px"] (source px), or
+    o["highlight"] = n, the box of the recording's n-th highlight (measured, else found in the shot). Also returns
+    that highlight's start on the recording clock (or None)."""
+    rec = scene.get('recording')
+    if o.get(key):
+        return [float(v) for v in o[key]], None
+    if o.get(f'{key}_px') and rec:
+        sw, sh = _rec_size(rec, sizes)
+        x, y, w, h = (float(v) for v in o[f'{key}_px'])
+        return [round(x / sw, 4), round(y / sh, 4), round(w / sw, 4), round(h / sh, 4)], None
+    n = o.get('highlight')
+    if n and rec:
+        rid = Path(rec['src']).stem
+        lst = measured.get(rid) or []
+        det = scene.get('_hl') or []
+        h = lst[n - 1] if 0 < n <= len(lst) else (det[n - 1] if 0 < n <= len(det) else None)
+        if h is None:
+            return None, None
+        box = h.get('box') or (det[n - 1].get('box') if 0 < n <= len(det) else None)
+        return box, h.get('startMs')
+    return None, None
+
+
+def _seam_overlays(scene, words, keyword, sizes, measured, warn):
+    """Scene-relative overlays (scene["overlays"]) and twist punches (absolute) of one unit's "overlays" list.
+    Every item: "kind", "at" (a spoken word / phrase / {"word", "occurrence"}, or scene ms), or "at_ms" (scene ms),
+    or "at_rec_ms" (ms on the recording's clock); "until" / "until_ms" / "until_rec_ms" the same way (default: the
+    scene's end; pills: the next pill). Kinds:
+    - hook: {"box": red box text, "bar": the full-width yellow title bar text} on the seam; captions wait until it ends.
+    - pill: {"text", "tone": "yellow" (default) | "white", "y"?/"x"?: centre px (onto blank page space)}: blur-to-sharp scale-in; the next pill
+      of the scene replaces it (value pills, name pills).
+    - count: {"to", "from"?: 0, "steps"?: [...], "prefix"?: "$", "suffix"?, "land"?: word (default +700 ms, at
+      least +500 ms),
+      "pill"?: text under the number, "dim"?: 0.5, "blur"?: 0 (px on the recording while the number is up, so page
+      text under it cannot interleave with the digits), "underline"?: true}: the recording dims, the number counts up and
+      lands, and a hand-drawn yellow stroke draws on under it as it lands.
+    - marker: {"box" | "box_px" | "highlight": n, "lines"?: 1, "wipe_ms"?: 350, "style"?: "fill" (mint
+      highlighter) | "outline" (yellow box), "color"?}: wipes left to right on its line(s); without "at" it lands
+      when the recording's n-th highlight comes up (the measured time in shots/recordings.json).
+    - ellipse: {"box" | "box_px" | "highlight": n, "draw_ms"?: 350, "color"?, "fill"?: true, "power"?: 2, "tilt"?: -4}:
+      a hand-drawn red ellipse draws on around the box (the date), with a mint fill behind the words; "power" 4 makes
+      it a rounded loop that hugs one line of text (its ends clear the first and last glyphs), "tilt" in degrees.
+    - ripple: {"point" | "point_px"}: a yellow click ripple on the recording (the recorder's own is not captured).
+    - punch: {"scale"?: 1.14}: a hard push-in on the presenter panel until the next jump cut or the scene end.
+    - cta: {"keyword"?: spec keyword, "strip": yellow strip text, "fine"?: fine print (" | " starts a new line),
+      "fine_px"?: SEAM_FINE_PX (a warning under 22 px), "strip_at"?, "arrow_at"?,
+      "char_ms"?: 80}: our comment pill (presenter disc + the keyword typed letter by letter), then the strip, the
+      fine print and a hand-drawn arrow from the strip up to the pill."""
+    unit, rec = scene['_unit'], scene.get('recording')
+    dur = scene['endMs'] - scene['startMs']
+    lay = 'B' if scene.get('flip') else 'A'
+    out, punches = [], []
+    for n, o in enumerate(unit.get('overlays') or []):
+        if not isinstance(o, dict) or o.get('kind') not in _SEAM_KINDS:
+            warn(f"{scene['id']}: overlay {n + 1} is not one of {', '.join(_SEAM_KINDS)}: {str(o)[:60]!r}")
+            continue
+        kind = o['kind']
+        at, miss = _seam_time(o, 'at', scene, words, rec)
+        if miss:
+            warn(f"{scene['id']}: {kind} at {o.get('at')!r} is not said in the scene; dropped")
+            continue
+        until, miss_u = _seam_time(o, 'until', scene, words, rec)
+        if miss_u:
+            warn(f"{scene['id']}: {kind} until {o.get('until')!r} is not said in the scene; it holds to the scene end")
+        x = {'kind': kind}
+        if kind in ('marker', 'ellipse'):
+            box, hl_at = _seam_box(o, scene, sizes, measured)
+            if not box:
+                warn(f"{scene['id']}: {kind} has no box (box, box_px or highlight); dropped")
+                continue
+            if at is None and hl_at is not None and rec:
+                at = round((hl_at - rec['inMs']) / rec.get('playbackRate', 1.0))
+            x['box'] = [round(v, 4) for v in box]
+            if kind == 'marker':
+                x.update(lines=max(1, int(o.get('lines', 1))), wipeMs=int(o.get('wipe_ms', SEAM_WIPE_MS)),
+                         style=o.get('style', 'fill'), color=o.get('color') or (SEAM_MINT if o.get('style', 'fill') == 'fill' else '#FFD60A'))
+            else:
+                x.update(drawMs=int(o.get('draw_ms', SEAM_DRAW_MS)), color=o.get('color') or SEAM_ELLIPSE,
+                         **({'fill': SEAM_MINT} if o.get('fill', True) else {}),
+                         **({'power': float(o['power'])} if o.get('power') is not None else {}),
+                         **({'tilt': float(o['tilt'])} if o.get('tilt') is not None else {}))
+        at = 0 if at is None else at
+        if at >= dur:
+            warn(f"{scene['id']}: {kind} at {at} ms comes after the scene ends ({dur} ms); dropped")
+            continue
+        if at < 0:
+            at = 0
+        x['atMs'] = at
+        if until is not None and until > at:
+            x['untilMs'] = min(until, dur)
+        if kind == 'hook':
+            box_t, bar_t = str(o.get('box') or ''), str(o.get('bar') or '')
+            x.update(boxText=box_t, bar=bar_t, boxSize=seam_fit(box_t.upper(), SEAM_HOOK_BOX_PX, SEAM_HOOK_BOX_MAX_W - 36))
+            size = seam_fit(bar_t, SEAM_HOOK_BAR_PX, SEAM_HOOK_BAR_MAX_W)
+            lines = [bar_t]
+            if size < SEAM_HOOK_BAR_MIN_PX and ' ' in bar_t:
+                ws = bar_t.split()
+                cut = min(range(1, len(ws)), key=lambda k: abs(len(' '.join(ws[:k])) - len(' '.join(ws[k:]))))
+                lines = [' '.join(ws[:cut]), ' '.join(ws[cut:])]
+                size = min(seam_fit(ln, SEAM_HOOK_BAR_PX, SEAM_HOOK_BAR_MAX_W) for ln in lines)
+            x.update(barLines=lines, barSize=size)
+        elif kind == 'pill':
+            text = str(o.get('text') or '').upper()
+            size = seam_fit(text, SEAM_PILL_PX, SEAM_PILL_MAX_W - 44, spacing=0.4)
+            if size < SEAM_PILL_MIN_PX:
+                warn(f"{scene['id']}: pill {text!r} only fits at {size} px; shorten it")
+            x.update(text=text, size=size, tone=o.get('tone', 'yellow'),
+                     y=int(o.get('y') or (SEAM_Y - SEAM_PILL_GAP if lay == 'A' else SEAM_Y + SEAM_PILL_GAP)))
+            if o.get('x') is not None:
+                x['x'] = int(o['x'])          # centre px; default the canvas centre
+        elif kind == 'count':
+            to = float(o.get('to', 0))
+            land, miss_l = _seam_time(o, 'land', scene, words, rec)
+            if miss_l:
+                warn(f"{scene['id']}: count land {o.get('land')!r} is not said in the scene; it lands {SEAM_COUNT_LAND_MS} ms in")
+            land = max(land, at + SEAM_COUNT_MIN_MS) if land is not None and land > at else at + SEAM_COUNT_LAND_MS
+            label = f"{o.get('prefix', '')}{to:,.0f}{o.get('suffix', '')}"
+            x.update(**{'from': float(o.get('from', 0)), 'to': to, 'steps': [float(v) for v in o.get('steps') or []],
+                        'prefix': o.get('prefix', ''), 'suffix': o.get('suffix', ''), 'landMs': min(land, dur),
+                        'dim': float(o.get('dim', 0.5)), 'blur': float(o.get('blur', 0)),
+                        'size': seam_fit(label, SEAM_COUNT_PX, SEAM_COUNT_MAX_W),
+                        'underline': bool(o.get('underline', True))})
+            if o.get('pill'):
+                x['pill'] = str(o['pill']).upper()
+                x['pillSize'] = seam_fit(x['pill'], SEAM_PILL_PX, SEAM_PILL_MAX_W - 44, spacing=0.4)
+        elif kind == 'ripple':
+            pt = o.get('point')
+            if not pt and o.get('point_px') and rec:
+                sw, sh = _rec_size(rec, sizes)
+                pt = [float(o['point_px'][0]) / sw, float(o['point_px'][1]) / sh]
+            if not pt:
+                warn(f"{scene['id']}: ripple has no point; dropped")
+                continue
+            x['point'] = [round(float(v), 4) for v in pt]
+        elif kind == 'punch':
+            # A jump cut (or the scene's own cut) just before the word takes the punch: one hard step, never a
+            # 1.06 frame followed by the punch.
+            t = scene['startMs'] + at
+            near = [c for c in [scene['startMs']] + scene.get('_cuts', []) if 0 <= t - c <= SNAP_MS]
+            t = max(near) if near else t
+            end = min([scene['endMs']] + [c for c in scene.get('_cuts', []) if c > t])
+            if until is not None:
+                end = min(end, scene['startMs'] + until)
+            punches.append({'atMs': t, 'endMs': end, 'scale': float(o.get('scale', SEAM_TWIST_PUNCH))})
+            continue
+        elif kind == 'cta':
+            kw = str(o.get('keyword') or keyword or 'GUIDE').upper()
+            char_ms = int(o.get('char_ms', SEAM_TYPE_CHAR_MS))
+            typed = at + len(kw) * char_ms
+            strip_at, _ = _seam_time(o, 'strip_at', scene, words, rec)
+            strip_at = typed + SEAM_STRIP_AFTER_MS if strip_at is None else strip_at
+            arrow_at, _ = _seam_time(o, 'arrow_at', scene, words, rec)
+            arrow_at = strip_at + SEAM_ARROW_AFTER_MS if arrow_at is None else arrow_at
+            strip, fine = str(o.get('strip') or '').upper(), str(o.get('fine') or '')
+            x.update(keyword=kw, charMs=char_ms, stripAtMs=strip_at, arrowAtMs=arrow_at, strip=strip, fine=fine,
+                     keySize=seam_fit(kw, SEAM_KEY_PX, SEAM_KEY_MAX_W, spacing=2),
+                     keyW=round(seam_text_width(kw, seam_fit(kw, SEAM_KEY_PX, SEAM_KEY_MAX_W, spacing=2), spacing=2)),
+                     stripSize=seam_fit(strip, SEAM_STRIP_PX, SEAM_STRIP_MAX_W), arrow=bool(o.get('arrow', True)))
+            if fine:
+                lines = [ln.strip() for ln in fine.split('|') if ln.strip()]
+                x['fine'] = ' '.join(lines)
+                x['fineLines'] = lines
+                fine_px = int(o.get('fine_px', SEAM_FINE_PX))
+                x['fineSize'] = min(seam_fit(ln, fine_px, SEAM_FINE_MAX_W, font='Inter|900|normal') for ln in lines)
+                if x['fineSize'] < 22:
+                    warn(f"{scene['id']}: CTA fine print only fits at {x['fineSize']} px (under 22 is unreadable on a "
+                         f"phone); shorten its lines")
+            if arrow_at >= dur:
+                warn(f"{scene['id']}: the CTA arrow starts after the scene ends; it never draws")
+        for t in [v for k, v in x.items() if k in ('text', 'boxText', 'bar', 'pill', 'strip', 'fine', 'keyword') and isinstance(v, str)]:
+            miss_g = seam_missing_glyphs(t)
+            if miss_g:
+                warn(f"{scene['id']}: {kind} text {t!r} has characters Inter 900 does not draw: {''.join(miss_g)}")
+        out.append(x)
+    pills = sorted((x for x in out if x['kind'] == 'pill'), key=lambda x: x['atMs'])
+    for a, b in zip(pills, pills[1:]):
+        a['untilMs'] = min(a.get('untilMs', b['atMs']), b['atMs'])
+    return out, punches
+
+
+def _seam_sfx(scenes):
+    """Soft ticks only (the reference cuts hard, no whooshes): the count-up landing, each typed keyword letter and the
+    click ripple, on whole frames, floored."""
+    out = []
+    for s in scenes:
+        for o in s.get('overlays') or []:
+            t0 = s['startMs']
+            if o['kind'] == 'count':
+                out.append({'src': 'job/sfx_tick.wav', 'atMs': t0 + o['landMs'], 'volume': SEAM_LAND_VOLUME})
+            elif o['kind'] == 'cta':
+                out += [{'src': 'job/sfx_tick.wav', 'atMs': t0 + o['atMs'] + i * o['charMs'], 'volume': SEAM_TICK_VOLUME}
+                        for i in range(len(o['keyword'])) if o['atMs'] + i * o['charMs'] < s['endMs'] - t0]
+            elif o['kind'] == 'ripple':
+                out.append({'src': 'job/sfx_tick.wav', 'atMs': t0 + o['atMs'], 'volume': SEAM_LAND_VOLUME})
+    out = [dict(x, atMs=int(x['atMs']) // FRAME_MS * FRAME_MS) for x in out]
+    return sorted(out, key=lambda x: x['atMs'])
+
+
+def _seam_props(job_dir, spec, scenes, words, beats, word_ranges, spans_ms, total, avatar, faces, music, starts, ends,
+                cuts, sizes, measured):
+    warnings = []
+    warn = warnings.append
+    if measured is None:
+        measured = seam_measured_highlights(job_dir, sizes)
+    cuts = sorted(c for c in cuts or [] if 0 < c < total)
+    punches = []
+    for s in scenes:
+        lay = 'B' if s.get('flip') else 'A'
+        rec = s.get('recording')
+        unit = s['_unit']
+        if s['type'] == 'split' and rec:
+            if unit.get('plate') is not None:
+                plate = unit.get('plate') if isinstance(unit.get('plate'), dict) else {}
+                s['plate'] = {'blur': float(plate.get('blur', 14)), 'darken': float(plate.get('darken', 0.25))}
+                if plate.get('saturate') is not None:
+                    s['plate']['saturate'] = float(plate['saturate'])
+                rec['inMs'] = int(plate.get('still_ms', rec['inMs']))
+                rec.pop('playbackRate', None)
+                rec.pop('zooms', None)
+            elif rec.get('zooms') and unit.get('zoom'):
+                rec['zooms'] = harvest_zooms(rec['zooms'])
+                if not rec['zooms']:
+                    rec.pop('zooms')
+            else:
+                rec.pop('zooms', None)
+            sw, sh = _rec_size(rec, sizes)
+            _, _, pw, ph = SEAM_PANEL[lay]['rec']
+            if abs((sw / sh) / (pw / ph) - 1) > SEAM_ASPECT_TOL:
+                warn(f"{s['id']}: {Path(rec['src']).name} is {sw}x{sh}, layout {lay} shows {pw}x{ph}: record it at "
+                     f"{round(pw * 1.5)}x{round(ph * 1.5)} or it is cropped")
+        s['_cuts'] = cuts
+        ovs, ps = _seam_overlays(s, words, spec.get('keyword') or '', sizes, measured, warn)
+        if ovs:
+            s['overlays'] = ovs
+        punches += ps
+    beat_ends = []
+    for k, b in enumerate(beats):
+        mine = [s['endMs'] for s in scenes if s['_beat'] == b.get('name', str(k))]
+        beat_ends.append(max(mine) if mine else None)
+    chunks = harvest_chunks(beats, words, word_ranges, None, beat_ends=beat_ends)
+    chunks = snap_chunks(seam_hold_short_chunks(chunks), [x['startMs'] for x in scenes[1:]])
+    hooks = [(s['startMs'] + o['atMs'], s['startMs'] + o.get('untilMs', s['endMs'] - s['startMs']))
+             for s in scenes for o in s.get('overlays') or [] if o['kind'] == 'hook']
+    kept = []
+    for c in chunks:                  # the hook's title bar holds the seam slot: no caption under it
+        for a, b in hooks:
+            if c['startMs'] < b and c['endMs'] > a:
+                if c['startMs'] >= a:
+                    c['startMs'] = b
+                    for ln in c['lines']:
+                        ln['startMs'] = max(ln['startMs'], b)
+                else:
+                    c['endMs'] = a
+        if c['endMs'] - c['startMs'] >= 80:
+            kept.append(c)
+    for c in kept:
+        for ln in c['lines']:
+            text = ln['text']
+            if len(text) > SEAM_CHUNK_MAX_CHARS:
+                warn(f"caption {text!r} is {len(text)} characters (max {SEAM_CHUNK_MAX_CHARS}): split it")
+            miss_g = seam_missing_glyphs(text.upper(), SEAM_CAP_FONT)
+            if miss_g:
+                warn(f"caption {text!r} has characters Doto does not draw: {''.join(miss_g)}")
+    framing = seam_framing(faces.get('avatar'))
+    return {
+        'theme': 'seam',
+        'avatar': {'src': avatar, **({'faceBox': faces['avatar']} if faces.get('avatar') else {})},
+        'tail': None,
+        'scenes': [{k: v for k, v in s.items() if not k.startswith('_')} for s in scenes],
+        'captions': {'words': [{k: v for k, v in w.items() if not k.startswith('_')} for w in words]},
+        'chunks': kept,
+        'headlines': [],
+        'seam': {'y': SEAM_Y, 'frames': framing, 'punches': seam_punches(cuts, punches, total), 'captionPx': SEAM_CAP_PX,
+                 'captionWeight': SEAM_CAP_WEIGHT},
+        'music': {'src': 'job/music.wav', 'volume': 0.12, 'duckTo': 0.08, 'holdGapMs': 500, 'fadeInMs': 40, 'fadeOutMs': 500} if music else None,
+        'sfx': _seam_sfx(scenes),
+        'cta': None,
+        'durationMs': total,
+        'meta': {'job': spec.get('job'), 'theme': 'seam',
+                 'beats': [{'name': b.get('name'), 'startMs': starts[k], 'endMs': ends[k]} for k, b in enumerate(beats)],
+                 'cuts': cuts, 'warnings': warnings, 'subtitles': seam_subtitles(beats, words, word_ranges)},
     }
 
 
@@ -2054,11 +2812,69 @@ def render(job_dir, props_path=None, out=None, scale=None):
     return stats
 
 
+def seam_subtitles(beats, words, word_ranges):
+    """Subtitle items [{'text', 'startMs', 'endMs'}] for captions.srt: each beat's scripted line (the spelling the
+    burned-in captions use: "licence", "$10,000", "PITCH"; Whisper writes "license" and "$10 ,000,") cut into clauses
+    at its punctuation, each timed from the first to the last of OUR spoken words it matches (difflib on tokens).
+    A clause with no matched word is skipped."""
+    out = []
+    for k, beat in enumerate(beats):
+        line = (beat.get('line') or '').strip()
+        lo, hi = word_ranges[k]
+        bw = [w for w in words if lo <= w['_i'] <= hi]
+        if not line or not bw:
+            continue
+        clauses, cur = [], []
+        for w in line.split():
+            cur.append(w)
+            if re.search(r'[.,!?;:]["\')]?$', w):
+                clauses.append(cur)
+                cur = []
+        if cur:
+            clauses.append(cur)
+        disp, owner = [], []
+        for c, cl in enumerate(clauses):
+            for w in cl:
+                for t in tokens(w):
+                    disp.append(t)
+                    owner.append(c)
+        cap, cap_owner = [], []
+        for n, w in enumerate(bw):
+            for t in tokens(w['text']):
+                cap.append(t)
+                cap_owner.append(n)
+        hit = {}
+        for a, b, size in difflib.SequenceMatcher(None, disp, cap, autojunk=False).get_matching_blocks():
+            for q in range(size):
+                hit.setdefault(owner[a + q], []).append(cap_owner[b + q])
+        spans = [(c, min(hit[c]), max(hit[c])) for c in range(len(clauses)) if hit.get(c)]
+        for q, (c, a, b) in enumerate(spans):   # a clause runs on to the word before the next one (a number Whisper
+            b = max(b, spans[q + 1][1] - 1 if q + 1 < len(spans) else len(bw) - 1)   # split, "$10 ,000,", stays in it)
+            out.append({'text': ' '.join(clauses[c]), 'startMs': bw[a]['startMs'], 'endMs': bw[b]['endMs']})
+    return out
+
+
+def write_srt(job_dir, props, name='captions.srt'):
+    """<job>/captions.srt for the platforms that take one (YouTube, LinkedIn, TikTok, Facebook): the props' spoken
+    words on the final timeline, in app.edit_plan's readable cues (sentence breaks, two lines of at most 42
+    characters); theme "seam" props carry meta.subtitles (seam_subtitles: the scripted spelling). Returns the path,
+    or None when the props carry no words."""
+    from .edit_plan import to_srt
+    words = (props.get('meta') or {}).get('subtitles') or \
+        [w for w in (props.get('captions') or {}).get('words') or [] if str(w.get('text', '')).strip()]
+    if not words:
+        return None
+    path = Path(job_dir) / name
+    path.write_text(to_srt(words, duration_ms=props.get('durationMs')))
+    return path
+
+
 def load_cuts(path):
-    """Jump-cut times (ms) from a cuts file: a plain list, or app.tighten's cuts.json ({'cuts': [{'at_ms'}, ...]})."""
+    """Jump-cut times (ms) from a cuts file: a plain list, app.tighten's cuts.json ({'cuts': [{'at_ms'}, ...]}) or
+    cuts_final.json ({'cuts_ms': [...]}: the cuts moved onto the final timeline after a synced speed-up)."""
     data = json.loads(Path(path).read_text())
     if isinstance(data, dict):
-        data = data.get('cuts') or []
+        data = data.get('cuts_ms') or data.get('cuts') or []
     return [round(c['at_ms']) if isinstance(c, dict) else round(c) for c in data]
 
 
@@ -2110,6 +2926,8 @@ def main(argv=None):
         cuts = load_cuts(args.cuts)
     elif args.cuts:
         cuts = [int(x) for x in args.cuts.split(',') if x.strip()]
+    elif (job / 'cuts_final.json').exists():   # after a synced speed-up the cuts live on the final timeline
+        cuts = load_cuts(job / 'cuts_final.json')
     elif (job / 'cuts.json').exists():
         cuts = load_cuts(job / 'cuts.json')
     tail = args.tail or ('job/avatar_wait.mp4' if (job / 'avatar_wait.mp4').exists() else None)
@@ -2123,6 +2941,13 @@ def main(argv=None):
     out.write_text(json.dumps(props, indent=1))
     summary = {'out': str(out), 'durationMs': props['durationMs'], 'scenes': len(props['scenes']),
                'types': [x['type'] for x in props['scenes']]}
+    if not args.out:                  # the platform subtitle file (AGENTS.md Accessibility), on the render's timeline
+        srt = write_srt(job, props)
+        if srt:
+            summary['srt'] = str(srt)
+    if props.get('theme') == 'seam':
+        summary['layouts'] = ''.join('B' if x.get('flip') else 'A' for x in props['scenes'])
+        summary['warnings'] = props['meta'].get('warnings') or []
     if args.stage:
         summary['staged'], missing = stage(job, props)
         if missing:

@@ -807,6 +807,95 @@
       },
       "queued_at": "2026-10-24T07:19:31Z",
       "slot_index": 1
+    },
+    {
+      "date": "2026-10-28",
+      "day": "Wed",
+      "slot_index": 0,
+      "job": "fef5b7f3b5af",
+      "title": "Claude motion graphics: clone a brand look, then animate it one line at a time",
+      "keyword": "BRAND",
+      "slug": "claude-motion-graphics",
+      "resource_url": "https://withhammad.com/resources/claude-motion-graphics",
+      "status": "queue_incomplete",
+      "platforms": {
+        "youtube": {
+          "via": "api",
+          "status": "failed",
+          "slot_utc": "2026-10-28T05:00:00Z",
+          "local_time": "Wed 2026-10-28 09:00 GST",
+          "privacy": "private",
+          "publish_at": "2026-10-28T05:00:00Z",
+          "error": "YouTube token refresh failed (HTTP 400) invalid_grant: Token has been expired or revoked.. Reconnect the channel with outputs/video-pipeline/youtube_oauth.py"
+        },
+        "linkedin": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-28T05:00:00Z",
+          "local_time": "Wed 2026-10-28 09:00 GST"
+        },
+        "instagram": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-28T07:00:00Z",
+          "local_time": "Wed 2026-10-28 11:00 GST",
+          "account": "hammadagentic.ai",
+          "trial": null,
+          "collaborators": [
+            "with.hammad"
+          ],
+          "video_url": "https://withhammad.com/media/reels/claude-motion-graphics.mp4",
+          "cover_url": "https://withhammad.com/media/covers/claude-motion-graphics.jpg",
+          "hosted": false,
+          "hosting_error": "git push origin failed (exit 1): send-pack: unexpected disconnect while reading sideband packet | fatal: the remote end hung up unexpectedly | Everything up-to-date"
+        },
+        "tiktok": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-28T10:00:00Z",
+          "local_time": "Wed 2026-10-28 14:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "AI-generated content toggle on.",
+          "text": "Claude motion graphics tutorial: 16 animations from one style file, made in Claude Code. Full guide: link in bio.\nHow to make motion graphics with Claude: point Claude Code at a brand's website, it reads the CSS and writes one style file (colours, corners, shadow, easing). Paste the motion brief under it, add one line per animation (one object, one change), then open the HTML file in your browser. Each one is a seamless 6-second loop. No After Effects, no animation libraries.\nCopy a brand's look, never its logo, name or paid font.\nMade in Claude Code, not the Claude Motion beta.\nSaw \"Comment BRAND\"? No DM needed on TikTok: the free guide has the style-file prompt, the motion brief and all 16 scene lines.\nFull guide: link in bio. Follow for more AI builds.\nAI disclosure: Claude (AI) wrote the animation code; the byline photo is an AI avatar of Hammad Yousuf. No voiceover.\n#claudecode #motiongraphics #motiondesign #aitools #claudeai",
+          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)",
+          "pinned_comment": "Commented BRAND? The guide is in the bio link: the style-file prompt, the motion brief and all 16 scene lines. Free."
+        },
+        "facebook": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-28T10:00:00Z",
+          "local_time": "Wed 2026-10-28 14:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "Meta AI info toggle on. Post separately from Instagram (turn off auto 'Share to Facebook').",
+          "text": "Claude motion graphics, made in Claude Code: 16 animations from one style file. No After Effects, no animation libraries.\nFree guide: https://withhammad.com/resources/claude-motion-graphics\n\nHow to make motion graphics with Claude Code:\n1. Grab the free style-file prompt (in the guide)\n2. Point Claude Code at a brand's website\n3. It reads the CSS and writes one style file: colours, corners, shadow, easing\n4. Paste the motion brief under the style file\n5. Add one line per animation: one object, one change\n6. Open the HTML file it writes in your browser\n\nEach animation is a seamless 6-second loop. This set uses values measured from Stripe's public CSS; copy a brand's colours, corners and motion only, never its logo, name or paid font. Not affiliated with Stripe.\n\nMade in Claude Code, not the new Claude Motion beta.\n\nSaw \"Comment BRAND\" in the video? No DM needed on Facebook. The free guide, with the style-file prompt, the motion brief and all 16 scene lines, is here: https://withhammad.com/resources/claude-motion-graphics\nFollow for more AI builds.\n\nAI disclosure: Claude (AI) wrote the animation code; the byline photo is an AI avatar of Hammad Yousuf. No voiceover.\n\n#ClaudeCode #MotionGraphics #AITools",
+          "cover": "cover_1080x1920.jpg (Edit cover > Upload cover)"
+        },
+        "x": {
+          "via": "composer",
+          "status": "composer",
+          "slot_utc": "2026-10-28T05:00:00Z",
+          "local_time": "Wed 2026-10-28 09:00 GST",
+          "video": "final_social.mp4",
+          "ai_label": "'AI avatar of me.' in the post (X has no AI toggle for uploads).",
+          "text": "Claude Code motion graphics: 16 animations from one style file. No After Effects, no animation libraries.\nFree guide + all 16 scene lines: https://withhammad.com/resources/claude-motion-graphics\nByline photo: AI avatar of me. Follow for more AI builds.\n#ClaudeCode #MotionGraphics",
+          "weighted_length": 248,
+          "cover": null,
+          "where": "x.com/compose/post as @HammadYousufAI, Schedule"
+        },
+        "instagram_trial": {
+          "via": "api",
+          "status": "pending",
+          "slot_utc": "2026-10-28T07:00:00Z",
+          "local_time": "Wed 2026-10-28 11:00 GST",
+          "account": "with.hammad",
+          "trial": "SS_PERFORMANCE",
+          "collaborators": [],
+          "video_url": "https://withhammad.com/media/reels/claude-motion-graphics.mp4",
+          "cover_url": "https://withhammad.com/media/covers/claude-motion-graphics.jpg",
+          "hosted": false
+        }
+      },
+      "queued_at": "2026-10-27T06:23:48Z"
     }
   ]
 }

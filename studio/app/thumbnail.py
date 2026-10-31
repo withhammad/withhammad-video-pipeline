@@ -389,7 +389,66 @@ def _default_take(job, plan):
         return job / 'avatar.mp4'
     if plan.get('take') and (job / plan['take']).is_file():
         return job / plan['take']
+    if (job / 'timeline.json').is_file() and (job / 'avatar_main.mp4').is_file():
+        return job / 'avatar_main.mp4'           # a sped-up or two-take job: the main take starts the timeline
     raise CoverError(f'no take found in {job}: expected avatar.mp4 (run app.reel build first) or pass --take')
+
+
+def captions_fit_take(job, take):
+    """True when captions.json is timed to `take`: the trimmed avatar.mp4, or avatar_main.mp4 of a job without one
+    whose timeline.json puts the main take at the start of the timeline (the speed-up and two-take jobs transcribe
+    the final avatar_main.mp4 timeline, e.g. job 91ac50635d3d, where dropping them offered a mid-word face)."""
+    take = Path(take).resolve()
+    if take == (job / 'avatar.mp4').resolve():
+        return True
+    return (take == (job / 'avatar_main.mp4').resolve() and not (job / 'avatar.mp4').exists()
+            and (job / 'timeline.json').is_file())
+
+
+# ---------------------------------------------------------------- stacked-box cover (CoverStack.tsx)
+
+STACK_FILE = 'cover_layout.json'
+STACK_LIMITS = {'box1': 22, 'box2': 24, 'kicker': 48}
+STACK_HEAD_TOP, STACK_CHIN = 230, 1060     # cover px: head top ~12 %, chin ~55 % (a 720p take stays sharp enough)
+STACK_FACE_BOX = (0.32, 0.145, 0.41, 0.33)
+
+
+def stack_layout(job):
+    """The job's stacked-box cover settings (<job>/cover_layout.json, layout "stacked"), checked, or None.
+
+    {"layout": "stacked", "t_s": [s, ...] (face picks on the take, in pick order), "box1", "box2", "kicker" (verified
+    facts only), "face_box"?: [x, y, w, h] fractions of the take, hair top to chin, "head_top"?/"chin"?: cover px,
+    "badge": job-relative square-ish headshot image, "badge_box"?: [x, y, w, h] fractions of it}."""
+    cfg = _load_json(job / STACK_FILE)
+    if not cfg or cfg.get('layout') != 'stacked':
+        return None
+    problems = [f'{k} is missing' for k in ('box1', 'box2', 'kicker', 't_s', 'badge') if not cfg.get(k)]
+    problems += [f'{k} is {len(cfg[k])} characters (max {n})' for k, n in STACK_LIMITS.items() if len(str(cfg.get(k) or '')) > n]
+    if not problems and not (job / cfg['badge']).is_file():
+        problems.append(f"badge {cfg['badge']} not found in the job")
+    if problems:
+        raise CoverError(f'{STACK_FILE}: ' + '; '.join(problems))
+    cfg['t_s'] = [float(t) for t in (cfg['t_s'] if isinstance(cfg['t_s'], list) else [cfg['t_s']])][:PICKS]
+    return cfg
+
+
+def stack_face_props(cfg):
+    """faceTop / faceScale / faceShiftX for CoverStack: the take's head (face_box) from head_top to chin, centred."""
+    fx, fy, fw, fh = cfg.get('face_box') or STACK_FACE_BOX
+    top, chin = float(cfg.get('head_top', STACK_HEAD_TOP)), float(cfg.get('chin', STACK_CHIN))
+    s = (chin - top) / (fh * 1280)                    # scale of the 720x1280 take
+    scale = s / 2                                     # the extracted frame is 2x (1440x2560)
+    shift = COVER_W / 2 - (fx + fw / 2) * 720 * s - (COVER_W - FACE_W * scale) / 2
+    return {'faceTop': round(top - fy * 1280 * s), 'faceScale': round(scale, 4), 'faceShiftX': round(shift)}
+
+
+def extract_badge(src, box, out_png, size=240):
+    """A square headshot for the badge: box [x, y, w, h] fractions of the image (default the centre square)."""
+    out_png.parent.mkdir(parents=True, exist_ok=True)
+    crop = (f'crop=iw*{box[2]}:ih*{box[3]}:iw*{box[0]}:ih*{box[1]},' if box else 'crop=min(iw\\,ih):min(iw\\,ih),')
+    _run(['ffmpeg', '-v', 'error', '-y', '-i', str(src), '-frames:v', '1', '-vf',
+          f'{crop}scale={size}:{size}:flags=lanczos', str(out_png)])
+    return out_png
 
 
 def still_gray(png):
@@ -470,10 +529,26 @@ def build(job, take=None, pick=1, *, render=True, remotion=REMOTION, public_dir=
     if not take.is_file():
         raise CoverError(f'take not found: {take}')
     captions = _load_json(job / 'captions.json', []) or []
-    if captions and take != (job / 'avatar.mp4').resolve():
+    if captions and not captions_fit_take(job, take):
         # captions.json is timed to the trimmed avatar.mp4; on any other file its pauses point at the wrong frames
         warnings.append(f'caption pauses not used: captions.json is timed to avatar.mp4, not {take.name}')
         captions = []
+    stack = stack_layout(job)
+    if stack:
+        if not 1 <= int(pick) <= len(stack['t_s']):
+            raise CoverError(f"--pick {pick} is not available: {STACK_FILE} lists {len(stack['t_s'])} face time(s)")
+        public_root = (Path(remotion) / 'public').resolve()
+        badge = extract_badge(job / stack['badge'], stack.get('badge_box'),
+                              (Path(public_dir).resolve() if public_dir else public_root / 'job') / 'cover_badge.png')
+        badge_rel = badge.relative_to(public_root).as_posix() if badge.is_relative_to(public_root) else str(badge)
+        base = {'layout': 'stacked', **stack_face_props(stack), 'badge': badge_rel,
+                **{k: stack[k] for k in ('box1', 'box2', 'kicker')}}
+        picks = [{'n': n, 't': t, 'label': f'Pick {n} - {t:.2f} s (stacked cover)', 'composition': 'CoverStack',
+                  'props': base, 'extract': (lambda out, t=t: extract_face(take, t, out))}
+                 for n, t in enumerate(stack['t_s'], 1)]
+        meta = {'take': str(take), 'layout': 'stacked', 'layout_file': str(job / STACK_FILE)}
+        return _finish(job, picks, meta, {k: stack[k] for k in ('box1', 'box2', 'kicker')}, pick, warnings, started,
+                       render=render, remotion=remotion, public_dir=public_dir)
     boxes = {k: tuple(v) for k, v in (plan.get('cover_boxes') or {}).items() if k in BOXES}
 
     frames, times = sample_frames(take)
@@ -505,16 +580,19 @@ def _finish(job, picks, meta, copy, pick, warnings, started, *, render, remotion
     for row in picks:
         n = row['n']
         face_png = row['extract'](public_dir / f'cover_face_{n}.png')
-        hair, centre = head_geometry(row['frame']())
         face = face_png.relative_to(public_root).as_posix() if face_png.is_relative_to(public_root) else str(face_png)
-        props = {'face': face, **face_layout(hair, centre), **copy}
+        if row.get('props'):                     # the stacked-box cover: placed from its face box, not the hair line
+            props = {'face': face, **row['props']}
+        else:
+            hair, centre = head_geometry(row['frame']())
+            props = {'face': face, **face_layout(hair, centre), **copy}
         props_path = thumbs / f'cover_{n}.json'
         props_path.write_text(json.dumps(props, indent=1, ensure_ascii=False))
         entry = {k: row[k] for k in ('n', 't', 'score', 'metrics', 'still') if k in row}
         entry.update({'face': str(face_png), 'props_path': str(props_path), 'props': props})
         if n == int(pick):   # each still costs ~3 s; the sheet already shows the other picks, so only this one renders
             entry['png'] = str(thumbs / f'cover_{n}.png')
-            stills.append(('Cover', props_path, Path(entry['png'])))
+            stills.append((row.get('composition', 'Cover'), props_path, Path(entry['png'])))
         entries.append((entry, row['label']))
     others = ' or '.join(f'"cover {e["n"]}"' for e, _ in entries if e['n'] != int(pick))
     sheet_props = {'title': f'Cover picks - {job.name}',

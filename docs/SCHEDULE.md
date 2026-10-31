@@ -20,6 +20,7 @@ Queue order chosen by the owner 2026-10-18: FDE, STACK, 100 Dreams, MCP.
 | 2026-10-26 | Mon | AI search traffic converts better? How to track your own AI traffic in GA4 | b55491077ab1 | AITRAFFIC | queued |
 | 2026-10-26 | Mon | Kimi K3 on 8 GB of RAM: how a 2.78T model runs with no GPU | c6e60a58849b | BYTES | queued |
 | 2026-10-27 | Tue | NVIDIA SkillSpector: scan Claude Code skills before you install them | d61788123d13 | SCAN | queued |
+| 2026-10-28 | Wed | Claude motion graphics: clone a brand look, then animate it one line at a time | fef5b7f3b5af | BRAND | queue_incomplete |
 
 Per-platform state of queued reels (GST; UTC for the APIs in schedule.json):
 
@@ -32,6 +33,7 @@ Per-platform state of queued reels (GST; UTC for the APIs in schedule.json):
 | 2026-10-26 | AITRAFFIC | 09:00 scheduled ([link](https://www.youtube.com/shorts/jRKu70M9QB4)) | 09:00 pending | 11:00 pending | 14:00 composer_scheduled ([link](https://www.tiktok.com/@hammadyousuf01/video/7700201511841893653)) | 14:00 composer_scheduled ([link](https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT)) | 09:00 composer_scheduled ([link](https://x.com/compose/post/unsent/scheduled)) | 20:00 pending | 11:00 pending |
 | 2026-10-26 | BYTES | 12:00 scheduled ([link](https://www.youtube.com/shorts/rFGgZsNyngY)) | 16:00 pending | 17:00 pending | 17:00 composer_scheduled ([link](https://www.tiktok.com/@hammadyousuf01/video/7700101285277715732)) | 17:00 composer_scheduled ([link](https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT)) | 18:00 composer_scheduled ([link](https://x.com/compose/post/unsent/scheduled)) |   |   |
 | 2026-10-27 | SCAN | 12:00 scheduled ([link](https://www.youtube.com/shorts/rTUd66Teik0)) | 16:00 pending | 17:00 pending | 17:00 composer_scheduled ([link](https://www.tiktok.com/@hammadyousuf01/video/7700133243110165781)) | 17:00 composer_scheduled ([link](https://www.facebook.com/professional_dashboard/content/content_library/?filter=SCHEDULED&post_type=ALL_CONTENT)) | 18:00 composer_scheduled ([link](https://x.com/compose/post/unsent/scheduled)) |   |   |
+| 2026-10-28 | BRAND | 09:00 failed | 09:00 pending | 11:00 pending | 14:00 composer | 14:00 composer | 09:00 composer |   |   |
 
 Per-platform posting times (docs/BEST_TIMES.md, decided 2026-10-18 from our own audience data; review 3 Nov 2026):
 

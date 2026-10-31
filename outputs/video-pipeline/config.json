@@ -382,7 +382,7 @@
       "IG_USER_ID",
       "IG_ACCESS_TOKEN"
     ],
-    "verified": "2026-10-31 signed synthetic comment accepted (200), bad signature 401; live comment test pending first post",
+    "verified": "2026-10-31 12:45 UTC LIVE: quranbeat DM \"SCOPE\" -> gated while not following -> after follow, link sent in 2 s. Quick-reply tap was not delivered as an event; texts now say \"or send the keyword again\". Comment path: test on first post.",
     "token_renewal": "app.instagram_tokens refresh writes the file; IG_ACCESS_TOKEN in Vercel must be updated too (vercel env add IG_ACCESS_TOKEN production --force)"
   }
 }

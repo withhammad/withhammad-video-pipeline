@@ -8,6 +8,8 @@ import { contentZoom, Entrance, PrevShot, RecordingCard } from "./Card";
 import { CommentCta, EndCard } from "./Cta";
 import { OverlayLayer } from "./Overlays";
 import { HarvestExplainer } from "./harvest/HarvestExplainer";
+import { seamFontsReady } from "./seam/fonts";
+import { SeamExplainer } from "./seam/SeamExplainer";
 import { MusicTrack, SfxTracks } from "./Sound";
 import { TextCard } from "./TextCard";
 import { BACKDROP, Box, boxOf, CARD_BOX, CARD_INSET, cleanWord, FPS, H, isCanvas, smoothstep, systemOf, toFrame, toMs, W, wordsBetween } from "./theme";
@@ -77,7 +79,7 @@ export const checkExplainerAssets = async (p: ExplainerProps, exists: (src: stri
 export const durationMsOf = (p: ExplainerProps) => p.durationMs ?? Math.max(1000, ...p.scenes.map((s) => s.endMs));
 
 const calculateMetadata: CalculateMetadataFunction<ExplainerProps> = async ({ props }) => {
-  await fontsReady;
+  await (props.theme === "seam" ? seamFontsReady : fontsReady);
   return {
     durationInFrames: Math.max(1, Math.ceil((durationMsOf(props) / 1000) * FPS)),
     props: await checkExplainerAssets(props, assetExists),
@@ -325,5 +327,6 @@ const DefaultExplainer: React.FC<ExplainerProps> = (edit) => {
 };
 
 /** The theme picks the format; the default theme is the original Explainer look. */
-export const Explainer: React.FC<ExplainerProps> = (edit) => (edit.theme === "harvest" ? <HarvestExplainer {...edit} /> : <DefaultExplainer {...edit} />);
+export const Explainer: React.FC<ExplainerProps> = (edit) =>
+  edit.theme === "harvest" ? <HarvestExplainer {...edit} /> : edit.theme === "seam" ? <SeamExplainer {...edit} /> : <DefaultExplainer {...edit} />;
 

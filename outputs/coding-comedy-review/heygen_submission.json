@@ -1,11 +1,19 @@
 {
-  "video_id": "6aea39e87536ae7ea335c82a3c16145a",
-  "status": "completed_downloaded",
+  "video_id": "40d87e6353ba45baa1e9c344aa027411",
+  "status": "completed",
+  "title": "REVIEW ONLY — One word, 24 files — Hammad — ElevenLabs voice",
+  "submitted_via": "HeyGen AI Studio in signed-in Chrome (new revision of the original skit project)",
+  "submitted_at": "2026-10-23",
   "avatar_id": "5dfa03f53ae54f919040a26a953b7f4b",
-  "voice_id": "0f7032b11fb743589cc81b721f4389b3",
+  "voice_id": "46d4ae4996a8476c8227108e3847f401",
+  "voice_settings": "saved defaults as loaded by HeyGen for this voice: engine ElevenLabs, model shown as 'ElevenLabs v4', speed 1.1, stability 50, language English (detected), accent original; no overrides",
   "engine": "avatar_v",
-  "speed": 1.0,
+  "resolution": "720p",
+  "aspect": "9:16",
+  "more_expressive_motion": false,
+  "custom_motion": "Energetic, natural creator delivery with lively but believable comic reactions. Begin with a friendly small request, become increasingly puzzled and playfully exasperated, raise eyebrows on key words, use animated hand gestures and quick nods, and finish with a clear open-palm stop gesture on the final sentence. Keep the approved casual look and steady portrait framing.",
+  "script_file": "script.txt",
   "review_only": true,
   "source_file": "avatar-source.mp4",
-  "download_note": "Clean source downloaded from HeyGen UI."
+  "previous_take": "v1-original-voice/heygen_submission.json (6aea39e87536ae7ea335c82a3c16145a, voice 0f7032b11fb743589cc81b721f4389b3)"
 }

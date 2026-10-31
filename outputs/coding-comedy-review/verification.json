@@ -1,7 +1,9 @@
 {
-  "status": "technical_checks_passed_owner_review_pending",
+  "status": "owner_approved_cut",
   "file": "final.mp4",
-  "sha256": "ea05ba1f80eb3c43de66e7402d03caa9da483922cc0d9ff0054443510d5c6437",
+  "sha256": "b2d8f6a3375d741f8043e477a612612ec291157a978048a45907a6c682780b75",
+  "cover": "cover.png",
+  "cover_sha256": "5bf5b1780a1f19c4981f05ed999060d75a8657852568edbbd84d6e311e4f1d68",
   "probe": {
     "programs": [],
     "stream_groups": [],
@@ -14,43 +16,63 @@
         "pix_fmt": "yuv420p",
         "color_range": "tv",
         "r_frame_rate": "30/1",
-        "nb_frames": "1477"
+        "nb_frames": "1358"
       },
       {
         "codec_name": "aac",
         "codec_type": "audio",
         "sample_rate": "48000",
+        "channels": 2,
         "r_frame_rate": "0/0",
-        "nb_frames": "2309"
+        "nb_frames": "2123"
       }
     ],
     "format": {
-      "duration": "49.237000"
+      "duration": "45.266667"
     }
   },
   "loudness": {
-    "input_i": "-14.41",
-    "input_tp": "-1.72",
-    "input_lra": "7.80",
-    "input_thresh": "-25.94",
-    "output_i": "-14.37",
-    "output_tp": "-1.52",
-    "output_lra": "5.40",
-    "output_thresh": "-25.95",
-    "normalization_type": "dynamic",
-    "target_offset": "0.37"
+    "integrated_lufs": -14.2,
+    "lra_lu": 5.4,
+    "true_peak_dbtp": -4.8
+  },
+  "sound": {
+    "voice_chain": "acompressor=threshold=0.04:ratio=3:attack=2:release=120:knee=4:detection=peak",
+    "voice_lufs": -34.0,
+    "bed_lufs": -46.0,
+    "mix_gain_db": 21.3,
+    "limiter_ceiling_dbfs": -2.1,
+    "master_lufs": -14.2,
+    "master_true_peak_dbtp": -1.8,
+    "bed_seconds_more_than_3db_below_median": []
   },
   "captions": 21,
-  "voice_speed": 1.0,
+  "heygen_video_id": "40d87e6353ba45baa1e9c344aa027411",
+  "voice_id": "46d4ae4996a8476c8227108e3847f401",
+  "av_offset_s": 0.08,
+  "checks": {
+    "full_decode_errors": 0,
+    "dialogue": "final mix transcribed by faster-whisper medium with no script prompt: every script line heard (match 0.994); only the non-word sigh \"Ah.\" is not transcribed, and it is audible (-15.4 dBFS vs bed -23.5 dBFS) at 33.6 s",
+    "lip_sync": "take: lips lead sound 60-95 ms on /p/ \"a profile\" and /b/ \"my button\" (qa/lipsync-a-profile.jpg, qa/lipsync-my-button.jpg); sound moved 80 ms earlier; final: lips sealed through the /b/ closure at 31.30-31.32 s and open on the burst (qa/lipsync-final-my-button.jpg)",
+    "video_check": "skill checklist: file spec pass; hook on frame 0, two lines, no full stop (fixed); motion from second 1; captions one style at y 1300 on every beat; safe zone pass by layout (label y 245, footer y 1460-1485, nothing right of x 935); no shot under 0.3 s; layout changes every 3-5 s; sound -14.2 LUFS and true peak under -1.5 with a steady bed; ending: no call to action (not built: ManyChat and publishing are not authorized)",
+    "grid_dive": "crisp even-frame encode used; the engine blend doubled the face on frames 40-43 (fx/grid-dive-handoffs.jpg vs fx/grid-dive-crisp-exit.jpg)",
+    "branding": "no Promate/ProMate/Promet in source, captions, script or copy; frames reviewed in qa/sheet.jpg"
+  },
   "publication_authorized": false,
-  "requires_owner_review": [
-    "Delivery and pacing",
-    "Visual treatment",
-    "Post copy and companion guide"
+  "previous_version": "v1-original-voice/ (old voice 0f7032..., sha256 ea05ba1f...)",
+  "owner_approval": "2026-10-23: cut and cover approved; publishing and scheduling still need their own go-ahead",
+  "files": {
+    "final.mp4": "b2d8f6a3375d741f8043e477a612612ec291157a978048a45907a6c682780b75",
+    "final_ig.mp4": "17c02880335f890725b28a508fc73e929eca5120f247372b71da6c46b29e0c65",
+    "final_social.mp4": "a171a440f55efec0259a34e8a0be2afd4a5aa9a734549ccb3b8ebd8f2d00ed2d",
+    "cover.png": "5bf5b1780a1f19c4981f05ed999060d75a8657852568edbbd84d6e311e4f1d68",
+    "cover-b.png": "9c12f4f16374013c9a4019fcc1190b0768b528feb32e654b03dfacb418db2a9f"
+  },
+  "changes_after_approval": [
+    "footer \"WITHHAMMAD\" (owner: no \"AI avatar\" text in videos)",
+    "Instagram-only SCOPE comment ending (call-to-action skill A); other files end on the payoff",
+    "SEO copy: SCOPE keyword on Instagram, checklist link on the other platforms",
+    "cover B (click-first) added next to approved cover A"
   ],
-  "notes": [
-    "Source voice retained without time stretching.",
-    "Added visual reading/reaction holds are explicit in timing.json.",
-    "Source references used for analysis; new owner narration and original graphics."
-  ]
+  "publish_check": "app.publish_reel check comedy20261023: only blocker = resource page not live (404)"
 }

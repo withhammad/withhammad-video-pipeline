@@ -1,211 +1,333 @@
 {
   "fps": 30,
-  "duration": 49.239999999999995,
+  "frames": 1358,
+  "duration": 45.266666666666666,
+  "av_offset_s": 0.08,
   "clips": [
     {
       "from": 0,
-      "duration": 96,
-      "start": 0,
-      "end": 3.2,
+      "duration": 120,
+      "start": 0.0,
+      "end": 4.0,
       "kind": "take"
     },
     {
-      "from": 96,
+      "from": 120,
       "duration": 90,
-      "start": 3.2,
-      "end": 3.2,
+      "start": 4.0,
+      "end": 4.0,
       "kind": "cascade"
     },
     {
-      "from": 186,
-      "duration": 300,
-      "start": 3.2,
-      "end": 13.2,
+      "from": 210,
+      "duration": 261,
+      "start": 4.0,
+      "end": 12.7,
       "kind": "take"
     },
     {
-      "from": 486,
+      "from": 471,
       "duration": 36,
-      "start": 13.2,
-      "end": 13.2,
+      "start": 12.7,
+      "end": 12.7,
       "kind": "languages"
     },
     {
-      "from": 522,
-      "duration": 240,
-      "start": 13.2,
-      "end": 21.2,
+      "from": 507,
+      "duration": 192,
+      "start": 12.7,
+      "end": 19.1,
       "kind": "take"
     },
     {
-      "from": 762,
+      "from": 699,
       "duration": 39,
-      "start": 21.2,
-      "end": 21.2,
+      "start": 19.1,
+      "end": 19.1,
       "kind": "database"
     },
     {
-      "from": 801,
-      "duration": 132,
-      "start": 21.2,
-      "end": 25.6,
+      "from": 738,
+      "duration": 107,
+      "start": 19.1,
+      "end": 22.666666666666668,
       "kind": "take"
     },
     {
-      "from": 933,
+      "from": 845,
       "duration": 39,
-      "start": 25.6,
-      "end": 25.6,
+      "start": 22.666666666666668,
+      "end": 22.666666666666668,
       "kind": "profile"
     },
     {
-      "from": 972,
-      "duration": 168,
-      "start": 25.6,
-      "end": 31.2,
+      "from": 884,
+      "duration": 143,
+      "start": 22.666666666666668,
+      "end": 27.433333333333334,
       "kind": "take"
     },
     {
-      "from": 1140,
+      "from": 1027,
       "duration": 54,
-      "start": 31.2,
-      "end": 31.2,
+      "start": 27.433333333333334,
+      "end": 27.433333333333334,
       "kind": "error"
     },
     {
-      "from": 1194,
-      "duration": 108,
-      "start": 31.2,
-      "end": 34.8,
+      "from": 1081,
+      "duration": 91,
+      "start": 27.433333333333334,
+      "end": 30.466666666666665,
       "kind": "take"
     },
     {
-      "from": 1302,
+      "from": 1172,
       "duration": 60,
-      "start": 34.8,
-      "end": 34.8,
+      "start": 30.466666666666665,
+      "end": 30.466666666666665,
       "kind": "cascade2"
     },
     {
-      "from": 1362,
-      "duration": 55,
-      "start": 34.8,
-      "end": 36.64,
+      "from": 1232,
+      "duration": 66,
+      "start": 30.466666666666665,
+      "end": 32.666666666666664,
       "kind": "take"
     },
     {
-      "from": 1417,
+      "from": 1298,
       "duration": 60,
-      "start": 36.64,
-      "end": 36.64,
+      "start": 32.666666666666664,
+      "end": 32.666666666666664,
       "kind": "ending"
     }
   ],
   "captions": [
     {
-      "startMs": 0,
-      "endMs": 1950,
+      "startMs": 20,
+      "endMs": 2540,
       "text": "Rename this button to Start, please."
     },
     {
-      "startMs": 2080,
-      "endMs": 2980,
+      "startMs": 2800,
+      "endMs": 3900,
       "text": "Already building."
     },
     {
-      "startMs": 6450,
-      "endMs": 7580,
+      "startMs": 7100,
+      "endMs": 8550,
       "text": "Twenty-four files?"
     },
     {
-      "startMs": 8370,
-      "endMs": 9530,
+      "startMs": 8650,
+      "endMs": 10090,
       "text": "I asked for one word."
     },
     {
-      "startMs": 10110,
-      "endMs": 11630,
+      "startMs": 10250,
+      "endMs": 11870,
       "text": "I added translation support."
     },
     {
-      "startMs": 12630,
-      "endMs": 13330,
+      "startMs": 11990,
+      "endMs": 13080,
       "text": "For one word?"
     },
     {
-      "startMs": 13580,
-      "endMs": 14500,
+      "startMs": 13270,
+      "endMs": 14190,
       "text": "Every button,"
     },
     {
-      "startMs": 14690,
-      "endMs": 15790,
+      "startMs": 14290,
+      "endMs": 15710,
       "text": "in thirty languages."
     },
     {
-      "startMs": 17650,
-      "endMs": 18990,
+      "startMs": 17030,
+      "endMs": 18490,
       "text": "This is a one-page demo."
     },
     {
-      "startMs": 19520,
-      "endMs": 20620,
+      "startMs": 18630,
+      "endMs": 19710,
       "text": "You can expand now."
     },
     {
-      "startMs": 21440,
-      "endMs": 22880,
+      "startMs": 19910,
+      "endMs": 21450,
       "text": "And this customer database?"
     },
     {
-      "startMs": 23650,
-      "endMs": 25200,
+      "startMs": 21510,
+      "endMs": 23240,
       "text": "It saves their preferred language."
     },
     {
-      "startMs": 26960,
-      "endMs": 28790,
+      "startMs": 24710,
+      "endMs": 26560,
       "text": "Fine. Show me Start."
     },
     {
-      "startMs": 29410,
-      "endMs": 30710,
+      "startMs": 26680,
+      "endMs": 28110,
       "text": "You'll need a profile first."
     },
     {
-      "startMs": 32710,
-      "endMs": 33450,
+      "startMs": 29560,
+      "endMs": 30470,
       "text": "A profile,"
     },
     {
-      "startMs": 33790,
-      "endMs": 34960,
+      "startMs": 30510,
+      "endMs": 31810,
       "text": "just to read my button?"
     },
     {
-      "startMs": 35610,
-      "endMs": 36850,
+      "startMs": 31950,
+      "endMs": 33400,
       "text": "And a verified email."
     },
     {
-      "startMs": 37370,
-      "endMs": 37770,
+      "startMs": 33590,
+      "endMs": 34250,
       "text": "Ah."
     },
     {
-      "startMs": 40250,
-      "endMs": 41980,
+      "startMs": 36110,
+      "endMs": 38020,
       "text": "Nobody connected the mail service."
     },
     {
-      "startMs": 42380,
-      "endMs": 43130,
+      "startMs": 38170,
+      "endMs": 39100,
       "text": "I'll handle that."
     },
     {
-      "startMs": 45530,
-      "endMs": 47020,
+      "startMs": 41180,
+      "endMs": 43070,
       "text": "Stop renovating the internet!"
     }
-  ]
+  ],
+  "rounds": [
+    {
+      "a": 0.0,
+      "b": 2.61,
+      "role": "human",
+      "prop": "button"
+    },
+    {
+      "a": 2.61,
+      "b": 3.94,
+      "role": "ai",
+      "prop": "button"
+    },
+    {
+      "a": 3.94,
+      "b": 7.11,
+      "role": "human",
+      "prop": "files"
+    },
+    {
+      "a": 7.11,
+      "b": 8.87,
+      "role": "ai",
+      "prop": "translation"
+    },
+    {
+      "a": 8.87,
+      "b": 10.115,
+      "role": "human",
+      "prop": "translation"
+    },
+    {
+      "a": 10.115,
+      "b": 12.71,
+      "role": "ai",
+      "prop": "languages"
+    },
+    {
+      "a": 12.71,
+      "b": 14.3,
+      "role": "human",
+      "prop": "languages"
+    },
+    {
+      "a": 14.3,
+      "b": 15.55,
+      "role": "ai",
+      "prop": "languages"
+    },
+    {
+      "a": 15.55,
+      "b": 17.22,
+      "role": "human",
+      "prop": "database"
+    },
+    {
+      "a": 17.22,
+      "b": 19.065,
+      "role": "ai",
+      "prop": "database"
+    },
+    {
+      "a": 19.065,
+      "b": 21.06,
+      "role": "human",
+      "prop": "button"
+    },
+    {
+      "a": 21.06,
+      "b": 22.625,
+      "role": "ai",
+      "prop": "profile"
+    },
+    {
+      "a": 22.625,
+      "b": 25.02,
+      "role": "human",
+      "prop": "profile"
+    },
+    {
+      "a": 25.02,
+      "b": 26.635,
+      "role": "ai",
+      "prop": "verify"
+    },
+    {
+      "a": 26.635,
+      "b": 29.435,
+      "role": "ai",
+      "prop": "error"
+    },
+    {
+      "a": 29.435,
+      "b": 30.48,
+      "role": "ai",
+      "prop": "cascade2"
+    },
+    {
+      "a": 30.48,
+      "b": 42.667,
+      "role": "human",
+      "prop": "ending"
+    }
+  ],
+  "hookEnd": 2.61,
+  "languagesFrom": 10.115,
+  "effects": [
+    {
+      "src": "grid-dive-files.mp4",
+      "from": 210,
+      "duration": 93,
+      "busyFrom": 226,
+      "busyTo": 257
+    }
+  ],
+  "counts": {
+    "cascade": 7.0,
+    "thirty": 14.58,
+    "cascade2": 39.06666666666667
+  }
 }

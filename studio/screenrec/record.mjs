@@ -9,7 +9,12 @@
 //   {"wait": ms}
 //   {"scroll": {"to": px | "selector", "ms": 2000, "offset": -120}}   smooth eased scroll of the page
 //   {"scrollBy": {"y": px, "ms": 1500}}
-//   {"move": {"selector": "css", "ms": 600}}                       visible cursor glides to an element
+//   {"move": {"selector": "css", "ms": 600, "dx": 14}}             visible cursor glides to an element (dx: CSS px
+//                                                                  from its left edge; default min(half width, 60))
+//   {"pointer": {"selector": "css" | omit, "x": px, "y": px, "ms": 900}}  same glide as move, plus a real CDP
+//                                                                  mouseMoved on every step, so hover-reactive pages
+//                                                                  answer (target: selector like move, with dx, or
+//                                                                  x/y in CSS px from the viewport's top left)
 //   {"click": {"selector": "css", "navigate": false}}              cursor ripple; real click when navigate=true
 //   {"type": {"selector": "css", "text": "...", "cps": 14}}        types into an input, char by char
 //   {"highlight": {"selector": "css", "ms": 1200}}                 yellow box (soft fill; outline only on dark pages)
@@ -64,8 +69,12 @@ class CDP {
 const HELPERS = `
 (() => { if (window.__rec) return;
   const ease = (t) => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+  // Built node by node, never innerHTML: Trusted-Types pages (the Chrome Web Store) throw on a string sink.
   const cur = document.createElement('div');
-  cur.innerHTML = '<svg width="34" height="34" viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="#111" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+  const svgNs = 'http://www.w3.org/2000/svg', mk = (tag, attrs) => { const n = document.createElementNS(svgNs, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
+  cur.appendChild(mk('svg', {width: '34', height: '34', viewBox: '0 0 24 24'})).appendChild(mk('path',
+    {d: 'M4 2l16 9-7 2-3 7z', fill: '#111', stroke: '#fff', 'stroke-width': '1.6', 'stroke-linejoin': 'round'}));
   Object.assign(cur.style, {position:'fixed', left:'0px', top:'0px', zIndex:2147483647, pointerEvents:'none', transform:'translate(-4px,-2px)', filter:'drop-shadow(0 2px 3px rgba(0,0,0,.35))', display:${JSON.stringify(plan.cursor === false ? 'none' : 'block')}});
   const pos = {x: innerWidth * .62, y: innerHeight * .55};
   const place = () => { cur.style.left = pos.x + 'px'; cur.style.top = pos.y + 'px'; };
@@ -85,9 +94,14 @@ const HELPERS = `
   window.__rec = {
     scrollTo: (y, ms) => { const y0 = scrollY; return anim(ms, (k) => scrollTo(0, y0 + (y - y0) * k)); },
     scrollToSel: (sel, ms, off) => { const r = el(sel).getBoundingClientRect(); return window.__rec.scrollTo(scrollY + r.top + (off || -120), ms); },
-    move: (sel, ms) => { const r = el(sel).getBoundingClientRect(); const x0 = pos.x, y0 = pos.y;
-      const x1 = r.left + Math.min(r.width * .5, 60), y1 = r.top + r.height * .5;
+    move: (sel, ms, dx) => { const r = el(sel).getBoundingClientRect(); const x0 = pos.x, y0 = pos.y;
+      const x1 = r.left + (dx == null ? Math.min(r.width * .5, 60) : dx), y1 = r.top + r.height * .5;
       return anim(ms, (k) => { pos.x = x0 + (x1 - x0) * k; pos.y = y0 + (y1 - y0) * k - Math.sin(k * Math.PI) * 30; place(); }); },
+    // pointer: the recorder (Node side) steps the glide itself so each step can also send a real mouse event.
+    pointerEnds: (sel, x, y, dx) => { let x1 = x, y1 = y;
+      if (sel) { const r = el(sel).getBoundingClientRect(); x1 = r.left + (dx == null ? Math.min(r.width * .5, 60) : dx); y1 = r.top + r.height * .5; }
+      return [pos.x, pos.y, x1, y1]; },
+    at: (x, y) => { pos.x = x; pos.y = y; place(); },
     ripple: () => { const d = document.createElement('div');
       Object.assign(d.style, {position:'fixed', left:(pos.x-18)+'px', top:(pos.y-18)+'px', width:'36px', height:'36px', borderRadius:'50%', background:'rgba(255,214,10,.55)', zIndex:2147483646, pointerEvents:'none', transition:'transform .45s ease-out, opacity .45s ease-out'});
       document.documentElement.appendChild(d); requestAnimationFrame(() => { d.style.transform = 'scale(2.2)'; d.style.opacity = '0'; });
@@ -131,6 +145,22 @@ async function run() {
   await cdp.send('Emulation.setUserAgentOverride', { userAgent: ua, acceptLanguage: 'en-US,en' });
   const evalJs = async (expr) => { const r = await cdp.send('Runtime.evaluate', { expression: expr, awaitPromise: true, returnByValue: true });
     if (r.exceptionDetails) throw new Error(r.exceptionDetails.exception?.description || r.exceptionDetails.text); return r.result?.value; };
+  // The move glide (same ease, same 30 px arc), stepped from here: every step places the visible cursor and sends
+  // Input.dispatchMouseEvent mouseMoved at the same CSS px, so :hover, pointermove and mousemove fire for real.
+  const ease = (t) => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const pointer = async (p) => {
+    const ms = p.ms || 900;
+    const [x0, y0, x1, y1] = await evalJs(`__rec.pointerEnds(${JSON.stringify(p.selector || null)}, ${p.x ?? null}, ${p.y ?? null}, ${p.dx ?? null})`);
+    if (![x1, y1].every(Number.isFinite)) throw new Error('pointer needs a selector or numeric x and y: ' + JSON.stringify(p));
+    const t0 = Date.now();
+    for (let k = 0; ; ) {
+      k = Math.min(1, (Date.now() - t0) / ms);
+      const e = ease(k), x = x0 + (x1 - x0) * e, y = y0 + (y1 - y0) * e - Math.sin(e * Math.PI) * 30;
+      await Promise.all([evalJs(`__rec.at(${x}, ${y})`), cdp.send('Input.dispatchMouseEvent', { type: 'mouseMoved', x, y, button: 'none' })]);
+      if (k >= 1) break;
+      await sleep(12);
+    }
+  };
   const navigate = async (url) => { const loaded = cdp.once('Page.loadEventFired', 45000); await cdp.send('Page.navigate', { url });
     await loaded; await sleep(plan.settleMs ?? 1500); await evalJs(HELPERS); };
 
@@ -139,7 +169,7 @@ async function run() {
   if (plan.debug) {   // what the recorder actually sees: title, URL, a PNG, and whether each selector matches
     const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });
     writeFileSync(OUT.replace(/\.mp4$/, '') + '.debug.png', Buffer.from(shot.data, 'base64'));
-    const sels = [...new Set((plan.actions || []).flatMap((a) => [a.move?.selector, a.click?.selector, a.type?.selector,
+    const sels = [...new Set((plan.actions || []).flatMap((a) => [a.move?.selector, a.pointer?.selector, a.click?.selector, a.type?.selector,
       a.highlight?.selector, a.zoom?.originSelector, typeof a.scroll?.to === 'string' ? a.scroll.to : null]).filter(Boolean))];
     console.error(JSON.stringify(await evalJs(`({title: document.title, url: location.href, selectors: Object.fromEntries(${JSON.stringify(sels)}.map((s) => [s, s.startsWith('text=') ? 'text' : document.querySelectorAll(s).length]))})`)));
   }
@@ -154,7 +184,7 @@ async function run() {
   await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 92, maxWidth: W * SCALE, maxHeight: H * SCALE, everyNthFrame: 1 });
   const t0 = Date.now() / 1000;
 
-  const selOf = (a) => a.move?.selector || a.click?.selector || a.type?.selector || a.highlight?.selector
+  const selOf = (a) => a.move?.selector || a.pointer?.selector || a.click?.selector || a.type?.selector || a.highlight?.selector
     || a.zoom?.originSelector || (typeof a.scroll?.to === 'string' ? a.scroll.to : null);
   for (const a of plan.actions || []) {
     const sel = selOf(a); if (sel) await evalJs(`__rec.waitFor(${JSON.stringify(sel)}, ${plan.selectorTimeoutMs || 6000})`);
@@ -163,7 +193,8 @@ async function run() {
       ? `__rec.scrollToSel(${JSON.stringify(a.scroll.to)}, ${a.scroll.ms || 2000}, ${a.scroll.offset ?? -120})`
       : `__rec.scrollTo(${Number(a.scroll.to)}, ${a.scroll.ms || 2000})`);
     else if (a.scrollBy) await evalJs(`__rec.scrollTo(scrollY + ${Number(a.scrollBy.y)}, ${a.scrollBy.ms || 1500})`);
-    else if (a.move) await evalJs(`__rec.move(${JSON.stringify(a.move.selector)}, ${a.move.ms || 600})`);
+    else if (a.move) await evalJs(`__rec.move(${JSON.stringify(a.move.selector)}, ${a.move.ms || 600}, ${a.move.dx ?? null})`);
+    else if (a.pointer) await pointer(a.pointer);
     else if (a.click) { await evalJs(`__rec.ripple()`);
       if (a.click.navigate) { const loaded = cdp.once('Page.loadEventFired', 45000);
         await evalJs(`document.querySelector(${JSON.stringify(a.click.selector)}).click()`); await loaded; await sleep(800); await evalJs(HELPERS); } }

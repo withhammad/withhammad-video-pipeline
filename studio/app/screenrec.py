@@ -10,6 +10,8 @@ Reel tip: a narrow viewport (about 600 CSS px) with scale 1.8 gives 1080 px wide
 readable on a phone; a 1080 px desktop viewport makes text too small inside a vertical reel.
 Selectors: CSS, or 'text=<visible text>' (smallest visible element containing it), waited for up to
 selectorTimeoutMs (default 6 s). 'debug': true also writes <out>.debug.png and prints which selectors match.
+'pointer' glides the cursor like 'move' and sends real CDP mouse moves on every step, so hover-reactive
+figures answer: {'pointer': {'x': 143.5, 'y': 151.5, 'ms': 900}} (CSS px) or {'pointer': {'selector': ...}}.
 CLI:  .venv/bin/python -m app.screenrec plan.json
 """
 import json
@@ -19,7 +21,7 @@ import tempfile
 from pathlib import Path
 
 RECORDER = Path(__file__).resolve().parents[1] / 'screenrec' / 'record.mjs'
-ACTIONS = {'wait', 'scroll', 'scrollBy', 'move', 'click', 'type', 'highlight', 'remove', 'goto', 'zoom'}
+ACTIONS = {'wait', 'scroll', 'scrollBy', 'move', 'pointer', 'click', 'type', 'highlight', 'remove', 'goto', 'zoom'}
 
 
 class ScreenRecError(RuntimeError):
@@ -33,6 +35,10 @@ def validate(plan):
     for i, action in enumerate(plan.get('actions', [])):
         if not isinstance(action, dict) or len(action) != 1 or next(iter(action)) not in ACTIONS:
             raise ScreenRecError(f'action {i} must be one of {sorted(ACTIONS)}: {action!r}')
+        pointer = action.get('pointer')
+        if 'pointer' in action and not (isinstance(pointer, dict) and (pointer.get('selector') or all(
+                isinstance(pointer.get(k), (int, float)) and not isinstance(pointer.get(k), bool) for k in ('x', 'y')))):
+            raise ScreenRecError(f'action {i}: pointer needs a selector or numeric x and y: {action!r}')
     for key in ('width', 'height', 'fps'):
         if key in plan and not (isinstance(plan[key], int) and plan[key] > 0):
             raise ScreenRecError(f'{key} must be a positive integer')

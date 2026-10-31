@@ -6,6 +6,8 @@
 // Long hooks shrink to fit: the text is measured with the loaded fonts in calculateMetadata (see fitCover).
 import React from "react";
 import { AbsoluteFill, Img, staticFile, type CalculateMetadataFunction } from "remotion";
+import { CoverStack, fitCoverStack, type CoverStackProps } from "./CoverStack";
+import { seamFontsReady } from "./explainer/seam/fonts";
 import { fontsReady } from "./fonts";
 
 // Same values as BLUE / SANS / SERIF in ./Composition.tsx (not exported there). Keep the two files in sync by hand
@@ -208,7 +210,11 @@ const TILE_W = COVER_W * TILE;
 export const SHEET_W = 2 * SHEET.margin + 4 * TILE_W + 3 * SHEET.gap;
 const ROW_H = SHEET.label + COVER_H * TILE + SHEET.caption;
 
-export type CoverSheetProps = { title: string; subtitle: string; items: { label: string; cover: CoverProps }[] };
+/** A sheet item is the house cover or (layout "stacked") the stacked-box cover of ./CoverStack. */
+export type SheetCover = CoverProps | CoverStackProps;
+const isStack = (c: SheetCover): c is CoverStackProps => (c as CoverStackProps).layout === "stacked";
+
+export type CoverSheetProps = { title: string; subtitle: string; items: { label: string; cover: SheetCover }[] };
 
 export const coverSheetDefaults: CoverSheetProps = {
   title: "Cover picks",
@@ -220,15 +226,18 @@ export const sheetHeight = (count: number) =>
   2 * SHEET.margin + SHEET.header + count * ROW_H + Math.max(0, count - 1) * SHEET.rowGap;
 
 export const calculateCoverSheetMetadata: CalculateMetadataFunction<CoverSheetProps> = async ({ props }) => {
-  await fontsReady;
-  const items = props.items.map((item) => ({ ...item, cover: { ...item.cover, fit: fitCover(item.cover) } }));
+  await Promise.all([fontsReady, seamFontsReady]);
+  const items = props.items.map((item) => ({
+    ...item,
+    cover: isStack(item.cover) ? { ...item.cover, fit: fitCoverStack(item.cover) } : { ...item.cover, fit: fitCover(item.cover) },
+  }));
   return { props: { ...props, items }, width: SHEET_W, height: sheetHeight(Math.max(1, items.length)) };
 };
 
-const Tile: React.FC<{ cover: CoverProps; top: number; height: number }> = ({ cover, top, height }) => (
+const Tile: React.FC<{ cover: SheetCover; top: number; height: number }> = ({ cover, top, height }) => (
   <div style={{ position: "relative", width: TILE_W, height: height * TILE, overflow: "hidden", borderRadius: 6, boxShadow: "0 0 0 1px #c9d1dc" }}>
     <div style={{ position: "absolute", left: 0, top: -top * TILE, width: COVER_W, height: COVER_H, transform: `scale(${TILE})`, transformOrigin: "0 0" }}>
-      <Cover {...cover} />
+      {isStack(cover) ? <CoverStack {...cover} /> : <Cover {...cover} />}
     </div>
   </div>
 );

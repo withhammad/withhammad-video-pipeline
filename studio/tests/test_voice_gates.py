@@ -128,3 +128,14 @@ def test_table_and_strict(tmp_path):
         voice_gates.check(wav, strict=True, out=io.StringIO())
     assert voice_gates.main(['--voice', str(wav), '--strict']) == 1
     assert voice_gates.main(['--voice', str(wav)]) == 0
+
+
+def test_check_job_passes_the_tighten_av_offset(tmp_path, monkeypatch):
+    import json
+    vg = voice_gates
+    # cuts.json times are on the corrected sound (av_offset_ms), so the source take is shifted the same way.
+    (tmp_path / 'cuts.json').write_text(json.dumps({'cuts': [], 'av_offset_ms': -100.0}))
+    seen = {}
+    monkeypatch.setattr(vg, 'check', lambda voice, **kw: seen.update(kw) or {'rows': [], 'failed': []})
+    vg.check_job(tmp_path)
+    assert seen['av_offset_ms'] == -100.0

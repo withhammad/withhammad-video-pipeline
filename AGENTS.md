@@ -31,6 +31,12 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 - Every video mirrors the reference reel's beats, length and edit style (docs/EDIT_STYLE.md) in our own words.
 - Lesson text: written by the agent session (no Anthropic API key). Animations: designed by the agent session, rendered with Remotion.
 - Spoken script never contains commands, URLs or code; those go in on_screen_text.
+- Voice for all new videos (owner rule 2026-10-23, "use this ElevenLabs voice for my videos now"): HeyGen voice
+  "Hammad Yousuf" id 46d4ae4996a8476c8227108e3847f401 (From Avatar, ElevenLabs, Multilingual) with its saved defaults
+  and no overrides: engine ElevenLabs, model shown as "ElevenLabs v4", speed 1.1, stability 50, accent blank/original.
+  Do not send en-GB/en-CA or other locale overrides (the owner rejected those tests). The old voice
+  0f7032b11fb743589cc81b721f4389b3 is retired. Its lips lead the sound by about 80 ms (measured on /p/ and /b/,
+  outputs/coding-comedy-review/qa/lipsync-*.jpg). The 2026-10-17 settings below are superseded where they differ.
 - HeyGen: ENERGETIC delivery every time — the owner rejects calm/"sleepy" takes. Saved default voice (2026-10-17):
   HeyGen Voice v1.0.9, Tone **Excited**, Expressiveness **0.80**, Speed **1.1x**, accent Original (accent changes do not
   stick on the cloned voice). Always switch on "More expressive" and fill "Apply custom motion", e.g.: "High-energy creator
@@ -41,6 +47,12 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
   at every full stop. Exclamation on hook and CTA only. Budget ~80 words per 22 s (tightened pace measured 219 wpm). Spell
   brand acronyms phonetically in the HeyGen script only (Whisper heard "REA" as "Ray"); captions and on-screen text
   keep the real spelling. Ask the owner how he says a new acronym (REA: "R-E-A" or "ree-ah" is still pending).
+- No "AI avatar" text inside any video (owner rule 2026-10-23: "don't mention AI avatar"): no footer, label or
+  watermark saying it; on-screen branding is "WITHHAMMAD". The platform AI labels and the "AI avatar of me" line in
+  post copy stay (platform rules; app.publish_reel checks them).
+- Covers are built for click-through first (owner rule 2026-10-23, "the thumbnail is the face of every video"): the
+  take's strongest emotion frame that fits the hook, the whole head inside the 3:4/4:5/1:1 grid crops, two big lines
+  with the punch word in a high-contrast box, no small text; show a cover sheet with those crops before posting.
 - Accessibility: burned-in word captions (high contrast), an .srt uploaded to every platform that accepts one, alt text where
   supported, no information conveyed by colour alone.
 - Distribution target: every video goes to YouTube Shorts, Instagram Reels, LinkedIn, TikTok and Facebook Reels with
@@ -144,6 +156,8 @@ No Anthropic API key is involved; `STUDIO_LESSON_MODE=api` exists only for unatt
 
 The owner pastes one reference reel or post per day. That link, or "next", means: run this whole routine on it.
 Never skip a gate.
+The owner's own version of this routine, as one paste-ready prompt (2026-10-23), is docs/PIPELINE_PROMPT.md:
+animate to match the reference with the reel-editing skills pack + Remotion, then publish everywhere only after his OK.
 
 1. Intake, then the `reference-breakdown` workflow (.claude/workflows, args {job}), then the lesson. Owner rule
    2026-10-18: match the reference EXACTLY in flow and look (same beats in the same order, same scene types, real
@@ -266,8 +280,15 @@ kinds); `.local/jobs/91ac50635d3d/seam.smoke.json` uses every feature on the rea
    until it prints no warnings, then `... render .local/jobs/<id> --out .local/jobs/<id>/final.mp4` and check frames
    at every flip, overlay and CTA beat. Doto 500 (captions: 900 merged the LED dots into blocky strokes) and Inter 900
    are vendored OFL fonts (public/fonts, metrics in app/seam_fonts.json). Per unit, "crop_top" (a fraction of the
-   recording) hides a page header strip and "push" adds a slow push-in; per pill, "y" (canvas px) moves it onto
-   blank page space. Never a pill or the hook box over a line of page text, never a third-party wordmark in frame.
+   recording) hides a page header strip and "push" adds a slow push-in; "scale" + "origin" reframe the page in its
+   panel (0.92 insets a box that runs to the panel edges) and "fade" [from, to] (panel px) veils half-cut lines at the
+   seam or the panel's bottom in page white; per pill, "y" (canvas px) moves it onto blank page space; an ellipse
+   round a word in running text takes "power": 4 (a rounded loop that clears the first and last glyphs). Never a pill or the hook box over a line of page text, never a third-party wordmark in frame.
+   A CTA "plate" takes "saturate" (0.2 mutes a coloured page badge that blurs into a blob behind the pill); take its
+   still before the recorder's box comes up. Markers on list lines: "box_px" sized to the words (a measured
+   "highlight": n spans the whole item and neighbours overlap). A page that leaves a blank band is re-recorded
+   narrower (e.g. 270x210 CSS x4 for a top panel) rather than scaled. `screenrec` "move" takes "dx" (CSS px from the
+   element's left) to park the cursor off the label. `build` also writes <job>/captions.srt (scripted spelling).
 4. Scene changes snap onto a jump cut within 280 ms (SEAM_SNAP_MS), so every cut that lands near a unit start hides
    under the swap or flip. Voice gates for a sped-up take with no avatar_enhanced.mp4 (job 91ac50635d3d): pause
    share, HF and esses on the final stem (`app.voice_gates --voice <job>/avatar_main.mp4 --master <job>/final.mp4
