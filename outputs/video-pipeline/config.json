@@ -473,5 +473,15 @@
     "week2_approved_by_owner": "2026-11-01",
     "week2": "47 posts 9-12 Nov (IG, FB, LinkedIn, YouTube); 100 Dreams held",
     "task_cron": "3 9,11,12,13,14,16,17,20 2-12 11 *"
+  },
+  "refill": {
+    "rule": "owner 2026-11-01: never stop; daily min 2 reels, 3 posts, 1 long video; 7 days ahead",
+    "module": "studio/app/refill.py",
+    "inbox": "outputs/video-pipeline/reference-inbox.json",
+    "task": "content-refill 07:30 daily",
+    "gaps": [
+      "posts lane (carousel/text-post builder) not built",
+      "daily long-video lane not built"
+    ]
   }
 }
