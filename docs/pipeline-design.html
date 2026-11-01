@@ -1,0 +1,197 @@
+<title>WithHammad Reel Pipeline</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one vertical spine from link to comment loop; stages hang off it as rows, the publish step fans out into a platform grid. */
+:root{
+  --bg:#f5f7fb; --panel:#ffffff; --ink:#111a2e; --muted:#5a6580; --line:#d8dfec;
+  --accent:#1f5eff; --accent-soft:#e6edff;
+  --live:#0f8a5f; --live-bg:#e3f5ed; --gap:#b4570b; --gap-bg:#fdf0e1; --gate:#8a1fbf; --gate-bg:#f4e8fb; --new:#1f5eff; --new-bg:#e6edff;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Figtree",ui-sans-serif,system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1020; --panel:#121a2e; --ink:#e8edf8; --muted:#97a3bf; --line:#253150;
+  --accent:#6f9bff; --accent-soft:#18244a;
+  --live:#4fd1a0; --live-bg:#0f2b22; --gap:#f0a35c; --gap-bg:#33230f; --gate:#d08cf5; --gate-bg:#2a1638; --new:#6f9bff; --new-bg:#18244a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1020; --panel:#121a2e; --ink:#e8edf8; --muted:#97a3bf; --line:#253150;
+  --accent:#6f9bff; --accent-soft:#18244a;
+  --live:#4fd1a0; --live-bg:#0f2b22; --gap:#f0a35c; --gap-bg:#33230f; --gate:#d08cf5; --gate-bg:#2a1638; --new:#6f9bff; --new-bg:#18244a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1{font:800 clamp(30px,5vw,46px)/1.05 var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:700 22px/1.2 var(--display);margin:0 0 4px;text-wrap:balance}
+h3{font:600 17px/1.3 var(--body);margin:0}
+p{margin:0}
+.lede{color:var(--muted);max-width:66ch}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:5px 9px;border-radius:999px;white-space:nowrap}
+.live{color:var(--live);background:var(--live-bg)} .gap{color:var(--gap);background:var(--gap-bg)} .gate{color:var(--gate);background:var(--gate-bg)} .new{color:var(--new);background:var(--new-bg)}
+.phase{display:flex;flex-direction:column;gap:10px}
+.phase-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.phase-head .tag{font:500 12px var(--mono);color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+.spine{position:relative;display:flex;flex-direction:column;gap:10px;padding-left:28px}
+.spine::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.step{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px}
+.step::before{content:"";position:absolute;left:-24px;top:19px;width:12px;height:12px;border-radius:50%;background:var(--panel);border:2px solid var(--accent)}
+.step .what{color:var(--muted);font-size:15px;grid-column:1/-1;min-width:0}
+.step .tool{font:500 12.5px/1.5 var(--mono);color:var(--muted);grid-column:1/-1;min-width:0;overflow-wrap:anywhere}
+.step.gatestep{border-color:var(--gate);background:var(--gate-bg)}
+.step.gatestep::before{border-color:var(--gate);background:var(--gate)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card .top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;display:flex;flex-direction:column;gap:3px}
+.limits{font:500 12px/1.5 var(--mono);color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.loop{background:var(--accent-soft);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.flowline{font:500 13.5px/1.7 var(--mono);color:var(--ink);overflow-x:auto;white-space:nowrap;padding-bottom:4px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+.tablewrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.decide{background:var(--panel);border:2px solid var(--accent);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.decide ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.foot{color:var(--muted);font-size:13.5px}
+@media (max-width:520px){.step{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <span class="chip new" style="align-self:flex-start">Draft for Hammad · 1 Nov 2026</span>
+    <h1>WithHammad Reel Pipeline</h1>
+    <p class="lede">From one pasted link to a reel on six platforms, then the comment replies that send people to the guide. Every step shows whether it runs today, has a gap, or waits for your OK. Leave a comment on any step you want changed.</p>
+    <div class="legend">
+      <span class="chip live">● Runs today</span>
+      <span class="chip gap">● Gap to build</span>
+      <span class="chip gate">● Your approval</span>
+      <span class="chip new">● New from your rule today</span>
+    </div>
+  </header>
+
+  <section class="phase">
+    <div class="phase-head"><span class="tag">Stage A</span><h2>Make the reel</h2></div>
+    <div class="spine">
+      <div class="step"><h3>1. You paste a link</h3><span class="chip live">Runs today</span>
+        <p class="what">An Instagram, YouTube, LinkedIn, TikTok or X post, or a GitHub repo you want covered.</p></div>
+      <div class="step"><h3>2. Intake</h3><span class="chip live">Runs today</span>
+        <p class="what">Download the reference, transcribe it word by word, pull frames and the cover, collect the facts it claims.</p>
+        <p class="tool">studio/run_local.sh · Whisper · ffmpeg</p></div>
+      <div class="step"><h3>3. Breakdown and fact-check</h3><span class="chip live">Runs today</span>
+        <p class="what">Scene by scene: what is on screen, which logos and mock-ups, the beat timing. Every claim is checked against the source and wrong facts are corrected.</p>
+        <p class="tool">reference-breakdown workflow → spec.md</p></div>
+      <div class="step"><h3>4. Script, keyword and guide</h3><span class="chip live">Runs today</span>
+        <p class="what">Same beats in our words. One comment keyword (for example DUET) and one free guide page per reel.</p></div>
+      <div class="step"><h3>5. Avatar take</h3><span class="chip live">Runs today</span>
+        <p class="what">HeyGen, one take, your approved ElevenLabs voice. The avatar appears only where the reference shows a face.</p></div>
+      <div class="step"><h3>6. Edit</h3><span class="chip live">Runs today</span>
+        <p class="what">Reel skills pack and HyperFrames: same visuals as the reference, our captions, hook on frame 0, WITHHAMMAD branding only.</p>
+        <p class="tool">9:16 for IG, TikTok, Shorts, FB · 4:5 for LinkedIn</p></div>
+      <div class="step"><h3>7. Quality check</h3><span class="chip live">Runs today</span>
+        <p class="what">Format, safe zones, captions, lip sync, loudness, one-frame-a-second contact sheet.</p></div>
+      <div class="step"><h3>8. Cover</h3><span class="chip live">Runs today</span>
+        <p class="what">The glow-grid template: two-finger point, navy glow, two-line hook, two logo tiles, safe in every grid crop.</p></div>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head"><span class="tag">Stage B</span><h2>Make it findable</h2></div>
+    <div class="spine">
+      <div class="step"><h3>9. SEO research, separately per platform</h3><span class="chip new">New rule today</span>
+        <p class="what">Each platform gets its own research and its own copy. Nothing is shared across platforms except the facts. Each pack lists its sources, and every claim is checked against the fact file.</p>
+        <p class="tool">seo-pack: YouTube autocomplete + top videos last 90 days · Google suggest for IG/TikTok/LinkedIn terms · competitor captions</p></div>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="top"><h3>YouTube Shorts</h3></div>
+        <ul><li>Title leads with the searched phrase</li><li>Guide link in the first two description lines</li><li>#Shorts plus 2 topic hashtags</li></ul>
+        <p class="limits">Title ≤ 70 visible · 3 hashtags show above title</p></div>
+      <div class="card"><div class="top"><h3>Instagram</h3></div>
+        <ul><li>Keyword phrase in the first 125 characters</li><li>Comment-keyword CTA, follow @withhammad.ai</li><li>Alt text written for search</li></ul>
+        <p class="limits">Max 5 hashtags · caption 2,200</p></div>
+      <div class="card"><div class="top"><h3>Facebook Page</h3></div>
+        <ul><li>Own caption, not the Instagram one</li><li>Guide link in the post, follow ask</li><li>Same keyword works through the webhook</li></ul>
+        <p class="limits">1–3 hashtags</p></div>
+      <div class="card"><div class="top"><h3>LinkedIn</h3></div>
+        <ul><li>Professional search terms in the first 210 characters</li><li>Guide link in the post, no comment gate</li><li>Ends with a question</li></ul>
+        <p class="limits">0–3 hashtags at the end · 3,000 chars</p></div>
+      <div class="card"><div class="top"><h3>TikTok</h3></div>
+        <ul><li>Spoken and caption keywords match</li><li>"Full guide: link in bio"</li><li>Keyword reply spells the guide path</li></ul>
+        <p class="limits">3–5 hashtags</p></div>
+      <div class="card"><div class="top"><h3>X</h3></div>
+        <ul><li>Hook keyword first</li><li>Guide link, one or two hashtags</li></ul>
+        <p class="limits">280 chars, a link counts as 23</p></div>
+    </div>
+    <div class="spine">
+      <div class="step"><h3>10. Website for the reel</h3><span class="chip live">Runs today</span>
+        <p class="what">Free guide page (the DM link), a blog post for Google search, and the reel embedded on both. The keyword rule goes in the same commit.</p>
+        <p class="tool">withhammad.com · GitHub → Vercel · dm-rules.json</p></div>
+      <div class="step gatestep"><h3>11. You approve</h3><span class="chip gate">Your OK</span>
+        <p class="what">You get the contact sheet, the final video and every platform's caption and hashtags. Nothing is queued before you say yes.</p></div>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head"><span class="tag">Stage C</span><h2>Deliver</h2></div>
+    <div class="spine">
+      <div class="step"><h3>12. Queue at the best times</h3><span class="chip live">Runs today</span>
+        <p class="what">Three reels a day, each platform at its own slot picked from your own analytics. The next slot review is 3 Nov.</p>
+        <p class="tool">schedule.json · slots.json · repost-queue.json for the catch-up week</p></div>
+      <div class="step"><h3>13. Post on every platform</h3><span class="chip live">Runs today</span>
+        <p class="what">A scheduled task fires at each slot, posts, opens the live URL to confirm it, and records it in git.</p></div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Platform</th><th>Account</th><th>How it posts</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td>Instagram</td><td>@withhammad.ai, Collab invites to @with.hammad and @hammadagentic.ai</td><td>Instagram API</td><td><span class="chip live">Runs today</span></td></tr>
+          <tr><td>Facebook</td><td>Page "With Hammad AI"</td><td>Page API. API posts do not cross-post from Instagram.</td><td><span class="chip gap">Needs one consent</span></td></tr>
+          <tr><td>YouTube</td><td>@with.hammad Shorts</td><td>API, scheduled public time</td><td><span class="chip live">Runs today</span></td></tr>
+          <tr><td>LinkedIn</td><td>Hammad Yousuf</td><td>API, 4:5 video</td><td><span class="chip live">Runs today</span></td></tr>
+          <tr><td>TikTok</td><td>@hammadyousuf01</td><td>Your Chrome, native scheduler</td><td><span class="chip live">Runs today</span></td></tr>
+          <tr><td>X</td><td>@HammadYousufAI</td><td>Your Chrome, composer schedule</td><td><span class="chip live">Runs today</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head"><span class="tag">Stage D</span><h2>After it is live</h2></div>
+    <div class="loop">
+      <h3>The comment loop</h3>
+      <div class="flowline">viewer comments the keyword → bot asks them to follow → "I followed" → follow checked → guide link sent → reply recorded so nobody gets it twice</div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Platform</th><th>How replies happen</th><th>How often</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td>Instagram + Facebook</td><td>Our own webhook on withhammad.com: follow-gated DM with the guide link</td><td>Real time</td><td><span class="chip live">Live, not yet tested on a real comment</span></td></tr>
+          <tr><td>LinkedIn</td><td>Chrome routine types the reply with the link</td><td>Every 30 min, 7:00–23:00</td><td><span class="chip live">Live, proven 31 Oct</span></td></tr>
+          <tr><td>YouTube</td><td>Data API reply as the channel</td><td>Twice an hour</td><td><span class="chip live">Live, waiting for a keyword comment</span></td></tr>
+          <tr><td>X</td><td>Chrome routine</td><td>Hourly</td><td><span class="chip live">Live, unproven</span></td></tr>
+          <tr><td>TikTok</td><td>Chrome routine, reply spells the guide path</td><td>Hourly</td><td><span class="chip live">Live, first run 2 Nov</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="spine">
+      <div class="step"><h3>14. Pinned comment and first reply</h3><span class="chip live">Runs today</span>
+        <p class="what">Same day as the post: pinned comment with the keyword or link, so the CTA is visible under every reel.</p></div>
+      <div class="step"><h3>15. Learn from the numbers</h3><span class="chip gap">Partly</span>
+        <p class="what">Weekly: views, saves, follows and keyword comments per reel and per slot. Winners shape the next topics and posting times.</p>
+        <p class="tool">Missing: Instagram insights scope, GA4 and Search Console for the site</p></div>
+    </div>
+  </section>
+
+  <section class="decide">
+    <h2>Decide before I continue</h2>
+    <ol>
+      <li><b>SEO for the 20 queued posts.</b> Six reels have no researched pack yet: REA teardown, LinkedIn installs, motion kit, job search, website brief and AI projects. I'll research those six per platform before Monday's first slot and swap the queued captions.</li>
+      <li><b>Facebook.</b> One consent click from you adds publishing to the Page token. Then every reel also posts to the With Hammad AI Page with its own caption.</li>
+      <li><b>Anything else on this page.</b> Comment on a step to change, drop or add it.</li>
+    </ol>
+  </section>
+  <p class="foot">Source: docs/PIPELINE_V2.md, docs/routines/README.md and the live checks run on 1 Nov 2026.</p>
+</div>

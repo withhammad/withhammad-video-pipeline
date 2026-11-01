@@ -24,7 +24,7 @@ from instagram_oauth import CERT, KEY, SECRETS, CallbackServer, ensure_cert, not
 APP_ID = '1098576635873878'
 REDIRECT = 'https://127.0.0.1:8767/facebook/callback'
 SCOPES = ['pages_show_list', 'pages_manage_metadata', 'pages_messaging', 'pages_read_engagement',
-          'pages_manage_engagement', 'pages_read_user_content']
+          'pages_manage_engagement', 'pages_read_user_content', 'pages_manage_posts']
 GRAPH = 'https://graph.facebook.com/v25.0'
 SECRET_FILE = SECRETS / 'facebook-app-secret.txt'
 OUTPUT = SECRETS / 'facebook-page-oauth.json'
