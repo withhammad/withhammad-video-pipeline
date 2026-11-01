@@ -1,0 +1,550 @@
+<title>Repost Queue Captions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one column of post cards in posting order; platform colour on the left edge. */
+:root{--bg:#f5f7fb;--panel:#fff;--ink:#111a2e;--muted:#5a6580;--line:#d8dfec;--ig:#c13584;--fb:#1877f2;--li:#0a66c2;--body:"Figtree",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1020;--panel:#121a2e;--ink:#e8edf8;--muted:#97a3bf;--line:#253150;--ig:#f06bb5;--fb:#6fa8ff;--li:#6fa8ff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1020;--panel:#121a2e;--ink:#e8edf8;--muted:#97a3bf;--line:#253150;--ig:#f06bb5;--fb:#6fa8ff;--li:#6fa8ff;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.wrap{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+h1{font-size:30px;line-height:1.1;margin:0;text-wrap:balance}
+.lede{color:var(--muted);max-width:66ch;margin:0}
+.post{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.post.instagram{border-left-color:var(--ig)}.post.facebook{border-left-color:var(--fb)}.post.linkedin{border-left-color:var(--li)}
+.meta{display:flex;gap:12px;flex-wrap:wrap;font:500 12px var(--mono);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.plat{color:var(--ink)}.kw{color:var(--ink)}
+h3{margin:0;font-size:16px}
+pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.5 var(--body);color:var(--ink);border-top:1px dashed var(--line);padding-top:8px}
+</style>
+<div class="wrap">
+<h1>Repost Queue Captions</h1>
+<p class="lede">All 33 posts in posting order, 2 to 6 Nov 2026, GST. Each caption comes from that reel's own researched SEO pack for that platform. Instagram posts go from @withhammad.ai with Collab invites to @with.hammad and @hammadagentic.ai. Comment on any caption you want changed.</p>
+<article class="post linkedin"><div class="meta"><span class="plat">linkedin</span><span>2026-11-02 09:00 GST</span><span class="kw">BYTES</span></div><h3>Kimi K3 on 8 GB of RAM: how a 2.78T model runs with no GPU</h3><pre>Kimi K3 on 8 GB RAM with no GPU: a 2.78-trillion-parameter open-weight LLM ran locally, and the real hardware requirement is your disk, not your memory.
+Free setup guide: https://withhammad.com/resources/kimi-k3-on-8gb-ram
+
+How kimi-k3-in-c, an Apache-2.0 C engine by Fareed Khan, does it:
+- About 93% of Moonshot AI&#x27;s 1.56 TB checkpoint is mixture-of-experts weights.
+- Those experts stay on a fast NVMe SSD, and each token reads only 16 of 896 experts per layer.
+- Output is byte-identical from 8 GB to 224 GB of RAM. More memory changes the speed, not the answer.
+
+What it really costs:
+- About 1.7 TB of free disk before you download a single byte.
+- Hours of downloading (about 3.5 hours at 1 Gbps).
+- About 30 seconds per token, measured on a 124-core server with its RAM capped at 8 GB.
+- On an 8 GB Jetson board with a hard drive, one word (&quot;Paris&quot;) took nearly 16 minutes.
+
+So treat it as a proof of concept, not an everyday app: text only, no server, no quality benchmark.
+
+For UAE businesses that handle client data, the interesting part is privacy. A model you run locally keeps prompts on your own machine; a hosted API sends them to another company&#x27;s servers. The memory wall did not disappear. It moved to your disk.
+
+Kimi K3 is open weights under Moonshot&#x27;s own Kimi K3 License, a custom license rather than an OSI open-source one. The engine is Apache-2.0.
+
+Full hardware list and the setup steps: https://withhammad.com/resources/kimi-k3-on-8gb-ram
+Follow me for practical AI builds for marketers and founders.
+
+AI avatar of me.
+
+Would you trade speed for keeping your data on your own hardware?
+
+#KimiK3 #LocalAI #OpenWeights</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-02 11:00 GST</span><span class="kw">DUET</span></div><h3>Claude Duet: Anthropic&#x27;s proactive agent that messages you first (research preview)</h3><pre>Claude Duet, Anthropic&#x27;s new AI agent, messages you first. Comment DUET and I&#x27;ll DM you the guide.
+
+It&#x27;s a research preview on a US waitlist, Pro and Max subscribers first. It isn&#x27;t open in the UAE yet.
+
+What Claude Duet does:
+- Sends a morning brief from the apps you connect (Gmail, Slack, Google Calendar)
+- Checks in every few hours and messages you only when something needs you (Anthropic says it can still misjudge urgency)
+- Builds dashboards, sales forecasts and web apps on its own cloud computer, even with your laptop closed
+- Asks before it sends, pays, signs or deletes anything
+
+Claude Duet price: no extra charge. It&#x27;s included in Claude Pro ($20/mo) and Max (from $100/mo) and uses the same usage limits. OpenAI dots launched on plans from $100/mo; Grok Bot, as of Oct 23, starts at $30/mo.
+
+Built around Claude Opus 5.5, which Anthropic calls its leading model.
+
+Comment DUET and I&#x27;ll DM you the guide: who can get it, what it costs and how to prepare.
+Follow @withhammad.ai so the DM reaches you.
+AI avatar of me.
+
+#ClaudeDuet #ClaudeAI #Anthropic #AIAgents #AIForBusiness</pre></article>
+<article class="post linkedin"><div class="meta"><span class="plat">linkedin</span><span>2026-11-02 13:00 GST</span><span class="kw">AITRAFFIC</span></div><h3>AI search traffic converts better? How to track your own AI traffic in GA4</h3><pre>How to track AI referral traffic in GA4, and whether AI search visitors really convert better. One Semrush study found them 4.4x as valuable as organic search visitors, by conversion rate.
+Free setup guide: https://withhammad.com/resources/ai-traffic-ga4
+
+Why it can happen: people research inside ChatGPT, Claude or Gemini before they click, so they arrive further down the funnel than someone scanning search results.
+
+The stat, honestly: Semrush (Jul 2025) measured the average AI search visitor at 4.4x the value of an organic search visitor, based on conversion rate. It is one vendor study with an undisclosed sample. Other studies range from about 1.3x to over 20x.
+
+So measure your own AI traffic:
+
+1. Check your AI visibility. Ask ChatGPT, Claude and Gemini the questions your customers ask. Are you mentioned, and described correctly?
+2. Open GA4 &gt; Reports &gt; Acquisition &gt; Traffic acquisition and find the AI Assistant channel (ChatGPT, Gemini, Copilot, Grok and more).
+3. Add &quot;AI (ChatGPT, Claude, Gemini)&quot; to your &quot;Where did you hear about us?&quot; form.
+4. Split those customers out and compare conversion rate and order value against search and social.
+
+Two caveats: Google AI Overviews and AI Mode stay in Organic Search, not the AI Assistant channel. And many AI clicks arrive with no referrer and land in Direct, so the channel undercounts. A custom channel group can add sources like perplexity.ai and claude.ai; the full guide covers it: https://withhammad.com/resources/ai-traffic-ga4
+
+Have you seen AI Assistant traffic in your GA4 yet, and does it convert differently for you?
+
+AI avatar of me.
+
+#GA4 #AISearch #DigitalMarketing</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-02 14:00 GST</span><span class="kw">BYTES</span></div><h3>Kimi K3 on 8 GB of RAM: how a 2.78T model runs with no GPU</h3><pre>Kimi K3 on 8GB RAM, no GPU: a 2.78T AI model runs locally. The catch is your disk.
+Comment BYTES and I&#x27;ll DM you the guide.
+
+kimi-k3-in-c, a free, open-source C engine by Fareed Khan (Apache-2.0), keeps Kimi K3&#x27;s experts, about 93% of the 1.56 TB model, on a fast SSD and reads only 16 of 896 per layer for each token. RAM peaked at 8.24 GB (a server with its RAM capped at 8 GB), and the output was byte-identical from 8 GB to 224 GB: more RAM changes the speed, not the answer.
+
+Kimi K3 hardware requirements, the honest version:
+- about 1.7 TB free on a fast SSD
+- hours of download (about 3.5 h at 1 Gbps)
+- about 30 seconds per token on a fast server
+- nearly 16 minutes for one word on an 8 GB Jetson board with a hard drive
+- text only: a proof of concept, not an everyday app
+
+Running an LLM locally without a GPU is possible. The memory wall just moved to your disk. Kimi K3 itself is open-weight under Moonshot AI&#x27;s Kimi K3 License, free to download.
+
+Comment BYTES and I&#x27;ll DM you the guide.
+Follow @withhammad.ai so the DM reaches you.
+
+AI avatar of me.
+
+#KimiK3 #LocalAI #LocalLLM #LLM #AI</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-02 14:00 GST</span><span class="kw">DUET</span></div><h3>Claude Duet: Anthropic&#x27;s proactive agent that messages you first (research preview)</h3><pre>Claude Duet is Anthropic&#x27;s new AI agent that messages you first, and it&#x27;s a research preview on a US waitlist (Pro and Max subscribers first). Not open in the UAE yet.
+Free guide: https://withhammad.com/resources/claude-duet
+
+Each morning it sends a brief from the apps you connect (Gmail, Slack, Google Calendar), checks in every few hours and messages you only when something needs you. Anthropic says it can still misjudge urgency. It runs on its own cloud computer, so it can build dashboards, sales forecasts and web apps while your laptop is closed, and it asks before it sends, pays, signs or deletes anything.
+
+Price: no extra charge. It&#x27;s included in Claude Pro ($20/mo) and Max (from $100/mo), sharing the plan&#x27;s usage limits. OpenAI dots launched on plans from $100/mo; Grok Bot, as of Oct 23, starts at $30/mo. It&#x27;s built around Claude Opus 5.5, which Anthropic calls its leading model.
+
+Want the guide in your inbox? Comment DUET and I&#x27;ll message it to you, or open it here: https://withhammad.com/resources/claude-duet
+Follow With Hammad AI for practical AI builds for marketers and founders.
+AI avatar of me.
+
+#ClaudeDuet #ClaudeAI #AIAgents</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-02 17:00 GST</span><span class="kw">BLUEPRINT</span></div><h3>Reverse-engineer a feature with Claude Code, the right way</h3><pre>Reverse Engineer Anything (REA) + Claude Code: see how a feature in an app works, from click to final output. Comment BLUEPRINT and I&#x27;ll DM you the guide.
+
+REA is free and open source (MIT). One command sets it up for Claude Code: npx rea-agents setup
+
+It inspects desktop and Electron apps, websites and Android APKs on your own machine. It explains the code path with evidence and tells you what it couldn&#x27;t confirm. No iOS target is listed.
+
+The rule: only use it on software you own or are authorized to examine. Learn the pattern, then build your own version on your stack.
+
+Comment BLUEPRINT and I&#x27;ll DM you the setup steps + my 3 prompts.
+Follow @withhammad.ai first, the DM only goes to followers.
+
+AI avatar of me.
+
+#claudecode #reverseengineering #reverseengineeranything #opensource #aitools</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-02 17:00 GST</span><span class="kw">BYTES</span></div><h3>Kimi K3 on 8 GB of RAM: how a 2.78T model runs with no GPU</h3><pre>Kimi K3 on 8GB RAM with no GPU: how a 2.78-trillion-parameter AI model runs locally, and the 1.7 TB disk catch.
+Free guide: https://withhammad.com/resources/kimi-k3-on-8gb-ram
+
+kimi-k3-in-c, a free open-source C engine by Fareed Khan (Apache-2.0), keeps about 93% of Kimi K3&#x27;s 1.56 TB on a fast SSD and reads only the 16 of 896 experts per layer that each token needs. RAM peaked at 8.24 GB and the answer was byte-identical from 8 GB to 224 GB. The cost moved to disk: about 1.7 TB free, hours of download and about 30 seconds per token on a fast server. On an 8 GB Jetson board with a hard drive, one word took nearly 16 minutes. A proof of concept, not an everyday app.
+
+Comment BYTES and I&#x27;ll DM you the guide, or open it here: https://withhammad.com/resources/kimi-k3-on-8gb-ram
+Follow With Hammad AI for more AI builds for marketers and founders.
+
+AI avatar of me.
+
+#KimiK3 #LocalAI #LLM</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-02 20:00 GST</span><span class="kw">BLUEPRINT</span></div><h3>Reverse-engineer a feature with Claude Code, the right way</h3><pre>How to reverse engineer an app feature with Claude Code, the right way.
+
+REA (Reverse Engineer Anything) is a free, MIT-licensed open-source tool. Install it with npx rea-agents setup, point Claude Code at a desktop app, a website or an Android app you own or are authorized to examine, and it explains how a feature works with evidence, plus what it could not confirm.
+
+Free guide with the setup and my 3 prompts: https://withhammad.com/resources/reverse-engineer-features-with-claude-code
+Or comment BLUEPRINT and I&#x27;ll send you the link.
+
+Follow With Hammad AI for a new AI build like this.
+
+AI avatar of me.
+
+#ClaudeCode #ReverseEngineering #OpenSource</pre></article>
+<article class="post linkedin"><div class="meta"><span class="plat">linkedin</span><span>2026-11-03 09:00 GST</span><span class="kw">SCAN</span></div><h3>NVIDIA SkillSpector: scan Claude Code skills before you install them</h3><pre>Claude Code security starts with the skills you install. NVIDIA SkillSpector is a free, open-source scanner that gives each skill a 0-100 risk score before it reaches your machine.
+Free setup guide: https://withhammad.com/resources/skillspector-scan-skills
+
+A Jan 2026 study of 31,132 marketplace agent skills (Liu et al.) found 26.1% had at least one vulnerability, and 5.2% showed high-severity patterns strongly suggesting malicious intent. Confirmed malicious skills are rarer (157 of 98,380 in a follow-up study, all removed), but one bad skill could still leak your API keys.
+
+How to use NVIDIA SkillSpector:
+1. Install it with uv from NVIDIA&#x27;s GitHub: uv tool install git+https://github.com/NVIDIA/skillspector.git (on Python 3.14, add --python 3.12)
+2. Scan a skill folder, GitHub link or zip. To check everything you already have: skillspector scan ~/.claude/skills --recursive --no-llm
+3. Read the score: 0-20 low, 21-50 caution, over 50 do not install.
+4. Keep --no-llm on for private or client skills, so the code stays on your machine.
+
+It checks 17 risk categories, including prompt injection, data exfiltration, tool misuse and MCP tool poisoning. On its own test skills (Oct 2026), the safe one scored 0/100 and the malicious one 100/100.
+
+The honest caveat: a low score means no red flags were found, not that a skill is proven safe. It is a scanner, not a sandbox, and it is not on PyPI, so install it only from NVIDIA&#x27;s repo. Treat it as one layer of AI agent security, next to Anthropic&#x27;s own advice to install skills only from sources you trust.
+
+Full guide, no comment needed: https://withhammad.com/resources/skillspector-scan-skills
+AI avatar of me.
+
+Do you read a skill&#x27;s SKILL.md before you install it, or do you trust the marketplace?
+
+#ClaudeCode #AISecurity #AIAgents</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-03 11:00 GST</span><span class="kw">AITRAFFIC</span></div><h3>AI search traffic converts better? How to track your own AI traffic in GA4</h3><pre>Track AI traffic in GA4: one Semrush study found AI search visitors 4.4x as valuable as organic, by conversion rate.
+Comment AITRAFFIC and I&#x27;ll DM you the guide.
+
+Why it can happen: people research inside ChatGPT, Claude or Gemini before they click, so they land further down your funnel.
+
+It is one vendor study. Other studies range from about 1.3x to 20x+, so measure your own:
+
+1) Ask ChatGPT, Claude and Gemini what your customers ask. Are you in the answer?
+2) Add &quot;AI (ChatGPT, Claude, Gemini)&quot; to your &quot;Where did you hear about us?&quot; form.
+3) Open the GA4 AI Assistant channel (Reports &gt; Acquisition &gt; Traffic acquisition) and compare it with search. Many AI clicks still land as Direct.
+
+Comment AITRAFFIC and I&#x27;ll DM you the guide. Follow @withhammad.ai so the DM reaches you.
+
+AI avatar of me.
+
+#GA4 #AISearch #ChatGPT #AIMarketing #DigitalMarketing</pre></article>
+<article class="post linkedin"><div class="meta"><span class="plat">linkedin</span><span>2026-11-03 13:00 GST</span><span class="kw">JOBKIT</span></div><h3>Claude + Playwright: a job-search shortlist you can verify</h3><pre>Claude job search for professionals: a 5-step AI workflow to research roles, build an evidence-based shortlist and draft applications, while you keep control of every submission.
+
+Setup, prompt and review checklist: https://withhammad.com/resources/claude-job-search
+
+1. Connect Microsoft&#x27;s Playwright MCP (open source) to a compatible Claude client such as Claude Desktop
+2. Provide your resume plus role, location and a posting-date window
+3. Research permitted company career pages. Keep the direct listing URL; if a posting date is missing, flag it as unknown
+4. Compare each role with your actual experience and shortlist up to ten in a sheet, with resume evidence and gaps
+5. Draft application fields and a company-specific answer using only facts you can support
+
+Where a site permits automation, it can help fill the form, but it will not work everywhere. Stop before Submit and check the resume, dates, eligibility and every answer yourself. Claude access and usage are separate from the Playwright package.
+
+Which step takes you longest today: finding roles, checking fit or drafting answers?
+
+AI avatar of me. Demo uses sample data.
+
+#JobSearch #ClaudeAI #AIAutomation</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-03 14:00 GST</span><span class="kw">SCAN</span></div><h3>NVIDIA SkillSpector: scan Claude Code skills before you install them</h3><pre>Are Claude Code skills safe? Scan them with NVIDIA SkillSpector before you install.
+Comment SCAN and I&#x27;ll DM you the guide.
+
+About 1 in 4 marketplace skills had a security flaw, and 5.2% showed strong signs of malicious intent (Liu et al., Jan 2026). One bad skill could leak your API keys.
+
+NVIDIA SkillSpector is a free, open-source scanner (Apache-2.0). Feed it a skill folder, GitHub link or zip. It checks 17 risk categories, like prompt injection, data exfiltration and tool misuse, and gives a 0-100 risk score:
+- 0-20: low risk
+- 21-50: caution
+- over 50: don&#x27;t install
+
+A low score means no red flags were found, not that a skill is proven safe. Use --no-llm to keep your code on your machine, or let Claude Code or Codex run it for you.
+
+Comment SCAN and I&#x27;ll DM you the guide.
+Follow @withhammad.ai so the DM reaches you.
+
+AI avatar of me.
+
+#ClaudeCode #ClaudeSkills #AISecurity #AIAgents #SkillSpector</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-03 14:00 GST</span><span class="kw">AITRAFFIC</span></div><h3>AI search traffic converts better? How to track your own AI traffic in GA4</h3><pre>Are customers finding you through ChatGPT? Google Analytics 4 now has an AI Assistant channel that shows you. Free setup guide: https://withhammad.com/resources/ai-traffic-ga4
+
+One Semrush study (Jul 2025) found AI search visitors 4.4x as valuable as organic search visitors, based on conversion rate. Other studies range from about 1.3x to 20x+, so the point is to measure your own.
+
+Three things to do this week:
+1) Ask ChatGPT, Claude and Gemini what your customers ask, and check whether you are in the answer.
+2) Add &quot;AI (ChatGPT, Claude, Gemini)&quot; to your &quot;Where did you hear about us?&quot; form, because many AI clicks still land as Direct.
+3) In GA4 go to Reports &gt; Acquisition &gt; Traffic acquisition and compare the AI Assistant channel with Organic Search. Google AI Overviews stay in Organic Search.
+
+Full guide: https://withhammad.com/resources/ai-traffic-ga4
+Comment AITRAFFIC and I&#x27;ll send it to your inbox. Follow With Hammad AI for a new AI build every week.
+
+AI avatar of me.
+
+#GA4 #AISearch #DigitalMarketing</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-03 17:00 GST</span><span class="kw">HARVEST</span></div><h3>A free daily lead finder: GPT-6 Astra + ScrapeGraphAI</h3><pre>AI lead generation that runs every morning: comment HARVEST and I&#x27;ll DM you the guide.
+
+GPT-6 Astra + ScrapeGraphAI: the agent runs the job, and ScrapeGraphAI, a free, open-source AI web scraper (MIT, 31k+ GitHub stars), reads each company website and returns only what you ask for, as clean spreadsheet rows, on a free local model through Ollama.
+
+Give Astra (or Claude Code) the repo and tell it who to find, like 200 UK online shops that are registered companies. Save it as a skill and a scheduled task at 7am, and new leads land in the same sheet. Your own AI lead finder.
+
+The honest bit: the scraper and the local model are free; Astra and Claude Code are paid, and the 7am run needs the ChatGPT desktop app open and your computer awake. Business contacts only: every email needs your name and an opt-out, and sole traders need consent. Not legal advice. Check the rows before you send.
+
+Comment HARVEST and I&#x27;ll DM you the guide: code, prompts and the UK rules.
+Follow @withhammad.ai so the DM reaches you.
+
+AI avatar of me.
+
+#leadgeneration #aiagents #webscraping #scrapegraphai #gpt6astra</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-03 17:00 GST</span><span class="kw">SCAN</span></div><h3>NVIDIA SkillSpector: scan Claude Code skills before you install them</h3><pre>Are Claude Code skills safe? NVIDIA SkillSpector is a free, open-source scanner that checks a skill before you install it.
+Free guide: https://withhammad.com/resources/skillspector-scan-skills
+
+About 1 in 4 marketplace skills had a security flaw, and 5.2% showed strong signs of malicious intent (Liu et al., Jan 2026). One bad skill could leak your API keys.
+
+SkillSpector (Apache-2.0) reads a skill folder, GitHub link or zip, checks 17 risk categories such as prompt injection, data exfiltration and tool misuse, and returns a 0-100 risk score. Over 50 means don&#x27;t install. A low score means no red flags were found, not proven safe. Use --no-llm to keep your code on your machine, or let Claude Code or Codex run it for you.
+
+Comment SCAN and I&#x27;ll send you the guide, or open it here: https://withhammad.com/resources/skillspector-scan-skills
+Follow With Hammad AI for more AI builds.
+
+AI avatar of me.
+
+#ClaudeCode #AISecurity #SkillSpector</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-03 20:00 GST</span><span class="kw">HARVEST</span></div><h3>A free daily lead finder: GPT-6 Astra + ScrapeGraphAI</h3><pre>AI lead generation on autopilot? Here&#x27;s the honest version: GPT-6 Astra plus ScrapeGraphAI, a free, open-source AI web scraper, adds fresh UK company leads to one sheet every morning at 7.
+Free guide (setup, code, prompts and the UK rules): https://withhammad.com/resources/scrapegraphai-lead-finder
+
+ScrapeGraphAI (MIT, 31k+ GitHub stars) reads each company website and returns only the fields you ask for, as clean spreadsheet rows, on a free local model through Ollama, so there&#x27;s no per-lead fee. Give the agent the repo, tell it who to find (for example 200 UK online shops that are registered companies), then save the run as a skill and a scheduled task at 7am.
+
+What&#x27;s free: the scraper and the local model. What isn&#x27;t: GPT-6 Astra needs a paid ChatGPT plan, and the 7am run needs the desktop app open with your computer awake. A free macOS launchd job can trigger the script instead.
+
+Business contacts only. Limited companies don&#x27;t need consent under UK PECR if every email says who you are and has an opt-out; sole traders need consent. Not legal advice.
+
+Comment HARVEST and I&#x27;ll send you the guide, or open it here: https://withhammad.com/resources/scrapegraphai-lead-finder
+Follow With Hammad AI for more AI builds.
+
+AI avatar of me.
+
+#leadgeneration #aiagents #webscraping</pre></article>
+<article class="post linkedin"><div class="meta"><span class="plat">linkedin</span><span>2026-11-04 09:00 GST</span><span class="kw">PROJECTS</span></div><h3>85 AI Engineering Project Ideas</h3><pre>AI engineering projects for your portfolio: a free catalog of 85 ideas across RAG, AI agents, fine-tuning and LLMOps, beginner to advanced. Guide and build checklist: https://withhammad.com/resources/ai-engineering-projects
+
+If you are moving into AI engineering, the hard part is often choosing what to build. This open-source catalog by Landed groups 85 projects into 10 themes and tags each with the skills it practises, a difficulty level and learning references.
+
+How I would use it:
+1. Pick one project at your current level.
+2. Build the smallest working demo.
+3. Test failures, not only the happy path.
+4. Document costs, limits and tradeoffs in the README.
+
+A note: these are project briefs with references, not all complete tutorials, and linked tools can carry their own costs.
+
+Full guide: https://withhammad.com/resources/ai-engineering-projects
+
+AI avatar of me.
+
+Which would you build first: a RAG app or an AI agent?
+
+#AIEngineering #GenerativeAI #RAG</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-04 11:00 GST</span><span class="kw">SKILL</span></div><h3>Claude&#x27;s free YouTube Agent Skill: 11 skills for your YouTube workflow</h3><pre>Claude skills for YouTube: comment SKILL and I&#x27;ll DM you the free guide to all 11 open-source skills.
+
+It&#x27;s called the YouTube Agent Skill, a free, MIT-licensed pack of Claude Code skills by Jake Schincariol (a community project, not by Anthropic). Each skill does one job:
+- 5 hooks scored against 21 hook formulas, then a full script
+- 10 titles checked together with your thumbnail text
+- edit lists from your transcript (it doesn&#x27;t touch your video file)
+- outlier research on videos you collect
+- Shorts clips, SEO, chapters, comments, planning, retention and audits
+
+No login, no API key, and it never publishes for you. Claude drafts, you decide. The skills are free; Claude Code needs a paid Claude plan.
+
+Comment SKILL and I&#x27;ll DM you the guide: setup steps + copy-paste prompts.
+Follow @withhammad.ai so the DM reaches you, and for more AI builds.
+
+AI avatar of me.
+
+#claudecode #claudeai #claudeskills #youtubetips #aitools</pre></article>
+<article class="post linkedin"><div class="meta"><span class="plat">linkedin</span><span>2026-11-04 13:00 GST</span><span class="kw">DESIGN</span></div><h3>AI Website Transformation: A Better Design Brief</h3><pre>AI website design brief: why landing pages built with AI look generic, and the call to action, typography and mobile checks that fix it. Free template: https://withhammad.com/resources/ai-website-design-brief
+
+In this before-and-after, the business stays the same. Only the brief changes:
+
+1. One clear goal for the page: book a consultation.
+2. A specific offer instead of a vague headline, with room for the main button to stand out.
+3. Defined typography, spacing and a colour palette, so every section feels consistent.
+4. A mobile layout and text contrast check before anything ships.
+
+The template includes the full prompt for an AI coding assistant and a review checklist. It is a design demonstration, not a conversion test, so measure real results after a reviewed launch.
+
+AI avatar of me.
+
+What goes into your website brief before you hand it to AI?
+
+#WebDesign #LandingPageDesign #AIWebsiteDesign</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-04 14:00 GST</span><span class="kw">JOBKIT</span></div><h3>Claude + Playwright: a job-search shortlist you can verify</h3><pre>Claude job search in 5 steps. Comment JOBKIT and I&#x27;ll DM you the guide.
+
+Still opening twenty career tabs and rewriting the same application? Prepare your shortlist with Claude and keep control of every submission:
+
+1. Connect Microsoft&#x27;s Playwright MCP to Claude
+2. Add your resume, role, location and date range
+3. Search company career pages, keep the links, flag missing dates
+4. Shortlist up to 10 matches in a sheet with evidence and gaps
+5. Draft truthful answers, then stop before Submit
+
+Playwright is open source; Claude access and usage are separate. Respect each site&#x27;s rules: form filling only where a site permits automation.
+
+Comment JOBKIT and I&#x27;ll DM you the setup, prompt and review checklist. Follow @withhammad.ai so the DM can reach you.
+
+AI avatar of me. Demo uses sample data.
+
+#ClaudeAI #JobSearch #PlaywrightMCP #AIJobSearch #CareerTips</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-04 14:00 GST</span><span class="kw">SKILL</span></div><h3>Claude&#x27;s free YouTube Agent Skill: 11 skills for your YouTube workflow</h3><pre>Claude skills for YouTube: the free YouTube Agent Skill gives Claude Code 11 skills, from scripts and titles to edit lists and SEO.
+Free setup guide + copy-paste prompts: https://withhammad.com/resources/youtube-agent-skill-claude
+
+It&#x27;s an open-source (MIT) community pack by Jake Schincariol, not an Anthropic product. What the 11 skills do: scripts from hooks scored against 21 hook formulas, 10 titles checked with your thumbnail text, edit decision lists from your transcript, outlier research on videos you collect, Shorts clips, SEO, chapters, comment triage, weekly planning, retention reads and a channel audit.
+
+No login, no API key, and it never publishes: Claude drafts, you decide. The skills are free; Claude Code needs a paid Claude plan.
+
+Want it in your inbox instead? Comment SKILL and the guide comes to you by message.
+Follow With Hammad AI for a new AI build every week.
+
+AI avatar of me.
+
+#ClaudeAI #YouTubeTips #AITools</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-04 17:00 GST</span><span class="kw">DESIGN</span></div><h3>AI Website Transformation: A Better Design Brief</h3><pre>AI website design looking generic? Comment DESIGN and I&#x27;ll DM you the guide.
+
+Change the design brief, not just the colours. Same sample business, before and after:
+• One clear goal: book a consultation.
+• A specific offer, with room for the main button to stand out.
+• Defined type, spacing and colour palette, so every section feels consistent.
+• A mobile layout and text contrast check.
+
+The guide: a website design prompt you can give an AI coding assistant, plus a review checklist. A design demonstration, not a conversion test.
+
+AI avatar of me.
+
+Comment DESIGN and I&#x27;ll DM you the guide. Follow @withhammad.ai so the DM reaches you.
+
+#AIWebsiteDesign #WebDesign #LandingPageDesign #WebsiteRedesign #UXDesign</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-04 17:00 GST</span><span class="kw">JOBKIT</span></div><h3>Claude + Playwright: a job-search shortlist you can verify</h3><pre>Claude job search, step by step: research roles and draft applications with Claude while you stay in control of every submission.
+Free setup, prompt and review checklist: https://withhammad.com/resources/claude-job-search
+
+The 5 steps:
+1. Connect Microsoft&#x27;s open-source Playwright MCP to Claude
+2. Add your resume and your role, location and date range
+3. Search company career pages, keep source links, flag any missing posting date
+4. Compare roles with your real experience and shortlist up to 10 in a sheet, with evidence and gaps
+5. Draft answers using only facts you can support
+
+Then stop before Submit and check the resume, dates, eligibility and every answer yourself. Claude access and usage are separate from the free Playwright package, and automation only works where a site permits it.
+
+Prefer a DM? Comment JOBKIT and I&#x27;ll send it.
+Follow With Hammad AI for a new practical AI workflow every day.
+
+AI avatar of me. Demo uses sample data.
+
+#ClaudeAI #JobSearch #AIJobSearch</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-04 20:00 GST</span><span class="kw">DESIGN</span></div><h3>AI Website Transformation: A Better Design Brief</h3><pre>How to make an AI website look less generic: change the design brief, not just the colours.
+
+Free website design prompt + review checklist: https://withhammad.com/resources/ai-website-design-brief
+
+In this before-and-after, the same sample business gets one clear goal (book a consultation), a specific offer, a main button with room to stand out, and a consistent type, spacing and colour system. Then the mobile layout and text contrast get checked. It&#x27;s a design demonstration, not a conversion test.
+
+Prefer it in your inbox? Comment DESIGN and I&#x27;ll message you the guide.
+
+AI avatar of me.
+
+Follow With Hammad AI for practical AI builds. Guide: https://withhammad.com/resources/ai-website-design-brief
+
+#AIWebsiteDesign #WebDesign #LandingPageDesign</pre></article>
+<article class="post linkedin"><div class="meta"><span class="plat">linkedin</span><span>2026-11-05 09:00 GST</span><span class="kw">MOTION</span></div><h3>AI Motion Starter Kit</h3><pre>AI motion graphics for product demos, charts and kinetic text: treat the prompt as a production brief, not a one-liner. Here is the process, using Prompt Motion and Remotion.
+
+Prompt Motion is a gallery of motion videos made with Claude, each shown with the prompt behind it and credited to its creator.
+
+1. Start from a finished example and study its timing.
+2. Adapt the brief with your own product, colours and message.
+3. Be specific about the camera, transitions and final frame.
+4. Review the output. Results vary by tool and settings, so expect to iterate, not to get an exact copy.
+
+The demo in the video is an original Remotion example built this way.
+
+Free starter brief and review checklist: https://withhammad.com/resources/ai-motion-starter-kit
+
+AI avatar of me.
+
+What is the first thing you would put in a motion graphics brief for your product?
+
+#AIMotionGraphics #MotionDesign #Remotion</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-05 11:00 GST</span><span class="kw">YOUTUBE</span></div><h3>I ran the free YouTube skill pack for Claude: what the 11 skills really do</h3><pre>Claude YouTube Agent Skill, tested: comment YOUTUBE and I&#x27;ll DM you the guide. My hook score went from 46 to 82.
+
+I ran 6 of the 11 free skills in youtube-agent-skill (MIT, by developer Jake Schincariol; a community project, not an Anthropic product) on my own footage:
+- /yt-script: 5 hooks scored 0-100 against 21 formulas (a heuristic, says the author). Best hook 46, rewrite 82.
+- /yt-package: 10 titles linted for the 60/40-character cuts, top score 94, plus a thumbnail brief (text, not an image).
+- /yt-edit: 18 dead-air cuts, 2.02 s, found in this video&#x27;s raw take.
+- /yt-comment: 5 real comments sorted: 1 question, 2 keyword requests, 2 bait.
+- /yt-plan: two questions, then my &quot;about 3 hours&quot; became 1 anchor video, 1 quick one, 3 Shorts.
+- /yt-viral: 80 public videos from 6 channels ranked by views over each channel&#x27;s median; the 15.0x outlier was an &quot;I tested&quot; title.
+
+It drafts, you publish: it never logs into your channel or posts for you. The pack is free; Claude Code needs a paid Claude plan.
+
+AI avatar of me.
+
+Comment YOUTUBE and I&#x27;ll DM you the guide (link + setup steps).
+Follow @withhammad.ai so the DM reaches you.
+
+#claudecode #claudeskills #claudeai #youtubetips #aiforcreators</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-05 14:00 GST</span><span class="kw">PROJECTS</span></div><h3>85 AI Engineering Project Ideas</h3><pre>AI engineering projects: 85 ideas, beginner to advanced. Comment PROJECTS and I&#x27;ll DM you the guide.
+
+This free GitHub catalog covers AI agents, RAG apps, fine-tuning and even LLMs from scratch. Every idea lists the skills you&#x27;ll practise, its difficulty and links to learn from.
+
+Good for AI portfolio projects: pick one at your level, build a working demo, test it and show what you learned. Not every entry is a full tutorial.
+
+Comment PROJECTS and I&#x27;ll DM you the catalog + my build checklist.
+Follow @withhammad.ai so the DM reaches you.
+
+AI avatar of me.
+
+#AIEngineering #AIProjects #RAG</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-05 14:00 GST</span><span class="kw">YOUTUBE</span></div><h3>I ran the free YouTube skill pack for Claude: what the 11 skills really do</h3><pre>I tested the Claude YouTube Agent Skill: 6 of its 11 free Claude Code skills, run on my own footage. Here is what they actually produced.
+Free guide + setup steps: https://withhammad.com/resources/youtube-agent-skill-claude
+
+The pack is youtube-agent-skill, MIT-licensed, by developer Jake Schincariol (a community project, not an Anthropic product).
+- Script skill: 5 hooks scored 0-100 against 21 formulas (a heuristic). My best hook went from 46 to 82 after one rewrite.
+- Title skill: 10 titles linted for the 60/40-character cuts, plus a thumbnail brief. Thumbnail words repeating the title scored 80; different words, 98.
+- Edit skill: 18 dead-air cuts (2.02 s) found in this video&#x27;s raw take.
+- Comment skill: 5 real comments sorted into 1 question, 2 keyword requests, 2 bait, with reply drafts.
+- Plan skill: two questions, then &quot;about 3 hours&quot; became 1 anchor video, 1 quick video and 3 Shorts.
+- Viral skill: 80 public videos from 6 channels ranked by views over each channel&#x27;s median; the top outlier (15.0x) had an &quot;I tested&quot; title.
+
+It drafts, you publish: nothing logs into your channel or posts for you. The pack is free; Claude Code needs a paid Claude plan.
+
+AI avatar of me.
+
+Comment YOUTUBE for the guide, or read it here: https://withhammad.com/resources/youtube-agent-skill-claude
+Follow With Hammad AI for more tested AI builds.
+
+#ClaudeAI #YouTubeTips #AIForCreators</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-05 17:00 GST</span><span class="kw">LINKEDIN</span></div><h3>27 free installs to set up Claude for LinkedIn</h3><pre>Claude skills for LinkedIn: 27 free installs, sorted by job 👇
+Comment LINKEDIN and I&#x27;ll DM you the guide with every install command.
+
+Claude has none of these by default. 5 folders:
+→ Your voice (humanizer, custom styles)
+→ Ideas (last30days, Exa MCP)
+→ Writing (social, viral-hooks)
+→ Visuals (canvas-design, hyperframes)
+→ Tools (Claude in Chrome, LinkedIn MCP, Postiz)
+
+All free: 22 open source, 4 from Anthropic, 1 built into Claude. Save this for your next post.
+
+Comment LINKEDIN and I&#x27;ll DM you the guide.
+Follow @withhammad.ai first so the DM reaches you.
+
+#claudeai #claudeskills #linkedintips #aitools #linkedinmarketing</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-05 17:00 GST</span><span class="kw">PROJECTS</span></div><h3>85 AI Engineering Project Ideas</h3><pre>Learning AI engineering but stuck on what to build? Here are 85 AI engineering project ideas in one free catalog. Guide + build checklist: https://withhammad.com/resources/ai-engineering-projects
+
+The catalog spans 10 themes, from beginner to advanced: RAG apps, AI agents, fine-tuning, evals, multimodal and LLMs from scratch. Each idea shows the skills it practises, its difficulty and learning references (they are project briefs, not all full tutorials).
+
+My advice: choose one, build a small working demo, test it, and write down what broke.
+
+Get the guide: https://withhammad.com/resources/ai-engineering-projects
+Or comment PROJECTS and I&#x27;ll message it to you. Follow With Hammad AI for more practical AI builds.
+
+AI avatar of me.
+
+#AIEngineering #AIProjects</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-05 20:00 GST</span><span class="kw">LINKEDIN</span></div><h3>27 free installs to set up Claude for LinkedIn</h3><pre>Claude skills for LinkedIn: 27 free installs, sorted into 5 jobs: your voice, ideas, writing, visuals and tools.
+
+Every install command, free: https://withhammad.com/resources/claude-linkedin-installs
+
+Claude has none of these by default. 22 are open source on GitHub, 4 come from Anthropic and 1 (Styles) is built into Claude. Start with the folder that fixes your weakest step.
+
+Or comment LINKEDIN and I&#x27;ll send you the guide.
+Follow With Hammad AI for more Claude setups.
+
+#ClaudeAI #LinkedInTips</pre></article>
+<article class="post instagram"><div class="meta"><span class="plat">instagram</span><span>2026-11-06 11:00 GST</span><span class="kw">MOTION</span></div><h3>AI Motion Starter Kit</h3><pre>AI motion graphics prompts: start from a finished example, not a blank page. Comment MOTION and I&#x27;ll DM you the guide.
+
+Prompt Motion is a gallery of motion videos made with Claude, each shown with the prompt behind it and credited to its creator: product demos, animated charts, kinetic text.
+
+How to use it:
+1. Open a design and study its timing.
+2. Adapt the brief with your own product, colours and message.
+3. Be specific about the camera, transitions and final frame.
+4. Check the result. Don&#x27;t expect an exact copy.
+
+The demo at the end is an original Remotion example built with this approach.
+
+Comment MOTION and I&#x27;ll DM you the guide: my starter brief and review checklist.
+Follow @withhammad.ai so the DM reaches you.
+
+AI avatar of me.
+
+#AIMotionGraphics #MotionGraphics #Remotion #ClaudeAI #MotionDesign</pre></article>
+<article class="post facebook"><div class="meta"><span class="plat">facebook</span><span>2026-11-06 14:00 GST</span><span class="kw">MOTION</span></div><h3>AI Motion Starter Kit</h3><pre>AI motion graphics prompts work better when you start from a finished example. Free starter brief and checklist: https://withhammad.com/resources/ai-motion-starter-kit
+
+Prompt Motion collects motion videos made with Claude, each with the prompt behind it: product demos, animated charts, kinetic text. Open one, study its timing, then adapt the brief with your own product, colours and message. Be specific about the camera, transitions and final frame, and check the result instead of expecting an exact copy.
+
+Get the guide: https://withhammad.com/resources/ai-motion-starter-kit (or comment MOTION and I&#x27;ll send it).
+Follow With Hammad AI for practical AI builds.
+
+AI avatar of me.
+
+#AIMotionGraphics #MotionGraphics #Remotion</pre></article></div>
