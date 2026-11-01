@@ -3,6 +3,23 @@
   "built_at": "2026-11-01T18:45:55Z",
   "entries": [
     {
+      "id": "in-c6e60a58849b",
+      "job": "c6e60a58849b",
+      "platform": "instagram",
+      "slot_utc": "2026-11-01T20:02:11Z",
+      "local": "2026-11-02 00:02 GST",
+      "keyword": "BYTES",
+      "title": "Kimi K3 on 8 GB of RAM: how a 2.78T model runs with no GPU",
+      "caption": "Kimi K3 on 8GB RAM, no GPU: a 2.78T AI model runs locally. The catch is your disk.\nComment BYTES and I'll DM you the guide.\n\nkimi-k3-in-c, a free, open-source C engine by Fareed Khan (Apache-2.0), keeps Kimi K3's experts, about 93% of the 1.56 TB model, on a fast SSD and reads only 16 of 896 per layer for each token. RAM peaked at 8.24 GB (a server with its RAM capped at 8 GB), and the output was byte-identical from 8 GB to 224 GB: more RAM changes the speed, not the answer.\n\nKimi K3 hardware requirements, the honest version:\n- about 1.7 TB free on a fast SSD\n- hours of download (about 3.5 h at 1 Gbps)\n- about 30 seconds per token on a fast server\n- nearly 16 minutes for one word on an 8 GB Jetson board with a hard drive\n- text only: a proof of concept, not an everyday app\n\nRunning an LLM locally without a GPU is possible. The memory wall just moved to your disk. Kimi K3 itself is open-weight under Moonshot AI's Kimi K3 License, free to download.\n\nComment BYTES and I'll DM you the guide.\nFollow @withhammad.ai so the DM reaches you.\n\nAI avatar of me.\n\n#KimiK3 #LocalAI #LocalLLM #LLM #AI",
+      "primary_keyword": "Kimi K3 on 8GB RAM",
+      "host_slug": "repost-c6e60a58849b",
+      "collaborators": null,
+      "status": "posted",
+      "moved_from": "2026-11-02 14:00 GST (owner: \"Post one now\")",
+      "url": "https://www.instagram.com/reel/DfNjRSIgc_F/",
+      "posted_at": "2026-11-01T20:02:22Z"
+    },
+    {
       "id": "li-c6e60a58849b",
       "job": "c6e60a58849b",
       "platform": "linkedin",
@@ -95,20 +112,6 @@
       "caption": "How to track AI referral traffic in GA4, and whether AI search visitors really convert better. One Semrush study found them 4.4x as valuable as organic search visitors, by conversion rate.\nFree setup guide: https://withhammad.com/resources/ai-traffic-ga4\n\nWhy it can happen: people research inside ChatGPT, Claude or Gemini before they click, so they arrive further down the funnel than someone scanning search results.\n\nThe stat, honestly: Semrush (Jul 2025) measured the average AI search visitor at 4.4x the value of an organic search visitor, based on conversion rate. It is one vendor study with an undisclosed sample. Other studies range from about 1.3x to over 20x.\n\nSo measure your own AI traffic:\n\n1. Check your AI visibility. Ask ChatGPT, Claude and Gemini the questions your customers ask. Are you mentioned, and described correctly?\n2. Open GA4 > Reports > Acquisition > Traffic acquisition and find the AI Assistant channel (ChatGPT, Gemini, Copilot, Grok and more).\n3. Add \"AI (ChatGPT, Claude, Gemini)\" to your \"Where did you hear about us?\" form.\n4. Split those customers out and compare conversion rate and order value against search and social.\n\nTwo caveats: Google AI Overviews and AI Mode stay in Organic Search, not the AI Assistant channel. And many AI clicks arrive with no referrer and land in Direct, so the channel undercounts. A custom channel group can add sources like perplexity.ai and claude.ai; the full guide covers it: https://withhammad.com/resources/ai-traffic-ga4\n\nHave you seen AI Assistant traffic in your GA4 yet, and does it convert differently for you?\n\nAI avatar of me.\n\n#GA4 #AISearch #DigitalMarketing",
       "primary_keyword": "track AI traffic in GA4",
       "host_slug": "repost-b55491077ab1",
-      "collaborators": null,
-      "status": "pending"
-    },
-    {
-      "id": "in-c6e60a58849b",
-      "job": "c6e60a58849b",
-      "platform": "instagram",
-      "slot_utc": "2026-11-02T10:00:00Z",
-      "local": "2026-11-02 14:00 GST",
-      "keyword": "BYTES",
-      "title": "Kimi K3 on 8 GB of RAM: how a 2.78T model runs with no GPU",
-      "caption": "Kimi K3 on 8GB RAM, no GPU: a 2.78T AI model runs locally. The catch is your disk.\nComment BYTES and I'll DM you the guide.\n\nkimi-k3-in-c, a free, open-source C engine by Fareed Khan (Apache-2.0), keeps Kimi K3's experts, about 93% of the 1.56 TB model, on a fast SSD and reads only 16 of 896 per layer for each token. RAM peaked at 8.24 GB (a server with its RAM capped at 8 GB), and the output was byte-identical from 8 GB to 224 GB: more RAM changes the speed, not the answer.\n\nKimi K3 hardware requirements, the honest version:\n- about 1.7 TB free on a fast SSD\n- hours of download (about 3.5 h at 1 Gbps)\n- about 30 seconds per token on a fast server\n- nearly 16 minutes for one word on an 8 GB Jetson board with a hard drive\n- text only: a proof of concept, not an everyday app\n\nRunning an LLM locally without a GPU is possible. The memory wall just moved to your disk. Kimi K3 itself is open-weight under Moonshot AI's Kimi K3 License, free to download.\n\nComment BYTES and I'll DM you the guide.\nFollow @withhammad.ai so the DM reaches you.\n\nAI avatar of me.\n\n#KimiK3 #LocalAI #LocalLLM #LLM #AI",
-      "primary_keyword": "Kimi K3 on 8GB RAM",
-      "host_slug": "repost-c6e60a58849b",
       "collaborators": null,
       "status": "pending"
     },
