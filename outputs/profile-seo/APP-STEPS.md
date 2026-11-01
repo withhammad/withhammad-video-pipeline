@@ -50,6 +50,11 @@ AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG,
 - [ ] Pages you manage: keep Kashmir Blossom; deactivate DesignWithIram and Good Morning Property Real Estate yourself (Page → Settings → Deactivate; permanent).
 - [ ] Instagram AI-news page: create the account in the app (any handle), link it to the With Hammad AI Facebook Page, then tell me; I run it.
 
+## TikTok @withhammad (renamed 2026-11-01; routines, config and site schema updated)
+- [ ] Bio (TikTok app, Edit profile): `Claude Code & AI agents, Dubai. Free guide for every video: withhammad.com` (74/80). It was empty, so every "link in bio" caption pointed at nothing. The web editor would not save it.
+- [ ] Name when the 7-day lock lifts (after 8 Nov): `Hammad Yousuf | AI Agents`.
+- [ ] Website link field appears at 1,000 followers: set it to https://withhammad.com/resources then.
+
 ## YouTube monetisation (Earn → Step 2 "Fix your AdSense for YouTube account")
 - Diagnosis 2026-11-01: the AdSense account linked to the channel was disapproved "due to an existing account". AdSense allows one account per person, and the Google account signed into Chrome has no AdSense access while several of your other Google accounts do.
 - [x] 2026-11-01: owner chose to keep the existing AdSense (pub-…1174, payments profile India). Change association → "Yes, I have an existing account" → Continue ran through; Studio Step 2 now reads "In progress: your account is being created or associated" (several days, up to 2-3 weeks). If it comes back disapproved as a duplicate again, redo Change association and pick the Google account that owns pub-…1174 on the AdSense chooser.
