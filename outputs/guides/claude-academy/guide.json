@@ -1,0 +1,511 @@
+{
+ "docTitle": "FREE Claude Courses",
+ "footUrl": "WITHHAMMAD.COM/RESOURCES",
+ "source": "https://academy.claude.com/all (checked 2026-11-01)",
+ "reference": "AI Central, \"FREE Claude Certification\" (19 pages), linkedin.com/company/chat-gpt-central",
+ "instagram": [
+  {
+   "kind": "cover",
+   "line1": "FREE Claude",
+   "line2": "Courses",
+   "sub": "24 courses + completion badges · Claude Academy",
+   "hero": "glow/si-claude.svg",
+   "sticker": "COMPLETION BADGE",
+   "ghost": "Claude"
+  },
+  {
+   "kind": "promise",
+   "title": "All 24 courses free, *no paid plan needed*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "academy.claude.com"
+   },
+   "get": "video lessons, quizzes and a completion badge",
+   "shot": "guides/claude-cert/shots/home.png",
+   "callout": "Browse all 24 courses"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Claude 101",
+   "what": "Everyday work with Claude: prompts, projects, artifacts, skills",
+   "bestFor": "Anyone starting from zero",
+   "shot": "guides/claude-cert/shots/claude-101.png",
+   "callout": "Start the course here",
+   "meta": "13 lessons · 1 quiz · 2.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "AI Fluency: Framework",
+   "what": "The 4D framework: Delegation, Description, Discernment, Diligence",
+   "bestFor": "Working with AI well and safely",
+   "shot": "guides/claude-cert/shots/ai-fluency-framework-foundations.png",
+   "callout": "Start the course here",
+   "meta": "14 lessons · 1 quiz · 4 hr"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "AI Capabilities & Limits",
+   "what": "What LLMs can and cannot do: tokens, memory, context limits",
+   "bestFor": "Building an accurate mental model",
+   "shot": "guides/claude-cert/shots/ai-capabilities-and-limitations.png",
+   "callout": "Start the course here",
+   "meta": "13 lessons · 1 quiz · 3.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Claude Code 101",
+   "what": "Install it, Plan Mode, CLAUDE.md, subagents, MCP and hooks",
+   "bestFor": "Developers new to agentic coding",
+   "shot": "guides/claude-cert/shots/claude-code-101.png",
+   "callout": "Start the course here",
+   "meta": "12 lessons · 1 quiz · 1.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Claude Code in Action",
+   "what": "Long, hands-off sessions you can steer, automate and verify",
+   "bestFor": "Daily Claude Code users",
+   "shot": "guides/claude-cert/shots/claude-code-in-action.png",
+   "callout": "Start the course here",
+   "meta": "9 lessons · 1 quiz · 1 hr"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Intro to Agent Skills",
+   "what": "Build, configure and share reusable skills in Claude Code",
+   "bestFor": "Automating repeat workflows",
+   "shot": "guides/claude-cert/shots/introduction-to-agent-skills.png",
+   "callout": "Start the course here",
+   "meta": "6 lessons · 1 hr"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Intro to Subagents",
+   "what": "Split big tasks across parallel subagents and orchestrate them",
+   "bestFor": "Running complex, multi-step work",
+   "shot": "guides/claude-cert/shots/introduction-to-subagents.png",
+   "callout": "Start the course here",
+   "meta": "4 lessons · 45 min"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Intro to MCP",
+   "what": "Build MCP servers and clients in Python: tools, resources, prompts",
+   "bestFor": "Connecting Claude to your own tools",
+   "shot": "guides/claude-cert/shots/introduction-to-model-context-protocol.png",
+   "callout": "Start the course here",
+   "meta": "10 lessons · 1 quiz · 1 hr"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Intro to Claude Cowork",
+   "what": "Hand off multi-step work: workspaces, task loops, plugins",
+   "bestFor": "Delegating research and documents",
+   "shot": "guides/claude-cert/shots/introduction-to-claude-cowork.png",
+   "callout": "Start the course here",
+   "meta": "14 lessons · 1 quiz · 2.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 10,
+   "title": "Intro to Claude Tag",
+   "what": "Claude inside your team Slack (beta): hand off, steer, correct",
+   "bestFor": "Teams that live in Slack",
+   "shot": "guides/claude-cert/shots/introduction-to-claude-tag.png",
+   "callout": "Start the course here",
+   "meta": "11 lessons · 1 quiz · 2.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 11,
+   "title": "Claude Platform 101",
+   "what": "Build on the Claude Platform from your very first API call",
+   "bestFor": "Developers starting with the API",
+   "shot": "guides/claude-cert/shots/claude-platform-101.png",
+   "callout": "Start the course here",
+   "meta": "13 lessons · 1 quiz · 1.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 12,
+   "title": "Building with the Claude API",
+   "what": "Prompting, tool use, RAG, agents, MCP and production patterns",
+   "bestFor": "Developers shipping Claude apps",
+   "shot": "guides/claude-cert/shots/building-with-the-claude-api.png",
+   "callout": "Start the course here",
+   "meta": "67 lessons · 8 quizzes · 9 hr"
+  },
+  {
+   "kind": "item",
+   "n": 13,
+   "title": "Claude on Amazon Bedrock",
+   "what": "Deploy Claude on AWS: API, tool use, RAG pipelines, agents",
+   "bestFor": "Teams building on AWS",
+   "shot": "guides/claude-cert/shots/claude-with-amazon-bedrock.png",
+   "callout": "Start the course here",
+   "meta": "65 lessons · 8 quizzes · 8 hr"
+  },
+  {
+   "kind": "item",
+   "n": 14,
+   "title": "Claude on Google Cloud",
+   "what": "Claude through Google Cloud, from setup to production",
+   "bestFor": "Teams building on Google Cloud",
+   "shot": "guides/claude-cert/shots/claude-with-google-cloud-s-vertex-ai.png",
+   "callout": "Start the course here",
+   "meta": "66 lessons · 9 quizzes · 8.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 15,
+   "title": "AI Fluency for Builders",
+   "what": "AI fluency for people who own problem to shipped product",
+   "bestFor": "Builders and product people",
+   "shot": "guides/claude-cert/shots/ai-fluency-for-builders.png",
+   "callout": "Start the course here",
+   "meta": "9 lessons · 1 quiz · 3 hr"
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for a free weekend.",
+   "bullets": [
+    "Open Claude Academy",
+    "Pick one course this week",
+    "Earn your completion badge"
+   ],
+   "stamp1": "Comment ACADEMY",
+   "stamp2": "I'll DM you every link"
+  }
+ ],
+ "linkedin": [
+  {
+   "kind": "cover",
+   "line1": "FREE Claude",
+   "line2": "Courses",
+   "sub": "24 courses + completion badges · Claude Academy",
+   "hero": "glow/si-claude.svg",
+   "sticker": "COMPLETION BADGE",
+   "ghost": "Claude"
+  },
+  {
+   "kind": "promise",
+   "title": "All 24 courses free, *no paid plan needed*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "academy.claude.com"
+   },
+   "get": "video lessons, quizzes and a completion badge",
+   "shot": "guides/claude-cert/shots/home.png",
+   "callout": "Browse all 24 courses"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Claude 101",
+   "what": "Everyday work with Claude: prompts, projects, artifacts, skills",
+   "bestFor": "Anyone starting from zero",
+   "shot": "guides/claude-cert/shots/claude-101.png",
+   "callout": "Start the course here",
+   "meta": "13 lessons · 1 quiz · 2.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "AI Fluency: Framework",
+   "what": "The 4D framework: Delegation, Description, Discernment, Diligence",
+   "bestFor": "Working with AI well and safely",
+   "shot": "guides/claude-cert/shots/ai-fluency-framework-foundations.png",
+   "callout": "Start the course here",
+   "meta": "14 lessons · 1 quiz · 4 hr"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "AI Capabilities & Limits",
+   "what": "What LLMs can and cannot do: tokens, memory, context limits",
+   "bestFor": "Building an accurate mental model",
+   "shot": "guides/claude-cert/shots/ai-capabilities-and-limitations.png",
+   "callout": "Start the course here",
+   "meta": "13 lessons · 1 quiz · 3.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Claude Code 101",
+   "what": "Install it, Plan Mode, CLAUDE.md, subagents, MCP and hooks",
+   "bestFor": "Developers new to agentic coding",
+   "shot": "guides/claude-cert/shots/claude-code-101.png",
+   "callout": "Start the course here",
+   "meta": "12 lessons · 1 quiz · 1.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Claude Code in Action",
+   "what": "Long, hands-off sessions you can steer, automate and verify",
+   "bestFor": "Daily Claude Code users",
+   "shot": "guides/claude-cert/shots/claude-code-in-action.png",
+   "callout": "Start the course here",
+   "meta": "9 lessons · 1 quiz · 1 hr"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Intro to Agent Skills",
+   "what": "Build, configure and share reusable skills in Claude Code",
+   "bestFor": "Automating repeat workflows",
+   "shot": "guides/claude-cert/shots/introduction-to-agent-skills.png",
+   "callout": "Start the course here",
+   "meta": "6 lessons · 1 hr"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Intro to Subagents",
+   "what": "Split big tasks across parallel subagents and orchestrate them",
+   "bestFor": "Running complex, multi-step work",
+   "shot": "guides/claude-cert/shots/introduction-to-subagents.png",
+   "callout": "Start the course here",
+   "meta": "4 lessons · 45 min"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Intro to MCP",
+   "what": "Build MCP servers and clients in Python: tools, resources, prompts",
+   "bestFor": "Connecting Claude to your own tools",
+   "shot": "guides/claude-cert/shots/introduction-to-model-context-protocol.png",
+   "callout": "Start the course here",
+   "meta": "10 lessons · 1 quiz · 1 hr"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Intro to Claude Cowork",
+   "what": "Hand off multi-step work: workspaces, task loops, plugins",
+   "bestFor": "Delegating research and documents",
+   "shot": "guides/claude-cert/shots/introduction-to-claude-cowork.png",
+   "callout": "Start the course here",
+   "meta": "14 lessons · 1 quiz · 2.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 10,
+   "title": "Intro to Claude Tag",
+   "what": "Claude inside your team Slack (beta): hand off, steer, correct",
+   "bestFor": "Teams that live in Slack",
+   "shot": "guides/claude-cert/shots/introduction-to-claude-tag.png",
+   "callout": "Start the course here",
+   "meta": "11 lessons · 1 quiz · 2.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 11,
+   "title": "Claude Platform 101",
+   "what": "Build on the Claude Platform from your very first API call",
+   "bestFor": "Developers starting with the API",
+   "shot": "guides/claude-cert/shots/claude-platform-101.png",
+   "callout": "Start the course here",
+   "meta": "13 lessons · 1 quiz · 1.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 12,
+   "title": "Building with the Claude API",
+   "what": "Prompting, tool use, RAG, agents, MCP and production patterns",
+   "bestFor": "Developers shipping Claude apps",
+   "shot": "guides/claude-cert/shots/building-with-the-claude-api.png",
+   "callout": "Start the course here",
+   "meta": "67 lessons · 8 quizzes · 9 hr"
+  },
+  {
+   "kind": "item",
+   "n": 13,
+   "title": "Claude on Amazon Bedrock",
+   "what": "Deploy Claude on AWS: API, tool use, RAG pipelines, agents",
+   "bestFor": "Teams building on AWS",
+   "shot": "guides/claude-cert/shots/claude-with-amazon-bedrock.png",
+   "callout": "Start the course here",
+   "meta": "65 lessons · 8 quizzes · 8 hr"
+  },
+  {
+   "kind": "item",
+   "n": 14,
+   "title": "Claude on Google Cloud",
+   "what": "Claude through Google Cloud, from setup to production",
+   "bestFor": "Teams building on Google Cloud",
+   "shot": "guides/claude-cert/shots/claude-with-google-cloud-s-vertex-ai.png",
+   "callout": "Start the course here",
+   "meta": "66 lessons · 9 quizzes · 8.5 hr"
+  },
+  {
+   "kind": "item",
+   "n": 15,
+   "title": "AI Fluency for Builders",
+   "what": "AI fluency for people who own problem to shipped product",
+   "bestFor": "Builders and product people",
+   "shot": "guides/claude-cert/shots/ai-fluency-for-builders.png",
+   "callout": "Start the course here",
+   "meta": "9 lessons · 1 quiz · 3 hr"
+  },
+  {
+   "kind": "more",
+   "title": "*+9 more* free courses",
+   "sub": "Same academy, same completion badge.",
+   "items": [
+    {
+     "title": "AI Fluency for small businesses",
+     "meta": "8 lessons · 1 quiz · 3.5 hr"
+    },
+    {
+     "title": "AI Fluency for students",
+     "meta": "5 lessons · 1 quiz · 3 hr"
+    },
+    {
+     "title": "AI Fluency for creative work",
+     "meta": "8 lessons · 1 quiz · 5 hr"
+    },
+    {
+     "title": "AI Fluency for educators",
+     "meta": "4 lessons · 1 quiz · 1.5 hr"
+    },
+    {
+     "title": "AI Fluency for nonprofits",
+     "meta": "9 lessons · 1 quiz · 4 hr"
+    },
+    {
+     "title": "AI Fluency for pK-12 educators",
+     "meta": "10 lessons · 1 quiz · 3 hr"
+    },
+    {
+     "title": "AI Fluency for pK-12 Train the Trainer",
+     "meta": "4 lessons · 45 min"
+    },
+    {
+     "title": "Building human-agent teams (beta)",
+     "meta": "5 lessons · 1 quiz · 45 min"
+    },
+    {
+     "title": "Deploying Claude Enterprise with confidence",
+     "meta": "14 lessons · 1 quiz · 2.5 hr"
+    }
+   ]
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for a free weekend.",
+   "bullets": [
+    "Open Claude Academy",
+    "Pick one course this week",
+    "Earn your completion badge"
+   ],
+   "stamp1": "Get every free guide here",
+   "stamp2": "VISIT WITHHAMMAD.COM/RESOURCES"
+  }
+ ]
+}

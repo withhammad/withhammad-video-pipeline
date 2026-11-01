@@ -1,5 +1,7 @@
 # Carousel spec (owner rules 2026-11-01)
 
+> **Retired 2026-11-01.** The owner rejected this self-designed format. Carousels now copy the AI Central template: see docs/profile-seo/ref-aicentral/README.md, studio/remotion/src/brand/GuideDoc.tsx and render-guide.mjs.
+
 One save-worthy guide carousel per reel, posted on Instagram (@withhammad.ai, Collab @hammadagentic.ai), the Facebook
 Page "With Hammad AI" and LinkedIn (PDF document post). Format reference: the AI Central and Y Combinator LinkedIn
 feeds (docs/profile-seo/references.md): one idea per slide, numbered steps, a stat with its source, copy-paste prompts
