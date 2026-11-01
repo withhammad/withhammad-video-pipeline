@@ -1,15 +1,153 @@
 {
   "_about": "Owner 2026-11-01: which finished reel goes out on which day. app.repost_queue build turns this into repost-queue.json, reading every caption from <job>/seo/seo.json (per-platform, research-based). Instagram = @withhammad.ai with Collab invites; Facebook = Page With Hammad AI; LinkedIn only for reels it never got.",
   "start": "2026-11-02",
-  "instagram_times": ["11:00", "14:00", "17:00"],
-  "facebook_times": ["14:00", "17:00", "20:00"],
-  "linkedin_times": ["09:00", "13:00"],
-  "days": [
-    {"date": "2026-11-02", "instagram": ["955ed21d2fc4", "c6e60a58849b", "09a9d211fff0"], "linkedin": ["c6e60a58849b", "b55491077ab1"]},
-    {"date": "2026-11-03", "instagram": ["b55491077ab1", "d61788123d13", "f7da978d101e"], "linkedin": ["d61788123d13", "7123480a28ca"]},
-    {"date": "2026-11-04", "instagram": ["9d2d68af60d4", "7123480a28ca", "website20261020"], "linkedin": ["c9d9bd2b786c", "website20261020"]},
-    {"date": "2026-11-05", "instagram": ["fa00b63b4fa2", "c9d9bd2b786c", "claude-linkedin-installs"], "linkedin": ["motion20261020"]},
-    {"date": "2026-11-06", "instagram": ["motion20261020"], "linkedin": []}
+  "instagram_times": [
+    "11:00",
+    "14:00",
+    "17:00"
   ],
-  "facebook": "same reels as instagram, same day, at facebook_times"
+  "facebook_times": [
+    "14:00",
+    "17:00",
+    "20:00"
+  ],
+  "linkedin_times": [
+    "09:00",
+    "13:00",
+    "17:00"
+  ],
+  "days": [
+    {
+      "date": "2026-11-02",
+      "instagram": [
+        "955ed21d2fc4",
+        "c6e60a58849b",
+        "09a9d211fff0"
+      ],
+      "linkedin": [
+        "c6e60a58849b",
+        "b55491077ab1"
+      ]
+    },
+    {
+      "date": "2026-11-03",
+      "instagram": [
+        "b55491077ab1",
+        "d61788123d13",
+        "f7da978d101e"
+      ],
+      "linkedin": [
+        "d61788123d13",
+        "7123480a28ca"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "instagram": [
+        "9d2d68af60d4",
+        "7123480a28ca",
+        "website20261020"
+      ],
+      "linkedin": [
+        "c9d9bd2b786c",
+        "website20261020"
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "instagram": [
+        "fa00b63b4fa2",
+        "c9d9bd2b786c",
+        "claude-linkedin-installs"
+      ],
+      "linkedin": [
+        "motion20261020"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "instagram": [
+        "motion20261020"
+      ],
+      "linkedin": []
+    },
+    {
+      "date": "2026-11-09",
+      "instagram": [
+        "6cff0a62569f",
+        "dots-20261027",
+        "6f8f4ad316a3"
+      ],
+      "linkedin": [
+        "6cff0a62569f",
+        "dots-20261027",
+        "6f8f4ad316a3"
+      ],
+      "youtube": [
+        "6cff0a62569f",
+        "dots-20261027",
+        "6f8f4ad316a3"
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "instagram": [
+        "agent-loop",
+        "audit20261020",
+        "applemotion20261027"
+      ],
+      "linkedin": [
+        "agent-loop",
+        "audit20261020",
+        "applemotion20261027"
+      ],
+      "youtube": [
+        "agent-loop",
+        "audit20261020",
+        "applemotion20261027"
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "instagram": [
+        "agentic-concepts",
+        "comedy20261023",
+        "fef5b7f3b5af"
+      ],
+      "linkedin": [
+        "agentic-concepts",
+        "comedy20261023",
+        "fef5b7f3b5af"
+      ],
+      "youtube": [
+        "agentic-concepts",
+        "comedy20261023",
+        "fef5b7f3b5af"
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "instagram": [
+        "harness-engineering",
+        "d24ed130c3d9",
+        "anatomy20261027"
+      ],
+      "linkedin": [
+        "harness-engineering",
+        "d24ed130c3d9",
+        "anatomy20261027"
+      ],
+      "youtube": [
+        "harness-engineering",
+        "anatomy20261027"
+      ]
+    }
+  ],
+  "facebook": "same reels as instagram, same day, at facebook_times",
+  "youtube_times": [
+    "09:00",
+    "12:00",
+    "16:00"
+  ],
+  "week2_note": "Owner 2026-11-01 \"Yes, build week 2\": 12 never-posted reels, IG+FB+LI+YouTube, 3/day. 91ac50635d3d (UAE 100 Dreams) held: on-screen date 20 Nov, official page now 24 Nov. d24ed130c3d9 already a YouTube Short, so no second upload."
 }
