@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-01T12:00:25Z",
+ "updated_at": "2026-11-01T13:30:06Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -60,6 +60,16 @@
    "status": "posted",
    "when": "2026-11-01",
    "account": "withhammad.ai"
+  },
+  {
+   "job": "955ed21d2fc4",
+   "keyword": "DUET",
+   "title": "Claude Duet: Anthropic's proactive agent that messages you first (rese",
+   "platform": "facebook",
+   "url": "https://www.facebook.com/reel/1609832940339309/",
+   "status": "posted",
+   "when": "2026-11-01",
+   "account": "page"
   },
   {
    "job": "9d2d68af60d4",
@@ -186,18 +196,6 @@
    "slot_utc": "2026-11-02T10:00:00Z",
    "local": "2026-11-02 14:00 GST",
    "account": "withhammad.ai"
-  },
-  {
-   "job": "955ed21d2fc4",
-   "keyword": "DUET",
-   "title": "Claude Duet: Anthropic's proactive agent that messages you first (rese",
-   "platform": "facebook",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-02",
-   "slot_utc": "2026-11-02T10:00:00Z",
-   "local": "2026-11-02 14:00 GST",
-   "account": ""
   },
   {
    "job": "09a9d211fff0",

@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-01T12:00:25Z",
+ "updated_at": "2026-11-01T13:30:06Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -87,9 +87,9 @@
    "linkedin": "yes",
    "instagram": "yes",
    "tiktok": "yes",
-   "facebook": "no",
+   "facebook": "yes",
    "x": "no",
-   "platforms_on": 4
+   "platforms_on": 5
   },
   {
    "job": "9d2d68af60d4",

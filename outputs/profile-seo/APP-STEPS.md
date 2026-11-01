@@ -4,7 +4,7 @@ Copy-paste text is exact. Tick each line when done; I verify live afterwards.
 
 ## Instagram @withhammad.ai (app: Edit profile)
 - [ ] Name: `Claude Code & AI Agents for Marketers | Hammad Yousuf`
-- [ ] Bio (4 lines):
+- [x] Bio (4 lines): done in Chrome 2026-11-01 (Profile saved)
 ```
 AI automation engineer · Dubai
 Claude Code & AI agents marketers can copy
@@ -23,11 +23,11 @@ Comment a reel's keyword → free guide in DMs
 - About: done by API 2026-11-01 (no action)
 
 ## LinkedIn (linkedin.com/in/withhammad)
-- [ ] Headline:
+- [x] Headline: done in Chrome 2026-11-01, live on the profile
 ```
 AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG, MCP | Forward Deployed Engineer at Promate | Free daily AI guides for marketers & founders → withhammad.com
 ```
-- [ ] About: paste docs/profile-seo/linkedin.md section 4 (confirm the contact email line first)
+- [x] About: done in Chrome 2026-11-01 with marketing@withhammad.com as the contact line
 - [ ] Banner: upload outputs/profile-seo/linkedin-banner-1584x396.png
 - [ ] Featured: 1 link withhammad.com/resources; 2 the FDE roadmap reel post; 3 the AI startup stack costs reel post
 - [ ] Services: lead with AI Consulting if offered; paste the Services text from linkedin.md section 5; drop Business Analytics
@@ -37,9 +37,13 @@ AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG,
 
 ## YouTube
 - Description, keywords, trailer, sections, Urdu translation: done by API 2026-11-01
-- [ ] Studio → Customization → Profile → Name: `Hammad Yousuf | Claude Code & AI Agents` (the API ignores channel-name changes)
+- [ ] Studio → Customization → Profile → Name: `Hammad Yousuf | Claude Code & AI Agents`. Typed and Publish pressed 2026-11-01; YouTube asked "Verify that it's you" (your sign-in check), so it is not saved until you pass that and press Publish again
 - [ ] Studio → Customization → Layout: add Spotlight (latest long video) and the Posts row; merge the 1-item "AI" playlist into Claude Code
 - [ ] Record a 45–60 s 16:9 channel trailer when convenient (the interim trailer is the lead-finder Short)
+
+## YouTube monetisation (Earn → Step 2 "Fix your AdSense for YouTube account")
+- Diagnosis 2026-11-01: the AdSense account linked to the channel was disapproved "due to an existing account". AdSense allows one account per person, and the Google account signed into Chrome has no AdSense access while several of your other Google accounts do.
+- [ ] In Studio → Earn → Step 2 press "Change association", sign in with the Google account that owns your already-approved AdSense, and link it to the channel. Step 3 (review) then starts on its own. This is your payments account and needs your sign-in, so it is yours to do.
 
 ## Website
 - [ ] Search Console service-account JSON into the site's GSC_CREDENTIALS env (CREDENTIALS.md line 75) so the Monday report includes clicks
