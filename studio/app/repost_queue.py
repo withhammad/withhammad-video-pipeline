@@ -116,6 +116,64 @@ def run_due(now=None, live=False, rt=None, path=QUEUE):
     return report
 
 
+PLAN = ROOT / 'outputs' / 'video-pipeline' / 'repost-plan.json'
+GST_OFFSET = timedelta(hours=4)
+
+
+def _slot(date, hhmm):
+    local = datetime.fromisoformat(f'{date}T{hhmm}:00').replace(tzinfo=timezone(GST_OFFSET))
+    return local.astimezone(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), f'{date} {hhmm} GST'
+
+
+def seo_caption(job, platform):
+    """The researched per-platform copy for a job; refuses a pack without research (owner rule 2026-11-01)."""
+    seo = json.loads((JOBS / job / 'seo' / 'seo.json').read_text())
+    if not seo.get('researched_at') or not seo.get('sources'):
+        raise ValueError(f'{job}: seo/seo.json has no researched_at/sources; research it before queueing')
+    section = seo.get(platform) or {}
+    text = section.get('caption') or section.get('text') or ''
+    if not text.strip():
+        raise ValueError(f'{job}: seo/seo.json has no {platform} copy')
+    if platform == 'instagram' and '@withhammad.ai' not in text:
+        raise ValueError(f'{job}: Instagram caption must ask to follow @withhammad.ai')
+    if platform != 'linkedin' and ('@with.hammad' in text or '@hammadagentic.ai' in text):
+        raise ValueError(f'{job}: {platform} copy still names a retired account')
+    return text.strip(), seo
+
+
+def build(plan_path=PLAN, path=QUEUE):
+    """Rebuild repost-queue.json from the plan + each job's seo.json. Entries already posted/failed are kept as is."""
+    plan = json.loads(Path(plan_path).read_text())
+    old = {e['id']: e for e in (load(path)['entries'] if Path(path).exists() else [])}
+    entries = []
+
+    def add(job, platform, date, hhmm):
+        lesson = json.loads((JOBS / job / 'lesson.json').read_text())
+        text, seo = seo_caption(job, platform)
+        slot, local = _slot(date, hhmm)
+        eid = f'{platform[:2]}-{job}'
+        prev = old.get(eid)
+        if prev and prev.get('status') in ('posted', 'failed', 'missed'):
+            entries.append(prev); return
+        entries.append({'id': eid, 'job': job, 'platform': platform, 'slot_utc': slot, 'local': local,
+                        'keyword': lesson.get('manychat_keyword') or seo.get('keyword'),
+                        'title': lesson.get('topic_title') or lesson.get('title') or job, 'caption': text,
+                        'primary_keyword': seo.get('primary_keyword'), 'host_slug': f'repost-{job}',
+                        'collaborators': None, 'status': 'pending'})
+    for day in plan['days']:
+        for hhmm, job in zip(plan['instagram_times'], day['instagram']):
+            add(job, 'instagram', day['date'], hhmm)
+        for hhmm, job in zip(plan['facebook_times'], day['instagram']):
+            add(job, 'facebook', day['date'], hhmm)
+        for hhmm, job in zip(plan['linkedin_times'], day.get('linkedin', [])):
+            add(job, 'linkedin', day['date'], hhmm)
+    entries.sort(key=lambda e: e['slot_utc'])
+    save({'_about': 'Built by app.repost_queue build from repost-plan.json; captions from each job seo/seo.json. '
+                    'Runner: python -m app.repost_queue run-due --live (scheduled task repost-queue-run-due).',
+          'built_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'entries': entries}, path)
+    return entries
+
+
 def status(path=QUEUE):
     rows = []
     for e in load(path)['entries']:
@@ -128,12 +186,17 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest='cmd', required=True)
     sub.add_parser('status')
+    sub.add_parser('build', help='rebuild the queue from repost-plan.json + each job seo/seo.json')
     r = sub.add_parser('run-due')
     r.add_argument('--live', action='store_true')
     r.add_argument('--now', help='dry runs only: ISO time')
     args = parser.parse_args(argv)
     if args.cmd == 'status':
         print(status())
+        return 0
+    if args.cmd == 'build':
+        entries = build()
+        print(f'{len(entries)} entries'); print(status())
         return 0
     if args.live and args.now:
         parser.error('--live always uses the real clock')

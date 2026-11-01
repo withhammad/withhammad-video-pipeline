@@ -72,3 +72,26 @@ def test_facebook_entry_uses_hosted_url_and_dry_run(tmp_path, monkeypatch):
     rep = rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=False, rt=FakeRt(), path=q)
     assert rep['posted'][0]['status'] == 'planned'
     assert seen['url'].endswith('/media/reels/repost-j.mp4') and seen['caption'] == 'c' and seen['dry'] is True
+
+
+def test_build_reads_seo_per_platform_and_refuses_unresearched(tmp_path, monkeypatch):
+    jobs = tmp_path / 'jobs'; (jobs / 'a' / 'seo').mkdir(parents=True); (jobs / 'b' / 'seo').mkdir(parents=True)
+    (jobs / 'a' / 'lesson.json').write_text(json.dumps({'manychat_keyword': 'K', 'topic_title': 'A'}))
+    (jobs / 'a' / 'seo' / 'seo.json').write_text(json.dumps({'researched_at': '2026-11-01', 'sources': ['s'], 'primary_keyword': 'pk',
+        'instagram': {'caption': 'ig Follow @withhammad.ai'}, 'facebook': {'caption': 'fb'}, 'linkedin': {'text': 'li'}}))
+    (jobs / 'b' / 'lesson.json').write_text('{}')
+    (jobs / 'b' / 'seo' / 'seo.json').write_text(json.dumps({'instagram': {'caption': 'x'}}))
+    monkeypatch.setattr(rq, 'JOBS', jobs)
+    plan = tmp_path / 'plan.json'
+    plan.write_text(json.dumps({'instagram_times': ['11:00'], 'facebook_times': ['14:00'], 'linkedin_times': ['09:00'],
+                                'days': [{'date': '2026-11-02', 'instagram': ['a'], 'linkedin': ['a']}]}))
+    q = tmp_path / 'q.json'
+    q.write_text(json.dumps({'entries': [{'id': 'in-a', 'platform': 'instagram', 'local': '2026-11-02 11:00 GST', 'status': 'posted', 'url': 'u', 'slot_utc': '2026-11-02T07:00:00Z'}]}))
+    es = rq.build(plan, q)
+    assert [(e['platform'], e['local']) for e in es] == [('linkedin', '2026-11-02 09:00 GST'), ('instagram', '2026-11-02 11:00 GST'), ('facebook', '2026-11-02 14:00 GST')]
+    assert es[1]['status'] == 'posted' and es[2]['caption'] == 'fb' and es[0]['caption'] == 'li'
+    plan.write_text(json.dumps({'instagram_times': ['11:00'], 'facebook_times': [], 'linkedin_times': [],
+                                'days': [{'date': '2026-11-02', 'instagram': ['b']}]}))
+    import pytest
+    with pytest.raises(ValueError, match='researched'):
+        rq.build(plan, q)
