@@ -439,5 +439,14 @@
       "why_chrome": "no free comment API (X Basic $100/mo; TikTok comments partner-only)"
     },
     "routines_doc": "docs/routines/README.md"
+  },
+  "repost_queue": {
+    "approved_by_owner": "2026-11-01",
+    "task": "repost-queue-run-due",
+    "enabled": true,
+    "file": "outputs/video-pipeline/repost-queue.json",
+    "plan": "outputs/video-pipeline/repost-plan.json",
+    "first_slot": "2026-11-02 09:03 GST LinkedIn BYTES",
+    "facebook": "13 entries queued; fail safely until pages_manage_posts + publish_video are consented"
   }
 }
