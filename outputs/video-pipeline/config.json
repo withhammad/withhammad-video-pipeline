@@ -136,7 +136,8 @@
         "connection_status": "chrome_session_verified_native_schedule",
         "provider": "owner_chrome",
         "identity_last_verified": "2026-10-31",
-        "verification_note": "TikTok Studio upload page open and logged in 2026-10-31"
+        "verification_note": "TikTok Studio upload page open and logged in 2026-10-31; re-signed in 2026-11-01 after cleanup",
+        "cleanup_2026_11_01": "67 non-AI videos deleted via Chrome; 13 AI reels remain (outputs/tiktok-cleanup/delete-list-2026-11-01.txt)"
       },
       {
         "key": "linkedin",
