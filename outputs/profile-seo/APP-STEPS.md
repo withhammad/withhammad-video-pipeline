@@ -36,8 +36,9 @@ AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG,
 - [ ] Newsletter "Shipped with AI" (weekly, Monday 11:00 GST) when you want it
 
 ## YouTube
-- Title, description, keywords, trailer, sections: done by API 2026-11-01 (verify in Studio)
-- [ ] Studio → Customization → Profile → Add language: Urdu description (only if the API step reports it could not)
+- Description, keywords, trailer, sections, Urdu translation: done by API 2026-11-01
+- [ ] Studio → Customization → Profile → Name: `Hammad Yousuf | Claude Code & AI Agents` (the API ignores channel-name changes)
+- [ ] Studio → Customization → Layout: add Spotlight (latest long video) and the Posts row; merge the 1-item "AI" playlist into Claude Code
 - [ ] Record a 45–60 s 16:9 channel trailer when convenient (the interim trailer is the lead-finder Short)
 
 ## Website
