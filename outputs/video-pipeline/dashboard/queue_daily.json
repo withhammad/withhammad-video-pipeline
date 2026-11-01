@@ -1,0 +1,40 @@
+{
+ "updated_at": "2026-11-01T11:41:55Z",
+ "rows": [
+  {
+   "day": "2026-11-02",
+   "pending": 8,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0
+  },
+  {
+   "day": "2026-11-03",
+   "pending": 8,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0
+  },
+  {
+   "day": "2026-11-04",
+   "pending": 8,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0
+  },
+  {
+   "day": "2026-11-05",
+   "pending": 7,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0
+  },
+  {
+   "day": "2026-11-06",
+   "pending": 2,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0
+  }
+ ]
+}
