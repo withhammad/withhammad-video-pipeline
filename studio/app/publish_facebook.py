@@ -159,6 +159,46 @@ def publish(video_url, lesson, *, dry_run=True, state_path=None, credential=CRED
     return {**result, 'status': 'published', 'video_id': state['video_id'], 'permalink': permalink}
 
 
+def publish_album(image_urls, lesson, *, dry_run=True, state_path=None, credential=CREDENTIAL, transport=None):
+    """A multi-photo Page post (the carousel on Facebook): each slide is uploaded unpublished (POST /{page}/photos
+    url=..., published=false), then one feed post attaches them in order. State is saved after every photo id."""
+    live = dry_run is False
+    if live and not state_path:
+        raise FacebookPublishError('publishing needs a state_path', step='state')
+    if not 2 <= len(image_urls) <= 20:
+        raise FacebookPublishError(f'album needs 2-20 images, got {len(image_urls)}', step='images')
+    message = caption_for(lesson)
+    info = check(credential, transport)
+    if not info['identity_ok']:
+        raise FacebookPublishError(f"token belongs to {info['page_name']!r}, not {PAGE_NAME}", step='identity')
+    result = {'platform': 'facebook_album', 'dry_run': not live, 'images': len(image_urls),
+              'requests': [f'POST /{PAGE_ID}/photos url=<slide {i + 1}> published=false' for i in range(len(image_urls))]
+              + [f'POST /{PAGE_ID}/feed message + attached_media x{len(image_urls)}'], 'warnings': []}
+    if not live:
+        result['status'] = 'planned'
+        if info['missing_scopes']:
+            result['warnings'].append(f"token lacks {info['missing_scopes']}")
+        return result
+    if info['missing_scopes']:
+        raise FacebookPublishError(f"Page token lacks {info['missing_scopes']}", step='scopes')
+    state = load_state(state_path)
+    if state.get('status') == 'published':
+        return {**result, 'status': 'already_published', 'post_id': state['post_id'], 'permalink': state.get('permalink')}
+    client = Client(load_credentials(credential)['access_token'], transport)
+    photos = state.setdefault('photo_ids', [])
+    for url in image_urls[len(photos):]:
+        photos.append(client.graph('POST', f'{PAGE_ID}/photos', url=url, published='false')['id'])
+        save_state(state_path, state)
+    if not state.get('post_id'):
+        media = json.dumps([{'media_fbid': pid} for pid in photos])
+        state['post_id'] = client.graph('POST', f'{PAGE_ID}/feed', message=message, attached_media=media)['id']
+        save_state(state_path, state)
+    link = client.graph('GET', state['post_id'], fields='permalink_url').get('permalink_url')
+    state.update(status='published', permalink=link, published_at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
+    save_state(state_path, state)
+    return {**result, 'status': 'published', 'post_id': state['post_id'], 'permalink': link}
+
+
 def main(argv=None):
     cmd = (argv or sys.argv[1:] or ['check'])[0]
     if cmd != 'check':

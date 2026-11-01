@@ -72,3 +72,43 @@ def test_processing_error_raises(cred, tmp_path):
     with pytest.raises(fb.FacebookPublishError, match='processing failed'):
         fb.publish('https://h/x.mp4', LESSON, dry_run=False, state_path=tmp_path / 's.json', credential=cred,
                    transport=transport([], statuses=bad), sleep=lambda s: None)
+
+
+def album_transport(log, fail_after=None):
+    count = {'photos': 0}
+
+    def handler(request):
+        log.append((request.method, request.url.path))
+        if request.url.path.endswith('/me'):
+            return httpx.Response(200, json={'id': fb.PAGE_ID, 'name': 'With Hammad AI'})
+        if request.url.path.endswith('/photos'):
+            count['photos'] += 1
+            if fail_after and count['photos'] > fail_after:
+                return httpx.Response(500, json={'error': {'message': 'boom'}})
+            return httpx.Response(200, json={'id': f"p{count['photos']}"})
+        if request.url.path.endswith('/feed'):
+            return httpx.Response(200, json={'id': 'post1'})
+        if request.url.path.endswith('/post1'):
+            return httpx.Response(200, json={'permalink_url': 'https://www.facebook.com/post1'})
+        return httpx.Response(404, json={'error': {'message': 'nope'}})
+    return httpx.MockTransport(handler)
+
+
+def test_album_uploads_unpublished_photos_then_one_post_and_resumes(cred, tmp_path):
+    urls = [f'https://h/{i}.jpg' for i in range(3)]
+    state = tmp_path / 's.json'
+    with pytest.raises(fb.FacebookPublishError):
+        fb.publish_album(urls, LESSON, dry_run=False, state_path=state, credential=cred, transport=album_transport([], fail_after=2))
+    assert json.loads(state.read_text())['photo_ids'] == ['p1', 'p2']
+    log = []
+    out = fb.publish_album(urls, LESSON, dry_run=False, state_path=state, credential=cred, transport=album_transport(log))
+    assert out['status'] == 'published' and out['permalink'] == 'https://www.facebook.com/post1'
+    assert [p for m, p in log if p.endswith('/photos')] == [f'/{fb.API_VERSION}/{fb.PAGE_ID}/photos']
+    assert fb.publish_album(urls, LESSON, dry_run=False, state_path=state, credential=cred, transport=album_transport([]))['status'] == 'already_published'
+
+
+def test_album_dry_run_and_bounds(cred):
+    out = fb.publish_album(['https://h/1.jpg', 'https://h/2.jpg'], LESSON, credential=cred, transport=album_transport([]))
+    assert out['status'] == 'planned' and len(out['requests']) == 3
+    with pytest.raises(fb.FacebookPublishError, match='2-20'):
+        fb.publish_album(['https://h/1.jpg'], LESSON, credential=cred, transport=album_transport([]))

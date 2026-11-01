@@ -28,8 +28,8 @@ export const COLOR = {
   amber: '#F5B300',
 } as const;
 
-export type AccentName = 'red' | 'orange';
-export const ACCENT: Record<AccentName, string> = {red: COLOR.red, orange: COLOR.orange};
+export type AccentName = 'red' | 'orange' | 'blue';
+export const ACCENT: Record<AccentName, string> = {red: COLOR.red, orange: COLOR.orange, blue: '#1F5EFF'};   // blue = the glow-grid pill
 
 export const FONT = {
   sans: 'BrInter, Arial, sans-serif',              // Inter 600/800/900 (OFL)

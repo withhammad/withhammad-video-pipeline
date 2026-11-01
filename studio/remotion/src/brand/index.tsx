@@ -6,6 +6,7 @@ import {kimiCover, skillCover, skillCarousel} from './samples';
 import {CANVAS} from './tokens';
 import {glowJobs} from './glowCovers';
 import {GlowWide} from './GlowWide';
+import {JobCarousel} from './JobCarousel';
 
 // Entry: npx remotion still src/brand/index.tsx <id> out.png  (or node src/brand/render.mjs for every sample)
 const Cover = ReelCover as React.FC<Record<string, unknown>>;
@@ -23,5 +24,7 @@ export const BrandRoot: React.FC = () => <>
   {glowJobs.map(j => <Composition key={j.job} id={`GlowWide-${j.job}`} component={GlowWide as unknown as React.FC<Record<string, unknown>>} {...still} width={1280} height={720} defaultProps={j.cover as unknown as Record<string, unknown>}/>)}
   {(['instagram', 'linkedin'] as const).map(pf => <Composition key={pf} id={`BrandCarousel-${pf}`} component={Slide} {...still} {...CANVAS.carousel}
     defaultProps={{slides: skillCarousel[pf], index: 0, platform: pf, accent: 'red'} as CarouselProps & Record<string, unknown>}/>)}
+  {(['instagram', 'linkedin'] as const).map(pf => <Composition key={`job-${pf}`} id={`JobCarousel-${pf}`} component={JobCarousel as unknown as React.FC<Record<string, unknown>>}
+    {...still} {...CANVAS.carousel} defaultProps={{slides: [{kind: 'quote', quote: 'placeholder', by: 'render-carousel.mjs passes the slides'}], index: 0, platform: pf}}/>)}
 </>;
 registerRoot(BrandRoot);

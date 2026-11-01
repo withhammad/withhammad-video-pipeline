@@ -26,7 +26,11 @@ QUEUE = ROOT / 'outputs' / 'video-pipeline' / 'repost-queue.json'
 JOBS = ROOT / 'studio' / '.local' / 'jobs'
 IG_ACCOUNT = 'withhammad.ai'
 STATE = {'instagram': 'publish_instagram_withhammad_ai.json', 'linkedin': 'publish_linkedin_repost.json',
-         'facebook': 'publish_facebook_page.json', 'youtube': 'publish_youtube_repost.json'}
+         'facebook': 'publish_facebook_page.json', 'youtube': 'publish_youtube_repost.json',
+         'instagram_carousel': 'publish_instagram_carousel_withhammad_ai.json',
+         'facebook_carousel': 'publish_facebook_album.json', 'linkedin_carousel': 'publish_linkedin_carousel_repost.json'}
+CAROUSELS = ('instagram_carousel', 'facebook_carousel', 'linkedin_carousel')
+ID_PREFIX = {'instagram_carousel': 'ic', 'facebook_carousel': 'fc', 'linkedin_carousel': 'lc'}
 LATE_LIMIT = timedelta(hours=6)
 
 
@@ -56,9 +60,48 @@ def due(entries, now):
     return ready, missed
 
 
+def _carousel_urls(jdir, entry, rt, live):
+    """Hosted slide URLs and byte sizes. Live: one idempotent site commit; dry run: the URLs they will have."""
+    files = pr.carousel_files(jdir) or {}
+    slides = files.get('instagram') or []
+    if not slides:
+        raise ValueError(f"{entry['job']}: no carousel/instagram-NN.png slides; render the carousel first")
+    if live:
+        hosted = pr.host_carousel_media(jdir, entry['host_slug'], entry.get('keyword'), rt)
+        return hosted['image_urls'], hosted.get('image_bytes')
+    return pr.hosted_carousel_urls(entry['host_slug'], len(slides)), None
+
+
+def post_carousel(entry, jdir, lesson, rt, live):
+    pf = entry['platform']
+    caps = dict(lesson.get('captions') or {})
+    if pf == 'linkedin_carousel':
+        pdf = jdir / 'carousel' / 'carousel-linkedin.pdf'
+        if not pdf.exists():
+            raise ValueError(f"{entry['job']}: carousel-linkedin.pdf missing; run app.carousel build")
+        result = rt.linkedin_document_publish(pdf, {**lesson, 'captions': {**caps, 'linkedin': entry['caption']}},
+                                              dry_run=not live, title=entry.get('doc_title') or entry['title'],
+                                              state_path=jdir / STATE[pf] if live else None)
+        return {'url': result.get('post_url'), 'post_urn': result.get('post_urn'), 'status': result.get('status')}
+    urls, sizes = _carousel_urls(jdir, entry, rt, live)
+    if pf == 'facebook_carousel':
+        from app import publish_facebook
+        result = publish_facebook.publish_album(urls, {**lesson, 'captions': {**caps, 'facebook': entry['caption']}},
+                                                dry_run=not live, state_path=jdir / STATE[pf] if live else None)
+        return {'url': result.get('permalink'), 'post_id': result.get('post_id'), 'status': result.get('status')}
+    extra = {} if entry.get('collaborators') is None else {'collaborators': entry['collaborators']}
+    result = rt.instagram_carousel_publish(urls, {**lesson, 'captions': {**caps, 'instagram': entry['caption']}},
+                                           dry_run=not live, state_path=jdir / STATE[pf] if live else None,
+                                           expected_username=IG_ACCOUNT, image_sizes=sizes, ai_generated=True, **extra)
+    return {'url': result.get('permalink'), 'media_id': result.get('media_id'), 'status': result.get('status'),
+            'collaborators': result.get('collaborators')}
+
+
 def post(entry, rt, live):
     jdir = JOBS / entry['job']
     lesson = json.loads((jdir / 'lesson.json').read_text())
+    if entry['platform'] in CAROUSELS:
+        return post_carousel(entry, jdir, lesson, rt, live)
     if entry['platform'] == 'instagram':
         lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'instagram': entry['caption']}}
         urls = pr.hosted_urls(entry['host_slug'])
@@ -153,6 +196,16 @@ def seo_caption(job, platform):
     return text.strip(), seo
 
 
+def carousel_caption(job, platform):
+    """The carousel caption for one platform from carousel/captions.json, only when app.carousel check passes."""
+    from app import carousel
+    report = carousel.check(job)
+    if report['errors']:
+        raise ValueError(f"{job}: carousel check fails: {report['errors'][:3]}")
+    caps = json.loads((JOBS / job / 'carousel' / 'captions.json').read_text())
+    return caps[platform.replace('_carousel', '')].strip(), caps
+
+
 def build(plan_path=PLAN, path=QUEUE):
     """Rebuild repost-queue.json from the plan + each job's seo.json. Entries already posted/failed are kept as is."""
     plan = json.loads(Path(plan_path).read_text())
@@ -161,9 +214,13 @@ def build(plan_path=PLAN, path=QUEUE):
 
     def add(job, platform, date, hhmm):
         lesson = json.loads((JOBS / job / 'lesson.json').read_text())
-        text, seo = seo_caption(job, platform)
+        if platform in CAROUSELS:
+            text, caps = carousel_caption(job, platform)
+            seo = {'primary_keyword': None, 'doc_title': caps.get('title')}
+        else:
+            text, seo = seo_caption(job, platform)
         slot, local = _slot(date, hhmm)
-        eid = f'{platform[:2]}-{job}'
+        eid = f"{ID_PREFIX.get(platform, platform[:2])}-{job}"
         prev = old.get(eid)
         if prev and prev.get('status') in ('posted', 'failed', 'missed'):
             entries.append(prev); return
@@ -171,7 +228,8 @@ def build(plan_path=PLAN, path=QUEUE):
                         'keyword': lesson.get('manychat_keyword') or seo.get('keyword'),
                         'title': lesson.get('topic_title') or lesson.get('title') or job, 'caption': text,
                         'primary_keyword': seo.get('primary_keyword'), 'host_slug': f'repost-{job}',
-                        'collaborators': None, 'status': 'pending'})
+                        'collaborators': None, 'status': 'pending',
+                        **({'doc_title': seo['doc_title']} if seo.get('doc_title') else {})})
     for day in plan['days']:
         for hhmm, job in zip(plan['instagram_times'], day['instagram']):
             add(job, 'instagram', day['date'], hhmm)
@@ -181,6 +239,9 @@ def build(plan_path=PLAN, path=QUEUE):
             add(job, 'linkedin', day['date'], hhmm)
         for hhmm, job in zip(plan.get('youtube_times', []), day.get('youtube', [])):
             add(job, 'youtube', day['date'], hhmm)
+        for hhmm, job in zip(plan.get('carousel_times', []), day.get('carousels', [])):
+            for platform in CAROUSELS:      # one guide carousel goes to IG, the FB Page and LinkedIn at the same slot
+                add(job, platform, day['date'], hhmm)
     entries.sort(key=lambda e: e['slot_utc'])
     save({'_about': 'Built by app.repost_queue build from repost-plan.json; captions from each job seo/seo.json. '
                     'Runner: python -m app.repost_queue run-due --live (scheduled task repost-queue-run-due).',
@@ -191,7 +252,7 @@ def build(plan_path=PLAN, path=QUEUE):
 def status(path=QUEUE):
     rows = []
     for e in load(path)['entries']:
-        rows.append(f"{e['local']:17} {e['platform']:9} {e['keyword'] or '-':10} {e['status']:8} {e['title'][:48]}"
+        rows.append(f"{e['local']:17} {e['platform']:18} {e['keyword'] or '-':10} {e['status']:8} {e['title'][:48]}"
                     + (f"  {e['url']}" if e.get('url') else ''))
     return '\n'.join(rows)
 

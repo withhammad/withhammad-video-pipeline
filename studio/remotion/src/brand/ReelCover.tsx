@@ -42,7 +42,11 @@ export type ClassicCoverProps = {
   guides?: boolean;
 };
 
-export const TileView: React.FC<{tile: Tile; size: number}> = ({tile, size}) => tile.src
+export const TileView: React.FC<{tile: Tile; size: number}> = ({tile, size}) => tile.src && tile.bg
+  // a mark on its own rounded tile (carousel logos): the image sits inside with 18% padding
+  ? <div style={{width: size, height: size, borderRadius: RADIUS.tile * size / 330, background: tile.bg, display: 'flex', alignItems: 'center',
+      justifyContent: 'center'}}><Img src={tile.src} style={{width: size * 0.64, height: size * 0.64, objectFit: 'contain'}}/></div>
+  : tile.src
   ? <Img src={tile.src} style={{width: size, height: size}}/>
   : <div style={{width: size, height: size, borderRadius: RADIUS.tile * size / 330, background: tile.bg || 'linear-gradient(160deg, #3FD2F2, #1E8FD6)',
     display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT.sans, fontWeight: 800, fontSize: size * 0.515, color: '#fff',

@@ -111,3 +111,56 @@ def test_youtube_entry_uses_seo_title_public_and_cover(tmp_path, monkeypatch):
     rep = rq.run_due(datetime(2026, 11, 9, 5, 5, tzinfo=timezone.utc), live=True, rt=Rt(), path=q)
     assert rep['posted'][0]['url'] == 'https://www.youtube.com/shorts/abc'
     assert seen == {'title': 'T', 'desc': 'c', 'privacy': 'public', 'thumb': str(tmp_path / 'jobs' / 'j' / 'cover_1080x1920.jpg'), 'dry': False}
+
+
+class CarouselRt(FakeRt):
+    def instagram_carousel_publish(self, urls, lesson, **o):
+        self.calls.append(('ic', o['dry_run'], urls, lesson['captions']['instagram'], o['expected_username'], o['image_sizes']))
+        return {'status': 'dry_run' if o['dry_run'] else 'published', 'permalink': 'https://ig/c'}
+
+    def linkedin_document_publish(self, pdf, lesson, **o):
+        self.calls.append(('lc', o['dry_run'], pdf.name, lesson['captions']['linkedin'], o['title']))
+        return {'status': 'dry_run' if o['dry_run'] else 'published', 'post_url': 'https://li/d'}
+
+
+def carousel_job(tmp_path):
+    c = tmp_path / 'jobs' / 'j' / 'carousel'; c.mkdir(parents=True, exist_ok=True)
+    for i in (1, 2, 3):
+        (c / f'instagram-{i:02d}.png').write_bytes(b'x')
+    (c / 'carousel-linkedin.pdf').write_bytes(b'%PDF')
+
+
+def test_carousel_lanes_dry_run_use_planned_urls_and_captions(tmp_path, monkeypatch):
+    es = [dict(entry(1, '2026-11-02T07:00:00Z', 'instagram_carousel'), caption='ig cap'),
+          dict(entry(2, '2026-11-02T07:00:00Z', 'facebook_carousel'), caption='fb cap'),
+          dict(entry(3, '2026-11-02T07:00:00Z', 'linkedin_carousel'), caption='li cap', doc_title='Doc')]
+    q = setup(tmp_path, monkeypatch, es); carousel_job(tmp_path)
+    monkeypatch.setattr(rq.pr, 'host_carousel_media', lambda *a: (_ for _ in ()).throw(AssertionError('no hosting in dry run')))
+    from app import publish_facebook
+    seen = {}
+    monkeypatch.setattr(publish_facebook, 'publish_album',
+                        lambda urls, lesson, **o: seen.update(urls=urls, cap=lesson['captions']['facebook'], dry=o['dry_run']) or {'status': 'planned'})
+    rt = CarouselRt()
+    rep = rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=False, rt=rt, path=q)
+    assert len(rep['posted']) == 3 and not rep['failed']
+    ic = [c for c in rt.calls if c[0] == 'ic'][0]
+    assert ic[1] is True and ic[2][-1].endswith('/media/carousels/repost-j/03.jpg') and ic[3] == 'ig cap' and ic[4] == 'withhammad.ai'
+    assert seen == {'urls': ic[2], 'cap': 'fb cap', 'dry': True}
+    assert [c for c in rt.calls if c[0] == 'lc'][0] == ('lc', True, 'carousel-linkedin.pdf', 'li cap', 'Doc')
+
+
+def test_carousel_live_hosts_once_per_post_and_records(tmp_path, monkeypatch):
+    q = setup(tmp_path, monkeypatch, [dict(entry(1, '2026-11-02T07:00:00Z', 'instagram_carousel'), caption='ig cap')])
+    carousel_job(tmp_path)
+    monkeypatch.setattr(rq.pr, 'host_carousel_media', lambda *a: {'image_urls': ['u1', 'u2'], 'image_bytes': [1, 2]})
+    rt = CarouselRt()
+    rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=True, rt=rt, path=q)
+    assert rt.calls[0][2] == ['u1', 'u2'] and rt.calls[0][5] == [1, 2]
+    e = json.loads(q.read_text())['entries'][0]
+    assert e['status'] == 'posted' and e['url'] == 'https://ig/c'
+
+
+def test_carousel_without_slides_fails_cleanly(tmp_path, monkeypatch):
+    q = setup(tmp_path, monkeypatch, [entry(1, '2026-11-02T07:00:00Z', 'instagram_carousel')])
+    rep = rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=False, rt=CarouselRt(), path=q)
+    assert rep['failed'] and 'render the carousel' in rep['failed'][0]['error']
