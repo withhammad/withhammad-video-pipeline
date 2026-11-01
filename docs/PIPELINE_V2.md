@@ -37,6 +37,8 @@ link (Instagram / YouTube / LinkedIn / TikTok / X / GitHub repo)
   -> script        same beats, reworded, facts corrected; keyword + resource slug chosen
   -> avatar        HeyGen: ONE take, 720p, approved voice; avatar on screen only where the reference shows a
                    face (credit rule: motion beats are HyperFrames, never avatar)
+  -> voice lane    HeyGen credits out, or no face needed: app.voice synth -> cut-audio.wav + words.json via
+                   ElevenLabs (voice 46d4ae…) -> Fish Audio -> free local say (labelled not-his-voice); owner rule 2026-11-01
   -> edit          video-intake -> tighten -> reel-skills pack + HyperFrames, same logos/backgrounds/animations
   -> check         video-check, lipsync filmstrip, contact sheet -> sent to the owner
   -> covers        click-first cover sheet; seo-pack
