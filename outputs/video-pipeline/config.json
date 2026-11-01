@@ -64,7 +64,7 @@
         "handle": "with.hammad",
         "account_id": "17841400507502327",
         "profile_url": "https://www.instagram.com/with.hammad/",
-        "connection_status": "identity_and_scopes_verified",
+        "connection_status": "retired_token_invalidated",
         "provider": "instagram_login_api",
         "ig_login_user_id": "38990711367182708",
         "account_type": "MEDIA_CREATOR",
@@ -82,14 +82,15 @@
         "first_publish": "https://www.instagram.com/reel/DemtmtXn_AT/",
         "identity_last_verified": "2026-10-20",
         "retired": "2026-10-31",
-        "retired_note": "Owner 2026-10-31: replaced by the new Instagram linked to the With Hammad AI Page; no new posts here (existing posts stay)."
+        "retired_note": "Owner 2026-10-31: replaced by the new Instagram linked to the With Hammad AI Page; no new posts here (existing posts stay).",
+        "note_2026_11_01": "Token invalid (Meta session invalidated). Only Collab invites from @withhammad.ai; owner accepts them in the app."
       },
       {
         "key": "instagram_secondary",
         "handle": "hammadagentic.ai",
         "account_id": "17841416366504874",
         "profile_url": "https://www.instagram.com/hammadagentic.ai/",
-        "connection_status": "token_invalidated_2026-10-17",
+        "connection_status": "retired_token_invalidated",
         "provider": "instagram_login_api",
         "ig_login_user_id": "28274360938863843",
         "account_type": "MEDIA_CREATOR",
@@ -105,7 +106,8 @@
         ],
         "note": "Meta error 190: session invalidated, seen after Chrome Instagram switched to @with.hammad. Re-authorize only in a separate browser profile so the @with.hammad session stays logged in.",
         "retired": "2026-10-31",
-        "retired_note": "Owner 2026-10-31: replaced by the new Instagram linked to the With Hammad AI Page; no new posts here (existing posts stay)."
+        "retired_note": "Owner 2026-10-31: replaced by the new Instagram linked to the With Hammad AI Page; no new posts here (existing posts stay).",
+        "note_2026_11_01": "Token invalid (Meta session invalidated). Only Collab invites from @withhammad.ai; owner accepts them in the app."
       },
       {
         "key": "youtube",
@@ -186,11 +188,13 @@
         "account_id": "61595704034607",
         "profile_url": "https://www.facebook.com/profile.php?id=61595704034607",
         "category": "Digital creator",
-        "connection_status": "page_exists_owner_admin_instagram_linked",
-        "provider": "chrome_page_composer (Graph API once a Page token is authorized)",
+        "connection_status": "page_token_valid_missing_pages_manage_posts_publish_video",
+        "provider": "graph_api_reels (app.publish_facebook)",
         "added": "2026-10-31",
         "note": "Owner 2026-10-31: replaces the personal profile 100090938416059 for every new Facebook post. Not in a Business portfolio yet (portfolio Merciful Light is empty).",
-        "page_asset_id": "1394106800452348"
+        "page_asset_id": "1394106800452348",
+        "token_file": "work/.secrets/facebook-page-oauth.json",
+        "note_2026_11_01": "Reels publisher built 2026-11-01; needs pages_manage_posts + publish_video added to the app use case, then re-consent via outputs/video-pipeline/facebook_oauth.py"
       },
       {
         "key": "instagram_new",
