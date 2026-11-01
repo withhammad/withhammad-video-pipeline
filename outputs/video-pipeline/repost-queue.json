@@ -111,7 +111,9 @@
       "primary_keyword": null,
       "host_slug": "guide-claude-academy",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-01T20:47:01Z"
     },
     {
       "id": "xg-claude-academy",
@@ -127,7 +129,9 @@
       "primary_keyword": null,
       "host_slug": "guide-claude-academy",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-01T20:54:05Z"
     },
     {
       "id": "in-955ed21d2fc4",
@@ -392,7 +396,9 @@
       "primary_keyword": null,
       "host_slug": "guide-claude-team-skills",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-01T20:48:44Z"
     },
     {
       "id": "xg-claude-team-skills",
@@ -408,7 +414,9 @@
       "primary_keyword": null,
       "host_slug": "guide-claude-team-skills",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-01T20:55:03Z"
     },
     {
       "id": "in-b55491077ab1",
@@ -678,7 +686,9 @@
       "primary_keyword": null,
       "host_slug": "guide-consulting-with-ai",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-01T20:49:33Z"
     },
     {
       "id": "xg-consulting-with-ai",
@@ -694,7 +704,9 @@
       "primary_keyword": null,
       "host_slug": "guide-consulting-with-ai",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-01T20:55:54Z"
     },
     {
       "id": "in-9d2d68af60d4",
@@ -964,7 +976,9 @@
       "primary_keyword": null,
       "host_slug": "guide-marketing-ai-agents",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-01T20:50:15Z"
     },
     {
       "id": "xg-marketing-ai-agents",
@@ -980,7 +994,9 @@
       "primary_keyword": null,
       "host_slug": "guide-marketing-ai-agents",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-01T20:56:37Z"
     },
     {
       "id": "in-fa00b63b4fa2",
@@ -1222,7 +1238,9 @@
       "primary_keyword": null,
       "host_slug": "guide-claude-job-prompts",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-01T20:51:01Z"
     },
     {
       "id": "xg-claude-job-prompts",
@@ -1238,7 +1256,9 @@
       "primary_keyword": null,
       "host_slug": "guide-claude-job-prompts",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-01T20:57:28Z"
     },
     {
       "id": "in-claude-linkedin-installs",
@@ -1467,7 +1487,9 @@
       "primary_keyword": null,
       "host_slug": "guide-ai-privacy-checkup",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-01T20:51:49Z"
     },
     {
       "id": "xg-ai-privacy-checkup",
@@ -1483,7 +1505,9 @@
       "primary_keyword": null,
       "host_slug": "guide-ai-privacy-checkup",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-01T20:58:19Z"
     },
     {
       "id": "in-6cff0a62569f",
@@ -1711,7 +1735,9 @@
       "primary_keyword": null,
       "host_slug": "guide-claude-code-cold-email",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-01T20:52:35Z"
     },
     {
       "id": "xg-claude-code-cold-email",
@@ -1727,7 +1753,9 @@
       "primary_keyword": null,
       "host_slug": "guide-claude-code-cold-email",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-01T20:59:00Z"
     },
     {
       "id": "in-6f8f4ad316a3",
