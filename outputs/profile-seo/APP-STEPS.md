@@ -42,6 +42,9 @@ AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG,
 - [ ] Record a 45–60 s 16:9 channel trailer when convenient (the interim trailer is the lead-finder Short)
 
 ## LinkedIn extras (2026-11-01)
+- Done in Chrome 2026-11-01 (mirrored from Charlie Hills / Manthan / Ruben / Maria): headline "I help you (actually) use AI | Claude Code & AI agents, Dubai | One free guide a day → withhammad.com/resources", About rewritten, Featured trimmed to 4, Founder · WithHammad role added.
+- [ ] Banner: pick one and upload (needs the native file picker): outputs/profile-seo/linkedin-banner-mirror-1584x396.png (white grid, Charlie style) or linkedin-banner-wordmark-1584x396.png (WITHHAMMAD wordmark, Manthan style).
+- [ ] Create a LinkedIn Page "With Hammad AI" (Work → Create a Company Page) so it can be your current-experience brand page and the AI-news feed; tell me when it exists and I set it up in the AI Central format.
 - Done in Chrome: name case Hammad Yousuf, industry IT Services and IT Consulting, headline and About mirrored from the reference profile, public profile fully open incl. photo.
 - [ ] City: LinkedIn shows no city picker for the UAE on the web; set Dubai from the mobile app (Edit intro → Location).
 - [ ] Pages you manage: keep Kashmir Blossom; deactivate DesignWithIram and Good Morning Property Real Estate yourself (Page → Settings → Deactivate; permanent).
@@ -51,6 +54,9 @@ AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG,
 - Diagnosis 2026-11-01: the AdSense account linked to the channel was disapproved "due to an existing account". AdSense allows one account per person, and the Google account signed into Chrome has no AdSense access while several of your other Google accounts do.
 - [x] 2026-11-01: owner chose to keep the existing AdSense (pub-…1174, payments profile India). Change association → "Yes, I have an existing account" → Continue ran through; Studio Step 2 now reads "In progress: your account is being created or associated" (several days, up to 2-3 weeks). If it comes back disapproved as a duplicate again, redo Change association and pick the Google account that owns pub-…1174 on the AdSense chooser.
 - [ ] AdSense tax form expires 31 Dec 2026: submit the new one in AdSense → Payments (yours).
+
+## Voice fallback (built 2026-11-01)
+- [ ] Add keys with `studio/set_secret.sh ELEVENLABS_API_KEY` (your approved voice is already the default), and `FISH_API_KEY` + `FISH_VOICE_ID` if you want Fish Audio too; optional `HEYGEN_API_KEY` so the lane can read credits. Never paste keys in chat.
 
 ## Website
 - [ ] Search Console service-account JSON into the site's GSC_CREDENTIALS env (CREDENTIALS.md line 75) so the Monday report includes clicks

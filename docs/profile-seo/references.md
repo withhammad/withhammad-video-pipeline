@@ -17,3 +17,11 @@ Owner: "do hundred percent just like them, only change my colors; the content sh
 - Featured: 4 items (post, guides link, Adam, YouTube).
 - Brand page: "With Hammad AI" LinkedIn Page in the AI Central format (daily PDF carousel guides, keyword comment CTA → DM bot). Owner creates the Page; the pipeline's carousel lane posts to it.
 - Instagram AI-news page: same AI Central format in reels/carousels; owner creates the account.
+
+## Feed/page formats to follow (owner 2026-11-01)
+| Reference | Post format |
+|---|---|
+| linkedin.com/company/blue-elephant-media-ny ("AI for E-Commerce", 2.4K) | long text SOPs: "A Claude SOP for X (15-step checklist): (Steal the exact prompts)" → numbered steps each with a copy-paste prompt in quotes → "---" → 3-line takeaway → one question. Also data posts with a contrarian hook + bullet checklist. |
+| linkedin.com/school/y-combinator (1.9M) | news posts: "<Company> (YC S24) has raised $X to <do what>." → traction numbers → the problem → founders + what the product does → what the funding is for → "Congrats to the team!" → link. Partner opinion posts: 3 short paragraphs + "Apply to YC W27" + "- Name". Launch posts: "<Company> (YC F26) is the <category> for <who>." |
+
+Rule from the owner: follow these feeds and post **carousels on every platform, YouTube included** (a carousel = PDF on LinkedIn, image carousel on Instagram/Facebook/X/TikTok, a slide video on YouTube Shorts). Pipeline: the carousel lane (publish_reel queue-carousel) must grow a YouTube slide-video export and an X/TikTok/Facebook image set.
