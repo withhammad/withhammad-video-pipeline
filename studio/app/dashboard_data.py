@@ -53,9 +53,15 @@ def reels():
     return rows
 
 
+def _meta(jdir):
+    lesson = _read(jdir / 'lesson.json', {}) or {}
+    return {'keyword': lesson.get('manychat_keyword') or '', 'title': (lesson.get('topic_title') or lesson.get('title') or jdir.name)[:70]}
+
+
 def posts():
     rows = []
     for jdir in sorted(JOBS.iterdir()):
+        meta = _meta(jdir)
         for f in glob.glob(str(jdir / 'publish*.json')):
             data = _read(f, {})
             name = Path(f).stem
@@ -63,14 +69,16 @@ def posts():
             url = data.get('permalink') or data.get('post_url') or data.get('url') or ''
             if not platform or not url:
                 continue
-            rows.append({'job': jdir.name, 'platform': platform, 'url': url, 'status': 'posted',
+            rows.append({'job': jdir.name, **meta, 'platform': platform, 'url': url, 'status': 'posted',
                          'when': (data.get('published_at') or data.get('at') or '')[:10],
                          'account': 'withhammad.ai' if 'withhammad_ai' in name else ('page' if 'page' in name else '')})
     for e in _read(QUEUE, {}).get('entries', []):
         if e['status'] == 'posted':
             continue   # its state file above already lists it
-        rows.append({'job': e['job'], 'platform': e['platform'], 'url': e.get('url') or '', 'status': e['status'],
-                     'when': e['local'][:10], 'account': 'withhammad.ai' if e['platform'] == 'instagram' else ''})
+        rows.append({'job': e['job'], 'keyword': e.get('keyword') or '', 'title': (e.get('title') or '')[:70],
+                     'platform': e['platform'], 'url': e.get('url') or '', 'status': e['status'],
+                     'when': e['local'][:10], 'slot_utc': e['slot_utc'], 'local': e['local'],
+                     'account': 'withhammad.ai' if e['platform'] == 'instagram' else ''})
     return rows
 
 
