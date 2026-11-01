@@ -28,8 +28,8 @@ Comment a reel's keyword → free guide in DMs
 AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG, MCP | Forward Deployed Engineer at Promate | Free daily AI guides for marketers & founders → withhammad.com
 ```
 - [x] About: done in Chrome 2026-11-01 with marketing@withhammad.com as the contact line
-- [ ] Banner: upload outputs/profile-seo/linkedin-banner-1584x396.png
-- [ ] Featured: 1 link withhammad.com/resources; 2 the FDE roadmap reel post; 3 the AI startup stack costs reel post
+- [ ] Banner: upload outputs/profile-seo/linkedin-banner-mirror-1584x396.png (white-grid style mirrored from Charlie Hills; the upload needs the native file picker, so it is yours)
+- [x] Featured: trimmed in Chrome 2026-11-01 to the JSON-schema post, the free-guides link, Adam RAG, and the YouTube link; two weak items removed
 - [ ] Services: lead with AI Consulting if offered; paste the Services text from linkedin.md section 5; drop Business Analytics
 - [ ] Location: Dubai, United Arab Emirates; keep one website entry
 - [ ] Unpublish the five 2024 lead-gen articles
@@ -40,6 +40,12 @@ AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG,
 - [ ] Studio → Customization → Profile → Name: `Hammad Yousuf | Claude Code & AI Agents`. Typed and Publish pressed 2026-11-01; YouTube asked "Verify that it's you" (your sign-in check), so it is not saved until you pass that and press Publish again
 - [ ] Studio → Customization → Layout: add Spotlight (latest long video) and the Posts row; merge the 1-item "AI" playlist into Claude Code
 - [ ] Record a 45–60 s 16:9 channel trailer when convenient (the interim trailer is the lead-finder Short)
+
+## LinkedIn extras (2026-11-01)
+- Done in Chrome: name case Hammad Yousuf, industry IT Services and IT Consulting, headline and About mirrored from the reference profile, public profile fully open incl. photo.
+- [ ] City: LinkedIn shows no city picker for the UAE on the web; set Dubai from the mobile app (Edit intro → Location).
+- [ ] Pages you manage: keep Kashmir Blossom; deactivate DesignWithIram and Good Morning Property Real Estate yourself (Page → Settings → Deactivate; permanent).
+- [ ] Instagram AI-news page: create the account in the app (any handle), link it to the With Hammad AI Facebook Page, then tell me; I run it.
 
 ## YouTube monetisation (Earn → Step 2 "Fix your AdSense for YouTube account")
 - Diagnosis 2026-11-01: the AdSense account linked to the channel was disapproved "due to an existing account". AdSense allows one account per person, and the Google account signed into Chrome has no AdSense access while several of your other Google accounts do.
