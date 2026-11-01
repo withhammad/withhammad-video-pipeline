@@ -153,9 +153,9 @@
       },
       {
         "key": "tiktok",
-        "handle": "hammadyousuf01",
+        "handle": "withhammad",
         "account_id": null,
-        "profile_url": "https://www.tiktok.com/@hammadyousuf01",
+        "profile_url": "https://www.tiktok.com/@withhammad",
         "connection_status": "chrome_session_verified_native_schedule",
         "provider": "owner_chrome",
         "identity_last_verified": "2026-10-31",
@@ -456,7 +456,7 @@
     },
     "tiktok": {
       "status": "scheduled 2026-11-01 (routine tiktok-keyword-replies, 40 past the hour 07-23 local, Auto mode); first run 07:40; stops on captcha",
-      "handle": "@hammadyousuf01",
+      "handle": "@withhammad",
       "how": "Chrome routine tiktok-keyword-replies (prompt in docs/routines/), replies via app.linkedin_keyword --platform tiktok",
       "why_chrome": "no free comment API (X Basic $100/mo; TikTok comments partner-only)"
     },
