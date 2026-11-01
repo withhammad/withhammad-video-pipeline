@@ -22,7 +22,8 @@
    },
    "get": "video lessons, quizzes and a completion badge",
    "shot": "guides/claude-cert/shots/home.png",
-   "callout": "Browse all 24 courses"
+   "callout": "Browse all 24 courses",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -32,7 +33,8 @@
    "bestFor": "Anyone starting from zero",
    "shot": "guides/claude-cert/shots/claude-101.png",
    "callout": "Start the course here",
-   "meta": "13 lessons · 1 quiz · 2.5 hr"
+   "meta": "13 lessons · 1 quiz · 2.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -42,7 +44,8 @@
    "bestFor": "Working with AI well and safely",
    "shot": "guides/claude-cert/shots/ai-fluency-framework-foundations.png",
    "callout": "Start the course here",
-   "meta": "14 lessons · 1 quiz · 4 hr"
+   "meta": "14 lessons · 1 quiz · 4 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -52,7 +55,8 @@
    "bestFor": "Building an accurate mental model",
    "shot": "guides/claude-cert/shots/ai-capabilities-and-limitations.png",
    "callout": "Start the course here",
-   "meta": "13 lessons · 1 quiz · 3.5 hr"
+   "meta": "13 lessons · 1 quiz · 3.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -62,7 +66,8 @@
    "bestFor": "Developers new to agentic coding",
    "shot": "guides/claude-cert/shots/claude-code-101.png",
    "callout": "Start the course here",
-   "meta": "12 lessons · 1 quiz · 1.5 hr"
+   "meta": "12 lessons · 1 quiz · 1.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -72,7 +77,8 @@
    "bestFor": "Daily Claude Code users",
    "shot": "guides/claude-cert/shots/claude-code-in-action.png",
    "callout": "Start the course here",
-   "meta": "9 lessons · 1 quiz · 1 hr"
+   "meta": "9 lessons · 1 quiz · 1 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -82,7 +88,8 @@
    "bestFor": "Automating repeat workflows",
    "shot": "guides/claude-cert/shots/introduction-to-agent-skills.png",
    "callout": "Start the course here",
-   "meta": "6 lessons · 1 hr"
+   "meta": "6 lessons · 1 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -92,7 +99,8 @@
    "bestFor": "Running complex, multi-step work",
    "shot": "guides/claude-cert/shots/introduction-to-subagents.png",
    "callout": "Start the course here",
-   "meta": "4 lessons · 45 min"
+   "meta": "4 lessons · 45 min",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -102,7 +110,8 @@
    "bestFor": "Connecting Claude to your own tools",
    "shot": "guides/claude-cert/shots/introduction-to-model-context-protocol.png",
    "callout": "Start the course here",
-   "meta": "10 lessons · 1 quiz · 1 hr"
+   "meta": "10 lessons · 1 quiz · 1 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -112,7 +121,8 @@
    "bestFor": "Delegating research and documents",
    "shot": "guides/claude-cert/shots/introduction-to-claude-cowork.png",
    "callout": "Start the course here",
-   "meta": "14 lessons · 1 quiz · 2.5 hr"
+   "meta": "14 lessons · 1 quiz · 2.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -122,7 +132,8 @@
    "bestFor": "Teams that live in Slack",
    "shot": "guides/claude-cert/shots/introduction-to-claude-tag.png",
    "callout": "Start the course here",
-   "meta": "11 lessons · 1 quiz · 2.5 hr"
+   "meta": "11 lessons · 1 quiz · 2.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -132,7 +143,8 @@
    "bestFor": "Developers starting with the API",
    "shot": "guides/claude-cert/shots/claude-platform-101.png",
    "callout": "Start the course here",
-   "meta": "13 lessons · 1 quiz · 1.5 hr"
+   "meta": "13 lessons · 1 quiz · 1.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -142,7 +154,8 @@
    "bestFor": "Developers shipping Claude apps",
    "shot": "guides/claude-cert/shots/building-with-the-claude-api.png",
    "callout": "Start the course here",
-   "meta": "67 lessons · 8 quizzes · 9 hr"
+   "meta": "67 lessons · 8 quizzes · 9 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -152,7 +165,8 @@
    "bestFor": "Teams building on AWS",
    "shot": "guides/claude-cert/shots/claude-with-amazon-bedrock.png",
    "callout": "Start the course here",
-   "meta": "65 lessons · 8 quizzes · 8 hr"
+   "meta": "65 lessons · 8 quizzes · 8 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -162,7 +176,8 @@
    "bestFor": "Teams building on Google Cloud",
    "shot": "guides/claude-cert/shots/claude-with-google-cloud-s-vertex-ai.png",
    "callout": "Start the course here",
-   "meta": "66 lessons · 9 quizzes · 8.5 hr"
+   "meta": "66 lessons · 9 quizzes · 8.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -172,7 +187,8 @@
    "bestFor": "Builders and product people",
    "shot": "guides/claude-cert/shots/ai-fluency-for-builders.png",
    "callout": "Start the course here",
-   "meta": "9 lessons · 1 quiz · 3 hr"
+   "meta": "9 lessons · 1 quiz · 3 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "library",
@@ -253,7 +269,8 @@
    },
    "get": "video lessons, quizzes and a completion badge",
    "shot": "guides/claude-cert/shots/home.png",
-   "callout": "Browse all 24 courses"
+   "callout": "Browse all 24 courses",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -263,7 +280,8 @@
    "bestFor": "Anyone starting from zero",
    "shot": "guides/claude-cert/shots/claude-101.png",
    "callout": "Start the course here",
-   "meta": "13 lessons · 1 quiz · 2.5 hr"
+   "meta": "13 lessons · 1 quiz · 2.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -273,7 +291,8 @@
    "bestFor": "Working with AI well and safely",
    "shot": "guides/claude-cert/shots/ai-fluency-framework-foundations.png",
    "callout": "Start the course here",
-   "meta": "14 lessons · 1 quiz · 4 hr"
+   "meta": "14 lessons · 1 quiz · 4 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -283,7 +302,8 @@
    "bestFor": "Building an accurate mental model",
    "shot": "guides/claude-cert/shots/ai-capabilities-and-limitations.png",
    "callout": "Start the course here",
-   "meta": "13 lessons · 1 quiz · 3.5 hr"
+   "meta": "13 lessons · 1 quiz · 3.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -293,7 +313,8 @@
    "bestFor": "Developers new to agentic coding",
    "shot": "guides/claude-cert/shots/claude-code-101.png",
    "callout": "Start the course here",
-   "meta": "12 lessons · 1 quiz · 1.5 hr"
+   "meta": "12 lessons · 1 quiz · 1.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -303,7 +324,8 @@
    "bestFor": "Daily Claude Code users",
    "shot": "guides/claude-cert/shots/claude-code-in-action.png",
    "callout": "Start the course here",
-   "meta": "9 lessons · 1 quiz · 1 hr"
+   "meta": "9 lessons · 1 quiz · 1 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -313,7 +335,8 @@
    "bestFor": "Automating repeat workflows",
    "shot": "guides/claude-cert/shots/introduction-to-agent-skills.png",
    "callout": "Start the course here",
-   "meta": "6 lessons · 1 hr"
+   "meta": "6 lessons · 1 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -323,7 +346,8 @@
    "bestFor": "Running complex, multi-step work",
    "shot": "guides/claude-cert/shots/introduction-to-subagents.png",
    "callout": "Start the course here",
-   "meta": "4 lessons · 45 min"
+   "meta": "4 lessons · 45 min",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -333,7 +357,8 @@
    "bestFor": "Connecting Claude to your own tools",
    "shot": "guides/claude-cert/shots/introduction-to-model-context-protocol.png",
    "callout": "Start the course here",
-   "meta": "10 lessons · 1 quiz · 1 hr"
+   "meta": "10 lessons · 1 quiz · 1 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -343,7 +368,8 @@
    "bestFor": "Delegating research and documents",
    "shot": "guides/claude-cert/shots/introduction-to-claude-cowork.png",
    "callout": "Start the course here",
-   "meta": "14 lessons · 1 quiz · 2.5 hr"
+   "meta": "14 lessons · 1 quiz · 2.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -353,7 +379,8 @@
    "bestFor": "Teams that live in Slack",
    "shot": "guides/claude-cert/shots/introduction-to-claude-tag.png",
    "callout": "Start the course here",
-   "meta": "11 lessons · 1 quiz · 2.5 hr"
+   "meta": "11 lessons · 1 quiz · 2.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -363,7 +390,8 @@
    "bestFor": "Developers starting with the API",
    "shot": "guides/claude-cert/shots/claude-platform-101.png",
    "callout": "Start the course here",
-   "meta": "13 lessons · 1 quiz · 1.5 hr"
+   "meta": "13 lessons · 1 quiz · 1.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -373,7 +401,8 @@
    "bestFor": "Developers shipping Claude apps",
    "shot": "guides/claude-cert/shots/building-with-the-claude-api.png",
    "callout": "Start the course here",
-   "meta": "67 lessons · 8 quizzes · 9 hr"
+   "meta": "67 lessons · 8 quizzes · 9 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -383,7 +412,8 @@
    "bestFor": "Teams building on AWS",
    "shot": "guides/claude-cert/shots/claude-with-amazon-bedrock.png",
    "callout": "Start the course here",
-   "meta": "65 lessons · 8 quizzes · 8 hr"
+   "meta": "65 lessons · 8 quizzes · 8 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -393,7 +423,8 @@
    "bestFor": "Teams building on Google Cloud",
    "shot": "guides/claude-cert/shots/claude-with-google-cloud-s-vertex-ai.png",
    "callout": "Start the course here",
-   "meta": "66 lessons · 9 quizzes · 8.5 hr"
+   "meta": "66 lessons · 9 quizzes · 8.5 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "item",
@@ -403,7 +434,8 @@
    "bestFor": "Builders and product people",
    "shot": "guides/claude-cert/shots/ai-fluency-for-builders.png",
    "callout": "Start the course here",
-   "meta": "9 lessons · 1 quiz · 3 hr"
+   "meta": "9 lessons · 1 quiz · 3 hr",
+   "icon": "glow/si-claude.svg"
   },
   {
    "kind": "more",

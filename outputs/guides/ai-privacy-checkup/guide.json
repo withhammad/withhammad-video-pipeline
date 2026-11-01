@@ -1,0 +1,389 @@
+{
+ "docTitle": "The 10-Minute AI Privacy Check-Up",
+ "footUrl": "WITHHAMMAD.COM/RESOURCES",
+ "keyword": "PRIVACY",
+ "source": "help.openai.com/en/articles/7730893 (Data controls), /5722486 (model improvement), /8914046 (Temporary chat), /8590148 (Memory), /7925741 (Sharing), /20001411 (Locked chats), /20001494 (App accounts), /11369540 (Codex); privacy.claude.com/en/articles/7996868, /10023580, /12109829, /10023548; support.claude.com/en/articles/12260368 (Incognito), /11817273 (Memory), /10593882 (Share), /11176164 (Connectors), /17740565 (Plugins page), /8325621 (Sensitive data), /9767949 (API keys); code.claude.com/docs/en/data-usage (checked 1 Nov 2026)",
+ "reference": "AI Central, \"The 10-Minute AI Privacy Check-Up\" (17 pages), linkedin.com/company/chat-gpt-central",
+ "instagram": [
+  {
+   "kind": "cover",
+   "line1": "AI Privacy",
+   "line2": "Check-Up",
+   "sub": "10 settings · 10 minutes · ChatGPT + Claude",
+   "hero": "guides/ai-privacy-checkup/lock.svg",
+   "sticker": "10-MIN CHECK-UP",
+   "ghost": "Privacy"
+  },
+  {
+   "kind": "promise",
+   "title": "10 settings, *10 minutes*, no expert needed",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "ChatGPT + Claude Settings"
+   },
+   "get": "every switch, and what it does",
+   "shot": "guides/ai-privacy-checkup/shots/promise.png",
+   "callout": "Open the privacy center"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Choose the right plan",
+   "what": "ChatGPT: Business, Enterprise, Edu and API are not trained on by default",
+   "bestLabel": "Claude:",
+   "bestFor": "Team, Enterprise and API are not trained on by default",
+   "shot": "guides/ai-privacy-checkup/shots/01-plan.png",
+   "callout": "Read the policy here",
+   "meta": "Personal plans: your own settings decide"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Turn off training",
+   "what": "ChatGPT: Settings > Data controls > Improve the model for everyone: off",
+   "bestLabel": "Claude:",
+   "bestFor": "Settings > Privacy > Help improve our AI models: off",
+   "shot": "guides/ai-privacy-checkup/shots/02-training.png",
+   "callout": "See the steps here",
+   "meta": "New chats stop training. Your history stays."
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Skip chat feedback",
+   "what": "ChatGPT: a thumbs up/down can put the whole chat in training, even opted out",
+   "bestLabel": "Claude:",
+   "bestFor": "a thumbs up/down stores the whole chat for up to 5 years",
+   "shot": "guides/ai-privacy-checkup/shots/03-feedback.png",
+   "callout": "Read the policy here",
+   "meta": "Skip the thumbs on anything sensitive"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Keep chats private",
+   "what": "ChatGPT: ••• > Lock chat hides a chat behind a 4-digit PIN (rolling out)",
+   "bestLabel": "Claude:",
+   "bestFor": "delete a chat: gone from history now, from servers within 30 days",
+   "shot": "guides/ai-privacy-checkup/shots/04-private.png",
+   "callout": "Read the policy here",
+   "meta": "A locked chat is hidden, not encrypted"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Use temporary chat",
+   "what": "ChatGPT: new chat > Temporary. No history, no new memories, no training",
+   "bestLabel": "Claude:",
+   "bestFor": "ghost icon (top right) starts an incognito chat. Same rules.",
+   "shot": "guides/ai-privacy-checkup/shots/05-temporary.png",
+   "callout": "See the steps here",
+   "meta": "Both may keep a copy up to 30 days for safety"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Turn off memory",
+   "what": "ChatGPT: Settings > Personalization > Memory",
+   "bestLabel": "Claude:",
+   "bestFor": "Settings > Your Claude > Memory from chats: pause or reset",
+   "shot": "guides/ai-privacy-checkup/shots/06-memory.png",
+   "callout": "See the steps here",
+   "meta": "Deleting a chat may not delete its memories"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Delete old shared links",
+   "what": "ChatGPT: Settings > Data controls > Shared links > Manage",
+   "bestLabel": "Claude:",
+   "bestFor": "Settings > Privacy > Shared chats > Manage > Unshare",
+   "shot": "guides/ai-privacy-checkup/shots/07-shared.png",
+   "callout": "See the steps here",
+   "meta": "Anyone with a link can read that chat"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Check your Codex settings",
+   "what": "Codex: Codex settings > Include environments, a separate training switch",
+   "bestLabel": "Claude Code:",
+   "bestFor": "follows your Claude training setting; /feedback kept 5 years",
+   "shot": "guides/ai-privacy-checkup/shots/08-code.png",
+   "callout": "Read the policy here",
+   "meta": "Opting out in ChatGPT doesn't change Codex's"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Audit your extensions",
+   "what": "ChatGPT: Settings > Plugins > app > Disconnect what you don't use",
+   "bestLabel": "Claude:",
+   "bestFor": "Customize > Connectors (now Plugins) > Disconnect",
+   "shot": "guides/ai-privacy-checkup/shots/09-extensions.png",
+   "callout": "See the steps here",
+   "meta": "Connect only services you trust and need"
+  },
+  {
+   "kind": "item",
+   "n": 10,
+   "title": "Protect real secrets",
+   "what": "Never paste passwords, API keys, card or bank numbers, health records",
+   "bestLabel": "Keys:",
+   "bestFor": "keys go in an encrypted secret, never in code or chats",
+   "shot": "guides/ai-privacy-checkup/shots/10-secrets.png",
+   "callout": "Read the guidance here",
+   "meta": "Leaked a key? Rotate it right away."
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for a data leak.",
+   "bullets": [
+    "Open Settings in ChatGPT and Claude",
+    "Flip the 10 switches today",
+    "Recheck them every few months"
+   ],
+   "stamp1": "Comment PRIVACY",
+   "stamp2": "I'll DM you every link"
+  }
+ ],
+ "linkedin": [
+  {
+   "kind": "cover",
+   "line1": "AI Privacy",
+   "line2": "Check-Up",
+   "sub": "10 settings · 10 minutes · ChatGPT + Claude",
+   "hero": "guides/ai-privacy-checkup/lock.svg",
+   "sticker": "10-MIN CHECK-UP",
+   "ghost": "Privacy"
+  },
+  {
+   "kind": "promise",
+   "title": "10 settings, *10 minutes*, no expert needed",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "ChatGPT + Claude Settings"
+   },
+   "get": "every switch, and what it does",
+   "shot": "guides/ai-privacy-checkup/shots/promise.png",
+   "callout": "Open the privacy center"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Choose the right plan",
+   "what": "ChatGPT: Business, Enterprise, Edu and API are not trained on by default",
+   "bestLabel": "Claude:",
+   "bestFor": "Team, Enterprise and API are not trained on by default",
+   "shot": "guides/ai-privacy-checkup/shots/01-plan.png",
+   "callout": "Read the policy here",
+   "meta": "Personal plans: your own settings decide"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Turn off training",
+   "what": "ChatGPT: Settings > Data controls > Improve the model for everyone: off",
+   "bestLabel": "Claude:",
+   "bestFor": "Settings > Privacy > Help improve our AI models: off",
+   "shot": "guides/ai-privacy-checkup/shots/02-training.png",
+   "callout": "See the steps here",
+   "meta": "New chats stop training. Your history stays."
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Skip chat feedback",
+   "what": "ChatGPT: a thumbs up/down can put the whole chat in training, even opted out",
+   "bestLabel": "Claude:",
+   "bestFor": "a thumbs up/down stores the whole chat for up to 5 years",
+   "shot": "guides/ai-privacy-checkup/shots/03-feedback.png",
+   "callout": "Read the policy here",
+   "meta": "Skip the thumbs on anything sensitive"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Keep chats private",
+   "what": "ChatGPT: ••• > Lock chat hides a chat behind a 4-digit PIN (rolling out)",
+   "bestLabel": "Claude:",
+   "bestFor": "delete a chat: gone from history now, from servers within 30 days",
+   "shot": "guides/ai-privacy-checkup/shots/04-private.png",
+   "callout": "Read the policy here",
+   "meta": "A locked chat is hidden, not encrypted"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Use temporary chat",
+   "what": "ChatGPT: new chat > Temporary. No history, no new memories, no training",
+   "bestLabel": "Claude:",
+   "bestFor": "ghost icon (top right) starts an incognito chat. Same rules.",
+   "shot": "guides/ai-privacy-checkup/shots/05-temporary.png",
+   "callout": "See the steps here",
+   "meta": "Both may keep a copy up to 30 days for safety"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Turn off memory",
+   "what": "ChatGPT: Settings > Personalization > Memory",
+   "bestLabel": "Claude:",
+   "bestFor": "Settings > Your Claude > Memory from chats: pause or reset",
+   "shot": "guides/ai-privacy-checkup/shots/06-memory.png",
+   "callout": "See the steps here",
+   "meta": "Deleting a chat may not delete its memories"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Delete old shared links",
+   "what": "ChatGPT: Settings > Data controls > Shared links > Manage",
+   "bestLabel": "Claude:",
+   "bestFor": "Settings > Privacy > Shared chats > Manage > Unshare",
+   "shot": "guides/ai-privacy-checkup/shots/07-shared.png",
+   "callout": "See the steps here",
+   "meta": "Anyone with a link can read that chat"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Check your Codex settings",
+   "what": "Codex: Codex settings > Include environments, a separate training switch",
+   "bestLabel": "Claude Code:",
+   "bestFor": "follows your Claude training setting; /feedback kept 5 years",
+   "shot": "guides/ai-privacy-checkup/shots/08-code.png",
+   "callout": "Read the policy here",
+   "meta": "Opting out in ChatGPT doesn't change Codex's"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Audit your extensions",
+   "what": "ChatGPT: Settings > Plugins > app > Disconnect what you don't use",
+   "bestLabel": "Claude:",
+   "bestFor": "Customize > Connectors (now Plugins) > Disconnect",
+   "shot": "guides/ai-privacy-checkup/shots/09-extensions.png",
+   "callout": "See the steps here",
+   "meta": "Connect only services you trust and need"
+  },
+  {
+   "kind": "item",
+   "n": 10,
+   "title": "Protect real secrets",
+   "what": "Never paste passwords, API keys, card or bank numbers, health records",
+   "bestLabel": "Keys:",
+   "bestFor": "keys go in an encrypted secret, never in code or chats",
+   "shot": "guides/ai-privacy-checkup/shots/10-secrets.png",
+   "callout": "Read the guidance here",
+   "meta": "Leaked a key? Rotate it right away."
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for a data leak.",
+   "bullets": [
+    "Open Settings in ChatGPT and Claude",
+    "Flip the 10 switches today",
+    "Recheck them every few months"
+   ],
+   "stamp1": "Get every free guide here",
+   "stamp2": "VISIT WITHHAMMAD.COM/RESOURCES"
+  }
+ ]
+}

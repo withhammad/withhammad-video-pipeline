@@ -1,0 +1,299 @@
+{
+ "docTitle": "Claude Prompts To Land a Job",
+ "footUrl": "WITHHAMMAD.COM/RESOURCES",
+ "keyword": "HIRED",
+ "source": "Prompts written by WithHammad; prompting practice per platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview (checked 1 Nov 2026)",
+ "reference": "AI Central, \"Claude Prompts To Land a Job\" (11 pages), linkedin.com/company/chat-gpt-central; content credit Elizaveta Zabrodskaya",
+ "instagram": [
+  {
+   "kind": "cover",
+   "line1": "Claude Job",
+   "line2": "Prompts",
+   "sub": "8 copy-paste prompts to land your next job",
+   "hero": "glow/si-claude.svg",
+   "sticker": "COPY & PASTE",
+   "ghost": "Hired"
+  },
+  {
+   "kind": "promise",
+   "title": "8 prompts to *speed up your job search*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "claude.ai"
+   },
+   "get": "a role, your inputs and a clear output in every prompt",
+   "shot": "guides/claude-job-prompts/shots/promise-docs.png",
+   "callout": "Learn prompting here",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Tailor your CV",
+   "what": "Match your real experience to the job post",
+   "bestFor": "Every application you send",
+   "prompt": "You are a senior recruiter for [ROLE]. Job post: [PASTE JOB POST]. My CV: [PASTE CV]. Rewrite my CV for this job: reorder bullets, mirror the post's keywords, sharpen results I already list. Don't invent experience or numbers. Output: the new CV, then the 5 biggest gaps in a table."
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Write your cover letter",
+   "what": "Relevant, short and recruiter-friendly",
+   "bestFor": "Roles where a letter is read",
+   "prompt": "Act as the hiring manager at [COMPANY]. Using my CV [PASTE CV] and this job post [PASTE JOB POST], write a cover letter under 250 words: a hook tied to the company, 2 proof points from my real experience, a clear close. Plain, confident tone, no cliches. Don't invent anything. Then list 3 lines I should personalize."
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Prepare for interviews",
+   "what": "Practice questions and stronger answers",
+   "bestFor": "The week before an interview",
+   "prompt": "You are interviewing me for [ROLE] at [COMPANY]. Job post: [PASTE JOB POST]. Ask one question at a time, mixing behavioral and role-specific ones. After each answer: score it 1-10, say what's missing, and show a stronger STAR version using only facts I gave. After 8 questions, name my 3 weakest areas."
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Build better connections",
+   "what": "LinkedIn messages that get replies",
+   "bestFor": "Reaching people at target companies",
+   "prompt": "Write 3 LinkedIn connection notes to [NAME], [THEIR ROLE] at [COMPANY]. My background: [2 LINES ABOUT ME]. Why them: [SHARED LINK, POST OR INTEREST]. Each 2-3 sentences, specific to them, no job ask in the first message, ending with an easy question. Then a short follow-up for 1 week after they accept."
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Negotiate your offer",
+   "what": "A counter-offer email and a call script",
+   "bestFor": "The day the offer arrives",
+   "prompt": "Act as a salary negotiation coach. Offer: [BASE, BONUS, EQUITY, BENEFITS] for [ROLE] in [CITY]. My target: [NUMBER], because [REASONS, OTHER OFFERS]. Give me: 1) a polite counter-offer email, 2) a 30-second call script, 3) answers to 3 likely pushbacks. Use only facts I gave and flag what I should check against market data."
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Turn rejection into opportunity",
+   "what": "Follow up and keep the door open",
+   "bestFor": "Any no after an interview",
+   "prompt": "I was rejected for [ROLE] at [COMPANY] after [STAGE]. Write a short, gracious reply that thanks them, asks for one piece of feedback and keeps the door open for future roles. Under 120 words, no bitterness, no begging. Then give me 3 questions to ask myself about what to improve before my next application."
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Build your job-search plan",
+   "what": "What to do every week",
+   "bestFor": "Staying consistent for months",
+   "prompt": "Be my job-search coach. Target: [ROLE] in [INDUSTRY / CITY]. I have [HOURS] hours a week for [WEEKS] weeks. Build a weekly plan as a table: day, task, time, goal (applications, outreach, interview prep, skills). Keep the numbers realistic for my hours and add a weekly review checklist. Ask me up to 3 questions first if anything is unclear."
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Research companies",
+   "what": "Understand the company before applying",
+   "bestFor": "Your top 10 target companies",
+   "prompt": "I'm applying to [COMPANY] for [ROLE]. Using only what I paste here: [ABOUT PAGE, RECENT NEWS, JOB POST], summarize what they sell, who their customers are, what changed recently, likely challenges for this team, and 5 smart questions to ask in the interview. Mark anything you're unsure of. Don't guess facts that aren't in the text."
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for the perfect post.",
+   "bullets": [
+    "Open Claude",
+    "Paste prompt 1 with your CV",
+    "Send one tailored application today"
+   ],
+   "stamp1": "Comment HIRED",
+   "stamp2": "I'll DM you every link"
+  }
+ ],
+ "linkedin": [
+  {
+   "kind": "cover",
+   "line1": "Claude Job",
+   "line2": "Prompts",
+   "sub": "8 copy-paste prompts to land your next job",
+   "hero": "glow/si-claude.svg",
+   "sticker": "COPY & PASTE",
+   "ghost": "Hired"
+  },
+  {
+   "kind": "promise",
+   "title": "8 prompts to *speed up your job search*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "claude.ai"
+   },
+   "get": "a role, your inputs and a clear output in every prompt",
+   "shot": "guides/claude-job-prompts/shots/promise-docs.png",
+   "callout": "Learn prompting here",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Tailor your CV",
+   "what": "Match your real experience to the job post",
+   "bestFor": "Every application you send",
+   "prompt": "You are a senior recruiter for [ROLE]. Job post: [PASTE JOB POST]. My CV: [PASTE CV]. Rewrite my CV for this job: reorder bullets, mirror the post's keywords, sharpen results I already list. Don't invent experience or numbers. Output: the new CV, then the 5 biggest gaps in a table."
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Write your cover letter",
+   "what": "Relevant, short and recruiter-friendly",
+   "bestFor": "Roles where a letter is read",
+   "prompt": "Act as the hiring manager at [COMPANY]. Using my CV [PASTE CV] and this job post [PASTE JOB POST], write a cover letter under 250 words: a hook tied to the company, 2 proof points from my real experience, a clear close. Plain, confident tone, no cliches. Don't invent anything. Then list 3 lines I should personalize."
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Prepare for interviews",
+   "what": "Practice questions and stronger answers",
+   "bestFor": "The week before an interview",
+   "prompt": "You are interviewing me for [ROLE] at [COMPANY]. Job post: [PASTE JOB POST]. Ask one question at a time, mixing behavioral and role-specific ones. After each answer: score it 1-10, say what's missing, and show a stronger STAR version using only facts I gave. After 8 questions, name my 3 weakest areas."
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Build better connections",
+   "what": "LinkedIn messages that get replies",
+   "bestFor": "Reaching people at target companies",
+   "prompt": "Write 3 LinkedIn connection notes to [NAME], [THEIR ROLE] at [COMPANY]. My background: [2 LINES ABOUT ME]. Why them: [SHARED LINK, POST OR INTEREST]. Each 2-3 sentences, specific to them, no job ask in the first message, ending with an easy question. Then a short follow-up for 1 week after they accept."
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Negotiate your offer",
+   "what": "A counter-offer email and a call script",
+   "bestFor": "The day the offer arrives",
+   "prompt": "Act as a salary negotiation coach. Offer: [BASE, BONUS, EQUITY, BENEFITS] for [ROLE] in [CITY]. My target: [NUMBER], because [REASONS, OTHER OFFERS]. Give me: 1) a polite counter-offer email, 2) a 30-second call script, 3) answers to 3 likely pushbacks. Use only facts I gave and flag what I should check against market data."
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Turn rejection into opportunity",
+   "what": "Follow up and keep the door open",
+   "bestFor": "Any no after an interview",
+   "prompt": "I was rejected for [ROLE] at [COMPANY] after [STAGE]. Write a short, gracious reply that thanks them, asks for one piece of feedback and keeps the door open for future roles. Under 120 words, no bitterness, no begging. Then give me 3 questions to ask myself about what to improve before my next application."
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Build your job-search plan",
+   "what": "What to do every week",
+   "bestFor": "Staying consistent for months",
+   "prompt": "Be my job-search coach. Target: [ROLE] in [INDUSTRY / CITY]. I have [HOURS] hours a week for [WEEKS] weeks. Build a weekly plan as a table: day, task, time, goal (applications, outreach, interview prep, skills). Keep the numbers realistic for my hours and add a weekly review checklist. Ask me up to 3 questions first if anything is unclear."
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Research companies",
+   "what": "Understand the company before applying",
+   "bestFor": "Your top 10 target companies",
+   "prompt": "I'm applying to [COMPANY] for [ROLE]. Using only what I paste here: [ABOUT PAGE, RECENT NEWS, JOB POST], summarize what they sell, who their customers are, what changed recently, likely challenges for this team, and 5 smart questions to ask in the interview. Mark anything you're unsure of. Don't guess facts that aren't in the text."
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for the perfect post.",
+   "bullets": [
+    "Open Claude",
+    "Paste prompt 1 with your CV",
+    "Send one tailored application today"
+   ],
+   "stamp1": "Get every free guide here",
+   "stamp2": "VISIT WITHHAMMAD.COM/RESOURCES"
+  }
+ ]
+}

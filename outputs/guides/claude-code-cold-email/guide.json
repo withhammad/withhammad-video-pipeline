@@ -1,0 +1,349 @@
+{
+ "docTitle": "10x Claude Code for Cold Email",
+ "footUrl": "WITHHAMMAD.COM/RESOURCES",
+ "keyword": "OUTBOUND",
+ "source": "code.claude.com/docs/en/mcp; apollo.io + docs.apollo.io/docs/apollo-mcp; predictleads.com; discolike.com; getleads.io; coldiq.com; smbdatabase.com; lemlist.com/product/lemlist-mcp; instantly.ai + developer.instantly.ai/mcp/introduction; expandi.io + expandi.io/expandi-mcp; hypertide.io (checked 1 Nov 2026)",
+ "reference": "AI Central, \"10x Claude Code (for Cold Email)\" (16 pages), content credit Michel Lieben, linkedin.com/company/chat-gpt-central; SMB Database dropped (no current product, count or API found, checked 1 Nov 2026)",
+ "instagram": [
+  {
+   "kind": "cover",
+   "line1": "Claude Code",
+   "line2": "Cold Email",
+   "sub": "9 tools that find the people · 8 plug in over MCP",
+   "hero": "glow/si-claude.svg",
+   "sticker": "9 TOOLS",
+   "ghost": "Claude"
+  },
+  {
+   "kind": "promise",
+   "title": "Claude writes. *These 9 find the people.*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "code.claude.com/docs/en/mcp"
+   },
+   "get": "lead data and senders Claude Code can call. Follow anti-spam and data protection rules in your country.",
+   "shot": "guides/claude-code-cold-email/shots/claude-code.png",
+   "callout": "Connect a tool here"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Apollo",
+   "what": "240M+ contacts and 30M+ accounts to search and enrich",
+   "bestFor": "Building B2B lead lists fast",
+   "shot": "guides/claude-code-cold-email/shots/apollo.png",
+   "callout": "Try it here",
+   "meta": "Official MCP: mcp.apollo.io/mcp · Claude Code ready"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "PredictLeads",
+   "what": "Company intelligence on 120M+ companies: jobs, news, tech stacks",
+   "bestFor": "Timing emails to real triggers",
+   "shot": "guides/claude-code-cold-email/shots/predictleads.png",
+   "callout": "Try it here",
+   "meta": "MCP: mcp.predictleads.com · REST API"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "DiscoLike",
+   "what": "Search 82M+ business websites for lookalike companies",
+   "bestFor": "Mapping your whole market by ICP",
+   "shot": "guides/claude-code-cold-email/shots/discolike.png",
+   "callout": "Try it here",
+   "meta": "MCP server for Claude Code · REST API · from $99/mo"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "GetLeads",
+   "what": "542M+ B2B contacts your AI can query in plain language",
+   "bestFor": "Emails and phones by prompt",
+   "shot": "guides/claude-code-cold-email/shots/getleads.png",
+   "callout": "Try it here",
+   "meta": "Remote MCP for Claude · API · 1,000 free credits"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "ColdIQ",
+   "what": "One chat, MCP server and API over 40+ GTM data providers",
+   "bestFor": "One connection, many data tools",
+   "shot": "guides/claude-code-cold-email/shots/coldiq.png",
+   "callout": "Try it here",
+   "meta": "MCP for Claude Code · REST API · 300 free credits"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "lemlist",
+   "what": "Multichannel outreach sequences plus its own lead database",
+   "bestFor": "Email + LinkedIn in one tool",
+   "shot": "guides/claude-code-cold-email/shots/lemlist.png",
+   "callout": "Try it here",
+   "meta": "Official lemlist MCP · works with Claude"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Instantly",
+   "what": "Cold email at scale: accounts, campaigns, leads and analytics",
+   "bestFor": "High-volume email campaigns",
+   "shot": "guides/claude-code-cold-email/shots/instantly.png",
+   "callout": "Try it here",
+   "meta": "Official MCP: mcp.instantly.ai · full V2 API"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Expandi",
+   "what": "LinkedIn outreach automation; claims a 3X meeting multiplier",
+   "bestFor": "LinkedIn-first outreach",
+   "shot": "guides/claude-code-cold-email/shots/expandi.png",
+   "callout": "Try it here",
+   "meta": "Expandi MCP (beta) · works with Claude"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Hypertide",
+   "what": "Cold email inboxes on Google, Microsoft and Entra, DNS set up for you",
+   "bestFor": "Inboxes ready in hours",
+   "shot": "guides/claude-code-cold-email/shots/hypertide.png",
+   "callout": "Try it here",
+   "meta": "API access on every plan · no MCP listed"
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the stack.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for a bigger SDR team.",
+   "bullets": [
+    "Connect one lead source",
+    "Connect one sender",
+    "Send only where the law allows"
+   ],
+   "stamp1": "Comment OUTBOUND",
+   "stamp2": "I'll DM you every link"
+  }
+ ],
+ "linkedin": [
+  {
+   "kind": "cover",
+   "line1": "Claude Code",
+   "line2": "Cold Email",
+   "sub": "9 tools that find the people · 8 plug in over MCP",
+   "hero": "glow/si-claude.svg",
+   "sticker": "9 TOOLS",
+   "ghost": "Claude"
+  },
+  {
+   "kind": "promise",
+   "title": "Claude writes. *These 9 find the people.*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "code.claude.com/docs/en/mcp"
+   },
+   "get": "lead data and senders Claude Code can call. Follow anti-spam and data protection rules in your country.",
+   "shot": "guides/claude-code-cold-email/shots/claude-code.png",
+   "callout": "Connect a tool here"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Apollo",
+   "what": "240M+ contacts and 30M+ accounts to search and enrich",
+   "bestFor": "Building B2B lead lists fast",
+   "shot": "guides/claude-code-cold-email/shots/apollo.png",
+   "callout": "Try it here",
+   "meta": "Official MCP: mcp.apollo.io/mcp · Claude Code ready"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "PredictLeads",
+   "what": "Company intelligence on 120M+ companies: jobs, news, tech stacks",
+   "bestFor": "Timing emails to real triggers",
+   "shot": "guides/claude-code-cold-email/shots/predictleads.png",
+   "callout": "Try it here",
+   "meta": "MCP: mcp.predictleads.com · REST API"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "DiscoLike",
+   "what": "Search 82M+ business websites for lookalike companies",
+   "bestFor": "Mapping your whole market by ICP",
+   "shot": "guides/claude-code-cold-email/shots/discolike.png",
+   "callout": "Try it here",
+   "meta": "MCP server for Claude Code · REST API · from $99/mo"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "GetLeads",
+   "what": "542M+ B2B contacts your AI can query in plain language",
+   "bestFor": "Emails and phones by prompt",
+   "shot": "guides/claude-code-cold-email/shots/getleads.png",
+   "callout": "Try it here",
+   "meta": "Remote MCP for Claude · API · 1,000 free credits"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "ColdIQ",
+   "what": "One chat, MCP server and API over 40+ GTM data providers",
+   "bestFor": "One connection, many data tools",
+   "shot": "guides/claude-code-cold-email/shots/coldiq.png",
+   "callout": "Try it here",
+   "meta": "MCP for Claude Code · REST API · 300 free credits"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "lemlist",
+   "what": "Multichannel outreach sequences plus its own lead database",
+   "bestFor": "Email + LinkedIn in one tool",
+   "shot": "guides/claude-code-cold-email/shots/lemlist.png",
+   "callout": "Try it here",
+   "meta": "Official lemlist MCP · works with Claude"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Instantly",
+   "what": "Cold email at scale: accounts, campaigns, leads and analytics",
+   "bestFor": "High-volume email campaigns",
+   "shot": "guides/claude-code-cold-email/shots/instantly.png",
+   "callout": "Try it here",
+   "meta": "Official MCP: mcp.instantly.ai · full V2 API"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Expandi",
+   "what": "LinkedIn outreach automation; claims a 3X meeting multiplier",
+   "bestFor": "LinkedIn-first outreach",
+   "shot": "guides/claude-code-cold-email/shots/expandi.png",
+   "callout": "Try it here",
+   "meta": "Expandi MCP (beta) · works with Claude"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Hypertide",
+   "what": "Cold email inboxes on Google, Microsoft and Entra, DNS set up for you",
+   "bestFor": "Inboxes ready in hours",
+   "shot": "guides/claude-code-cold-email/shots/hypertide.png",
+   "callout": "Try it here",
+   "meta": "API access on every plan · no MCP listed"
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the stack.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for a bigger SDR team.",
+   "bullets": [
+    "Connect one lead source",
+    "Connect one sender",
+    "Send only where the law allows"
+   ],
+   "stamp1": "Get every free guide here",
+   "stamp2": "VISIT WITHHAMMAD.COM/RESOURCES"
+  }
+ ]
+}

@@ -1,0 +1,351 @@
+{
+ "docTitle": "Consulting Using AI",
+ "footUrl": "WITHHAMMAD.COM/RESOURCES",
+ "keyword": "CONSULT",
+ "source": "Prompts written by WithHammad (no external figures); promise screenshot https://claude.com/solutions/financial-services; Claude Free plan features https://claude.com/pricing (checked 1 Nov 2026)",
+ "reference": "AI Central, \"Consulting Using AI (10 use cases with prompts)\" (16 pages), linkedin.com/company/chat-gpt-central",
+ "instagram": [
+  {
+   "kind": "cover",
+   "line1": "Consulting",
+   "line2": "Using AI",
+   "sub": "10 use cases, each with a copy-paste prompt",
+   "hero": "glow/si-claude.svg",
+   "sticker": "GUIDE",
+   "ghost": "AI"
+  },
+  {
+   "kind": "promise",
+   "title": "AI won't replace consultants. *It upgrades them.*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "claude.ai"
+   },
+   "get": "10 consulting jobs, one tested prompt each",
+   "shot": "guides/consulting-with-ai/shots/claude-financial-services.png",
+   "callout": "Try Claude here",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Rapid Data Analysis",
+   "what": "Upload a client export and get trends, outliers and next questions",
+   "bestFor": "A first pass on messy client data",
+   "prompt": "You are a management consultant. Analyse the attached [DATASET] for [CLIENT GOAL]. Give: 1) the 5 biggest trends, 2) outliers worth a second look, 3) 3 questions for the client. Show the calculation behind every number, state each assumption and flag missing or odd data. Do not estimate figures that are not in the file.",
+   "meta": "Tip: remove client names before you upload"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Market Research",
+   "what": "A sourced snapshot of a market: size estimates, drivers, key players",
+   "bestFor": "Kick-off decks and new-client prep",
+   "prompt": "Research the [MARKET] in [REGION] for [CLIENT TYPE]. Summarise market size estimates, growth drivers, main players and recent regulation. Cite a dated source for every figure; where sources disagree, show the range. Mark anything older than 2 years. If you cannot find a number, write 'not found' instead of estimating.",
+   "meta": "Tip: turn on web search before you paste"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Strategy Frameworks",
+   "what": "SWOT, PESTEL or Five Forces built for one client, not a template",
+   "bestFor": "Workshops and strategy sessions",
+   "prompt": "Build a [SWOT / PESTEL / Five Forces] for [CLIENT], a [BUSINESS] in [MARKET]. Use only my notes below plus sources you cite. For each point add the evidence and one 'so what' for the client. List the assumptions you made and 3 points to verify with the client.\nNotes: [PASTE NOTES]",
+   "meta": "Tip: run it once per framework, then compare"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Competitive Intelligence",
+   "what": "Side-by-side competitor profiles: offer, pricing, positioning, moves",
+   "bestFor": "Pitches and positioning work",
+   "prompt": "Compare [CLIENT] with [COMPETITOR 1], [COMPETITOR 2] and [COMPETITOR 3]. Table: target customer, core offer, public pricing, positioning, moves in the last 12 months. Use their own sites and dated news, with a link for every cell. Write 'not public' where data is missing. End with 3 gaps [CLIENT] could own.",
+   "meta": "Tip: re-run it monthly to catch new moves"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Financial Modeling",
+   "what": "A driver-based model with base, best and worst case you can change",
+   "bestFor": "Business cases and budget reviews",
+   "prompt": "Build a 3-year driver-based model for [BUSINESS / PROJECT] as a table I can paste into Excel or Sheets. Drivers: [PRICE, VOLUME, CHURN, COSTS]. Use only my inputs: [PASTE INPUTS]. Show base, best and worst case, the formula for each line and every assumption. Ask me for missing inputs instead of guessing.",
+   "meta": "Tip: check every formula before it goes to a client"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Instant Presentations",
+   "what": "Turns findings into a storyline: one message per slide",
+   "bestFor": "Client and steering decks",
+   "prompt": "Turn these findings into a [10]-slide deck outline for [AUDIENCE] at [CLIENT]. Lead with the answer (pyramid principle). For each slide: an action title as one full sentence, 3 bullets, the chart to use and the finding it comes from. Do not add numbers that are not in my findings.\nFindings: [PASTE]",
+   "meta": "Tip: then ask for the slides as a file"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Risk Assessment",
+   "what": "A risk register: likelihood, impact, warning signs, mitigations",
+   "bestFor": "Project kick-offs",
+   "prompt": "Act as a risk advisor. For [PROJECT] at [CLIENT], build a risk register: risk, cause, likelihood 1-5, impact 1-5, early warning sign, mitigation, owner. Cover strategic, operational, financial, legal and people risks. Explain each score in one line, mark what is an assumption and flag the top 3 for this week.\nContext: [PASTE]",
+   "meta": "Tip: review the scores with the project owner"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Performance Tracking",
+   "what": "A weekly KPI read-out: what moved, why, and what to do next",
+   "bestFor": "Retainer reporting",
+   "prompt": "Here are this week's KPIs for [CLIENT] vs last week and target: [PASTE TABLE]. Write a one-page read-out: what moved most, likely reasons (label each confirmed or hypothesis), which metric is off-track and 3 actions with an owner. Use only numbers from the table, show every % change calculation and ask if a target is missing.",
+   "meta": "Tip: paste the same table format every week"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Scenario Planning",
+   "what": "3-4 plausible futures, their triggers, and the moves for each",
+   "bestFor": "Boards and 'what if' questions",
+   "prompt": "Plan scenarios for [CLIENT] over the next [TIMEFRAME]. Pick the 2 biggest uncertainties for [INDUSTRY], build 4 scenarios from them, and for each give: the story, early signals to watch, impact on [KEY METRIC] as a range, and no-regret moves. State every assumption, cite sources for external trends and never present a forecast as fact.",
+   "meta": "Tip: revisit the early signals every quarter"
+  },
+  {
+   "kind": "item",
+   "n": 10,
+   "title": "Collaboration Readiness",
+   "what": "An AI learning path for the client team, by role and level",
+   "bestFor": "Upskilling client teams",
+   "prompt": "Design a [6]-week AI learning path for [CLIENT TEAM] ([ROLES], [SKILL LEVEL]). For each week: one skill, one hands-on task using their real work, a 15-minute exercise and how to check it was learned. Recommend only free official courses (e.g. academy.claude.com) with links. Add the data and privacy rules the team must follow.",
+   "meta": "Tip: start with the team's most repeated task"
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for the next engagement.",
+   "bullets": [
+    "Pick one use case this week",
+    "Strip client names before you paste",
+    "Check every source it cites"
+   ],
+   "stamp1": "Comment CONSULT",
+   "stamp2": "I'll DM you every link"
+  }
+ ],
+ "linkedin": [
+  {
+   "kind": "cover",
+   "line1": "Consulting",
+   "line2": "Using AI",
+   "sub": "10 use cases, each with a copy-paste prompt",
+   "hero": "glow/si-claude.svg",
+   "sticker": "GUIDE",
+   "ghost": "AI"
+  },
+  {
+   "kind": "promise",
+   "title": "AI won't replace consultants. *It upgrades them.*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "claude.ai"
+   },
+   "get": "10 consulting jobs, one tested prompt each",
+   "shot": "guides/consulting-with-ai/shots/claude-financial-services.png",
+   "callout": "Try Claude here",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Rapid Data Analysis",
+   "what": "Upload a client export and get trends, outliers and next questions",
+   "bestFor": "A first pass on messy client data",
+   "prompt": "You are a management consultant. Analyse the attached [DATASET] for [CLIENT GOAL]. Give: 1) the 5 biggest trends, 2) outliers worth a second look, 3) 3 questions for the client. Show the calculation behind every number, state each assumption and flag missing or odd data. Do not estimate figures that are not in the file.",
+   "meta": "Tip: remove client names before you upload"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Market Research",
+   "what": "A sourced snapshot of a market: size estimates, drivers, key players",
+   "bestFor": "Kick-off decks and new-client prep",
+   "prompt": "Research the [MARKET] in [REGION] for [CLIENT TYPE]. Summarise market size estimates, growth drivers, main players and recent regulation. Cite a dated source for every figure; where sources disagree, show the range. Mark anything older than 2 years. If you cannot find a number, write 'not found' instead of estimating.",
+   "meta": "Tip: turn on web search before you paste"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Strategy Frameworks",
+   "what": "SWOT, PESTEL or Five Forces built for one client, not a template",
+   "bestFor": "Workshops and strategy sessions",
+   "prompt": "Build a [SWOT / PESTEL / Five Forces] for [CLIENT], a [BUSINESS] in [MARKET]. Use only my notes below plus sources you cite. For each point add the evidence and one 'so what' for the client. List the assumptions you made and 3 points to verify with the client.\nNotes: [PASTE NOTES]",
+   "meta": "Tip: run it once per framework, then compare"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Competitive Intelligence",
+   "what": "Side-by-side competitor profiles: offer, pricing, positioning, moves",
+   "bestFor": "Pitches and positioning work",
+   "prompt": "Compare [CLIENT] with [COMPETITOR 1], [COMPETITOR 2] and [COMPETITOR 3]. Table: target customer, core offer, public pricing, positioning, moves in the last 12 months. Use their own sites and dated news, with a link for every cell. Write 'not public' where data is missing. End with 3 gaps [CLIENT] could own.",
+   "meta": "Tip: re-run it monthly to catch new moves"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Financial Modeling",
+   "what": "A driver-based model with base, best and worst case you can change",
+   "bestFor": "Business cases and budget reviews",
+   "prompt": "Build a 3-year driver-based model for [BUSINESS / PROJECT] as a table I can paste into Excel or Sheets. Drivers: [PRICE, VOLUME, CHURN, COSTS]. Use only my inputs: [PASTE INPUTS]. Show base, best and worst case, the formula for each line and every assumption. Ask me for missing inputs instead of guessing.",
+   "meta": "Tip: check every formula before it goes to a client"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Instant Presentations",
+   "what": "Turns findings into a storyline: one message per slide",
+   "bestFor": "Client and steering decks",
+   "prompt": "Turn these findings into a [10]-slide deck outline for [AUDIENCE] at [CLIENT]. Lead with the answer (pyramid principle). For each slide: an action title as one full sentence, 3 bullets, the chart to use and the finding it comes from. Do not add numbers that are not in my findings.\nFindings: [PASTE]",
+   "meta": "Tip: then ask for the slides as a file"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Risk Assessment",
+   "what": "A risk register: likelihood, impact, warning signs, mitigations",
+   "bestFor": "Project kick-offs",
+   "prompt": "Act as a risk advisor. For [PROJECT] at [CLIENT], build a risk register: risk, cause, likelihood 1-5, impact 1-5, early warning sign, mitigation, owner. Cover strategic, operational, financial, legal and people risks. Explain each score in one line, mark what is an assumption and flag the top 3 for this week.\nContext: [PASTE]",
+   "meta": "Tip: review the scores with the project owner"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Performance Tracking",
+   "what": "A weekly KPI read-out: what moved, why, and what to do next",
+   "bestFor": "Retainer reporting",
+   "prompt": "Here are this week's KPIs for [CLIENT] vs last week and target: [PASTE TABLE]. Write a one-page read-out: what moved most, likely reasons (label each confirmed or hypothesis), which metric is off-track and 3 actions with an owner. Use only numbers from the table, show every % change calculation and ask if a target is missing.",
+   "meta": "Tip: paste the same table format every week"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Scenario Planning",
+   "what": "3-4 plausible futures, their triggers, and the moves for each",
+   "bestFor": "Boards and 'what if' questions",
+   "prompt": "Plan scenarios for [CLIENT] over the next [TIMEFRAME]. Pick the 2 biggest uncertainties for [INDUSTRY], build 4 scenarios from them, and for each give: the story, early signals to watch, impact on [KEY METRIC] as a range, and no-regret moves. State every assumption, cite sources for external trends and never present a forecast as fact.",
+   "meta": "Tip: revisit the early signals every quarter"
+  },
+  {
+   "kind": "item",
+   "n": 10,
+   "title": "Collaboration Readiness",
+   "what": "An AI learning path for the client team, by role and level",
+   "bestFor": "Upskilling client teams",
+   "prompt": "Design a [6]-week AI learning path for [CLIENT TEAM] ([ROLES], [SKILL LEVEL]). For each week: one skill, one hands-on task using their real work, a 15-minute exercise and how to check it was learned. Recommend only free official courses (e.g. academy.claude.com) with links. Add the data and privacy rules the team must follow.",
+   "meta": "Tip: start with the team's most repeated task"
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for the next engagement.",
+   "bullets": [
+    "Pick one use case this week",
+    "Strip client names before you paste",
+    "Check every source it cites"
+   ],
+   "stamp1": "Get every free guide here",
+   "stamp2": "VISIT WITHHAMMAD.COM/RESOURCES"
+  }
+ ]
+}

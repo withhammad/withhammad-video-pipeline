@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {ReelCover} from './ReelCover';
-import {glowJobs, LOGO} from './glowCovers';
+import {glowJobs} from './glowCovers';
 import {FONT} from './tokens';
 
 // The guide-document carousel, a 1:1 copy of the AI Central template (docs/profile-seo/ref-aicentral/README.md)
@@ -14,9 +14,9 @@ const W = 1080, H = 1350;
 
 type Rich = string; // "*word*" -> blue
 export type GuidePage =
-  | {kind: 'cover'; line1: string; line2: string; sub: string; hero: string; sticker?: string; ghost?: string}
-  | {kind: 'promise'; title: Rich; setup: {label: string; url: string}; get: string; shot: string; callout?: string}
-  | {kind: 'item'; n: number; title: string; what: string; bestFor: string; shot?: string; callout?: string; meta?: string; prompt?: string; bestLabel?: string}
+  | {kind: 'cover'; line1: string; line2: string; sub: string; hero?: string; heroText?: string; heroBg?: string; sticker?: string; ghost?: string}
+  | {kind: 'promise'; title: Rich; setup: {label: string; url: string}; get: string; shot: string; callout?: string; icon?: string}
+  | {kind: 'item'; n: number; title: string; what: string; bestFor: string; shot?: string; callout?: string; meta?: string; prompt?: string; bestLabel?: string; icon?: string}
   | {kind: 'more'; title: Rich; sub: string; items: {title: string; meta: string}[]}
   | {kind: 'library'; title: string; sub: string; rows: {level: string; guides: {job: string; title: string}[]}[]}
   | {kind: 'cta'; line1: string; line2: string; sub: string; bullets: string[]; stamp1: string; stamp2: string};
@@ -99,14 +99,18 @@ const Dot: React.FC = () => <div style={{width: 26, height: 26, borderRadius: 13
 const Bullet: React.FC<{children: React.ReactNode; size?: number}> = ({children, size = 38}) =>
   <div style={{display: 'flex', gap: 22, alignItems: 'flex-start'}}><Dot/><div style={sans(size, 500, {lineHeight: 1.22, letterSpacing: -0.4, color: '#3A4150'})}>{children}</div></div>;
 
-const Shot: React.FC<{src: string; width: number; height: number; callout?: string}> = ({src: s, width, height, callout}) =>
+// callout icon: a logo mask from public/ (e.g. glow/si-claude.svg, shown in its brand colour via iconColor) or the neutral blue spark
+const Shot: React.FC<{src: string; width: number; height: number; callout?: string; icon?: string}> = ({src: s, width, height, callout, icon}) =>
   <div style={{position: 'relative', width, height: height + 40}}>
     <div style={{width, height, borderRadius: 18, overflow: 'hidden', border: `3px solid ${INK}`, boxShadow: '0 18px 40px rgba(14,19,32,.22)', background: '#fff'}}>
       <Img src={src(s)} style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top left'}}/></div>
     {callout ? <div style={{position: 'absolute', right: -14, bottom: 0, display: 'flex', alignItems: 'center', gap: 14, background: '#fff',
       border: `3px solid ${INK}`, borderRadius: 40, padding: '14px 28px', boxShadow: '0 8px 18px rgba(0,0,0,.18)'}}>
-      <div style={{width: 34, height: 34, background: '#D97757', WebkitMaskImage: `url(${LOGO.claude.mask})`, maskImage: `url(${LOGO.claude.mask})`,
-        WebkitMaskSize: 'contain', maskSize: 'contain'}}/>
+      {icon && icon !== 'none'
+        ? <div style={{width: 34, height: 34, background: icon.includes('claude') ? '#D97757' : INK, WebkitMaskImage: `url(${src(icon)})`, maskImage: `url(${src(icon)})`,
+          WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center'}}/>
+        : icon === 'none' ? null
+        : <svg width={34} height={34} viewBox="0 0 24 24"><path d="M12 2l2.2 6.6L21 11l-6.8 2.4L12 20l-2.2-6.6L3 11l6.8-2.4z" fill={BLUE}/></svg>}
       <span style={sans(32, 500, {letterSpacing: -0.3})}><span style={{color: BLUE, fontWeight: 800, textDecoration: 'underline', textUnderlineOffset: 5}}>
         {callout.split(' ')[0]}</span> {callout.split(' ').slice(1).join(' ')}</span>
       <svg width={40} height={40} viewBox="0 0 24 24" style={{position: 'absolute', left: -26, bottom: -26}}>
@@ -127,10 +131,11 @@ const Cover: React.FC<{p: Extract<GuidePage, {kind: 'cover'}>}> = ({p}) => <>
   {p.ghost ? <div style={{position: 'absolute', left: 0, right: 0, bottom: -70, textAlign: 'center', ...sans(330, 900, {color: 'transparent',
     WebkitTextStroke: `3px rgba(6,18,46,.16)`, letterSpacing: -12})}}>{p.ghost}</div> : null}
   <div style={{position: 'absolute', left: 300, top: 640, width: 480, height: 480, transform: 'rotate(-9deg)', borderRadius: 110,
-    background: 'linear-gradient(150deg, #F0A07F 0%, #D97757 45%, #B4532F 100%)', boxShadow: '0 40px 70px rgba(80,30,10,.45), inset 0 -18px 0 rgba(0,0,0,.18), inset 0 14px 0 rgba(255,255,255,.35)',
+    background: p.heroBg ?? (p.hero?.includes('claude') ? 'linear-gradient(150deg, #F0A07F 0%, #D97757 45%, #B4532F 100%)' : 'linear-gradient(150deg, #5C8BFF 0%, #1F5EFF 45%, #1240B8 100%)'), boxShadow: '0 40px 70px rgba(80,30,10,.45), inset 0 -18px 0 rgba(0,0,0,.18), inset 0 14px 0 rgba(255,255,255,.35)',
     display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-    <div style={{width: 300, height: 300, background: '#fff', WebkitMaskImage: `url(${src(p.hero)})`, maskImage: `url(${src(p.hero)})`, WebkitMaskSize: 'contain', maskSize: 'contain',
-      WebkitMaskRepeat: 'no-repeat', filter: 'drop-shadow(0 6px 0 rgba(0,0,0,.2))'}}/>
+    {p.hero ? <div style={{width: 300, height: 300, background: '#fff', WebkitMaskImage: `url(${src(p.hero)})`, maskImage: `url(${src(p.hero)})`, WebkitMaskSize: 'contain', maskSize: 'contain',
+      WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', filter: 'drop-shadow(0 6px 0 rgba(0,0,0,.2))'}}/>
+      : <span style={sans(p.heroText && p.heroText.length > 2 ? 150 : 260, 900, {color: '#fff', letterSpacing: -8, textShadow: '0 8px 0 rgba(0,0,0,.2)'})}>{p.heroText}</span>}
   </div>
   {p.sticker ? <div style={{position: 'absolute', left: 120, top: 980, transform: 'rotate(-12deg)', background: '#fff', border: `4px solid ${NAVY}`, borderRadius: 18,
     padding: '18px 26px', boxShadow: '0 16px 30px rgba(0,0,0,.25)'}}>
@@ -147,7 +152,7 @@ const Promise_: React.FC<{p: Extract<GuidePage, {kind: 'promise'}>}> = ({p}) =>
       <Bullet size={36}><b>The setup is inside:</b> <span style={{textDecoration: 'underline', textUnderlineOffset: 5}}>{p.setup.url}</span></Bullet>
       <Bullet size={36}><b>What you get:</b> {p.get}</Bullet>
     </div>
-    <div style={{marginTop: 54}}><Shot src={p.shot} width={860} height={520} callout={p.callout}/></div>
+    <div style={{marginTop: 54}}><Shot src={p.shot} width={860} height={520} callout={p.callout} icon={p.icon}/></div>
   </div>;
 
 const Item: React.FC<{p: Extract<GuidePage, {kind: 'item'}>}> = ({p}) =>
@@ -160,7 +165,7 @@ const Item: React.FC<{p: Extract<GuidePage, {kind: 'item'}>}> = ({p}) =>
       <Bullet>{p.what}</Bullet>
       <Bullet><b style={{color: INK, fontWeight: 900}}>{p.bestLabel ?? 'Best for:'}</b> {p.bestFor}</Bullet>
     </div>
-    {p.shot ? <div style={{position: 'absolute', top: 470, left: 10}}><Shot src={p.shot} width={860} height={480} callout={p.callout}/></div> : null}
+    {p.shot ? <div style={{position: 'absolute', top: 470, left: 10}}><Shot src={p.shot} width={860} height={480} callout={p.callout} icon={p.icon}/></div> : null}
     {p.prompt ? <PromptCard text={p.prompt}/> : null}
     {p.meta ? <div style={{position: 'absolute', top: 1010, left: 0, right: 0, textAlign: 'center', ...sans(30, 500, {color: GREY, letterSpacing: 0})}}>{p.meta}</div> : null}
   </div>;

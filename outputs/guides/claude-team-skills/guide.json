@@ -1,0 +1,661 @@
+{
+ "docTitle": "Build Your Team with Claude",
+ "footUrl": "WITHHAMMAD.COM/RESOURCES",
+ "keyword": "HIRE",
+ "source": "code.claude.com/docs/en/skills; github.com/obra/superpowers; github.com/nextlevelbuilder/ui-ux-pro-max-skill; github.com/coreyhaines31/marketingskills; github.com/anthropics/skills; github.com/anthropics/knowledge-work-plugins (finance, small-business, legal, engineering, design) (checked 1 Nov 2026)",
+ "reference": "AI Central, \"Build Your Whole Team with Claude\" (20 pages), linkedin.com/company/chat-gpt-central",
+ "instagram": [
+  {
+   "kind": "cover",
+   "line1": "Build Your",
+   "line2": "Claude Team",
+   "sub": "6 departments · 36 free, installable skills",
+   "hero": "glow/si-claude.svg",
+   "sticker": "36 SKILLS",
+   "ghost": "Claude"
+  },
+  {
+   "kind": "promise",
+   "title": "6 departments, *36 free skills*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "code.claude.com/docs/en/skills"
+   },
+   "get": "drop a skill folder in ~/.claude/skills/ and it loads live, no restart",
+   "shot": "guides/claude-team-skills/shots/docs.png",
+   "callout": "Read the docs here"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Developers: Superpowers",
+   "what": "Makes Claude brainstorm, plan, test first and review before it ships",
+   "bestFor": "Developers tired of broken builds",
+   "shot": "guides/claude-team-skills/shots/superpowers.png",
+   "callout": "Get it here",
+   "meta": "/plugin install superpowers@claude-plugins-official"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for developers",
+   "sub": "Real skills, all on GitHub.",
+   "items": [
+    {
+     "title": "superpowers",
+     "meta": "obra/superpowers · plan, test first, review twice"
+    },
+    {
+     "title": "webapp-testing",
+     "meta": "anthropics/skills · test local web apps with Playwright"
+    },
+    {
+     "title": "mcp-builder",
+     "meta": "anthropics/skills · build MCP servers for any API"
+    },
+    {
+     "title": "code-review",
+     "meta": "engineering plugin · security, performance, correctness"
+    },
+    {
+     "title": "debug",
+     "meta": "engineering plugin · reproduce, isolate, diagnose, fix"
+    },
+    {
+     "title": "testing-strategy",
+     "meta": "engineering plugin · test plans for any feature"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Designers: UI UX Pro Max",
+   "what": "Design intelligence: styles, palettes, font pairings and UX rules",
+   "bestFor": "UI with real spacing and hierarchy",
+   "shot": "guides/claude-team-skills/shots/ui-ux-pro-max.png",
+   "callout": "Get it here",
+   "meta": "/plugin install ui-ux-pro-max@ui-ux-pro-max-skill"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for designers",
+   "sub": "Real skills, all on GitHub.",
+   "items": [
+    {
+     "title": "ui-ux-pro-max",
+     "meta": "nextlevelbuilder · styles, palettes, UX rules"
+    },
+    {
+     "title": "frontend-design",
+     "meta": "anthropics/skills · distinctive UI, not templated defaults"
+    },
+    {
+     "title": "canvas-design",
+     "meta": "anthropics/skills · posters and static art as PNG or PDF"
+    },
+    {
+     "title": "theme-factory",
+     "meta": "anthropics/skills · 10 preset themes for slides, docs, pages"
+    },
+    {
+     "title": "design-critique",
+     "meta": "design plugin · feedback on usability and hierarchy"
+    },
+    {
+     "title": "accessibility-review",
+     "meta": "design plugin · WCAG 2.1 AA audit"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Marketing: Copywriting",
+   "what": "Writes and rewrites page copy: homepage, landing, pricing, features",
+   "bestFor": "Writing your own landing page",
+   "shot": "guides/claude-team-skills/shots/copywriting.png",
+   "callout": "Get it here",
+   "meta": "npx skills add coreyhaines31/marketingskills"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for marketing",
+   "sub": "All from coreyhaines31/marketingskills.",
+   "items": [
+    {
+     "title": "copywriting",
+     "meta": "page copy that converts and sounds human"
+    },
+    {
+     "title": "copy-editing",
+     "meta": "polish, proofread and refresh existing copy"
+    },
+    {
+     "title": "cro",
+     "meta": "lift conversions on pages and forms"
+    },
+    {
+     "title": "seo-audit",
+     "meta": "find out why a page is not ranking"
+    },
+    {
+     "title": "emails",
+     "meta": "sequences, drips and lifecycle flows"
+    },
+    {
+     "title": "social",
+     "meta": "posts for LinkedIn, X, Instagram, TikTok"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Finance: Reconciliation",
+   "what": "Matches your GL to bank statements and subledgers, flags what doesn't tie",
+   "bestFor": "Month-end close prep",
+   "shot": "guides/claude-team-skills/shots/reconciliation.png",
+   "callout": "Get it here",
+   "meta": "/plugin install finance@knowledge-work-plugins"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for finance",
+   "sub": "Add first: /plugin marketplace add anthropics/knowledge-work-plugins",
+   "items": [
+    {
+     "title": "reconciliation",
+     "meta": "GL vs bank and subledgers, breaks flagged"
+    },
+    {
+     "title": "journal-entry",
+     "meta": "accruals, depreciation, revenue recognition"
+    },
+    {
+     "title": "variance-analysis",
+     "meta": "budget vs actual, explained by driver"
+    },
+    {
+     "title": "financial-statements",
+     "meta": "P&L, balance sheet and cash flow"
+    },
+    {
+     "title": "close-management",
+     "meta": "month-end close calendar and blockers"
+    },
+    {
+     "title": "audit-support",
+     "meta": "SOX 404 control testing and workpapers"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Small Business: Cash Flow",
+   "what": "30/60/90-day cash forecast from your ledger, Stripe or a CSV",
+   "bestFor": "Owners asking: can I make payroll?",
+   "shot": "guides/claude-team-skills/shots/cash-flow.png",
+   "callout": "Get it here",
+   "meta": "/plugin install small-business@knowledge-work-plugins"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for small business",
+   "sub": "From the same Anthropic plugin repo.",
+   "items": [
+    {
+     "title": "cash-flow-snapshot",
+     "meta": "30/60/90-day cash forecast"
+    },
+    {
+     "title": "invoice-chase",
+     "meta": "overdue-invoice reminders in the right tone"
+    },
+    {
+     "title": "pay-the-bills",
+     "meta": "codes bills, checks cash, stages the run"
+    },
+    {
+     "title": "payroll-prep",
+     "meta": "totals timesheets, flags every anomaly"
+    },
+    {
+     "title": "tax-prep",
+     "meta": "quarterly estimates and the 1099-NEC list (US)"
+    },
+    {
+     "title": "monday-brief",
+     "meta": "Monday snapshot of cash, sales, pipeline"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Legal: Contract Review",
+   "what": "Reviews a contract clause by clause against your playbook, with redlines",
+   "bestFor": "A first pass before your lawyer",
+   "shot": "guides/claude-team-skills/shots/contract-review.png",
+   "callout": "Get it here",
+   "meta": "/plugin install legal@knowledge-work-plugins"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for legal",
+   "sub": "Not legal advice: a lawyer still reviews.",
+   "items": [
+    {
+     "title": "review-contract",
+     "meta": "clause-by-clause review with redlines"
+    },
+    {
+     "title": "triage-nda",
+     "meta": "sorts NDAs into GREEN, YELLOW or RED"
+    },
+    {
+     "title": "compliance-check",
+     "meta": "regulations and approvals for a new feature"
+    },
+    {
+     "title": "legal-risk-assessment",
+     "meta": "severity x likelihood risk rating"
+    },
+    {
+     "title": "vendor-check",
+     "meta": "agreement status across your systems"
+    },
+    {
+     "title": "brief",
+     "meta": "daily legal briefing and topic research"
+    }
+   ]
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the team.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for a hiring budget.",
+   "bullets": [
+    "Pick your busiest department",
+    "Install its skill today",
+    "Give it one real task"
+   ],
+   "stamp1": "Comment HIRE",
+   "stamp2": "I'll DM you every link"
+  }
+ ],
+ "linkedin": [
+  {
+   "kind": "cover",
+   "line1": "Build Your",
+   "line2": "Claude Team",
+   "sub": "6 departments · 36 free, installable skills",
+   "hero": "glow/si-claude.svg",
+   "sticker": "36 SKILLS",
+   "ghost": "Claude"
+  },
+  {
+   "kind": "promise",
+   "title": "6 departments, *36 free skills*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "code.claude.com/docs/en/skills"
+   },
+   "get": "drop a skill folder in ~/.claude/skills/ and it loads live, no restart",
+   "shot": "guides/claude-team-skills/shots/docs.png",
+   "callout": "Read the docs here"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Developers: Superpowers",
+   "what": "Makes Claude brainstorm, plan, test first and review before it ships",
+   "bestFor": "Developers tired of broken builds",
+   "shot": "guides/claude-team-skills/shots/superpowers.png",
+   "callout": "Get it here",
+   "meta": "/plugin install superpowers@claude-plugins-official"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for developers",
+   "sub": "Real skills, all on GitHub.",
+   "items": [
+    {
+     "title": "superpowers",
+     "meta": "obra/superpowers · plan, test first, review twice"
+    },
+    {
+     "title": "webapp-testing",
+     "meta": "anthropics/skills · test local web apps with Playwright"
+    },
+    {
+     "title": "mcp-builder",
+     "meta": "anthropics/skills · build MCP servers for any API"
+    },
+    {
+     "title": "code-review",
+     "meta": "engineering plugin · security, performance, correctness"
+    },
+    {
+     "title": "debug",
+     "meta": "engineering plugin · reproduce, isolate, diagnose, fix"
+    },
+    {
+     "title": "testing-strategy",
+     "meta": "engineering plugin · test plans for any feature"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Designers: UI UX Pro Max",
+   "what": "Design intelligence: styles, palettes, font pairings and UX rules",
+   "bestFor": "UI with real spacing and hierarchy",
+   "shot": "guides/claude-team-skills/shots/ui-ux-pro-max.png",
+   "callout": "Get it here",
+   "meta": "/plugin install ui-ux-pro-max@ui-ux-pro-max-skill"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for designers",
+   "sub": "Real skills, all on GitHub.",
+   "items": [
+    {
+     "title": "ui-ux-pro-max",
+     "meta": "nextlevelbuilder · styles, palettes, UX rules"
+    },
+    {
+     "title": "frontend-design",
+     "meta": "anthropics/skills · distinctive UI, not templated defaults"
+    },
+    {
+     "title": "canvas-design",
+     "meta": "anthropics/skills · posters and static art as PNG or PDF"
+    },
+    {
+     "title": "theme-factory",
+     "meta": "anthropics/skills · 10 preset themes for slides, docs, pages"
+    },
+    {
+     "title": "design-critique",
+     "meta": "design plugin · feedback on usability and hierarchy"
+    },
+    {
+     "title": "accessibility-review",
+     "meta": "design plugin · WCAG 2.1 AA audit"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Marketing: Copywriting",
+   "what": "Writes and rewrites page copy: homepage, landing, pricing, features",
+   "bestFor": "Writing your own landing page",
+   "shot": "guides/claude-team-skills/shots/copywriting.png",
+   "callout": "Get it here",
+   "meta": "npx skills add coreyhaines31/marketingskills"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for marketing",
+   "sub": "All from coreyhaines31/marketingskills.",
+   "items": [
+    {
+     "title": "copywriting",
+     "meta": "page copy that converts and sounds human"
+    },
+    {
+     "title": "copy-editing",
+     "meta": "polish, proofread and refresh existing copy"
+    },
+    {
+     "title": "cro",
+     "meta": "lift conversions on pages and forms"
+    },
+    {
+     "title": "seo-audit",
+     "meta": "find out why a page is not ranking"
+    },
+    {
+     "title": "emails",
+     "meta": "sequences, drips and lifecycle flows"
+    },
+    {
+     "title": "social",
+     "meta": "posts for LinkedIn, X, Instagram, TikTok"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Finance: Reconciliation",
+   "what": "Matches your GL to bank statements and subledgers, flags what doesn't tie",
+   "bestFor": "Month-end close prep",
+   "shot": "guides/claude-team-skills/shots/reconciliation.png",
+   "callout": "Get it here",
+   "meta": "/plugin install finance@knowledge-work-plugins"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for finance",
+   "sub": "Add first: /plugin marketplace add anthropics/knowledge-work-plugins",
+   "items": [
+    {
+     "title": "reconciliation",
+     "meta": "GL vs bank and subledgers, breaks flagged"
+    },
+    {
+     "title": "journal-entry",
+     "meta": "accruals, depreciation, revenue recognition"
+    },
+    {
+     "title": "variance-analysis",
+     "meta": "budget vs actual, explained by driver"
+    },
+    {
+     "title": "financial-statements",
+     "meta": "P&L, balance sheet and cash flow"
+    },
+    {
+     "title": "close-management",
+     "meta": "month-end close calendar and blockers"
+    },
+    {
+     "title": "audit-support",
+     "meta": "SOX 404 control testing and workpapers"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Small Business: Cash Flow",
+   "what": "30/60/90-day cash forecast from your ledger, Stripe or a CSV",
+   "bestFor": "Owners asking: can I make payroll?",
+   "shot": "guides/claude-team-skills/shots/cash-flow.png",
+   "callout": "Get it here",
+   "meta": "/plugin install small-business@knowledge-work-plugins"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for small business",
+   "sub": "From the same Anthropic plugin repo.",
+   "items": [
+    {
+     "title": "cash-flow-snapshot",
+     "meta": "30/60/90-day cash forecast"
+    },
+    {
+     "title": "invoice-chase",
+     "meta": "overdue-invoice reminders in the right tone"
+    },
+    {
+     "title": "pay-the-bills",
+     "meta": "codes bills, checks cash, stages the run"
+    },
+    {
+     "title": "payroll-prep",
+     "meta": "totals timesheets, flags every anomaly"
+    },
+    {
+     "title": "tax-prep",
+     "meta": "quarterly estimates and the 1099-NEC list (US)"
+    },
+    {
+     "title": "monday-brief",
+     "meta": "Monday snapshot of cash, sales, pipeline"
+    }
+   ]
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Legal: Contract Review",
+   "what": "Reviews a contract clause by clause against your playbook, with redlines",
+   "bestFor": "A first pass before your lawyer",
+   "shot": "guides/claude-team-skills/shots/contract-review.png",
+   "callout": "Get it here",
+   "meta": "/plugin install legal@knowledge-work-plugins"
+  },
+  {
+   "kind": "more",
+   "title": "*6 skills* for legal",
+   "sub": "Not legal advice: a lawyer still reviews.",
+   "items": [
+    {
+     "title": "review-contract",
+     "meta": "clause-by-clause review with redlines"
+    },
+    {
+     "title": "triage-nda",
+     "meta": "sorts NDAs into GREEN, YELLOW or RED"
+    },
+    {
+     "title": "compliance-check",
+     "meta": "regulations and approvals for a new feature"
+    },
+    {
+     "title": "legal-risk-assessment",
+     "meta": "severity x likelihood risk rating"
+    },
+    {
+     "title": "vendor-check",
+     "meta": "agreement status across your systems"
+    },
+    {
+     "title": "brief",
+     "meta": "daily legal briefing and topic research"
+    }
+   ]
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the team.",
+   "line2": "Now put it to work.",
+   "sub": "Don't wait for a hiring budget.",
+   "bullets": [
+    "Pick your busiest department",
+    "Install its skill today",
+    "Give it one real task"
+   ],
+   "stamp1": "Get every free guide here",
+   "stamp2": "VISIT WITHHAMMAD.COM/RESOURCES"
+  }
+ ]
+}

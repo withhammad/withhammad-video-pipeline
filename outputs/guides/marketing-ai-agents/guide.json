@@ -1,0 +1,323 @@
+{
+ "docTitle": "Best 7 Marketing AI Agents",
+ "footUrl": "WITHHAMMAD.COM/RESOURCES",
+ "keyword": "MARKETING",
+ "source": "https://github.com/n8n-io/n8n, https://www.clay.com/pricing, https://github.com/dgtlmoon/changedetection.io, https://github.com/assafelovic/gpt-researcher, https://www.firecrawl.dev/pricing, https://github.com/firecrawl/firecrawl, https://github.com/anthropics/skills/tree/main/skills/skill-creator, https://claude.com/pricing, https://github.com/gitroomhq/postiz-app, https://claude.com/solutions/agents (checked 1 Nov 2026)",
+ "reference": "AI Central, \"Best 7 Marketing AI Agents\" (12 pages), linkedin.com/company/chat-gpt-central",
+ "instagram": [
+  {
+   "kind": "cover",
+   "line1": "7 Marketing",
+   "line2": "AI Agents",
+   "sub": "+ a free-to-start tool to build each one",
+   "sticker": "GUIDE",
+   "ghost": "Agents",
+   "heroText": "7"
+  },
+  {
+   "kind": "promise",
+   "title": "Not chatbots. *Agents that do the work.*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "claude.com/solutions/agents"
+   },
+   "get": "7 marketing agents + the tool to build each one",
+   "shot": "guides/marketing-ai-agents/shots/claude-agents.png",
+   "callout": "Start building here"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Lead Research Agent",
+   "what": "Give it your ideal customer profile; it finds and scores matching leads",
+   "bestLabel": "Build it with:",
+   "bestFor": "n8n (self-host free)",
+   "shot": "guides/marketing-ai-agents/shots/n8n.png",
+   "callout": "Build it here",
+   "meta": "Fair-code · AI agent nodes for Claude, OpenAI and more"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Cold Email Agent",
+   "what": "Researches each prospect and writes a personal first line at scale",
+   "bestLabel": "Build it with:",
+   "bestFor": "Clay (free plan)",
+   "shot": "guides/marketing-ai-agents/shots/clay.png",
+   "callout": "Build it here",
+   "meta": "Free plan: 500 actions + 100 data credits a month"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Competitor Agent",
+   "what": "Watches competitor pages and alerts you when prices or copy change",
+   "bestLabel": "Build it with:",
+   "bestFor": "changedetection.io",
+   "shot": "guides/marketing-ai-agents/shots/changedetection.png",
+   "callout": "Build it here",
+   "meta": "Apache-2.0 · alerts to Slack, email, Discord, webhooks"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Market Research Agent",
+   "what": "Runs deep web research and returns a report with citations",
+   "bestLabel": "Build it with:",
+   "bestFor": "GPT Researcher (open source)",
+   "shot": "guides/marketing-ai-agents/shots/gpt-researcher.png",
+   "callout": "Build it here",
+   "meta": "Apache-2.0 · any LLM · PDF, Word or Markdown reports"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Content Research Agent",
+   "what": "Turns web pages and searches into clean text to mine for ideas",
+   "bestLabel": "Build it with:",
+   "bestFor": "Firecrawl (free plan)",
+   "shot": "guides/marketing-ai-agents/shots/firecrawl.png",
+   "callout": "Build it here",
+   "meta": "Free plan: 1,000 credits a month · MCP server for Claude"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Repurposing Agent",
+   "what": "Turns one post or video script into threads, emails and carousels",
+   "bestLabel": "Build it with:",
+   "bestFor": "Claude skill-creator",
+   "shot": "guides/marketing-ai-agents/shots/skill-creator.png",
+   "callout": "Build it here",
+   "meta": "Skills are included on Claude's Free plan"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Social Media Agent",
+   "what": "Plans, writes and schedules posts across your channels for review",
+   "bestLabel": "Build it with:",
+   "bestFor": "Postiz (open source)",
+   "shot": "guides/marketing-ai-agents/shots/postiz.png",
+   "callout": "Build it here",
+   "meta": "AGPL-3.0 · self-host free · IG, LinkedIn, X, TikTok, more"
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "You don't need a bigger team.",
+   "bullets": [
+    "Pick the agent that saves the most hours",
+    "Build it on the free tier this week",
+    "Review its output before it ships"
+   ],
+   "stamp1": "Comment MARKETING",
+   "stamp2": "I'll DM you every link"
+  }
+ ],
+ "linkedin": [
+  {
+   "kind": "cover",
+   "line1": "7 Marketing",
+   "line2": "AI Agents",
+   "sub": "+ a free-to-start tool to build each one",
+   "sticker": "GUIDE",
+   "ghost": "Agents",
+   "heroText": "7"
+  },
+  {
+   "kind": "promise",
+   "title": "Not chatbots. *Agents that do the work.*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "claude.com/solutions/agents"
+   },
+   "get": "7 marketing agents + the tool to build each one",
+   "shot": "guides/marketing-ai-agents/shots/claude-agents.png",
+   "callout": "Start building here"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Lead Research Agent",
+   "what": "Give it your ideal customer profile; it finds and scores matching leads",
+   "bestLabel": "Build it with:",
+   "bestFor": "n8n (self-host free)",
+   "shot": "guides/marketing-ai-agents/shots/n8n.png",
+   "callout": "Build it here",
+   "meta": "Fair-code · AI agent nodes for Claude, OpenAI and more"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Cold Email Agent",
+   "what": "Researches each prospect and writes a personal first line at scale",
+   "bestLabel": "Build it with:",
+   "bestFor": "Clay (free plan)",
+   "shot": "guides/marketing-ai-agents/shots/clay.png",
+   "callout": "Build it here",
+   "meta": "Free plan: 500 actions + 100 data credits a month"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "Competitor Agent",
+   "what": "Watches competitor pages and alerts you when prices or copy change",
+   "bestLabel": "Build it with:",
+   "bestFor": "changedetection.io",
+   "shot": "guides/marketing-ai-agents/shots/changedetection.png",
+   "callout": "Build it here",
+   "meta": "Apache-2.0 · alerts to Slack, email, Discord, webhooks"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Market Research Agent",
+   "what": "Runs deep web research and returns a report with citations",
+   "bestLabel": "Build it with:",
+   "bestFor": "GPT Researcher (open source)",
+   "shot": "guides/marketing-ai-agents/shots/gpt-researcher.png",
+   "callout": "Build it here",
+   "meta": "Apache-2.0 · any LLM · PDF, Word or Markdown reports"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Content Research Agent",
+   "what": "Turns web pages and searches into clean text to mine for ideas",
+   "bestLabel": "Build it with:",
+   "bestFor": "Firecrawl (free plan)",
+   "shot": "guides/marketing-ai-agents/shots/firecrawl.png",
+   "callout": "Build it here",
+   "meta": "Free plan: 1,000 credits a month · MCP server for Claude"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Repurposing Agent",
+   "what": "Turns one post or video script into threads, emails and carousels",
+   "bestLabel": "Build it with:",
+   "bestFor": "Claude skill-creator",
+   "shot": "guides/marketing-ai-agents/shots/skill-creator.png",
+   "callout": "Build it here",
+   "meta": "Skills are included on Claude's Free plan"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "Social Media Agent",
+   "what": "Plans, writes and schedules posts across your channels for review",
+   "bestLabel": "Build it with:",
+   "bestFor": "Postiz (open source)",
+   "shot": "guides/marketing-ai-agents/shots/postiz.png",
+   "callout": "Build it here",
+   "meta": "AGPL-3.0 · self-host free · IG, LinkedIn, X, TikTok, more"
+  },
+  {
+   "kind": "library",
+   "title": "The Claude Guide Library",
+   "sub": "FROM BEGINNER TO PRO",
+   "rows": [
+    {
+     "level": "Beginner",
+     "guides": [
+      {
+       "job": "claude-linkedin-installs",
+       "title": "27 Free Claude Installs for LinkedIn"
+      },
+      {
+       "job": "7123480a28ca",
+       "title": "Claude + Playwright Job Search"
+      }
+     ]
+    },
+    {
+     "level": "Intermediate",
+     "guides": [
+      {
+       "job": "anatomy20261027",
+       "title": "The 8-Part Claude Motion Prompt"
+      },
+      {
+       "job": "9d2d68af60d4",
+       "title": "11 Free Claude Skills for YouTube"
+      }
+     ]
+    },
+    {
+     "level": "Advanced",
+     "guides": [
+      {
+       "job": "harness-engineering",
+       "title": "Harness Engineering for Agents"
+      },
+      {
+       "job": "agent-loop",
+       "title": "Every AI Agent Is 1 Loop"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the guide.",
+   "line2": "Now put it to work.",
+   "sub": "You don't need a bigger team.",
+   "bullets": [
+    "Pick the agent that saves the most hours",
+    "Build it on the free tier this week",
+    "Review its output before it ships"
+   ],
+   "stamp1": "Get every free guide here",
+   "stamp2": "VISIT WITHHAMMAD.COM/RESOURCES"
+  }
+ ]
+}
