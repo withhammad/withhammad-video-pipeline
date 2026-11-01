@@ -51,8 +51,8 @@ AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG,
 - [ ] Instagram AI-news page: create the account in the app (any handle), link it to the With Hammad AI Facebook Page, then tell me; I run it.
 
 ## TikTok @withhammad (renamed 2026-11-01; routines, config and site schema updated)
-- [ ] Bio (TikTok app, Edit profile): `Claude Code & AI agents, Dubai. Free guide for every video: withhammad.com` (74/80). It was empty, so every "link in bio" caption pointed at nothing. The web editor would not save it.
-- [ ] Name when the 7-day lock lifts (after 8 Nov): `Hammad Yousuf | AI Agents`.
+- [x] Bio set by owner in the app 2026-11-01; verified live.
+- [x] Name `Hammad Yousuf | AI Agents` live 2026-11-01.
 - [ ] Website link field appears at 1,000 followers: set it to https://withhammad.com/resources then.
 
 ## YouTube monetisation (Earn → Step 2 "Fix your AdSense for YouTube account")
