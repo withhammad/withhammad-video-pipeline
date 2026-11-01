@@ -1,0 +1,71 @@
+# @hammadyousuf01 TikTok cleanup, inventory 2026-11-01. 80 videos on profile.
+# KEEP (13 AI reels, all Oct 27 - Nov 1 2026): video ids 7697650231063710996 7697785183365238037 7697822104573463829 7698724400958278919 7698725535639145735 7698744181560282376 7698985902042860808 7699896149926317333 7699951893019233542 7700101285277715732 7700133243110165781 7700201511841893653 7701228696778083591
+# DELETE (67 non-AI: Islamic reminders, Ramadan, Dubai vlogs, fitness; Aug 2024 - May 2025), newest first:
+7504341052224965895 Nimaz is best solution
+7500287243072949511 Don't try to skip
+7500086673536027922 Only Allah
+7498932933873421586 If you're lost, hurting, or tired
+7497921316540943624 You have two friends
+7496710848560352519 Charging your soul
+7496374201801018631 When Allah takes something
+7495287095930424584 Quran surah yusuf
+7493236337722608914 When everything around you fails
+7492706985889025288 Your biggest enemy is not shaytan
+7492478158390807815 No One Helps Like Allah Does
+7492333901264751880 Life with out music
+7492105865990917384 Allahu Akbar jummamubarak
+7492005221250403591 Control camaralenta
+7491626247517244679 Peace only in salah
+7491622697080802578 Peace only comes from Allah
+7491370223568686344 Dubai expo
+7491175977280654599 Sabar, silence and smile
+7491019918347980039 Peace only come from quran
+7490384695159475464 أيام الثقة والصبر والجبر
+7490249556198722834 الدعاء بالاسم الأعظم لله
+7489850763921853704 Don't lose hope on Allah
+7489525902381026567 O Muslims Train like warriors
+7488397755635830024 Mini vlog dubai
+7488335079048023303 Fasting
+7488038260023872775 Benifts of fasting Six days of shawal
+7487650382886227207 When duniya makes you tired
+7486891128571153672 آخر جمعة من رمضان
+7486182535127371016 Don't leave your deen
+7486152088054025480 Ramadan2025
+7486090359135554824 Duniya is
+7485438812785691911 Ramadan
+7485347686447582472 Ramadan dua
+7485065111925706002 Ramadan vibes
+7484940932207463688 Therpy
+7484905645267799314 Laylatul Qadr
+7483885993544928520 Alhamdulillah for Islam
+7483595031023013127 Ramadan Vibes in Dubai
+7483523318746828040 Ramadan (Bukhatir)
+7483140594328440072 Ultimate peace
+7483125414823513362 Our time is running
+7482812696686103826 Ramadan vibes in Dubai
+7481378906331778311 Feeling lost? Allah is always with you
+7480573941614939399 Concern of world life
+7480203251040767250 Ramadan vlog in dubai
+7479496409016716562 Trust Allah
+7478724079772552466 Just trust Allahs Plans
+7478586278573853960 May Allah Answer all prayers in Ramadan
+7478513942961098002 Our happiness only lies with Allah
+7478290847918837010 It was always Allah
+7477978032741911815 Life in dubai
+7475789807604550920 Kun Fayakun
+7475387494603754770 Quran is medicine
+7475385246226074898 Allah says in hadisi qudsi
+7463170169603476744 Dubai quran
+7462306654780919048 Ya haq
+7408974045447720200 Allah is Amazing
+7404347071223893256 Dua sabah
+7402109896998817042 Astagfirullah
+7401942700192173320 Allah is Great
+7401940175728790792 Best feeling when son pray to Allah
+7401769980603321618 Ya nabi salam alika
+7401559112766590216 Dont worry
+7401558958370065672 Allah is great
+7401194890975104264 Alhamdullilah
+7401074080377490696 Allah is Great CapCut
+7401069649544088840 Trust Allah
+# RESULT 2026-11-01: all 67 deleted via Chrome (profile modal: more > Delete > confirm). Profile re-read after: exactly the 13 AI reel ids remain. TikTok web session showed logged out afterwards; owner must sign in again before the tiktok-keyword-replies routine runs.
