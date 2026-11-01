@@ -188,13 +188,14 @@
         "account_id": "61595704034607",
         "profile_url": "https://www.facebook.com/profile.php?id=61595704034607",
         "category": "Digital creator",
-        "connection_status": "page_token_valid_missing_pages_manage_posts_publish_video",
+        "connection_status": "page_token_valid_can_publish",
         "provider": "graph_api_reels (app.publish_facebook)",
         "added": "2026-10-31",
         "note": "Owner 2026-10-31: replaces the personal profile 100090938416059 for every new Facebook post. Not in a Business portfolio yet (portfolio Merciful Light is empty).",
         "page_asset_id": "1394106800452348",
         "token_file": "work/.secrets/facebook-page-oauth.json",
-        "note_2026_11_01": "Reels publisher built 2026-11-01; needs pages_manage_posts + publish_video added to the app use case, then re-consent via outputs/video-pipeline/facebook_oauth.py"
+        "note_2026_11_01": "Consent 2026-11-01 with pages_manage_posts (publish_video is not a valid scope under Facebook Login for Business). debug_token confirms the grant; token type PAGE, no expiry. Reels via app.publish_facebook; 13 posts queued 2-6 Nov.",
+        "identity_last_verified": "2026-11-01"
       },
       {
         "key": "instagram_new",
@@ -447,6 +448,6 @@
     "file": "outputs/video-pipeline/repost-queue.json",
     "plan": "outputs/video-pipeline/repost-plan.json",
     "first_slot": "2026-11-02 09:03 GST LinkedIn BYTES",
-    "facebook": "13 entries queued; fail safely until pages_manage_posts + publish_video are consented"
+    "facebook": "13 entries queued; Page token can publish (consented 2026-11-01)"
   }
 }

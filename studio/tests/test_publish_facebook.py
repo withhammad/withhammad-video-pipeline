@@ -12,7 +12,7 @@ LESSON = {'captions': {'facebook': 'Own Facebook caption with https://withhammad
 def cred(tmp_path):
     p = tmp_path / 'fb.json'
     p.write_text(json.dumps({'access_token': 'tok', 'page_id': fb.PAGE_ID,
-                             'scopes': ['pages_show_list', 'pages_manage_posts', 'publish_video']}))
+                             'scopes': ['pages_show_list', 'pages_manage_posts']}))
     return p
 
 
