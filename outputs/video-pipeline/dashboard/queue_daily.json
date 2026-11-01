@@ -1,10 +1,10 @@
 {
- "updated_at": "2026-11-01T11:45:21Z",
+ "updated_at": "2026-11-01T12:00:25Z",
  "rows": [
   {
    "day": "2026-11-02",
-   "pending": 8,
-   "posted": 0,
+   "pending": 7,
+   "posted": 1,
    "failed": 0,
    "missed": 0
   },
