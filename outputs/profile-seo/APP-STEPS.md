@@ -43,7 +43,8 @@ AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG,
 
 ## YouTube monetisation (Earn → Step 2 "Fix your AdSense for YouTube account")
 - Diagnosis 2026-11-01: the AdSense account linked to the channel was disapproved "due to an existing account". AdSense allows one account per person, and the Google account signed into Chrome has no AdSense access while several of your other Google accounts do.
-- [ ] In Studio → Earn → Step 2 press "Change association", sign in with the Google account that owns your already-approved AdSense, and link it to the channel. Step 3 (review) then starts on its own. This is your payments account and needs your sign-in, so it is yours to do.
+- [x] 2026-11-01: owner chose to keep the existing AdSense (pub-…1174, payments profile India). Change association → "Yes, I have an existing account" → Continue ran through; Studio Step 2 now reads "In progress: your account is being created or associated" (several days, up to 2-3 weeks). If it comes back disapproved as a duplicate again, redo Change association and pick the Google account that owns pub-…1174 on the AdSense chooser.
+- [ ] AdSense tax form expires 31 Dec 2026: submit the new one in AdSense → Payments (yours).
 
 ## Website
 - [ ] Search Console service-account JSON into the site's GSC_CREDENTIALS env (CREDENTIALS.md line 75) so the Monday report includes clicks
