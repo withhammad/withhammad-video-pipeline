@@ -27,6 +27,9 @@
       "linkedin": [
         "c6e60a58849b",
         "b55491077ab1"
+      ],
+      "guides": [
+        "claude-academy"
       ]
     },
     {
@@ -39,6 +42,9 @@
       "linkedin": [
         "d61788123d13",
         "7123480a28ca"
+      ],
+      "guides": [
+        "claude-team-skills"
       ]
     },
     {
@@ -51,6 +57,9 @@
       "linkedin": [
         "c9d9bd2b786c",
         "website20261020"
+      ],
+      "guides": [
+        "consulting-with-ai"
       ]
     },
     {
@@ -62,6 +71,9 @@
       ],
       "linkedin": [
         "motion20261020"
+      ],
+      "guides": [
+        "marketing-ai-agents"
       ]
     },
     {
@@ -69,7 +81,26 @@
       "instagram": [
         "motion20261020"
       ],
-      "linkedin": []
+      "linkedin": [],
+      "guides": [
+        "claude-job-prompts"
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "instagram": [],
+      "linkedin": [],
+      "guides": [
+        "ai-privacy-checkup"
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "instagram": [],
+      "linkedin": [],
+      "guides": [
+        "claude-code-cold-email"
+      ]
     },
     {
       "date": "2026-11-09",
@@ -149,5 +180,9 @@
     "12:00",
     "16:00"
   ],
-  "week2_note": "Owner 2026-11-01 \"Yes, build week 2\": 12 never-posted reels, IG+FB+LI+YouTube, 3/day. 91ac50635d3d (UAE 100 Dreams) held: on-screen date 20 Nov, official page now 24 Nov. d24ed130c3d9 already a YouTube Short, so no second upload."
+  "week2_note": "Owner 2026-11-01 \"Yes, build week 2\": 12 never-posted reels, IG+FB+LI+YouTube, 3/day. 91ac50635d3d (UAE 100 Dreams) held: on-screen date 20 Nov, official page now 24 Nov. d24ed130c3d9 already a YouTube Short, so no second upload.",
+  "guide_times": [
+    "10:00"
+  ],
+  "guides_note": "Owner 2026-11-01 \"Approved, schedule it\": one AI Central-template guide a day at 10:00 Dubai on IG + FB Page + LinkedIn, 2-8 Nov."
 }
