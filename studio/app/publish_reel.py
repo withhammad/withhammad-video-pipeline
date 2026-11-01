@@ -865,6 +865,11 @@ def check_report(job, rt=None, ignore_posted=()):
             func(target)
         except Exception as error:
             _blocker(blockers, 'metadata', f'{platform}: {error}', platform)
+    if target.get('youtube_format') != 'long':    # Shorts template (docs/profile-seo/youtube.md section 3)
+        yt_captions = target.get('captions') or {}
+        for issue in publish_youtube.shorts_metadata_issues(str(yt_captions.get('youtube_title') or ''),
+                                                            str(yt_captions.get('youtube_description') or '')):
+            warnings.append(f'youtube: {issue}')
     # 6. ManyChat keyword
     keyword = lesson.get('manychat_keyword')
     if not (isinstance(keyword, str) and re.fullmatch(r'[A-Z]{4,10}', keyword)):

@@ -25,7 +25,8 @@ SCOPES = 'https://www.googleapis.com/auth/youtube.readonly https://www.googleapi
 LESSON = {
     'language': 'en',
     'captions': {'youtube_title': 'Reverse-engineer any feature with Claude Code (the right way)',
-                 'youtube_description': 'REA is a free tool.\n\nThis video uses an AI avatar of Hammad Yousuf.'},
+                 'youtube_description': 'REA is a free tool.\nFree guide: https://withhammad.com/resources/rea\n\n'
+                                        'This video uses an AI avatar of Hammad Yousuf.'},
     'hashtags': ['#claudecode', '#aitools', '#opensource', '#claudecode'],
 }
 
@@ -127,10 +128,10 @@ def assert_no_secrets(*texts):
 
 # ---------------------------------------------------------------- metadata and validation
 
-def test_metadata_appends_shorts_and_builds_tags():
+def test_metadata_puts_shorts_in_description_and_builds_tags():
     resource, warnings = yt.build_video_resource(LESSON)
-    assert resource['snippet']['title'] == LESSON['captions']['youtube_title'] + ' #Shorts'
-    assert resource['snippet']['description'] == LESSON['captions']['youtube_description']
+    assert resource['snippet']['title'] == LESSON['captions']['youtube_title']          # no #Shorts in the title
+    assert resource['snippet']['description'] == LESSON['captions']['youtube_description'] + '\n#Shorts'
     assert resource['snippet']['tags'] == ['claudecode', 'aitools', 'opensource']
     assert resource['snippet']['categoryId'] == '28'
     assert resource['snippet']['defaultLanguage'] == resource['snippet']['defaultAudioLanguage'] == 'en'
@@ -139,10 +140,66 @@ def test_metadata_appends_shorts_and_builds_tags():
     assert warnings == []
 
 
+TEMPLATE = ('SkillSpector scans a Claude Code skill for prompt injection before you install it, 2,400 skills checked.\n'
+            'Free guide (commands, prompts, files): https://withhammad.com/resources/skillspector\n\n'
+            'Three steps.\n\nTested 2026-10-27: the scan on 3 skills.\nSources: https://github.com/NVIDIA/skillspector\n\n'
+            'Subscribe for the next AI build. AI-generated presenter; altered-content label on.\n'
+            '#Shorts #ClaudeCode #AISecurity')
+
+
+def test_shorts_template_copy_passes_unchanged():
+    title, description, warnings = yt.shorts_description('NVIDIA SkillSpector: Scan Claude Code Skills', TEMPLATE)
+    assert (title, description, warnings) == ('NVIDIA SkillSpector: Scan Claude Code Skills', TEMPLATE, [])
+    assert yt.shorts_metadata_issues('NVIDIA SkillSpector: Scan Claude Code Skills', TEMPLATE) == []
+
+
+def test_shorts_tag_moves_out_of_the_title_and_appears_once():
+    twice = TEMPLATE.replace('Three steps.', 'Three steps. #shorts')
+    title, description, warnings = yt.shorts_description('Scan Claude Code Skills #Shorts', twice)
+    assert title == 'Scan Claude Code Skills'
+    assert description.count('#Shorts') == 1 and description.endswith('\n#Shorts #ClaudeCode #AISecurity')
+    assert '#shorts' not in description.lower().replace('#shorts #claudecode', '')
+    assert warnings == []
+    # a hashtag-free ending gets its own #Shorts line
+    _, plain, _ = yt.shorts_description('T', 'Keyword sentence.\nFree guide: https://withhammad.com/resources/x\n\nBody.')
+    assert plain.endswith('Body.\n#Shorts')
+    issues = yt.shorts_metadata_issues('Scan Claude Code Skills #Shorts', twice)
+    assert len(issues) == 1 and '"#Shorts" appears 3 times' in issues[0]
+
+
+def test_shorts_hashtags_capped_at_three():
+    four = TEMPLATE.replace('#Shorts #ClaudeCode #AISecurity', '#ClaudeCode #SkillSpector #AISecurity #Shorts')
+    title, description, warnings = yt.shorts_description('T', four)
+    assert description.endswith('\n#Shorts #ClaudeCode #SkillSpector')
+    assert len(warnings) == 1 and '#AISecurity' in warnings[0] and 'dropped' in warnings[0]
+    assert any('4 hashtags' in issue for issue in yt.shorts_metadata_issues('T', four))
+    inline = TEMPLATE.replace('Three steps.', 'Three #one #two #three steps.')
+    with pytest.raises(yt.MetadataError, match='more than 3 hashtags inside the text'):
+        yt.shorts_description('T', inline)
+    # "#1" is not a hashtag; "## heading" is not either
+    _, description, warnings = yt.shorts_description('T', TEMPLATE.replace('Three steps.', 'The #1 scanner. ## notes'))
+    assert warnings == [] and description.endswith('#Shorts #ClaudeCode #AISecurity')
+
+
+def test_shorts_description_must_open_with_the_keyword_sentence():
+    link_first = 'Free guide: https://withhammad.com/resources/x\nSkillSpector scans skills.'
+    with pytest.raises(yt.MetadataError, match='keyword sentence'):
+        yt.shorts_description('T', link_first)
+    with pytest.raises(yt.MetadataError, match='keyword sentence'):
+        yt.build_video_resource(dict(LESSON, captions=dict(LESSON['captions'], youtube_description=link_first)))
+    issues = yt.shorts_metadata_issues('T', link_first)
+    assert any('opens with a link' in issue for issue in issues) and any('Free guide' in issue for issue in issues)
+    # a long video keeps its copy as written
+    resource, warnings = yt.build_video_resource(dict(LESSON, youtube_format='long',
+                                                      captions=dict(LESSON['captions'], youtube_description=link_first)))
+    assert resource['snippet']['description'] == link_first and warnings == []
+    assert '#Shorts' not in resource['snippet']['title']
+
+
 def test_metadata_limits():
-    long_title = dict(LESSON, captions=dict(LESSON['captions'], youtube_title='x' * 95))
+    long_title = dict(LESSON, captions=dict(LESSON['captions'], youtube_title='x' * 100 + ' #Shorts'))
     resource, warnings = yt.build_video_resource(long_title)
-    assert resource['snippet']['title'] == 'x' * 95 and 'Shorts' in warnings[0]
+    assert resource['snippet']['title'] == 'x' * 100        # #Shorts stripped from the title keeps it within 100
     with pytest.raises(yt.MetadataError, match='101 characters'):
         yt.build_video_resource(dict(LESSON, captions=dict(LESSON['captions'], youtube_title='y' * 101)))
     with pytest.raises(yt.MetadataError, match='"<" and ">"'):

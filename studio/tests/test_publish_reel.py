@@ -30,7 +30,8 @@ def lesson_doc(**captions):
 SEO = {
     'resource_url': RESOURCE, 'manychat_keyword': KEYWORD,
     'youtube': {'title': 'Forward Deployed Engineer Roadmap 2026',
-                'description': f'Free guide: {RESOURCE}\nThe presenter is an AI avatar of Hammad.',
+                'description': f'Forward deployed engineer roadmap: the 6-week plan.\nFree guide: {RESOURCE}\n'
+                               'The presenter is an AI avatar of Hammad.\n#Shorts #FDE',
                 'tags': [f'tag {i}' for i in range(11)] + ['Tag 0'], 'hashtags': ['#FDE']},
     'instagram': {'caption': f'FDE roadmap: comment {KEYWORD} and I will DM you the guide. AI avatar of me. #fde'},
     'tiktok': {'caption': 'FDE roadmap. Free guide: withhammad.com/resources AI avatar of me. #fde',

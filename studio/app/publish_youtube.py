@@ -27,7 +27,9 @@ Verified against the official documentation on 2026-10-17 (developers.google.com
        Content-Type: image/jpeg, body = the JPEG (at most 2 MB) -> 200 {items: [{default, medium, high, ...}]}.
        Any of the videos.insert scopes; 50 quota units. 403 = the channel may not set custom thumbnails yet
        (verify it at youtube.com/verify). After an upload this step only ever warns: the Short is already live.
-YouTube Help 12779649: a square or vertical upload of up to 3 minutes is a Short; "#Shorts" is optional.
+YouTube Help 12779649: a square or vertical upload of up to 3 minutes is a Short; "#Shorts" is optional. Our
+  template (docs/profile-seo/youtube.md section 3): keyword sentence first, "Free guide: <url>" second, "#Shorts"
+  exactly once at the end of the description (never in the title), at most 3 hashtags in all.
 
 Dry run (the default) sends only the OAuth token refresh (a POST to Google's authorization server that mints a
 short-lived access token and creates nothing on YouTube) and read-only GETs, then returns the exact writes it
@@ -71,6 +73,12 @@ TITLE_MAX_CHARS = 100
 DESCRIPTION_MAX_BYTES = 5000
 TAGS_MAX_CHARS = 500
 SHORTS_MAX_SECONDS = 180.0
+SHORTS_TAG = '#Shorts'
+HASHTAGS_MAX = 3            # docs/profile-seo/youtube.md section 3: #Shorts + 2 topic tags, all shown above the title
+HASHTAG_RE = re.compile(r'(?<![\w#])#([^\W\d_]\w*)')          # a hashtag starts with a letter ("#1 tool" is not one)
+SHORTS_TAG_RE = re.compile(r'(?<![\w#])#shorts\b', re.IGNORECASE)
+URL_RE = re.compile(r'https?://\S+|(?<![\w.])withhammad\.com/\S+', re.IGNORECASE)
+GUIDE_LINE_RE = re.compile(r'^\s*Free guide\b[^\n]*?(https?://\S+|withhammad\.com/\S+)', re.IGNORECASE)
 MAX_FILE_BYTES = 256 * 1024 ** 3
 VIDEO_MIME = 'video/mp4'
 RETRYABLE_STATUS = (500, 502, 503, 504)
@@ -348,9 +356,69 @@ def _tags_length(tags):
     return sum(len(tag) + (2 if ' ' in tag else 0) for tag in tags) + max(len(tags) - 1, 0)
 
 
+def shorts_metadata_issues(title, description):
+    """What a Short's title + description break of the section-3 template (docs/profile-seo/youtube.md), as
+    warnings for `publish_reel check`: "#Shorts" more than once, more than HASHTAGS_MAX hashtags, the guide link
+    on the first line instead of the keyword sentence, no "Free guide: <url>" second line."""
+    issues = []
+    shorts = len(SHORTS_TAG_RE.findall(title)) + len(SHORTS_TAG_RE.findall(description))
+    if shorts > 1:
+        issues.append(f'"#Shorts" appears {shorts} times across the YouTube title and description; it goes once, '
+                      'at the end of the description')
+    hashtags = len([tag for tag in HASHTAG_RE.findall(description) if tag.lower() != 'shorts']) + 1   # + one #Shorts
+    if hashtags > HASHTAGS_MAX:
+        issues.append(f'the YouTube description carries {hashtags} hashtags (counting #Shorts); YouTube shows '
+                      f'{HASHTAGS_MAX} above the title, so keep #Shorts + {HASHTAGS_MAX - 1}')
+    lines = description.strip().split('\n')
+    if lines and URL_RE.search(lines[0]):
+        issues.append('the YouTube description opens with a link; the keyword sentence goes first, '
+                      '"Free guide: <url>" second')
+    if len(lines) < 2 or not GUIDE_LINE_RE.search(lines[1]):
+        issues.append('the YouTube description has no "Free guide: <url>" second line')
+    return issues
+
+
+def shorts_description(title, description):
+    """Apply the Shorts template rules (docs/profile-seo/youtube.md section 3) to a NEW upload's copy:
+    keyword sentence first (a link-first description is an error), "#Shorts" exactly once at the end of the
+    description and never in the title, at most HASHTAGS_MAX hashtags in all (extras on the closing hashtag line
+    are dropped with a warning; extras inside the text are an error). Returns (title, description, warnings)."""
+    warnings = []
+    title = ' '.join(SHORTS_TAG_RE.sub('', title).split())
+    lines = [line.rstrip() for line in description.strip().split('\n')]
+    if URL_RE.search(lines[0]):
+        raise MetadataError('captions.youtube_description must open with the keyword sentence; the guide link goes '
+                            'on line 2 ("Free guide: <url>")')
+    if len(lines) < 2 or not GUIDE_LINE_RE.search(lines[1]):
+        warnings.append('captions.youtube_description line 2 should read "Free guide: <url>"')
+    lines = [' '.join(SHORTS_TAG_RE.sub('', line).split()) if SHORTS_TAG_RE.search(line) else line for line in lines]
+    while lines and not lines[-1].strip():
+        lines.pop()
+    tokens = lines[-1].split() if lines else []
+    if tokens and all(HASHTAG_RE.fullmatch(token) for token in tokens):
+        lines[-1] = ' '.join([SHORTS_TAG] + tokens)
+    else:
+        lines.append(SHORTS_TAG)
+    dropped = []
+    while len(HASHTAG_RE.findall('\n'.join(lines))) > HASHTAGS_MAX and len(lines[-1].split()) > 1:
+        tokens = lines[-1].split()
+        dropped.append(tokens.pop())
+        lines[-1] = ' '.join(tokens)
+    if dropped:
+        warnings.append(f'hashtags dropped from the end of captions.youtube_description to keep {HASHTAGS_MAX} '
+                        f'(YouTube shows {HASHTAGS_MAX} above the title): {", ".join(dropped)}')
+    description = '\n'.join(lines)
+    if len(HASHTAG_RE.findall(description)) > HASHTAGS_MAX:
+        raise MetadataError(f'captions.youtube_description carries more than {HASHTAGS_MAX} hashtags inside the '
+                            f'text; a Short gets #Shorts plus {HASHTAGS_MAX - 1} topic hashtags on its last line')
+    return title, description, warnings
+
+
 def build_video_resource(lesson, *, privacy_status='private', category_id=CATEGORY_ID, contains_synthetic_media=True,
                          made_for_kids=False, publish_at=None):
-    """The videos.insert body (parts snippet,status) and any warnings, from the lesson package."""
+    """The videos.insert body (parts snippet,status) and any warnings, from the lesson package. A Short's copy
+    goes through shorts_description (section-3 template: keyword sentence first, "#Shorts" once at the end of
+    the description, at most 3 hashtags)."""
     captions = lesson.get('captions') or {}
     title = ' '.join(str(captions.get('youtube_title') or '').split())
     description = str(captions.get('youtube_description') or '').strip()
@@ -361,14 +429,13 @@ def build_video_resource(lesson, *, privacy_status='private', category_id=CATEGO
     for name, value in (('title', title), ('description', description)):
         if '<' in value or '>' in value:
             raise MetadataError(f'YouTube rejects "<" and ">" in the {name}')
+    warnings = []
+    if lesson.get('youtube_format') != 'long':
+        title, description, warnings = shorts_description(title, description)
+        if not title:
+            raise MetadataError('lesson.captions.youtube_title is only "#Shorts"')
     if len(title) > TITLE_MAX_CHARS:
         raise MetadataError(f'captions.youtube_title is {len(title)} characters; YouTube allows {TITLE_MAX_CHARS}')
-    warnings = []
-    if lesson.get('youtube_format') != 'long' and '#shorts' not in title.lower():
-        if len(title) + len(' #Shorts') <= TITLE_MAX_CHARS:
-            title += ' #Shorts'
-        else:
-            warnings.append('"#Shorts" left out of the title: it would exceed 100 characters (it is optional)')
     if len(description.encode('utf-8')) > DESCRIPTION_MAX_BYTES:
         raise MetadataError(f'captions.youtube_description is {len(description.encode("utf-8"))} bytes; '
                             f'YouTube allows {DESCRIPTION_MAX_BYTES}')
