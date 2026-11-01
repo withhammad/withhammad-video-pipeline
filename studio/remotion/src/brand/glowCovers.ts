@@ -29,12 +29,32 @@ export const LOGO = {
   dubaiChamber: {src: g('dubai-chamber-digital-white.png'), bg: 'linear-gradient(160deg, #13235C 0%, #0A1230 100%)', glow: GLOW.electric, fit: 0.72},
   linkedinText: {text: 'in', color: '#FFFFFF', bg: 'linear-gradient(160deg, #1B8AE8 0%, #0A66C2 100%)', glow: '#2E9BFF'},
   typeText: {text: 'Aa', color: '#FFFFFF', bg: DARK, glow: '#A78BFA'},
+  palantir: {mask: g('si-palantir.svg'), color: '#FFFFFF', bg: DARK, glow: '#9DB7FF', fit: 0.62},
+  google: {mask: g('si-google.svg'), color: '#4285F4', bg: WHITE, glow: '#4285F4', fit: 0.6},
+  supabase: {mask: g('si-supabase.svg'), color: '#3FCF8E', bg: DARK, glow: '#3FCF8E', fit: 0.6},
+  mcp: {mask: g('si-modelcontextprotocol.svg'), color: '#FFFFFF', bg: DARK, glow: GLOW.electric, fit: 0.6},
+  openaiDots: {mask: g('openai-dots-o.svg'), color: '#FFFFFF', bg: DARK, glow: '#BAC1D3', fit: 0.56},
+  uaeText: {text: 'UAE', color: '#FFFFFF', bg: 'linear-gradient(160deg, #1FA85A 0%, #00843D 100%)', glow: '#2BD67B'},
+  hundredText: {text: '100', color: '#1A1200', bg: 'linear-gradient(160deg, #FFD95A 0%, #E0A800 100%)', glow: '#FFD166'},
+  a2aText: {text: 'A2A', color: '#FFFFFF', bg: 'linear-gradient(160deg, #6D5DF6 0%, #3B2DB8 100%)', glow: '#8B7CFF'},
+  csvText: {text: 'CSV', color: '#FFFFFF', bg: 'linear-gradient(160deg, #2EA86B 0%, #1B6E46 100%)', glow: '#3FD68A'},
+  oneText: {text: '1', color: '#FFFFFF', bg: 'linear-gradient(160deg, #2ECC71 0%, #178F4C 100%)', glow: '#3DF08A'},
+  twentyFourText: {text: '24', color: '#FFFFFF', bg: 'linear-gradient(160deg, #FF5F5F 0%, #C81E1E 100%)', glow: '#FF4D4D'},
 } satisfies Record<string, GlowLogo>;
 
 export type GlowJob = {job: string; date: string; title: string; cover: GlowCoverProps};
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'dots-20261027', date: 'queued', title: 'OpenAI dots: agents that keep working after you log off', cover: c('OpenAI dots', 'Never Logs Off', LOGO.chatgpt, LOGO.openaiDots)},
+  {job: 'harness-engineering', date: 'queued', title: 'Harness engineering: the layer that makes an agent reliable', cover: c('Agent Failing?', 'Not The Model', LOGO.claude, LOGO.mcp)},
+  {job: 'agentic-concepts', date: 'queued', title: '9 agentic AI concepts every builder should know', cover: c('9 Concepts', 'Behind AI Agents', LOGO.mcp, LOGO.a2aText)},
+  {job: 'agent-loop', date: 'queued', title: 'How an AI agent works: one loop inside a harness', cover: c('Every AI Agent', 'Is 1 Loop', LOGO.claude, LOGO.mcp)},
+  {job: '6cff0a62569f', date: 'queued', title: 'Forward Deployed Engineer: a free 6-week roadmap', cover: c('6-Week Roadmap', 'To AI Engineer', LOGO.palantir, LOGO.google)},
+  {job: '6f8f4ad316a3', date: 'queued', title: 'What an AI startup really costs: the 14-tool stack', cover: c('14-Tool Stack', 'For $21 A Month', LOGO.claude, LOGO.supabase)},
+  {job: '91ac50635d3d', date: 'queued', title: 'UAE 100 Dreams: USD 10,000 for 100 media ideas', cover: c('$10,000', 'For 1 Idea', LOGO.uaeText, LOGO.hundredText)},
+  {job: 'comedy20261023', date: 'queued', title: 'One word. 24 files? (AI coding skit)', cover: c('1 Word Changed', '24 Files Broke', LOGO.oneText, LOGO.twentyFourText)},
+  {job: 'audit20261020', date: 'queued', title: 'AI dashboard audit: the duplicate order trap', cover: c('$3,000 Error', 'From 1 Duplicate', LOGO.csvText, LOGO.aiText)},
   {job: 'claude-linkedin-installs', date: '2026-10-27', title: '27 free Claude installs for LinkedIn', cover: c('27 Free Installs', 'Claude + LinkedIn', LOGO.claude, LOGO.linkedinText)},
   {job: 'applemotion20261027', date: 'queued', title: 'Claude Motion: 16 Apple-style animations', cover: c('Claude Motion', 'Apple-Style UI', LOGO.claude,
     {text: '16', color: '#FFFFFF', bg: 'linear-gradient(160deg, #3D9BFF 0%, #0062D6 100%)', glow: '#0A84FF'})},
