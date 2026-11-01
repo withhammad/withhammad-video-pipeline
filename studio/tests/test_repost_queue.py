@@ -95,3 +95,19 @@ def test_build_reads_seo_per_platform_and_refuses_unresearched(tmp_path, monkeyp
     import pytest
     with pytest.raises(ValueError, match='researched'):
         rq.build(plan, q)
+
+
+def test_youtube_entry_uses_seo_title_public_and_cover(tmp_path, monkeypatch):
+    seen = {}
+
+    class Rt(FakeRt):
+        def youtube_publish(self, video, lesson, **o):
+            seen.update(title=lesson['captions']['youtube_title'], desc=lesson['captions']['youtube_description'],
+                        privacy=o['privacy_status'], thumb=str(o['thumbnail_path']), dry=o['dry_run'])
+            return {'status': 'dry_run' if o['dry_run'] else 'published', 'video_id': 'abc'}
+    q = setup(tmp_path, monkeypatch, [entry(1, '2026-11-09T05:00:00Z', 'youtube')])
+    (tmp_path / 'jobs' / 'j' / 'seo').mkdir(exist_ok=True)
+    (tmp_path / 'jobs' / 'j' / 'seo' / 'seo.json').write_text(json.dumps({'youtube': {'title': 'T', 'tags': ['a']}}))
+    rep = rq.run_due(datetime(2026, 11, 9, 5, 5, tzinfo=timezone.utc), live=True, rt=Rt(), path=q)
+    assert rep['posted'][0]['url'] == 'https://www.youtube.com/shorts/abc'
+    assert seen == {'title': 'T', 'desc': 'c', 'privacy': 'public', 'thumb': str(tmp_path / 'jobs' / 'j' / 'cover_1080x1920.jpg'), 'dry': False}

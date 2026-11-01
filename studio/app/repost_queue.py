@@ -26,7 +26,7 @@ QUEUE = ROOT / 'outputs' / 'video-pipeline' / 'repost-queue.json'
 JOBS = ROOT / 'studio' / '.local' / 'jobs'
 IG_ACCOUNT = 'withhammad.ai'
 STATE = {'instagram': 'publish_instagram_withhammad_ai.json', 'linkedin': 'publish_linkedin_repost.json',
-         'facebook': 'publish_facebook_page.json'}
+         'facebook': 'publish_facebook_page.json', 'youtube': 'publish_youtube_repost.json'}
 LATE_LIMIT = timedelta(hours=6)
 
 
@@ -71,6 +71,18 @@ def post(entry, rt, live):
                                       cover_path=jdir / 'cover_1080x1920.jpg', ai_generated=True)
         return {'url': result.get('permalink'), 'media_id': result.get('media_id'), 'status': result.get('status'),
                 'collaborators': result.get('collaborators')}
+    if entry['platform'] == 'youtube':
+        seo = json.loads((jdir / 'seo' / 'seo.json').read_text()).get('youtube') or {}
+        captions = {**(lesson.get('captions') or {}), 'youtube_title': seo.get('title') or entry['title'],
+                    'youtube_description': entry['caption']}
+        lesson = {**lesson, 'captions': captions, 'hashtags': seo.get('tags') or lesson.get('hashtags') or []}
+        result = rt.youtube_publish(jdir / 'final.mp4', lesson, dry_run=not live,
+                                    state_path=jdir / STATE['youtube'] if live else None,
+                                    privacy_status='public', thumbnail_path=jdir / 'cover_1080x1920.jpg',
+                                    contains_synthetic_media=True)
+        vid = result.get('video_id')
+        return {'url': f'https://www.youtube.com/shorts/{vid}' if vid else None, 'video_id': vid,
+                'status': result.get('status'), 'warnings': result.get('warnings')}
     if entry['platform'] == 'facebook':
         from app import publish_facebook
         lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'facebook': entry['caption']}}
@@ -131,7 +143,7 @@ def seo_caption(job, platform):
     if not seo.get('researched_at') or not seo.get('sources'):
         raise ValueError(f'{job}: seo/seo.json has no researched_at/sources; research it before queueing')
     section = seo.get(platform) or {}
-    text = section.get('caption') or section.get('text') or ''
+    text = section.get('caption') or section.get('text') or section.get('description') or ''
     if not text.strip():
         raise ValueError(f'{job}: seo/seo.json has no {platform} copy')
     if platform == 'instagram' and '@withhammad.ai' not in text:
@@ -167,6 +179,8 @@ def build(plan_path=PLAN, path=QUEUE):
             add(job, 'facebook', day['date'], hhmm)
         for hhmm, job in zip(plan['linkedin_times'], day.get('linkedin', [])):
             add(job, 'linkedin', day['date'], hhmm)
+        for hhmm, job in zip(plan.get('youtube_times', []), day.get('youtube', [])):
+            add(job, 'youtube', day['date'], hhmm)
     entries.sort(key=lambda e: e['slot_utc'])
     save({'_about': 'Built by app.repost_queue build from repost-plan.json; captions from each job seo/seo.json. '
                     'Runner: python -m app.repost_queue run-due --live (scheduled task repost-queue-run-due).',
