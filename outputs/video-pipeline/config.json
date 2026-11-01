@@ -469,6 +469,9 @@
     "file": "outputs/video-pipeline/repost-queue.json",
     "plan": "outputs/video-pipeline/repost-plan.json",
     "first_slot": "2026-11-02 09:03 GST LinkedIn BYTES",
-    "facebook": "13 entries queued; Page token can publish (consented 2026-11-01)"
+    "facebook": "13 entries queued; Page token can publish (consented 2026-11-01)",
+    "week2_approved_by_owner": "2026-11-01",
+    "week2": "47 posts 9-12 Nov (IG, FB, LinkedIn, YouTube); 100 Dreams held",
+    "task_cron": "3 9,11,12,13,14,16,17,20 2-12 11 *"
   }
 }
