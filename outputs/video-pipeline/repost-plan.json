@@ -38,6 +38,9 @@
       "x": [
         "955ed21d2fc4",
         "09a9d211fff0"
+      ],
+      "youtube": [
+        "6cff0a62569f"
       ]
     },
     {
@@ -61,6 +64,9 @@
       "x": [
         "motion20261020",
         "6cff0a62569f"
+      ],
+      "youtube": [
+        "dots-20261027"
       ]
     },
     {
@@ -84,17 +90,20 @@
       "x": [
         "dots-20261027",
         "6f8f4ad316a3"
+      ],
+      "youtube": [
+        "6f8f4ad316a3"
       ]
     },
     {
       "date": "2026-11-05",
       "instagram": [
         "fa00b63b4fa2",
-        "c9d9bd2b786c",
-        "claude-linkedin-installs"
+        "c9d9bd2b786c"
       ],
       "linkedin": [
-        "motion20261020"
+        "motion20261020",
+        "6cff0a62569f"
       ],
       "guides": [
         "marketing-ai-agents"
@@ -106,14 +115,20 @@
       "x": [
         "agent-loop",
         "audit20261020"
+      ],
+      "youtube": [
+        "agent-loop"
       ]
     },
     {
       "date": "2026-11-06",
       "instagram": [
+        "claude-linkedin-installs",
         "motion20261020"
       ],
-      "linkedin": [],
+      "linkedin": [
+        "dots-20261027"
+      ],
       "guides": [
         "claude-job-prompts"
       ],
@@ -124,12 +139,20 @@
       "x": [
         "applemotion20261027",
         "agentic-concepts"
+      ],
+      "youtube": [
+        "audit20261020"
       ]
     },
     {
       "date": "2026-11-07",
-      "instagram": [],
-      "linkedin": [],
+      "instagram": [
+        "6cff0a62569f",
+        "dots-20261027"
+      ],
+      "linkedin": [
+        "6f8f4ad316a3"
+      ],
       "guides": [
         "ai-privacy-checkup"
       ],
@@ -140,12 +163,20 @@
       "x": [
         "comedy20261023",
         "fef5b7f3b5af"
+      ],
+      "youtube": [
+        "applemotion20261027"
       ]
     },
     {
       "date": "2026-11-08",
-      "instagram": [],
-      "linkedin": [],
+      "instagram": [
+        "6f8f4ad316a3",
+        "agent-loop"
+      ],
+      "linkedin": [
+        "agent-loop"
+      ],
       "guides": [
         "claude-code-cold-email"
       ],
@@ -155,24 +186,23 @@
       "x": [
         "harness-engineering",
         "anatomy20261027"
+      ],
+      "youtube": [
+        "agentic-concepts"
       ]
     },
     {
       "date": "2026-11-09",
       "instagram": [
-        "6cff0a62569f",
-        "dots-20261027",
-        "6f8f4ad316a3"
+        "audit20261020",
+        "applemotion20261027"
       ],
       "linkedin": [
-        "6cff0a62569f",
-        "dots-20261027",
-        "6f8f4ad316a3"
+        "audit20261020",
+        "applemotion20261027"
       ],
       "youtube": [
-        "6cff0a62569f",
-        "dots-20261027",
-        "6f8f4ad316a3"
+        "comedy20261023"
       ],
       "x": [
         "d24ed130c3d9"
@@ -181,61 +211,48 @@
     {
       "date": "2026-11-10",
       "instagram": [
-        "agent-loop",
-        "audit20261020",
-        "applemotion20261027"
+        "agentic-concepts",
+        "comedy20261023"
       ],
       "linkedin": [
-        "agent-loop",
-        "audit20261020",
-        "applemotion20261027"
+        "agentic-concepts",
+        "comedy20261023"
       ],
       "youtube": [
-        "agent-loop",
-        "audit20261020",
-        "applemotion20261027"
+        "fef5b7f3b5af"
       ]
     },
     {
       "date": "2026-11-11",
       "instagram": [
-        "agentic-concepts",
-        "comedy20261023",
-        "fef5b7f3b5af"
+        "fef5b7f3b5af",
+        "harness-engineering"
       ],
       "linkedin": [
-        "agentic-concepts",
-        "comedy20261023",
-        "fef5b7f3b5af"
+        "fef5b7f3b5af",
+        "harness-engineering"
       ],
       "youtube": [
-        "agentic-concepts",
-        "comedy20261023",
-        "fef5b7f3b5af"
+        "harness-engineering"
       ]
     },
     {
       "date": "2026-11-12",
       "instagram": [
-        "harness-engineering",
         "d24ed130c3d9",
         "anatomy20261027"
       ],
       "linkedin": [
-        "harness-engineering",
         "d24ed130c3d9",
         "anatomy20261027"
       ],
       "youtube": [
-        "harness-engineering",
         "anatomy20261027"
       ]
     }
   ],
   "facebook": "same reels as instagram, same day, at facebook_times",
   "youtube_times": [
-    "09:00",
-    "12:00",
     "16:00"
   ],
   "week2_note": "Owner 2026-11-01 \"Yes, build week 2\": 12 never-posted reels, IG+FB+LI+YouTube, 3/day. 91ac50635d3d (UAE 100 Dreams) held: on-screen date 20 Nov, official page now 24 Nov. d24ed130c3d9 already a YouTube Short, so no second upload.",
@@ -251,5 +268,9 @@
     "14:00",
     "18:00"
   ],
-  "chrome_note": "Owner 2026-11-02 \"Yes, add them now\": TikTok @withhammad and X @HammadYousufAI get every reel never posted there, 2 a day from 2 Nov at the best-time slots (docs/BEST_TIMES_3PERDAY.md). Week-1 reels are already on TikTok (Oct) and X (except DUET, BLUEPRINT, MOTION). Scheduled natively in TikTok Studio / X through Chrome; app.repost_queue chrome + mark."
+  "chrome_note": "Owner 2026-11-02 \"Yes, add them now\": TikTok @withhammad and X @HammadYousufAI get every reel never posted there, 2 a day from 2 Nov at the best-time slots (docs/BEST_TIMES_3PERDAY.md). Week-1 reels are already on TikTok (Oct) and X (except DUET, BLUEPRINT, MOTION). Scheduled natively in TikTok Studio / X through Chrome; app.repost_queue chrome + mark.",
+  "guide_video_times": [
+    "10:00"
+  ],
+  "rebalance_note": "Owner 2026-11-02 red line: 2-3 posts a day on every platform. IG/FB 2-3 reels a day 2-12 Nov, LinkedIn 1-2 reels + the guide (2-8 Nov) or 2 reels (9-12), YouTube 1 never-posted reel a day + the guide slide video (2-8). Guides also go to YouTube, TikTok and X as slide videos (app.guide short). Gaps left: YouTube 9-12 (1/day), TikTok 9-12 and X 10-12 need new reels from the refill."
 }

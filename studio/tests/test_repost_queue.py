@@ -197,3 +197,23 @@ def test_chrome_lanes_never_auto_post_and_mark_records(tmp_path):
     rq.mark('tt-a', 'https://www.tiktok.com/tiktokstudio/content', scheduled=True, path=q)
     assert [e['id'] for e in rq.chrome_todo(q)] == ['xx-a']
     assert rq.load(q)['entries'][0]['status'] == 'scheduled'
+
+
+def test_guide_video_lanes_youtube_by_api_tiktok_x_by_chrome(tmp_path, monkeypatch):
+    g = tmp_path / 'guides' / 'gd'; g.mkdir(parents=True)
+    (g / 'short.mp4').write_bytes(b'v')
+    monkeypatch.setattr(rq, 'GUIDES', tmp_path / 'guides')
+    es = [dict(entry(1, '2026-11-02T06:00:00Z', 'youtube_guide'), guide='gd', job=None, caption='yt cap', title='YT title'),
+          dict(entry(2, '2026-11-02T06:00:00Z', 'tiktok_guide'), guide='gd', job=None, caption='tt cap')]
+    q = setup(tmp_path, monkeypatch, es)
+    calls = []
+
+    class Rt:
+        def youtube_publish(self, path, lesson, **kw):
+            calls.append((path, lesson, kw)); return {'status': 'planned'}
+    rep = rq.run_due(datetime(2026, 11, 2, 6, 5, tzinfo=timezone.utc), live=False, rt=Rt(), path=q)
+    assert [p['id'] for p in rep['posted']] == [es[0]['id']]          # the TikTok entry waits for Chrome
+    path, lesson, kw = calls[0]
+    assert path == g / 'short.mp4' and lesson['captions'] == {'youtube_title': 'YT title', 'youtube_description': 'yt cap'}
+    assert kw['contains_synthetic_media'] is False and kw['privacy_status'] == 'public'
+    assert rq.chrome_todo(q)[0]['video'] == str(g / 'short.mp4')

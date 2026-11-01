@@ -9,6 +9,7 @@ Render: cd studio/remotion && node src/brand/render-guide.mjs ../../outputs/guid
     python -m app.guide build <slug>    # after rendering: carousel-linkedin.pdf + sheet.jpg
     python -m app.guide site <slug>     # PDF to withhammad.com/media/guides/<slug>.pdf + the keyword DM rule (site clone,
                                         # committed, not pushed; the next site push or media hosting pushes it)
+    python -m app.guide short <slug>    # instagram-NN.png -> short.mp4 (9:16 slide video for YouTube Shorts, TikTok, X)
 """
 import argparse
 import json
@@ -138,13 +139,44 @@ def site(slug, base=GUIDES, site_dir=SITE, run=None):
     return {'slug': slug, 'keyword': report['keyword'], 'link': link, 'errors': []}
 
 
+MUSIC = PUBLIC / 'motion-library' / 'music.wav'   # our own synthesized bed (docs/videos/2026-10-18-claude-motion-graphics.md)
+PAPER_HEX = '0xF3F1EC'
+
+
+def short(slug, base=GUIDES, run=None):
+    """The Instagram pages as a 9:16 slide video: each 1080x1350 page centred on paper, the cover held a little
+    longer, the music bed looped and faded, H.264 limited range under 10 MB (the Chrome upload limit)."""
+    import subprocess
+    run = run or subprocess.run
+    d = Path(base) / slug
+    pages = sorted(d.glob('instagram-[0-9][0-9].png'))
+    if not pages:
+        raise SystemExit(f'{slug}: render the pages first')
+    holds = [3.2] + [2.6] * (len(pages) - 2) + [3.4]
+    concat = d / '.short-pages.txt'
+    concat.write_text(''.join(f"file '{p.name}'\nduration {h}\n" for p, h in zip(pages, holds)) + f"file '{pages[-1].name}'\n")
+    total = sum(holds)
+    out = d / 'short.mp4'
+    cmd = ['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', str(concat), '-stream_loop', '-1', '-i', str(MUSIC),
+           '-filter_complex',
+           f'[0:v]fps=30,scale=1080:1350,pad=1080:1920:0:285:color={PAPER_HEX},format=yuv420p[v];'
+           f'[1:a]atrim=0:{total},afade=t=in:d=0.4,afade=t=out:st={total - 1.5}:d=1.5,loudnorm=I=-14:TP=-1.5[a]',
+           '-map', '[v]', '-map', '[a]', '-t', f'{total}', '-c:v', 'libx264', '-profile:v', 'high', '-b:v', '1100k',
+           '-maxrate', '1500k', '-bufsize', '3000k', '-color_range', 'tv', '-colorspace', 'bt709', '-color_primaries', 'bt709',
+           '-color_trc', 'bt709', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', str(out)]
+    run(cmd, check=True, cwd=d)
+    concat.unlink(missing_ok=True)
+    return {'slug': slug, 'short': str(out), 'pages': len(pages), 'seconds': round(total, 1),
+            'mb': round(out.stat().st_size / 1e6, 1) if out.exists() else None}
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest='cmd', required=True)
-    for name in ('check', 'build', 'site'):
+    for name in ('check', 'build', 'site', 'short'):
         sub.add_parser(name).add_argument('slug')
     a = p.parse_args(argv)
-    out = {'check': check, 'build': build, 'site': site}[a.cmd](a.slug)
+    out = {'check': check, 'build': build, 'site': site, 'short': short}[a.cmd](a.slug)
     json.dump(out, sys.stdout, indent=2, ensure_ascii=False); print()
     return 1 if out.get('errors') else 0
 

@@ -40,8 +40,11 @@ GUIDE_LANES = {'instagram_guide': 'instagram_carousel', 'facebook_guide': 'faceb
                'linkedin_guide': 'linkedin_carousel'}
 # TikTok and X have no free posting API: their entries are scheduled ahead in TikTok Studio / X's own scheduler
 # through Claude in Chrome (owner 2026-11-02 "add them now"), then recorded with `mark`. run-due never touches them.
-CHROME_LANES = ('tiktok', 'x')
-ID_PREFIX.update(tiktok='tt', x='xx')
+CHROME_LANES = ('tiktok', 'x', 'tiktok_guide', 'x_guide')
+ID_PREFIX.update(tiktok='tt', x='xx', youtube_guide='yg', tiktok_guide='tg', x_guide='xg')
+# Owner 2026-11-02 (red line: 2-3 posts a day on every platform): each guide also goes out as a 9:16 slide video
+# (python -m app.guide short <slug> -> outputs/guides/<slug>/short.mp4) on YouTube Shorts (API), TikTok and X (Chrome).
+GUIDE_VIDEO_LANES = ('youtube_guide', 'tiktok_guide', 'x_guide')
 LATE_LIMIT = timedelta(hours=6)
 
 
@@ -130,6 +133,15 @@ def _guide_stage(slug, base=None):
 
 
 def post(entry, rt, live):
+    if entry['platform'] == 'youtube_guide':
+        gdir = GUIDES / entry['guide']
+        lesson = {'captions': {'youtube_title': entry['title'], 'youtube_description': entry['caption']}, 'hashtags': []}
+        result = rt.youtube_publish(gdir / 'short.mp4', lesson, dry_run=not live,
+                                    state_path=gdir / 'publish_youtube_guide.json' if live else None,
+                                    privacy_status='public', contains_synthetic_media=False)
+        vid = result.get('video_id')
+        return {'url': f'https://www.youtube.com/shorts/{vid}' if vid else None, 'video_id': vid,
+                'status': result.get('status'), 'warnings': result.get('warnings')}
     if entry['platform'] in GUIDE_LANES:
         stage = _guide_stage(entry['guide'])
         return post_carousel({**entry, 'platform': GUIDE_LANES[entry['platform']]}, stage, {'captions': {}}, rt, live)
@@ -278,13 +290,17 @@ def build(plan_path=PLAN, path=QUEUE):
         if prev and prev.get('status') in ('posted', 'scheduled', 'failed', 'missed'):
             entries.append(prev); return
         entries.append({'id': eid, 'guide': slug, 'job': None, 'platform': platform, 'slot_utc': slot, 'local': local,
-                        'keyword': spec['keyword'], 'title': caps.get('title') or spec['docTitle'],
+                        'keyword': spec['keyword'],
+                        'title': (caps.get('youtube_title') if platform == 'youtube_guide' else None) or caps.get('title') or spec['docTitle'],
                         'doc_title': caps.get('title') or spec['docTitle'],
                         'caption': caps[platform.replace('_guide', '')].strip(), 'primary_keyword': None,
                         'host_slug': f'guide-{slug}', 'collaborators': None, 'status': 'pending'})
     for day in plan['days']:
         for hhmm, slug in zip(plan.get('guide_times', []), day.get('guides', [])):
             for platform in GUIDE_LANES:   # one guide goes to IG, the FB Page and LinkedIn at the same slot
+                add_guide(slug, platform, day['date'], hhmm)
+        for hhmm, slug in zip(plan.get('guide_video_times', []), day.get('guides', [])):
+            for platform in GUIDE_VIDEO_LANES:   # and as a slide video on YouTube, TikTok and X
                 add_guide(slug, platform, day['date'], hhmm)
         for hhmm, job in zip(plan['instagram_times'], day['instagram']):
             add(job, 'instagram', day['date'], hhmm)
@@ -313,7 +329,7 @@ def chrome_todo(path=QUEUE):
     for e in load(path)['entries']:
         if e['platform'] in CHROME_LANES and e.get('status') == 'pending':
             out.append({'id': e['id'], 'platform': e['platform'], 'local': e['local'], 'slot_utc': e['slot_utc'],
-                        'video': str(JOBS / e['job'] / 'final_social.mp4'), 'cover': str(JOBS / e['job'] / 'cover_1080x1920.jpg'),
+                        'video': str(GUIDES / e['guide'] / 'short.mp4') if e.get('guide') else str(JOBS / e['job'] / 'final_social.mp4'),
                         'keyword': e['keyword'], 'caption': e['caption']})
     return out
 
