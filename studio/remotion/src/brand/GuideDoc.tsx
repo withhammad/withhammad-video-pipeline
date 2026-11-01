@@ -16,7 +16,7 @@ type Rich = string; // "*word*" -> blue
 export type GuidePage =
   | {kind: 'cover'; line1: string; line2: string; sub: string; hero: string; sticker?: string; ghost?: string}
   | {kind: 'promise'; title: Rich; setup: {label: string; url: string}; get: string; shot: string; callout?: string}
-  | {kind: 'item'; n: number; title: string; what: string; bestFor: string; shot: string; callout: string; meta: string}
+  | {kind: 'item'; n: number; title: string; what: string; bestFor: string; shot?: string; callout?: string; meta?: string; prompt?: string; bestLabel?: string}
   | {kind: 'more'; title: Rich; sub: string; items: {title: string; meta: string}[]}
   | {kind: 'library'; title: string; sub: string; rows: {level: string; guides: {job: string; title: string}[]}[]}
   | {kind: 'cta'; line1: string; line2: string; sub: string; bullets: string[]; stamp1: string; stamp2: string};
@@ -158,10 +158,22 @@ const Item: React.FC<{p: Extract<GuidePage, {kind: 'item'}>}> = ({p}) =>
     </div>
     <div style={{display: 'flex', flexDirection: 'column', gap: 24, marginTop: 48, paddingLeft: 10}}>
       <Bullet>{p.what}</Bullet>
-      <Bullet><b style={{color: INK, fontWeight: 900}}>Best for:</b> {p.bestFor}</Bullet>
+      <Bullet><b style={{color: INK, fontWeight: 900}}>{p.bestLabel ?? 'Best for:'}</b> {p.bestFor}</Bullet>
     </div>
-    <div style={{position: 'absolute', top: 470, left: 10}}><Shot src={p.shot} width={860} height={480} callout={p.callout}/></div>
-    <div style={{position: 'absolute', top: 1010, left: 0, right: 0, textAlign: 'center', ...sans(30, 500, {color: GREY, letterSpacing: 0})}}>{p.meta}</div>
+    {p.shot ? <div style={{position: 'absolute', top: 470, left: 10}}><Shot src={p.shot} width={860} height={480} callout={p.callout}/></div> : null}
+    {p.prompt ? <PromptCard text={p.prompt}/> : null}
+    {p.meta ? <div style={{position: 'absolute', top: 1010, left: 0, right: 0, textAlign: 'center', ...sans(30, 500, {color: GREY, letterSpacing: 0})}}>{p.meta}</div> : null}
+  </div>;
+
+// a copy-paste prompt instead of a screenshot (prompt guides)
+const PromptCard: React.FC<{text: string}> = ({text}) =>
+  <div style={{position: 'absolute', top: 470, left: 10, width: 860, height: 500, background: '#fff', border: `3px solid ${INK}`, borderRadius: 18,
+    boxShadow: '0 18px 40px rgba(14,19,32,.22)', overflow: 'hidden'}}>
+    <div style={{background: NAVY, padding: '14px 26px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+      <span style={sans(24, 800, {color: '#fff', letterSpacing: 2})}>COPY THIS PROMPT</span>
+      <div style={{display: 'flex', gap: 8}}>{[0, 1, 2].map(i => <div key={i} style={{width: 14, height: 14, borderRadius: 7, background: i ? '#3B4A6B' : BLUE}}/>)}</div></div>
+    <div style={{padding: '26px 30px', ...sans(text.length > 380 ? 25 : text.length > 260 ? 28 : 32, 500, {lineHeight: 1.36, letterSpacing: -0.2, color: '#1C2333',
+      fontFamily: 'Menlo, monospace', whiteSpace: 'pre-wrap'})}}>{text}</div>
   </div>;
 
 const More: React.FC<{p: Extract<GuidePage, {kind: 'more'}>}> = ({p}) =>

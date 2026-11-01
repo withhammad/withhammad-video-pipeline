@@ -164,3 +164,21 @@ def test_carousel_without_slides_fails_cleanly(tmp_path, monkeypatch):
     q = setup(tmp_path, monkeypatch, [entry(1, '2026-11-02T07:00:00Z', 'instagram_carousel')])
     rep = rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=False, rt=CarouselRt(), path=q)
     assert rep['failed'] and 'render the carousel' in rep['failed'][0]['error']
+
+
+def test_guide_lane_stages_pages_and_uses_carousel_publishers(tmp_path, monkeypatch):
+    g = tmp_path / 'guides' / 'gd'; g.mkdir(parents=True)
+    for i in (1, 2):
+        (g / f'instagram-{i:02d}.png').write_bytes(b'p%d' % i)
+    (g / 'carousel-linkedin.pdf').write_bytes(b'%PDF')
+    monkeypatch.setattr(rq, 'GUIDES', tmp_path / 'guides')
+    es = [dict(entry(1, '2026-11-02T07:00:00Z', 'instagram_guide'), guide='gd', job=None, caption='ig cap', host_slug='guide-gd'),
+          dict(entry(2, '2026-11-02T07:00:00Z', 'linkedin_guide'), guide='gd', job=None, caption='li cap', doc_title='Doc')]
+    q = setup(tmp_path, monkeypatch, es)
+    rt = CarouselRt()
+    rep = rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=False, rt=rt, path=q)
+    assert not rep['failed'] and len(rep['posted']) == 2
+    ic = [c for c in rt.calls if c[0] == 'ic'][0]
+    assert ic[2][-1].endswith('/media/carousels/guide-gd/02.jpg') and ic[3] == 'ig cap'
+    assert [c for c in rt.calls if c[0] == 'lc'][0][2:] == ('carousel-linkedin.pdf', 'li cap', 'Doc')
+    assert (g / '.host' / 'carousel' / 'instagram-02.png').read_bytes() == b'p2'

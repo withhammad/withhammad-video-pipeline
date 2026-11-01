@@ -30,7 +30,12 @@ STATE = {'instagram': 'publish_instagram_withhammad_ai.json', 'linkedin': 'publi
          'instagram_carousel': 'publish_instagram_carousel_withhammad_ai.json',
          'facebook_carousel': 'publish_facebook_album.json', 'linkedin_carousel': 'publish_linkedin_carousel_repost.json'}
 CAROUSELS = ('instagram_carousel', 'facebook_carousel', 'linkedin_carousel')
-ID_PREFIX = {'instagram_carousel': 'ic', 'facebook_carousel': 'fc', 'linkedin_carousel': 'lc'}
+ID_PREFIX = {'instagram_carousel': 'ic', 'facebook_carousel': 'fc', 'linkedin_carousel': 'lc',
+             'instagram_guide': 'ig', 'facebook_guide': 'fg', 'linkedin_guide': 'lg'}
+# guide carousels (outputs/guides/<slug>, the AI Central template) post through the carousel publishers
+GUIDES = ROOT / 'outputs' / 'guides'
+GUIDE_LANES = {'instagram_guide': 'instagram_carousel', 'facebook_guide': 'facebook_carousel',
+               'linkedin_guide': 'linkedin_carousel'}
 LATE_LIMIT = timedelta(hours=6)
 
 
@@ -97,7 +102,31 @@ def post_carousel(entry, jdir, lesson, rt, live):
             'collaborators': result.get('collaborators')}
 
 
+def _guide_stage(slug, base=None):
+    """<guide>/.host/carousel/ holding the rendered pages under the names the carousel hosting code expects
+    (instagram-NN.png, carousel-linkedin.pdf); the publishers' state files live in <guide>/.host too."""
+    import shutil
+    g = Path(base or GUIDES) / slug
+    stage = g / '.host'
+    folder = stage / 'carousel'
+    folder.mkdir(parents=True, exist_ok=True)
+    wanted = sorted(g.glob('instagram-[0-9][0-9].png')) + [g / 'carousel-linkedin.pdf']
+    for old in folder.iterdir():
+        if old.name not in {w.name for w in wanted}:
+            old.unlink()
+    for src in wanted:
+        if not src.exists():
+            raise ValueError(f'{slug}: {src.name} missing; render the guide and run app.guide build')
+        dest = folder / src.name
+        if not dest.exists() or dest.read_bytes() != src.read_bytes():
+            shutil.copyfile(src, dest)
+    return stage
+
+
 def post(entry, rt, live):
+    if entry['platform'] in GUIDE_LANES:
+        stage = _guide_stage(entry['guide'])
+        return post_carousel({**entry, 'platform': GUIDE_LANES[entry['platform']]}, stage, {'captions': {}}, rt, live)
     jdir = JOBS / entry['job']
     lesson = json.loads((jdir / 'lesson.json').read_text())
     if entry['platform'] in CAROUSELS:
@@ -230,7 +259,27 @@ def build(plan_path=PLAN, path=QUEUE):
                         'primary_keyword': seo.get('primary_keyword'), 'host_slug': f'repost-{job}',
                         'collaborators': None, 'status': 'pending',
                         **({'doc_title': seo['doc_title']} if seo.get('doc_title') else {})})
+    def add_guide(slug, platform, date, hhmm):
+        from app import guide
+        report = guide.check(slug)
+        if report['errors']:
+            raise ValueError(f"guide {slug}: check fails: {report['errors'][:3]}")
+        spec = json.loads((GUIDES / slug / 'guide.json').read_text())
+        caps = json.loads((GUIDES / slug / 'captions.json').read_text())
+        slot, local = _slot(date, hhmm)
+        eid = f'{ID_PREFIX[platform]}-{slug}'
+        prev = old.get(eid)
+        if prev and prev.get('status') in ('posted', 'failed', 'missed'):
+            entries.append(prev); return
+        entries.append({'id': eid, 'guide': slug, 'job': None, 'platform': platform, 'slot_utc': slot, 'local': local,
+                        'keyword': spec['keyword'], 'title': caps.get('title') or spec['docTitle'],
+                        'doc_title': caps.get('title') or spec['docTitle'],
+                        'caption': caps[platform.replace('_guide', '')].strip(), 'primary_keyword': None,
+                        'host_slug': f'guide-{slug}', 'collaborators': None, 'status': 'pending'})
     for day in plan['days']:
+        for hhmm, slug in zip(plan.get('guide_times', []), day.get('guides', [])):
+            for platform in GUIDE_LANES:   # one guide goes to IG, the FB Page and LinkedIn at the same slot
+                add_guide(slug, platform, day['date'], hhmm)
         for hhmm, job in zip(plan['instagram_times'], day['instagram']):
             add(job, 'instagram', day['date'], hhmm)
         for hhmm, job in zip(plan['facebook_times'], day['instagram']):

@@ -12,3 +12,6 @@ outputs/video-pipeline/.schedule.json.lock
 
 # Local Remotion browser runtime cache
 .remotion/
+outputs/guides/*/.host/
+outputs/guides/*/instagram-[0-9][0-9].png
+outputs/guides/*/linkedin-[0-9][0-9].png
