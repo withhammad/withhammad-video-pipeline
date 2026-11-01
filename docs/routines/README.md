@@ -14,3 +14,8 @@ and answers keyword comments with the resource link. Rules: `src/content/dm-rule
 
 X and TikTok have no free comment API (X Basic is $100/month, TikTok comments are partner-only), so both run in the
 owner's logged-in Chrome like LinkedIn. Prompts for the Chrome routines are in this folder.
+
+## Posting TikTok + X (Chrome, no free API)
+
+`tiktok` / `x` entries in the repost queue are scheduled ahead natively in TikTok Studio and X through Chrome, then
+recorded with `python -m app.repost_queue mark <id> <url> --scheduled`. Recipe: [chrome-schedule.md](chrome-schedule.md).

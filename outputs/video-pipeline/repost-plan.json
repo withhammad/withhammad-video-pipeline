@@ -30,6 +30,14 @@
       ],
       "guides": [
         "claude-academy"
+      ],
+      "tiktok": [
+        "motion20261020",
+        "6cff0a62569f"
+      ],
+      "x": [
+        "955ed21d2fc4",
+        "09a9d211fff0"
       ]
     },
     {
@@ -45,6 +53,14 @@
       ],
       "guides": [
         "claude-team-skills"
+      ],
+      "tiktok": [
+        "dots-20261027",
+        "6f8f4ad316a3"
+      ],
+      "x": [
+        "motion20261020",
+        "6cff0a62569f"
       ]
     },
     {
@@ -60,6 +76,14 @@
       ],
       "guides": [
         "consulting-with-ai"
+      ],
+      "tiktok": [
+        "agent-loop",
+        "audit20261020"
+      ],
+      "x": [
+        "dots-20261027",
+        "6f8f4ad316a3"
       ]
     },
     {
@@ -74,6 +98,14 @@
       ],
       "guides": [
         "marketing-ai-agents"
+      ],
+      "tiktok": [
+        "applemotion20261027",
+        "agentic-concepts"
+      ],
+      "x": [
+        "agent-loop",
+        "audit20261020"
       ]
     },
     {
@@ -84,6 +116,14 @@
       "linkedin": [],
       "guides": [
         "claude-job-prompts"
+      ],
+      "tiktok": [
+        "comedy20261023",
+        "fef5b7f3b5af"
+      ],
+      "x": [
+        "applemotion20261027",
+        "agentic-concepts"
       ]
     },
     {
@@ -92,6 +132,14 @@
       "linkedin": [],
       "guides": [
         "ai-privacy-checkup"
+      ],
+      "tiktok": [
+        "harness-engineering",
+        "anatomy20261027"
+      ],
+      "x": [
+        "comedy20261023",
+        "fef5b7f3b5af"
       ]
     },
     {
@@ -100,6 +148,13 @@
       "linkedin": [],
       "guides": [
         "claude-code-cold-email"
+      ],
+      "tiktok": [
+        "d24ed130c3d9"
+      ],
+      "x": [
+        "harness-engineering",
+        "anatomy20261027"
       ]
     },
     {
@@ -118,6 +173,9 @@
         "6cff0a62569f",
         "dots-20261027",
         "6f8f4ad316a3"
+      ],
+      "x": [
+        "d24ed130c3d9"
       ]
     },
     {
@@ -184,5 +242,14 @@
   "guide_times": [
     "10:00"
   ],
-  "guides_note": "Owner 2026-11-01 \"Approved, schedule it\": one AI Central-template guide a day at 10:00 Dubai on IG + FB Page + LinkedIn, 2-8 Nov."
+  "guides_note": "Owner 2026-11-01 \"Approved, schedule it\": one AI Central-template guide a day at 10:00 Dubai on IG + FB Page + LinkedIn, 2-8 Nov.",
+  "tiktok_times": [
+    "14:00",
+    "17:00"
+  ],
+  "x_times": [
+    "14:00",
+    "18:00"
+  ],
+  "chrome_note": "Owner 2026-11-02 \"Yes, add them now\": TikTok @withhammad and X @HammadYousufAI get every reel never posted there, 2 a day from 2 Nov at the best-time slots (docs/BEST_TIMES_3PERDAY.md). Week-1 reels are already on TikTok (Oct) and X (except DUET, BLUEPRINT, MOTION). Scheduled natively in TikTok Studio / X through Chrome; app.repost_queue chrome + mark."
 }

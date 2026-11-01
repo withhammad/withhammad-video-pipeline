@@ -12,6 +12,8 @@ per-job slug (repost-<job>) because two reels share one resource page.
     python -m app.repost_queue status
     python -m app.repost_queue run-due [--now ISO]      # dry run: what would post now
     python -m app.repost_queue run-due --live           # post what is due (the scheduled task runs this)
+    python -m app.repost_queue chrome                   # TikTok + X entries still to schedule in Chrome (no free API)
+    python -m app.repost_queue mark <id> <url> [--scheduled]   # record a Chrome post or a native scheduled post
 """
 import argparse
 import json
@@ -36,6 +38,10 @@ ID_PREFIX = {'instagram_carousel': 'ic', 'facebook_carousel': 'fc', 'linkedin_ca
 GUIDES = ROOT / 'outputs' / 'guides'
 GUIDE_LANES = {'instagram_guide': 'instagram_carousel', 'facebook_guide': 'facebook_carousel',
                'linkedin_guide': 'linkedin_carousel'}
+# TikTok and X have no free posting API: their entries are scheduled ahead in TikTok Studio / X's own scheduler
+# through Claude in Chrome (owner 2026-11-02 "add them now"), then recorded with `mark`. run-due never touches them.
+CHROME_LANES = ('tiktok', 'x')
+ID_PREFIX.update(tiktok='tt', x='xx')
 LATE_LIMIT = timedelta(hours=6)
 
 
@@ -55,7 +61,7 @@ def due(entries, now):
     """Pending entries whose slot has passed and is less than LATE_LIMIT old; older pending ones are 'missed'."""
     ready, missed = [], []
     for e in entries:
-        if e.get('status') != 'pending':
+        if e.get('status') != 'pending' or e['platform'] in CHROME_LANES:
             continue
         slot = _utc(e['slot_utc'])
         if slot <= now < slot + LATE_LIMIT:
@@ -215,7 +221,7 @@ def seo_caption(job, platform):
     if not seo.get('researched_at') or not seo.get('sources'):
         raise ValueError(f'{job}: seo/seo.json has no researched_at/sources; research it before queueing')
     section = seo.get(platform) or {}
-    text = section.get('caption') or section.get('text') or section.get('description') or ''
+    text = section.get('caption') or section.get('text') or section.get('post') or section.get('description') or ''
     if not text.strip():
         raise ValueError(f'{job}: seo/seo.json has no {platform} copy')
     if platform == 'instagram' and '@withhammad.ai' not in text:
@@ -251,7 +257,7 @@ def build(plan_path=PLAN, path=QUEUE):
         slot, local = _slot(date, hhmm)
         eid = f"{ID_PREFIX.get(platform, platform[:2])}-{job}"
         prev = old.get(eid)
-        if prev and prev.get('status') in ('posted', 'failed', 'missed'):
+        if prev and prev.get('status') in ('posted', 'scheduled', 'failed', 'missed'):
             entries.append(prev); return
         entries.append({'id': eid, 'job': job, 'platform': platform, 'slot_utc': slot, 'local': local,
                         'keyword': lesson.get('manychat_keyword') or seo.get('keyword'),
@@ -269,7 +275,7 @@ def build(plan_path=PLAN, path=QUEUE):
         slot, local = _slot(date, hhmm)
         eid = f'{ID_PREFIX[platform]}-{slug}'
         prev = old.get(eid)
-        if prev and prev.get('status') in ('posted', 'failed', 'missed'):
+        if prev and prev.get('status') in ('posted', 'scheduled', 'failed', 'missed'):
             entries.append(prev); return
         entries.append({'id': eid, 'guide': slug, 'job': None, 'platform': platform, 'slot_utc': slot, 'local': local,
                         'keyword': spec['keyword'], 'title': caps.get('title') or spec['docTitle'],
@@ -288,6 +294,9 @@ def build(plan_path=PLAN, path=QUEUE):
             add(job, 'linkedin', day['date'], hhmm)
         for hhmm, job in zip(plan.get('youtube_times', []), day.get('youtube', [])):
             add(job, 'youtube', day['date'], hhmm)
+        for platform in CHROME_LANES:
+            for hhmm, job in zip(plan.get(f'{platform}_times', []), day.get(platform, [])):
+                add(job, platform, day['date'], hhmm)
         for hhmm, job in zip(plan.get('carousel_times', []), day.get('carousels', [])):
             for platform in CAROUSELS:      # one guide carousel goes to IG, the FB Page and LinkedIn at the same slot
                 add(job, platform, day['date'], hhmm)
@@ -296,6 +305,28 @@ def build(plan_path=PLAN, path=QUEUE):
                     'Runner: python -m app.repost_queue run-due --live (scheduled task repost-queue-run-due).',
           'built_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'entries': entries}, path)
     return entries
+
+
+def chrome_todo(path=QUEUE):
+    """Pending TikTok/X entries, oldest slot first, with what Chrome needs: the file, the copy and the slot."""
+    out = []
+    for e in load(path)['entries']:
+        if e['platform'] in CHROME_LANES and e.get('status') == 'pending':
+            out.append({'id': e['id'], 'platform': e['platform'], 'local': e['local'], 'slot_utc': e['slot_utc'],
+                        'video': str(JOBS / e['job'] / 'final_social.mp4'), 'cover': str(JOBS / e['job'] / 'cover_1080x1920.jpg'),
+                        'keyword': e['keyword'], 'caption': e['caption']})
+    return out
+
+
+def mark(entry_id, url, scheduled=False, path=QUEUE):
+    data = load(path)
+    for e in data['entries']:
+        if e['id'] == entry_id:
+            e.update(status='scheduled' if scheduled else 'posted', url=url,
+                     **{'scheduled_at' if scheduled else 'posted_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')})
+            save(data, path)
+            return e
+    raise SystemExit(f'no queue entry {entry_id}')
 
 
 def status(path=QUEUE):
@@ -311,12 +342,22 @@ def main(argv=None):
     sub = parser.add_subparsers(dest='cmd', required=True)
     sub.add_parser('status')
     sub.add_parser('build', help='rebuild the queue from repost-plan.json + each job seo/seo.json')
+    sub.add_parser('chrome', help='TikTok + X entries still to schedule in Chrome')
+    m = sub.add_parser('mark', help='record a Chrome post (or a native scheduled post with --scheduled)')
+    m.add_argument('id'); m.add_argument('url'); m.add_argument('--scheduled', action='store_true')
     r = sub.add_parser('run-due')
     r.add_argument('--live', action='store_true')
     r.add_argument('--now', help='dry runs only: ISO time')
     args = parser.parse_args(argv)
     if args.cmd == 'status':
         print(status())
+        return 0
+    if args.cmd == 'chrome':
+        json.dump(chrome_todo(), sys.stdout, indent=2, ensure_ascii=False); print()
+        return 0
+    if args.cmd == 'mark':
+        e = mark(args.id, args.url, args.scheduled)
+        print(f"{e['id']} {e['status']} {e['url']}")
         return 0
     if args.cmd == 'build':
         entries = build()

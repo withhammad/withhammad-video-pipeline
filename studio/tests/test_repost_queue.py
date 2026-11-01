@@ -182,3 +182,18 @@ def test_guide_lane_stages_pages_and_uses_carousel_publishers(tmp_path, monkeypa
     assert ic[2][-1].endswith('/media/carousels/guide-gd/02.jpg') and ic[3] == 'ig cap'
     assert [c for c in rt.calls if c[0] == 'lc'][0][2:] == ('carousel-linkedin.pdf', 'li cap', 'Doc')
     assert (g / '.host' / 'carousel' / 'instagram-02.png').read_bytes() == b'p2'
+
+
+def test_chrome_lanes_never_auto_post_and_mark_records(tmp_path):
+    q = tmp_path / 'q.json'
+    entries = [{'id': 'tt-a', 'job': 'a', 'platform': 'tiktok', 'slot_utc': '2026-11-02T10:00:00Z', 'local': 'x',
+                'keyword': 'A', 'caption': 'c', 'status': 'pending'},
+               {'id': 'xx-a', 'job': 'a', 'platform': 'x', 'slot_utc': '2026-11-02T10:00:00Z', 'local': 'x',
+                'keyword': 'A', 'caption': 'c', 'status': 'pending'}]
+    q.write_text(json.dumps({'entries': entries}))
+    ready, missed = rq.due(entries, datetime(2026, 11, 3, tzinfo=timezone.utc))
+    assert ready == [] and missed == []           # run-due leaves TikTok/X to the Chrome routine
+    assert [e['id'] for e in rq.chrome_todo(q)] == ['tt-a', 'xx-a']
+    rq.mark('tt-a', 'https://www.tiktok.com/tiktokstudio/content', scheduled=True, path=q)
+    assert [e['id'] for e in rq.chrome_todo(q)] == ['xx-a']
+    assert rq.load(q)['entries'][0]['status'] == 'scheduled'
