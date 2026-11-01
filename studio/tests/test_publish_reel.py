@@ -632,8 +632,9 @@ def test_cli_run_due_exit_code_zero_when_nothing_is_due(env, capsys):
 
 def test_tracked_schedule_and_slots_are_consistent():
     schedule = json.loads((Path(pr.__file__).resolve().parents[2] / 'outputs/video-pipeline/schedule.json').read_text())
-    dates = [e['date'] for e in schedule['history'] + schedule['queue']]
-    assert len(dates) == len(set(dates)), 'two reels on one day'
+    # Owner 2026-10-24: three reels per GST day, so a (date, slot) pair is the unit, not the date.
+    keys = [(e['date'], e.get('slot_index', 0)) for e in schedule['history'] + schedule['queue']]
+    assert len(keys) == len(set(keys)), 'two reels on one day slot'
     slots = pr.load_slots()
     assert set(slots['platforms']) == set(pr.PLATFORMS) and slots['order'] == list(pr.PLATFORMS)
 

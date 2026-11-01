@@ -25,7 +25,8 @@ ROOT = Path(__file__).resolve().parents[2]
 QUEUE = ROOT / 'outputs' / 'video-pipeline' / 'repost-queue.json'
 JOBS = ROOT / 'studio' / '.local' / 'jobs'
 IG_ACCOUNT = 'withhammad.ai'
-STATE = {'instagram': 'publish_instagram_withhammad_ai.json', 'linkedin': 'publish_linkedin_repost.json'}
+STATE = {'instagram': 'publish_instagram_withhammad_ai.json', 'linkedin': 'publish_linkedin_repost.json',
+         'facebook': 'publish_facebook_page.json'}
 LATE_LIMIT = timedelta(hours=6)
 
 
@@ -70,6 +71,16 @@ def post(entry, rt, live):
                                       cover_path=jdir / 'cover_1080x1920.jpg', ai_generated=True)
         return {'url': result.get('permalink'), 'media_id': result.get('media_id'), 'status': result.get('status'),
                 'collaborators': result.get('collaborators')}
+    if entry['platform'] == 'facebook':
+        from app import publish_facebook
+        lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'facebook': entry['caption']}}
+        urls = pr.hosted_urls(entry['host_slug'])
+        if live:
+            pr.host_instagram_media(jdir, entry['host_slug'], entry.get('keyword'), rt)   # idempotent: same bytes, no new commit
+        result = publish_facebook.publish(urls['video_url'], lesson, dry_run=not live,
+                                          state_path=jdir / STATE['facebook'] if live else None)
+        return {'url': result.get('permalink'), 'video_id': result.get('video_id'), 'status': result.get('status'),
+                'warnings': result.get('warnings')}
     lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'linkedin': entry['caption']}}
     result = rt.linkedin_publish(jdir / 'final.mp4', lesson, dry_run=not live,
                                  state_path=jdir / STATE['linkedin'] if live else None,

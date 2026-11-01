@@ -58,3 +58,17 @@ def test_live_records_post_and_failure(tmp_path, monkeypatch):
     q2 = setup(tmp_path, monkeypatch, [entry(1, '2026-11-02T07:00:00Z')])
     rep = rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=True, rt=FakeRt(fail=True), path=q2)
     assert rep['failed'] and json.loads(q2.read_text())['entries'][0]['status'] == 'failed'
+
+
+def test_facebook_entry_uses_hosted_url_and_dry_run(tmp_path, monkeypatch):
+    from app import publish_facebook
+    seen = {}
+
+    def fake_publish(video_url, lesson, **o):
+        seen.update(url=video_url, caption=lesson['captions']['facebook'], dry=o['dry_run'])
+        return {'status': 'planned', 'warnings': []}
+    monkeypatch.setattr(publish_facebook, 'publish', fake_publish)
+    q = setup(tmp_path, monkeypatch, [entry(1, '2026-11-02T07:00:00Z', 'facebook')])
+    rep = rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=False, rt=FakeRt(), path=q)
+    assert rep['posted'][0]['status'] == 'planned'
+    assert seen['url'].endswith('/media/reels/repost-j.mp4') and seen['caption'] == 'c' and seen['dry'] is True
