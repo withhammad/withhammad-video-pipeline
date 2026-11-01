@@ -15,7 +15,7 @@ const only = process.argv.slice(3);
 const serveUrl = await bundle({entryPoint: path.join(here, 'index.tsx'), publicDir: path.join(root, 'public')});
 const comps = await getCompositions(serveUrl);
 for (const c of comps.filter(c => /^Glow(Cover|CoverGuides|Wide)-/.test(c.id))) {
-  const [kind, job] = c.id.split('-');
+  const kind = c.id.slice(0, c.id.indexOf('-')); const job = c.id.slice(c.id.indexOf('-') + 1);
   if (only.length && !only.includes(job)) continue;
   fs.mkdirSync(path.join(out, job), {recursive: true});
   const file = {GlowCover: 'cover.png', GlowCoverGuides: 'guides.png', GlowWide: 'wide.png'}[kind];

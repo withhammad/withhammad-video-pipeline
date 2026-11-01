@@ -52,7 +52,9 @@ CREDENTIALS_FILE = Path(os.environ.get(
 # Trial Reel graduation strategies Meta accepts in trial_params (None = a normal reel).
 TRIAL_STRATEGIES = (None, 'MANUAL', 'SS_PERFORMANCE')
 # Owner rule (2026-10-17): every reel goes out as a Collab between the owner's two accounts, so it shows on both.
-DEFAULT_COLLABORATORS = {'withhammad.ai': ('with.hammad', 'hammadagentic.ai'), 'with.hammad': ('hammadagentic.ai',), 'hammadagentic.ai': ('with.hammad',)}
+# @with.hammad vanished from Instagram on 2026-11-01 (profile unavailable; the API refused the invite), so the new account
+# invites @hammadagentic.ai only.
+DEFAULT_COLLABORATORS = {'withhammad.ai': ('hammadagentic.ai',), 'with.hammad': ('hammadagentic.ai',), 'hammadagentic.ai': ()}
 MAX_COLLABORATORS = 3
 POLL_SECONDS = float(os.environ.get('STUDIO_IG_POLL_SECONDS', '20'))
 PROCESS_TIMEOUT = float(os.environ.get('STUDIO_IG_TIMEOUT', '600'))

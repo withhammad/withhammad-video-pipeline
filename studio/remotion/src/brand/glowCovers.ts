@@ -27,6 +27,7 @@ export const LOGO = {
   aiText: {text: 'AI', color: '#FFFFFF', bg: `linear-gradient(160deg, ${GLOW.pillTop} 0%, #0B3FB0 100%)`, glow: GLOW.electric},
   champ: {src: g('champ-mark.png'), bg: WHITE, glow: '#B44FD0', fit: 0.66},
   dubaiChamber: {src: g('dubai-chamber-digital-white.png'), bg: 'linear-gradient(160deg, #13235C 0%, #0A1230 100%)', glow: GLOW.electric, fit: 0.72},
+  linkedinText: {text: 'in', color: '#FFFFFF', bg: 'linear-gradient(160deg, #1B8AE8 0%, #0A66C2 100%)', glow: '#2E9BFF'},
   typeText: {text: 'Aa', color: '#FFFFFF', bg: DARK, glow: '#A78BFA'},
 } satisfies Record<string, GlowLogo>;
 
@@ -34,6 +35,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'claude-linkedin-installs', date: '2026-10-27', title: '27 free Claude installs for LinkedIn', cover: c('27 Free Installs', 'Claude + LinkedIn', LOGO.claude, LOGO.linkedinText)},
   {job: 'applemotion20261027', date: 'queued', title: 'Claude Motion: 16 Apple-style animations', cover: c('Claude Motion', 'Apple-Style UI', LOGO.claude,
     {text: '16', color: '#FFFFFF', bg: 'linear-gradient(160deg, #3D9BFF 0%, #0062D6 100%)', glow: '#0A84FF'})},
   {job: 'anatomy20261027', date: 'queued', title: 'The 8 parts of a Claude Motion prompt', cover: c('Claude Motion', '8-Part Prompt', LOGO.claude,
