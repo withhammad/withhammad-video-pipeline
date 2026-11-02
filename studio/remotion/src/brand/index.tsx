@@ -6,6 +6,7 @@ import {kimiCover, skillCover, skillCarousel} from './samples';
 import {CANVAS} from './tokens';
 import {glowJobs} from './glowCovers';
 import {GlowWide} from './GlowWide';
+import {GlowBanner} from './GlowBanner';
 import {JobCarousel} from './JobCarousel';
 import {GuideDoc} from './GuideDoc';
 
@@ -22,6 +23,7 @@ export const BrandRoot: React.FC = () => <>
   <Composition id="BrandCoverSkillGuides" component={Cover} {...still} {...CANVAS.reel} defaultProps={{...skillCover, guides: true}}/>
   {glowJobs.map(j => <Composition key={j.job} id={`GlowCover-${j.job}`} component={Cover} {...still} {...CANVAS.reel} defaultProps={j.cover as ReelCoverProps & Record<string, unknown>}/>)}
   {glowJobs.map(j => <Composition key={j.job} id={`GlowCoverGuides-${j.job}`} component={Cover} {...still} {...CANVAS.reel} defaultProps={{...j.cover, guides: true} as ReelCoverProps & Record<string, unknown>}/>)}
+  <Composition id="LinkedInBanner" component={GlowBanner} {...still} width={1584} height={396}/>
   {glowJobs.map(j => <Composition key={j.job} id={`GlowWide-${j.job}`} component={GlowWide as unknown as React.FC<Record<string, unknown>>} {...still} width={1280} height={720} defaultProps={j.cover as unknown as Record<string, unknown>}/>)}
   {(['instagram', 'linkedin'] as const).map(pf => <Composition key={pf} id={`BrandCarousel-${pf}`} component={Slide} {...still} {...CANVAS.carousel}
     defaultProps={{slides: skillCarousel[pf], index: 0, platform: pf, accent: 'red'} as CarouselProps & Record<string, unknown>}/>)}

@@ -28,7 +28,7 @@ Comment a reel's keyword → free guide in DMs
 AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG, MCP | Forward Deployed Engineer at Promate | Free daily AI guides for marketers & founders → withhammad.com
 ```
 - [x] About: done in Chrome 2026-11-01 with marketing@withhammad.com as the contact line
-- [ ] Banner: upload outputs/profile-seo/linkedin-banner-mirror-1584x396.png (white-grid style mirrored from Charlie Hills; the upload needs the native file picker, so it is yours)
+- [x] Banner: glow-template banner (outputs/profile-seo/linkedin-banner-glow-1584x396.png, Remotion `LinkedInBanner`) uploaded in Chrome 2026-11-02, live pixels verified
 - [x] Featured: trimmed in Chrome 2026-11-01 to the JSON-schema post, the free-guides link, Adam RAG, and the YouTube link; two weak items removed
 - [ ] Services: lead with AI Consulting if offered; paste the Services text from linkedin.md section 5; drop Business Analytics
 - [ ] Location: Dubai, United Arab Emirates; keep one website entry
@@ -43,7 +43,7 @@ AI Engineer & AI Implementation Consultant, Dubai | Claude Code, AI Agents, RAG,
 
 ## LinkedIn extras (2026-11-01)
 - Done in Chrome 2026-11-01 (mirrored from Charlie Hills / Manthan / Ruben / Maria): headline "I help you (actually) use AI | Claude Code & AI agents, Dubai | One free guide a day → withhammad.com/resources", About rewritten, Featured trimmed to 4, Founder · WithHammad role added.
-- [ ] Banner: pick one and upload (needs the native file picker): outputs/profile-seo/linkedin-banner-mirror-1584x396.png (white grid, Charlie style) or linkedin-banner-wordmark-1584x396.png (WITHHAMMAD wordmark, Manthan style).
+- [x] Banner: done 2026-11-02 (glow template). Headline restored 2026-11-02 after adding the Founder role had replaced it with "Founder at WithHammad"; intro website link now withhammad.com/resources labelled "Free AI guides" (was "AI PROJECTS & PORTFOLIO").
 - [ ] Create a LinkedIn Page "With Hammad AI" (Work → Create a Company Page) so it can be your current-experience brand page and the AI-news feed; tell me when it exists and I set it up in the AI Central format.
 - Done in Chrome: name case Hammad Yousuf, industry IT Services and IT Consulting, headline and About mirrored from the reference profile, public profile fully open incl. photo.
 - [ ] City: LinkedIn shows no city picker for the UAE on the web; set Dubai from the mobile app (Edit intro → Location).

@@ -1681,7 +1681,7 @@ def _followups(entry, platform):
         out.append(f'ManyChat: Quick Automation "Auto-DM links from comments" on {url} with keyword {entry.get("keyword")}, '
                    f'link {entry.get("resource_url")}')
     if collabs:
-        out.append(f'Owner: accept the Collab on @{collabs[0]} in the Instagram app')
+        out.append(f'Owner: accept the Collab on {" and ".join("@" + c for c in collabs)} in the Instagram app')
     return out
 
 

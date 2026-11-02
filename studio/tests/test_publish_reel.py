@@ -501,7 +501,7 @@ def test_run_due_posts_once_and_a_second_run_posts_nothing(env):
     # owner 2026-10-31: the reel on @withhammad.ai with both old accounts as Collabs; no Trial Reel; ManyChat runs here
     [ig] = [c[1] for c in rt.calls if c[0] == 'instagram']
     assert ig['expected_username'] == 'withhammad.ai' and ig['ai_generated'] is True and ig['trial'] is None
-    assert ig['collaborators'] == ['hammadagentic.ai'] and Path(ig['state_path']).name == 'publish_instagram.json'
+    assert ig['collaborators'] == ['with.hamad', 'hammadagentic.ai'] and Path(ig['state_path']).name == 'publish_instagram.json'
     assert ig['caption'] == SEO['instagram']['caption']           # the keyword DM fires on @withhammad.ai
     assert ig['url_provider'] == f'https://withhammad.com/media/reels/{SLUG}.mp4'
     assert ig['cover_url'] == f'https://withhammad.com/media/covers/{SLUG}.jpg'
@@ -512,7 +512,7 @@ def test_run_due_posts_once_and_a_second_run_posts_nothing(env):
     assert any('Collab' in f and 'hammadagentic.ai' in f for f in ig_result['followups'])
     published = json.loads((pr.JOBS_ROOT / 'job1' / 'published.json').read_text())
     assert published['instagram']['media_id'] == 'IG1' and published['instagram']['account'] == 'withhammad.ai'
-    assert published['instagram']['collaborators_invited'] == ['hammadagentic.ai']
+    assert published['instagram']['collaborators_invited'] == ['with.hamad', 'hammadagentic.ai']
     assert 'instagram_trial' not in published
     assert published['linkedin']['post_urn'] == 'urn:li:share:1'
     assert published['youtube']['video_id'] == 'VID1' and published['youtube']['privacy'] == 'public'
@@ -1060,12 +1060,12 @@ def test_instagram_account_and_collabs_follow_the_queued_entry(env):
     ig = entry['platforms']['instagram']
     assert 'instagram_trial' not in entry['platforms']
     assert ig['account'] == 'withhammad.ai' and ig['trial'] is None
-    assert ig['collaborators'] == ['hammadagentic.ai']
+    assert ig['collaborators'] == ['with.hamad', 'hammadagentic.ai']
     done = {'platforms': {p: {'status': 'published'} for p in pr.PLATFORMS}}
     assert pr._entry_status(done) == 'done'
     assert pr.ig_account({'platforms': {'instagram': {}}}) == 'with.hammad'
     assert pr.ig_account({'platforms': {'instagram': {'account': 'withhammad.ai'}}}) == 'withhammad.ai'
-    assert pr._default_collaborators('withhammad.ai') == ['hammadagentic.ai']
+    assert pr._default_collaborators('withhammad.ai') == ['with.hamad', 'hammadagentic.ai']
 
 
 def test_captions_keep_the_keyword_only_where_manychat_runs():
@@ -1170,7 +1170,7 @@ def test_queue_adds_and_hosts_the_carousel_when_the_job_has_one(env):
     p = pr.load_schedule()['queue'][0]['platforms']
     ic, lc = p['instagram_carousel'], p['linkedin_carousel']
     assert ic['slot_utc'] == '2026-10-19T17:00:00Z' and lc['slot_utc'] == '2026-10-19T07:00:00Z'
-    assert ic['account'] == 'withhammad.ai' and ic['collaborators'] == ['hammadagentic.ai'] and ic['trial'] is None
+    assert ic['account'] == 'withhammad.ai' and ic['collaborators'] == ['with.hamad', 'hammadagentic.ai'] and ic['trial'] is None
     assert ic['hosted'] is True and ic['image_urls'] == CAROUSEL_URLS and len(ic['image_bytes']) == 3
     assert lc['document'] == 'carousel/carousel-linkedin.pdf' and lc['title'] == 'FDE roadmap'
     for i, url in enumerate(CAROUSEL_URLS, 1):
@@ -1206,7 +1206,7 @@ def test_run_due_posts_both_carousels_at_their_slots_once(env):
     out2 = pr.run_due(live=True, rt=rt2, platforms=['instagram_carousel'])
     assert [(r['platform'], r['action']) for r in out2['results']] == [('instagram_carousel', 'posted')]
     call = next(c[1] for c in rt2.calls if c[0] == 'instagram_carousel')
-    assert call['expected_username'] == 'withhammad.ai' and call['collaborators'] == ['hammadagentic.ai']
+    assert call['expected_username'] == 'withhammad.ai' and call['collaborators'] == ['with.hamad', 'hammadagentic.ai']
     assert 'trial' not in call and call['image_urls'] == CAROUSEL_URLS and call['ai_generated'] is True
     assert len(call['image_sizes']) == 3 and Path(call['state_path']).name == 'publish_instagram_carousel.json'
     assert KEYWORD in call['caption']   # ManyChat runs on @withhammad.ai
