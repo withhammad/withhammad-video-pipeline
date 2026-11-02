@@ -20,7 +20,6 @@ export const LOGO = {
   playwright: {src: g('playwright.svg'), bg: DARK, glow: '#45BA4B', fit: 0.72},
   github: {mask: g('si-github.svg'), color: '#FFFFFF', bg: DARK, glow: GLOW.electric, fit: 0.6},
   anthropic: {mask: g('si-anthropic.svg'), color: '#F0EEE6', bg: 'linear-gradient(160deg, #2A2724 0%, #141210 100%)', glow: '#E8C9A8', fit: 0.6},
-  anthropic: {mask: g('si-anthropic.svg'), color: '#F0EEE6', bg: 'linear-gradient(160deg, #2A2724 0%, #141210 100%)', glow: '#E8C9A8', fit: 0.6},
   claudeDuet: {src: g('claude-duet-icon.svg'), bg: '#FAFAF8', glow: '#FF8A5B', fit: 1},
   gmail: {src: g('gmail.svg'), bg: WHITE, glow: '#EA4335', fit: 0.6},
   youtube: {mask: g('si-youtube.svg'), color: '#FF0000', bg: WHITE, glow: '#FF2D2D', fit: 0.64},
@@ -48,7 +47,6 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
-  {job: 'cd157c0bece4', date: 'awaiting approval', title: 'Which Claude model to use: Opus 5.5 vs Sonnet 5.5 (Claude 2.0, concept 1 of 25)', cover: c('Which Claude?', 'Opus vs Sonnet', LOGO.claude, LOGO.anthropic)},
   {job: 'cd157c0bece4', date: 'awaiting approval', title: 'Which Claude model to use: Opus 5.5 vs Sonnet 5.5 (Claude 2.0, concept 1 of 25)', cover: c('Which Claude?', 'Opus vs Sonnet', LOGO.claude, LOGO.anthropic)},
   {job: '23519e29c243', date: 'awaiting approval', title: 'Roast Room: 7 AI advisors debate your decision in Claude Code', cover: c('7 AI Advisors', 'Roasted My Idea', LOGO.claude, LOGO.github)},
   {job: 'dbedc134cc10', date: 'awaiting approval', title: 'Make it better x10: Sonnet 5.5 vs Opus 5.5', cover: c('Make It Better', 'Opus Overdid It', LOGO.claude,
