@@ -9,7 +9,7 @@ const half: GlowLogo = {text: '½', color: '#1A1200', bg: 'linear-gradient(160de
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const covers: GlowCoverProps[] = [
-  c('Which Claude?', 'Opus vs Sonnet', LOGO.claude, v55),
+  c('Which Claude?', 'Opus vs Sonnet', LOGO.claude, LOGO.anthropic),   // = glowCovers.ts entry
   c('6 Weeks Of', 'Claude Updates', LOGO.claude, v55),
   c('Same Work', 'Half The Price', LOGO.claude, half),
 ];
