@@ -1,4 +1,47 @@
 {
   "_about": "Owner reference links for the refill (app.refill). Statuses: pending, in_progress, awaiting_approval, queued, rejected",
-  "links": []
+  "links": [
+    {
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7519040394941136896/",
+      "note": "Nate Herk LI video 1:52 - Roast Room: Claude Code advisors (Bezos/Hormozi/Buffett) debate a decision; 230 reactions 42 comments",
+      "added": "2026-11-02",
+      "status": "pending",
+      "job": null
+    },
+    {
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7521734526201405440/",
+      "note": "Nate Herk LI video 1:30 - 'make it better' 100x in Claude Code, Sonnet 5.5 vs Opus 5.5 on a coffee-shop site; 176 reactions 52 comments",
+      "added": "2026-11-02",
+      "status": "pending",
+      "job": null
+    },
+    {
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7522077985169039360/",
+      "note": "Nate Herk LI video 1:37 - every Claude 2.0 concept for non-coders (25 concepts, 5 parts); 95 reactions 19 comments",
+      "added": "2026-11-02",
+      "status": "pending",
+      "job": null
+    },
+    {
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7519016141084667904/",
+      "note": "Nate Herk LI video 0:13 - 'more productive than ever but lazier than ever' meme; 201 reactions 37 comments",
+      "added": "2026-11-02",
+      "status": "pending",
+      "job": null
+    },
+    {
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7501036161763831808/",
+      "note": "Nate Herk LI document 7 pages - Claude Fable 5.1 Prompting (carousel reference)",
+      "added": "2026-11-02",
+      "status": "pending",
+      "job": null
+    },
+    {
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7496200045797617664/",
+      "note": "Nate Herk LI document 7 pages - Sell These 5 Most In-Demand AI Automations in 2026 (carousel reference)",
+      "added": "2026-11-02",
+      "status": "pending",
+      "job": null
+    }
+  ]
 }
