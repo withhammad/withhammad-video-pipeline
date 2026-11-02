@@ -46,6 +46,8 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'dbedc134cc10', date: 'awaiting approval', title: 'Make it better x10: Sonnet 5.5 vs Opus 5.5', cover: c('Make It Better', 'Opus Overdid It', LOGO.claude,
+    {text: 'x10', color: '#1A1200', bg: 'linear-gradient(160deg, #FFD95A 0%, #E0A800 100%)', glow: '#FFD166'})},
   {job: 'dots-20261027', date: 'queued', title: 'OpenAI dots: agents that keep working after you log off', cover: c('OpenAI dots', 'Never Logs Off', LOGO.chatgpt, LOGO.openaiDots)},
   {job: 'harness-engineering', date: 'queued', title: 'Harness engineering: the layer that makes an agent reliable', cover: c('Agent Failing?', 'Not The Model', LOGO.claude, LOGO.mcp)},
   {job: 'agentic-concepts', date: 'queued', title: '9 agentic AI concepts every builder should know', cover: c('9 Concepts', 'Behind AI Agents', LOGO.mcp, LOGO.a2aText)},
