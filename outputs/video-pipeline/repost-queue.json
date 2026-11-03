@@ -452,57 +452,67 @@
       "id": "in-b55491077ab1",
       "job": "b55491077ab1",
       "platform": "instagram",
-      "slot_utc": "2026-11-03T07:00:00Z",
-      "local": "2026-11-03 11:00 GST",
+      "slot_utc": "2026-11-09T13:00:00Z",
+      "local": "2026-11-09 17:00 GST",
       "keyword": "AITRAFFIC",
       "title": "AI search traffic converts better? How to track your own AI traffic in GA4",
       "caption": "Track AI traffic in GA4: one Semrush study found AI search visitors 4.4x as valuable as organic, by conversion rate.\nComment AITRAFFIC and I'll DM you the guide.\n\nWhy it can happen: people research inside ChatGPT, Claude or Gemini before they click, so they land further down your funnel.\n\nIt is one vendor study. Other studies range from about 1.3x to 20x+, so measure your own:\n\n1) Ask ChatGPT, Claude and Gemini what your customers ask. Are you in the answer?\n2) Add \"AI (ChatGPT, Claude, Gemini)\" to your \"Where did you hear about us?\" form.\n3) Open the GA4 AI Assistant channel (Reports > Acquisition > Traffic acquisition) and compare it with search. Many AI clicks still land as Direct.\n\nComment AITRAFFIC and I'll DM you the guide. Follow @withhammad.ai so the DM reaches you.\n\nAI avatar of me.\n\n#GA4 #AISearch #ChatGPT #AIMarketing #DigitalMarketing",
       "primary_keyword": "track AI traffic in GA4",
       "host_slug": "repost-b55491077ab1",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "moved_from": "2026-11-03 11:00 GST",
+      "note": "run-due missed 3 Nov: scheduled task hit the Fable usage limit 11:07-20:07 GST"
     },
     {
       "id": "li-7123480a28ca",
       "job": "7123480a28ca",
       "platform": "linkedin",
-      "slot_utc": "2026-11-03T09:00:00Z",
-      "local": "2026-11-03 13:00 GST",
+      "slot_utc": "2026-11-03T18:40:00Z",
+      "local": "2026-11-03 22:40 GST",
       "keyword": "JOBKIT",
       "title": "Claude + Playwright: a job-search shortlist you can verify",
       "caption": "Claude job search for professionals: a 5-step AI workflow to research roles, build an evidence-based shortlist and draft applications, while you keep control of every submission.\n\nSetup, prompt and review checklist: https://withhammad.com/resources/claude-job-search\n\n1. Connect Microsoft's Playwright MCP (open source) to a compatible Claude client such as Claude Desktop\n2. Provide your resume plus role, location and a posting-date window\n3. Research permitted company career pages. Keep the direct listing URL; if a posting date is missing, flag it as unknown\n4. Compare each role with your actual experience and shortlist up to ten in a sheet, with resume evidence and gaps\n5. Draft application fields and a company-specific answer using only facts you can support\n\nWhere a site permits automation, it can help fill the form, but it will not work everywhere. Stop before Submit and check the resume, dates, eligibility and every answer yourself. Claude access and usage are separate from the Playwright package.\n\nWhich step takes you longest today: finding roles, checking fit or drafting answers?\n\nAI avatar of me. Demo uses sample data.\n\n#JobSearch #ClaudeAI #AIAutomation",
       "primary_keyword": "Claude job search",
       "host_slug": "repost-7123480a28ca",
       "collaborators": null,
-      "status": "pending"
+      "status": "posted",
+      "moved_from": "2026-11-03 13:00 GST",
+      "note": "run-due missed 3 Nov: scheduled task hit the Fable usage limit 11:07-20:07 GST",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7523454190002774016/",
+      "posted_at": "2026-11-03T18:40:35Z"
     },
     {
       "id": "in-d61788123d13",
       "job": "d61788123d13",
       "platform": "instagram",
-      "slot_utc": "2026-11-03T10:00:00Z",
-      "local": "2026-11-03 14:00 GST",
+      "slot_utc": "2026-11-10T13:00:00Z",
+      "local": "2026-11-10 17:00 GST",
       "keyword": "SCAN",
       "title": "NVIDIA SkillSpector: scan Claude Code skills before you install them",
       "caption": "Are Claude Code skills safe? Scan them with NVIDIA SkillSpector before you install.\nComment SCAN and I'll DM you the guide.\n\nAbout 1 in 4 marketplace skills had a security flaw, and 5.2% showed strong signs of malicious intent (Liu et al., Jan 2026). One bad skill could leak your API keys.\n\nNVIDIA SkillSpector is a free, open-source scanner (Apache-2.0). Feed it a skill folder, GitHub link or zip. It checks 17 risk categories, like prompt injection, data exfiltration and tool misuse, and gives a 0-100 risk score:\n- 0-20: low risk\n- 21-50: caution\n- over 50: don't install\n\nA low score means no red flags were found, not that a skill is proven safe. Use --no-llm to keep your code on your machine, or let Claude Code or Codex run it for you.\n\nComment SCAN and I'll DM you the guide.\nFollow @withhammad.ai so the DM reaches you.\n\nAI avatar of me.\n\n#ClaudeCode #ClaudeSkills #AISecurity #AIAgents #SkillSpector",
       "primary_keyword": "NVIDIA SkillSpector",
       "host_slug": "repost-d61788123d13",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "moved_from": "2026-11-03 14:00 GST",
+      "note": "run-due missed 3 Nov: scheduled task hit the Fable usage limit 11:07-20:07 GST"
     },
     {
       "id": "fa-b55491077ab1",
       "job": "b55491077ab1",
       "platform": "facebook",
-      "slot_utc": "2026-11-03T10:00:00Z",
-      "local": "2026-11-03 14:00 GST",
+      "slot_utc": "2026-11-09T16:00:00Z",
+      "local": "2026-11-09 20:00 GST",
       "keyword": "AITRAFFIC",
       "title": "AI search traffic converts better? How to track your own AI traffic in GA4",
       "caption": "Are customers finding you through ChatGPT? Google Analytics 4 now has an AI Assistant channel that shows you. Free setup guide: https://withhammad.com/resources/ai-traffic-ga4\n\nOne Semrush study (Jul 2025) found AI search visitors 4.4x as valuable as organic search visitors, based on conversion rate. Other studies range from about 1.3x to 20x+, so the point is to measure your own.\n\nThree things to do this week:\n1) Ask ChatGPT, Claude and Gemini what your customers ask, and check whether you are in the answer.\n2) Add \"AI (ChatGPT, Claude, Gemini)\" to your \"Where did you hear about us?\" form, because many AI clicks still land as Direct.\n3) In GA4 go to Reports > Acquisition > Traffic acquisition and compare the AI Assistant channel with Organic Search. Google AI Overviews stay in Organic Search.\n\nFull guide: https://withhammad.com/resources/ai-traffic-ga4\nComment AITRAFFIC and I'll send it to your inbox. Follow With Hammad AI for a new AI build every week.\n\nAI avatar of me.\n\n#GA4 #AISearch #DigitalMarketing",
       "primary_keyword": "track AI traffic in GA4",
       "host_slug": "repost-b55491077ab1",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "moved_from": "2026-11-03 14:00 GST",
+      "note": "run-due missed 3 Nov: scheduled task hit the Fable usage limit 11:07-20:07 GST"
     },
     {
       "id": "tt-dots-20261027",
@@ -540,15 +550,19 @@
       "id": "yo-dots-20261027",
       "job": "dots-20261027",
       "platform": "youtube",
-      "slot_utc": "2026-11-03T12:00:00Z",
-      "local": "2026-11-03 16:00 GST",
+      "slot_utc": "2026-11-03T18:40:00Z",
+      "local": "2026-11-03 22:40 GST",
       "keyword": "DOTS",
       "title": "OpenAI dots: AI agents that keep working after you log off",
       "caption": "OpenAI dots are always-on ChatGPT agents, each with its own cloud computer and browser, that keep working on your goal after you log off.\nFree guide: https://withhammad.com/resources/openai-dots\n\nGive a dot one goal and it works through every step across the apps you connect (OpenAI says 4,000+ apps).\nImportant actions come back to you for approval, and you can watch its work in Activity View.\nThe shift: stop automating single tasks and hand over the whole workflow.\nWhich workflow would you hand off first? Tell me in the comments.\n\nSource: OpenAI, \"Introducing dots\" (DevDay, 29 Sep 2026). As of that announcement it was rolling out to ChatGPT Pro and Business Premium in eligible markets. Dot characters © OpenAI; not affiliated.\nSubscribe for more AI builds.\n\n#OpenAIDots #AIAgents #Shorts",
       "primary_keyword": "openai dots",
       "host_slug": "repost-dots-20261027",
       "collaborators": null,
-      "status": "pending"
+      "status": "posted",
+      "moved_from": "2026-11-03 16:00 GST",
+      "note": "run-due missed 3 Nov: scheduled task hit the Fable usage limit 11:07-20:07 GST",
+      "url": "https://www.youtube.com/shorts/nNJ1vUfIeqc",
+      "posted_at": "2026-11-03T18:40:35Z"
     },
     {
       "id": "in-f7da978d101e",
@@ -562,7 +576,9 @@
       "primary_keyword": "AI lead generation",
       "host_slug": "repost-f7da978d101e",
       "collaborators": null,
-      "status": "pending"
+      "status": "posted",
+      "url": "https://www.instagram.com/reel/DfSj7m2APHH/",
+      "posted_at": "2026-11-03T18:40:35Z"
     },
     {
       "id": "fa-d61788123d13",
@@ -576,7 +592,9 @@
       "primary_keyword": "NVIDIA SkillSpector",
       "host_slug": "repost-d61788123d13",
       "collaborators": null,
-      "status": "pending"
+      "status": "posted",
+      "url": "https://www.facebook.com/reel/1909535333413313/",
+      "posted_at": "2026-11-03T18:40:35Z"
     },
     {
       "id": "tt-6f8f4ad316a3",
@@ -622,7 +640,9 @@
       "primary_keyword": "AI lead generation",
       "host_slug": "repost-f7da978d101e",
       "collaborators": null,
-      "status": "pending"
+      "status": "posted",
+      "url": "https://www.facebook.com/reel/1132370539558346/",
+      "posted_at": "2026-11-03T18:40:35Z"
     },
     {
       "id": "li-c9d9bd2b786c",

@@ -42,9 +42,9 @@ def setup(tmp_path, monkeypatch, entries):
 
 
 def test_dry_run_changes_nothing(tmp_path, monkeypatch):
-    q = setup(tmp_path, monkeypatch, [entry(1, '2026-11-02T07:00:00Z'), entry(2, '2026-11-02T07:00:00Z', 'linkedin')])
+    q = setup(tmp_path, monkeypatch, [entry(1, '2026-11-02T07:00:00Z'), entry(2, "2026-11-02T09:00:00Z", "linkedin")])
     rt = FakeRt()
-    rep = rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=False, rt=rt, path=q)
+    rep = rq.run_due(datetime(2026, 11, 2, 9, 5, tzinfo=timezone.utc), live=False, rt=rt, path=q)
     assert len(rep['posted']) == 2 and all(c[1] is True for c in rt.calls)
     assert rt.calls[0][3] == 'withhammad.ai'
     assert all(e['status'] == 'pending' for e in json.loads(q.read_text())['entries'])
@@ -52,11 +52,11 @@ def test_dry_run_changes_nothing(tmp_path, monkeypatch):
 
 def test_live_records_post_and_failure(tmp_path, monkeypatch):
     q = setup(tmp_path, monkeypatch, [entry(1, '2026-11-02T07:00:00Z')])
-    rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=True, rt=FakeRt(), path=q)
+    rq.run_due(datetime(2026, 11, 2, 9, 5, tzinfo=timezone.utc), live=True, rt=FakeRt(), path=q)
     e = json.loads(q.read_text())['entries'][0]
     assert e['status'] == 'posted' and e['url'] == 'https://ig/r'
     q2 = setup(tmp_path, monkeypatch, [entry(1, '2026-11-02T07:00:00Z')])
-    rep = rq.run_due(datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc), live=True, rt=FakeRt(fail=True), path=q2)
+    rep = rq.run_due(datetime(2026, 11, 2, 9, 5, tzinfo=timezone.utc), live=True, rt=FakeRt(fail=True), path=q2)
     assert rep['failed'] and json.loads(q2.read_text())['entries'][0]['status'] == 'failed'
 
 
@@ -217,3 +217,27 @@ def test_guide_video_lanes_youtube_by_api_tiktok_x_by_chrome(tmp_path, monkeypat
     assert path == g / 'short.mp4' and lesson['captions'] == {'youtube_title': 'YT title', 'youtube_description': 'yt cap'}
     assert kw['contains_synthetic_media'] is False and kw['privacy_status'] == 'public'
     assert rq.chrome_todo(q)[0]['video'] == str(g / 'short.mp4')
+
+
+def test_instagram_waits_for_an_app_post_then_falls_back_to_the_api(tmp_path, monkeypatch):
+    es = [entry(1, '2026-11-02T07:00:00Z'), entry(2, '2026-11-02T07:00:00Z', 'linkedin')]
+    ready, _ = rq.due(es, datetime(2026, 11, 2, 8, 5, tzinfo=timezone.utc))
+    assert [e['id'] for e in ready] == ['e2']                 # the owner has 2 h to post it with a trending sound
+    ready, _ = rq.due(es, datetime(2026, 11, 2, 9, 5, tzinfo=timezone.utc))
+    assert [e['id'] for e in ready] == ['e1', 'e2']           # then the API posts it without the sound
+    es[0]['status'] = 'posted'                                # marked after an in-app post: never posted twice
+    assert [e['id'] for e in rq.due(es, datetime(2026, 11, 2, 9, 5, tzinfo=timezone.utc))[0]] == ['e2']
+
+
+def test_sound_brief_lists_the_days_instagram_reels(tmp_path, monkeypatch):
+    es = [dict(entry(1, '2026-11-03T07:00:00Z'), local='2026-11-03 11:00 GST'),
+          dict(entry(2, '2026-11-03T07:00:00Z', 'linkedin'), local='2026-11-03 11:00 GST'),
+          dict(entry(3, '2026-11-04T07:00:00Z'), local='2026-11-04 11:00 GST')]
+    q = setup(tmp_path, monkeypatch, es)
+    (tmp_path / 'jobs' / 'j' / 'final_ig.mp4').write_bytes(b'v')
+    s = tmp_path / 's.json'; s.write_text(json.dumps({'how': 'h', 'sounds': [{'title': 'S'}], 'checked': '2026-11-03'}))
+    b = rq.sound_brief('2026-11-03', path=q, sounds_path=s)
+    assert [r['id'] for r in b['reels']] == ['e1'] and b['sounds'] == [{'title': 'S'}]
+    r = b['reels'][0]
+    assert r['video'].endswith('final_ig.mp4') and r['api_fallback_gst'] == '13:00'
+    assert r['collaborators'] == ['with.hamad', 'hammadagentic.ai'] and 'mark e1' in r['after_posting']

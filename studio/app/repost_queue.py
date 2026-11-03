@@ -14,6 +14,11 @@ per-job slug (repost-<job>) because two reels share one resource page.
     python -m app.repost_queue run-due --live           # post what is due (the scheduled task runs this)
     python -m app.repost_queue chrome                   # TikTok + X entries still to schedule in Chrome (no free API)
     python -m app.repost_queue mark <id> <url> [--scheduled]   # record a Chrome post or a native scheduled post
+    python -m app.repost_queue sounds [--date YYYY-MM-DD]      # today's Instagram reels to post in the app with a trending sound
+
+Trending sounds (owner 2026-11-03): the APIs cannot attach a library sound, so each Instagram reel waits APP_GRACE after
+its slot for the owner to post it from the app with a trending sound under the voice (then `mark`); if he has not,
+run-due posts it by API without the sound, so the cadence never breaks.
 """
 import argparse
 import json
@@ -46,6 +51,9 @@ ID_PREFIX.update(tiktok='tt', x='xx', youtube_guide='yg', tiktok_guide='tg', x_g
 # (python -m app.guide short <slug> -> outputs/guides/<slug>/short.mp4) on YouTube Shorts (API), TikTok and X (Chrome).
 GUIDE_VIDEO_LANES = ('youtube_guide', 'tiktok_guide', 'x_guide')
 LATE_LIMIT = timedelta(hours=6)
+APP_SOUND_LANES = ('instagram',)   # reels the owner may post from the app with a trending sound
+APP_GRACE = timedelta(hours=2)
+SOUNDS = ROOT / 'outputs' / 'video-pipeline' / 'trending-sounds.json'
 
 
 def load(path=QUEUE):
@@ -67,7 +75,8 @@ def due(entries, now):
         if e.get('status') != 'pending' or e['platform'] in CHROME_LANES:
             continue
         slot = _utc(e['slot_utc'])
-        if slot <= now < slot + LATE_LIMIT:
+        start = slot + APP_GRACE if e['platform'] in APP_SOUND_LANES else slot
+        if start <= now < slot + LATE_LIMIT:
             ready.append(e)
         elif now >= slot + LATE_LIMIT:
             missed.append(e)
@@ -334,6 +343,27 @@ def chrome_todo(path=QUEUE):
     return out
 
 
+def sound_brief(day=None, path=QUEUE, sounds_path=SOUNDS):
+    """The Instagram reels of one GST day for the owner to post in the app with a trending sound."""
+    day = day or datetime.now(timezone(timedelta(hours=4))).strftime('%Y-%m-%d')
+    try:
+        sounds = json.loads(Path(sounds_path).read_text())
+    except FileNotFoundError:
+        sounds = {}
+    reels = []
+    for e in load(path)['entries']:
+        if e['platform'] in APP_SOUND_LANES and e.get('status') == 'pending' and e['local'].startswith(day):
+            jdir = JOBS / e['job']
+            video = next((str(jdir / n) for n in ('final_ig.mp4', 'final.mp4', 'final_social.mp4') if (jdir / n).exists()), str(jdir / 'final.mp4'))
+            fallback = (_utc(e['slot_utc']) + APP_GRACE).astimezone(timezone(timedelta(hours=4))).strftime('%H:%M')
+            reels.append({'id': e['id'], 'post_at_gst': e['local'][11:16], 'api_fallback_gst': fallback, 'keyword': e['keyword'],
+                          'video': video, 'cover': str(jdir / 'cover_glow' / 'cover_1080x1920.jpg'),
+                          'collaborators': list(e.get('collaborators') or ('with.hamad', 'hammadagentic.ai')),
+                          'caption': e['caption'], 'after_posting': f"python -m app.repost_queue mark {e['id']} <reel url>"})
+    return {'day': day, 'how': sounds.get('how', ''), 'sounds': sounds.get('sounds', []),
+            'checked': sounds.get('checked'), 'reels': reels}
+
+
 def mark(entry_id, url, scheduled=False, path=QUEUE):
     data = load(path)
     for e in data['entries']:
@@ -361,6 +391,8 @@ def main(argv=None):
     sub.add_parser('chrome', help='TikTok + X entries still to schedule in Chrome')
     m = sub.add_parser('mark', help='record a Chrome post (or a native scheduled post with --scheduled)')
     m.add_argument('id'); m.add_argument('url'); m.add_argument('--scheduled', action='store_true')
+    sd = sub.add_parser('sounds', help="today's Instagram reels to post in the app with a trending sound")
+    sd.add_argument('--date')
     r = sub.add_parser('run-due')
     r.add_argument('--live', action='store_true')
     r.add_argument('--now', help='dry runs only: ISO time')
@@ -370,6 +402,9 @@ def main(argv=None):
         return 0
     if args.cmd == 'chrome':
         json.dump(chrome_todo(), sys.stdout, indent=2, ensure_ascii=False); print()
+        return 0
+    if args.cmd == 'sounds':
+        json.dump(sound_brief(args.date), sys.stdout, indent=2, ensure_ascii=False); print()
         return 0
     if args.cmd == 'mark':
         e = mark(args.id, args.url, args.scheduled)
