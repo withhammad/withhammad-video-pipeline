@@ -772,7 +772,7 @@
       "id": "in-9d2d68af60d4",
       "job": "9d2d68af60d4",
       "platform": "instagram",
-      "slot_utc": "2026-11-05T16:36:00Z",
+      "slot_utc": "2026-11-05T17:09:00Z",
       "local": "2026-11-05 22:41 GST",
       "keyword": "SKILL",
       "title": "Claude's free YouTube Agent Skill: 11 skills for your YouTube workflow",
@@ -780,10 +780,12 @@
       "primary_keyword": "Claude skills for YouTube",
       "host_slug": "repost-9d2d68af60d4",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "moved_from": "2026-11-04 11:00 GST",
       "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
-      "error": "Instagram POST /v25.0/17841429263270808/media failed (HTTP 400, code 110/2207018, OAuthException): Invalid user id - لا يمكن تحميل بيانات مستخدم بملف شخصي خاص أو اسم مستخدم غير صالح لا يمكن الوصول إلى المستخدمين التاليين: ‏‎with.hamad‎‏ [fbtrace_id A6fj0Ok8s2b1D5YHiAN3htD]"
+      "retry_of_error": "Instagram POST /v25.0/17841429263270808/media failed (HTTP 400, code 110/2207018, OAuthException): Invalid user id - لا يمكن تحميل بيانات مستخدم بملف شخصي خاص أو اسم مستخدم غير صالح لا يمكن الوصول إلى المستخدمين التاليين: ‏‎with.hamad‎‏ [fbtrace_id A6fj0Ok8s2b1D5YHiAN3htD]",
+      "url": "https://www.instagram.com/reel/DfXwxhJAFBc/",
+      "posted_at": "2026-11-05T19:16:27Z"
     },
     {
       "id": "li-website20261020",
@@ -807,7 +809,7 @@
       "id": "in-7123480a28ca",
       "job": "7123480a28ca",
       "platform": "instagram",
-      "slot_utc": "2026-11-05T16:37:00Z",
+      "slot_utc": "2026-11-05T17:08:00Z",
       "local": "2026-11-05 22:42 GST",
       "keyword": "JOBKIT",
       "title": "Claude + Playwright: a job-search shortlist you can verify",
@@ -815,10 +817,12 @@
       "primary_keyword": "Claude job search",
       "host_slug": "repost-7123480a28ca",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "moved_from": "2026-11-04 14:00 GST",
       "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
-      "error": "Instagram POST /v25.0/17841429263270808/media failed (HTTP 400, code 110/2207018, OAuthException): Invalid user id - لا يمكن تحميل بيانات مستخدم بملف شخصي خاص أو اسم مستخدم غير صالح لا يمكن الوصول إلى المستخدمين التاليين: ‏‎with.hamad‎‏ [fbtrace_id A5kt9tHP4a4t1727F9q9zp_]"
+      "retry_of_error": "Instagram POST /v25.0/17841429263270808/media failed (HTTP 400, code 110/2207018, OAuthException): Invalid user id - لا يمكن تحميل بيانات مستخدم بملف شخصي خاص أو اسم مستخدم غير صالح لا يمكن الوصول إلى المستخدمين التاليين: ‏‎with.hamad‎‏ [fbtrace_id A5kt9tHP4a4t1727F9q9zp_]",
+      "url": "https://www.instagram.com/reel/DfXw4Mrkwx0/",
+      "posted_at": "2026-11-05T19:16:27Z"
     },
     {
       "id": "fa-9d2d68af60d4",
@@ -908,7 +912,7 @@
       "id": "fa-7123480a28ca",
       "job": "7123480a28ca",
       "platform": "facebook",
-      "slot_utc": "2026-11-05T18:42:00Z",
+      "slot_utc": "2026-11-05T19:12:00Z",
       "local": "2026-11-05 22:42 GST",
       "keyword": "JOBKIT",
       "title": "Claude + Playwright: a job-search shortlist you can verify",
@@ -916,10 +920,12 @@
       "primary_keyword": "Claude job search",
       "host_slug": "repost-7123480a28ca",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "moved_from": "2026-11-04 17:00 GST",
       "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
-      "error": "GET 898329310032957: HTTP 400 Unsupported get request. Object with ID '898329310032957' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api"
+      "retry_of_error": "GET 898329310032957: HTTP 400 Unsupported get request. Object with ID '898329310032957' does not exist, cannot be loaded due to missing permissions, or does not support this operation. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api",
+      "url": "https://www.facebook.com/reel/1389885963006509/",
+      "posted_at": "2026-11-05T19:16:27Z"
     },
     {
       "id": "tt-audit20261020",
@@ -992,7 +998,7 @@
       "guide": "marketing-ai-agents",
       "job": null,
       "platform": "instagram_guide",
-      "slot_utc": "2026-11-05T18:41:00Z",
+      "slot_utc": "2026-11-05T19:11:00Z",
       "local": "2026-11-05 22:41 GST",
       "keyword": "MARKETING",
       "title": "Best 7 Marketing AI Agents and the free tools to build them",
@@ -1001,10 +1007,12 @@
       "primary_keyword": null,
       "host_slug": "guide-marketing-ai-agents",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "moved_from": "2026-11-05 10:00 GST",
       "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
-      "error": "Instagram POST /v25.0/17841429263270808/media failed (HTTP 400, code 110/2207018, OAuthException): Invalid user id - لا يمكن تحميل بيانات مستخدم بملف شخصي خاص أو اسم مستخدم غير صالح لا يمكن الوصول إلى المستخدمين التاليين: ‏‎with.hamad‎‏ [fbtrace_id AQabF3uZkFBbAULnhhcryDU]"
+      "retry_of_error": "Instagram POST /v25.0/17841429263270808/media failed (HTTP 400, code 110/2207018, OAuthException): Invalid user id - لا يمكن تحميل بيانات مستخدم بملف شخصي خاص أو اسم مستخدم غير صالح لا يمكن الوصول إلى المستخدمين التاليين: ‏‎with.hamad‎‏ [fbtrace_id AQabF3uZkFBbAULnhhcryDU]",
+      "url": "https://www.instagram.com/p/DfXxLZDDD14/",
+      "posted_at": "2026-11-05T19:16:27Z"
     },
     {
       "id": "fg-marketing-ai-agents",
