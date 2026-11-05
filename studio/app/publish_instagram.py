@@ -53,8 +53,9 @@ CREDENTIALS_FILE = Path(os.environ.get(
 TRIAL_STRATEGIES = (None, 'MANUAL', 'SS_PERFORMANCE')
 # Owner rule (2026-10-17): every reel goes out as a Collab between the owner's two accounts, so it shows on both.
 # @with.hammad was renamed @with.hamad (one m) on 2026-11-01, which is why the old handle read "unavailable"; the owner
-# wants it invited on every post (2026-11-02), so the new account invites @with.hamad and @hammadagentic.ai.
-DEFAULT_COLLABORATORS = {'withhammad.ai': ('with.hamad', 'hammadagentic.ai'), 'with.hammad': ('hammadagentic.ai',), 'with.hamad': ('hammadagentic.ai',),
+# wants it invited on every post (2026-11-02). It was renamed back to @with.hammad on 2026-11-05; repost_queue retries
+# the other spelling when Meta refuses a handle.
+DEFAULT_COLLABORATORS = {'withhammad.ai': ('with.hammad', 'hammadagentic.ai'), 'with.hammad': ('hammadagentic.ai',), 'with.hamad': ('hammadagentic.ai',),
                          'hammadagentic.ai': ()}
 MAX_COLLABORATORS = 3
 POLL_SECONDS = float(os.environ.get('STUDIO_IG_POLL_SECONDS', '20'))

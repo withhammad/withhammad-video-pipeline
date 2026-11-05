@@ -22,6 +22,7 @@ run-due posts it by API without the sound, so the cadence never breaks.
 """
 import argparse
 import json
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -112,12 +113,27 @@ def post_carousel(entry, jdir, lesson, rt, live):
         result = publish_facebook.publish_album(urls, {**lesson, 'captions': {**caps, 'facebook': entry['caption']}},
                                                 dry_run=not live, state_path=jdir / STATE[pf] if live else None)
         return {'url': result.get('permalink'), 'post_id': result.get('post_id'), 'status': result.get('status')}
-    extra = {} if entry.get('collaborators') is None else {'collaborators': entry['collaborators']}
-    result = rt.instagram_carousel_publish(urls, {**lesson, 'captions': {**caps, 'instagram': entry['caption']}},
-                                           dry_run=not live, state_path=jdir / STATE[pf] if live else None,
-                                           expected_username=IG_ACCOUNT, image_sizes=sizes, ai_generated=True, **extra)
+    result = _collab_retry(lambda collabs: rt.instagram_carousel_publish(
+        urls, {**lesson, 'captions': {**caps, 'instagram': entry['caption']}}, dry_run=not live,
+        state_path=jdir / STATE[pf] if live else None, expected_username=IG_ACCOUNT, image_sizes=sizes, ai_generated=True,
+        **({} if collabs is None else {'collaborators': collabs})), entry.get('collaborators'))
     return {'url': result.get('permalink'), 'media_id': result.get('media_id'), 'status': result.get('status'),
             'collaborators': result.get('collaborators')}
+
+
+# The owner's main Instagram has flipped between @with.hammad and @with.hamad (2 Nov, 5 Nov); a stale handle makes Meta
+# refuse the whole post (code 2207018 "Invalid user id"). Try the other spelling, then post with @hammadagentic.ai alone.
+COLLAB_FALLBACKS = (['with.hammad', 'hammadagentic.ai'], ['with.hamad', 'hammadagentic.ai'], ['hammadagentic.ai'])
+
+
+def _collab_retry(publish, collaborators):
+    tries = [collaborators] + [c for c in COLLAB_FALLBACKS if c != collaborators]
+    for i, collabs in enumerate(tries):
+        try:
+            return publish(collabs)
+        except Exception as error:
+            if i == len(tries) - 1 or not re.search(r'2207018|Invalid user id', str(error)):
+                raise
 
 
 def _guide_stage(slug, base=None):
@@ -163,11 +179,11 @@ def post(entry, rt, live):
         urls = pr.hosted_urls(entry['host_slug'])
         if live:
             pr.host_instagram_media(jdir, entry['host_slug'], entry.get('keyword'), rt)
-        result = rt.instagram_publish(jdir / 'final_ig.mp4', lesson, dry_run=not live,
-                                      state_path=jdir / STATE['instagram'] if live else None,
-                                      expected_username=IG_ACCOUNT, collaborators=entry.get('collaborators'),
-                                      url_provider=urls['video_url'], cover_url=urls['cover_url'],
-                                      cover_path=jdir / 'cover_1080x1920.jpg', ai_generated=True)
+        result = _collab_retry(lambda collabs: rt.instagram_publish(
+            jdir / 'final_ig.mp4', lesson, dry_run=not live, state_path=jdir / STATE['instagram'] if live else None,
+            expected_username=IG_ACCOUNT, collaborators=collabs, url_provider=urls['video_url'],
+            cover_url=urls['cover_url'], cover_path=jdir / 'cover_1080x1920.jpg', ai_generated=True),
+            entry.get('collaborators'))
         return {'url': result.get('permalink'), 'media_id': result.get('media_id'), 'status': result.get('status'),
                 'collaborators': result.get('collaborators')}
     if entry['platform'] == 'youtube':
@@ -358,7 +374,7 @@ def sound_brief(day=None, path=QUEUE, sounds_path=SOUNDS):
             fallback = (_utc(e['slot_utc']) + APP_GRACE).astimezone(timezone(timedelta(hours=4))).strftime('%H:%M')
             reels.append({'id': e['id'], 'post_at_gst': e['local'][11:16], 'api_fallback_gst': fallback, 'keyword': e['keyword'],
                           'video': video, 'cover': str(jdir / 'cover_glow' / 'cover_1080x1920.jpg'),
-                          'collaborators': list(e.get('collaborators') or ('with.hamad', 'hammadagentic.ai')),
+                          'collaborators': list(e.get('collaborators') or ('with.hammad', 'hammadagentic.ai')),
                           'caption': e['caption'], 'after_posting': f"python -m app.repost_queue mark {e['id']} <reel url>"})
     return {'day': day, 'how': sounds.get('how', ''), 'sounds': sounds.get('sounds', []),
             'checked': sounds.get('checked'), 'reels': reels}

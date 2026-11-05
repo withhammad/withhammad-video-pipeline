@@ -1,3 +1,4 @@
+import pytest
 import json
 from datetime import datetime, timezone
 
@@ -240,4 +241,18 @@ def test_sound_brief_lists_the_days_instagram_reels(tmp_path, monkeypatch):
     assert [r['id'] for r in b['reels']] == ['e1'] and b['sounds'] == [{'title': 'S'}]
     r = b['reels'][0]
     assert r['video'].endswith('final_ig.mp4') and r['api_fallback_gst'] == '13:00'
-    assert r['collaborators'] == ['with.hamad', 'hammadagentic.ai'] and 'mark e1' in r['after_posting']
+    assert r['collaborators'] == ['with.hammad', 'hammadagentic.ai'] and 'mark e1' in r['after_posting']
+
+
+def test_a_renamed_collab_handle_falls_back_instead_of_failing_the_post():
+    seen = []
+
+    def publish(collabs):
+        seen.append(collabs)
+        if collabs is None or 'with.hammad' in collabs:
+            raise RuntimeError('HTTP 400, code 110/2207018 Invalid user id: with.hammad')
+        return {'status': 'published'}
+    assert rq._collab_retry(publish, None) == {'status': 'published'}
+    assert seen == [None, ['with.hammad', 'hammadagentic.ai'], ['with.hamad', 'hammadagentic.ai']]
+    with pytest.raises(RuntimeError, match='timeout'):
+        rq._collab_retry(lambda c: (_ for _ in ()).throw(RuntimeError('timeout')), None)   # other errors are not retried
