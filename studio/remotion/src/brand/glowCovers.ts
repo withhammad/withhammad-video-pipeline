@@ -47,6 +47,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '2af4ebc1b07a', date: 'awaiting approval', title: 'The AI productivity paradox: more done than ever, lazier than ever (mood meme)', cover: c('More Done.', 'Lazier Than Ever', LOGO.aiText, LOGO.claude)},
   {job: 'cd157c0bece4', date: 'awaiting approval', title: 'Which Claude model to use: Opus 5.5 vs Sonnet 5.5 (Claude 2.0, concept 1 of 25)', cover: c('Which Claude?', 'Opus vs Sonnet', LOGO.claude, LOGO.anthropic)},
   {job: '23519e29c243', date: 'awaiting approval', title: 'Roast Room: 7 AI advisors debate your decision in Claude Code', cover: c('7 AI Advisors', 'Roasted My Idea', LOGO.claude, LOGO.github)},
   {job: 'dbedc134cc10', date: 'awaiting approval', title: 'Make it better x10: Sonnet 5.5 vs Opus 5.5', cover: c('Make It Better', 'Opus Overdid It', LOGO.claude, LOGO.anthropic)},
