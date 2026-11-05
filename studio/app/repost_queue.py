@@ -52,7 +52,7 @@ ID_PREFIX.update(tiktok='tt', x='xx', youtube_guide='yg', tiktok_guide='tg', x_g
 # (python -m app.guide short <slug> -> outputs/guides/<slug>/short.mp4) on YouTube Shorts (API), TikTok and X (Chrome).
 GUIDE_VIDEO_LANES = ('youtube_guide', 'tiktok_guide', 'x_guide')
 LATE_LIMIT = timedelta(hours=6)
-APP_SOUND_LANES = ('instagram',)   # reels the owner may post from the app with a trending sound
+APP_SOUND_LANES = ('instagram', 'youtube')   # reels/Shorts the owner may post from the app with a trending sound (YouTube: owner 2026-11-05)
 APP_GRACE = timedelta(hours=2)
 SOUNDS = ROOT / 'outputs' / 'video-pipeline' / 'trending-sounds.json'
 
@@ -360,24 +360,30 @@ def chrome_todo(path=QUEUE):
 
 
 def sound_brief(day=None, path=QUEUE, sounds_path=SOUNDS):
-    """The Instagram reels of one GST day for the owner to post in the app with a trending sound."""
+    """The Instagram reels and YouTube Shorts of one GST day for the owner to post in the app with a trending sound."""
     day = day or datetime.now(timezone(timedelta(hours=4))).strftime('%Y-%m-%d')
     try:
         sounds = json.loads(Path(sounds_path).read_text())
     except FileNotFoundError:
         sounds = {}
     reels = []
-    for e in load(path)['entries']:
+    for e in sorted(load(path)['entries'], key=lambda e: e['slot_utc']):
         if e['platform'] in APP_SOUND_LANES and e.get('status') == 'pending' and e['local'].startswith(day):
             jdir = JOBS / e['job']
-            video = next((str(jdir / n) for n in ('final_ig.mp4', 'final.mp4', 'final_social.mp4') if (jdir / n).exists()), str(jdir / 'final.mp4'))
+            names = ('final_ig.mp4', 'final.mp4', 'final_social.mp4') if e['platform'] == 'instagram' else ('final.mp4', 'final_social.mp4')
+            video = next((str(jdir / n) for n in names if (jdir / n).exists()), str(jdir / names[0]))
             fallback = (_utc(e['slot_utc']) + APP_GRACE).astimezone(timezone(timedelta(hours=4))).strftime('%H:%M')
-            reels.append({'id': e['id'], 'post_at_gst': e['local'][11:16], 'api_fallback_gst': fallback, 'keyword': e['keyword'],
-                          'video': video, 'cover': str(jdir / 'cover_glow' / 'cover_1080x1920.jpg'),
-                          'collaborators': list(e.get('collaborators') or ('with.hammad', 'hammadagentic.ai')),
-                          'caption': e['caption'], 'after_posting': f"python -m app.repost_queue mark {e['id']} <reel url>"})
-    return {'day': day, 'how': sounds.get('how', ''), 'sounds': sounds.get('sounds', []),
-            'checked': sounds.get('checked'), 'reels': reels}
+            row = {'id': e['id'], 'platform': e['platform'], 'post_at_gst': e['local'][11:16], 'api_fallback_gst': fallback,
+                   'keyword': e['keyword'], 'video': video, 'cover': str(jdir / 'cover_glow' / 'cover_1080x1920.jpg'),
+                   'caption': e['caption'], 'after_posting': f"python -m app.repost_queue mark {e['id']} <post url>"}
+            if e['platform'] == 'instagram':
+                row['collaborators'] = list(e.get('collaborators') or ('with.hammad', 'hammadagentic.ai'))
+            else:
+                row['title'] = e['title']
+            reels.append(row)
+    per = {pf: {'how': (sounds.get(pf) or sounds).get('how', ''), 'sounds': (sounds.get(pf) or sounds).get('sounds', [])}
+           for pf in APP_SOUND_LANES}
+    return {'day': day, 'checked': sounds.get('checked'), **per['instagram'], 'platforms': per, 'reels': reels}
 
 
 def mark(entry_id, url, scheduled=False, path=QUEUE):

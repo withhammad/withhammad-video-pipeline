@@ -109,7 +109,7 @@ def test_youtube_entry_uses_seo_title_public_and_cover(tmp_path, monkeypatch):
     q = setup(tmp_path, monkeypatch, [entry(1, '2026-11-09T05:00:00Z', 'youtube')])
     (tmp_path / 'jobs' / 'j' / 'seo').mkdir(exist_ok=True)
     (tmp_path / 'jobs' / 'j' / 'seo' / 'seo.json').write_text(json.dumps({'youtube': {'title': 'T', 'tags': ['a']}}))
-    rep = rq.run_due(datetime(2026, 11, 9, 5, 5, tzinfo=timezone.utc), live=True, rt=Rt(), path=q)
+    rep = rq.run_due(datetime(2026, 11, 9, 7, 5, tzinfo=timezone.utc), live=True, rt=Rt(), path=q)
     assert rep['posted'][0]['url'] == 'https://www.youtube.com/shorts/abc'
     assert seen == {'title': 'T', 'desc': 'c', 'privacy': 'public', 'thumb': str(tmp_path / 'jobs' / 'j' / 'cover_1080x1920.jpg'), 'dry': False}
 
@@ -236,7 +236,7 @@ def test_sound_brief_lists_the_days_instagram_reels(tmp_path, monkeypatch):
           dict(entry(3, '2026-11-04T07:00:00Z'), local='2026-11-04 11:00 GST')]
     q = setup(tmp_path, monkeypatch, es)
     (tmp_path / 'jobs' / 'j' / 'final_ig.mp4').write_bytes(b'v')
-    s = tmp_path / 's.json'; s.write_text(json.dumps({'how': 'h', 'sounds': [{'title': 'S'}], 'checked': '2026-11-03'}))
+    s = tmp_path / 's.json'; s.write_text(json.dumps({'instagram': {'how': 'h', 'sounds': [{'title': 'S'}]}, 'checked': '2026-11-03'}))
     b = rq.sound_brief('2026-11-03', path=q, sounds_path=s)
     assert [r['id'] for r in b['reels']] == ['e1'] and b['sounds'] == [{'title': 'S'}]
     r = b['reels'][0]
@@ -256,3 +256,13 @@ def test_a_renamed_collab_handle_falls_back_instead_of_failing_the_post():
     assert seen == [None, ['with.hammad', 'hammadagentic.ai'], ['with.hamad', 'hammadagentic.ai']]
     with pytest.raises(RuntimeError, match='timeout'):
         rq._collab_retry(lambda c: (_ for _ in ()).throw(RuntimeError('timeout')), None)   # other errors are not retried
+
+
+def test_youtube_shorts_also_wait_for_an_app_post_with_a_trending_sound(tmp_path, monkeypatch):
+    es = [dict(entry(1, '2026-11-03T08:00:00Z', 'youtube'), local='2026-11-03 12:00 GST')]
+    assert rq.due(es, datetime(2026, 11, 3, 9, 0, tzinfo=timezone.utc))[0] == []
+    assert [e['id'] for e in rq.due(es, datetime(2026, 11, 3, 10, 5, tzinfo=timezone.utc))[0]] == ['e1']
+    q = setup(tmp_path, monkeypatch, es)
+    (tmp_path / 'jobs' / 'j' / 'final.mp4').write_bytes(b'v')
+    r = rq.sound_brief('2026-11-03', path=q, sounds_path=tmp_path / 'none.json')['reels'][0]
+    assert r['platform'] == 'youtube' and r['video'].endswith('final.mp4') and r['api_fallback_gst'] == '14:00'

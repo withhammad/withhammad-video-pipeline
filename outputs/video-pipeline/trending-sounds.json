@@ -1,12 +1,44 @@
 {
   "checked": "2026-11-03",
-  "how": "Instagram app on @withhammad.ai: + > Reel > pick the video > Next > Audio (music note). Search the sound below or take any sound in the picker with the trending arrow (↗). Then Mix audio (tune icon): Camera/original audio 100, the sound 5-10, so the voice stays clear. Next: paste the caption, Tag people > Invite collaborator @with.hamad and @hammadagentic.ai, Edit cover > Add from camera roll (the cover file), Advanced settings: AI label on. Share. Then send me the reel link (or run the after_posting command). If not posted by the api_fallback time, the pipeline posts it without the sound.",
-  "sounds": [
-    {"title": "Housewife", "artist": "Tate McRae", "why": "fastest climber, about 190K Reels after two weeks", "source": "https://www.socialpilot.co/blog/instagram-reels-trends"},
-    {"title": "Angel of My Dreams", "artist": "JADE", "why": "most actively used sound on SocialPilot's 31 Oct-10 Nov list", "source": "https://www.socialpilot.co/blog/instagram-reels-trends"},
-    {"title": "Patient Zero", "artist": "Taylor Swift", "why": "top on two lists (Newengen, CreatorDB), about 53K Reels", "source": "https://newengen.com/insights/instagram-trends/"},
-    {"title": "Ramalama (Bang Bang)", "artist": "Róisín Murphy", "why": "number 2 on Newengen this week", "source": "https://newengen.com/insights/instagram-trends/"},
-    {"title": "Autumn Colors", "artist": "LuLuMusic", "why": "trending and cleared for business accounts (safe fallback)", "source": "https://newengen.com/insights/instagram-trends/"}
-  ],
-  "note": "Lists from third-party trackers; the app's own trending arrow is the final word. YouTube stays on our own music (library songs share Shorts revenue and claim long videos)."
+  "note": "Third-party lists for Instagram; each app's own trending list is the final word.",
+  "instagram": {
+    "how": "Instagram app on @withhammad.ai: + > Reel > pick the video > Next > Audio (music note). Search the sound below or take any sound in the picker with the trending arrow (↗). Then Mix audio (tune icon): Camera/original audio 100, the sound 5-10, so the voice stays clear. Next: paste the caption, Tag people > Invite collaborator @with.hamad and @hammadagentic.ai, Edit cover > Add from camera roll (the cover file), Advanced settings: AI label on. Share. Then send me the reel link (or run the after_posting command). If not posted by the api_fallback time, the pipeline posts it without the sound.",
+    "sounds": [
+      {
+        "title": "Housewife",
+        "artist": "Tate McRae",
+        "why": "fastest climber, about 190K Reels after two weeks",
+        "source": "https://www.socialpilot.co/blog/instagram-reels-trends"
+      },
+      {
+        "title": "Angel of My Dreams",
+        "artist": "JADE",
+        "why": "most actively used sound on SocialPilot's 31 Oct-10 Nov list",
+        "source": "https://www.socialpilot.co/blog/instagram-reels-trends"
+      },
+      {
+        "title": "Patient Zero",
+        "artist": "Taylor Swift",
+        "why": "top on two lists (Newengen, CreatorDB), about 53K Reels",
+        "source": "https://newengen.com/insights/instagram-trends/"
+      },
+      {
+        "title": "Ramalama (Bang Bang)",
+        "artist": "Róisín Murphy",
+        "why": "number 2 on Newengen this week",
+        "source": "https://newengen.com/insights/instagram-trends/"
+      },
+      {
+        "title": "Autumn Colors",
+        "artist": "LuLuMusic",
+        "why": "trending and cleared for business accounts (safe fallback)",
+        "source": "https://newengen.com/insights/instagram-trends/"
+      }
+    ]
+  },
+  "youtube": {
+    "how": "YouTube app on the HAMMAD YOUSUF channel: + > Short > Upload (pick the video, the 9:16 final.mp4) > Add sound > search 'trending' or open the Trending list, pick a sound > Volume: Original 100, added sound 5-10. Next: title from the brief, description = caption, Visibility Public, 'Altered or synthetic content: Yes'. Upload. Then send me the Short link (or run the after_posting command). If not posted by the api_fallback time, the pipeline uploads it without the sound.",
+    "sounds": [],
+    "note": "No reliable third-party list of this week's Shorts sounds; take one from the Add sound > Trending list in the app. A library song makes YouTube share that Short's ad revenue with the music rights holders (one track: the creator share is halved)."
+  }
 }
