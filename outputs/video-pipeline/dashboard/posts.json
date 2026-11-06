@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-06T05:08:40Z",
+ "updated_at": "2026-11-06T06:12:36Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -757,54 +757,6 @@
    "when": "2026-11-06",
    "slot_utc": "2026-11-06T09:00:00Z",
    "local": "2026-11-06 13:00 GST",
-   "account": ""
-  },
-  {
-   "job": null,
-   "keyword": "HIRED",
-   "title": "8 Claude Prompts To Land a Job",
-   "platform": "instagram_guide",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-06",
-   "slot_utc": "2026-11-06T06:00:00Z",
-   "local": "2026-11-06 10:00 GST",
-   "account": ""
-  },
-  {
-   "job": null,
-   "keyword": "HIRED",
-   "title": "8 Claude Prompts To Land a Job",
-   "platform": "facebook_guide",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-06",
-   "slot_utc": "2026-11-06T06:00:00Z",
-   "local": "2026-11-06 10:00 GST",
-   "account": ""
-  },
-  {
-   "job": null,
-   "keyword": "HIRED",
-   "title": "8 Claude Prompts To Land a Job",
-   "platform": "linkedin_guide",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-06",
-   "slot_utc": "2026-11-06T06:00:00Z",
-   "local": "2026-11-06 10:00 GST",
-   "account": ""
-  },
-  {
-   "job": null,
-   "keyword": "HIRED",
-   "title": "8 Claude Prompts To Land a Job",
-   "platform": "youtube_guide",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-06",
-   "slot_utc": "2026-11-06T06:00:00Z",
-   "local": "2026-11-06 10:00 GST",
    "account": ""
   },
   {
