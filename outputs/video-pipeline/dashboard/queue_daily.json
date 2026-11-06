@@ -1,37 +1,108 @@
 {
- "updated_at": "2026-11-01T13:30:06Z",
+ "updated_at": "2026-11-06T05:08:40Z",
  "rows": [
   {
    "day": "2026-11-02",
+   "pending": 0,
+   "posted": 13,
+   "failed": 0,
+   "missed": 0,
+   "scheduled": 6
+  },
+  {
+   "day": "2026-11-03",
+   "pending": 0,
+   "posted": 10,
+   "failed": 0,
+   "missed": 0,
+   "scheduled": 6
+  },
+  {
+   "day": "2026-11-11",
    "pending": 6,
-   "posted": 2,
+   "posted": 0,
    "failed": 0,
    "missed": 0
   },
   {
-   "day": "2026-11-03",
-   "pending": 8,
+   "day": "2026-11-13",
+   "pending": 4,
    "posted": 0,
    "failed": 0,
    "missed": 0
   },
   {
    "day": "2026-11-04",
-   "pending": 8,
-   "posted": 0,
+   "pending": 0,
+   "posted": 5,
    "failed": 0,
-   "missed": 0
+   "missed": 0,
+   "scheduled": 6
   },
   {
    "day": "2026-11-05",
+   "pending": 0,
+   "posted": 12,
+   "failed": 0,
+   "missed": 0,
+   "scheduled": 6
+  },
+  {
+   "day": "2026-11-06",
+   "pending": 11,
+   "posted": 1,
+   "failed": 0,
+   "missed": 0,
+   "scheduled": 6
+  },
+  {
+   "day": "2026-11-07",
+   "pending": 12,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0,
+   "scheduled": 6
+  },
+  {
+   "day": "2026-11-08",
+   "pending": 12,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0,
+   "scheduled": 5
+  },
+  {
+   "day": "2026-11-09",
    "pending": 7,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0,
+   "scheduled": 1
+  },
+  {
+   "day": "2026-11-10",
+   "pending": 6,
    "posted": 0,
    "failed": 0,
    "missed": 0
   },
   {
-   "day": "2026-11-06",
-   "pending": 2,
+   "day": "2026-11-12",
+   "pending": 4,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0
+  },
+  {
+   "day": "2026-11-14",
+   "pending": 4,
+   "posted": 0,
+   "failed": 0,
+   "missed": 0
+  },
+  {
+   "day": "2026-11-15",
+   "pending": 1,
    "posted": 0,
    "failed": 0,
    "missed": 0

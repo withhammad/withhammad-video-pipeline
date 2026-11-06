@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-01T13:30:06Z",
+ "updated_at": "2026-11-06T05:08:40Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -17,11 +17,11 @@
    "platforms_on": 5
   },
   {
-   "job": "6cff0a62569f",
-   "title": "Forward Deployed Engineer: a free 6-week roadmap (2026)",
-   "keyword": "ROADMAP",
-   "slug": "forward-deployed-engineer-roadmap",
-   "seo_researched": "no",
+   "job": "23519e29c243",
+   "title": "Roast Room: 7 AI business advisors debate your decision in Claude Code",
+   "keyword": "ROAST",
+   "slug": "roast-room",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "no",
    "linkedin": "no",
@@ -32,19 +32,34 @@
    "platforms_on": 0
   },
   {
+   "job": "6cff0a62569f",
+   "title": "Forward Deployed Engineer: a free 6-week roadmap (2026)",
+   "keyword": "ROADMAP",
+   "slug": "forward-deployed-engineer-roadmap",
+   "seo_researched": "yes",
+   "blog_live": "no",
+   "youtube": "yes",
+   "linkedin": "yes",
+   "instagram": "no",
+   "tiktok": "no",
+   "facebook": "no",
+   "x": "no",
+   "platforms_on": 2
+  },
+  {
    "job": "6f8f4ad316a3",
    "title": "What an AI startup really costs: the 14-tool stack and the honest mont",
    "keyword": "STACK",
    "slug": "ai-startup-stack-costs",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
-   "youtube": "no",
+   "youtube": "yes",
    "linkedin": "no",
    "instagram": "no",
    "tiktok": "no",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 0
+   "platforms_on": 1
   },
   {
    "job": "7123480a28ca",
@@ -54,19 +69,19 @@
    "seo_researched": "yes",
    "blog_live": "yes",
    "youtube": "yes",
-   "linkedin": "no",
+   "linkedin": "yes",
    "instagram": "yes",
    "tiktok": "yes",
-   "facebook": "no",
+   "facebook": "yes",
    "x": "no",
-   "platforms_on": 3
+   "platforms_on": 5
   },
   {
    "job": "91ac50635d3d",
    "title": "UAE 100 Dreams: USD 10,000 for 100 media business ideas, the verified ",
    "keyword": "PITCH",
    "slug": "100-dreams-uae",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "no",
    "linkedin": "no",
@@ -111,22 +126,22 @@
    "title": "How an AI agent works: one loop inside a harness",
    "keyword": "LOOP",
    "slug": "how-ai-agents-work",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
-   "youtube": "no",
+   "youtube": "yes",
    "linkedin": "no",
    "instagram": "no",
    "tiktok": "no",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 0
+   "platforms_on": 1
   },
   {
    "job": "agentic-concepts",
    "title": "9 agentic AI concepts every builder should know",
    "keyword": "AGENTIC",
    "slug": "agentic-ai-concepts",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "no",
    "linkedin": "no",
@@ -141,7 +156,7 @@
    "title": "The 8 parts of a Claude Motion prompt: write 7 once, rewrite only the ",
    "keyword": "BRIEF",
    "slug": "claude-motion-prompt",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "no",
    "linkedin": "no",
@@ -156,7 +171,7 @@
    "title": "Claude Motion: 16 Apple-style animations from one brief",
    "keyword": "APPLE",
    "slug": "claude-motion-apple-animations",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "no",
    "linkedin": "no",
@@ -171,7 +186,7 @@
    "title": "AI Dashboard Audit: The Duplicate Order Trap",
    "keyword": "CHECK",
    "slug": "ai-dashboard-data-check",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "no",
    "linkedin": "no",
@@ -189,12 +204,12 @@
    "seo_researched": "yes",
    "blog_live": "yes",
    "youtube": "yes",
-   "linkedin": "no",
+   "linkedin": "yes",
    "instagram": "no",
    "tiktok": "yes",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 2
+   "platforms_on": 3
   },
   {
    "job": "c6e60a58849b",
@@ -204,12 +219,12 @@
    "seo_researched": "yes",
    "blog_live": "yes",
    "youtube": "yes",
-   "linkedin": "no",
-   "instagram": "no",
+   "linkedin": "yes",
+   "instagram": "yes",
    "tiktok": "yes",
-   "facebook": "no",
+   "facebook": "yes",
    "x": "no",
-   "platforms_on": 2
+   "platforms_on": 5
   },
   {
    "job": "c9d9bd2b786c",
@@ -219,12 +234,12 @@
    "seo_researched": "yes",
    "blog_live": "yes",
    "youtube": "yes",
-   "linkedin": "no",
+   "linkedin": "yes",
    "instagram": "no",
    "tiktok": "yes",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 2
+   "platforms_on": 3
   },
   {
    "job": "claude-linkedin-installs",
@@ -246,7 +261,7 @@
    "title": "One word. 24 files?",
    "keyword": "SCOPE",
    "slug": "small-change-checklist",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "no",
    "linkedin": "no",
@@ -261,7 +276,7 @@
    "title": "Dubai's Create AI Agents Championship: $150,000 per winning AI agent, ",
    "keyword": "AGENT",
    "slug": "dubai-ai-agents-championship",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "yes",
    "linkedin": "no",
@@ -279,27 +294,27 @@
    "seo_researched": "yes",
    "blog_live": "yes",
    "youtube": "yes",
-   "linkedin": "no",
+   "linkedin": "yes",
    "instagram": "no",
    "tiktok": "yes",
-   "facebook": "no",
+   "facebook": "yes",
    "x": "no",
-   "platforms_on": 2
+   "platforms_on": 4
   },
   {
    "job": "dots-20261027",
    "title": "OpenAI dots: AI agents that keep working after you log off",
    "keyword": "DOTS",
    "slug": "openai-dots",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
-   "youtube": "no",
+   "youtube": "yes",
    "linkedin": "no",
    "instagram": "no",
    "tiktok": "no",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 0
+   "platforms_on": 1
   },
   {
    "job": "f7da978d101e",
@@ -336,7 +351,7 @@
    "title": "Claude motion graphics: clone a brand look, then animate it one line a",
    "keyword": "BRAND",
    "slug": "claude-motion-graphics",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "no",
    "linkedin": "no",
@@ -351,7 +366,7 @@
    "title": "Harness engineering: the layer that makes an AI agent reliable",
    "keyword": "HARNESS",
    "slug": "harness-engineering",
-   "seo_researched": "no",
+   "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "no",
    "linkedin": "no",
@@ -369,12 +384,12 @@
    "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "yes",
-   "linkedin": "no",
+   "linkedin": "yes",
    "instagram": "yes",
    "tiktok": "no",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 2
+   "platforms_on": 3
   },
   {
    "job": "website20261020",
@@ -384,12 +399,12 @@
    "seo_researched": "yes",
    "blog_live": "yes",
    "youtube": "yes",
-   "linkedin": "no",
+   "linkedin": "yes",
    "instagram": "yes",
    "tiktok": "yes",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 3
+   "platforms_on": 4
   }
  ]
 }

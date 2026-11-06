@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-01T13:30:06Z",
+ "updated_at": "2026-11-06T05:08:40Z",
  "rows": [
   {
    "keyword": "SCOPE",
@@ -56,6 +56,82 @@
   {
    "keyword": "MOTION",
    "link": "https://withhammad.com/resources/ai-motion-starter-kit"
+  },
+  {
+   "keyword": "ROADMAP",
+   "link": "https://withhammad.com/resources/forward-deployed-engineer-roadmap"
+  },
+  {
+   "keyword": "STACK",
+   "link": "https://withhammad.com/resources/ai-startup-stack-costs"
+  },
+  {
+   "keyword": "PITCH",
+   "link": "https://withhammad.com/resources/100-dreams-uae"
+  },
+  {
+   "keyword": "LOOP",
+   "link": "https://withhammad.com/resources/how-ai-agents-work"
+  },
+  {
+   "keyword": "AGENTIC",
+   "link": "https://withhammad.com/resources/agentic-ai-concepts"
+  },
+  {
+   "keyword": "BRIEF",
+   "link": "https://withhammad.com/resources/claude-motion-prompt"
+  },
+  {
+   "keyword": "APPLE",
+   "link": "https://withhammad.com/resources/claude-motion-apple-animations"
+  },
+  {
+   "keyword": "CHECK",
+   "link": "https://withhammad.com/resources/ai-dashboard-data-check"
+  },
+  {
+   "keyword": "AGENT",
+   "link": "https://withhammad.com/resources/dubai-ai-agents-championship"
+  },
+  {
+   "keyword": "DOTS",
+   "link": "https://withhammad.com/resources/openai-dots"
+  },
+  {
+   "keyword": "BRAND",
+   "link": "https://withhammad.com/resources/claude-motion-graphics"
+  },
+  {
+   "keyword": "HARNESS",
+   "link": "https://withhammad.com/resources/harness-engineering"
+  },
+  {
+   "keyword": "ACADEMY",
+   "link": "https://withhammad.com/media/guides/claude-academy.pdf"
+  },
+  {
+   "keyword": "CONSULT",
+   "link": "https://withhammad.com/media/guides/consulting-with-ai.pdf"
+  },
+  {
+   "keyword": "MARKETING",
+   "link": "https://withhammad.com/media/guides/marketing-ai-agents.pdf"
+  },
+  {
+   "keyword": "PRIVACY",
+   "link": "https://withhammad.com/media/guides/ai-privacy-checkup.pdf"
+  },
+  {
+   "keyword": "HIRED",
+   "link": "https://withhammad.com/media/guides/claude-job-prompts.pdf"
+  },
+  {
+   "keyword": "HIRE",
+   "link": "https://withhammad.com/media/guides/claude-team-skills.pdf"
+  },
+  {
+   "keyword": "OUTBOUND",
+   "link": "https://withhammad.com/media/guides/claude-code-cold-email.pdf"
   }
  ]
 }
