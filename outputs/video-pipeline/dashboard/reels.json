@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-06T09:09:05Z",
+ "updated_at": "2026-11-06T10:08:42Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -188,13 +188,13 @@
    "slug": "ai-dashboard-data-check",
    "seo_researched": "yes",
    "blog_live": "no",
-   "youtube": "no",
+   "youtube": "yes",
    "linkedin": "no",
    "instagram": "no",
    "tiktok": "no",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 0
+   "platforms_on": 1
   },
   {
    "job": "b55491077ab1",
@@ -402,9 +402,9 @@
    "linkedin": "yes",
    "instagram": "yes",
    "tiktok": "yes",
-   "facebook": "no",
+   "facebook": "yes",
    "x": "no",
-   "platforms_on": 4
+   "platforms_on": 5
   }
  ]
 }

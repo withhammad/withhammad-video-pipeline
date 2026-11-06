@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-06T09:09:05Z",
+ "updated_at": "2026-11-06T10:08:42Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -372,6 +372,16 @@
    "account": ""
   },
   {
+   "job": "website20261020",
+   "keyword": "DESIGN",
+   "title": "AI Website Transformation: A Better Design Brief",
+   "platform": "facebook",
+   "url": "https://www.facebook.com/reel/2166979903913630/",
+   "status": "posted",
+   "when": "2026-11-06",
+   "account": "page"
+  },
+  {
    "job": null,
    "keyword": "ACADEMY",
    "title": "FREE Claude Courses: all 24, with completion badges",
@@ -624,18 +634,6 @@
    "account": ""
   },
   {
-   "job": "website20261020",
-   "keyword": "DESIGN",
-   "title": "AI Website Transformation: A Better Design Brief",
-   "platform": "facebook",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-06",
-   "slot_utc": "2026-11-06T10:00:00Z",
-   "local": "2026-11-06 14:00 GST",
-   "account": ""
-  },
-  {
    "job": null,
    "keyword": "MARKETING",
    "title": "Best 7 Marketing AI Agents and the free tools to build them",
@@ -837,18 +835,6 @@
    "when": "2026-11-06",
    "slot_utc": "2026-11-06T10:00:00Z",
    "local": "2026-11-06 14:00 GST",
-   "account": ""
-  },
-  {
-   "job": "audit20261020",
-   "keyword": "CHECK",
-   "title": "AI Dashboard Audit: The Duplicate Order Trap",
-   "platform": "youtube",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-06",
-   "slot_utc": "2026-11-06T08:00:00Z",
-   "local": "2026-11-06 12:00 GST",
    "account": ""
   },
   {
