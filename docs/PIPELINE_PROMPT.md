@@ -49,6 +49,23 @@ Reference: <link>
    a high-contrast box, no small text; show the owner the cover sheet with the crops. app.thumbnail build for every size; seo-pack for per-platform titles, descriptions,
    captions, hashtags, tags, alt text, AI labels and CTA.
 
+5b. Exact copy + virality test (owner rule 2026-11-06: "the thing should be same, exactly what it is ... it should go
+   virality. Test the virality."). Before the owner sees anything:
+   - Exact-copy check, beat by beat against the reference (side-by-side contact sheet, 1 frame/s, both videos):
+     same hook words and on-screen hook, same beats in the same order, same scene types, layouts, screens, logos,
+     transitions, caption style and pacing, length within 10% of the reference. Only these change: his face (the
+     approved avatar look), his voice, WITHHAMMAD branding, the comment keyword/CTA, and facts the reference got wrong.
+     Anything else that differs is a defect to fix, not a creative choice.
+   - Virality scorecard, written to the job's virality.md with a score per line and the evidence (frame/time):
+     hook readable and moving in the first second; pattern interrupt by 3 s; a visual change every 1.5-3 s; no dead
+     frame or flat stretch over 2 s; captions on every word; payoff before the last 20 %; loop-friendly last frame;
+     one clear comment keyword; cover wins at grid size; reference baseline (its views, likes, comments, shares from
+     the intake info.json) next to our expected cut. Any line below "good" gets fixed and re-scored.
+   - Optional when the owner approves the credits: run a third-party virality predictor on both the reference and
+     our cut and record both scores.
+   - After posting: views and retention at 24 h and 72 h vs the reference's numbers go into the scorecard, so the
+     next rebuild learns from it.
+
 6. Owner review. Send the final video, the cover sheet and the per-platform copy. STOP. Nothing goes out
    until the owner says this reel is approved.
 
