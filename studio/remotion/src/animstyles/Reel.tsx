@@ -9,8 +9,8 @@ import {StyleCard, STYLE_NAMES} from './Styles';
 // starfield, title "10 Claude* / Animation styles" on top, numbered list on the left that fills in as each name is
 // said (current number coral, current name bold white), a 9:16 card on the right showing the same office-walk shot in
 // that style, wiped in from the right; then a 3+3 grid with "Comment ANIMATE for the prompts" between the rows.
-// Polish over the reference: every style is a real animation built from a prompt (no stills), "Hologram"/"Anime Cel"
-// spelled right, larger card and type, honest subtitle ("all built with Claude" instead of "To Go Viral").
+// Exact copy (PIPELINE_PROMPT 5b): same beats on the reference's own clock (data.json), same texts; only the voice,
+// WITHHAMMAD and the keyword (ANIMATE) change. Every style is our own animation of the same scene.
 loadFont({family: 'ASSans', url: staticFile('fonts/inter-latin-500-normal.woff2'), weight: '500'});
 loadFont({family: 'ASSans', url: staticFile('fonts/inter-latin-700-normal.woff2'), weight: '700'});
 loadFont({family: 'ASSans', url: staticFile('fonts/inter-latin-900-normal.woff2'), weight: '900'});
@@ -47,7 +47,7 @@ const Title: React.FC<{f: number; op: number}> = ({f, op}) => <div style={{posit
     <span style={{fontFamily: SANS, fontWeight: 900, fontStyle: 'italic', display: 'inline-block', transform: 'skewX(-8deg)'}}>Animation</span>
     <span style={{fontFamily: SANS, fontWeight: 500}}> styles</span>
   </div>
-  <div style={{marginTop: 14, fontFamily: SANS, fontWeight: 500, fontSize: 38, color: 'rgba(255,255,255,.78)'}}>(each one built from a single prompt)</div>
+  <div style={{marginTop: 14, fontFamily: SANS, fontWeight: 500, fontSize: 38, color: 'rgba(255,255,255,.78)'}}>(To Go Viral)</div>
 </div>;
 
 const LIST_TOP = 640, ROW = 80;
@@ -68,12 +68,11 @@ const Card: React.FC<{f: number; children: React.ReactNode; style?: React.CSSPro
 // main card: current style, the incoming one wipes in from the right over 8 frames with a soft light edge
 const MainCard: React.FC<{f: number}> = ({f}) => {
   const k = D.styles.reduce((a: number, s: number, i: number) => (f >= s ? i : a), 0);
-  const prev = Math.max(0, k - 1), at = D.styles[k], w = k === 0 ? 1 : ease(ramp(f, at, at + 8));
+  const prev = Math.max(0, k - 1), at = D.styles[k], w = k === 0 ? 1 : ramp(f, at, at + 4);
   const tOf = (i: number) => (f - (i === 0 ? 0 : D.styles[i])) / FPS;
   return <Card f={f} style={{left: CARD.x, top: CARD.y, width: CARD.w, height: CARD.h}}>
-    {w < 1 && <div style={{position: 'absolute', inset: 0}}><StyleCard i={prev} t={tOf(prev)} id={`m${prev}`}/></div>}
+    {w < 1 && <div style={{position: 'absolute', inset: 0, transform: `translateX(${-w * 100}%)`}}><StyleCard i={prev} t={tOf(prev)} id={`m${prev}`}/></div>}
     <div style={{position: 'absolute', inset: 0, clipPath: `inset(0 0 0 ${(1 - w) * 100}%)`}}><StyleCard i={k} t={tOf(k)} id={`m${k}`}/></div>
-    {w < 1 && <div style={{position: 'absolute', top: 0, bottom: 0, left: `${(1 - w) * 100}%`, width: 6, marginLeft: -3, background: 'rgba(255,255,255,.9)', boxShadow: '0 0 30px 8px rgba(255,255,255,.5)'}}/>}
   </Card>;
 };
 
@@ -81,7 +80,7 @@ const MainCard: React.FC<{f: number}> = ({f}) => {
 const GRID = [0, 1, 2, 6, 5, 9];
 const Ending: React.FC<{f: number}> = ({f}) => {
   const c = D.cta, cw = 316, chh = 562, gap = 24, x0 = (1080 - (3 * cw + 2 * gap)) / 2;
-  const kwP = pop(f, D.keyword);
+  const kwP = pop(f, c + 8);
   return <>
     {GRID.map((s, j) => {
       const row = j < 3 ? 0 : 1, col = j % 3, p = pop(f, c + j * 2);
@@ -90,25 +89,25 @@ const Ending: React.FC<{f: number}> = ({f}) => {
         <StyleCard i={s} t={(f - c) / FPS + 0.4} id={`e${j}`}/></Card>;
     })}
     <div style={{position: 'absolute', left: 0, right: 0, top: 772, textAlign: 'center', color: '#fff', fontFamily: SANS, fontWeight: 900, fontSize: 70, lineHeight: 1.08, letterSpacing: -1.5,
-      opacity: ramp(f, c + 2, c + 8), transform: `translateY(${(1 - ease(ramp(f, c + 2, c + 10))) * 20}px)`}}>
-      <div>Comment <span style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400, fontSize: 92, color: CORAL, display: 'inline-block', transform: `scale(${1 + 0.12 * kwP * Math.max(0, 1 - (f - D.keyword) / 20)})`}}>“ANIMATE”</span></div>
-      <div style={{fontWeight: 700, fontSize: 60}}>for all 10 prompts</div>
+      opacity: ramp(f, c, c + 4)}}>
+      <div>Comment <span style={{fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400, fontSize: 92, color: CORAL, display: 'inline-block', transform: `scale(${1 + 0.12 * kwP * Math.max(0, 1 - (f - c - 8) / 20)})`}}>“ANIMATE”</span></div>
+      <div style={{fontWeight: 700, fontSize: 60}}>for the Prompts</div>
     </div>
   </>;
 };
 
 export const Reel: React.FC = () => {
   const f = useCurrentFrame();
-  const out = ease(ramp(f, D.cta - 4, D.cta + 6));
+  const out = ramp(f, D.fade, D.cta);
   const cur = D.styles.reduce((a: number, s: number, i: number) => (f >= s ? i : a), -1);
   return <AbsoluteFill style={{background: '#070708'}}>
     <Stars f={f}/>
     <Title f={f} op={1 - out}/>
     <List f={f} cur={cur} op={1 - out}/>
-    {f < D.cta + 6 && <div style={{opacity: 1 - out, transform: `scale(${1 - 0.06 * out})`, transformOrigin: '75% 55%', position: 'absolute', inset: 0}}><MainCard f={f}/></div>}
-    {f >= D.cta - 2 && <Ending f={f}/>}
+    {f < D.cta && <div style={{opacity: 1 - out, position: 'absolute', inset: 0}}><MainCard f={f}/></div>}
+    {f >= D.cta && <Ending f={f}/>}
     <div style={{position: 'absolute', left: 54, top: 1462, fontFamily: SANS, fontWeight: 700, fontSize: 22, letterSpacing: 7, color: 'rgba(255,255,255,.5)', opacity: 1 - out}}>WITHHAMMAD</div>
-    <div style={{position: 'absolute', left: 0, right: 0, top: 956, textAlign: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 22, letterSpacing: 7, color: 'rgba(255,255,255,.5)', opacity: ramp(f, D.cta + 6, D.cta + 14)}}>WITHHAMMAD</div>
+    <div style={{position: 'absolute', left: 0, right: 0, top: 956, textAlign: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 22, letterSpacing: 7, color: 'rgba(255,255,255,.5)', opacity: ramp(f, D.cta + 4, D.cta + 10)}}>WITHHAMMAD</div>
     {D.standin && <div style={{position: 'absolute', left: 0, right: 0, top: 60, display: 'flex', justifyContent: 'center'}}>
       <div style={{background: '#D32F2F', color: '#fff', fontFamily: SANS, fontWeight: 700, fontSize: 26, letterSpacing: 2, padding: '8px 20px', borderRadius: 10}}>STAND-IN VOICE · NOT FOR POSTING</div></div>}
     <Audio src={staticFile('animstyles/voice.wav')}/>

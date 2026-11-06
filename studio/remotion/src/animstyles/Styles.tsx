@@ -30,22 +30,26 @@ const Mono: React.FC<{x: number; y: number; size?: number; fill: string; anchor?
 // 1 ---------------------------------------------------------------- Hologram
 const Hologram: React.FC<{t: number; id: string}> = ({t, id}) => {
   const fig = rig(t), C = '#5FF3FF', flick = 0.85 + 0.15 * Math.sin(t * 37) * Math.sin(t * 13);
-  return <Svg bg="#02070D">
+  return <Svg bg="#031426">
     <defs>
       <filter id={`hg${id}`} x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       <pattern id={`hs${id}`} width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.4" fill="rgba(95,243,255,.10)"/></pattern>
+      <radialGradient id={`hb${id}`} cx="50%" cy="45%" r="70%"><stop offset="0" stopColor="#0C3A5E"/><stop offset="1" stopColor="#020A14"/></radialGradient>
       <radialGradient id={`hr${id}`}><stop offset="0" stopColor="#5FF3FF" stopOpacity=".55"/><stop offset="1" stopColor="#5FF3FF" stopOpacity="0"/></radialGradient>
     </defs>
+    <rect width={CW} height={CH} fill={`url(#hb${id})`}/>
     {Array.from({length: 13}, (_, i) => <line key={i} x1={CW / 2} y1={FLOOR - 40} x2={-400 + i * 112} y2={CH} stroke="rgba(95,243,255,.22)" strokeWidth={1}/>)}
     {Array.from({length: 6}, (_, i) => { const y = FLOOR + Math.pow(i / 5, 1.6) * (CH - FLOOR); return <line key={'h' + i} x1={0} y1={y} x2={CW} y2={y} stroke="rgba(95,243,255,.2)"/>; })}
-    <g opacity={0.45}><Draw fig={[]} pal={{}} stroke={C} sw={1.4} noEnv={['floor', 'pot', 'leaf']}/></g>
+    <g opacity={0.85} filter={`url(#hg${id})`}><Draw fig={[]} pal={{window: C, board: C, monitor: C, desk: C, clock: C}} fillOp={0.07} stroke={C} sw={1.8} noEnv={['floor', 'pot', 'leaf']}/></g>
     <ellipse cx={fig.length ? 150 + 150 * Math.min(1, t / 1.6) + 10 : 0} cy={FLOOR + 6} rx={92} ry={20} fill={`url(#hr${id})`}/>
     <ellipse cx={160 + 150 * Math.min(1, t / 1.6)} cy={FLOOR + 6} rx={92} ry={20} fill="none" stroke={C} strokeWidth={2} opacity={0.8}/>
-    <g opacity={flick} filter={`url(#hg${id})`}><Draw env={[]} fig={fig} pal={{skin: C, hair: C, shirt: C, pants: C, shoe: C, box: C, tie: C}} fillOp={0.14} stroke={C} sw={2.2}/></g>
+    <g opacity={flick} filter={`url(#hg${id})`}><Draw env={[]} fig={fig} pal={{skin: C, hair: C, shirt: C, pants: C, shoe: C, box: C, tie: C}} fillOp={0.32} stroke={C} sw={2.6}/></g>
     <rect width={CW} height={CH} fill={`url(#hs${id})`}/>
     <rect y={((t * 260) % (CH + 120)) - 120} width={CW} height={70} fill="rgba(95,243,255,.07)"/>
-    <Mono x={24} y={40} fill={C}>SUBJECT_07 // WALK_CYCLE</Mono>
-    <Mono x={24} y={60} fill={C} op={0.7}>{`TRACK ${(t * 1.2).toFixed(2)}m  CONF 0.98`}</Mono>
+    <Mono x={24} y={40} fill={C}>OFFICE // FLOOR 12</Mono>
+    <Mono x={24} y={60} fill={C} op={0.7}>HOLO-SIM v2.6</Mono>
+    <g transform={`translate(${160 + 150 * Math.min(1, t / 1.6) + 40} ${FLOOR - 400})`}><rect width={128} height={42} fill="rgba(95,243,255,.08)" stroke={C} strokeWidth={1.2}/>
+      <Mono x={8} y={17} fill={C} size={12}>EMPLOYEE_042</Mono><Mono x={8} y={34} fill={C} size={12} op={0.75}>DOCS 6</Mono></g>
   </Svg>;
 };
 
@@ -127,7 +131,10 @@ const Iso: React.FC<{t: number}> = ({t}) => {
     <path d={polyP([ISO(-150, -219, 120), ISO(-60, -219, 120), ISO(-60, -219, 180), ISO(-150, -219, 180)])} fill="#D9F2E6"/>
     <path d={polyP([ISO(-140, -219, 150), ISO(-120, -219, 162), ISO(-96, -219, 140), ISO(-70, -219, 168)])} fill="none" stroke="#4FD1A5" strokeWidth={3}/>
     <ellipse cx={fx + 8} cy={fy + 2} rx={40} ry={12} fill="rgba(90,70,140,.18)"/>
+    {[['✉', -120, 330, '#7C6CF0'], ['✓', 10, 360, '#4FD1A5'], ['▮▮', 130, 330, '#F59E8B']].map(([g, x, y, c], i) => <g key={'ic' + i} transform={`translate(${270 + Number(x)} ${Number(y) - 10 * Math.sin(t * 3 + i)})`}>
+      <rect x={-26} y={-26} width={52} height={52} rx={14} fill="#fff" stroke={String(c)} strokeWidth={3}/><text y={10} textAnchor="middle" fontSize={26} fontWeight={900} fill={String(c)} fontFamily="ASSans, Arial">{g}</text></g>)}
     <Draw env={[]} fig={fig} pal={{skin: '#F4C7A8', hair: '#3A2C55', shirt: '#FFFFFF', pants: '#4A3FB8', shoe: '#2C2550', box: '#F7C66B', tie: '#4FD1A5'}} stroke="#3A2C55" sw={1.2}/>
+    {(() => { const bx = fig.find(p => p.part === 'box')!; const m = bx.d.match(/M([\d.]+) ([\d.]+)/)!; return <text x={Number(m[1]) - 2} y={Number(m[2]) + 26} fontSize={11} fontWeight={900} fill="#5A3A00" fontFamily="ASSans, Arial">Q4 REPORT</text>; })()}
   </g></Svg>;
 };
 
@@ -148,7 +155,7 @@ const Blueprint: React.FC<{t: number; id: string}> = ({t, id}) => {
     <Mono x={hx - 70} y={FLOOR - 176} fill={W} anchor="end">H 1.80 m</Mono>
     <Draw env={[]} fig={fig} pal={{}} stroke={W} sw={2}/>
     <g transform="translate(316 862)"><rect width={204} height={78} fill="none" stroke={W}/><line x1={0} y1={30} x2={204} y2={30} stroke={W}/>
-      <Mono x={10} y={21} fill={W} size={12}>DWG 05 · WALK CYCLE</Mono><Mono x={10} y={52} fill={W} size={11}>SCALE 1:20</Mono><Mono x={10} y={68} fill={W} size={11} op={0.7}>{`FRAME ${String(Math.floor(t * 30)).padStart(3, '0')}`}</Mono></g>
+      <Mono x={10} y={21} fill={W} size={12}>FIG. 05 · WALK CYCLE / DOCS</Mono><Mono x={10} y={52} fill={W} size={11}>SCALE 1:20</Mono><Mono x={10} y={68} fill={W} size={11} op={0.7}>{`FRAME ${String(Math.floor(t * 30)).padStart(3, '0')}`}</Mono></g>
   </Svg>;
 };
 
@@ -170,7 +177,7 @@ const Thermal: React.FC<{t: number; id: string}> = ({t, id}) => {
     <rect x={500} y={180} width={14} height={420} fill={`url(#ts${id})`} rx={3}/>
     <Mono x={496} y={176} fill="#FFF" size={12} anchor="end">38.2°</Mono><Mono x={496} y={612} fill="#FFF" size={12} anchor="end">18.4°</Mono>
     <g stroke="#FFF" strokeWidth={1.5} opacity={0.85}><path d={`M${hx - 12} ${FLOOR - 330}h24M${hx} ${FLOOR - 342}v24`}/><rect x={hx - 40} y={FLOOR - 370} width={80} height={80} fill="none" strokeDasharray="10 50"/></g>
-    <Mono x={hx + 46} y={FLOOR - 360} fill="#FFF" size={14}>{(36.6 + 0.2 * Math.sin(t * 3)).toFixed(1) + '°C'}</Mono>
+    <Mono x={hx + 46} y={FLOOR - 360} fill="#FFF" size={14}>{'SP1 ' + (36.6 + 0.2 * Math.sin(t * 3)).toFixed(1) + '°C'}</Mono>
     <Mono x={24} y={40} fill="#FFF" size={13}>● REC  IR-CAM 02</Mono>
     <Mono x={24} y={CH - 26} fill="#FFF" size={12} op={0.8}>{`MAX 38.2°C  MIN 18.4°C  ${String(Math.floor(t * 30)).padStart(4, '0')}`}</Mono>
   </Svg>;
@@ -188,6 +195,7 @@ const Anime: React.FC<{t: number; id: string}> = ({t, id}) => {
     {Array.from({length: 9}, (_, i) => <line key={i} x1={0} y1={FLOOR + 14 + i * 18} x2={CW} y2={FLOOR + 14 + i * 18} stroke="#CF9A5E" strokeWidth={2}/>)}
     {Math.floor(t * 6) % 2 === 0 && Array.from({length: 16}, (_, i) => { const a = (i / 16) * 2 * Math.PI, r0 = 330 + rnd(i + Math.floor(t * 6)) * 60; return <line key={'s' + i} x1={270 + Math.cos(a) * r0} y1={470 + Math.sin(a) * r0} x2={270 + Math.cos(a) * 700} y2={470 + Math.sin(a) * 700} stroke={K} strokeWidth={2 + rnd(i) * 4} opacity={0.18}/>; })}
     <Draw env={[]} fig={fig} pal={{skin: '#FFD9BC', hair: '#5A3420', shirt: '#FFFFFF', pants: '#3C4F8C', shoe: '#2A1A14', box: '#E9B36A', tie: '#E8434F'}} stroke={K} sw={3}/>
+    {t > 0.8 && <text x={fig.length ? 150 + 150 * Math.min(1, t / 1.6) + 40 : 0} y={FLOOR - 470} fontFamily="ASSans, Arial" fontWeight={900} fontSize={54} fill="#E8434F" stroke={K} strokeWidth={3} paintOrder="stroke" transform={`rotate(-8 ${150 + 150 * Math.min(1, t / 1.6) + 60} ${FLOOR - 480})`}>!?</text>}
     <g opacity={0.22}>{fig.filter(p => p.depth === 1 && p.part === 'shirt').map((p, i) => <path key={i} d={p.d} fill="#6A7AB0" transform="translate(14 0)" clipPath="none"/>)}</g>
   </Svg>;
 };
