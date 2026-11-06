@@ -1,0 +1,7 @@
+Fonts added for the planeworlds reel (job 990543b928c4), from Fontsource (@fontsource/*@5.1.0, latin subsets):
+- Press Start 2P (c) 2012 The Press Start 2P Project Authors (CodeMan38)
+- Bangers (c) 2010 Vernon Adams
+- Fredoka (c) 2016 The Fredoka Project Authors (Milena Brandao)
+- Russo One (c) 2011 Jovanny Lemonad
+- Schoolbell (c) 2010 Font Diner, Inc
+All are licensed under the SIL Open Font License, Version 1.1 (https://openfontlicense.org); full text as in OFL-Inter.txt.
