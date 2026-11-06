@@ -1,0 +1,1637 @@
+{
+ "frames": 1898,
+ "fps": 30,
+ "units": [
+  {
+   "kind": "title",
+   "from": 0,
+   "to": 114
+  },
+  {
+   "kind": "nomodel",
+   "from": 114,
+   "to": 179
+  },
+  {
+   "kind": "repo",
+   "from": 179,
+   "to": 219
+  },
+  {
+   "kind": "readme",
+   "from": 219,
+   "to": 319
+  },
+  {
+   "kind": "oneline",
+   "from": 319,
+   "to": 405
+  },
+  {
+   "kind": "allown",
+   "from": 405,
+   "to": 601
+  },
+  {
+   "kind": "complete",
+   "from": 601,
+   "to": 703
+  },
+  {
+   "kind": "gallery",
+   "from": 703,
+   "to": 755
+  },
+  {
+   "kind": "montage",
+   "from": 755,
+   "to": 888
+  },
+  {
+   "kind": "own",
+   "from": 888,
+   "to": 953
+  },
+  {
+   "kind": "simple",
+   "from": 953,
+   "to": 994
+  },
+  {
+   "kind": "install",
+   "from": 994,
+   "to": 1058
+  },
+  {
+   "kind": "terminal",
+   "from": 1058,
+   "to": 1126
+  },
+  {
+   "kind": "boom",
+   "from": 1126,
+   "to": 1172
+  },
+  {
+   "kind": "prompt",
+   "from": 1172,
+   "to": 1318
+  },
+  {
+   "kind": "output",
+   "from": 1318,
+   "to": 1483
+  },
+  {
+   "kind": "usecases",
+   "from": 1483,
+   "to": 1639
+  },
+  {
+   "kind": "caveat",
+   "from": 1639,
+   "to": 1808
+  },
+  {
+   "kind": "cta",
+   "from": 1808,
+   "to": 1898
+  }
+ ],
+ "beats": {
+  "nomodel": 135,
+  "readme": [
+   230,
+   282,
+   297
+  ],
+  "oneline": [
+   334,
+   370
+  ],
+  "allown": [
+   405,
+   451,
+   501,
+   553
+  ],
+  "complete": [
+   644,
+   672
+  ],
+  "gallery": 713,
+  "montage": [
+   762,
+   785,
+   814,
+   833,
+   854,
+   866
+  ],
+  "own": [
+   899,
+   933
+  ],
+  "simple": 969,
+  "install": 1009,
+  "terminal": [
+   1058,
+   1095
+  ],
+  "installed": 1146,
+  "prompt": [
+   1218,
+   1296
+  ],
+  "output": [
+   1324,
+   1351,
+   1384,
+   1415,
+   1438
+  ],
+  "usecases": [
+   1488,
+   1520,
+   1545,
+   1579
+  ],
+  "caveat": [
+   1656,
+   1681,
+   1722,
+   1785
+  ],
+  "cta": {
+   "type": 1815,
+   "dm": 1828
+  }
+ },
+ "shots": {
+  "title": [
+   {
+    "film": "spy-titles",
+    "in": 11,
+    "from": 0
+   },
+   {
+    "film": "cel-anime-80s",
+    "in": 15,
+    "from": 11
+   },
+   {
+    "film": "ukiyoe",
+    "in": 33,
+    "from": 22
+   },
+   {
+    "film": "brick-toy",
+    "in": 40,
+    "from": 34
+   },
+   {
+    "film": "art-deco",
+    "in": 29,
+    "from": 45
+   },
+   {
+    "film": "pixel-rpg",
+    "in": 20,
+    "from": 57
+   },
+   {
+    "film": "silent-film",
+    "in": 7,
+    "from": 68
+   },
+   {
+    "film": "lowpoly-island",
+    "in": 13,
+    "from": 79
+   },
+   {
+    "film": "rubber-hose",
+    "in": 19,
+    "from": 91
+   },
+   {
+    "film": "swiss-motion",
+    "in": 33,
+    "from": 102
+   }
+  ],
+  "allown": [
+   {
+    "film": "silent-film",
+    "in": 20,
+    "from": 405
+   },
+   {
+    "film": "art-deco",
+    "in": 29.5,
+    "from": 451
+   },
+   {
+    "film": "ukiyoe",
+    "in": 16.5,
+    "from": 501
+   },
+   {
+    "film": "lowpoly-island",
+    "in": 33,
+    "from": 553
+   }
+  ],
+  "montage": [
+   {
+    "film": "ukiyoe",
+    "in": 11,
+    "from": 755
+   },
+   {
+    "film": "swiss-motion",
+    "in": 11,
+    "from": 785
+   },
+   {
+    "film": "silent-film",
+    "in": 20.5,
+    "from": 814
+   },
+   {
+    "film": "pixel-rpg",
+    "in": 27,
+    "from": 833
+   },
+   {
+    "film": "cel-anime-80s",
+    "in": 29.5,
+    "from": 854
+   },
+   {
+    "film": "brick-toy",
+    "in": 27,
+    "from": 866
+   }
+  ],
+  "output": [
+   {
+    "film": "spy-titles",
+    "in": 15,
+    "from": 1318
+   }
+  ],
+  "usecases": [
+   {
+    "film": "microgame",
+    "in": 15,
+    "from": 1483
+   },
+   {
+    "film": "isometric-picture-book",
+    "in": 15,
+    "from": 1520
+   },
+   {
+    "film": "brick-toy",
+    "in": 40,
+    "from": 1545
+   },
+   {
+    "film": "ukiyoe",
+    "in": 33,
+    "from": 1579
+   }
+  ]
+ },
+ "captions": [
+  {
+   "text": "CLAUDE",
+   "from": 0,
+   "emph": true,
+   "to": 8
+  },
+  {
+   "text": "CODE",
+   "from": 8,
+   "emph": true,
+   "to": 13
+  },
+  {
+   "text": "CAN",
+   "from": 13,
+   "emph": false,
+   "to": 19
+  },
+  {
+   "text": "NOW",
+   "from": 19,
+   "emph": false,
+   "to": 26
+  },
+  {
+   "text": "MAKE",
+   "from": 26,
+   "emph": false,
+   "to": 31
+  },
+  {
+   "text": "SHORT",
+   "from": 31,
+   "emph": true,
+   "to": 38
+  },
+  {
+   "text": "FILMS",
+   "from": 38,
+   "emph": true,
+   "to": 48
+  },
+  {
+   "text": "IN",
+   "from": 48,
+   "emph": false,
+   "to": 53
+  },
+  {
+   "text": "66",
+   "from": 53,
+   "emph": true,
+   "to": 66
+  },
+  {
+   "text": "DIFFERENT",
+   "from": 66,
+   "emph": false,
+   "to": 80
+  },
+  {
+   "text": "FILM",
+   "from": 80,
+   "emph": true,
+   "to": 90
+  },
+  {
+   "text": "STYLES",
+   "from": 90,
+   "emph": false,
+   "to": 114
+  },
+  {
+   "text": "AND",
+   "from": 114,
+   "emph": false,
+   "to": 118
+  },
+  {
+   "text": "YOU",
+   "from": 117,
+   "emph": false,
+   "to": 121
+  },
+  {
+   "text": "DON'T",
+   "from": 120,
+   "emph": false,
+   "to": 126
+  },
+  {
+   "text": "NEED",
+   "from": 126,
+   "emph": false,
+   "to": 131
+  },
+  {
+   "text": "A",
+   "from": 131,
+   "emph": false,
+   "to": 135
+  },
+  {
+   "text": "SINGLE",
+   "from": 135,
+   "emph": false,
+   "to": 141
+  },
+  {
+   "text": "VIDEO",
+   "from": 141,
+   "emph": false,
+   "to": 150
+  },
+  {
+   "text": "MODEL",
+   "from": 150,
+   "emph": true,
+   "to": 158
+  },
+  {
+   "text": "TO",
+   "from": 158,
+   "emph": false,
+   "to": 164
+  },
+  {
+   "text": "DO",
+   "from": 164,
+   "emph": false,
+   "to": 168
+  },
+  {
+   "text": "IT",
+   "from": 168,
+   "emph": false,
+   "to": 179
+  },
+  {
+   "text": "IT'S",
+   "from": 179,
+   "emph": false,
+   "to": 186
+  },
+  {
+   "text": "CALLED",
+   "from": 186,
+   "emph": false,
+   "to": 192
+  },
+  {
+   "text": "LEMO-OPUSCAR",
+   "from": 192,
+   "emph": true,
+   "to": 219
+  },
+  {
+   "text": "A",
+   "from": 219,
+   "emph": false,
+   "to": 223
+  },
+  {
+   "text": "FREE",
+   "from": 222,
+   "emph": false,
+   "to": 230
+  },
+  {
+   "text": "MIT",
+   "from": 230,
+   "emph": true,
+   "to": 260
+  },
+  {
+   "text": "CLAUDE",
+   "from": 264,
+   "emph": true,
+   "to": 276
+  },
+  {
+   "text": "CODE",
+   "from": 276,
+   "emph": true,
+   "to": 282
+  },
+  {
+   "text": "PLUGIN",
+   "from": 282,
+   "emph": true,
+   "to": 291
+  },
+  {
+   "text": "FROM",
+   "from": 291,
+   "emph": false,
+   "to": 297
+  },
+  {
+   "text": "LEMOLAB",
+   "from": 297,
+   "emph": true,
+   "to": 319
+  },
+  {
+   "text": "AND",
+   "from": 319,
+   "emph": false,
+   "to": 323
+  },
+  {
+   "text": "IT",
+   "from": 323,
+   "emph": false,
+   "to": 327
+  },
+  {
+   "text": "TURNS",
+   "from": 326,
+   "emph": false,
+   "to": 334
+  },
+  {
+   "text": "ONE",
+   "from": 334,
+   "emph": false,
+   "to": 341
+  },
+  {
+   "text": "LINE",
+   "from": 341,
+   "emph": false,
+   "to": 348
+  },
+  {
+   "text": "OF",
+   "from": 348,
+   "emph": false,
+   "to": 352
+  },
+  {
+   "text": "PROMPT",
+   "from": 352,
+   "emph": false,
+   "to": 359
+  },
+  {
+   "text": "INTO",
+   "from": 359,
+   "emph": false,
+   "to": 365
+  },
+  {
+   "text": "A",
+   "from": 365,
+   "emph": false,
+   "to": 370
+  },
+  {
+   "text": "FINISHED",
+   "from": 370,
+   "emph": false,
+   "to": 376
+  },
+  {
+   "text": "SHORT",
+   "from": 376,
+   "emph": true,
+   "to": 386
+  },
+  {
+   "text": "FILM",
+   "from": 386,
+   "emph": true,
+   "to": 405
+  },
+  {
+   "text": "EVERY",
+   "from": 405,
+   "emph": false,
+   "to": 412
+  },
+  {
+   "text": "FRAME",
+   "from": 412,
+   "emph": true,
+   "to": 420
+  },
+  {
+   "text": "IS",
+   "from": 420,
+   "emph": false,
+   "to": 425
+  },
+  {
+   "text": "DRAWN",
+   "from": 425,
+   "emph": false,
+   "to": 432
+  },
+  {
+   "text": "IN",
+   "from": 432,
+   "emph": false,
+   "to": 436
+  },
+  {
+   "text": "CODE",
+   "from": 436,
+   "emph": true,
+   "to": 451
+  },
+  {
+   "text": "THE",
+   "from": 451,
+   "emph": false,
+   "to": 455
+  },
+  {
+   "text": "SCORE",
+   "from": 454,
+   "emph": true,
+   "to": 460
+  },
+  {
+   "text": "IS",
+   "from": 460,
+   "emph": false,
+   "to": 466
+  },
+  {
+   "text": "WRITTEN",
+   "from": 466,
+   "emph": false,
+   "to": 473
+  },
+  {
+   "text": "BY",
+   "from": 473,
+   "emph": false,
+   "to": 480
+  },
+  {
+   "text": "THE",
+   "from": 480,
+   "emph": false,
+   "to": 484
+  },
+  {
+   "text": "AGENT",
+   "from": 483,
+   "emph": false,
+   "to": 501
+  },
+  {
+   "text": "THE",
+   "from": 501,
+   "emph": false,
+   "to": 505
+  },
+  {
+   "text": "VOICEOVER",
+   "from": 504,
+   "emph": true,
+   "to": 516
+  },
+  {
+   "text": "IS",
+   "from": 516,
+   "emph": false,
+   "to": 522
+  },
+  {
+   "text": "GENERATED",
+   "from": 522,
+   "emph": false,
+   "to": 544
+  },
+  {
+   "text": "AND",
+   "from": 544,
+   "emph": false,
+   "to": 549
+  },
+  {
+   "text": "EVEN",
+   "from": 549,
+   "emph": false,
+   "to": 553
+  },
+  {
+   "text": "THE",
+   "from": 553,
+   "emph": false,
+   "to": 558
+  },
+  {
+   "text": "SOUND",
+   "from": 558,
+   "emph": false,
+   "to": 565
+  },
+  {
+   "text": "EFFECTS",
+   "from": 565,
+   "emph": true,
+   "to": 574
+  },
+  {
+   "text": "GET",
+   "from": 574,
+   "emph": false,
+   "to": 583
+  },
+  {
+   "text": "ADDED",
+   "from": 583,
+   "emph": false,
+   "to": 589
+  },
+  {
+   "text": "FOR",
+   "from": 589,
+   "emph": false,
+   "to": 595
+  },
+  {
+   "text": "YOU",
+   "from": 595,
+   "emph": false,
+   "to": 601
+  },
+  {
+   "text": "SO",
+   "from": 601,
+   "emph": false,
+   "to": 613
+  },
+  {
+   "text": "WHAT",
+   "from": 613,
+   "emph": false,
+   "to": 621
+  },
+  {
+   "text": "YOU",
+   "from": 621,
+   "emph": false,
+   "to": 625
+  },
+  {
+   "text": "GET",
+   "from": 624,
+   "emph": false,
+   "to": 629
+  },
+  {
+   "text": "BACK",
+   "from": 629,
+   "emph": false,
+   "to": 636
+  },
+  {
+   "text": "IS",
+   "from": 636,
+   "emph": false,
+   "to": 641
+  },
+  {
+   "text": "A",
+   "from": 641,
+   "emph": false,
+   "to": 645
+  },
+  {
+   "text": "COMPLETE",
+   "from": 644,
+   "emph": true,
+   "to": 651
+  },
+  {
+   "text": "FILM",
+   "from": 651,
+   "emph": true,
+   "to": 672
+  },
+  {
+   "text": "NOT",
+   "from": 672,
+   "emph": false,
+   "to": 678
+  },
+  {
+   "text": "JUST",
+   "from": 678,
+   "emph": false,
+   "to": 685
+  },
+  {
+   "text": "A",
+   "from": 685,
+   "emph": false,
+   "to": 690
+  },
+  {
+   "text": "CLIP",
+   "from": 690,
+   "emph": true,
+   "to": 703
+  },
+  {
+   "text": "AND",
+   "from": 703,
+   "emph": false,
+   "to": 707
+  },
+  {
+   "text": "THERE",
+   "from": 705,
+   "emph": false,
+   "to": 709
+  },
+  {
+   "text": "ARE",
+   "from": 709,
+   "emph": false,
+   "to": 713
+  },
+  {
+   "text": "66",
+   "from": 713,
+   "emph": true,
+   "to": 726
+  },
+  {
+   "text": "READY-MADE",
+   "from": 726,
+   "emph": false,
+   "to": 744
+  },
+  {
+   "text": "STYLES",
+   "from": 744,
+   "emph": false,
+   "to": 755
+  },
+  {
+   "text": "ACROSS",
+   "from": 755,
+   "emph": false,
+   "to": 762
+  },
+  {
+   "text": "PRINT",
+   "from": 762,
+   "emph": true,
+   "to": 785
+  },
+  {
+   "text": "GRAPHIC",
+   "from": 785,
+   "emph": true,
+   "to": 791
+  },
+  {
+   "text": "DESIGN",
+   "from": 791,
+   "emph": false,
+   "to": 814
+  },
+  {
+   "text": "CINEMA",
+   "from": 814,
+   "emph": true,
+   "to": 833
+  },
+  {
+   "text": "GAMES",
+   "from": 833,
+   "emph": true,
+   "to": 854
+  },
+  {
+   "text": "ANIME",
+   "from": 854,
+   "emph": true,
+   "to": 860
+  },
+  {
+   "text": "AND",
+   "from": 860,
+   "emph": false,
+   "to": 866
+  },
+  {
+   "text": "3D",
+   "from": 866,
+   "emph": true,
+   "to": 888
+  },
+  {
+   "text": "AND",
+   "from": 888,
+   "emph": false,
+   "to": 892
+  },
+  {
+   "text": "YOU",
+   "from": 891,
+   "emph": false,
+   "to": 895
+  },
+  {
+   "text": "CAN",
+   "from": 894,
+   "emph": false,
+   "to": 899
+  },
+  {
+   "text": "TAKE",
+   "from": 899,
+   "emph": false,
+   "to": 904
+  },
+  {
+   "text": "ANY",
+   "from": 904,
+   "emph": false,
+   "to": 911
+  },
+  {
+   "text": "STYLE",
+   "from": 911,
+   "emph": false,
+   "to": 919
+  },
+  {
+   "text": "AND",
+   "from": 919,
+   "emph": false,
+   "to": 924
+  },
+  {
+   "text": "MAKE",
+   "from": 924,
+   "emph": false,
+   "to": 930
+  },
+  {
+   "text": "IT",
+   "from": 930,
+   "emph": false,
+   "to": 934
+  },
+  {
+   "text": "YOUR",
+   "from": 933,
+   "emph": false,
+   "to": 937
+  },
+  {
+   "text": "OWN",
+   "from": 937,
+   "emph": true,
+   "to": 953
+  },
+  {
+   "text": "SETUP",
+   "from": 953,
+   "emph": false,
+   "to": 964
+  },
+  {
+   "text": "IS",
+   "from": 964,
+   "emph": false,
+   "to": 969
+  },
+  {
+   "text": "SUPER",
+   "from": 969,
+   "emph": false,
+   "to": 975
+  },
+  {
+   "text": "SIMPLE",
+   "from": 975,
+   "emph": true,
+   "to": 994
+  },
+  {
+   "text": "COPY",
+   "from": 994,
+   "emph": false,
+   "to": 1000
+  },
+  {
+   "text": "THE",
+   "from": 1000,
+   "emph": false,
+   "to": 1005
+  },
+  {
+   "text": "TWO",
+   "from": 1005,
+   "emph": false,
+   "to": 1009
+  },
+  {
+   "text": "INSTALL",
+   "from": 1009,
+   "emph": true,
+   "to": 1020
+  },
+  {
+   "text": "COMMANDS",
+   "from": 1020,
+   "emph": false,
+   "to": 1032
+  },
+  {
+   "text": "FROM",
+   "from": 1032,
+   "emph": false,
+   "to": 1037
+  },
+  {
+   "text": "THE",
+   "from": 1037,
+   "emph": false,
+   "to": 1041
+  },
+  {
+   "text": "REPO",
+   "from": 1041,
+   "emph": false,
+   "to": 1058
+  },
+  {
+   "text": "PASTE",
+   "from": 1058,
+   "emph": false,
+   "to": 1065
+  },
+  {
+   "text": "THEM",
+   "from": 1065,
+   "emph": false,
+   "to": 1069
+  },
+  {
+   "text": "IN",
+   "from": 1069,
+   "emph": false,
+   "to": 1073
+  },
+  {
+   "text": "YOUR",
+   "from": 1071,
+   "emph": false,
+   "to": 1075
+  },
+  {
+   "text": "TERMINAL",
+   "from": 1075,
+   "emph": true,
+   "to": 1095
+  },
+  {
+   "text": "OPEN",
+   "from": 1095,
+   "emph": false,
+   "to": 1102
+  },
+  {
+   "text": "CLAUDE",
+   "from": 1102,
+   "emph": true,
+   "to": 1111
+  },
+  {
+   "text": "CODE",
+   "from": 1111,
+   "emph": true,
+   "to": 1126
+  },
+  {
+   "text": "AND",
+   "from": 1126,
+   "emph": false,
+   "to": 1130
+  },
+  {
+   "text": "BOOM",
+   "from": 1130,
+   "emph": true,
+   "to": 1146
+  },
+  {
+   "text": "IT'S",
+   "from": 1146,
+   "emph": false,
+   "to": 1152
+  },
+  {
+   "text": "INSTALLED",
+   "from": 1152,
+   "emph": true,
+   "to": 1172
+  },
+  {
+   "text": "NOW",
+   "from": 1172,
+   "emph": false,
+   "to": 1177
+  },
+  {
+   "text": "JUST",
+   "from": 1177,
+   "emph": false,
+   "to": 1185
+  },
+  {
+   "text": "TYPE",
+   "from": 1185,
+   "emph": false,
+   "to": 1191
+  },
+  {
+   "text": "SOMETHING",
+   "from": 1191,
+   "emph": false,
+   "to": 1199
+  },
+  {
+   "text": "LIKE",
+   "from": 1199,
+   "emph": false,
+   "to": 1218
+  },
+  {
+   "text": "MAKE",
+   "from": 1218,
+   "emph": false,
+   "to": 1222
+  },
+  {
+   "text": "ME",
+   "from": 1222,
+   "emph": false,
+   "to": 1227
+  },
+  {
+   "text": "A",
+   "from": 1227,
+   "emph": false,
+   "to": 1231
+  },
+  {
+   "text": "FILM",
+   "from": 1231,
+   "emph": true,
+   "to": 1236
+  },
+  {
+   "text": "ABOUT",
+   "from": 1236,
+   "emph": false,
+   "to": 1243
+  },
+  {
+   "text": "CLAUDE",
+   "from": 1243,
+   "emph": true,
+   "to": 1254
+  },
+  {
+   "text": "CODE",
+   "from": 1254,
+   "emph": true,
+   "to": 1260
+  },
+  {
+   "text": "IN",
+   "from": 1260,
+   "emph": false,
+   "to": 1264
+  },
+  {
+   "text": "THE",
+   "from": 1264,
+   "emph": false,
+   "to": 1268
+  },
+  {
+   "text": "60S",
+   "from": 1266,
+   "emph": true,
+   "to": 1283
+  },
+  {
+   "text": "SPY",
+   "from": 1283,
+   "emph": true,
+   "to": 1287
+  },
+  {
+   "text": "TITLE",
+   "from": 1287,
+   "emph": false,
+   "to": 1296
+  },
+  {
+   "text": "STYLE",
+   "from": 1296,
+   "emph": false,
+   "to": 1318
+  },
+  {
+   "text": "AND",
+   "from": 1318,
+   "emph": false,
+   "to": 1322
+  },
+  {
+   "text": "IT",
+   "from": 1320,
+   "emph": false,
+   "to": 1324
+  },
+  {
+   "text": "WRITES",
+   "from": 1324,
+   "emph": false,
+   "to": 1331
+  },
+  {
+   "text": "THE",
+   "from": 1331,
+   "emph": false,
+   "to": 1335
+  },
+  {
+   "text": "STORY",
+   "from": 1335,
+   "emph": true,
+   "to": 1351
+  },
+  {
+   "text": "DRAWS",
+   "from": 1351,
+   "emph": false,
+   "to": 1358
+  },
+  {
+   "text": "EVERY",
+   "from": 1358,
+   "emph": false,
+   "to": 1366
+  },
+  {
+   "text": "SHOT",
+   "from": 1366,
+   "emph": true,
+   "to": 1384
+  },
+  {
+   "text": "SCORES",
+   "from": 1384,
+   "emph": false,
+   "to": 1391
+  },
+  {
+   "text": "THE",
+   "from": 1391,
+   "emph": false,
+   "to": 1396
+  },
+  {
+   "text": "MUSIC",
+   "from": 1396,
+   "emph": true,
+   "to": 1415
+  },
+  {
+   "text": "ADDS",
+   "from": 1415,
+   "emph": false,
+   "to": 1419
+  },
+  {
+   "text": "THE",
+   "from": 1419,
+   "emph": false,
+   "to": 1423
+  },
+  {
+   "text": "EFFECTS",
+   "from": 1423,
+   "emph": true,
+   "to": 1433
+  },
+  {
+   "text": "AND",
+   "from": 1433,
+   "emph": false,
+   "to": 1438
+  },
+  {
+   "text": "HANDS",
+   "from": 1438,
+   "emph": false,
+   "to": 1446
+  },
+  {
+   "text": "YOU",
+   "from": 1446,
+   "emph": false,
+   "to": 1450
+  },
+  {
+   "text": "THE",
+   "from": 1449,
+   "emph": false,
+   "to": 1453
+  },
+  {
+   "text": "FINISHED",
+   "from": 1452,
+   "emph": false,
+   "to": 1459
+  },
+  {
+   "text": "FILM",
+   "from": 1459,
+   "emph": true,
+   "to": 1483
+  },
+  {
+   "text": "THINK",
+   "from": 1483,
+   "emph": false,
+   "to": 1488
+  },
+  {
+   "text": "LAUNCH",
+   "from": 1488,
+   "emph": true,
+   "to": 1496
+  },
+  {
+   "text": "VIDEOS",
+   "from": 1496,
+   "emph": false,
+   "to": 1520
+  },
+  {
+   "text": "EXPLAINERS",
+   "from": 1520,
+   "emph": true,
+   "to": 1545
+  },
+  {
+   "text": "PRODUCT",
+   "from": 1545,
+   "emph": false,
+   "to": 1552
+  },
+  {
+   "text": "TEASERS",
+   "from": 1552,
+   "emph": true,
+   "to": 1576
+  },
+  {
+   "text": "OR",
+   "from": 1576,
+   "emph": false,
+   "to": 1580
+  },
+  {
+   "text": "STYLES",
+   "from": 1579,
+   "emph": false,
+   "to": 1586
+  },
+  {
+   "text": "YOU",
+   "from": 1586,
+   "emph": false,
+   "to": 1593
+  },
+  {
+   "text": "COULD",
+   "from": 1593,
+   "emph": false,
+   "to": 1597
+  },
+  {
+   "text": "NEVER",
+   "from": 1597,
+   "emph": false,
+   "to": 1603
+  },
+  {
+   "text": "PULL",
+   "from": 1603,
+   "emph": false,
+   "to": 1609
+  },
+  {
+   "text": "OFF",
+   "from": 1609,
+   "emph": false,
+   "to": 1615
+  },
+  {
+   "text": "BY",
+   "from": 1615,
+   "emph": false,
+   "to": 1620
+  },
+  {
+   "text": "HAND",
+   "from": 1620,
+   "emph": false,
+   "to": 1639
+  },
+  {
+   "text": "IT",
+   "from": 1639,
+   "emph": false,
+   "to": 1643
+  },
+  {
+   "text": "RUNS",
+   "from": 1642,
+   "emph": false,
+   "to": 1648
+  },
+  {
+   "text": "ON",
+   "from": 1648,
+   "emph": false,
+   "to": 1654
+  },
+  {
+   "text": "A",
+   "from": 1654,
+   "emph": false,
+   "to": 1658
+  },
+  {
+   "text": "PAID",
+   "from": 1656,
+   "emph": true,
+   "to": 1661
+  },
+  {
+   "text": "CLAUDE",
+   "from": 1661,
+   "emph": true,
+   "to": 1671
+  },
+  {
+   "text": "PLAN",
+   "from": 1671,
+   "emph": false,
+   "to": 1677
+  },
+  {
+   "text": "AND",
+   "from": 1677,
+   "emph": false,
+   "to": 1681
+  },
+  {
+   "text": "TAKES",
+   "from": 1681,
+   "emph": false,
+   "to": 1687
+  },
+  {
+   "text": "A",
+   "from": 1687,
+   "emph": false,
+   "to": 1692
+  },
+  {
+   "text": "WHILE",
+   "from": 1692,
+   "emph": false,
+   "to": 1696
+  },
+  {
+   "text": "PER",
+   "from": 1696,
+   "emph": false,
+   "to": 1700
+  },
+  {
+   "text": "FILM",
+   "from": 1700,
+   "emph": true,
+   "to": 1718
+  },
+  {
+   "text": "BUT",
+   "from": 1718,
+   "emph": false,
+   "to": 1722
+  },
+  {
+   "text": "IF",
+   "from": 1722,
+   "emph": false,
+   "to": 1726
+  },
+  {
+   "text": "YOU",
+   "from": 1725,
+   "emph": false,
+   "to": 1729
+  },
+  {
+   "text": "LOVE",
+   "from": 1728,
+   "emph": false,
+   "to": 1732
+  },
+  {
+   "text": "TRYING",
+   "from": 1732,
+   "emph": false,
+   "to": 1740
+  },
+  {
+   "text": "NEW",
+   "from": 1740,
+   "emph": false,
+   "to": 1747
+  },
+  {
+   "text": "FORMATS",
+   "from": 1747,
+   "emph": true,
+   "to": 1772
+  },
+  {
+   "text": "THIS",
+   "from": 1772,
+   "emph": false,
+   "to": 1776
+  },
+  {
+   "text": "ONE'S",
+   "from": 1775,
+   "emph": false,
+   "to": 1785
+  },
+  {
+   "text": "WORTH",
+   "from": 1785,
+   "emph": false,
+   "to": 1791
+  },
+  {
+   "text": "A",
+   "from": 1791,
+   "emph": false,
+   "to": 1795
+  },
+  {
+   "text": "LOOK",
+   "from": 1795,
+   "emph": false,
+   "to": 1808
+  },
+  {
+   "text": "COMMENT",
+   "from": 1808,
+   "emph": true,
+   "to": 1815
+  },
+  {
+   "text": "FILM",
+   "from": 1815,
+   "emph": true,
+   "to": 1824
+  },
+  {
+   "text": "AND",
+   "from": 1824,
+   "emph": false,
+   "to": 1828
+  },
+  {
+   "text": "I'LL",
+   "from": 1828,
+   "emph": false,
+   "to": 1833
+  },
+  {
+   "text": "SEND",
+   "from": 1833,
+   "emph": false,
+   "to": 1837
+  },
+  {
+   "text": "YOU",
+   "from": 1837,
+   "emph": false,
+   "to": 1842
+  },
+  {
+   "text": "THE",
+   "from": 1842,
+   "emph": false,
+   "to": 1846
+  },
+  {
+   "text": "LINK",
+   "from": 1845,
+   "emph": true,
+   "to": 1898
+  }
+ ],
+ "take": true,
+ "standin": true
+}
