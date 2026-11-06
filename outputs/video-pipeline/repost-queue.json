@@ -1775,9 +1775,11 @@
       "primary_keyword": "claude motion",
       "host_slug": "repost-applemotion20261027",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "moved_from": "2026-11-07 16:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "url": "https://www.youtube.com/shorts/3Yx2-rii3Ts",
+      "posted_at": "2026-11-06T14:03:04Z"
     },
     {
       "id": "fa-dots-20261027",
