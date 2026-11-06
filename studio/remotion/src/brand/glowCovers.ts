@@ -41,6 +41,7 @@ export const LOGO = {
   csvText: {text: 'CSV', color: '#FFFFFF', bg: 'linear-gradient(160deg, #2EA86B 0%, #1B6E46 100%)', glow: '#3FD68A'},
   oneText: {text: '1', color: '#FFFFFF', bg: 'linear-gradient(160deg, #2ECC71 0%, #178F4C 100%)', glow: '#3DF08A'},
   threejs: {mask: g('si-threedotjs.svg'), color: '#FFFFFF', bg: DARK, glow: '#7AA2FF', fit: 0.6},
+  blender: {mask: g('si-blender.svg'), color: '#EA7600', bg: WHITE, glow: '#F5792A', fit: 0.66},
   twentyFourText: {text: '24', color: '#FFFFFF', bg: 'linear-gradient(160deg, #FF5F5F 0%, #C81E1E 100%)', glow: '#FF4D4D'},
 } satisfies Record<string, GlowLogo>;
 
@@ -48,6 +49,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '3f33678db749', date: 'awaiting approval', title: 'Blender Skills: 94 free skills that let Claude Code build 3D in Blender', cover: c('94 Free Skills', 'Claude + Blender', LOGO.claude, LOGO.blender)},
   {job: '85fb47b66b4b', date: 'awaiting approval', title: 'Claude made these 3D voxel reels: script, two voices, Three.js code, laptop render', cover: c('Claude Made', 'These 3D Reels', LOGO.claude, LOGO.threejs)},
   {job: '990543b928c4', date: 'awaiting approval', title: '10 Claude animation styles: one paper plane, ten worlds, all drawn in code', cover: c('10 Art Styles', 'Drawn In Code', LOGO.claude, LOGO.remotion)},
   {job: '6a48be151b7a', date: 'awaiting approval', title: '10 Claude animation styles, one prompt each', cover: c('10 Animation', 'Styles In Claude', LOGO.claude, {text: '10', color: '#FFFFFF', bg: 'linear-gradient(160deg, #3A3F55 0%, #12141F 100%)', glow: '#FF8A5B'})},
