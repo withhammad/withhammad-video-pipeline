@@ -58,7 +58,8 @@ link (Instagram / YouTube / LinkedIn / TikTok / X / GitHub repo)
 
 Avatar-credit rule: the avatar take covers only the lines the reference delivers to camera. Every mock-up, card,
 counter or screen is a HyperFrames/reel-skills unit over a still or a 2x screen recording. Target: under 60 s of
-avatar per reel.
+avatar per reel (owner 2026-11-06: target under 30 s, real-human quality, reuse approved looks, one submit, filmstrip
+quality gate, credits logged per job; full rules in docs/PIPELINE_PROMPT.md step 3).
 
 ## 3. Cadence (owner 2026-10-31)
 
