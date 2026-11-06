@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-06T08:07:22Z",
+ "updated_at": "2026-11-06T09:09:05Z",
  "rows": [
   {
    "day": "2026-11-02",
@@ -49,8 +49,8 @@
   },
   {
    "day": "2026-11-06",
-   "pending": 7,
-   "posted": 5,
+   "pending": 5,
+   "posted": 7,
    "failed": 0,
    "missed": 0,
    "scheduled": 6

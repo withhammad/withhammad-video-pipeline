@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-06T08:07:22Z",
+ "updated_at": "2026-11-06T09:09:05Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -252,6 +252,16 @@
    "account": "page"
   },
   {
+   "job": "dots-20261027",
+   "keyword": "DOTS",
+   "title": "OpenAI dots: AI agents that keep working after you log off",
+   "platform": "linkedin",
+   "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7524396917519179776/",
+   "status": "posted",
+   "when": "2026-11-06",
+   "account": ""
+  },
+  {
    "job": "f7da978d101e",
    "keyword": "HARVEST",
    "title": "A free daily lead finder: GPT-6 Astra + ScrapeGraphAI",
@@ -340,6 +350,16 @@
    "status": "posted",
    "when": "2026-10-20",
    "account": ""
+  },
+  {
+   "job": "website20261020",
+   "keyword": "DESIGN",
+   "title": "AI Website Transformation: A Better Design Brief",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/reel/DfZPpQlldHx/",
+   "status": "posted",
+   "when": "2026-11-06",
+   "account": "withhammad.ai"
   },
   {
    "job": "website20261020",
@@ -580,18 +600,6 @@
    "account": ""
   },
   {
-   "job": "website20261020",
-   "keyword": "DESIGN",
-   "title": "AI Website Transformation: A Better Design Brief",
-   "platform": "instagram",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-06",
-   "slot_utc": "2026-11-06T07:00:00Z",
-   "local": "2026-11-06 11:00 GST",
-   "account": "withhammad.ai"
-  },
-  {
    "job": "audit20261020",
    "keyword": "CHECK",
    "title": "AI Dashboard Audit: The Duplicate Order Trap",
@@ -745,18 +753,6 @@
    "when": "2026-11-05",
    "slot_utc": "2026-11-05T14:00:00Z",
    "local": "2026-11-05 18:00 GST",
-   "account": ""
-  },
-  {
-   "job": "dots-20261027",
-   "keyword": "DOTS",
-   "title": "OpenAI dots: AI agents that keep working after you log off",
-   "platform": "linkedin",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-06",
-   "slot_utc": "2026-11-06T09:00:00Z",
-   "local": "2026-11-06 13:00 GST",
    "account": ""
   },
   {

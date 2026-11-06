@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-06T08:07:22Z",
+ "updated_at": "2026-11-06T09:09:05Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -309,12 +309,12 @@
    "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "yes",
-   "linkedin": "no",
+   "linkedin": "yes",
    "instagram": "no",
    "tiktok": "no",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 1
+   "platforms_on": 2
   },
   {
    "job": "f7da978d101e",
