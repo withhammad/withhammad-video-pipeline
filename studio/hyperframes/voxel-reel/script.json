@@ -1,0 +1,21 @@
+{
+  "keyword": "VOXEL",
+  "note": "Two characters, same beats as @heyalok.ai DfFx6dCxxOg. H = Hammad (ElevenLabs 46d4ae... in the real take), C = Claude (an ElevenLabs library voice). Facts per analysis/facts.md: no borrowed 91K-likes stat, real cost stated, 'never touch the code' softened.",
+  "lines": [
+    {"id": "hook",    "who": "H", "text": "These 3D cartoon reels? Claude made them."},
+    {"id": "proof",   "who": "H", "text": "No Blender. No animator. No AI video model."},
+    {"id": "course",  "who": "C", "text": "And people sell courses on this."},
+    {"id": "free",    "who": "H", "text": "I'll show you the steps for free. Claude, show them."},
+    {"id": "step1",   "who": "C", "text": "Step one. Write a tiny script. Just you and me, talking."},
+    {"id": "step2",   "who": "C", "text": "Step two. Turn it into two voices with ElevenLabs."},
+    {"id": "aivideo", "who": "H", "text": "Then you make the video with AI?"},
+    {"id": "step3",   "who": "C", "text": "Nope. Step three. I write code that builds the whole 3D world, block by block."},
+    {"id": "step4",   "who": "C", "text": "Step four. I sync every word, mouth and caption to the voice."},
+    {"id": "step5",   "who": "C", "text": "Step five. Your laptop renders it, frame by frame."},
+    {"id": "code",    "who": "H", "text": "And I never touch the code?"},
+    {"id": "tell",    "who": "C", "text": "Barely. You just tell me what to change."},
+    {"id": "this",    "who": "H", "text": "Wait. This video too?"},
+    {"id": "too",     "who": "C", "text": "This one too."},
+    {"id": "cta",     "who": "H", "text": "Comment VOXEL and I'll send you the full guide with every prompt."}
+  ]
+}

@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>voxel-reel</title>
+<!--
+  voxel-reel: 1080x1920 @30 fps. A voxel Hammad and the Claude block buddy, built in Three.js, act out the
+  @heyalok.ai beats (job 85fb47b66b4b). Every frame is a pure function of t (hf-seek). Timing comes from
+  data.js (window.REEL, written by make_voice.py from the voice track's word timings), so swapping the
+  stand-in voice for the real ElevenLabs lines re-times every beat.
+-->
+<style>
+@font-face{font-family:Inter;src:url(fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:block}
+@font-face{font-family:Inter;src:url(fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:block}
+@font-face{font-family:Inter;src:url(fonts/inter-latin-900-normal.woff2) format("woff2");font-weight:900;font-display:block}
+@font-face{font-family:JB;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:block}
+@font-face{font-family:JB;src:url(fonts/jetbrains-mono-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:block}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0a1046}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#fff}
+#bg{position:absolute;inset:0;background:radial-gradient(120% 75% at 50% 38%,#2a3fc4 0%,#1a2a9c 38%,#0f1868 70%,#090e40 100%)}
+#bokeh{position:absolute;inset:0}
+.bk{position:absolute;border-radius:50%;filter:blur(3px)}
+#gl{position:absolute;inset:0;width:1080px;height:1920px}
+#ui{position:absolute;inset:0;pointer-events:none}
+.abs{position:absolute}
+/* top label pill */
+#label{position:absolute;left:50%;top:230px;transform:translateX(-50%);background:#0b0d1c;border:2px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:12px 26px;font-weight:900;font-size:34px;letter-spacing:.02em;white-space:nowrap;
+  box-shadow:0 10px 30px rgba(0,0,0,.35)}
+#label .y{color:#FFD21F}
+#label .bar{position:absolute;left:24px;right:24px;bottom:-12px;height:5px;border-radius:3px;
+  background:repeating-linear-gradient(90deg,#FFD21F 0 30px,transparent 30px 44px);opacity:.9}
+/* panels */
+.panel{position:absolute;left:70px;width:940px;background:rgba(10,13,32,.94);border:2px solid rgba(255,255,255,.09);
+  border-radius:26px;box-shadow:0 24px 60px rgba(0,0,0,.45);overflow:hidden;opacity:0}
+.ph{display:flex;align-items:center;gap:12px;padding:20px 28px 0;font-family:JB;font-weight:700;font-size:22px;
+  letter-spacing:.12em;color:rgba(255,255,255,.55)}
+.dots i{display:inline-block;width:16px;height:16px;border-radius:50%;margin-right:8px}
+.mono{font-family:JB;font-weight:500}
+.cursor{display:inline-block;width:16px;height:34px;background:#FFD21F;vertical-align:-6px;margin-left:2px}
+/* reel cards */
+.card{position:absolute;width:360px;height:540px;border-radius:34px;background:#0b0d1c;border:5px solid #1c2140;
+  overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .top{position:absolute;left:22px;top:18px;font-weight:800;font-size:24px;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+.card .cap{position:absolute;left:50%;top:70px;transform:translateX(-50%);background:rgba(0,0,0,.6);padding:8px 16px;border-radius:10px;
+  font-weight:800;font-size:22px;white-space:nowrap}
+.card .who{position:absolute;left:24px;bottom:22px;font-weight:900;font-size:27px;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.card .who small{display:block;font-weight:700;font-size:20px;opacity:.85}
+.chip{position:absolute;left:50%;transform:translateX(-50%);background:#0b0d1c;border:3px solid #ff4d5e;color:#fff;border-radius:16px;
+  padding:12px 26px;font-weight:900;font-size:40px;white-space:nowrap;opacity:0;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.chip b{color:#ff4d5e}
+/* course card */
+#course{top:300px;padding-bottom:30px}
+#course .k{padding:22px 34px 0;font-family:JB;font-size:22px;letter-spacing:.14em;color:rgba(255,255,255,.5)}
+#course h2{padding:10px 34px 0;font-weight:900;font-size:52px;line-height:1.08}
+#course .meta{padding:12px 34px 0;font-weight:700;font-size:26px;color:rgba(255,255,255,.6)}
+#course .row{display:flex;justify-content:space-between;align-items:center;padding:26px 34px 0}
+#paid{font-weight:900;font-size:50px;color:#ff4d6d;position:relative}
+#paid i{position:absolute;left:-6px;right:-6px;top:52%;height:7px;background:#fff;transform-origin:left center;border-radius:4px}
+#buy{background:#ff3d6e;border-radius:14px;padding:14px 26px;font-weight:900;font-size:26px}
+#free{position:absolute;right:120px;top:440px;border:6px solid #22e07a;color:#22e07a;border-radius:22px;padding:6px 30px;
+  font-weight:900;font-size:110px;background:rgba(8,30,20,.88);box-shadow:0 0 40px rgba(34,224,122,.55);opacity:0}
+#honest{position:absolute;left:50%;top:640px;transform:translateX(-50%);background:#0b0d1c;border:2px solid rgba(255,255,255,.15);
+  border-radius:14px;padding:12px 22px;font-weight:700;font-size:27px;white-space:nowrap;opacity:0}
+#honest b{color:#FFD21F}
+/* stamp */
+#stamp{position:absolute;left:50%;top:380px;border:8px solid #ff3d5a;color:#ff3d5a;border-radius:22px;padding:4px 30px;
+  font-weight:900;font-size:110px;background:rgba(40,8,16,.85);opacity:0;white-space:nowrap}
+/* captions */
+#cap{position:absolute;left:0;right:0;text-align:center;font-weight:900;font-size:84px;letter-spacing:-.01em;line-height:1;
+  text-shadow:0 6px 22px rgba(0,0,0,.65),0 2px 0 rgba(0,0,0,.35);white-space:nowrap}
+#cap span{display:inline-block;margin:0 .13em}
+#cap .y{color:#FFD21F}
+/* CTA */
+#cta{top:300px;text-align:center;padding:34px 0 40px}
+#cta .c1{font-weight:900;font-size:44px;letter-spacing:.14em;color:rgba(255,255,255,.85)}
+#cta .kw{display:inline-block;margin-top:16px;background:#FFD21F;color:#0b0d1c;border-radius:20px;padding:6px 44px;font-weight:900;
+  font-size:150px;letter-spacing:.02em;box-shadow:0 10px 0 #b8940c}
+#cta .c3{margin-top:30px;font-weight:800;font-size:38px;line-height:1.3}
+#cta .c3 b{color:#FFD21F}
+#cta .site{margin-top:18px;font-weight:800;font-size:26px;letter-spacing:.2em;color:rgba(255,255,255,.55)}
+#confetti{position:absolute;inset:0}
+#standin{position:absolute;right:30px;top:120px;background:#e11d48;color:#fff;font-weight:900;font-size:24px;letter-spacing:.06em;
+  padding:10px 18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="voxel-reel" data-start="0" data-duration="41.432" data-fps="30" data-width="1080" data-height="1920">
+  <div id="bg"></div>
+  <div id="bokeh"></div>
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div id="ui">
+    <!-- hook cards -->
+    <div id="cards" class="abs" style="inset:0;opacity:0">
+      <div class="card" id="cardA" style="left:110px;top:290px"><img id="imgA" alt=""><div class="top">Reels</div>
+        <div class="cap">Claude, make it 3D.</div><div class="who">@withhammad.ai<small>made with Claude</small></div></div>
+      <div class="card" id="cardB" style="left:610px;top:305px"><img id="imgB" alt=""><div class="top">Reels</div>
+        <div class="cap">Built out of blocks.</div><div class="who">@withhammad.ai<small>made with Claude</small></div></div>
+    </div>
+    <div class="chip" id="chip0" style="top:330px">No Blender <b>✕</b></div>
+    <div class="chip" id="chip1" style="top:450px">No animator <b>✕</b></div>
+    <div class="chip" id="chip2" style="top:570px">No AI video model <b>✕</b></div>
+    <!-- course -->
+    <div class="panel" id="course">
+      <div class="k">ONLINE COURSE · 3D AI REELS</div>
+      <h2>Make viral 3D cartoon<br>reels with Claude</h2>
+      <div class="meta">🔒 Locked · 12 modules</div>
+      <div class="row"><div id="paid">PAID<i></i></div><div id="buy">BUY NOW</div></div>
+    </div>
+    <div id="free">FREE</div>
+    <div id="honest">The guide is free · Claude Code needs <b>Claude Pro ($20/mo)</b></div>
+    <!-- step 1 script -->
+    <div class="panel" id="p1" style="top:300px;height:330px">
+      <div class="ph"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>SCRIPT.TXT</div>
+      <div id="p1t" class="mono" style="padding:24px 34px;font-size:34px;line-height:1.5;white-space:pre-wrap"></div>
+    </div>
+    <!-- step 2 voices -->
+    <div class="panel" id="p2" style="top:300px;height:380px">
+      <div class="ph">ELEVENLABS · TWO VOICES</div>
+      <canvas id="p2c" width="940" height="320" style="position:absolute;left:0;top:60px"></canvas>
+    </div>
+    <div id="stamp">AI VIDEO ✕</div>
+    <!-- step 3 code -->
+    <div class="panel" id="p3" style="top:300px;height:400px">
+      <div class="ph"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>SCENE.JS · WRITTEN BY CLAUDE</div>
+      <div id="p3t" class="mono" style="padding:22px 34px;font-size:28px;line-height:1.55;white-space:pre"></div>
+    </div>
+    <!-- step 4 sync -->
+    <div class="panel" id="p4" style="top:300px;height:400px">
+      <div class="ph">AUTO SYNC · FROM THE VOICE FILE</div>
+      <canvas id="p4c" width="940" height="340" style="position:absolute;left:0;top:56px"></canvas>
+    </div>
+    <!-- step 5 render -->
+    <div class="panel" id="p5" style="top:300px;height:330px">
+      <div class="ph">RENDERING · ON MY LAPTOP</div>
+      <div style="padding:18px 34px 0;display:flex;align-items:baseline;gap:18px">
+        <div id="p5n" style="font-weight:900;font-size:120px;color:#FFD21F;font-variant-numeric:tabular-nums">0</div>
+        <div id="p5d" style="font-weight:800;font-size:40px;color:rgba(255,255,255,.6)">/ 0 frames</div></div>
+      <div style="margin:10px 34px 0;height:22px;border-radius:11px;background:rgba(255,255,255,.1);overflow:hidden">
+        <div id="p5b" style="height:100%;width:0;background:#FFD21F;border-radius:11px"></div></div>
+      <div style="padding:18px 34px 0;display:flex;justify-content:space-between;font-family:JB;font-size:24px;color:rgba(255,255,255,.55)">
+        <span>1080 × 1920 · 30 fps</span><span>frame by frame</span></div>
+    </div>
+    <!-- terminal -->
+    <div class="panel" id="p6" style="top:300px;height:250px">
+      <div class="ph"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>CLAUDE CODE</div>
+      <div id="p6t" class="mono" style="padding:26px 34px;font-size:40px;line-height:1.5;white-space:pre"></div>
+    </div>
+    <!-- CTA -->
+    <canvas id="confetti" width="1080" height="1920"></canvas>
+    <div class="panel" id="cta">
+      <div class="c1">COMMENT</div>
+      <div class="kw" id="kw">VOXEL</div>
+      <div class="c3">I'll send the <b>full guide</b><br>+ every prompt. Free.</div>
+      <div class="site">WITHHAMMAD.COM</div>
+    </div>
+    <div id="label"><span id="labelt"></span><div class="bar"></div></div>
+    <div id="cap"></div>
+    <div id="standin" style="display:none">STAND-IN VOICE · NOT FOR POSTING</div>
+  </div>
+</div>
+<script src="vendor/gsap.min.js"></script>
+<script src="data.js"></script>
+<script type="module">
+import * as THREE from "./vendor/three.module.min.js";
+const R = window.REEL, FPS = 30, DUR = R.duration, TOTAL = Math.round(DUR * FPS);
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const eOut = (k) => 1 - Math.pow(1 - clamp(k), 3);
+const eIO = (k) => { k = clamp(k); return k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2; };
+const back = (k) => { k = clamp(k); const c = 1.9; return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2); };
+function mulberry(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const L = Object.fromEntries(R.lines.map((l) => [l.id, l]));
+const lw = (id) => R.words.filter((w) => w.line === id);
+const wt = (id, i) => lw(id)[i < 0 ? lw(id).length + i : i];
+if (R.standin) $("standin").style.display = "block";
+$("root").dataset.duration = String(DUR);
+
+/* ---------- timeline anchors ---------- */
+const cut = (id) => L[id].s - 0.06;
+const T = {
+  nope: L.step3.s, build: wt("step3", 1).s - 0.05, buildEnd: L.step3.e,
+  free: wt("free", 5).s, honest: wt("free", 7).s,
+  typeDone: L.tell.s + (L.tell.e - L.tell.s) * 0.55,
+};
+T.shirt = T.typeDone + 0.25;
+const SHOTS = [[0, "WIDE"], [cut("course"), "CU_C"], [cut("free"), "CU_H"], [cut("step1"), "WIDE"], [cut("step2"), "CU_C"],
+  [cut("aivideo"), "CU_H"], [cut("step3"), "CU_C"], [T.build, "BUILD"], [cut("step4"), "WIDE"], [cut("step5"), "WIDE2"],
+  [cut("code"), "CU_H"], [cut("tell"), "WIDE"], [cut("this"), "CU_H2"], [cut("too"), "CU_C"], [cut("cta"), "WIDE"]];
+const LABELS = [[0, "CLAUDE MADE <span class=y>THESE</span>"], [cut("course"), "PEOPLE <span class=y>SELL</span> THIS"],
+  [cut("free"), "I'LL SHOW YOU <span class=y>FREE</span>"], [cut("step1"), "STEP 1 · <span class=y>ONE SCRIPT</span>"],
+  [cut("step2"), "STEP 2 · <span class=y>TWO VOICES</span>"], [cut("aivideo"), "STEP 3 · <span class=y>???</span>"],
+  [cut("step3"), "STEP 3 · <span class=y>NOT AI VIDEO</span>"], [T.build, "STEP 3 · <span class=y>IT'S CODE</span>"],
+  [cut("step4"), "STEP 4 · <span class=y>AUTO SYNC</span>"], [cut("step5"), "STEP 5 · <span class=y>YOUR LAPTOP RENDERS</span>"],
+  [cut("code"), "DO YOU <span class=y>TOUCH THE CODE?</span>"], [cut("tell"), "JUST <span class=y>TELL CLAUDE</span>"],
+  [cut("this"), "<span class=y>THIS</span> VIDEO?"], [cut("too"), "MADE WITH <span class=y>CLAUDE</span>"],
+  [cut("cta"), "FREE GUIDE → <span class=y>COMMENT</span>"]];
+const at = (list, t) => { let v = list[0]; for (const e of list) if (t >= e[0]) v = e; return v; };
+
+/* ---------- bokeh ---------- */
+const rnd = mulberry(7), BK = [];
+for (let i = 0; i < 46; i++) {
+  const el = document.createElement("div"); el.className = "bk";
+  const s = 6 + rnd() * 22, c = ["#ff7ab6", "#7aa2ff", "#ffd36b", "#c58bff", "#ffffff"][Math.floor(rnd() * 5)];
+  Object.assign(el.style, { width: s + "px", height: s + "px", background: c });
+  $("bokeh").appendChild(el);
+  BK.push({ el, x: rnd() * 1080, y: rnd() * 1250, sp: 4 + rnd() * 10, ph: rnd() * 6.28, a: .25 + rnd() * .5 });
+}
+
+/* ---------- three ---------- */
+const renderer = new THREE.WebGLRenderer({ canvas: $("gl"), antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(1080, 1920, false);
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0x141f80, 14, 34);
+const cam = new THREE.PerspectiveCamera(35, 1080 / 1920, 0.1, 100);
+scene.add(new THREE.HemisphereLight(0x9fb4ff, 0x1a1f5a, 1.15));
+const key = new THREE.DirectionalLight(0xfff1e0, 2.3); key.position.set(4, 9, 7); key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048); Object.assign(key.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6 }); key.shadow.bias = -0.0005;
+scene.add(key);
+const rim = new THREE.DirectionalLight(0x8a7bff, 1.4); rim.position.set(-6, 5, -6); scene.add(rim);
+const fill = new THREE.DirectionalLight(0xff9ad1, 0.35); fill.position.set(-5, 2, 5); scene.add(fill);
+
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(80, 80), new THREE.MeshStandardMaterial({ color: 0x101a78, roughness: 1 }));
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+const grid = new THREE.GridHelper(80, 80, 0x3d57ff, 0x2b40d0); grid.position.y = 0.002;
+grid.material.transparent = true; grid.material.opacity = 0.55; scene.add(grid);
+
+const M = (c, extra = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.82, metalness: 0, ...extra });
+const PARTS = [];   // every block, for the step-3 assembly
+function box(parent, w, h, d, x, y, z, mat, opts = {}) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+  m.position.set(x, y, z); m.castShadow = opts.shadow !== false; m.receiveShadow = true;
+  parent.add(m); m.userData.home = m.position.clone(); m.userData.homeRot = m.rotation.clone();
+  PARTS.push(m); return m;
+}
+
+// stage: a voxel platform the world is "built" on
+const stage = new THREE.Group(); scene.add(stage);
+const tileA = M(0x1b2696), tileB = M(0x22309f);
+for (let i = -3; i <= 3; i++) for (let j = -1; j <= 1; j++)
+  box(stage, 0.96, 0.08, 0.96, i * 1.0, 0.04, j * 1.0 - 0.2, (i + j) % 2 ? tileA : tileB, { shadow: false });
+
+// --- voxel Hammad ---
+const SKIN = M(0xc68d66), SKIN2 = M(0xae7553), HAIR = M(0x17110d), BEARD = M(0x1d1511);
+const TEE = M(0x16161c), JEANS = M(0x23304f), SHOE = M(0xf1f1f1), WHITE = M(0xf7f7f7), BLACK = M(0x0b0b0b);
+const BADGE = M(0x3b82f6, { emissive: 0x1d4ed8, emissiveIntensity: 0.6 }), MOUTH = M(0x3a1212);
+const H = new THREE.Group(); H.position.set(-0.78, 0.08, 0); scene.add(H);
+for (const s of [-1, 1]) { box(H, 0.36, 0.16, 0.52, s * 0.2, 0.08, 0.04, SHOE); box(H, 0.34, 0.86, 0.38, s * 0.2, 0.59, 0, JEANS); }
+const torso = box(H, 0.98, 1.0, 0.56, 0, 1.52, 0, TEE);
+box(H, 0.16, 0.16, 0.03, 0.25, 1.8, 0.29, BADGE);
+const arms = {};
+for (const s of [-1, 1]) {
+  const g = new THREE.Group(); g.position.set(s * 0.63, 1.96, 0); H.add(g); arms[s] = g;
+  box(g, 0.27, 0.4, 0.33, 0, -0.2, 0, TEE); box(g, 0.24, 0.56, 0.28, 0, -0.66, 0, SKIN); box(g, 0.25, 0.2, 0.3, 0, -1.03, 0, SKIN2);
+}
+box(H, 0.34, 0.12, 0.32, 0, 2.08, 0, SKIN2);
+const head = new THREE.Group(); head.position.set(0, 2.14, 0); H.add(head);
+box(head, 1.0, 1.0, 0.92, 0, 0.5, 0, SKIN);
+box(head, 1.08, 0.3, 1.0, 0, 1.08, -0.02, HAIR); box(head, 1.06, 0.72, 0.16, 0, 0.66, -0.48, HAIR);
+for (const s of [-1, 1]) box(head, 0.1, 0.44, 0.9, s * 0.53, 0.78, -0.02, HAIR);
+box(head, 0.78, 0.18, 0.14, 0.12, 0.95, 0.46, HAIR); box(head, 0.44, 0.16, 0.6, -0.18, 1.29, 0.06, HAIR);
+box(head, 0.36, 0.13, 0.52, 0.22, 1.27, -0.12, HAIR); box(head, 0.3, 0.12, 0.3, 0.3, 1.1, 0.42, HAIR);
+box(head, 0.88, 0.3, 0.12, 0, 0.15, 0.47, BEARD);
+for (const s of [-1, 1]) box(head, 0.14, 0.5, 0.62, s * 0.47, 0.3, 0.16, BEARD);
+box(head, 0.44, 0.08, 0.08, 0, 0.36, 0.5, BEARD);
+const mouth = box(head, 0.28, 0.08, 0.04, 0, 0.25, 0.52, MOUTH, { shadow: false });
+box(head, 0.14, 0.16, 0.1, 0, 0.46, 0.5, SKIN2);
+const eyes = {}, pupils = {}, brows = {};
+for (const s of [-1, 1]) {
+  eyes[s] = box(head, 0.21, 0.18, 0.03, s * 0.21, 0.62, 0.47, WHITE, { shadow: false });
+  pupils[s] = box(head, 0.09, 0.12, 0.02, s * 0.21 + 0.03, 0.61, 0.49, BLACK, { shadow: false });
+  brows[s] = box(head, 0.27, 0.07, 0.06, s * 0.21, 0.78, 0.48, HAIR, { shadow: false });
+}
+H.rotation.y = 0.28;
+
+// --- Claude block buddy ---
+const ORANGE = M(0xd97757), ORANGE2 = M(0xbf5f3e), INK = M(0x15100e);
+const C = new THREE.Group(); C.position.set(1.02, 0.08, 0.15); scene.add(C);
+const cbody = new THREE.Group(); C.add(cbody);
+for (const sx of [-1, 1]) for (const sz of [-1, 1]) box(C, 0.17, 0.32, 0.17, sx * 0.42, 0.16, sz * 0.3, ORANGE2);
+const cMain = box(cbody, 1.3, 1.04, 1.0, 0, 0.52, 0, ORANGE);
+const carm = {};
+for (const s of [-1, 1]) carm[s] = box(cbody, 0.2, 0.34, 0.22, s * 0.75, 0.55, 0, ORANGE2);
+const ceye = {};
+for (const s of [-1, 1]) {
+  const g = new THREE.Group(); g.position.set(s * 0.26, 0.66, 0.51); cbody.add(g);
+  const a = box(g, 0.2, 0.055, 0.03, -0.065, 0, 0, INK, { shadow: false });
+  const b = box(g, 0.2, 0.055, 0.03, 0.065, 0, 0, INK, { shadow: false });
+  ceye[s] = { g, a, b };
+}
+cbody.position.y = 0.32;
+C.rotation.y = -0.32;
+
+/* ---------- assembly offsets (seeded) ---------- */
+const ar = mulberry(42);
+for (const p of PARTS) {
+  const a = ar() * 6.283, r = 3 + ar() * 5;
+  p.userData.off = new THREE.Vector3(Math.cos(a) * r, 4 + ar() * 7, Math.sin(a) * r - 2);
+  p.userData.spin = new THREE.Vector3(ar() * 6 - 3, ar() * 6 - 3, ar() * 6 - 3);
+  p.userData.delay = ar();
+}
+function assemble(t) {
+  // empty stage at T.build, blocks fly in over the step-3 line; tiles first, then bodies bottom-up
+  const span = Math.max(1.2, T.buildEnd - T.build - 0.35);
+  for (const p of PARTS) {
+    let k = 1;
+    if (t >= T.build - 0.001 && t < T.buildEnd + 0.5) {
+      const wy = p.getWorldPosition(new THREE.Vector3()).y; // stable enough: home y order
+      const order = clamp((p.userData.home.y + (p.parent === stage ? -1 : 0) + (p.parent === head ? 2.1 : 0) + (p.parent === cbody ? 0.3 : 0)) / 3.6);
+      const st = T.build + 0.1 + (order * 0.7 + p.userData.delay * 0.3) * (span - 0.55);
+      k = eOut((t - st) / 0.5);
+    }
+    const o = p.userData.off;
+    p.position.set(p.userData.home.x + o.x * (1 - k), p.userData.home.y + o.y * (1 - k), p.userData.home.z + o.z * (1 - k));
+    const sp = p.userData.spin;
+    p.rotation.set(p.userData.homeRot.x + sp.x * (1 - k), p.userData.homeRot.y + sp.y * (1 - k), p.userData.homeRot.z + sp.z * (1 - k));
+    p.visible = k > 0.001; p.userData.k = k;
+  }
+}
+
+/* ---------- speech envelopes ---------- */
+function openness(who, t) {
+  for (const w of R.words) {
+    if (w.who !== who) continue;
+    if (t >= w.s && t <= w.e) {
+      const syl = Math.max(1, Math.round(w.w.replace(/[^a-zA-Z]/g, "").length / 3));
+      const ph = (t - w.s) / Math.max(0.05, w.e - w.s);
+      return 0.25 + 0.75 * Math.abs(Math.sin(ph * Math.PI * syl));
+    }
+  }
+  return 0;
+}
+const speaking = (who, t) => R.lines.some((l) => l.who === who && t >= l.s - 0.05 && t <= l.e + 0.1);
+
+/* ---------- cameras ---------- */
+const HX = H.position.x, CX = C.position.x;
+const SH = {
+  WIDE: { p: [0.15, 2.6, 12.5], l: [0.15, 3.6, 0], d: [-0.05, 0.02, -0.3] },
+  WIDE2: { p: [-0.6, 2.8, 12.0], l: [0.15, 3.55, 0], d: [0.12, 0, -0.25] },
+  BUILD: { p: [3.4, 5.6, 14.0], l: [0.1, 2.7, 0], d: [-0.8, -0.3, -1.0] },
+  CU_H: { p: [HX + 1.0, 2.9, 5.6], l: [HX + 0.15, 3.0, 0], d: [-0.05, 0.02, -0.35] },
+  CU_H2: { p: [HX + 0.95, 2.85, 5.9], l: [HX + 0.15, 2.98, 0], d: [0, 0.03, -0.45] },
+  CU_C: { p: [CX - 0.7, 1.8, 6.6], l: [CX - 0.1, 1.44, 0], d: [0.04, 0.02, -0.35] },
+};
+function setCam(t) {
+  const [t0, name] = at(SHOTS, t), s = SH[name], k = t - t0;
+  // landing push: first 0.35 s eases in from 4% further away
+  const land = 1 + 0.04 * (1 - eOut(k / 0.35));
+  const px = s.l[0] + (s.p[0] - s.l[0]) * land + s.d[0] * k, py = s.l[1] + (s.p[1] - s.l[1]) * land + s.d[1] * k, pz = s.l[2] + (s.p[2] - s.l[2]) * land + s.d[2] * k;
+  cam.position.set(px, py, pz); cam.lookAt(s.l[0], s.l[1], s.l[2]);
+  return name;
+}
+
+/* ---------- characters per frame ---------- */
+const blinkR = mulberry(99), BLINKS = []; { let b = 1.2; while (b < DUR) { BLINKS.push(b); b += 2.2 + blinkR() * 2.6; } }
+const blink = (t, off) => BLINKS.some((b) => Math.abs(t - (b + off)) < 0.07) ? 0.12 : 1;
+function animChars(t) {
+  if (PARTS.some((p) => p.userData.k < 1)) return; // mid-assembly: blocks fly, no acting
+  const hOpen = openness("H", t), cOpen = openness("C", t);
+  // Hammad
+  mouth.scale.y = 0.6 + hOpen * 2.6; mouth.position.y = 0.25 - hOpen * 0.06;
+  const breathe = Math.sin(t * 2.1) * 0.012;
+  torso.scale.y = 1 + breathe;
+  const look = speaking("C", t) && !speaking("H", t) ? 0.32 : 0.0;
+  head.rotation.y = lerp(head.rotation.y, look, 1) + Math.sin(t * 1.3) * 0.04;
+  head.rotation.x = -hOpen * 0.05 + Math.sin(t * 1.7) * 0.02;
+  head.rotation.z = Math.sin(t * 0.9) * 0.03;
+  const bl = blink(t, 0);
+  for (const s of [-1, 1]) { eyes[s].scale.y = bl; pupils[s].scale.y = bl; pupils[s].position.x = s * 0.21 + 0.03 + (look ? 0.03 : 0); }
+  // expressions: skeptical on "aivideo"/"code", surprised on "this"
+  const sk = (t > L.aivideo.s - 0.1 && t < L.aivideo.e + 0.2) || (t > L.code.s - 0.1 && t < L.code.e + 0.2);
+  const sur = t > L.this.s - 0.1 && t < L.too.e;
+  brows[-1].rotation.z = sk ? -0.25 : 0; brows[1].rotation.z = sk ? 0.05 : 0;
+  brows[-1].position.y = brows[1].position.y = 0.78 + (sur ? 0.07 : 0) + hOpen * 0.015;
+  // arms: talking gesture, wave at the CTA
+  const wave = t > L.cta.s + 0.2;
+  arms[1].rotation.z = wave ? 2.5 + Math.sin(t * 9) * 0.35 : 0.08 + hOpen * 0.25;
+  arms[1].rotation.x = wave ? 0 : -hOpen * 0.35;
+  arms[-1].rotation.z = -0.08 - Math.sin(t * 2) * 0.02;
+  // tee colour: "make my t-shirt yellow"
+  const yellow = t >= T.shirt;
+  TEE.color.setHex(yellow ? 0xffd21f : 0x16161c);
+  // Claude
+  cbody.scale.set(1 + cOpen * 0.035, 1 - cOpen * 0.06, 1 + cOpen * 0.035);
+  cbody.position.y = 0.32 + Math.abs(Math.sin(t * 2.4)) * 0.02 + cOpen * 0.03;
+  const cLook = speaking("H", t) && !speaking("C", t) ? -0.15 : 0;
+  C.rotation.y = -0.32 + cLook + Math.sin(t * 1.1) * 0.03;
+  const serious = t > L.course.s - 0.1 && t < L.course.e + 0.2;
+  const wink = t > L.too.s && t < L.too.e + 0.25;
+  const cbl = blink(t, 0.9);
+  for (const s of [-1, 1]) {
+    const flat = serious || (wink && s === 1);
+    const a = flat ? 0.0 : 0.62;
+    ceye[s].a.rotation.z = a; ceye[s].b.rotation.z = -a;
+    ceye[s].a.position.y = ceye[s].b.position.y = flat ? 0 : -0.03;
+    ceye[s].g.scale.y = cbl;
+  }
+  carm[1].rotation.z = wink ? -0.6 : -cOpen * 0.3;
+  carm[1].position.y = 0.55 + (wink ? 0.12 : 0);
+}
+
+/* ---------- UI helpers ---------- */
+const show = (el, t, a, b, fi = 0.18, fo = 0.15) => {
+  const o = clamp((t - a) / fi) * (1 - clamp((t - b) / fo));
+  el.style.opacity = o; return o;
+};
+const pop = (t, a, d = 0.32) => back((t - a) / d);
+const typed = (s, t, a, b) => s.slice(0, Math.floor(s.length * clamp((t - a) / (b - a))));
+
+/* captions: chunks of up to 3 words, break after punctuation */
+const KEY = new Set(["3d", "claude", "blender", "animator", "ai", "courses", "free", "script", "elevenlabs", "voices", "code", "world", "sync",
+  "laptop", "frame", "never", "change", "too", "voxel", "prompt", "block", "talking", "barely"]);
+const CH = [];
+for (const ln of R.lines) {
+  const ws = lw(ln.id); let cur = [];
+  ws.forEach((w, i) => { cur.push(w); if (cur.length === 3 || /[.,?!]$/.test(w.w) || i === ws.length - 1) { CH.push(cur); cur = []; } });
+}
+CH.forEach((c, i) => { c.s = c[0].s - 0.04; c.e = i + 1 < CH.length ? Math.min(CH[i + 1][0].s - 0.04, c[c.length - 1].e + 0.6) : DUR; });
+let capKey = "";
+function captions(t, shot, panelOn) {
+  const c = CH.find((c) => t >= c.s && t < c.e);
+  const el = $("cap");
+  if (!c) { el.innerHTML = ""; capKey = ""; return; }
+  const k = CH.indexOf(c);
+  if (capKey !== "c" + k) {
+    el.innerHTML = c.map((w) => { const n = w.w.toLowerCase().replace(/[^a-z0-9]/g, ""); return `<span class="${KEY.has(n) ? "y" : ""}">${w.w.replace(/[.,!]$/, "")}</span>`; }).join("");
+    capKey = "c" + k;
+  }
+  const y = shot.startsWith("CU") ? 1250 : (t < cut("course") ? 905 : 840);
+  el.style.top = y + "px";
+  [...el.children].forEach((sp, i) => {
+    const w = c[i], s = pop(t, w.s - 0.03, 0.22);
+    sp.style.opacity = t >= w.s - 0.03 ? 1 : 0;
+    sp.style.transform = `scale(${0.7 + 0.3 * s})`;
+  });
+}
+
+/* cards: stills of our own scene rendered at load */
+function still(setup) {
+  setup(); renderer.render(scene, cam); return renderer.domElement.toDataURL("image/jpeg", 0.9);
+}
+
+/* panel canvases */
+const p2 = $("p2c").getContext("2d"), p4 = $("p4c").getContext("2d"), cf = $("confetti").getContext("2d");
+function drawVoices(t) {
+  p2.clearRect(0, 0, 940, 320);
+  const rows = [["HAMMAD", "my cloned voice", "#FFD21F", "H"], ["CLAUDE", "library voice", "#d97757", "C"]];
+  rows.forEach(([n, sub, col, who], r) => {
+    const y0 = 30 + r * 140;
+    p2.fillStyle = "rgba(255,255,255,.06)"; p2.beginPath(); p2.roundRect(24, y0, 892, 118, 18); p2.fill();
+    p2.strokeStyle = col; p2.lineWidth = 3; p2.strokeRect(52, y0 + 42, 34, 34);
+    p2.fillStyle = "#fff"; p2.font = "900 34px Inter"; p2.fillText(n, 104, y0 + 58);
+    p2.fillStyle = "rgba(255,255,255,.5)"; p2.font = "700 22px Inter"; p2.fillText(sub, 104, y0 + 88);
+    const bars = 46, x0 = 330, live = openness(who, t);
+    for (let i = 0; i < bars; i++) {
+      const ph = i * 0.55 + t * 9 * (who === "H" ? 1 : 1.2);
+      const base = 0.18 + 0.5 * Math.abs(Math.sin(ph) * Math.cos(ph * 0.37 + r));
+      const h = 12 + 80 * base * (0.35 + 0.65 * (live > 0 ? 1 : 0.4));
+      p2.fillStyle = col; p2.globalAlpha = i / bars < ((t * 0.35 + r * 0.3) % 1) ? 1 : 0.45;
+      p2.fillRect(x0 + i * 12.5, y0 + 59 - h / 2, 7, h); p2.globalAlpha = 1;
+    }
+  });
+}
+function drawSync(t) {
+  const l = L.step4, ws = lw("step4");
+  p4.clearRect(0, 0, 940, 340);
+  const x0 = 170, x1 = 910, sx = (tt) => x0 + (x1 - x0) * clamp((tt - l.s + 0.15) / (l.e - l.s + 0.3));
+  const head = sx(t);
+  const tracks = ["WORDS", "MOUTH", "CAPTIONS"];
+  tracks.forEach((n, r) => {
+    const y = 34 + r * 96;
+    p4.fillStyle = "rgba(255,255,255,.05)"; p4.fillRect(24, y, 892, 78);
+    p4.fillStyle = "rgba(255,255,255,.55)"; p4.font = "700 22px JB"; p4.fillText(n, 36, y + 47);
+    if (r === 1) {
+      for (let x = x0; x < x1; x += 6) {
+        const tt = l.s - 0.15 + (x - x0) / (x1 - x0) * (l.e - l.s + 0.3);
+        const o = openness("C", tt);
+        const h = 6 + 56 * o;
+        p4.fillStyle = x < head ? "#FFD21F" : "rgba(255,255,255,.35)"; p4.fillRect(x, y + 39 - h / 2, 4, h);
+      }
+    } else {
+      ws.forEach((w) => {
+        const a = sx(w.s), b = Math.max(a + 18, sx(w.e));
+        const on = head >= a;
+        p4.fillStyle = on ? "#FFD21F" : "rgba(255,255,255,.14)";
+        p4.beginPath(); p4.roundRect(a, y + 16, b - a - 3, 46, 8); p4.fill();
+        if (b - a > 46) { p4.fillStyle = on ? "#0b0d1c" : "#fff"; p4.font = "800 18px Inter"; p4.fillText(w.w.replace(/[.,]/g, "").slice(0, Math.floor((b - a - 10) / 10)), a + 6, y + 45); }
+      });
+    }
+  });
+  p4.fillStyle = "#fff"; p4.fillRect(head - 2, 22, 4, 300);
+}
+const CONF = []; { const r = mulberry(5); for (let i = 0; i < 90; i++) CONF.push({ a: r() * 6.283, v: 700 + r() * 900, c: ["#FFD21F", "#ff4d8d", "#4dd2ff", "#7cff8a", "#ffffff", "#d97757"][Math.floor(r() * 6)], w: 10 + r() * 12, s: r() * 12 - 6 }); }
+function drawConfetti(t) {
+  cf.clearRect(0, 0, 1080, 1920);
+  const t0 = L.cta.s + 0.05, k = t - t0;
+  if (k < 0 || k > 2.4) return;
+  for (const p of CONF) {
+    const x = 540 + Math.cos(p.a) * p.v * k * 0.75, y = 560 + Math.sin(p.a) * p.v * k * 0.75 - 500 * k + 900 * k * k;
+    cf.save(); cf.globalAlpha = clamp(1 - (k - 1.6) / 0.8); cf.translate(x, y); cf.rotate(p.s * k); cf.fillStyle = p.c;
+    cf.fillRect(-p.w / 2, -p.w / 4, p.w, p.w / 2); cf.restore();
+  }
+}
+
+/* ---------- render one frame ---------- */
+const SCRIPT_TXT = "HAMMAD: These 3D cartoon reels?\n        Claude made them.\nCLAUDE: And people sell courses\n        on this.";
+const CODE_TXT = "// builds the whole world, block by block\nconst hammad = voxelGuy({ hair: 'black', beard: true })\nconst claude = blockBuddy({ color: '#D97757' })\nscene.add(hammad, claude, neonGrid())\ncamera.cutToSpeaker()";
+const hl = (s) => s.replace(/^(HAMMAD:|CLAUDE:)/gm, '<span style="color:#FFD21F;font-weight:700">$1</span>');
+const hlCode = (s) => s.replace(/(\/\/.*)/g, '<span style="color:#6b7aa8">$1</span>').replace(/('[^']*'?)/g, '<span style="color:#7cff8a">$1</span>').replace(/\b(const)\b/g, '<span style="color:#c58bff">$1</span>');
+let lastLabel = "";
+function renderAt(t) {
+  t = clamp(t, 0, DUR);
+  for (const b of BK) {
+    b.el.style.transform = `translate(${b.x + Math.sin(t * 0.3 + b.ph) * 14}px, ${(b.y - t * b.sp + 2000) % 1300 - 40}px)`;
+    b.el.style.opacity = b.a * (0.6 + 0.4 * Math.sin(t * 1.3 + b.ph));
+  }
+  const shot = setCam(t);
+  assemble(shot === "BUILD" || (t >= T.build && t < T.buildEnd + 0.5) ? t : 1e9);
+  animChars(t);
+  renderer.render(scene, cam);
+
+  // label
+  const [l0, lab] = at(LABELS, t);
+  if (lab !== lastLabel) { $("labelt").innerHTML = lab; lastLabel = lab; }
+  const lp = pop(t, l0, 0.3);
+  $("label").style.transform = `translateX(-50%) scale(${0.85 + 0.15 * lp})`;
+
+  // hook cards + proof chips
+  const cOn = show($("cards"), t, -1, cut("course"), 0.01, 0.12);
+  $("cardA").style.transform = `rotate(${-7 + Math.sin(t * 1.1) * 1.2}deg) translateY(${Math.sin(t * 1.4) * 8 + (1 - eOut(t / 0.5)) * 60}px)`;
+  $("cardB").style.transform = `rotate(${6 + Math.sin(t * 1.0 + 1) * 1.2}deg) translateY(${Math.sin(t * 1.2 + 2) * 8 + (1 - eOut((t - 0.15) / 0.5)) * 60}px)`;
+  const pw = lw("proof");
+  [1, 3, pw.length - 1].forEach((wi, i) => {
+    const el = $("chip" + i), a = pw[wi].s - 0.05;
+    const o = show(el, t, a, cut("course"), 0.08, 0.12); el.style.transform = `translateX(-50%) scale(${0.6 + 0.4 * pop(t, a)}) rotate(${(i - 1) * 2}deg)`;
+  });
+  if (t > pw[0].s - 0.1) $("cards").style.opacity = cOn * (1 - 0.65 * clamp((t - pw[0].s + 0.1) / 0.2));
+
+  // course card, FREE stamp, honest chip
+  const co = show($("course"), t, cut("course"), cut("step1"));
+  $("course").style.transform = `translateY(${(1 - eOut((t - cut("course")) / 0.35)) * -30}px)`;
+  $("paid").querySelector("i").style.transform = `scaleX(${eOut((t - T.free) / 0.2)})`;
+  const fo = show($("free"), t, T.free, cut("step1"), 0.05);
+  $("free").style.transform = `rotate(-7deg) scale(${1.6 - 0.6 * pop(t, T.free, 0.28)})`;
+  show($("honest"), t, T.honest, cut("step2"));
+  $("honest").style.top = (t >= cut("step1") ? 652 : 640) + "px";
+  $("honest").style.transform = `translateX(-50%) translateY(${(1 - eOut((t - T.honest) / 0.3)) * 20}px)`;
+
+  // step 1 script
+  show($("p1"), t, cut("step1"), cut("step2"));
+  const s1 = typed(SCRIPT_TXT, t, L.step1.s + 0.2, L.step1.e - 0.1);
+  $("p1t").innerHTML = hl(s1) + (t < cut("step2") ? '<span class="cursor"></span>' : "");
+  // step 2 voices
+  if (show($("p2"), t, cut("step2"), cut("aivideo")) > 0) drawVoices(t);
+  // nope stamp
+  show($("stamp"), t, T.nope, T.build, 0.05, 0.1);
+  $("stamp").style.transform = `translateX(-50%) rotate(-6deg) scale(${1.5 - 0.5 * pop(t, T.nope, 0.25)})`;
+  // step 3 code
+  show($("p3"), t, T.build, cut("step4"));
+  $("p3t").innerHTML = hlCode(typed(CODE_TXT, t, T.build + 0.1, T.buildEnd - 0.2)) + '<span class="cursor" style="height:28px"></span>';
+  // step 4 sync
+  if (show($("p4"), t, cut("step4"), cut("step5")) > 0) drawSync(t);
+  // step 5 render counter (real frame count of this video)
+  show($("p5"), t, cut("step5"), cut("code"));
+  const rk = eIO((t - L.step5.s) / (L.step5.e - L.step5.s - 0.1));
+  $("p5n").textContent = Math.round(TOTAL * rk).toLocaleString("en-US");
+  $("p5d").textContent = `/ ${TOTAL.toLocaleString("en-US")} frames`;
+  $("p5b").style.width = (rk * 100).toFixed(2) + "%";
+  // terminal
+  show($("p6"), t, cut("tell"), cut("this"));
+  const cmd = typed("make my t-shirt yellow", t, L.tell.s + 0.05, T.typeDone);
+  $("p6t").innerHTML = `<span style="color:#d97757">&gt;</span> ${cmd}` + (t < T.typeDone ? '<span class="cursor"></span>' : "") +
+    (t >= T.shirt - 0.1 ? '\n<span style="color:#22e07a">✓ done</span> <span style="color:rgba(255,255,255,.5)">· tee → #FFD21F</span>' : "");
+  // CTA
+  show($("cta"), t, cut("cta"), DUR + 1, 0.12);
+  $("cta").style.transform = `scale(${0.7 + 0.3 * pop(t, cut("cta"), 0.38)})`;
+  $("kw").style.transform = `scale(${1 + 0.04 * Math.sin(Math.max(0, t - L.cta.s) * 5)})`;
+  drawConfetti(t);
+
+  const panelOn = t >= cut("step1") && t < cut("code") || t >= cut("tell") && t < cut("this") || t >= cut("cta");
+  captions(t, shot, panelOn);
+}
+
+window.__hf = window.__hf || {}; window.__hf.buildReady = window.__hf.buildReady || {};
+window.__hf.buildReady.voxel = (async () => {
+  await document.fonts.ready;
+  // card stills: our own scene, not other creators' reels
+  $("imgA").src = still(() => { renderAt(L.too.s + 0.15); cam.position.set(CX - 0.6, 1.7, 5.2); cam.lookAt(CX - 0.1, 1.0, 0); });
+  $("imgB").src = still(() => { renderAt(L.cta.s + 1.2); cam.position.set(HX + 1.0, 2.6, 7.0); cam.lookAt(HX + 0.35, 2.2, 0); });
+  renderAt(0);
+})();
+window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
+// GSAP timeline only marks the duration for the player; the scene draws from hf-seek.
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true }); tl.to({}, { duration: DUR }, 0);
+window.__timelines["voxel-reel"] = tl;
+window.renderAt = renderAt;
+renderAt(0);
+</script>
+</body>
+</html>
