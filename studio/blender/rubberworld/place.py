@@ -40,7 +40,10 @@ inputs = []; filt = []
 for o in out:
     inputs += ['-i', f'take/lines/{o["i"]:02d}.wav']
     t = f'atempo={o["tempo"]},' if o['tempo'] > 1.001 else ''
-    g = 'volume=1.0' if o['who'] == 'G' else 'volume=1.0'
+    target = -15.0 if o['who'] == 'G' else -16.0   # Hammad sits 1 dB above Claude
+    meas = subprocess.run(['ffmpeg', '-nostats', '-i', f'take/lines/{o["i"]:02d}.wav', '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    li = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', meas)[-1])
+    g = f'volume={target - li:.2f}dB'
     filt.append(f'[{o["i"]}]{t}{g},adelay={int(o["start"]*1000)}:all=1[a{o["i"]}]')
 filt.append(''.join(f'[a{o["i"]}]' for o in out) + f'amix=inputs={len(out)}:normalize=0,apad=whole_dur={tl["total"]}[m]')
 subprocess.run(['ffmpeg', '-v', 'error', '-y', *inputs, '-filter_complex', ';'.join(filt), '-map', '[m]', '-ar', '48000', '-ac', '1', '-t', str(tl['total']), 'take/voice.wav'], check=True)

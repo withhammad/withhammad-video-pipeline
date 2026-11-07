@@ -5,7 +5,7 @@ from faster_whisper import WhisperModel
 L = json.load(open('standin/lines.json'))
 m = WhisperModel('small.en', compute_type='int8')
 out = {}
-for who, f in (('G', 'take/guy_hammad.mp3'), ('C', 'take/claude_annie.mp3')):
+for who, f in (('G', 'take/guy_hammad_v2.mp3'), ('C', 'take/claude_annie.mp3')):
     raw = subprocess.check_output(['ffmpeg', '-v', 'error', '-i', f, '-f', 'f32le', '-ac', '1', '-ar', '16000', '-'])
     segs, _ = m.transcribe(np.frombuffer(raw, np.float32), word_timestamps=True, language='en')
     ww = [w for s in segs for w in s.words]
@@ -13,7 +13,7 @@ for who, f in (('G', 'take/guy_hammad.mp3'), ('C', 'take/claude_annie.mp3')):
     counts = [len(re.findall(r"[A-Za-z0-9'\-]+", L[i][1])) for i in idx]
     print(who, 'whisper words', len(ww), 'script words', sum(counts))
     norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower())
-    ALIAS = {'six': ['six', '6'], 'ugh': ['ugh', 'oh', 'uh', 'ah']}
+    ALIAS = {'six': ['six', '6'], 'ugh': ['ugh', 'oh', 'uh', 'ah'], 'okay': ['okay', 'ok'], 'um': ['um', 'umm', 'hmm', 'uh']}
     firsts = [norm(re.findall(r"[A-Za-z0-9'\-]+", L[i][1])[0]) for i in idx]
     starts = [0]; p = 1
     for k, fw in enumerate(firsts[1:]):
