@@ -80,7 +80,7 @@ New reels (owner-approved, booked; each waits for its PR to be merged):
 | RANK (SEO plugins) | f34ba51f84d9 | Mon 9 Nov | #10 |
 | K2 (K2 Horizon) | 619b40c30868 | Mon 9 Nov | #4 |
 | FILM | b95794dc72cf | Mon 9 Nov | live |
-| WORLD (Rubber World) | 8bcf01ad1b0f | Tue 10 Nov | #8 |
+| WORLD (Rubber World) | 8bcf01ad1b0f | HELD: owner said "Rejected" (7 Nov); do not post or merge #8 | #8 |
 | ANIMATE | 6a48be151b7a | Tue 10 Nov | #5 |
 | BETTER | dbedc134cc10 | Tue 10 Nov | live |
 | VOXEL | 85fb47b66b4b | 10-12 Nov | live (#15 fixes numbers) |
