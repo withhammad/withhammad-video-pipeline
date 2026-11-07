@@ -1,21 +1,21 @@
 {
- "frames": 2633,
+ "frames": 2836,
  "fps": 30,
  "units": [
   {
    "kind": "title",
    "from": 0,
-   "to": 49
+   "to": 57
   },
   {
    "kind": "family",
-   "from": 49,
-   "to": 104
+   "from": 57,
+   "to": 127
   },
   {
    "kind": "rec",
-   "from": 104,
-   "to": 232,
+   "from": 127,
+   "to": 259,
    "src": "h3_free_docs.mp4",
    "pill": "Docs, Slides & Design: every plan, even Free",
    "srcStart": 1.0,
@@ -25,8 +25,8 @@
   },
   {
    "kind": "rec",
-   "from": 232,
-   "to": 316,
+   "from": 259,
+   "to": 348,
    "src": "h5_motion.mp4",
    "pill": "Dashboards + animated explainers, in beta",
    "srcStart": 0.4,
@@ -36,8 +36,8 @@
   },
   {
    "kind": "rec",
-   "from": 316,
-   "to": 372,
+   "from": 348,
+   "to": 420,
    "src": "r_duet.mp4",
    "pill": "Claude Duet: research preview, US waitlist",
    "srcStart": 0.2,
@@ -47,66 +47,66 @@
   },
   {
    "kind": "rec",
-   "from": 372,
-   "to": 499,
+   "from": 420,
+   "to": 587,
    "src": "r_pricing.mp4",
    "pill": "$200 Ultra: no 5-hour limit (verified accounts)",
    "srcStart": 0.6,
    "boxes": false,
-   "rate": 0.921,
+   "rate": 0.701,
    "y0": 330
   },
   {
    "kind": "face",
-   "from": 499,
-   "to": 725,
+   "from": 587,
+   "to": 753,
    "framing": "A"
   },
   {
    "kind": "map25",
-   "from": 725,
-   "to": 848
+   "from": 753,
+   "to": 908
   },
   {
    "kind": "face",
-   "from": 848,
-   "to": 940,
+   "from": 908,
+   "to": 986,
    "framing": "B"
   },
   {
    "kind": "part1",
-   "from": 940,
-   "to": 1086
+   "from": 986,
+   "to": 1193
   },
   {
    "kind": "picker",
-   "from": 1086,
-   "to": 1226,
+   "from": 1193,
+   "to": 1350,
    "mode": "family",
    "pill": "Claude is a family of models"
   },
   {
    "kind": "cards",
-   "from": 1226,
-   "to": 1537
+   "from": 1350,
+   "to": 1705
   },
   {
    "kind": "face",
-   "from": 1537,
-   "to": 1653,
+   "from": 1705,
+   "to": 1831,
    "framing": "B"
   },
   {
    "kind": "picker",
-   "from": 1653,
-   "to": 1769,
+   "from": 1831,
+   "to": 1964,
    "mode": "fable",
    "pill": "Fable 5.1"
   },
   {
    "kind": "rec",
-   "from": 1769,
-   "to": 1934,
+   "from": 1964,
+   "to": 2140,
    "src": "r_fable.mp4",
    "pill": "Fable 5.1: slower, $10 / $50 per million tokens",
    "srcStart": 2.0,
@@ -116,20 +116,20 @@
   },
   {
    "kind": "face",
-   "from": 1934,
-   "to": 2087,
+   "from": 2140,
+   "to": 2284,
    "framing": "A"
   },
   {
    "kind": "face",
-   "from": 2087,
-   "to": 2162,
+   "from": 2284,
+   "to": 2360,
    "framing": "B"
   },
   {
    "kind": "rec",
-   "from": 2162,
-   "to": 2215,
+   "from": 2360,
+   "to": 2417,
    "src": "r_pricing_row.mp4",
    "pill": "Official API prices, per million tokens",
    "srcStart": 1.4,
@@ -139,112 +139,112 @@
   },
   {
    "kind": "compare",
-   "from": 2215,
-   "to": 2296
+   "from": 2417,
+   "to": 2504
   },
   {
    "kind": "rule",
-   "from": 2296,
-   "to": 2533
+   "from": 2504,
+   "to": 2750
   },
   {
    "kind": "face",
-   "from": 2533,
-   "to": 2633,
+   "from": 2750,
+   "to": 2836,
    "framing": "A"
   }
  ],
  "beats": {
-  "map25_count": 749,
-  "map25_parts": 809,
-  "part1_models": 1061,
+  "map25_count": 793,
+  "map25_parts": 863,
+  "part1_models": 1150,
   "cards": [
-   1226,
-   1320,
-   1372,
-   1484
+   1350,
+   1460,
+   1523,
+   1640
   ],
-  "fable_move": 1677,
+  "fable_move": 1866,
   "prow": [
-   2172,
-   2179
+   2366,
+   2378
   ],
   "compare": [
-   2230,
-   2264
+   2435,
+   2470
   ],
   "rule": [
-   2314,
-   2430
+   2524,
+   2642
   ],
   "cta": {
-   "type": 2539,
-   "dm": 2564
+   "type": 2756,
+   "dm": 2771
   }
  },
  "chips": [
   {
    "text": "Claude 2.0",
-   "at": 514,
+   "at": 596,
    "icon": "x",
-   "strikeAt": 584,
-   "to": 725
+   "strikeAt": 659,
+   "to": 753
   },
   {
    "text": "A nickname, not a new model",
-   "at": 584,
+   "at": 659,
    "icon": "check",
-   "to": 725
+   "to": 753
   },
   {
    "text": "No coding needed",
-   "at": 902,
+   "at": 919,
    "icon": "check",
-   "to": 940
+   "to": 986
   },
   {
    "text": "5.5 today",
-   "at": 1552,
+   "at": 1720,
    "icon": "check",
-   "to": 1653
+   "to": 1831
   },
   {
    "text": "Opus 5.5 \u00b7 Sep 22",
-   "at": 1607,
+   "at": 1780,
    "icon": "check",
-   "to": 1653
+   "to": 1831
   },
   {
    "text": "Sonnet 5.5 \u00b7 Sep 28",
-   "at": 1613,
+   "at": 1786,
    "icon": "check",
-   "to": 1653
+   "to": 1831
   },
   {
    "text": "Haiku 5.5 \u00b7 Oct 7",
-   "at": 1619,
+   "at": 1792,
    "icon": "check",
-   "to": 1653
+   "to": 1831
   },
   {
    "text": "Senior person on every quick email",
-   "at": 2021,
+   "at": 2216,
    "icon": "x",
-   "strikeAt": 2087,
-   "to": 2162
+   "strikeAt": 2284,
+   "to": 2360
   },
   {
    "text": "Newest hire on the whole project",
-   "at": 2141,
+   "at": 2297,
    "icon": "x",
-   "strikeAt": 2149,
-   "to": 2162
+   "strikeAt": 2341,
+   "to": 2360
   }
  ],
  "captions": [
   {
    "from": 0,
-   "to": 25,
+   "to": 30,
    "words": [
     {
      "text": "In",
@@ -253,2171 +253,2112 @@
     },
     {
      "text": "the",
-     "at": 4,
+     "at": 11,
      "emph": false
     },
     {
      "text": "last",
-     "at": 10,
+     "at": 16,
      "emph": false
     },
     {
      "text": "6",
-     "at": 17,
+     "at": 23,
      "emph": true
     }
    ]
   },
   {
-   "from": 25,
-   "to": 56,
+   "from": 30,
+   "to": 47,
    "words": [
     {
-     "text": "weeks",
-     "at": 25,
+     "text": "weeks,",
+     "at": 30,
      "emph": true
-    },
+    }
+   ]
+  },
+  {
+   "from": 47,
+   "to": 97,
+   "words": [
     {
      "text": "Anthropic",
-     "at": 33,
+     "at": 47,
      "emph": false
     },
     {
      "text": "shipped",
-     "at": 49,
+     "at": 57,
+     "emph": false
+    },
+    {
+     "text": "3",
+     "at": 67,
+     "emph": false
+    },
+    {
+     "text": "new",
+     "at": 87,
      "emph": false
     }
    ]
   },
   {
-   "from": 56,
-   "to": 104,
+   "from": 97,
+   "to": 127,
    "words": [
     {
-     "text": "3",
-     "at": 56,
-     "emph": false
-    },
-    {
-     "text": "new",
-     "at": 64,
-     "emph": false
-    },
-    {
      "text": "Claude",
-     "at": 71,
+     "at": 97,
      "emph": false
     },
     {
      "text": "models,",
-     "at": 78,
+     "at": 104,
      "emph": true
     }
    ]
   },
   {
-   "from": 104,
-   "to": 130,
+   "from": 127,
+   "to": 148,
    "words": [
     {
      "text": "put",
-     "at": 104,
+     "at": 127,
      "emph": false
     },
     {
      "text": "docs,",
-     "at": 107,
+     "at": 131,
      "emph": false
     }
    ]
   },
   {
-   "from": 130,
-   "to": 152,
+   "from": 148,
+   "to": 160,
    "words": [
     {
-     "text": "slides",
-     "at": 130,
+     "text": "slides,",
+     "at": 148,
      "emph": false
-    },
+    }
+   ]
+  },
+  {
+   "from": 160,
+   "to": 200,
+   "words": [
     {
      "text": "and",
-     "at": 136,
+     "at": 160,
      "emph": false
     },
     {
      "text": "designs",
-     "at": 142,
+     "at": 166,
      "emph": false
-    }
-   ]
-  },
-  {
-   "from": 152,
-   "to": 192,
-   "words": [
+    },
     {
      "text": "inside",
-     "at": 152,
+     "at": 173,
      "emph": false
     },
     {
      "text": "every",
-     "at": 163,
-     "emph": false
-    },
-    {
-     "text": "chat,",
-     "at": 173,
+     "at": 187,
      "emph": false
     }
    ]
   },
   {
-   "from": 192,
-   "to": 212,
+   "from": 200,
+   "to": 218,
+   "words": [
+    {
+     "text": "chat,",
+     "at": 200,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 218,
+   "to": 239,
    "words": [
     {
      "text": "even",
-     "at": 192,
+     "at": 218,
      "emph": false
     },
     {
      "text": "on",
-     "at": 196,
+     "at": 224,
      "emph": false
     },
     {
      "text": "the",
-     "at": 201,
+     "at": 229,
      "emph": false
     },
     {
      "text": "free",
-     "at": 206,
+     "at": 234,
      "emph": true
     }
    ]
   },
   {
-   "from": 212,
-   "to": 232,
+   "from": 239,
+   "to": 259,
    "words": [
     {
      "text": "plan,",
-     "at": 212,
+     "at": 239,
      "emph": false
     }
    ]
   },
   {
-   "from": 232,
-   "to": 253,
+   "from": 259,
+   "to": 283,
    "words": [
     {
      "text": "opened",
-     "at": 232,
+     "at": 259,
      "emph": false
     },
     {
      "text": "betas",
-     "at": 236,
-     "emph": false
-    },
-    {
-     "text": "for",
-     "at": 247,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 253,
-   "to": 284,
-   "words": [
-    {
-     "text": "dashboards",
-     "at": 253,
-     "emph": false
-    },
-    {
-     "text": "and",
      "at": 266,
      "emph": false
     },
     {
-     "text": "animated",
-     "at": 274,
+     "text": "for",
+     "at": 277,
      "emph": false
     }
    ]
   },
   {
-   "from": 284,
-   "to": 316,
+   "from": 283,
+   "to": 314,
+   "words": [
+    {
+     "text": "dashboards",
+     "at": 283,
+     "emph": false
+    },
+    {
+     "text": "and",
+     "at": 296,
+     "emph": false
+    },
+    {
+     "text": "animated",
+     "at": 304,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 314,
+   "to": 348,
    "words": [
     {
      "text": "explainers,",
-     "at": 284,
+     "at": 314,
      "emph": false
     }
    ]
   },
   {
-   "from": 316,
-   "to": 338,
+   "from": 348,
+   "to": 379,
    "words": [
     {
      "text": "previewed",
-     "at": 316,
+     "at": 348,
      "emph": false
     },
     {
      "text": "a",
-     "at": 323,
+     "at": 359,
      "emph": false
     },
     {
      "text": "new",
-     "at": 325,
+     "at": 361,
      "emph": false
     },
     {
      "text": "agent",
-     "at": 331,
+     "at": 370,
      "emph": false
     }
    ]
   },
   {
-   "from": 338,
-   "to": 372,
+   "from": 379,
+   "to": 420,
    "words": [
     {
      "text": "app",
-     "at": 338,
+     "at": 379,
      "emph": false
     },
     {
      "text": "called",
-     "at": 344,
+     "at": 387,
      "emph": false
     },
     {
      "text": "Duet,",
-     "at": 353,
+     "at": 395,
      "emph": true
     }
    ]
   },
   {
-   "from": 372,
-   "to": 396,
+   "from": 420,
+   "to": 453,
    "words": [
     {
      "text": "and",
-     "at": 372,
+     "at": 420,
      "emph": false
     },
     {
      "text": "lifted",
-     "at": 376,
+     "at": 423,
      "emph": false
     },
     {
      "text": "the",
-     "at": 382,
+     "at": 434,
      "emph": false
     },
     {
      "text": "5",
-     "at": 391,
+     "at": 445,
      "emph": false
     }
    ]
   },
   {
-   "from": 396,
-   "to": 419,
+   "from": 453,
+   "to": 482,
    "words": [
     {
-     "text": "hour",
-     "at": 396,
+     "text": "-hour",
+     "at": 453,
      "emph": false
     },
     {
      "text": "limit",
-     "at": 402,
+     "at": 460,
      "emph": false
     },
     {
      "text": "on",
-     "at": 409,
+     "at": 470,
      "emph": false
     },
     {
      "text": "the",
-     "at": 414,
+     "at": 477,
      "emph": false
     }
    ]
   },
   {
-   "from": 419,
-   "to": 464,
+   "from": 482,
+   "to": 542,
    "words": [
     {
      "text": "$200",
-     "at": 419,
+     "at": 482,
      "emph": true
     },
     {
-     "text": "ultra",
-     "at": 434,
+     "text": "Ultra",
+     "at": 500,
      "emph": true
     },
     {
      "text": "plan",
-     "at": 448,
+     "at": 521,
      "emph": false
     },
     {
      "text": "for",
-     "at": 456,
+     "at": 530,
      "emph": false
     }
    ]
   },
   {
-   "from": 464,
-   "to": 499,
+   "from": 542,
+   "to": 587,
    "words": [
     {
      "text": "verified",
-     "at": 464,
+     "at": 542,
      "emph": false
     },
     {
      "text": "accounts.",
-     "at": 476,
+     "at": 554,
      "emph": false
     }
    ]
   },
   {
-   "from": 499,
-   "to": 526,
+   "from": 587,
+   "to": 607,
    "words": [
     {
      "text": "People",
-     "at": 499,
+     "at": 587,
      "emph": false
     },
     {
      "text": "are",
-     "at": 506,
+     "at": 592,
      "emph": false
     },
     {
      "text": "calling",
-     "at": 514,
+     "at": 596,
      "emph": false
     },
     {
      "text": "it",
-     "at": 520,
+     "at": 601,
      "emph": false
     }
    ]
   },
   {
-   "from": 526,
-   "to": 560,
+   "from": 607,
+   "to": 642,
    "words": [
     {
      "text": "Claude",
-     "at": 526,
+     "at": 607,
      "emph": false
     },
     {
-     "text": "2",
-     "at": 535,
-     "emph": false
-    },
-    {
-     "text": ".0,",
-     "at": 542,
+     "text": "2.0,",
+     "at": 617,
      "emph": false
     }
    ]
   },
   {
-   "from": 560,
-   "to": 584,
+   "from": 642,
+   "to": 659,
    "words": [
     {
      "text": "but",
-     "at": 560,
+     "at": 642,
      "emph": false
     },
     {
      "text": "that's",
-     "at": 564,
+     "at": 646,
      "emph": false
     },
     {
      "text": "just",
-     "at": 571,
-     "emph": false
-    },
-    {
-     "text": "a",
-     "at": 581,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 584,
-   "to": 604,
-   "words": [
-    {
-     "text": "nickname",
-     "at": 584,
-     "emph": true
-    },
-    {
-     "text": "and",
-     "at": 591,
-     "emph": false
-    },
-    {
-     "text": "not",
-     "at": 597,
-     "emph": false
-    },
-    {
-     "text": "a",
-     "at": 602,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 604,
-   "to": 625,
-   "words": [
-    {
-     "text": "new",
-     "at": 604,
-     "emph": false
-    },
-    {
-     "text": "model,",
-     "at": 610,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 625,
-   "to": 645,
-   "words": [
-    {
-     "text": "so",
-     "at": 625,
-     "emph": false
-    },
-    {
-     "text": "if",
-     "at": 631,
-     "emph": false
-    },
-    {
-     "text": "you",
-     "at": 634,
-     "emph": false
-    },
-    {
-     "text": "feel",
-     "at": 640,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 645,
-   "to": 670,
-   "words": [
-    {
-     "text": "a",
-     "at": 645,
-     "emph": false
-    },
-    {
-     "text": "little",
      "at": 650,
      "emph": false
     },
     {
-     "text": "lost",
-     "at": 655,
-     "emph": false
-    },
-    {
-     "text": "right",
-     "at": 662,
+     "text": "a",
+     "at": 658,
      "emph": false
     }
    ]
   },
   {
-   "from": 670,
-   "to": 685,
+   "from": 659,
+   "to": 671,
    "words": [
     {
-     "text": "now,",
-     "at": 670,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 685,
-   "to": 708,
-   "words": [
-    {
-     "text": "that's",
-     "at": 685,
-     "emph": false
-    },
-    {
-     "text": "completely",
-     "at": 696,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 708,
-   "to": 725,
-   "words": [
-    {
-     "text": "normal.",
-     "at": 708,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 725,
-   "to": 749,
-   "words": [
-    {
-     "text": "So",
-     "at": 725,
-     "emph": false
-    },
-    {
-     "text": "I",
-     "at": 731,
-     "emph": false
-    },
-    {
-     "text": "mapped",
-     "at": 738,
-     "emph": false
-    },
-    {
-     "text": "out",
-     "at": 742,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 749,
-   "to": 797,
-   "words": [
-    {
-     "text": "25",
-     "at": 749,
+     "text": "nickname,",
+     "at": 659,
      "emph": true
-    },
-    {
-     "text": "Claude",
-     "at": 765,
-     "emph": false
-    },
-    {
-     "text": "concepts",
-     "at": 776,
-     "emph": true
-    },
-    {
-     "text": "in",
-     "at": 790,
-     "emph": false
     }
    ]
   },
   {
-   "from": 797,
-   "to": 829,
+   "from": 671,
+   "to": 701,
    "words": [
     {
-     "text": "plain",
-     "at": 797,
-     "emph": false
-    },
-    {
-     "text": "English",
-     "at": 802,
-     "emph": false
-    },
-    {
-     "text": "across",
-     "at": 809,
-     "emph": false
-    },
-    {
-     "text": "5",
-     "at": 820,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 829,
-   "to": 848,
-   "words": [
-    {
-     "text": "parts,",
-     "at": 829,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 848,
-   "to": 869,
-   "words": [
-    {
-     "text": "and",
-     "at": 848,
-     "emph": false
-    },
-    {
-     "text": "you",
-     "at": 853,
-     "emph": false
-    },
-    {
-     "text": "don't",
-     "at": 857,
-     "emph": false
-    },
-    {
-     "text": "need",
-     "at": 862,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 869,
-   "to": 890,
-   "words": [
-    {
-     "text": "to",
-     "at": 869,
-     "emph": false
-    },
-    {
-     "text": "write",
-     "at": 872,
+     "text": "not",
+     "at": 671,
      "emph": false
     },
     {
      "text": "a",
-     "at": 878,
+     "at": 677,
+     "emph": false
+    },
+    {
+     "text": "new",
+     "at": 679,
+     "emph": false
+    },
+    {
+     "text": "model,",
+     "at": 683,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 701,
+   "to": 715,
+   "words": [
+    {
+     "text": "so",
+     "at": 701,
+     "emph": false
+    },
+    {
+     "text": "if",
+     "at": 706,
+     "emph": false
+    },
+    {
+     "text": "you",
+     "at": 707,
+     "emph": false
+    },
+    {
+     "text": "feel",
+     "at": 711,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 715,
+   "to": 737,
+   "words": [
+    {
+     "text": "a",
+     "at": 715,
+     "emph": false
+    },
+    {
+     "text": "little",
+     "at": 718,
+     "emph": false
+    },
+    {
+     "text": "lost,",
+     "at": 723,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 737,
+   "to": 753,
+   "words": [
+    {
+     "text": "that's",
+     "at": 737,
+     "emph": false
+    },
+    {
+     "text": "normal.",
+     "at": 743,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 753,
+   "to": 793,
+   "words": [
+    {
+     "text": "So",
+     "at": 753,
+     "emph": false
+    },
+    {
+     "text": "I",
+     "at": 769,
+     "emph": false
+    },
+    {
+     "text": "mapped",
+     "at": 775,
+     "emph": false
+    },
+    {
+     "text": "out",
+     "at": 780,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 793,
+   "to": 847,
+   "words": [
+    {
+     "text": "25",
+     "at": 793,
+     "emph": true
+    },
+    {
+     "text": "Claude",
+     "at": 811,
+     "emph": false
+    },
+    {
+     "text": "concepts",
+     "at": 820,
+     "emph": true
+    },
+    {
+     "text": "in",
+     "at": 835,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 847,
+   "to": 887,
+   "words": [
+    {
+     "text": "plain",
+     "at": 847,
+     "emph": false
+    },
+    {
+     "text": "English",
+     "at": 853,
+     "emph": false
+    },
+    {
+     "text": "across",
+     "at": 863,
+     "emph": false
+    },
+    {
+     "text": "5",
+     "at": 877,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 887,
+   "to": 901,
+   "words": [
+    {
+     "text": "parts,",
+     "at": 887,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 901,
+   "to": 924,
+   "words": [
+    {
+     "text": "and",
+     "at": 901,
+     "emph": false
+    },
+    {
+     "text": "you",
+     "at": 910,
+     "emph": false
+    },
+    {
+     "text": "don't",
+     "at": 914,
+     "emph": false
+    },
+    {
+     "text": "need",
+     "at": 919,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 924,
+   "to": 942,
+   "words": [
+    {
+     "text": "to",
+     "at": 924,
+     "emph": false
+    },
+    {
+     "text": "write",
+     "at": 928,
+     "emph": false
+    },
+    {
+     "text": "a",
+     "at": 931,
      "emph": false
     },
     {
      "text": "single",
-     "at": 884,
+     "at": 936,
      "emph": false
     }
    ]
   },
   {
-   "from": 890,
-   "to": 912,
+   "from": 942,
+   "to": 960,
    "words": [
     {
      "text": "line",
-     "at": 890,
+     "at": 942,
      "emph": false
     },
     {
      "text": "of",
-     "at": 896,
-     "emph": false
-    },
-    {
-     "text": "code",
-     "at": 902,
-     "emph": false
-    },
-    {
-     "text": "for",
-     "at": 907,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 912,
-   "to": 940,
-   "words": [
-    {
-     "text": "any",
-     "at": 912,
-     "emph": false
-    },
-    {
-     "text": "of",
-     "at": 919,
-     "emph": false
-    },
-    {
-     "text": "it.",
-     "at": 923,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 940,
-   "to": 959,
-   "words": [
-    {
-     "text": "Part",
-     "at": 940,
-     "emph": false
-    },
-    {
-     "text": "1",
-     "at": 944,
-     "emph": false
-    },
-    {
-     "text": "is",
      "at": 948,
      "emph": false
     },
     {
-     "text": "the",
+     "text": "code",
      "at": 953,
      "emph": false
-    }
-   ]
-  },
-  {
-   "from": 959,
-   "to": 977,
-   "words": [
-    {
-     "text": "brain,",
-     "at": 959,
-     "emph": true
-    }
-   ]
-  },
-  {
-   "from": 977,
-   "to": 995,
-   "words": [
-    {
-     "text": "the",
-     "at": 977,
-     "emph": false
     },
     {
-     "text": "engine",
-     "at": 981,
-     "emph": false
-    },
-    {
-     "text": "Claude",
-     "at": 989,
+     "text": "for",
+     "at": 956,
      "emph": false
     }
    ]
   },
   {
-   "from": 995,
-   "to": 1031,
+   "from": 960,
+   "to": 999,
    "words": [
     {
-     "text": "actually",
-     "at": 995,
+     "text": "any",
+     "at": 960,
      "emph": false
     },
     {
-     "text": "runs",
-     "at": 1007,
+     "text": "of",
+     "at": 967,
      "emph": false
     },
     {
-     "text": "on,",
-     "at": 1015,
+     "text": "it.",
+     "at": 969,
      "emph": false
     }
    ]
   },
   {
-   "from": 1031,
-   "to": 1061,
+   "from": 999,
+   "to": 1040,
    "words": [
     {
-     "text": "and",
-     "at": 1031,
-     "emph": false
-    },
-    {
-     "text": "concept",
-     "at": 1037,
-     "emph": false
-    },
-    {
-     "text": "number",
-     "at": 1047,
+     "text": "Part",
+     "at": 999,
      "emph": false
     },
     {
      "text": "1",
-     "at": 1057,
+     "at": 1006,
+     "emph": false
+    },
+    {
+     "text": "is",
+     "at": 1016,
+     "emph": false
+    },
+    {
+     "text": "the",
+     "at": 1033,
      "emph": false
     }
    ]
   },
   {
-   "from": 1061,
-   "to": 1086,
+   "from": 1040,
+   "to": 1049,
    "words": [
     {
-     "text": "is",
-     "at": 1061,
-     "emph": false
-    },
-    {
-     "text": "models.",
-     "at": 1066,
+     "text": "brain,",
+     "at": 1040,
      "emph": true
     }
    ]
   },
   {
-   "from": 1086,
+   "from": 1049,
+   "to": 1079,
+   "words": [
+    {
+     "text": "the",
+     "at": 1049,
+     "emph": false
+    },
+    {
+     "text": "engine",
+     "at": 1057,
+     "emph": false
+    },
+    {
+     "text": "Claude",
+     "at": 1067,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1079,
    "to": 1121,
    "words": [
     {
-     "text": "Claude",
-     "at": 1086,
+     "text": "actually",
+     "at": 1079,
      "emph": false
     },
     {
-     "text": "isn't",
-     "at": 1095,
+     "text": "runs",
+     "at": 1091,
      "emph": false
     },
     {
-     "text": "one",
-     "at": 1101,
-     "emph": false
-    },
-    {
-     "text": "AI,",
-     "at": 1108,
+     "text": "on,",
+     "at": 1099,
      "emph": false
     }
    ]
   },
   {
    "from": 1121,
-   "to": 1145,
+   "to": 1150,
    "words": [
     {
-     "text": "it's",
+     "text": "and",
      "at": 1121,
      "emph": false
     },
     {
-     "text": "a",
-     "at": 1127,
+     "text": "concept",
+     "at": 1124,
      "emph": false
     },
     {
-     "text": "family",
-     "at": 1132,
+     "text": "number",
+     "at": 1134,
      "emph": false
     },
     {
-     "text": "of",
-     "at": 1139,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1145,
-   "to": 1164,
-   "words": [
-    {
-     "text": "models,",
+     "text": "1",
      "at": 1145,
-     "emph": true
-    }
-   ]
-  },
-  {
-   "from": 1164,
-   "to": 1184,
-   "words": [
-    {
-     "text": "and",
-     "at": 1164,
-     "emph": false
-    },
-    {
-     "text": "right",
-     "at": 1168,
-     "emph": false
-    },
-    {
-     "text": "now",
-     "at": 1175,
-     "emph": false
-    },
-    {
-     "text": "there",
-     "at": 1179,
      "emph": false
     }
    ]
   },
   {
-   "from": 1184,
-   "to": 1226,
+   "from": 1150,
+   "to": 1193,
    "words": [
-    {
-     "text": "are",
-     "at": 1184,
-     "emph": false
-    },
-    {
-     "text": "3",
-     "at": 1189,
-     "emph": false
-    },
-    {
-     "text": "main",
-     "at": 1196,
-     "emph": false
-    },
-    {
-     "text": "ones.",
-     "at": 1203,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1226,
-   "to": 1249,
-   "words": [
-    {
-     "text": "Haiku",
-     "at": 1226,
-     "emph": true
-    },
     {
      "text": "is",
-     "at": 1232,
+     "at": 1150,
      "emph": false
     },
     {
-     "text": "the",
+     "text": "models.",
+     "at": 1157,
+     "emph": true
+    }
+   ]
+  },
+  {
+   "from": 1193,
+   "to": 1237,
+   "words": [
+    {
+     "text": "Claude",
+     "at": 1193,
+     "emph": false
+    },
+    {
+     "text": "isn't",
+     "at": 1202,
+     "emph": false
+    },
+    {
+     "text": "one",
+     "at": 1213,
+     "emph": false
+    },
+    {
+     "text": "AI,",
+     "at": 1222,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1237,
+   "to": 1264,
+   "words": [
+    {
+     "text": "it's",
      "at": 1237,
      "emph": false
     },
     {
-     "text": "small",
-     "at": 1241,
+     "text": "a",
+     "at": 1245,
      "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1249,
-   "to": 1264,
-   "words": [
+    },
     {
-     "text": "one,",
+     "text": "family",
      "at": 1249,
+     "emph": false
+    },
+    {
+     "text": "of",
+     "at": 1256,
      "emph": false
     }
    ]
   },
   {
    "from": 1264,
-   "to": 1291,
+   "to": 1280,
    "words": [
     {
-     "text": "so",
+     "text": "models,",
      "at": 1264,
-     "emph": false
-    },
+     "emph": true
+    }
+   ]
+  },
+  {
+   "from": 1280,
+   "to": 1304,
+   "words": [
     {
-     "text": "it's",
-     "at": 1268,
-     "emph": false
-    },
-    {
-     "text": "the",
-     "at": 1274,
-     "emph": false
-    },
-    {
-     "text": "fastest",
+     "text": "and",
      "at": 1280,
      "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1291,
-   "to": 1320,
-   "words": [
+    },
     {
-     "text": "and",
-     "at": 1291,
+     "text": "right",
+     "at": 1287,
      "emph": false
     },
     {
-     "text": "cheapest,",
-     "at": 1297,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1320,
-   "to": 1346,
-   "words": [
-    {
-     "text": "Sonnet",
-     "at": 1320,
-     "emph": true
-    },
-    {
-     "text": "is",
-     "at": 1326,
+     "text": "now",
+     "at": 1294,
      "emph": false
     },
     {
-     "text": "the",
-     "at": 1330,
-     "emph": false
-    },
-    {
-     "text": "everyday",
-     "at": 1336,
+     "text": "there",
+     "at": 1301,
      "emph": false
     }
    ]
   },
   {
-   "from": 1346,
-   "to": 1372,
+   "from": 1304,
+   "to": 1350,
    "words": [
     {
-     "text": "workhorse,",
-     "at": 1346,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1372,
-   "to": 1393,
-   "words": [
-    {
-     "text": "and",
-     "at": 1372,
-     "emph": false
-    },
-    {
-     "text": "Opus",
-     "at": 1377,
-     "emph": true
-    },
-    {
-     "text": "is",
-     "at": 1382,
-     "emph": false
-    },
-    {
-     "text": "the",
-     "at": 1388,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1393,
-   "to": 1412,
-   "words": [
-    {
-     "text": "one",
-     "at": 1393,
-     "emph": false
-    },
-    {
-     "text": "you",
-     "at": 1397,
-     "emph": false
-    },
-    {
-     "text": "hand",
-     "at": 1400,
-     "emph": false
-    },
-    {
-     "text": "the",
-     "at": 1406,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1412,
-   "to": 1423,
-   "words": [
-    {
-     "text": "big,",
-     "at": 1412,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1423,
-   "to": 1441,
-   "words": [
-    {
-     "text": "long,",
-     "at": 1423,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1441,
-   "to": 1467,
-   "words": [
-    {
-     "text": "messy",
-     "at": 1441,
-     "emph": false
-    },
-    {
-     "text": "jobs,",
-     "at": 1448,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1467,
-   "to": 1484,
-   "words": [
-    {
-     "text": "and",
-     "at": 1467,
-     "emph": false
-    },
-    {
-     "text": "it's",
-     "at": 1472,
-     "emph": false
-    },
-    {
-     "text": "the",
-     "at": 1478,
-     "emph": false
-    },
-    {
-     "text": "one",
-     "at": 1481,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1484,
-   "to": 1519,
-   "words": [
-    {
-     "text": "Anthropic",
-     "at": 1484,
-     "emph": false
-    },
-    {
-     "text": "tells",
-     "at": 1499,
-     "emph": false
-    },
-    {
-     "text": "you",
-     "at": 1507,
-     "emph": false
-    },
-    {
-     "text": "to",
-     "at": 1512,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1519,
-   "to": 1537,
-   "words": [
-    {
-     "text": "start",
-     "at": 1519,
-     "emph": false
-    },
-    {
-     "text": "with.",
-     "at": 1525,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1537,
-   "to": 1564,
-   "words": [
-    {
-     "text": "All",
-     "at": 1537,
+     "text": "are",
+     "at": 1304,
      "emph": false
     },
     {
      "text": "3",
-     "at": 1543,
+     "at": 1309,
      "emph": false
     },
     {
-     "text": "are",
-     "at": 1548,
+     "text": "main",
+     "at": 1317,
      "emph": false
     },
     {
-     "text": "version",
-     "at": 1552,
+     "text": "ones.",
+     "at": 1324,
      "emph": false
     }
    ]
   },
   {
-   "from": 1564,
-   "to": 1595,
+   "from": 1350,
+   "to": 1383,
    "words": [
     {
-     "text": "5",
-     "at": 1564,
-     "emph": false
-    },
-    {
-     "text": ".5,",
-     "at": 1574,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1595,
-   "to": 1614,
-   "words": [
-    {
-     "text": "and",
-     "at": 1595,
-     "emph": false
-    },
-    {
-     "text": "they",
-     "at": 1598,
-     "emph": false
-    },
-    {
-     "text": "all",
-     "at": 1603,
-     "emph": false
-    },
-    {
-     "text": "landed",
-     "at": 1607,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1614,
-   "to": 1653,
-   "words": [
-    {
-     "text": "inside",
-     "at": 1614,
-     "emph": false
-    },
-    {
-     "text": "those",
-     "at": 1627,
-     "emph": false
-    },
-    {
-     "text": "6",
-     "at": 1633,
+     "text": "Haiku",
+     "at": 1350,
      "emph": true
     },
     {
-     "text": "weeks.",
-     "at": 1641,
-     "emph": true
-    }
-   ]
-  },
-  {
-   "from": 1653,
-   "to": 1694,
-   "words": [
-    {
-     "text": "Above",
-     "at": 1653,
+     "text": "is",
+     "at": 1360,
      "emph": false
     },
-    {
-     "text": "them",
-     "at": 1664,
-     "emph": false
-    },
-    {
-     "text": "sits",
-     "at": 1671,
-     "emph": false
-    },
-    {
-     "text": "Fable,",
-     "at": 1677,
-     "emph": true
-    }
-   ]
-  },
-  {
-   "from": 1694,
-   "to": 1718,
-   "words": [
     {
      "text": "the",
-     "at": 1694,
+     "at": 1369,
      "emph": false
     },
     {
-     "text": "top",
-     "at": 1700,
-     "emph": false
-    },
-    {
-     "text": "model",
-     "at": 1705,
-     "emph": false
-    },
-    {
-     "text": "for",
-     "at": 1712,
+     "text": "small",
+     "at": 1373,
      "emph": false
     }
    ]
   },
   {
-   "from": 1718,
-   "to": 1745,
+   "from": 1383,
+   "to": 1394,
    "words": [
     {
-     "text": "the",
-     "at": 1718,
-     "emph": false
-    },
-    {
-     "text": "hardest",
-     "at": 1721,
-     "emph": false
-    },
-    {
-     "text": "and",
-     "at": 1730,
-     "emph": false
-    },
-    {
-     "text": "longest",
-     "at": 1737,
+     "text": "one,",
+     "at": 1383,
      "emph": false
     }
    ]
   },
   {
-   "from": 1745,
-   "to": 1769,
+   "from": 1394,
+   "to": 1419,
    "words": [
     {
-     "text": "running",
-     "at": 1745,
-     "emph": false
-    },
-    {
-     "text": "work,",
-     "at": 1754,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1769,
-   "to": 1798,
-   "words": [
-    {
-     "text": "but",
-     "at": 1769,
+     "text": "so",
+     "at": 1394,
      "emph": false
     },
     {
      "text": "it's",
-     "at": 1776,
+     "at": 1398,
      "emph": false
     },
     {
-     "text": "slower,",
-     "at": 1782,
-     "emph": true
+     "text": "the",
+     "at": 1404,
+     "emph": false
+    },
+    {
+     "text": "fastest",
+     "at": 1409,
+     "emph": false
     }
    ]
   },
   {
-   "from": 1798,
-   "to": 1820,
+   "from": 1419,
+   "to": 1460,
    "words": [
-    {
-     "text": "it",
-     "at": 1798,
-     "emph": false
-    },
-    {
-     "text": "costs",
-     "at": 1802,
-     "emph": false
-    },
-    {
-     "text": "2",
-     "at": 1810,
-     "emph": false
-    },
     {
      "text": "and",
-     "at": 1817,
+     "at": 1419,
+     "emph": false
+    },
+    {
+     "text": "cheapest,",
+     "at": 1428,
      "emph": false
     }
    ]
   },
   {
-   "from": 1820,
-   "to": 1847,
+   "from": 1460,
+   "to": 1495,
    "words": [
     {
-     "text": "a",
-     "at": 1820,
-     "emph": false
-    },
-    {
-     "text": "half",
-     "at": 1824,
+     "text": "Sonnet",
+     "at": 1460,
      "emph": true
     },
     {
-     "text": "times",
-     "at": 1829,
+     "text": "is",
+     "at": 1470,
      "emph": false
     },
     {
-     "text": "what",
-     "at": 1840,
+     "text": "the",
+     "at": 1477,
+     "emph": false
+    },
+    {
+     "text": "everyday",
+     "at": 1483,
      "emph": false
     }
    ]
   },
   {
-   "from": 1847,
-   "to": 1870,
+   "from": 1495,
+   "to": 1523,
    "words": [
+    {
+     "text": "workhorse,",
+     "at": 1495,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1523,
+   "to": 1549,
+   "words": [
+    {
+     "text": "and",
+     "at": 1523,
+     "emph": false
+    },
     {
      "text": "Opus",
-     "at": 1847,
+     "at": 1529,
      "emph": true
     },
     {
-     "text": "does,",
-     "at": 1853,
+     "text": "is",
+     "at": 1539,
+     "emph": false
+    },
+    {
+     "text": "the",
+     "at": 1546,
      "emph": false
     }
    ]
   },
   {
-   "from": 1870,
-   "to": 1888,
+   "from": 1549,
+   "to": 1569,
    "words": [
     {
-     "text": "and",
-     "at": 1870,
-     "emph": false
-    },
-    {
-     "text": "on",
-     "at": 1874,
-     "emph": false
-    },
-    {
-     "text": "pro",
-     "at": 1880,
-     "emph": false
-    },
-    {
-     "text": "it",
-     "at": 1883,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1888,
-   "to": 1934,
-   "words": [
-    {
-     "text": "uses",
-     "at": 1888,
-     "emph": false
-    },
-    {
-     "text": "extra",
-     "at": 1897,
-     "emph": false
-    },
-    {
-     "text": "credits.",
-     "at": 1909,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1934,
-   "to": 1952,
-   "words": [
-    {
-     "text": "I",
-     "at": 1934,
-     "emph": false
-    },
-    {
-     "text": "think",
-     "at": 1934,
-     "emph": false
-    },
-    {
-     "text": "about",
-     "at": 1940,
-     "emph": false
-    },
-    {
-     "text": "them",
-     "at": 1948,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 1952,
-   "to": 1983,
-   "words": [
-    {
-     "text": "like",
-     "at": 1952,
-     "emph": false
-    },
-    {
-     "text": "a",
-     "at": 1959,
-     "emph": false
-    },
-    {
-     "text": "team,",
-     "at": 1966,
-     "emph": true
-    }
-   ]
-  },
-  {
-   "from": 1983,
-   "to": 2000,
-   "words": [
-    {
-     "text": "because",
-     "at": 1983,
+     "text": "one",
+     "at": 1549,
      "emph": false
     },
     {
      "text": "you",
-     "at": 1987,
+     "at": 1553,
      "emph": false
     },
     {
-     "text": "wouldn't",
-     "at": 1991,
+     "text": "hand",
+     "at": 1558,
+     "emph": false
+    },
+    {
+     "text": "the",
+     "at": 1563,
      "emph": false
     }
    ]
   },
   {
-   "from": 2000,
-   "to": 2030,
+   "from": 1569,
+   "to": 1585,
    "words": [
     {
-     "text": "send",
-     "at": 2000,
-     "emph": false
-    },
-    {
-     "text": "your",
-     "at": 2007,
-     "emph": false
-    },
-    {
-     "text": "most",
-     "at": 2012,
-     "emph": false
-    },
-    {
-     "text": "senior",
-     "at": 2021,
+     "text": "big,",
+     "at": 1569,
      "emph": false
     }
    ]
   },
   {
-   "from": 2030,
-   "to": 2063,
+   "from": 1585,
+   "to": 1600,
    "words": [
     {
-     "text": "person",
-     "at": 2030,
+     "text": "long,",
+     "at": 1585,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1600,
+   "to": 1620,
+   "words": [
+    {
+     "text": "messy",
+     "at": 1600,
+     "emph": false
+    },
+    {
+     "text": "jobs,",
+     "at": 1600,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1620,
+   "to": 1640,
+   "words": [
+    {
+     "text": "and",
+     "at": 1620,
+     "emph": false
+    },
+    {
+     "text": "it's",
+     "at": 1625,
+     "emph": false
+    },
+    {
+     "text": "The",
+     "at": 1629,
+     "emph": false
+    },
+    {
+     "text": "one",
+     "at": 1634,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1640,
+   "to": 1677,
+   "words": [
+    {
+     "text": "Anthropic",
+     "at": 1640,
+     "emph": false
+    },
+    {
+     "text": "tells",
+     "at": 1657,
+     "emph": false
+    },
+    {
+     "text": "you",
+     "at": 1665,
      "emph": false
     },
     {
      "text": "to",
+     "at": 1670,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1677,
+   "to": 1705,
+   "words": [
+    {
+     "text": "start",
+     "at": 1677,
+     "emph": false
+    },
+    {
+     "text": "with.",
+     "at": 1683,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1705,
+   "to": 1731,
+   "words": [
+    {
+     "text": "All",
+     "at": 1705,
+     "emph": false
+    },
+    {
+     "text": "3",
+     "at": 1707,
+     "emph": false
+    },
+    {
+     "text": "are",
+     "at": 1717,
+     "emph": false
+    },
+    {
+     "text": "version",
+     "at": 1720,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1731,
+   "to": 1766,
+   "words": [
+    {
+     "text": "5.5,",
+     "at": 1731,
+     "emph": true
+    }
+   ]
+  },
+  {
+   "from": 1766,
+   "to": 1786,
+   "words": [
+    {
+     "text": "and",
+     "at": 1766,
+     "emph": false
+    },
+    {
+     "text": "they",
+     "at": 1769,
+     "emph": false
+    },
+    {
+     "text": "all",
+     "at": 1774,
+     "emph": false
+    },
+    {
+     "text": "landed",
+     "at": 1780,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1786,
+   "to": 1841,
+   "words": [
+    {
+     "text": "inside",
+     "at": 1786,
+     "emph": false
+    },
+    {
+     "text": "those",
+     "at": 1799,
+     "emph": false
+    },
+    {
+     "text": "6",
+     "at": 1805,
+     "emph": true
+    },
+    {
+     "text": "weeks.",
+     "at": 1813,
+     "emph": true
+    }
+   ]
+  },
+  {
+   "from": 1841,
+   "to": 1885,
+   "words": [
+    {
+     "text": "Above",
+     "at": 1841,
+     "emph": false
+    },
+    {
+     "text": "them",
+     "at": 1849,
+     "emph": false
+    },
+    {
+     "text": "sits",
+     "at": 1859,
+     "emph": false
+    },
+    {
+     "text": "Fable,",
+     "at": 1866,
+     "emph": true
+    }
+   ]
+  },
+  {
+   "from": 1885,
+   "to": 1908,
+   "words": [
+    {
+     "text": "the",
+     "at": 1885,
+     "emph": false
+    },
+    {
+     "text": "top",
+     "at": 1889,
+     "emph": false
+    },
+    {
+     "text": "model",
+     "at": 1894,
+     "emph": false
+    },
+    {
+     "text": "for",
+     "at": 1901,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1908,
+   "to": 1937,
+   "words": [
+    {
+     "text": "the",
+     "at": 1908,
+     "emph": false
+    },
+    {
+     "text": "hardest",
+     "at": 1913,
+     "emph": false
+    },
+    {
+     "text": "and",
+     "at": 1922,
+     "emph": false
+    },
+    {
+     "text": "longest",
+     "at": 1930,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1937,
+   "to": 1964,
+   "words": [
+    {
+     "text": "running",
+     "at": 1937,
+     "emph": false
+    },
+    {
+     "text": "work.",
+     "at": 1945,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 1964,
+   "to": 1996,
+   "words": [
+    {
+     "text": "But",
+     "at": 1964,
+     "emph": false
+    },
+    {
+     "text": "it's",
+     "at": 1969,
+     "emph": false
+    },
+    {
+     "text": "slower,",
+     "at": 1976,
+     "emph": true
+    }
+   ]
+  },
+  {
+   "from": 1996,
+   "to": 2039,
+   "words": [
+    {
+     "text": "it",
+     "at": 1996,
+     "emph": false
+    },
+    {
+     "text": "costs",
+     "at": 2003,
+     "emph": false
+    },
+    {
+     "text": "2.5",
+     "at": 2010,
+     "emph": false
+    },
+    {
+     "text": "times",
+     "at": 2028,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2039,
+   "to": 2074,
+   "words": [
+    {
+     "text": "what",
      "at": 2039,
      "emph": false
     },
     {
-     "text": "answer",
-     "at": 2045,
-     "emph": false
+     "text": "Opus",
+     "at": 2046,
+     "emph": true
     },
     {
-     "text": "every",
+     "text": "does,",
      "at": 2053,
      "emph": false
     }
    ]
   },
   {
-   "from": 2063,
-   "to": 2087,
-   "words": [
-    {
-     "text": "quick",
-     "at": 2063,
-     "emph": false
-    },
-    {
-     "text": "email,",
-     "at": 2070,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2087,
-   "to": 2110,
+   "from": 2074,
+   "to": 2098,
    "words": [
     {
      "text": "and",
+     "at": 2074,
+     "emph": false
+    },
+    {
+     "text": "on",
+     "at": 2081,
+     "emph": false
+    },
+    {
+     "text": "Pro",
      "at": 2087,
      "emph": false
     },
     {
-     "text": "you",
-     "at": 2092,
-     "emph": false
-    },
-    {
-     "text": "wouldn't",
-     "at": 2096,
-     "emph": false
-    },
-    {
-     "text": "hand",
-     "at": 2104,
+     "text": "it",
+     "at": 2093,
      "emph": false
     }
    ]
   },
   {
-   "from": 2110,
-   "to": 2136,
+   "from": 2098,
+   "to": 2140,
    "words": [
     {
-     "text": "the",
-     "at": 2110,
+     "text": "uses",
+     "at": 2098,
      "emph": false
     },
     {
-     "text": "whole",
-     "at": 2115,
+     "text": "extra",
+     "at": 2107,
      "emph": false
     },
     {
-     "text": "project",
-     "at": 2120,
-     "emph": false
-    },
-    {
-     "text": "to",
-     "at": 2131,
+     "text": "credits.",
+     "at": 2119,
      "emph": false
     }
    ]
   },
   {
-   "from": 2136,
+   "from": 2140,
    "to": 2162,
    "words": [
     {
-     "text": "your",
-     "at": 2136,
+     "text": "Think",
+     "at": 2140,
      "emph": false
     },
     {
-     "text": "newest",
-     "at": 2141,
+     "text": "about",
+     "at": 2146,
      "emph": false
     },
     {
-     "text": "hire,",
-     "at": 2149,
+     "text": "them",
+     "at": 2153,
+     "emph": false
+    },
+    {
+     "text": "like",
+     "at": 2156,
      "emph": false
     }
    ]
   },
   {
    "from": 2162,
-   "to": 2188,
+   "to": 2183,
    "words": [
     {
-     "text": "and",
+     "text": "a",
      "at": 2162,
      "emph": false
     },
     {
-     "text": "the",
+     "text": "team,",
      "at": 2167,
-     "emph": false
-    },
-    {
-     "text": "pricing",
-     "at": 2172,
-     "emph": false
-    },
-    {
-     "text": "backs",
-     "at": 2179,
-     "emph": false
+     "emph": true
     }
    ]
   },
   {
-   "from": 2188,
-   "to": 2206,
-   "words": [
-    {
-     "text": "this",
-     "at": 2188,
-     "emph": false
-    },
-    {
-     "text": "up,",
-     "at": 2195,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2206,
-   "to": 2239,
+   "from": 2183,
+   "to": 2197,
    "words": [
     {
      "text": "because",
-     "at": 2206,
-     "emph": false
-    },
-    {
-     "text": "per",
-     "at": 2215,
-     "emph": false
-    },
-    {
-     "text": "token",
-     "at": 2222,
-     "emph": false
-    },
-    {
-     "text": "Sonnet",
-     "at": 2230,
-     "emph": true
-    }
-   ]
-  },
-  {
-   "from": 2239,
-   "to": 2278,
-   "words": [
-    {
-     "text": "costs",
-     "at": 2239,
-     "emph": false
-    },
-    {
-     "text": "exactly",
-     "at": 2249,
-     "emph": false
-    },
-    {
-     "text": "half",
-     "at": 2264,
-     "emph": true
-    },
-    {
-     "text": "of",
-     "at": 2273,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2278,
-   "to": 2296,
-   "words": [
-    {
-     "text": "Opus.",
-     "at": 2278,
-     "emph": true
-    }
-   ]
-  },
-  {
-   "from": 2296,
-   "to": 2318,
-   "words": [
-    {
-     "text": "So",
-     "at": 2296,
-     "emph": false
-    },
-    {
-     "text": "when",
-     "at": 2302,
-     "emph": false
-    },
-    {
-     "text": "the",
-     "at": 2307,
-     "emph": false
-    },
-    {
-     "text": "brief",
-     "at": 2314,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2318,
-   "to": 2351,
-   "words": [
-    {
-     "text": "is",
-     "at": 2318,
-     "emph": false
-    },
-    {
-     "text": "really",
-     "at": 2324,
-     "emph": false
-    },
-    {
-     "text": "clear,",
-     "at": 2335,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2351,
-   "to": 2387,
-   "words": [
-    {
-     "text": "like",
-     "at": 2351,
-     "emph": false
-    },
-    {
-     "text": "a",
-     "at": 2356,
-     "emph": false
-    },
-    {
-     "text": "resource",
-     "at": 2361,
-     "emph": false
-    },
-    {
-     "text": "guide,",
-     "at": 2369,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2387,
-   "to": 2415,
-   "words": [
-    {
-     "text": "give",
-     "at": 2387,
-     "emph": false
-    },
-    {
-     "text": "it",
-     "at": 2391,
-     "emph": false
-    },
-    {
-     "text": "to",
-     "at": 2396,
-     "emph": false
-    },
-    {
-     "text": "Sonnet,",
-     "at": 2401,
-     "emph": true
-    }
-   ]
-  },
-  {
-   "from": 2415,
-   "to": 2433,
-   "words": [
-    {
-     "text": "and",
-     "at": 2415,
-     "emph": false
-    },
-    {
-     "text": "when",
-     "at": 2419,
-     "emph": false
-    },
-    {
-     "text": "the",
-     "at": 2424,
-     "emph": false
-    },
-    {
-     "text": "goal",
-     "at": 2430,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2433,
-   "to": 2456,
-   "words": [
-    {
-     "text": "is",
-     "at": 2433,
-     "emph": false
-    },
-    {
-     "text": "vague,",
-     "at": 2440,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2456,
-   "to": 2477,
-   "words": [
-    {
-     "text": "like",
-     "at": 2456,
-     "emph": false
-    },
-    {
-     "text": "a",
-     "at": 2460,
-     "emph": false
-    },
-    {
-     "text": "90",
-     "at": 2465,
-     "emph": false
-    },
-    {
-     "text": "day",
-     "at": 2471,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2477,
-   "to": 2496,
-   "words": [
-    {
-     "text": "plan,",
-     "at": 2477,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2496,
-   "to": 2533,
-   "words": [
-    {
-     "text": "Opus",
-     "at": 2496,
-     "emph": true
-    },
-    {
-     "text": "earns",
-     "at": 2504,
-     "emph": false
-    },
-    {
-     "text": "its",
-     "at": 2511,
-     "emph": false
-    },
-    {
-     "text": "price.",
-     "at": 2519,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2533,
-   "to": 2571,
-   "words": [
-    {
-     "text": "Comment",
-     "at": 2533,
-     "emph": false
-    },
-    {
-     "text": "MODELS",
-     "at": 2549,
-     "emph": true
-    },
-    {
-     "text": "and",
-     "at": 2558,
-     "emph": false
-    },
-    {
-     "text": "I'll",
-     "at": 2564,
-     "emph": false
-    }
-   ]
-  },
-  {
-   "from": 2571,
-   "to": 2593,
-   "words": [
-    {
-     "text": "send",
-     "at": 2571,
+     "at": 2183,
      "emph": false
     },
     {
      "text": "you",
-     "at": 2575,
+     "at": 2188,
      "emph": false
     },
     {
-     "text": "my",
-     "at": 2581,
+     "text": "wouldn't",
+     "at": 2191,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2197,
+   "to": 2225,
+   "words": [
+    {
+     "text": "send",
+     "at": 2197,
      "emph": false
     },
     {
-     "text": "free",
-     "at": 2585,
+     "text": "your",
+     "at": 2204,
+     "emph": false
+    },
+    {
+     "text": "most",
+     "at": 2210,
+     "emph": false
+    },
+    {
+     "text": "senior",
+     "at": 2216,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2225,
+   "to": 2257,
+   "words": [
+    {
+     "text": "person",
+     "at": 2225,
+     "emph": false
+    },
+    {
+     "text": "to",
+     "at": 2234,
+     "emph": false
+    },
+    {
+     "text": "answer",
+     "at": 2239,
+     "emph": false
+    },
+    {
+     "text": "every",
+     "at": 2247,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2257,
+   "to": 2284,
+   "words": [
+    {
+     "text": "quick",
+     "at": 2257,
+     "emph": false
+    },
+    {
+     "text": "email,",
+     "at": 2264,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2284,
+   "to": 2303,
+   "words": [
+    {
+     "text": "and",
+     "at": 2284,
+     "emph": false
+    },
+    {
+     "text": "you",
+     "at": 2288,
+     "emph": false
+    },
+    {
+     "text": "wouldn't",
+     "at": 2291,
+     "emph": false
+    },
+    {
+     "text": "hand",
+     "at": 2297,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2303,
+   "to": 2327,
+   "words": [
+    {
+     "text": "the",
+     "at": 2303,
+     "emph": false
+    },
+    {
+     "text": "whole",
+     "at": 2307,
+     "emph": false
+    },
+    {
+     "text": "project",
+     "at": 2314,
+     "emph": false
+    },
+    {
+     "text": "to",
+     "at": 2324,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2327,
+   "to": 2360,
+   "words": [
+    {
+     "text": "your",
+     "at": 2327,
+     "emph": false
+    },
+    {
+     "text": "newest",
+     "at": 2333,
+     "emph": false
+    },
+    {
+     "text": "hire.",
+     "at": 2341,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2360,
+   "to": 2394,
+   "words": [
+    {
+     "text": "The",
+     "at": 2360,
+     "emph": false
+    },
+    {
+     "text": "pricing",
+     "at": 2366,
+     "emph": false
+    },
+    {
+     "text": "backs",
+     "at": 2378,
+     "emph": false
+    },
+    {
+     "text": "this",
+     "at": 2387,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2394,
+   "to": 2408,
+   "words": [
+    {
+     "text": "up,",
+     "at": 2394,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2408,
+   "to": 2444,
+   "words": [
+    {
+     "text": "because",
+     "at": 2408,
+     "emph": false
+    },
+    {
+     "text": "per",
+     "at": 2417,
+     "emph": false
+    },
+    {
+     "text": "token",
+     "at": 2425,
+     "emph": false
+    },
+    {
+     "text": "Sonnet",
+     "at": 2435,
      "emph": true
     }
    ]
   },
   {
-   "from": 2593,
-   "to": 2633,
+   "from": 2444,
+   "to": 2489,
+   "words": [
+    {
+     "text": "costs",
+     "at": 2444,
+     "emph": false
+    },
+    {
+     "text": "exactly",
+     "at": 2453,
+     "emph": false
+    },
+    {
+     "text": "half",
+     "at": 2470,
+     "emph": true
+    },
+    {
+     "text": "of",
+     "at": 2481,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2489,
+   "to": 2504,
+   "words": [
+    {
+     "text": "Opus,",
+     "at": 2489,
+     "emph": true
+    }
+   ]
+  },
+  {
+   "from": 2504,
+   "to": 2528,
+   "words": [
+    {
+     "text": "so",
+     "at": 2504,
+     "emph": false
+    },
+    {
+     "text": "when",
+     "at": 2512,
+     "emph": false
+    },
+    {
+     "text": "the",
+     "at": 2517,
+     "emph": false
+    },
+    {
+     "text": "brief",
+     "at": 2524,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2528,
+   "to": 2567,
+   "words": [
+    {
+     "text": "is",
+     "at": 2528,
+     "emph": false
+    },
+    {
+     "text": "really",
+     "at": 2537,
+     "emph": false
+    },
+    {
+     "text": "clear,",
+     "at": 2548,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2567,
+   "to": 2601,
+   "words": [
+    {
+     "text": "like",
+     "at": 2567,
+     "emph": false
+    },
+    {
+     "text": "a",
+     "at": 2567,
+     "emph": false
+    },
+    {
+     "text": "resource",
+     "at": 2573,
+     "emph": false
+    },
+    {
+     "text": "guide,",
+     "at": 2581,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2601,
+   "to": 2629,
+   "words": [
+    {
+     "text": "give",
+     "at": 2601,
+     "emph": false
+    },
+    {
+     "text": "it",
+     "at": 2605,
+     "emph": false
+    },
+    {
+     "text": "to",
+     "at": 2611,
+     "emph": false
+    },
+    {
+     "text": "Sonnet,",
+     "at": 2615,
+     "emph": true
+    }
+   ]
+  },
+  {
+   "from": 2629,
+   "to": 2645,
+   "words": [
+    {
+     "text": "and",
+     "at": 2629,
+     "emph": false
+    },
+    {
+     "text": "when",
+     "at": 2632,
+     "emph": false
+    },
+    {
+     "text": "the",
+     "at": 2636,
+     "emph": false
+    },
+    {
+     "text": "goal",
+     "at": 2642,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2645,
+   "to": 2667,
+   "words": [
+    {
+     "text": "is",
+     "at": 2645,
+     "emph": false
+    },
+    {
+     "text": "vague,",
+     "at": 2653,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2667,
+   "to": 2684,
+   "words": [
+    {
+     "text": "like",
+     "at": 2667,
+     "emph": false
+    },
+    {
+     "text": "a",
+     "at": 2667,
+     "emph": false
+    },
+    {
+     "text": "90",
+     "at": 2670,
+     "emph": false
+    },
+    {
+     "text": "day",
+     "at": 2677,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2684,
+   "to": 2705,
+   "words": [
+    {
+     "text": "plan,",
+     "at": 2684,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2705,
+   "to": 2750,
+   "words": [
+    {
+     "text": "Opus",
+     "at": 2705,
+     "emph": true
+    },
+    {
+     "text": "earns",
+     "at": 2715,
+     "emph": false
+    },
+    {
+     "text": "its",
+     "at": 2723,
+     "emph": false
+    },
+    {
+     "text": "price.",
+     "at": 2734,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2750,
+   "to": 2776,
+   "words": [
+    {
+     "text": "Comment",
+     "at": 2750,
+     "emph": false
+    },
+    {
+     "text": "MODELS",
+     "at": 2756,
+     "emph": true
+    },
+    {
+     "text": "and",
+     "at": 2765,
+     "emph": false
+    },
+    {
+     "text": "I'll",
+     "at": 2771,
+     "emph": false
+    }
+   ]
+  },
+  {
+   "from": 2776,
+   "to": 2794,
+   "words": [
+    {
+     "text": "send",
+     "at": 2776,
+     "emph": false
+    },
+    {
+     "text": "you",
+     "at": 2779,
+     "emph": false
+    },
+    {
+     "text": "my",
+     "at": 2785,
+     "emph": false
+    },
+    {
+     "text": "free",
+     "at": 2789,
+     "emph": true
+    }
+   ]
+  },
+  {
+   "from": 2794,
+   "to": 2836,
    "words": [
     {
      "text": "cheat",
-     "at": 2593,
+     "at": 2794,
      "emph": false
     },
     {
      "text": "sheet.",
-     "at": 2601,
+     "at": 2801,
      "emph": false
     }
    ]
   }
  ],
  "take": true,
- "standin": true
+ "standin": false,
+ "presenter": false,
+ "clone": false
 }
