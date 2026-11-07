@@ -41,6 +41,8 @@ const Avatar: React.FC<{s?: number}> = ({s = 56}) => <div style={{width: s, heig
 
 // ------------------------------------------------------------------ scenes
 const Fight: React.FC<{t: number}> = ({t}) => {
+  if (D.referenceHook) return <Top bg="#0B1220"><OffthreadVideo src={staticFile(D.referenceHook)} muted
+    playbackRate={D.referenceHookRate || 1} style={{width: W, height: SEAM, objectFit: 'cover'}}/></Top>;
   if (D.blenderHook) return <Top bg="#0B1220"><OffthreadVideo src={staticFile(D.blenderHook)} muted
     style={{position: 'absolute', width: 1512, height: 2688, left: -216, top: -800, objectFit: 'cover'}}/></Top>;
   // Claude cube vs Instagram cube in a ring, the Claude one lands the punch on "killed"
@@ -63,9 +65,9 @@ const Repo: React.FC<{t: number; src: string; full?: boolean}> = ({t, src, full}
   const icon = pop(t, 4);
   const box = full ? {top: 0, height: H} : {top: 0, height: SEAM};
   return <div style={{position: 'absolute', left: 0, width: W, overflow: 'hidden', background: '#0D1117', ...box}}>
-    <div style={{position: 'absolute', left: 0, top: full ? 280 : -60, width: W, transform: `scale(${1 + 0.04 * ramp(t, 0, 60)})`, transformOrigin: '50% 0'}}>
+    <div style={{position: 'absolute', left: 0, top: full ? 280 : D.safePanels ? 220 : -60, width: W, transform: `scale(${1 + 0.04 * ramp(t, 0, 60)})`, transformOrigin: '50% 0'}}>
       <OffthreadVideo src={file(src)} muted style={{width: W, height: 1350}}/></div>
-    <div style={{position: 'absolute', left: W / 2 - 90, top: full ? 140 : 110, width: 180, height: 180, borderRadius: 40, background: '#fff', transform: `scale(${icon})`,
+    <div style={{position: 'absolute', left: W / 2 - 90, top: D.safePanels ? 230 : full ? 140 : 110, width: 180, height: 180, borderRadius: 40, background: '#fff', transform: `scale(${icon})`,
       boxShadow: '0 20px 60px rgba(0,0,0,.5)', display: 'grid', placeItems: 'center'}}>{mark('instagram', 110, '#D62976')}</div>
   </div>;
 };
@@ -106,7 +108,7 @@ const Replies: React.FC<{t: number}> = ({t}) => {
   return <Top bg="#EEF0F3"><Card style={{position: 'absolute', left: 90, right: 90, top: 110, padding: 30}}>
     <div style={{height: 300, borderRadius: 18, background: 'linear-gradient(160deg,#DDE3EE,#C9D1E0)'}}/>
     <div style={{display: 'flex', gap: 22, marginTop: 18, fontSize: 40}}>♡ 💬 ➤</div>
-    <div style={{fontWeight: 800, fontSize: 28, marginTop: 6}}>1,248 likes</div>
+    <div style={{fontWeight: 800, fontSize: 28, marginTop: 6}}>{D.safePanels ? 'Example reply draft' : '1,248 likes'}</div>
     <div style={{display: 'flex', alignItems: 'center', gap: 14, marginTop: 18, background: '#F3F5F8', borderRadius: 40, padding: '12px 14px'}}>
       <Avatar s={50}/><div style={{flex: 1, fontSize: 30}}>{REPLY.slice(0, n)}</div>
       <div style={{width: 56, height: 56, borderRadius: 30, background: sent ? GREEN : '#2F6BFF', color: '#fff', display: 'grid', placeItems: 'center', fontSize: 30, fontWeight: 900}}>{sent ? '✓' : '➤'}</div></div>
@@ -115,13 +117,13 @@ const Replies: React.FC<{t: number}> = ({t}) => {
 };
 const Profile: React.FC<{t: number}> = ({t}) => {
   const bars = [['Hook', 0.87], ['Bio', 0.74], ['Grid', 0.81]] as const;
-  return <Top bg="#EEF0F3"><Card style={{position: 'absolute', left: 90, right: 90, top: 100, padding: 34}}>
+  return <Top bg="#EEF0F3"><Card style={{position: 'absolute', left: 90, right: 90, top: D.safePanels ? 230 : 100, padding: 34}}>
     <div style={{height: 12, borderRadius: 8, background: IG}}/>
     <div style={{display: 'flex', alignItems: 'center', gap: 22, marginTop: 24}}><Avatar s={110}/><div><div style={{fontWeight: 900, fontSize: 40}}>withhammad.ai</div><div style={{fontSize: 26, color: '#4A5068'}}>AI agents & Claude Code</div></div></div>
-    <div style={{marginTop: 26, fontWeight: 800, fontSize: 26, color: '#8A90A6'}}>/ig-profile score</div>
+    <div style={{marginTop: 26, fontWeight: 800, fontSize: 26, color: '#8A90A6'}}>{D.safePanels ? '/ig-profile · example review' : '/ig-profile score'}</div>
     {bars.map(([k, v], i) => {const p = ease(ramp(t, 4 + i * 4, 20 + i * 4)); return <div key={k} style={{display: 'flex', alignItems: 'center', gap: 18, marginTop: 16}}>
       <div style={{width: 90, fontWeight: 800, fontSize: 28}}>{k}</div><div style={{flex: 1, height: 18, borderRadius: 10, background: '#E9ECF2'}}><div style={{width: `${v * 100 * p}%`, height: '100%', borderRadius: 10, background: 'linear-gradient(90deg,#FA7E1E,#D62976)'}}/></div>
-      <div style={{width: 80, textAlign: 'right', fontWeight: 900, fontSize: 28, color: '#D62976'}}>{Math.round(v * 100 * p)}%</div></div>;})}
+      <div style={{width: 80, textAlign: 'right', fontWeight: 900, fontSize: 28, color: '#D62976'}}>{D.safePanels ? '✓' : `${Math.round(v * 100 * p)}%`}</div></div>;})}
   </Card></Top>;
 };
 const Calendar: React.FC<{t: number}> = ({t}) =>
@@ -142,19 +144,19 @@ const Viral: React.FC<{t: number}> = ({t}) => {
 };
 const Grid: React.FC<{t: number}> = ({t}) => {
   const views = ['1.2M', '84K', '96K', '310K', '52K', '41K'];
-  return <Top bg="#0B0F1C"><div style={{position: 'absolute', left: 60, right: 60, top: 60, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16}}>
-    {views.map((v, i) => {const top = i === 0 && t > 10; return <div key={i} style={{position: 'relative', height: 380, borderRadius: 18, overflow: 'hidden', transform: `scale(${pop(t, i * 2)})`,
+  return <Top bg="#0B0F1C"><div style={{position: 'absolute', left: 60, right: 60, top: D.safePanels ? 230 : 60, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16}}>
+    {views.map((v, i) => {const top = i === 0 && t > 10; return <div key={i} style={{position: 'relative', height: D.safePanels ? 280 : 380, borderRadius: 18, overflow: 'hidden', transform: `scale(${pop(t, i * 2)})`,
       outline: top ? `8px solid ${GREEN}` : 'none'}}>
       <Img src={file(`wall/c${i + 2}.jpg`)} style={{width: '100%', height: '100%', objectFit: 'cover', filter: top ? 'none' : 'brightness(.6)'}}/>
-      <div style={{position: 'absolute', left: 12, bottom: 12, color: '#fff', fontFamily: SANS, fontWeight: 900, fontSize: 30, textShadow: '0 2px 8px #000'}}>▶ {v}</div>
-      {top && <div style={{position: 'absolute', right: 10, top: 10, background: GREEN, color: INK, fontFamily: SANS, fontWeight: 900, fontSize: 24, padding: '6px 12px', borderRadius: 10, transform: `scale(${pop(t, 10)})`}}>TOP · 23×</div>}
+      <div style={{position: 'absolute', left: 12, bottom: 12, color: '#fff', fontFamily: SANS, fontWeight: 900, fontSize: 30, textShadow: '0 2px 8px #000'}}>{D.safePanels ? `SAVED REEL ${i + 1}` : `▶ ${v}`}</div>
+      {top && <div style={{position: 'absolute', right: 10, top: 10, background: GREEN, color: INK, fontFamily: SANS, fontWeight: 900, fontSize: 24, padding: '6px 12px', borderRadius: 10, transform: `scale(${pop(t, 10)})`}}>{D.safePanels ? 'EXAMPLE PICK' : 'TOP · 23×'}</div>}
     </div>;})}</div></Top>;
 };
 const Checks: React.FC<{t: number}> = ({t}) => {
   const items = ['Hook in 1 second', 'Twist at 3 seconds', 'Payoff, then loop'];
-  return <Top bg="#EEF0F3"><div style={{position: 'absolute', left: 80, top: 120, width: 300, height: 540, borderRadius: 22, overflow: 'hidden', outline: `8px solid ${GREEN}`}}>
+  return <Top bg="#EEF0F3"><div style={{position: 'absolute', left: 80, top: D.safePanels ? 240 : 120, width: 300, height: 540, borderRadius: 22, overflow: 'hidden', outline: `8px solid ${GREEN}`}}>
       <Img src={file('wall/c2.jpg')} style={{width: '100%', height: '100%', objectFit: 'cover'}}/></div>
-    <div style={{position: 'absolute', left: 430, top: 200}}>{items.map((s, i) => {const p = pop(t, 4 + i * 6); return <div key={s} style={{display: 'flex', alignItems: 'center', gap: 18, marginBottom: 40, transform: `translateX(${(1 - p) * 60}px)`, opacity: Math.min(1, p)}}>
+    <div style={{position: 'absolute', left: 430, top: D.safePanels ? 280 : 200}}>{items.map((s, i) => {const p = pop(t, 4 + i * 6); return <div key={s} style={{display: 'flex', alignItems: 'center', gap: 18, marginBottom: 40, transform: `translateX(${(1 - p) * 60}px)`, opacity: Math.min(1, p)}}>
       <div style={{width: 54, height: 54, borderRadius: 30, background: GREEN, color: '#fff', display: 'grid', placeItems: 'center', fontFamily: SANS, fontWeight: 900, fontSize: 32}}>✓</div>
       <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 40, color: INK}}>{s}</div></div>;})}</div></Top>;
 };
@@ -170,24 +172,24 @@ const Chat: React.FC<{t: number}> = ({t}) => {
 };
 const Wonder: React.FC<{t: number}> = ({t}) => {
   // the blank-page moment: an empty composer with a blinking cursor over the face
-  return <Top bg="#EEF0F3"><Card style={{position: 'absolute', left: 120, right: 120, top: 160, padding: 34, transform: `rotate(-2deg) scale(${pop(t, 0)})`}}>
+  return <Top bg="#EEF0F3"><Card style={{position: 'absolute', left: 120, right: 120, top: D.safePanels ? 250 : 160, padding: 34, transform: `rotate(-2deg) scale(${pop(t, 0)})`}}>
     <div style={{fontWeight: 800, fontSize: 34}}>New reel</div>
     <div style={{marginTop: 26, height: 260, borderRadius: 16, background: '#F3F5F8', padding: 24, fontSize: 40, color: '#B9BFCC'}}>Write a caption…<span style={{color: INK, opacity: t % 14 < 7 ? 1 : 0}}>|</span></div>
     <div style={{marginTop: 18, fontSize: 30, color: RED, fontWeight: 800}}>Last post: 9 days ago</div>
   </Card></Top>;
 };
 const Research: React.FC<{t: number}> = ({t}) => {
-  const lines = ['> /ig-viral niche:"AI agents"', 'reading 40 reels you saved…', 'median views per account: 18K', '3 outliers at 12×, 9×, 7×', 'formula: "number + payoff" hook'];
-  return <Top bg="#11131A"><div style={{position: 'absolute', left: 60, right: 60, top: 70, borderRadius: 20, background: '#191C25', padding: 30, fontFamily: MONO, fontSize: 32, lineHeight: 1.6, color: '#C9D1E0', boxShadow: '0 20px 60px rgba(0,0,0,.5)'}}>
+  const lines = D.safePanels ? ['> /ig-viral niche:"AI agents"', 'reading the reels you saved…', 'compare each account’s median', 'rank the strongest outliers', 'example: "number + payoff" hook'] : ['> /ig-viral niche:"AI agents"', 'reading 40 reels you saved…', 'median views per account: 18K', '3 outliers at 12×, 9×, 7×', 'formula: "number + payoff" hook'];
+  return <Top bg="#11131A"><div style={{position: 'absolute', left: 60, right: 60, top: D.safePanels ? 240 : 70, borderRadius: 20, background: '#191C25', padding: 30, fontFamily: MONO, fontSize: 32, lineHeight: 1.6, color: '#C9D1E0', boxShadow: '0 20px 60px rgba(0,0,0,.5)'}}>
     <div style={{display: 'flex', gap: 10, marginBottom: 16}}>{['#FF5F57', '#FEBC2E', '#28C840'].map((c) => <span key={c} style={{width: 16, height: 16, borderRadius: 9, background: c}}/>)}<span style={{marginLeft: 12, color: '#7E8AA8', fontSize: 24}}>Claude Code</span></div>
     {lines.map((l, i) => <div key={i} style={{opacity: ramp(t, 2 + i * 6, 6 + i * 6), color: i === 0 ? CLAY : i === 4 ? GREEN : undefined}}>{l}</div>)}</div></Top>;
 };
 const Idea: React.FC<{t: number}> = ({t}) => {
   const hooks = ['"I let Claude run my Instagram for a week."', '"13 skills, zero excuses."', '"Your next reel is already written."'];
-  return <Top bg="#11131A"><div style={{position: 'absolute', left: 60, right: 60, top: 80, fontFamily: SANS, color: '#E6E8EF'}}>
-    <div style={{fontWeight: 900, fontSize: 40}}>Tomorrow's reel: 3 hooks, scored</div>
+  return <Top bg="#11131A"><div style={{position: 'absolute', left: 60, right: 60, top: D.safePanels ? 240 : 80, fontFamily: SANS, color: '#E6E8EF'}}>
+    <div style={{fontWeight: 900, fontSize: 40}}>{D.safePanels ? 'Example: 3 hook ideas' : "Tomorrow's reel: 3 hooks, scored"}</div>
     {hooks.map((h, i) => {const p = pop(t, 3 + i * 5); return <div key={i} style={{display: 'flex', gap: 16, alignItems: 'center', marginTop: 30, transform: `translateY(${(1 - p) * 30}px)`, opacity: Math.min(1, p)}}>
-      <div style={{width: 50, height: 50, borderRadius: 12, background: i === 0 ? GREEN : '#2A2F3D', color: i === 0 ? INK : '#fff', display: 'grid', placeItems: 'center', fontWeight: 900, fontSize: 26, flex: 'none'}}>{[92, 81, 77][i]}</div>
+      <div style={{width: 50, height: 50, borderRadius: 12, background: i === 0 ? GREEN : '#2A2F3D', color: i === 0 ? INK : '#fff', display: 'grid', placeItems: 'center', fontWeight: 900, fontSize: 26, flex: 'none'}}>{D.safePanels ? i + 1 : [92, 81, 77][i]}</div>
       <div style={{fontSize: 34, lineHeight: 1.3}}>{h}</div></div>;})}</div></Top>;
 };
 const Cta: React.FC<{t: number}> = ({t}) => {
@@ -209,7 +211,7 @@ const Captions: React.FC<{f: number; y: number}> = ({f, y}) => {
   const c = D.caps.find((x: any) => f >= x.from && f < x.to);
   if (!c) return null;
   const p = pop(f, c.from, 16), words = c.text.replace(/[.,!?]$/, '').split(' ');
-  const split = words.length >= 3 ? 2 : words.length >= 2 ? 1 : words.length;
+  const split = c.hook ? 3 : words.length >= 3 ? 2 : words.length >= 2 ? 1 : words.length;
   const l1 = words.slice(0, split).join(' '), l2 = words.slice(split).join(' ');
   const red = /TODAY|WONDERING/.test(c.text);
   return <div style={{position: 'absolute', left: 50, right: 50, top: y, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, transform: `scale(${0.85 + 0.15 * p})`}}>
@@ -232,8 +234,9 @@ export const Reel: React.FC = () => {
     {(lay === 'split' || lay === 'face') && <Face mode={lay === 'split' ? 'split' : 'full'} f={f} at={s.from}/>}
     {lay !== 'face' && <Sequence from={s.from} layout="none">{top}</Sequence>}
     {s.key === 'cta' && <Cta t={t}/>}
-    {s.key !== 'cta' && <Captions f={f} y={capY}/>}
-    <div style={{position: 'absolute', right: 40, top: lay === 'split' ? SEAM + 30 : 1640, fontFamily: SANS, fontWeight: 900, fontSize: 24, letterSpacing: 5, color: 'rgba(255,255,255,.6)', textShadow: '0 2px 8px rgba(0,0,0,.6)'}}>WITHHAMMAD</div>
+    {(s.key !== 'cta' || D.captionEveryWord) && <Captions f={f} y={s.key === 'cta' ? 1320 : capY}/>}
+    <div style={{position: 'absolute', right: D.captionEveryWord ? 150 : 40, top: s.key === 'cta' && D.safePanels ? 1125 : lay === 'split' ? SEAM + 30 : D.captionEveryWord ? 1470 : 1640, fontFamily: SANS, fontWeight: 900, fontSize: 24, letterSpacing: 5, color: 'rgba(255,255,255,.6)', textShadow: '0 2px 8px rgba(0,0,0,.6)'}}>WITHHAMMAD</div>
+    {D.preview && <div style={{position: 'absolute', left: 50, top: 230, padding: '8px 14px', background: 'rgba(0,0,0,.7)', color: '#fff', fontFamily: SANS, fontSize: 22, fontWeight: 800}}>EDIT PREVIEW · VOICE UNDER REVIEW</div>}
     <Audio src={D.voiceFile ? staticFile(D.voiceFile) : file('voice.wav')}/>
   </AbsoluteFill>;
 };

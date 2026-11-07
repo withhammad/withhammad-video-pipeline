@@ -30,7 +30,7 @@ const unitAt = (f: number): Unit => D.units.find((u: Unit) => f >= u.from && f <
 // ---------------------------------------------------------------- presenter
 const Take: React.FC<{y?: number; scale?: number}> = ({y = 0, scale = 1}) => D.take
   ? <AbsoluteFill style={{transform: `translateY(${y}px) scale(${scale})`, transformOrigin: '50% 25%'}}>
-      <OffthreadVideo src={file('take.mp4')} muted style={{width: 1080, height: 1920, objectFit: 'cover'}}/></AbsoluteFill>
+      <OffthreadVideo src={D.takeFile ? staticFile(D.takeFile) : file('take.mp4')} muted style={{width: 1080, height: 1920, objectFit: 'cover'}}/></AbsoluteFill>
   : <AbsoluteFill style={{background: '#333'}}/>;
 const Brand: React.FC<{top: number; dark?: boolean}> = ({top, dark}) => <div style={{position: 'absolute', left: 0, right: 0, top, textAlign: 'center', fontFamily: SANS,
   fontWeight: 800, fontSize: 22, letterSpacing: 7, color: dark ? 'rgba(20,20,20,.55)' : 'rgba(255,255,255,.75)', textShadow: dark ? 'none' : '0 2px 8px rgba(0,0,0,.5)'}}>WITHHAMMAD</div>;
@@ -79,9 +79,9 @@ const Split: React.FC<{top: React.ReactNode}> = ({top}) => <AbsoluteFill style={
     <div style={{position: 'absolute', left: 0, top: -TOP, width: 1080, height: 1920}}><Take y={TOP - 260}/></div></div>
   {top}
   <div style={{position: 'absolute', left: 0, right: 0, top: TOP - 2, height: 4, background: 'rgba(0,0,0,.4)'}}/>
-  <Brand top={1720}/>
+  <Brand top={D.caps ? 1460 : 1720}/>
 </AbsoluteFill>;
-const Face: React.FC<{children?: React.ReactNode; scale?: number}> = ({children, scale = 1}) => <AbsoluteFill style={{background: '#000'}}><Take scale={scale}/><Brand top={1560}/>{children}</AbsoluteFill>;
+const Face: React.FC<{children?: React.ReactNode; scale?: number}> = ({children, scale = 1}) => <AbsoluteFill style={{background: '#000'}}><Take scale={scale}/><Brand top={D.caps ? 1460 : 1560}/>{children}</AbsoluteFill>;
 
 const RecTop: React.FC<{src: string; from: number; startS: number; h?: number; y?: number; zoom?: [number, number]; origin?: string}> = ({src, from, startS, h = TOP, y = 0, zoom = [1, 1], origin = '50% 20%'}) => {
   const f = useCurrentFrame(), z = interpolate(f, [from, from + 60], zoom, clamp);
@@ -93,7 +93,9 @@ const RecTop: React.FC<{src: string; from: number; startS: number; h?: number; y
 // ---------------------------------------------------------------- scenes
 const Hook: React.FC<{u: Unit; f: number}> = ({u, f}) => <Split top={<>
   <RecTop src="r_hero.mp4" from={u.from} startS={6.6} zoom={[1.3, 1]} origin="0% 20%"/>
-  <div style={{position: 'absolute', right: 40, top: 236, background: ORANGE, color: '#fff', fontFamily: BLACK, fontSize: 38, padding: '6px 18px', transform: 'rotate(-3deg)'}}>NEW IN DUBAI</div>
+  {D.revised ? <div style={{position: 'absolute', left: 60, right: 60, top: 230, borderRadius: 18, background: 'rgba(11,31,58,.94)', padding: '22px 25px', color: '#fff', fontFamily: BLACK, fontSize: 72, lineHeight: 1.15, textAlign: 'center'}}>
+    DUBAI'S AI<br/><span style={{color: '#FFB56A'}}>AGENT MARKETPLACE</span>
+  </div> : <div style={{position: 'absolute', right: 40, top: 236, background: ORANGE, color: '#fff', fontFamily: BLACK, fontSize: 38, padding: '6px 18px', transform: 'rotate(-3deg)'}}>NEW IN DUBAI</div>}
 </>}/>;
 
 const Press: React.FC<{u: Unit; f: number}> = ({u, f}) => <Split top={<>
@@ -115,6 +117,22 @@ const Ready: React.FC<{u: Unit; f: number}> = ({u, f}) => {
     <Taped f={f} at={u.from + 6} src="hero.png" x={680} y={420} w={360} rot={4} crop={[0, 60, 1080, 700]}/>
   </Paper>}/>;
 };
+
+const Orbit: React.FC<{u: Unit; f: number}> = ({u}) => <Split top={
+  <div style={{position: 'absolute', top: 0, left: 0, width: 1080, height: TOP, overflow: 'hidden', background: NAVY}}>
+    <Sequence from={u.from} layout="none"><OffthreadVideo src={staticFile(D.orbitFile)} muted
+      playbackRate={D.orbitDuration * FPS / (u.to - u.from)}
+      style={D.orbitIsFullPortrait
+        ? {position: 'absolute', width: 1080, height: 1920, top: -580}
+        : {width: 1080, height: TOP, objectFit: 'cover'}}/></Sequence>
+  </div>}/>;
+
+const SignIn: React.FC<{u: Unit; f: number}> = ({u, f}) => <Split top={<Paper>
+  <Title f={f} at={u.from} text="UAE PASS" color={ORANGE} y={250} size={112}/>
+  <Title f={f} at={u.from + 8} text="CHAMBER MEMBERS" y={380} size={62}/>
+  <Note f={f} at={u.from + 16} text="verify your trade licence + membership" y={500} size={48}/>
+  <Ring f={f} at={u.from + 12} x={50} y={245} w={590} h={110}/>
+</Paper>}/>;
 
 const TAGS = ['COMPLIANCE', 'PROCUREMENT', 'OPERATIONS', 'FINANCE', 'SALES', 'HR', 'LOGISTICS'];
 const Agents22: React.FC<{u: Unit; f: number}> = ({u, f}) => <Split top={<Paper>
@@ -139,9 +157,9 @@ const Plan100: React.FC<{u: Unit; f: number}> = ({u, f}) => {
 const Site: React.FC<{u: Unit; f: number}> = ({u, f}) => <AbsoluteFill style={{background: '#fff'}}>
   <div style={{position: 'absolute', left: 0, top: 285, width: 1080, height: 1350, transform: `scale(${1 + 0.04 * ramp(f, u.from, u.to)})`}}>
     <Sequence from={u.from} layout="none"><OffthreadVideo src={file('r_smes.mp4')} muted startFrom={Math.round(3.6 * FPS)} style={{width: 1080, height: 1350}}/></Sequence></div>
-  <div style={{position: 'absolute', left: 0, right: 0, top: 210, textAlign: 'center'}}>
+  <div style={{position: 'absolute', left: 0, right: 0, top: D.revised ? 230 : 210, textAlign: 'center'}}>
     <span style={{background: ORANGE, color: '#fff', fontFamily: BLACK, fontSize: 40, padding: '6px 20px'}}>REAL AGENTS ON THE HUB</span></div>
-  <Brand top={1660} dark/>
+  <Brand top={D.caps ? 1460 : 1660} dark/>
 </AbsoluteFill>;
 
 const Sandbox: React.FC<{u: Unit; f: number}> = ({u, f}) => {
@@ -159,8 +177,10 @@ const Paid: React.FC<{u: Unit; f: number}> = ({u, f}) => {
   const [pp] = D.beats.paid;
   return <Split top={<Paper>
     <Title f={f} at={Math.min(pp - 2, u.from + 2)} text="PAID PACKAGES" y={236} size={92} align="center"/>
-    <Note f={f} at={pp + 8} text="from AED 270/month + usage credits" y={340} align="center" size={56}/>
-    <Taped f={f} at={pp + 4} src="pricing_15.png" x={80} y={420} w={920} rot={-1.5} crop={[30, 690, 1020, 290]}/>
+    <Note f={f} at={pp + 8} text={D.revised ? 'from AED 295/month + usage credits' : 'from AED 270/month + usage credits'} y={340} align="center" size={52}/>
+    <Taped f={f} at={pp + 4} src={D.revised ? 'steps.png' : 'pricing_15.png'} x={80} y={440} w={920} rot={-1.5}
+      crop={D.revised ? [20, 90, 1040, 290] : [30, 690, 1020, 290]}/>
+    {D.revised && <div style={{position: 'absolute', left: 80, top: 706, fontFamily: SANS, fontSize: 22, color: INK}}>Monthly billing · usage credits extra</div>}
   </Paper>}/>;
 };
 
@@ -221,14 +241,23 @@ const Cta: React.FC<{u: Unit; f: number}> = ({u, f}) => {
   </Face>;
 };
 
-// Keyword captions: the reference has no word-by-word subtitles; its kinetic titles are the captions (kept as is).
+// The owner's accessibility rule adds complete timed captions to the reference's kinetic titles.
+const Captions: React.FC<{f: number}> = ({f}) => {
+  const c = D.caps?.find((x: any) => f >= x.from && f < x.to);
+  if (!c) return null;
+  return <div style={{position: 'absolute', left: 70, right: 150, top: 1320, textAlign: 'center'}}>
+    <span style={{display: 'inline-block', maxWidth: 860, borderRadius: 12, padding: '10px 20px', background: 'rgba(10,16,24,.86)',
+      color: '#fff', fontFamily: SANS, fontWeight: 800, fontSize: 52, lineHeight: 1.12}}>{c.text}</span>
+  </div>;
+};
 export const Reel: React.FC = () => {
   const f = useCurrentFrame(), u = unitAt(f);
   const S: Record<string, React.FC<{u: Unit; f: number}>> = {hook: Hook, press: Press, ready: Ready, agents22: Agents22, face: FaceBeat, plan100: Plan100, site: Site,
-    sandbox: Sandbox, paid: Paid, hosted: Hosted, endcard: EndCard, cta: Cta};
+    sandbox: Sandbox, paid: Paid, hosted: Hosted, endcard: EndCard, cta: Cta, orbit: Orbit, signin: SignIn};
   const Scene = S[u.kind];
   return <AbsoluteFill style={{background: '#000'}}>
-    <Audio src={file('voice.wav')}/>
+    <Audio src={D.voiceFile ? staticFile(D.voiceFile) : file('voice.wav')}/>
     <Scene u={u} f={f}/>
+    <Captions f={f}/>
   </AbsoluteFill>;
 };

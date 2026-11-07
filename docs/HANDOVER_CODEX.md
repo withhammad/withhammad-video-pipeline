@@ -283,6 +283,13 @@ localhost:9876 bridge and headless Blender 5.2.3 LTS were exercised successfully
 **Separate-project correction (owner, 8 Nov 2026):** reference `DfcdfO_sNv8` is for his wife's separate video,
 not withhammad. Its just-added inbox entry was removed. Do not intake, schedule or publish it through this pipeline.
 
+**Reference-asset correction (owner, 8 Nov 2026):** do not rebuild every visual from scratch. Cut suitable visual
+inserts out of the supplied reference and composite them with Hammad's face, voice, captions, branding and music.
+Crop inserts cleanly so another presenter's face or unrelated captions do not remain. Use image generation for
+missing assets and Blender for shots that actually need a new 3D build. This later instruction permits reuse of
+reference 3D inserts instead of recreating each in Blender. Keep source/timecode records. A requested progress
+preview may be shown before the final gates, clearly labelled with what is still unfinished; never call it final.
+
 ## 12. The editing playbook: which tools for which kind of reference (use EVERY time)
 
 Claude's method on every reference, in this order. Do not skip steps or "simplify" the edit.
