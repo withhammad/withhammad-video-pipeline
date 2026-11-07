@@ -146,7 +146,7 @@
         "handle": "with.hammad",
         "account_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
         "profile_url": "https://www.youtube.com/@with.hammad",
-        "connection_status": "identity_and_scopes_verified",
+        "connection_status": "reauthorization_required",
         "provider": "youtube_direct_api",
         "channel_title": "HAMMAD YOUSUF",
         "scopes": [
@@ -160,7 +160,10 @@
         "reconsented": "2026-10-31",
         "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
         "token_file": "work/.secrets/youtube-oauth.json",
-        "note": "refresh token had expired (invalid_grant) on 2026-10-31; re-consent via outputs/video-pipeline/youtube_oauth.py"
+        "note": "refresh token had expired (invalid_grant) on 2026-10-31; re-consent via outputs/video-pipeline/youtube_oauth.py",
+        "last_auth_check": "2026-11-08",
+        "auth_error": "invalid_grant: Token has been expired or revoked.",
+        "verification_note": "2026-11-08: OAuth refresh rejected. Reconnect opened in existing Chrome; owner consent pending. API uploads and keyword replies cannot run until restored."
       },
       {
         "key": "tiktok",
@@ -499,7 +502,7 @@
     "checked_at": "2026-11-07T19:48:33.291104+00:00",
     "instagram": "identity, subscription and signed webhook verified; recipient link delivery unverified",
     "facebook": "identity, subscription, signed webhook and existing outbound guide message verified",
-    "youtube": "channel identity and six existing link replies verified; live scan 500 threads, no new eligible comments",
+    "youtube": "2026-11-08: blocked by OAuth invalid_grant (expired or revoked). Six earlier link replies remain verified historically; current replies require owner re-consent.",
     "linkedin": "Existing Chrome verified; first 12 activity entries checked, one non-keyword comment. API-post watchlist traversal and fresh keyword delivery remain unverified.",
     "x": "Existing Chrome verified; ten newest non-pinned posts checked, all zero replies. No eligible reply to send.",
     "tiktok": "Existing Chrome verified; eight latest published videos checked via profile navigation, one emoji-only comment. No eligible reply to send. Direct video navigation returned 403; profile click works.",

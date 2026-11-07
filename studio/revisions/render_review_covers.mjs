@@ -16,7 +16,8 @@ const compositions = await getCompositions(serveUrl);
 const names = {ReviewPortrait: '1080x1920', ReviewLinkedIn: '720x1280', ReviewGrid: '1080x1440', ReviewFeed: '1080x1350', ReviewSquare: '1080x1080', ReviewWide: '1280x720'};
 for (const composition of compositions) {
   const output = path.join(out, `cover_${names[composition.id]}.jpg`);
-  await renderStill({serveUrl, composition, output, imageFormat: 'jpeg', jpegQuality: 95,
-    inputProps: {...composition.defaultProps, ...props}});
+  const resolvedProps = {...composition.props, ...props};
+  await renderStill({serveUrl, composition: {...composition, props: resolvedProps}, output, imageFormat: 'jpeg', jpegQuality: 95,
+    inputProps: resolvedProps});
   console.log(output);
 }

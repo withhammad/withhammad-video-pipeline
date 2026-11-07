@@ -11,7 +11,14 @@ loadFont({family: 'BrInter', url: staticFile('fonts/inter-latin-900-normal.woff2
 // Review-only covers preserve the glow template while keeping both lines and the
 // complete head inside the smallest grid crop. Existing published covers are untouched.
 type Props = GlowCoverProps & {cropY?: number; scale?: number};
-const Cover: React.FC<Props> = ({cropY = 0, scale = 1, ...props}) => <AbsoluteFill style={{overflow: 'hidden'}}>
+const asset = (src?: string) => src?.startsWith('static:') ? staticFile(src.slice(7)) : src;
+const resolveAssets = (props: Props): Props => ({...props,
+  leftLogo: {...props.leftLogo, src: asset(props.leftLogo.src), mask: asset(props.leftLogo.mask)},
+  rightLogo: {...props.rightLogo, src: asset(props.rightLogo.src), mask: asset(props.rightLogo.mask)},
+  pose: props.pose ? {...props.pose, src: asset(props.pose.src)!} : undefined});
+const Cover: React.FC<Props> = ({cropY = 0, scale = 1, ...input}) => {
+  const props = resolveAssets(input);
+  return <AbsoluteFill style={{overflow: 'hidden'}}>
   <GlowBg/>
   <div style={{position: 'absolute', width: 1080, height: 1920, transform: `scale(${scale})`, transformOrigin: '0 0', top: -cropY * scale}}>
     <div style={{position: 'absolute', left: 106.5, top: 831.3}}><GlowTile logo={props.leftLogo} size={251.6} rotate={-9}/></div>
@@ -23,6 +30,8 @@ const Cover: React.FC<Props> = ({cropY = 0, scale = 1, ...props}) => <AbsoluteFi
     </div>
   </div>
 </AbsoluteFill>;
+};
+const Wide: React.FC<Props> = props => <GlowWide {...resolveAssets(props)}/>;
 
 const props: Props = {variant: 'glow', line1: 'Claude Killed', line2: 'Instagram',
   leftLogo: LOGO.claude, rightLogo: LOGO.instagram,
@@ -34,6 +43,6 @@ const Root = () => <>
   <Composition id="ReviewGrid" component={asComponent} width={1080} height={1440} fps={30} durationInFrames={1} defaultProps={{...props, cropY: 240}}/>
   <Composition id="ReviewFeed" component={asComponent} width={1080} height={1350} fps={30} durationInFrames={1} defaultProps={{...props, cropY: 285}}/>
   <Composition id="ReviewSquare" component={asComponent} width={1080} height={1080} fps={30} durationInFrames={1} defaultProps={{...props, cropY: 420}}/>
-  <Composition id="ReviewWide" component={GlowWide as React.FC<Record<string, unknown>>} width={1280} height={720} fps={30} durationInFrames={1} defaultProps={props}/>
+  <Composition id="ReviewWide" component={Wide as React.FC<Record<string, unknown>>} width={1280} height={720} fps={30} durationInFrames={1} defaultProps={props}/>
 </>;
 registerRoot(Root);

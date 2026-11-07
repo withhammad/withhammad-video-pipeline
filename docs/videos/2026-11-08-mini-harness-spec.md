@@ -15,6 +15,7 @@ needed for a faithful static version. A vertical animated adaptation can reveal 
 source running time exists to apply a ±10% runtime gate to that adaptation.
 
 Reference image and post-only metadata are saved at `work/reference-mini-harness/reference.jpg` and `source.json`.
+The source's image viewer also supplied a 1200×1500 version, saved as `reference-hires.jpg` and used for the edit.
 The logged-in browser tab was read only. No reaction, comment, message or follow was sent.
 
 ## Visual specification
@@ -53,7 +54,29 @@ fall within variation between runs. Benchmark claims are unnecessary to teach th
 
 ## Production and approval state
 
-Breakdown prepared; no final artwork, reel, cover or copy has been approved. Chamber and GROWTH occupy the two
-active reel slots. Continue this reference after one clears production, without starting a third heavy render.
-Before publication: resource page and HARNESS keyword rule must be reviewed/merged and live, all relevant quality
-checks must pass, and the owner must explicitly approve the finished asset and platform copy.
+Job `b6b36d9b50b3` has a complete review package. GROWTH cleared production before this render; Chamber remains held
+at the voice decision. No third simultaneous heavy render was started. No generation credits were spent.
+
+- 62.4-second motion edit, 1872 frames, 1080×1920 at 30 fps, with all 15 original diagram crops in order.
+- Separate LinkedIn ending with a direct-link invitation; the other ending uses proposed keyword HARNESS.
+- Original pipeline music, retimed by synthesis to 100 BPM. Both deliveries: -14.03 LUFS, -1.80 dBTP. The master's
+  -14 target takes precedence over the generic sound skill's older LinkedIn -12 suggestion.
+- Seven 1080×1350 carousel pages plus a seven-page PDF; six glow-template cover sizes; descriptive SRTs;
+  six researched caption packs passing `app.repost_queue.seo_caption`.
+- Source diagrams credited on every scene/page. Native typography replaces the source's small headings/body copy.
+  Diagram windows and file hashes are recorded in the review package's `source-record.json`.
+
+Reproduce through `studio/heavy.sh`: `node studio/revisions/render_mini_harness.mjs --full`, then
+`studio/.venv/bin/python studio/revisions/mix_mini_harness.py`. Source assets are in `work/reference-mini-harness`.
+The composition and five scene/layout modules are under `studio/remotion/src/miniharness`.
+
+Owner-facing files are in
+`/Users/hammad/Documents/Codex/2026-11-07/you-are-taking-over-the-withhammad/outputs/Mini-Harness/`.
+Nothing has been approved, scheduled or published. The resource URL
+`https://withhammad.com/resources/build-an-agent-harness` returns 404 as of 8 November, and its keyword rule is not
+yet live. After owner approval, prepare the page/rule PR for the owner to merge, then test delivery before booking.
+
+The read-only SEO research also found the YouTube refresh token expired or revoked (`invalid_grant`). An OAuth
+reconnect tab was opened in the owner's existing Chrome. Until the owner completes it and identity/scope checks
+pass again, API uploads and keyword replies are unavailable. The connection registry records this current state;
+the earlier six successful replies are historical evidence, not proof of current authorization.
