@@ -1,0 +1,191 @@
+{
+ "end": 46.3,
+ "fps": 30,
+ "cards": [
+  {
+   "text": "Claude, have you seen these 3D videos taking over Instagram?",
+   "s": 0.0,
+   "e": 3.937
+  },
+  {
+   "text": "Hard to miss.",
+   "s": 3.937,
+   "e": 5.012
+  },
+  {
+   "text": "Everyone wants to make them.",
+   "s": 5.012,
+   "e": 7.0
+  },
+  {
+   "text": "And the crazy part?",
+   "s": 7.0,
+   "e": 8.415
+  },
+  {
+   "text": "Some creators are selling courses just to teach people how to make them.",
+   "s": 8.415,
+   "e": 12.91
+  },
+  {
+   "text": "Smart move.",
+   "s": 12.91,
+   "e": 13.135
+  },
+  {
+   "text": "People don't just want to watch these videos.",
+   "s": 13.135,
+   "e": 16.315
+  },
+  {
+   "text": "They want to make them too.",
+   "s": 16.315,
+   "e": 17.7
+  },
+  {
+   "text": "Exactly.",
+   "s": 17.7,
+   "e": 18.6
+  },
+  {
+   "text": "But how do I make videos like these without spending weeks figuring everything out?",
+   "s": 18.6,
+   "e": 22.9
+  },
+  {
+   "text": "What if I told you there's a much simpler way?",
+   "s": 22.9,
+   "e": 25.9
+  },
+  {
+   "text": "Wait.",
+   "s": 25.9,
+   "e": 26.525
+  },
+  {
+   "text": "You mean I can actually do this myself?",
+   "s": 26.525,
+   "e": 29.285
+  },
+  {
+   "text": "Yes.",
+   "s": 29.285,
+   "e": 30.03
+  },
+  {
+   "text": "We put together a free guide with the exact prompts and the starter project behind this video.",
+   "s": 30.03,
+   "e": 35.7
+  },
+  {
+   "text": "Hold on.",
+   "s": 35.7,
+   "e": 36.505
+  },
+  {
+   "text": "And how do I get it?",
+   "s": 36.505,
+   "e": 37.803
+  },
+  {
+   "text": "Just comment 3D below and I'll send you the guide.",
+   "s": 37.803,
+   "e": 40.7
+  },
+  {
+   "text": "That's it?",
+   "s": 40.7,
+   "e": 41.7
+  },
+  {
+   "text": "That's it.",
+   "s": 41.7,
+   "e": 42.325
+  },
+  {
+   "text": "Now go make something worth watching.",
+   "s": 42.325,
+   "e": 45.7
+  }
+ ],
+ "montage": [
+  0.95,
+  3.7
+ ],
+ "keyword": "3D",
+ "standin": false,
+ "lines": [
+  {
+   "i": 0,
+   "who": "H",
+   "s": 0.0,
+   "e": 3.797
+  },
+  {
+   "i": 1,
+   "who": "C",
+   "s": 3.937,
+   "e": 6.318
+  },
+  {
+   "i": 2,
+   "who": "H",
+   "s": 7.0,
+   "e": 12.77
+  },
+  {
+   "i": 3,
+   "who": "C",
+   "s": 12.91,
+   "e": 17.408
+  },
+  {
+   "i": 4,
+   "who": "H",
+   "s": 17.7,
+   "e": 22.75
+  },
+  {
+   "i": 5,
+   "who": "C",
+   "s": 22.9,
+   "e": 25.31
+  },
+  {
+   "i": 6,
+   "who": "H",
+   "s": 25.9,
+   "e": 29.145
+  },
+  {
+   "i": 7,
+   "who": "C",
+   "s": 29.285,
+   "e": 34.406
+  },
+  {
+   "i": 8,
+   "who": "H",
+   "s": 35.7,
+   "e": 37.663
+  },
+  {
+   "i": 9,
+   "who": "C",
+   "s": 37.803,
+   "e": 40.508
+  },
+  {
+   "i": 10,
+   "who": "H",
+   "s": 40.7,
+   "e": 41.242
+  },
+  {
+   "i": 11,
+   "who": "C",
+   "s": 41.7,
+   "e": 44.097
+  }
+ ]
+}
