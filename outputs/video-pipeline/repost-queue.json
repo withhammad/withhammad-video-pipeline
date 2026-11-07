@@ -2842,7 +2842,9 @@
       "primary_keyword": "claude code animation",
       "host_slug": "repost-990543b928c4",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-07T08:44:33Z"
     },
     {
       "id": "xx-990543b928c4",
@@ -2856,7 +2858,9 @@
       "primary_keyword": "claude code animation",
       "host_slug": "repost-990543b928c4",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-07T08:45:56Z"
     },
     {
       "id": "in-990543b928c4",

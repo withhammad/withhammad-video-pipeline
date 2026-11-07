@@ -12,9 +12,9 @@
 |---|---|---|---|
 | LinkedIn | 13:00 | repost-queue run-due (API) | pending |
 | Instagram @withhammad.ai | 14:00 | repost-queue run-due (API) | pending |
-| TikTok @withhammad | 14:00 | TikTok Studio scheduler (Chrome) | pending |
+| TikTok @withhammad | 14:00 | TikTok Studio scheduled (Chrome), glow cover, AI-generated label on | scheduled |
 | YouTube Short | 16:00 | repost-queue run-due (API, glow thumbnail, synthetic-media flag) | pending |
 | Facebook Page With Hammad AI | 17:00 | repost-queue run-due (API) | pending |
-| X @HammadYousufAI | 18:00 | X scheduler (Chrome) | pending |
+| X @HammadYousufAI | 18:00 | X scheduler (Chrome), "Your post will be sent on Thu, Nov 12, 2026 at 6:00 PM" | scheduled |
 
 Post URLs/ids are recorded by run-due in the queue when each goes out.
