@@ -47,7 +47,7 @@
       "url": "https://www.instagram.com/reel/DfJVhWBRRVe/",
       "note": "Owner pasted 2026-11-06: @v.i.s.h.ai reel, 'Comment Claude for the link'",
       "added": "2026-11-06",
-      "status": "awaiting_approval",
+      "status": "queued",
       "job": "b95794dc72cf"
     },
     {
@@ -124,8 +124,8 @@
       "url": "https://www.instagram.com/reel/DfDF_diPhmi/",
       "note": "Owner pasted 2026-11-06",
       "added": "2026-11-06",
-      "status": "pending",
-      "job": null
+      "status": "in_progress",
+      "job": "8bcf01ad1b0f"
     }
   ]
 }
