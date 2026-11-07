@@ -31,6 +31,13 @@ Reference: <link>
      move naturally, no plastic skin or warping. If it fails, report to the owner with the frames; do not burn
      credits on a retry without his OK.
    - Credits: read the balance before and after the take and write both in the job's STATUS.md.
+   - Voice source (owner 2026-11-07: "whenever I share something, use my voice from HeyGen"): ALWAYS his HAMMAD YOUSUF
+     clone on the paid HeyGen account. No other TTS (no Chatterbox, Kokoro, say, ElevenLabs stock voices) for his lines.
+     Audio-only where the reference shows no face; an avatar take only for the lines the reference says to camera.
+   - Excited settings that passed (job d463f2086d47, 2026-11-07): HeyGen Creative Studio > Voice, engine "HeyGen Voice",
+     the HAMMAD YOUSUF clone, Voice Settings: Tone Excited, Expressiveness ~75 %, Speed 1.1x (do NOT click "Update
+     default settings"); his script lines carry "!" / "?!" (words unchanged). Measured gain: median pitch 129 -> 160 Hz,
+     range 3.4 -> 10 semitones.
    - Energy (owner rule 2026-11-07, repeated: "my voice should be excited, not a low tone ... always the excited voice"):
      every take and every voice-only track is EXCITED. HeyGen voice settings: emotion "Excited" where the voice offers
      it, speed 1.1-1.15, lower stability / higher style on the ElevenLabs-engine clone; the motion prompt asks for a big
