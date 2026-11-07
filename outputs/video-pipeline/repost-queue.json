@@ -1575,9 +1575,11 @@
       "primary_keyword": "AI startup cost",
       "host_slug": "repost-6f8f4ad316a3",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "moved_from": "2026-11-07 09:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7524713911128834048/",
+      "posted_at": "2026-11-07T06:06:01Z"
     },
     {
       "id": "ig-ai-privacy-checkup",
@@ -1593,9 +1595,10 @@
       "primary_keyword": null,
       "host_slug": "guide-ai-privacy-checkup",
       "collaborators": null,
-      "status": "pending",
+      "status": "failed",
       "moved_from": "2026-11-07 10:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai"
     },
     {
       "id": "fg-ai-privacy-checkup",
@@ -1611,9 +1614,11 @@
       "primary_keyword": null,
       "host_slug": "guide-ai-privacy-checkup",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "moved_from": "2026-11-07 10:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "url": "https://www.facebook.com/122105678205523467/posts/122108099955523467",
+      "posted_at": "2026-11-07T06:06:01Z"
     },
     {
       "id": "lg-ai-privacy-checkup",
@@ -1629,9 +1634,11 @@
       "primary_keyword": null,
       "host_slug": "guide-ai-privacy-checkup",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "moved_from": "2026-11-07 10:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7524715813602287617/",
+      "posted_at": "2026-11-07T06:06:01Z"
     },
     {
       "id": "yg-ai-privacy-checkup",
@@ -1647,9 +1654,11 @@
       "primary_keyword": null,
       "host_slug": "guide-ai-privacy-checkup",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "moved_from": "2026-11-07 10:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "url": "https://www.youtube.com/shorts/HSPv64h1pDo",
+      "posted_at": "2026-11-07T06:06:01Z"
     },
     {
       "id": "tg-ai-privacy-checkup",
