@@ -152,3 +152,18 @@ Instagram and Facebook keyword DMs do NOT need a routine: they run on the websit
 Hand-over order: recreate each routine in Codex (its automations) from the copied prompt, run it once, confirm it
 works, then ask the owner to disable the Claude task of the same name (Claude Desktop > Scheduled). Until then both
 must not reply to the same comment: the routines record replies (`--mark`), so check their state before enabling.
+
+## 7. Final state when Claude stopped (7 Nov, ~22:45 GST) — every item waits on the owner
+
+| Reel | Where it stopped | Owner decision needed |
+|---|---|---|
+| Chamber AI Hub (@talcai.io DfbvLHmOlhR, job 762cf7fb383a, "Dubai reel") | Pulled back to awaiting approval. Two new podcast-studio looks (black polo, boom mic, bookshelf) generated, not saved. Next: one high-energy take (ElevenLabs v3 with long pauses cut, Presenter-level gestures). | Which of the two new looks to record with. |
+| GROWTH (@nateherkai DfaNcY1FdlE) | Built on the white-shirt take. A new look matching Nate's room is saved (free, logged in STATUS.md). | OK to re-render on the new look (~38 credits). |
+| GAME (@nick_saraev DfZGREyvPUX) | Built, commit 0f611a0, thumbnails sent. | Approve, then page PR + slots. |
+| Rubber World (8bcf01ad1b0f) | Two-voice cut (him + Annie), commit 99c60bd; queue entries HELD. | Approve this cut, then set the six entries to pending and merge #8. |
+| JOBS (d463f2086d47) | 32.5 s cut with a deadpan opening building to excited, commit d9a11e6; queue entries HELD. | Approve, then set entries to pending. |
+| REFERRAL (33d9c1e97156) | Live on all six since 7 Nov; keyword automation ready but needs PR #7 merged. | Merge #7; pick a repost/variant approach (the session offered options). |
+| Dots (@nick_saraev DfXfZ0GPHy0, job 3260bdc792c4) | Parked. | Rebuild or skip (recommended: skip). |
+
+Owner merges still pending: withhammad-rebuild #4 #5 #6 #7 #9 #10 #11 #12 #13 #14 #15 (#8 only after the Rubber World OK).
+After each merge: schedule that reel's TikTok and X natively (chrome-schedule.md) and `mark --scheduled`.
