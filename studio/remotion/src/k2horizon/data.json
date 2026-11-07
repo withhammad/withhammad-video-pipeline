@@ -1,0 +1,889 @@
+{
+ "frames": 1051,
+ "fps": 30,
+ "units": [
+  {
+   "kind": "broll",
+   "from": 0,
+   "to": 76
+  },
+  {
+   "kind": "note",
+   "from": 76,
+   "to": 118
+  },
+  {
+   "kind": "called",
+   "from": 118,
+   "to": 281
+  },
+  {
+   "kind": "sizes",
+   "from": 281,
+   "to": 524
+  },
+  {
+   "kind": "help",
+   "from": 524,
+   "to": 567
+  },
+  {
+   "kind": "deploy",
+   "from": 567,
+   "to": 664
+  },
+  {
+   "kind": "glass",
+   "from": 664,
+   "to": 751
+  },
+  {
+   "kind": "start",
+   "from": 751,
+   "to": 960
+  },
+  {
+   "kind": "cta",
+   "from": 960,
+   "to": 1051
+  }
+ ],
+ "beats": {
+  "broll": [
+   0,
+   16,
+   44
+  ],
+  "note": {
+   "ellipse": 80,
+   "uae": 87,
+   "anyone": 95
+  },
+  "called": {
+   "title": 128,
+   "card": 166,
+   "arrow": 209,
+   "footer": 256
+  },
+  "sizes": {
+   "chips": [
+    287,
+    314,
+    321,
+    346,
+    361,
+    381
+   ],
+   "circle": 437,
+   "stamps": [
+    463,
+    482,
+    501
+   ],
+   "watch": 346
+  },
+  "help": 537,
+  "deploy": {
+   "panel": 580,
+   "logo": 610,
+   "stamp": 635,
+   "check": 651
+  },
+  "glass": {
+   "shot": 703,
+   "note": 715,
+   "lens": 734,
+   "label": 734
+  },
+  "start": {
+   "url": 824,
+   "apache": 861,
+   "biz": 931,
+   "here": 940
+  },
+  "cta": {
+   "type": 967,
+   "dm": 990
+  }
+ },
+ "captions": [
+  {
+   "text": "The",
+   "from": 0,
+   "g": 0,
+   "to": 4
+  },
+  {
+   "text": "UAE",
+   "from": 4,
+   "g": 0,
+   "to": 16
+  },
+  {
+   "text": "released",
+   "from": 16,
+   "g": 0,
+   "to": 25
+  },
+  {
+   "text": "a",
+   "from": 25,
+   "g": 0,
+   "to": 29
+  },
+  {
+   "text": "family",
+   "from": 29,
+   "g": 0,
+   "to": 38
+  },
+  {
+   "text": "of",
+   "from": 38,
+   "g": 0,
+   "to": 44
+  },
+  {
+   "text": "free",
+   "from": 44,
+   "g": 0,
+   "to": 50
+  },
+  {
+   "text": "AI",
+   "from": 50,
+   "g": 1,
+   "to": 55
+  },
+  {
+   "text": "models",
+   "from": 55,
+   "g": 1,
+   "to": 76
+  },
+  {
+   "text": "and",
+   "from": 76,
+   "g": 2,
+   "to": 80
+  },
+  {
+   "text": "anyone",
+   "from": 80,
+   "g": 2,
+   "to": 87
+  },
+  {
+   "text": "can",
+   "from": 87,
+   "g": 2,
+   "to": 95
+  },
+  {
+   "text": "use",
+   "from": 95,
+   "g": 2,
+   "to": 104
+  },
+  {
+   "text": "them",
+   "from": 104,
+   "g": 2,
+   "to": 118
+  },
+  {
+   "text": "It's",
+   "from": 118,
+   "g": 3,
+   "to": 123
+  },
+  {
+   "text": "called",
+   "from": 123,
+   "g": 3,
+   "to": 128
+  },
+  {
+   "text": "K2",
+   "from": 128,
+   "g": 3,
+   "to": 142
+  },
+  {
+   "text": "Horizon",
+   "from": 142,
+   "g": 3,
+   "to": 166
+  },
+  {
+   "text": "built",
+   "from": 166,
+   "g": 4,
+   "to": 171
+  },
+  {
+   "text": "by",
+   "from": 171,
+   "g": 4,
+   "to": 177
+  },
+  {
+   "text": "MBZUAI's",
+   "from": 177,
+   "g": 4,
+   "to": 209
+  },
+  {
+   "text": "Institute",
+   "from": 209,
+   "g": 4,
+   "to": 220
+  },
+  {
+   "text": "of",
+   "from": 220,
+   "g": 4,
+   "to": 227
+  },
+  {
+   "text": "Foundation",
+   "from": 227,
+   "g": 4,
+   "to": 238
+  },
+  {
+   "text": "Models",
+   "from": 238,
+   "g": 4,
+   "to": 253
+  },
+  {
+   "text": "in",
+   "from": 253,
+   "g": 5,
+   "to": 256
+  },
+  {
+   "text": "Abu",
+   "from": 256,
+   "g": 5,
+   "to": 262
+  },
+  {
+   "text": "Dhabi",
+   "from": 262,
+   "g": 5,
+   "to": 281
+  },
+  {
+   "text": "It's",
+   "from": 281,
+   "g": 6,
+   "to": 287
+  },
+  {
+   "text": "six",
+   "from": 287,
+   "g": 6,
+   "to": 291
+  },
+  {
+   "text": "models",
+   "from": 291,
+   "g": 6,
+   "to": 314
+  },
+  {
+   "text": "from",
+   "from": 314,
+   "g": 7,
+   "to": 316
+  },
+  {
+   "text": "a",
+   "from": 316,
+   "g": 7,
+   "to": 321
+  },
+  {
+   "text": "tiny",
+   "from": 321,
+   "g": 7,
+   "to": 326
+  },
+  {
+   "text": "one",
+   "from": 326,
+   "g": 7,
+   "to": 334
+  },
+  {
+   "text": "built",
+   "from": 334,
+   "g": 7,
+   "to": 340
+  },
+  {
+   "text": "for",
+   "from": 340,
+   "g": 7,
+   "to": 346
+  },
+  {
+   "text": "watches",
+   "from": 346,
+   "g": 7,
+   "to": 355
+  },
+  {
+   "text": "and",
+   "from": 355,
+   "g": 8,
+   "to": 361
+  },
+  {
+   "text": "glasses",
+   "from": 361,
+   "g": 8,
+   "to": 370
+  },
+  {
+   "text": "to",
+   "from": 370,
+   "g": 8,
+   "to": 377
+  },
+  {
+   "text": "a",
+   "from": 377,
+   "g": 8,
+   "to": 381
+  },
+  {
+   "text": "375-billion-parameter",
+   "from": 381,
+   "g": 8,
+   "to": 437
+  },
+  {
+   "text": "flagship",
+   "from": 437,
+   "g": 8,
+   "to": 454
+  },
+  {
+   "text": "for",
+   "from": 454,
+   "g": 8,
+   "to": 463
+  },
+  {
+   "text": "coding",
+   "from": 463,
+   "g": 9,
+   "to": 482
+  },
+  {
+   "text": "reasoning",
+   "from": 482,
+   "g": 10,
+   "to": 491
+  },
+  {
+   "text": "and",
+   "from": 491,
+   "g": 10,
+   "to": 496
+  },
+  {
+   "text": "AI",
+   "from": 496,
+   "g": 10,
+   "to": 501
+  },
+  {
+   "text": "agents",
+   "from": 501,
+   "g": 10,
+   "to": 524
+  },
+  {
+   "text": "How",
+   "from": 524,
+   "g": 11,
+   "to": 529
+  },
+  {
+   "text": "can",
+   "from": 529,
+   "g": 11,
+   "to": 534
+  },
+  {
+   "text": "it",
+   "from": 534,
+   "g": 11,
+   "to": 537
+  },
+  {
+   "text": "help",
+   "from": 537,
+   "g": 11,
+   "to": 542
+  },
+  {
+   "text": "you",
+   "from": 542,
+   "g": 11,
+   "to": 567
+  },
+  {
+   "text": "Developers",
+   "from": 567,
+   "g": 12,
+   "to": 574
+  },
+  {
+   "text": "can",
+   "from": 574,
+   "g": 12,
+   "to": 580
+  },
+  {
+   "text": "download",
+   "from": 580,
+   "g": 12,
+   "to": 589
+  },
+  {
+   "text": "the",
+   "from": 589,
+   "g": 12,
+   "to": 596
+  },
+  {
+   "text": "models",
+   "from": 596,
+   "g": 12,
+   "to": 604
+  },
+  {
+   "text": "and",
+   "from": 604,
+   "g": 12,
+   "to": 610
+  },
+  {
+   "text": "build",
+   "from": 610,
+   "g": 12,
+   "to": 616
+  },
+  {
+   "text": "their",
+   "from": 616,
+   "g": 13,
+   "to": 621
+  },
+  {
+   "text": "own",
+   "from": 621,
+   "g": 13,
+   "to": 626
+  },
+  {
+   "text": "apps",
+   "from": 626,
+   "g": 13,
+   "to": 632
+  },
+  {
+   "text": "with",
+   "from": 632,
+   "g": 13,
+   "to": 635
+  },
+  {
+   "text": "no",
+   "from": 635,
+   "g": 13,
+   "to": 640
+  },
+  {
+   "text": "licensing",
+   "from": 640,
+   "g": 13,
+   "to": 651
+  },
+  {
+   "text": "fees",
+   "from": 651,
+   "g": 13,
+   "to": 664
+  },
+  {
+   "text": "Researchers",
+   "from": 664,
+   "g": 14,
+   "to": 684
+  },
+  {
+   "text": "can",
+   "from": 684,
+   "g": 14,
+   "to": 696
+  },
+  {
+   "text": "even",
+   "from": 696,
+   "g": 14,
+   "to": 703
+  },
+  {
+   "text": "see",
+   "from": 703,
+   "g": 14,
+   "to": 710
+  },
+  {
+   "text": "the",
+   "from": 710,
+   "g": 14,
+   "to": 715
+  },
+  {
+   "text": "training",
+   "from": 715,
+   "g": 14,
+   "to": 722
+  },
+  {
+   "text": "code",
+   "from": 722,
+   "g": 14,
+   "to": 730
+  },
+  {
+   "text": "and",
+   "from": 730,
+   "g": 15,
+   "to": 734
+  },
+  {
+   "text": "data",
+   "from": 734,
+   "g": 15,
+   "to": 751
+  },
+  {
+   "text": "And",
+   "from": 751,
+   "g": 16,
+   "to": 754
+  },
+  {
+   "text": "if",
+   "from": 754,
+   "g": 16,
+   "to": 759
+  },
+  {
+   "text": "you",
+   "from": 759,
+   "g": 16,
+   "to": 762
+  },
+  {
+   "text": "just",
+   "from": 762,
+   "g": 16,
+   "to": 768
+  },
+  {
+   "text": "want",
+   "from": 768,
+   "g": 16,
+   "to": 775
+  },
+  {
+   "text": "to",
+   "from": 775,
+   "g": 16,
+   "to": 779
+  },
+  {
+   "text": "try",
+   "from": 779,
+   "g": 16,
+   "to": 786
+  },
+  {
+   "text": "it",
+   "from": 786,
+   "g": 17,
+   "to": 797
+  },
+  {
+   "text": "there's",
+   "from": 797,
+   "g": 18,
+   "to": 805
+  },
+  {
+   "text": "a",
+   "from": 805,
+   "g": 18,
+   "to": 806
+  },
+  {
+   "text": "free",
+   "from": 806,
+   "g": 18,
+   "to": 811
+  },
+  {
+   "text": "K2",
+   "from": 811,
+   "g": 18,
+   "to": 824
+  },
+  {
+   "text": "chat",
+   "from": 824,
+   "g": 18,
+   "to": 830
+  },
+  {
+   "text": "app",
+   "from": 830,
+   "g": 18,
+   "to": 844
+  },
+  {
+   "text": "The",
+   "from": 844,
+   "g": 19,
+   "to": 847
+  },
+  {
+   "text": "models",
+   "from": 847,
+   "g": 19,
+   "to": 854
+  },
+  {
+   "text": "are",
+   "from": 854,
+   "g": 19,
+   "to": 861
+  },
+  {
+   "text": "Apache",
+   "from": 861,
+   "g": 19,
+   "to": 868
+  },
+  {
+   "text": "2.0",
+   "from": 868,
+   "g": 19,
+   "to": 900
+  },
+  {
+   "text": "so",
+   "from": 900,
+   "g": 20,
+   "to": 906
+  },
+  {
+   "text": "you",
+   "from": 906,
+   "g": 20,
+   "to": 910
+  },
+  {
+   "text": "can",
+   "from": 910,
+   "g": 20,
+   "to": 915
+  },
+  {
+   "text": "use",
+   "from": 915,
+   "g": 20,
+   "to": 922
+  },
+  {
+   "text": "them",
+   "from": 922,
+   "g": 20,
+   "to": 926
+  },
+  {
+   "text": "for",
+   "from": 926,
+   "g": 20,
+   "to": 931
+  },
+  {
+   "text": "business",
+   "from": 931,
+   "g": 20,
+   "to": 940
+  },
+  {
+   "text": "too",
+   "from": 940,
+   "g": 21,
+   "to": 960
+  },
+  {
+   "text": "Comment",
+   "from": 960,
+   "g": 22,
+   "to": 967
+  },
+  {
+   "text": "K2",
+   "from": 967,
+   "g": 22,
+   "to": 982
+  },
+  {
+   "text": "and",
+   "from": 982,
+   "g": 22,
+   "to": 986
+  },
+  {
+   "text": "I'll",
+   "from": 986,
+   "g": 22,
+   "to": 990
+  },
+  {
+   "text": "send",
+   "from": 990,
+   "g": 22,
+   "to": 995
+  },
+  {
+   "text": "you",
+   "from": 995,
+   "g": 22,
+   "to": 1000
+  },
+  {
+   "text": "the",
+   "from": 1000,
+   "g": 22,
+   "to": 1003
+  },
+  {
+   "text": "links",
+   "from": 1003,
+   "g": 23,
+   "to": 1051
+  }
+ ],
+ "groups": [
+  {
+   "from": 0,
+   "to": 50
+  },
+  {
+   "from": 50,
+   "to": 76
+  },
+  {
+   "from": 76,
+   "to": 118
+  },
+  {
+   "from": 118,
+   "to": 166
+  },
+  {
+   "from": 166,
+   "to": 253
+  },
+  {
+   "from": 253,
+   "to": 281
+  },
+  {
+   "from": 281,
+   "to": 314
+  },
+  {
+   "from": 314,
+   "to": 355
+  },
+  {
+   "from": 355,
+   "to": 463
+  },
+  {
+   "from": 463,
+   "to": 482
+  },
+  {
+   "from": 482,
+   "to": 524
+  },
+  {
+   "from": 524,
+   "to": 567
+  },
+  {
+   "from": 567,
+   "to": 616
+  },
+  {
+   "from": 616,
+   "to": 664
+  },
+  {
+   "from": 664,
+   "to": 730
+  },
+  {
+   "from": 730,
+   "to": 751
+  },
+  {
+   "from": 751,
+   "to": 786
+  },
+  {
+   "from": 786,
+   "to": 797
+  },
+  {
+   "from": 797,
+   "to": 844
+  },
+  {
+   "from": 844,
+   "to": 900
+  },
+  {
+   "from": 900,
+   "to": 940
+  },
+  {
+   "from": 940,
+   "to": 960
+  },
+  {
+   "from": 960,
+   "to": 1003
+  },
+  {
+   "from": 1003,
+   "to": 1051
+  }
+ ],
+ "standin": true,
+ "faceFrames": 1051
+}
