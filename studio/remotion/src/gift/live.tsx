@@ -73,8 +73,8 @@ const Name: React.FC<{ar: string; en: string; tone: number; local: number; dur: 
     <div style={{position: 'absolute', top: 770, width: '100%', textAlign: 'center', direction: 'rtl',
       clipPath: `inset(0 0 0 ${(edge / 1080) * 100}%)`,
       filter: `drop-shadow(0 6px 3px rgba(60,40,30,.35)) drop-shadow(0 0 ${18 * glow}px rgba(255,230,170,.8))`}}>
-      <span style={{fontFamily: 'Al Nile', fontWeight: 700, fontSize: 190, lineHeight: 1.6, color: 'transparent',
-        backgroundImage: satin, WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextStroke: '3px #E8C98E'}}>{ar}</span>
+      <span style={{fontFamily: 'Al Nile', fontWeight: 700, fontSize: tone === 2 ? 250 : 190, lineHeight: 1.6, color: 'transparent',
+        backgroundImage: satin, WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextStroke: tone === 2 ? '3px #6E4A1C' : '3px #E8C98E'}}>{ar}</span>
     </div>
     <Needle x={edge} y={980 + Math.sin(local / 2) * 40} o={stitch < 1 ? 1 : interpolate(local, [stitchSecs * fps, (stitchSecs + 0.15) * fps], [1, 0], clamp)}/>
     <div style={{position: 'absolute', top: 1140, width: '100%', textAlign: 'center', opacity: sub, fontFamily: 'Amiri',
@@ -149,7 +149,7 @@ export const KnitNamesLive: React.FC = () => {
         const split = Math.round(1.35 * fps);   // "...Allah" lands ~1.4 s into each recited cycle
         return seg < split
           ? <Name key={`n${idx}`} ar={NAMES[idx][0]} en={NAMES[idx][1]} tone={idx % 2} local={seg} dur={split} stitchSecs={0.55}/>
-          : <Name key={`a${idx}`} ar="اللّٰه" en="Allah" tone={2} local={seg - split} dur={segDur - split} stitchSecs={0.4}/>;
+          : <Name key={`a${idx}`} ar="الله" en="Allah" tone={2} local={seg - split} dur={segDur - split} stitchSecs={0.4}/>;
       })()}
     </AbsoluteFill>
     <Audio src={staticFile('gift/audio.m4a')}/>
