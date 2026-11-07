@@ -2570,8 +2570,10 @@
       "primary_keyword": "opus 5.5 vs sonnet 5.5",
       "host_slug": "repost-dbedc134cc10",
       "collaborators": null,
-      "status": "pending",
-      "note": "owner approved 2026-11-07 (\"Approved, queue it\"); placed on the 10 Nov free slots"
+      "status": "scheduled",
+      "note": "owner approved 2026-11-07 (\"Approved, queue it\"); placed on the 10 Nov free slots",
+      "url": "https://www.tiktok.com/@withhammad/video/7705331455882300678",
+      "scheduled_at": "2026-11-07T07:42:25Z"
     },
     {
       "id": "xx-dbedc134cc10",
@@ -2585,8 +2587,10 @@
       "primary_keyword": "opus 5.5 vs sonnet 5.5",
       "host_slug": "repost-dbedc134cc10",
       "collaborators": null,
-      "status": "pending",
-      "note": "owner approved 2026-11-07 (\"Approved, queue it\"); placed on the 10 Nov free slots"
+      "status": "scheduled",
+      "note": "owner approved 2026-11-07 (\"Approved, queue it\"); placed on the 10 Nov free slots",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-07T07:45:08Z"
     },
     {
       "id": "in-dbedc134cc10",
