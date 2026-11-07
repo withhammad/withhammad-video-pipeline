@@ -78,7 +78,8 @@ const Hook: React.FC<{o: Ov; f: number}> = ({o, f}) => {
 
 const Note: React.FC<{o: Ov; f: number}> = ({o, f}) => {
   const p = pop(f, o.from), out = ramp(f, o.to - 5, o.to);
-  return <div style={{position: 'absolute', top: PANEL.y + PANEL.h - 90, left: 0, right: 0, display: 'flex', justifyContent: 'center', opacity: Math.min(1, p * 2) * (1 - out)}}>
+  const pip = D.avatar && D.avatar.segs.some((s: Seg) => s.mode === 'pip' && o.from < s.to && o.to > s.from);   // clear the face PiP
+  return <div style={{position: 'absolute', top: PANEL.y + PANEL.h - 90, left: pip ? 420 : 0, right: pip ? 40 : 0, display: 'flex', justifyContent: 'center', opacity: Math.min(1, p * 2) * (1 - out)}}>
     <div style={{background: 'rgba(7,11,22,.86)', border: '2px solid rgba(255,255,255,.25)', borderRadius: 999, padding: '10px 28px', fontFamily: SANS,
       fontWeight: 800, fontSize: 30, color: '#fff'}}>{o.text}</div></div>;
 };
@@ -124,13 +125,13 @@ const Chip: React.FC<{o: Ov; f: number}> = ({o, f}) => {
 };
 
 // call-to-action skill, ending A: a clean comment box types the keyword, then the DM and the link card.
-const Cta: React.FC<{o: Ov; f: number}> = ({o, f}) => {
+const Cta: React.FC<{o: Ov; f: number; full?: boolean}> = ({o, f, full}) => {
   const up = pop(f, o.from), word = 'ROAST';
   const typed = word.slice(0, Math.max(0, Math.min(word.length, Math.floor((f - o.typeAt) * 8 / FPS) + 1)));
   const dm = pop(f, o.dmAt), card = pop(f, o.dmAt + 9);
   return <>
-    <div style={{position: 'absolute', top: 300, left: 0, right: 0, textAlign: 'center', opacity: Math.min(1, up * 2), fontFamily: BIG, fontSize: 84, color: '#fff',
-      textShadow: '0 6px 24px rgba(0,0,0,.6)'}}>Comment <span style={{color: YELLOW}}>ROAST</span></div>
+    {full ? null : <div style={{position: 'absolute', top: 300, left: 0, right: 0, textAlign: 'center', opacity: Math.min(1, up * 2), fontFamily: BIG, fontSize: 84, color: '#fff',
+      textShadow: '0 6px 24px rgba(0,0,0,.6)'}}>Comment <span style={{color: YELLOW}}>ROAST</span></div>}
     <div style={{position: 'absolute', left: 70, right: 150, top: 900, transform: `translateY(${(1 - up) * 500}px)`, background: '#fff', borderRadius: 36,
       boxShadow: '0 20px 50px rgba(0,0,0,.5)', padding: '26px 30px', display: 'flex', alignItems: 'center', gap: 22}}>
       <div style={{width: 72, height: 72, borderRadius: 99, background: `linear-gradient(160deg, ${BLUE}, #0B3FB0)`, display: 'flex', alignItems: 'center',
@@ -148,41 +149,68 @@ const Cta: React.FC<{o: Ov; f: number}> = ({o, f}) => {
   </>;
 };
 
-const Overlays: React.FC<{f: number}> = ({f}) => <>{D.overlays.filter((o: Ov) => f >= o.from && f < o.to).map((o: Ov, i: number) => {
+const Overlays: React.FC<{f: number; full?: boolean}> = ({f, full}) => <>{D.overlays.filter((o: Ov) => f >= o.from && f < o.to).map((o: Ov, i: number) => {
   switch (o.kind) {
     case 'hook': return <Hook key={i} o={o} f={f}/>;
     case 'note': return <Note key={i} o={o} f={f}/>;
     case 'score': return <Score key={i} o={o} f={f}/>;
     case 'seats': return <Seats key={i} o={o} f={f}/>;
     case 'chip': return <Chip key={i} o={o} f={f}/>;
-    case 'cta': return <Cta key={i} o={o} f={f}/>;
+    case 'cta': return <Cta key={i} o={o} f={f} full={full}/>;
     default: return null;
   }
 })}</>;
 
 // ---------------------------------------------------------------- captions: word-by-word build (spoken white, next 45 %)
-const Captions: React.FC<{f: number}> = ({f}) => {
+const Captions: React.FC<{f: number; full?: boolean}> = ({f, full}) => {
   const c = D.captions.find((x: any) => f >= x.from && f < x.to);
   if (!c) return null;
   const lines: any[][] = [[]];
   c.words.forEach((w: any) => { lines[lines.length - 1].push(w); if (w.br) lines.push([]); });
   return <div style={{position: 'absolute', left: 40, right: 40, top: 1405, transform: 'translateY(-50%)', textAlign: 'center', fontFamily: SANS, fontWeight: 900,
     fontSize: 66, lineHeight: 1.1, letterSpacing: -0.5, textShadow: '0 2px 10px rgba(0,0,0,.7)'}}>
-    {lines.filter(l => l.length).map((l, i) => <div key={i} style={{whiteSpace: 'nowrap'}}>{l.map((w: any, j: number) =>
-      <span key={j} style={{color: f >= w.at ? (w.emph ? YELLOW : '#fff') : 'rgba(255,255,255,.4)'}}>{j ? ' ' : ''}{w.text}</span>)}</div>)}</div>;
+    {lines.filter(l => l.length).map((l, i) => <div key={i} style={{whiteSpace: 'nowrap'}}><span style={full ? {background: 'rgba(7,11,22,.82)',
+      borderRadius: 18, padding: '2px 22px', boxDecorationBreak: 'clone', WebkitBoxDecorationBreak: 'clone'} : {}}>{l.map((w: any, j: number) =>
+      <span key={j} style={{color: f >= w.at ? (w.emph ? YELLOW : '#fff') : 'rgba(255,255,255,.4)'}}>{j ? ' ' : ''}{w.text}</span>)}</span></div>)}</div>;   // full frame: dark backing (white shirt behind)
 };
 
+// ---------------------------------------------------------------- the avatar take (to-camera lines only)
+// Each segment plays the HeyGen take at its own offset (the take was lip-synced to exactly that narration).
+// 'pip': the reference's face cam, a round PiP over the card's lower left. 'full': the close, full frame.
+type Seg = {from: number; to: number; takeStart: number; mode: 'pip' | 'full'};
+const segAt = (f: number): Seg | null => (D.avatar ? D.avatar.segs.find((s: Seg) => f >= s.from && f < s.to) || null : null);
+const TakeAt: React.FC<{s: Seg; style: React.CSSProperties}> = ({s, style}) =>
+  <Sequence from={s.from} durationInFrames={s.to - s.from} layout="none">
+    <OffthreadVideo src={file(D.avatar.src)} muted trimBefore={Math.max(0, Math.round((s.from / FPS + s.takeStart + (D.avatar.lip || 0)) * FPS))} style={style}/>
+  </Sequence>;
+const PIP = {x: 56, y: 930, d: 340};
+const Pip: React.FC<{s: Seg; f: number}> = ({s, f}) => {
+  const p = s.from === 0 ? 1 : pop(f, s.from), out = ramp(f, s.to - 5, s.to);
+  const W = PIP.d * 1.9, H = W * 16 / 9;   // the take (9:16), scaled so the face fills the circle
+  return <div style={{position: 'absolute', left: PIP.x, top: PIP.y, width: PIP.d, height: PIP.d, borderRadius: '50%', overflow: 'hidden',
+    transform: `scale(${(0.6 + 0.4 * p) * (1 - 0.3 * out)})`, opacity: Math.min(1, p * 2) * (1 - out), background: '#0d1424',
+    boxShadow: `0 0 0 6px ${BLUE}, 0 0 50px rgba(46,123,255,.7), 0 18px 40px rgba(0,0,0,.55)`}}>
+    <TakeAt s={s} style={{position: 'absolute', left: (PIP.d - W) / 2, top: -H * 0.13, width: W, height: H}}/>
+  </div>;
+};
+const Full: React.FC<{s: Seg}> = ({s}) => <AbsoluteFill style={{background: '#000'}}>
+  <TakeAt s={s} style={{width: 1080, height: 1920, objectFit: 'cover'}}/>
+  <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%)'}}/>
+</AbsoluteFill>;
+
 export const Reel: React.FC = () => {
-  const f = useCurrentFrame(), u = unitAt(f);
+  const f = useCurrentFrame(), u = unitAt(f), s = segAt(f);
+  const full = s?.mode === 'full';
   return <AbsoluteFill style={{background: NAVY, fontFamily: SANS}}>
     <Audio src={file('voice.wav')}/>
     <Backdrop f={f}/>
-    {u.cta
+    {full ? <Full s={s!}/> : u.cta
       ? <AbsoluteFill style={{filter: 'blur(14px) brightness(.55)'}}><Card u={u} f={f}/></AbsoluteFill>
       : <Card u={u} f={f}/>}
-    {u.cta ? null : <Label f={f} u={u}/>}
-    {u.cta ? null : <Brand/>}
-    <Overlays f={f}/>
-    <Captions f={f}/>
+    {full || u.cta ? null : <Label f={f} u={u}/>}
+    {full || u.cta ? null : <Brand/>}
+    {s && s.mode === 'pip' ? <Pip s={s} f={f}/> : null}
+    <Overlays f={f} full={full}/>
+    <Captions f={f} full={full}/>
   </AbsoluteFill>;
 };
