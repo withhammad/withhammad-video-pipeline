@@ -95,6 +95,10 @@ def main():
         prev = ln["who"]
         print(f"{ln['id']:8s} {ln['who']} {d:5.2f}s  heard: {' '.join(w.word.strip() for w in heard)}", file=sys.stderr)
 
+    for i, x in enumerate(words):  # a clipped last-word timing (e.g. 0.02 s) would flash its caption
+        if x["e"] - x["s"] < 0.08:
+            nxt = words[i + 1]["s"] if i + 1 < len(words) and words[i + 1]["line"] == x["line"] else x["s"] + 0.35
+            x["e"] = round(min(nxt, x["s"] + 0.35), 3)
     total = round(t + TAIL, 3)
     # mix lines at their offsets
     inputs, filt = [], []
