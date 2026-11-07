@@ -268,6 +268,21 @@ browser work, in our own tabs. Open the needed login pages there; do not launch 
 or a new profile. The owner enters passwords and completes 2FA/captchas himself; verify the signed-in account before
 acting and never log out or switch an existing account without his instruction.
 
+**Finished-edit correction (owner, 8 Nov 2026):** a raw HeyGen take is an input, not a finished reel. The GROWTH
+preview lacked the reference's edit, animation and music. Rebuild the complete reference scene by scene, including
+animations, real screen recordings, captions, transitions and a continuous music bed. Show a cut as ready for
+approval only after the assembled reel passes all six gates. A requested raw preview must be labelled as such.
+Verify the original clone and excited settings before spending more credits on the GROWTH correction or Chamber
+look 1. The owner's 8 Nov instruction authorizes those corrected takes after verification.
+
+**Blender correction (owner, 8 Nov 2026):** build reference 3D animation, cartoon characters and 3D objects in
+Blender, render at 1080x1920 / 30 fps, then composite the shots in Remotion or HyperFrames. Free assets only;
+paid add-ons require the owner's OK. MCP for Blender 2.2.7 is installed and configured in Codex; the live
+localhost:9876 bridge and headless Blender 5.2.3 LTS were exercised successfully. See `docs/BLENDER_CODEX.md`.
+
+**Separate-project correction (owner, 8 Nov 2026):** reference `DfcdfO_sNv8` is for his wife's separate video,
+not withhammad. Its just-added inbox entry was removed. Do not intake, schedule or publish it through this pipeline.
+
 ## 12. The editing playbook: which tools for which kind of reference (use EVERY time)
 
 Claude's method on every reference, in this order. Do not skip steps or "simplify" the edit.

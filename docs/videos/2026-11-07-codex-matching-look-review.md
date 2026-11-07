@@ -33,3 +33,30 @@ Read-only browser scan: first 12 LinkedIn activity entries, one non-keyword comm
 ## Owner's new reference
 
 `https://www.instagram.com/reel/DfcLoDvEgMg/` is in the reference inbox, pending behind Chamber and GROWTH. Duplicate-topic review is still required before credits.
+
+## 8 November: voice recovery and complete-edit correction
+
+The owner rejected presenting a raw HeyGen take as the intended edit. Both revised reels still require complete
+reference-matched animations, recordings, captions, music, covers/copy and the six-gate review before final approval.
+
+The paid account's current `HAMMAD YOUSUF -- 1` maps to the same HeyGen ID as the historical original clone:
+`4b02b874862049f69b6034bbdc0fb282`. A deeper read found that its source recording and underlying ElevenLabs ID now
+differ from the historical approved take metadata. Same-ID verification alone is insufficient to establish the
+same source recording. No cause or actor for this change has been established.
+
+Three voice-only preflights were made with Excited, expressiveness 1.0, speed 1.1, similarity 2, English/Original:
+
+- Chamber 1794083194436-1: 65.254 seconds, median 136.75 Hz / 14.69 st; low-energy hold, shown price 1 credit.
+- GROWTH 1794083358060-2: 30.354 seconds, median 167.57 Hz / 16.37 st; first 3 seconds 163.46 Hz, near the approximate
+  pitch target but original-source mismatch still needs resolution. No new avatar render.
+- Chamber all-caps 1794083468342-3: 73.587 seconds, median 147.37 Hz / 14.97 st; still below the pitch target,
+  shown price 2 credits. No new avatar render.
+
+The original 23.22-second source was recovered from the approved take's metadata. It is a WebM container despite
+the provider's `.wav` URL suffix. A separate clone named `HAMMAD YOUSUF - ORIGINAL APPROVED` was requested from
+that recording, without replacing the current voice or saving voice defaults. The UI showed no price or upgrade;
+its completion and balance need verification before further generation. Evidence is in
+`work/codex-takeover/voice-preflight-proof.json` and each job's `matching-look/` folder.
+
+Blender is connected and its 3-second 3D animation/music test was delivered; see `docs/BLENDER_CODEX.md`.
+Reference `DfcdfO_sNv8` belongs to the owner's wife's separate project. Its just-added inbox entry was removed.

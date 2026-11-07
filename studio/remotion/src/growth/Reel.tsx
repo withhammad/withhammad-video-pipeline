@@ -24,14 +24,14 @@ const pop = (f: number, at: number, d = 13) => (f < at ? 0 : spring({frame: f - 
 const file = (s: string) => staticFile('growth/' + s);
 const mark = (name: string, size: number, color: string) => <div style={{width: size, height: size, background: color, WebkitMaskImage: `url(${staticFile('glow/si-' + name + '.svg')})`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center'}}/>;
 
-// ------------------------------------------------------------------ face (HeyGen take, look "Professional in white shirt")
+// The revision can use its own take and voice files, preserving previous exports and source assets.
 const Face: React.FC<{mode: 'split' | 'full'; f: number; at: number; zoom?: number}> = ({mode, f, at, zoom = 1}) => {
   const punch = mode === 'full' ? 1.06 + 0.06 * ease(ramp(f, at, at + 6)) : 1;
   const style: React.CSSProperties = mode === 'split'
     ? {position: 'absolute', left: 0, top: SEAM - 40, width: W, height: H - SEAM + 40, overflow: 'hidden'}
     : {position: 'absolute', inset: 0, overflow: 'hidden'};
   return <div style={style}><div style={{position: 'absolute', left: 0, top: mode === 'split' ? -330 : 0, width: W, height: H, transform: `scale(${punch * zoom})`, transformOrigin: '50% 33%'}}>
-    <OffthreadVideo src={file('take.mp4')} muted style={{width: W, height: H, objectFit: 'cover'}}/></div></div>;
+    <OffthreadVideo src={D.takeFile ? staticFile(D.takeFile) : file('take.mp4')} muted style={{width: W, height: H, objectFit: 'cover'}}/></div></div>;
 };
 const Top: React.FC<{children: React.ReactNode; bg?: string}> = ({children, bg = '#F2F3F5'}) =>
   <div style={{position: 'absolute', left: 0, top: 0, width: W, height: SEAM, overflow: 'hidden', background: bg}}>{children}</div>;
@@ -41,6 +41,8 @@ const Avatar: React.FC<{s?: number}> = ({s = 56}) => <div style={{width: s, heig
 
 // ------------------------------------------------------------------ scenes
 const Fight: React.FC<{t: number}> = ({t}) => {
+  if (D.blenderHook) return <Top bg="#0B1220"><OffthreadVideo src={staticFile(D.blenderHook)} muted
+    style={{position: 'absolute', width: 1512, height: 2688, left: -216, top: -800, objectFit: 'cover'}}/></Top>;
   // Claude cube vs Instagram cube in a ring, the Claude one lands the punch on "killed"
   const hit = ease(ramp(t, 24, 30)), shake = t > 28 && t < 40 ? Math.sin(t * 2.4) * 8 : 0, push = 1 + 0.08 * ramp(t, 0, 60);
   const cube = (bg: string, inner: React.ReactNode, x: number, rot: number, sc: number) =>
@@ -232,6 +234,6 @@ export const Reel: React.FC = () => {
     {s.key === 'cta' && <Cta t={t}/>}
     {s.key !== 'cta' && <Captions f={f} y={capY}/>}
     <div style={{position: 'absolute', right: 40, top: lay === 'split' ? SEAM + 30 : 1640, fontFamily: SANS, fontWeight: 900, fontSize: 24, letterSpacing: 5, color: 'rgba(255,255,255,.6)', textShadow: '0 2px 8px rgba(0,0,0,.6)'}}>WITHHAMMAD</div>
-    <Audio src={file('voice.wav')}/>
+    <Audio src={D.voiceFile ? staticFile(D.voiceFile) : file('voice.wav')}/>
   </AbsoluteFill>;
 };
