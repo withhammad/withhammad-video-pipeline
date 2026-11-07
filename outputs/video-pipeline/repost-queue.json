@@ -1688,10 +1688,12 @@
       "primary_keyword": null,
       "host_slug": "guide-ai-privacy-checkup",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "moved_from": "2026-11-07 10:00 GST",
       "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai",
+      "url": "https://www.instagram.com/p/Dfbgp3mjQvj/",
+      "posted_at": "2026-11-07T10:08:30Z"
     },
     {
       "id": "fg-ai-privacy-checkup",
