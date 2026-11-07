@@ -5,7 +5,7 @@ import json, re, subprocess, difflib, sys
 from pathlib import Path
 import numpy as np
 from faster_whisper import WhisperModel
-HERE = Path(__file__).resolve().parent; T = HERE / "take"
+HERE = Path(__file__).resolve().parent; T = HERE / (sys.argv[1] if len(sys.argv) > 1 else "take")  # split_lines.py [take_dir]
 norm = lambda w: re.sub(r"[^a-z0-9]", "", w.lower().replace("3d", "threed"))
 lines = json.loads((HERE / "script.json").read_text())["lines"]
 m = WhisperModel("small.en", device="cpu", compute_type="int8")
