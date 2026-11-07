@@ -1,170 +1,173 @@
 {
- "frames": 1898,
+ "frames": 1737,
  "fps": 30,
  "units": [
   {
    "kind": "title",
    "from": 0,
-   "to": 114
+   "to": 106
   },
   {
    "kind": "nomodel",
-   "from": 114,
-   "to": 179
+   "from": 106,
+   "to": 183
   },
   {
    "kind": "repo",
-   "from": 179,
-   "to": 219
+   "from": 183,
+   "to": 235
   },
   {
    "kind": "readme",
-   "from": 219,
-   "to": 319
+   "from": 235,
+   "to": 334
   },
   {
    "kind": "oneline",
-   "from": 319,
-   "to": 405
+   "from": 334,
+   "to": 420
+  },
+  {
+   "kind": "codeterm",
+   "from": 420,
+   "to": 468
   },
   {
    "kind": "allown",
-   "from": 405,
-   "to": 601
+   "from": 468,
+   "to": 616
   },
   {
    "kind": "complete",
-   "from": 601,
+   "from": 616,
    "to": 703
   },
   {
    "kind": "gallery",
    "from": 703,
-   "to": 755
+   "to": 753
   },
   {
    "kind": "montage",
-   "from": 755,
-   "to": 888
+   "from": 753,
+   "to": 877
   },
   {
    "kind": "own",
-   "from": 888,
-   "to": 953
+   "from": 877,
+   "to": 947
   },
   {
    "kind": "simple",
-   "from": 953,
-   "to": 994
+   "from": 947,
+   "to": 991
   },
   {
    "kind": "install",
-   "from": 994,
-   "to": 1058
+   "from": 991,
+   "to": 1051
   },
   {
    "kind": "terminal",
-   "from": 1058,
-   "to": 1126
+   "from": 1051,
+   "to": 1105
   },
   {
    "kind": "boom",
-   "from": 1126,
-   "to": 1172
+   "from": 1105,
+   "to": 1155
   },
   {
    "kind": "prompt",
-   "from": 1172,
-   "to": 1318
+   "from": 1155,
+   "to": 1287
   },
   {
    "kind": "output",
-   "from": 1318,
-   "to": 1483
+   "from": 1287,
+   "to": 1440
   },
   {
    "kind": "usecases",
-   "from": 1483,
-   "to": 1639
+   "from": 1440,
+   "to": 1584
   },
   {
    "kind": "caveat",
-   "from": 1639,
-   "to": 1808
+   "from": 1584,
+   "to": 1664
   },
   {
    "kind": "cta",
-   "from": 1808,
-   "to": 1898
+   "from": 1664,
+   "to": 1737
   }
  ],
  "beats": {
-  "nomodel": 135,
+  "nomodel": 136,
   "readme": [
-   230,
-   282,
-   297
+   251,
+   294,
+   310
   ],
   "oneline": [
-   334,
-   370
+   344,
+   384
   ],
   "allown": [
-   405,
-   451,
-   501,
-   553
+   420,
+   468,
+   513,
+   565
   ],
   "complete": [
-   644,
-   672
+   647,
+   675
   ],
-  "gallery": 713,
+  "gallery": 715,
   "montage": [
-   762,
-   785,
-   814,
-   833,
-   854,
-   866
+   765,
+   787,
+   807,
+   826,
+   846,
+   859
   ],
   "own": [
-   899,
-   933
+   889,
+   924
   ],
-  "simple": 969,
-  "install": 1009,
+  "simple": 963,
+  "install": 1007,
   "terminal": [
-   1058,
-   1095
+   1051,
+   1084
   ],
-  "installed": 1146,
+  "installed": 1126,
   "prompt": [
-   1218,
-   1296
+   1198,
+   1272
   ],
   "output": [
-   1324,
-   1351,
-   1384,
-   1415,
-   1438
+   1296,
+   1320,
+   1355,
+   1381,
+   1408
   ],
   "usecases": [
-   1488,
-   1520,
-   1545,
-   1579
+   1457,
+   1492,
+   1508,
+   1535
   ],
   "caveat": [
-   1656,
-   1681,
-   1722,
-   1785
+   1584,
+   1637
   ],
   "cta": {
-   "type": 1815,
-   "dm": 1828
+   "type": 1669,
+   "dm": 1688
   }
  },
  "shots": {
@@ -177,130 +180,125 @@
    {
     "film": "cel-anime-80s",
     "in": 15,
-    "from": 11
+    "from": 10
    },
    {
     "film": "ukiyoe",
     "in": 33,
-    "from": 22
+    "from": 21
    },
    {
     "film": "brick-toy",
     "in": 40,
-    "from": 34
+    "from": 31
    },
    {
     "film": "art-deco",
     "in": 29,
-    "from": 45
+    "from": 42
    },
    {
     "film": "pixel-rpg",
     "in": 20,
-    "from": 57
+    "from": 53
    },
    {
     "film": "silent-film",
     "in": 7,
-    "from": 68
+    "from": 63
    },
    {
     "film": "lowpoly-island",
     "in": 13,
-    "from": 79
+    "from": 74
    },
    {
     "film": "rubber-hose",
     "in": 19,
-    "from": 91
+    "from": 84
    },
    {
     "film": "swiss-motion",
     "in": 33,
-    "from": 102
+    "from": 95
    }
   ],
   "allown": [
    {
-    "film": "silent-film",
-    "in": 20,
-    "from": 405
-   },
-   {
     "film": "art-deco",
     "in": 29.5,
-    "from": 451
+    "from": 468
    },
    {
     "film": "ukiyoe",
     "in": 16.5,
-    "from": 501
+    "from": 513
    },
    {
     "film": "lowpoly-island",
     "in": 33,
-    "from": 553
+    "from": 565
    }
   ],
   "montage": [
    {
     "film": "ukiyoe",
     "in": 11,
-    "from": 755
+    "from": 753
    },
    {
     "film": "swiss-motion",
     "in": 11,
-    "from": 785
+    "from": 787
    },
    {
     "film": "silent-film",
     "in": 20.5,
-    "from": 814
+    "from": 807
    },
    {
     "film": "pixel-rpg",
     "in": 27,
-    "from": 833
+    "from": 826
    },
    {
     "film": "cel-anime-80s",
     "in": 29.5,
-    "from": 854
+    "from": 846
    },
    {
     "film": "brick-toy",
     "in": 27,
-    "from": 866
+    "from": 859
    }
   ],
   "output": [
    {
     "film": "spy-titles",
     "in": 15,
-    "from": 1318
+    "from": 1287
    }
   ],
   "usecases": [
    {
     "film": "microgame",
     "in": 15,
-    "from": 1483
+    "from": 1440
    },
    {
     "film": "isometric-picture-book",
     "in": 15,
-    "from": 1520
+    "from": 1492
    },
    {
     "film": "brick-toy",
     "in": 40,
-    "from": 1545
+    "from": 1508
    },
    {
     "film": "ukiyoe",
     "in": 33,
-    "from": 1579
+    "from": 1535
    }
   ]
  },
@@ -309,89 +307,89 @@
    "text": "CLAUDE",
    "from": 0,
    "emph": true,
-   "to": 8
+   "to": 11
   },
   {
    "text": "CODE",
-   "from": 8,
+   "from": 11,
    "emph": true,
-   "to": 13
+   "to": 16
   },
   {
    "text": "CAN",
-   "from": 13,
+   "from": 16,
    "emph": false,
-   "to": 19
+   "to": 23
   },
   {
    "text": "NOW",
-   "from": 19,
+   "from": 23,
    "emph": false,
-   "to": 26
+   "to": 28
   },
   {
    "text": "MAKE",
-   "from": 26,
+   "from": 28,
    "emph": false,
-   "to": 31
+   "to": 34
   },
   {
    "text": "SHORT",
-   "from": 31,
+   "from": 34,
    "emph": true,
-   "to": 38
+   "to": 42
   },
   {
    "text": "FILMS",
-   "from": 38,
+   "from": 42,
    "emph": true,
-   "to": 48
+   "to": 50
   },
   {
    "text": "IN",
-   "from": 48,
+   "from": 50,
    "emph": false,
-   "to": 53
+   "to": 59
   },
   {
    "text": "66",
-   "from": 53,
+   "from": 59,
    "emph": true,
-   "to": 66
+   "to": 76
   },
   {
    "text": "DIFFERENT",
-   "from": 66,
+   "from": 76,
    "emph": false,
-   "to": 80
+   "to": 88
   },
   {
    "text": "FILM",
-   "from": 80,
+   "from": 88,
    "emph": true,
-   "to": 90
+   "to": 95
   },
   {
    "text": "STYLES",
-   "from": 90,
+   "from": 95,
+   "emph": false,
+   "to": 106
+  },
+  {
+   "text": "AND",
+   "from": 106,
    "emph": false,
    "to": 114
   },
   {
-   "text": "AND",
+   "text": "YOU",
    "from": 114,
    "emph": false,
-   "to": 118
-  },
-  {
-   "text": "YOU",
-   "from": 117,
-   "emph": false,
-   "to": 121
+   "to": 119
   },
   {
    "text": "DON'T",
-   "from": 120,
+   "from": 119,
    "emph": false,
    "to": 126
   },
@@ -399,419 +397,419 @@
    "text": "NEED",
    "from": 126,
    "emph": false,
-   "to": 131
+   "to": 130
   },
   {
    "text": "A",
-   "from": 131,
+   "from": 130,
    "emph": false,
-   "to": 135
+   "to": 136
   },
   {
    "text": "SINGLE",
-   "from": 135,
+   "from": 136,
    "emph": false,
-   "to": 141
+   "to": 146
   },
   {
    "text": "VIDEO",
-   "from": 141,
+   "from": 146,
    "emph": false,
-   "to": 150
+   "to": 154
   },
   {
    "text": "MODEL",
-   "from": 150,
+   "from": 154,
    "emph": true,
-   "to": 158
+   "to": 160
   },
   {
    "text": "TO",
-   "from": 158,
+   "from": 160,
    "emph": false,
-   "to": 164
+   "to": 165
   },
   {
    "text": "DO",
-   "from": 164,
+   "from": 165,
    "emph": false,
-   "to": 168
+   "to": 170
   },
   {
    "text": "IT",
-   "from": 168,
+   "from": 170,
    "emph": false,
-   "to": 179
+   "to": 183
   },
   {
    "text": "IT'S",
-   "from": 179,
+   "from": 183,
    "emph": false,
-   "to": 186
+   "to": 191
   },
   {
    "text": "CALLED",
-   "from": 186,
+   "from": 191,
    "emph": false,
-   "to": 192
+   "to": 199
   },
   {
    "text": "LEMO-OPUSCAR",
-   "from": 192,
+   "from": 199,
    "emph": true,
-   "to": 219
+   "to": 229
   },
   {
    "text": "A",
-   "from": 219,
+   "from": 235,
    "emph": false,
-   "to": 223
+   "to": 241
   },
   {
    "text": "FREE",
-   "from": 222,
+   "from": 241,
    "emph": false,
-   "to": 230
+   "to": 251
   },
   {
    "text": "MIT",
-   "from": 230,
+   "from": 251,
    "emph": true,
-   "to": 260
+   "to": 278
   },
   {
    "text": "CLAUDE",
-   "from": 264,
+   "from": 278,
    "emph": true,
-   "to": 276
+   "to": 289
   },
   {
    "text": "CODE",
-   "from": 276,
+   "from": 289,
    "emph": true,
-   "to": 282
+   "to": 294
   },
   {
    "text": "PLUGIN",
-   "from": 282,
+   "from": 294,
    "emph": true,
-   "to": 291
+   "to": 303
   },
   {
    "text": "FROM",
-   "from": 291,
+   "from": 303,
    "emph": false,
-   "to": 297
+   "to": 310
   },
   {
    "text": "LEMOLAB",
-   "from": 297,
+   "from": 310,
    "emph": true,
-   "to": 319
-  },
-  {
-   "text": "AND",
-   "from": 319,
-   "emph": false,
-   "to": 323
-  },
-  {
-   "text": "IT",
-   "from": 323,
-   "emph": false,
-   "to": 327
-  },
-  {
-   "text": "TURNS",
-   "from": 326,
-   "emph": false,
    "to": 334
   },
   {
-   "text": "ONE",
+   "text": "AND",
    "from": 334,
    "emph": false,
-   "to": 341
+   "to": 338
+  },
+  {
+   "text": "IT",
+   "from": 335,
+   "emph": false,
+   "to": 340
+  },
+  {
+   "text": "TURNS",
+   "from": 340,
+   "emph": false,
+   "to": 344
+  },
+  {
+   "text": "ONE",
+   "from": 344,
+   "emph": false,
+   "to": 353
   },
   {
    "text": "LINE",
-   "from": 341,
+   "from": 353,
    "emph": false,
-   "to": 348
+   "to": 358
   },
   {
    "text": "OF",
-   "from": 348,
+   "from": 358,
    "emph": false,
-   "to": 352
+   "to": 364
   },
   {
    "text": "PROMPT",
-   "from": 352,
+   "from": 364,
    "emph": false,
-   "to": 359
+   "to": 369
   },
   {
    "text": "INTO",
-   "from": 359,
+   "from": 369,
    "emph": false,
-   "to": 365
+   "to": 378
   },
   {
    "text": "A",
-   "from": 365,
+   "from": 378,
    "emph": false,
-   "to": 370
+   "to": 384
   },
   {
    "text": "FINISHED",
-   "from": 370,
+   "from": 384,
    "emph": false,
-   "to": 376
+   "to": 391
   },
   {
    "text": "SHORT",
-   "from": 376,
+   "from": 391,
    "emph": true,
-   "to": 386
+   "to": 401
   },
   {
    "text": "FILM",
-   "from": 386,
-   "emph": true,
-   "to": 405
-  },
-  {
-   "text": "EVERY",
-   "from": 405,
-   "emph": false,
-   "to": 412
-  },
-  {
-   "text": "FRAME",
-   "from": 412,
+   "from": 401,
    "emph": true,
    "to": 420
   },
   {
-   "text": "IS",
+   "text": "EVERY",
    "from": 420,
    "emph": false,
-   "to": 425
+   "to": 429
   },
   {
-   "text": "DRAWN",
-   "from": 425,
-   "emph": false,
-   "to": 432
-  },
-  {
-   "text": "IN",
-   "from": 432,
-   "emph": false,
+   "text": "FRAME",
+   "from": 429,
+   "emph": true,
    "to": 436
   },
   {
-   "text": "CODE",
+   "text": "IS",
    "from": 436,
-   "emph": true,
-   "to": 451
+   "emph": false,
+   "to": 444
   },
   {
-   "text": "THE",
-   "from": 451,
+   "text": "DRAWN",
+   "from": 444,
+   "emph": false,
+   "to": 448
+  },
+  {
+   "text": "IN",
+   "from": 448,
    "emph": false,
    "to": 455
   },
   {
-   "text": "SCORE",
-   "from": 454,
+   "text": "CODE",
+   "from": 455,
    "emph": true,
-   "to": 460
+   "to": 468
   },
   {
-   "text": "IS",
-   "from": 460,
+   "text": "THE",
+   "from": 468,
    "emph": false,
-   "to": 466
+   "to": 475
   },
   {
-   "text": "WRITTEN",
-   "from": 466,
-   "emph": false,
-   "to": 473
-  },
-  {
-   "text": "BY",
-   "from": 473,
-   "emph": false,
+   "text": "SCORE",
+   "from": 475,
+   "emph": true,
    "to": 480
   },
   {
-   "text": "THE",
+   "text": "IS",
    "from": 480,
    "emph": false,
-   "to": 484
+   "to": 485
+  },
+  {
+   "text": "WRITTEN",
+   "from": 485,
+   "emph": false,
+   "to": 489
+  },
+  {
+   "text": "BY",
+   "from": 489,
+   "emph": false,
+   "to": 495
+  },
+  {
+   "text": "THE",
+   "from": 495,
+   "emph": false,
+   "to": 500
   },
   {
    "text": "AGENT",
-   "from": 483,
+   "from": 500,
    "emph": false,
-   "to": 501
+   "to": 513
   },
   {
    "text": "THE",
-   "from": 501,
+   "from": 513,
    "emph": false,
-   "to": 505
+   "to": 519
   },
   {
    "text": "VOICEOVER",
-   "from": 504,
+   "from": 519,
    "emph": true,
-   "to": 516
+   "to": 530
   },
   {
    "text": "IS",
-   "from": 516,
+   "from": 530,
    "emph": false,
-   "to": 522
+   "to": 535
   },
   {
    "text": "GENERATED",
-   "from": 522,
+   "from": 535,
    "emph": false,
-   "to": 544
+   "to": 547
   },
   {
    "text": "AND",
-   "from": 544,
+   "from": 547,
    "emph": false,
-   "to": 549
+   "to": 557
   },
   {
    "text": "EVEN",
-   "from": 549,
-   "emph": false,
-   "to": 553
-  },
-  {
-   "text": "THE",
-   "from": 553,
-   "emph": false,
-   "to": 558
-  },
-  {
-   "text": "SOUND",
-   "from": 558,
+   "from": 557,
    "emph": false,
    "to": 565
   },
   {
-   "text": "EFFECTS",
+   "text": "THE",
    "from": 565,
+   "emph": false,
+   "to": 572
+  },
+  {
+   "text": "SOUND",
+   "from": 572,
+   "emph": false,
+   "to": 578
+  },
+  {
+   "text": "EFFECTS",
+   "from": 578,
    "emph": true,
-   "to": 574
+   "to": 584
   },
   {
    "text": "GET",
-   "from": 574,
+   "from": 584,
    "emph": false,
-   "to": 583
+   "to": 590
   },
   {
    "text": "ADDED",
-   "from": 583,
+   "from": 590,
    "emph": false,
-   "to": 589
+   "to": 596
   },
   {
    "text": "FOR",
-   "from": 589,
+   "from": 596,
    "emph": false,
-   "to": 595
+   "to": 603
   },
   {
    "text": "YOU",
-   "from": 595,
+   "from": 603,
    "emph": false,
-   "to": 601
+   "to": 616
   },
   {
    "text": "SO",
-   "from": 601,
+   "from": 616,
    "emph": false,
-   "to": 613
+   "to": 620
   },
   {
    "text": "WHAT",
-   "from": 613,
+   "from": 620,
    "emph": false,
-   "to": 621
+   "to": 624
   },
   {
    "text": "YOU",
-   "from": 621,
+   "from": 624,
    "emph": false,
-   "to": 625
+   "to": 628
   },
   {
    "text": "GET",
-   "from": 624,
+   "from": 627,
    "emph": false,
-   "to": 629
+   "to": 632
   },
   {
    "text": "BACK",
-   "from": 629,
+   "from": 632,
    "emph": false,
-   "to": 636
+   "to": 639
   },
   {
    "text": "IS",
-   "from": 636,
+   "from": 639,
    "emph": false,
-   "to": 641
+   "to": 644
   },
   {
    "text": "A",
-   "from": 641,
+   "from": 644,
    "emph": false,
-   "to": 645
+   "to": 648
   },
   {
    "text": "COMPLETE",
-   "from": 644,
+   "from": 647,
    "emph": true,
-   "to": 651
+   "to": 661
   },
   {
    "text": "FILM",
-   "from": 651,
+   "from": 661,
    "emph": true,
-   "to": 672
+   "to": 675
   },
   {
    "text": "NOT",
-   "from": 672,
+   "from": 675,
    "emph": false,
-   "to": 678
+   "to": 680
   },
   {
    "text": "JUST",
-   "from": 678,
+   "from": 680,
    "emph": false,
-   "to": 685
+   "to": 686
   },
   {
    "text": "A",
-   "from": 685,
+   "from": 686,
    "emph": false,
-   "to": 690
+   "to": 691
   },
   {
    "text": "CLIP",
-   "from": 690,
+   "from": 691,
    "emph": true,
    "to": 703
   },
@@ -823,49 +821,49 @@
   },
   {
    "text": "THERE",
-   "from": 705,
+   "from": 706,
    "emph": false,
-   "to": 709
+   "to": 710
   },
   {
    "text": "ARE",
-   "from": 709,
+   "from": 710,
    "emph": false,
-   "to": 713
+   "to": 715
   },
   {
    "text": "66",
-   "from": 713,
+   "from": 715,
    "emph": true,
-   "to": 726
+   "to": 730
   },
   {
    "text": "READY-MADE",
-   "from": 726,
+   "from": 730,
    "emph": false,
-   "to": 744
+   "to": 746
   },
   {
    "text": "STYLES",
-   "from": 744,
+   "from": 746,
    "emph": false,
-   "to": 755
+   "to": 753
   },
   {
    "text": "ACROSS",
-   "from": 755,
+   "from": 753,
    "emph": false,
-   "to": 762
+   "to": 765
   },
   {
    "text": "PRINT",
-   "from": 762,
+   "from": 765,
    "emph": true,
-   "to": 785
+   "to": 787
   },
   {
    "text": "GRAPHIC",
-   "from": 785,
+   "from": 787,
    "emph": true,
    "to": 791
   },
@@ -873,425 +871,455 @@
    "text": "DESIGN",
    "from": 791,
    "emph": false,
-   "to": 814
+   "to": 807
   },
   {
    "text": "CINEMA",
-   "from": 814,
+   "from": 807,
    "emph": true,
-   "to": 833
+   "to": 826
   },
   {
    "text": "GAMES",
-   "from": 833,
+   "from": 826,
    "emph": true,
-   "to": 854
+   "to": 846
   },
   {
    "text": "ANIME",
-   "from": 854,
+   "from": 846,
    "emph": true,
-   "to": 860
+   "to": 851
   },
   {
    "text": "AND",
-   "from": 860,
+   "from": 851,
    "emph": false,
-   "to": 866
+   "to": 859
   },
   {
    "text": "3D",
-   "from": 866,
+   "from": 859,
    "emph": true,
-   "to": 888
+   "to": 877
   },
   {
    "text": "AND",
-   "from": 888,
+   "from": 877,
    "emph": false,
-   "to": 892
+   "to": 883
   },
   {
    "text": "YOU",
-   "from": 891,
+   "from": 883,
    "emph": false,
-   "to": 895
+   "to": 887
   },
   {
    "text": "CAN",
-   "from": 894,
+   "from": 885,
    "emph": false,
-   "to": 899
+   "to": 889
   },
   {
    "text": "TAKE",
-   "from": 899,
+   "from": 889,
+   "emph": false,
+   "to": 894
+  },
+  {
+   "text": "ANY",
+   "from": 894,
    "emph": false,
    "to": 904
   },
   {
-   "text": "ANY",
+   "text": "STYLE",
    "from": 904,
    "emph": false,
    "to": 911
   },
   {
-   "text": "STYLE",
+   "text": "AND",
    "from": 911,
    "emph": false,
-   "to": 919
+   "to": 917
   },
   {
-   "text": "AND",
-   "from": 919,
+   "text": "MAKE",
+   "from": 917,
+   "emph": false,
+   "to": 921
+  },
+  {
+   "text": "IT",
+   "from": 920,
    "emph": false,
    "to": 924
   },
   {
-   "text": "MAKE",
+   "text": "YOUR",
    "from": 924,
    "emph": false,
-   "to": 930
-  },
-  {
-   "text": "IT",
-   "from": 930,
-   "emph": false,
-   "to": 934
-  },
-  {
-   "text": "YOUR",
-   "from": 933,
-   "emph": false,
-   "to": 937
+   "to": 928
   },
   {
    "text": "OWN",
-   "from": 937,
+   "from": 928,
    "emph": true,
-   "to": 953
+   "to": 947
   },
   {
    "text": "SETUP",
-   "from": 953,
+   "from": 947,
    "emph": false,
-   "to": 964
+   "to": 956
   },
   {
    "text": "IS",
-   "from": 964,
+   "from": 956,
    "emph": false,
-   "to": 969
+   "to": 963
   },
   {
    "text": "SUPER",
-   "from": 969,
+   "from": 963,
    "emph": false,
-   "to": 975
+   "to": 973
   },
   {
    "text": "SIMPLE",
-   "from": 975,
+   "from": 973,
    "emph": true,
-   "to": 994
+   "to": 991
   },
   {
    "text": "COPY",
-   "from": 994,
+   "from": 991,
    "emph": false,
-   "to": 1000
+   "to": 997
   },
   {
    "text": "THE",
-   "from": 1000,
+   "from": 997,
    "emph": false,
-   "to": 1005
+   "to": 1004
   },
   {
    "text": "TWO",
-   "from": 1005,
+   "from": 1004,
    "emph": false,
-   "to": 1009
+   "to": 1008
   },
   {
    "text": "INSTALL",
-   "from": 1009,
+   "from": 1007,
    "emph": true,
-   "to": 1020
+   "to": 1017
   },
   {
    "text": "COMMANDS",
-   "from": 1020,
+   "from": 1017,
    "emph": false,
-   "to": 1032
+   "to": 1025
   },
   {
    "text": "FROM",
-   "from": 1032,
+   "from": 1025,
    "emph": false,
-   "to": 1037
+   "to": 1029
   },
   {
    "text": "THE",
-   "from": 1037,
+   "from": 1029,
    "emph": false,
-   "to": 1041
+   "to": 1035
   },
   {
    "text": "REPO",
-   "from": 1041,
+   "from": 1035,
    "emph": false,
-   "to": 1058
+   "to": 1051
   },
   {
    "text": "PASTE",
-   "from": 1058,
+   "from": 1051,
    "emph": false,
-   "to": 1065
+   "to": 1056
   },
   {
    "text": "THEM",
-   "from": 1065,
+   "from": 1056,
    "emph": false,
-   "to": 1069
+   "to": 1060
   },
   {
    "text": "IN",
-   "from": 1069,
+   "from": 1059,
    "emph": false,
-   "to": 1073
+   "to": 1063
   },
   {
    "text": "YOUR",
-   "from": 1071,
+   "from": 1061,
    "emph": false,
-   "to": 1075
+   "to": 1066
   },
   {
    "text": "TERMINAL",
-   "from": 1075,
+   "from": 1066,
    "emph": true,
-   "to": 1095
+   "to": 1084
   },
   {
    "text": "OPEN",
-   "from": 1095,
+   "from": 1084,
    "emph": false,
-   "to": 1102
+   "to": 1091
   },
   {
    "text": "CLAUDE",
-   "from": 1102,
+   "from": 1091,
    "emph": true,
-   "to": 1111
+   "to": 1101
   },
   {
    "text": "CODE",
-   "from": 1111,
+   "from": 1101,
+   "emph": true,
+   "to": 1105
+  },
+  {
+   "text": "AND",
+   "from": 1105,
+   "emph": false,
+   "to": 1115
+  },
+  {
+   "text": "BOOM",
+   "from": 1115,
    "emph": true,
    "to": 1126
   },
   {
-   "text": "AND",
+   "text": "IT'S",
    "from": 1126,
    "emph": false,
-   "to": 1130
-  },
-  {
-   "text": "BOOM",
-   "from": 1130,
-   "emph": true,
-   "to": 1146
-  },
-  {
-   "text": "IT'S",
-   "from": 1146,
-   "emph": false,
-   "to": 1152
+   "to": 1136
   },
   {
    "text": "INSTALLED",
-   "from": 1152,
+   "from": 1136,
    "emph": true,
-   "to": 1172
+   "to": 1155
   },
   {
    "text": "NOW",
-   "from": 1172,
+   "from": 1155,
    "emph": false,
-   "to": 1177
+   "to": 1162
   },
   {
    "text": "JUST",
-   "from": 1177,
+   "from": 1162,
    "emph": false,
-   "to": 1185
+   "to": 1168
   },
   {
    "text": "TYPE",
-   "from": 1185,
+   "from": 1168,
    "emph": false,
-   "to": 1191
+   "to": 1173
   },
   {
    "text": "SOMETHING",
-   "from": 1191,
+   "from": 1173,
    "emph": false,
-   "to": 1199
+   "to": 1182
   },
   {
    "text": "LIKE",
-   "from": 1199,
+   "from": 1182,
    "emph": false,
-   "to": 1218
+   "to": 1198
   },
   {
    "text": "MAKE",
-   "from": 1218,
+   "from": 1198,
+   "emph": false,
+   "to": 1202
+  },
+  {
+   "text": "ME",
+   "from": 1201,
+   "emph": false,
+   "to": 1206
+  },
+  {
+   "text": "A",
+   "from": 1206,
+   "emph": false,
+   "to": 1210
+  },
+  {
+   "text": "FILM",
+   "from": 1210,
+   "emph": true,
+   "to": 1214
+  },
+  {
+   "text": "ABOUT",
+   "from": 1214,
    "emph": false,
    "to": 1222
   },
   {
-   "text": "ME",
+   "text": "CLAUDE",
    "from": 1222,
-   "emph": false,
-   "to": 1227
+   "emph": true,
+   "to": 1232
   },
   {
-   "text": "A",
-   "from": 1227,
-   "emph": false,
-   "to": 1231
-  },
-  {
-   "text": "FILM",
-   "from": 1231,
+   "text": "CODE",
+   "from": 1232,
    "emph": true,
    "to": 1236
   },
   {
-   "text": "ABOUT",
+   "text": "IN",
    "from": 1236,
    "emph": false,
-   "to": 1243
-  },
-  {
-   "text": "CLAUDE",
-   "from": 1243,
-   "emph": true,
-   "to": 1254
-  },
-  {
-   "text": "CODE",
-   "from": 1254,
-   "emph": true,
-   "to": 1260
-  },
-  {
-   "text": "IN",
-   "from": 1260,
-   "emph": false,
-   "to": 1264
+   "to": 1240
   },
   {
    "text": "THE",
-   "from": 1264,
+   "from": 1240,
    "emph": false,
-   "to": 1268
+   "to": 1245
   },
   {
    "text": "60S",
-   "from": 1266,
+   "from": 1245,
    "emph": true,
-   "to": 1283
+   "to": 1257
   },
   {
    "text": "SPY",
-   "from": 1283,
+   "from": 1257,
    "emph": true,
-   "to": 1287
+   "to": 1263
   },
   {
    "text": "TITLE",
-   "from": 1287,
+   "from": 1263,
    "emph": false,
-   "to": 1296
+   "to": 1272
   },
   {
    "text": "STYLE",
-   "from": 1296,
+   "from": 1272,
    "emph": false,
-   "to": 1318
+   "to": 1287
   },
   {
    "text": "AND",
-   "from": 1318,
+   "from": 1287,
    "emph": false,
-   "to": 1322
+   "to": 1293
   },
   {
    "text": "IT",
-   "from": 1320,
+   "from": 1293,
    "emph": false,
-   "to": 1324
+   "to": 1297
   },
   {
    "text": "WRITES",
-   "from": 1324,
+   "from": 1296,
    "emph": false,
-   "to": 1331
+   "to": 1300
   },
   {
    "text": "THE",
-   "from": 1331,
+   "from": 1300,
    "emph": false,
-   "to": 1335
+   "to": 1308
   },
   {
    "text": "STORY",
-   "from": 1335,
+   "from": 1308,
    "emph": true,
-   "to": 1351
+   "to": 1320
   },
   {
    "text": "DRAWS",
-   "from": 1351,
+   "from": 1320,
    "emph": false,
-   "to": 1358
+   "to": 1327
   },
   {
    "text": "EVERY",
-   "from": 1358,
+   "from": 1327,
+   "emph": false,
+   "to": 1338
+  },
+  {
+   "text": "SHOT",
+   "from": 1338,
+   "emph": true,
+   "to": 1355
+  },
+  {
+   "text": "SCORES",
+   "from": 1355,
+   "emph": false,
+   "to": 1360
+  },
+  {
+   "text": "THE",
+   "from": 1360,
    "emph": false,
    "to": 1366
   },
   {
-   "text": "SHOT",
+   "text": "MUSIC",
    "from": 1366,
    "emph": true,
-   "to": 1384
-  },
-  {
-   "text": "SCORES",
-   "from": 1384,
-   "emph": false,
-   "to": 1391
-  },
-  {
-   "text": "THE",
-   "from": 1391,
-   "emph": false,
-   "to": 1396
-  },
-  {
-   "text": "MUSIC",
-   "from": 1396,
-   "emph": true,
-   "to": 1415
+   "to": 1381
   },
   {
    "text": "ADDS",
-   "from": 1415,
+   "from": 1381,
+   "emph": false,
+   "to": 1386
+  },
+  {
+   "text": "THE",
+   "from": 1386,
+   "emph": false,
+   "to": 1394
+  },
+  {
+   "text": "EFFECTS",
+   "from": 1394,
+   "emph": true,
+   "to": 1401
+  },
+  {
+   "text": "AND",
+   "from": 1401,
+   "emph": false,
+   "to": 1408
+  },
+  {
+   "text": "HANDS",
+   "from": 1408,
+   "emph": false,
+   "to": 1414
+  },
+  {
+   "text": "YOU",
+   "from": 1414,
    "emph": false,
    "to": 1419
   },
@@ -1299,339 +1327,225 @@
    "text": "THE",
    "from": 1419,
    "emph": false,
-   "to": 1423
-  },
-  {
-   "text": "EFFECTS",
-   "from": 1423,
-   "emph": true,
-   "to": 1433
-  },
-  {
-   "text": "AND",
-   "from": 1433,
-   "emph": false,
-   "to": 1438
-  },
-  {
-   "text": "HANDS",
-   "from": 1438,
-   "emph": false,
-   "to": 1446
-  },
-  {
-   "text": "YOU",
-   "from": 1446,
-   "emph": false,
-   "to": 1450
-  },
-  {
-   "text": "THE",
-   "from": 1449,
-   "emph": false,
-   "to": 1453
+   "to": 1425
   },
   {
    "text": "FINISHED",
-   "from": 1452,
+   "from": 1425,
    "emph": false,
-   "to": 1459
+   "to": 1431
   },
   {
    "text": "FILM",
-   "from": 1459,
+   "from": 1431,
    "emph": true,
-   "to": 1483
+   "to": 1440
   },
   {
    "text": "THINK",
-   "from": 1483,
+   "from": 1440,
    "emph": false,
-   "to": 1488
+   "to": 1457
   },
   {
    "text": "LAUNCH",
-   "from": 1488,
+   "from": 1457,
    "emph": true,
-   "to": 1496
+   "to": 1467
   },
   {
    "text": "VIDEOS",
-   "from": 1496,
+   "from": 1467,
    "emph": false,
-   "to": 1520
+   "to": 1492
   },
   {
    "text": "EXPLAINERS",
-   "from": 1520,
+   "from": 1492,
    "emph": true,
-   "to": 1545
+   "to": 1508
   },
   {
    "text": "PRODUCT",
-   "from": 1545,
+   "from": 1508,
+   "emph": false,
+   "to": 1513
+  },
+  {
+   "text": "TEASERS",
+   "from": 1513,
+   "emph": true,
+   "to": 1531
+  },
+  {
+   "text": "OR",
+   "from": 1531,
+   "emph": false,
+   "to": 1535
+  },
+  {
+   "text": "STYLES",
+   "from": 1535,
+   "emph": false,
+   "to": 1541
+  },
+  {
+   "text": "YOU",
+   "from": 1541,
+   "emph": false,
+   "to": 1545
+  },
+  {
+   "text": "COULD",
+   "from": 1544,
    "emph": false,
    "to": 1552
   },
   {
-   "text": "TEASERS",
+   "text": "NEVER",
    "from": 1552,
-   "emph": true,
-   "to": 1576
+   "emph": false,
+   "to": 1558
   },
   {
-   "text": "OR",
-   "from": 1576,
+   "text": "PULL",
+   "from": 1558,
    "emph": false,
-   "to": 1580
+   "to": 1563
   },
   {
-   "text": "STYLES",
-   "from": 1579,
+   "text": "OFF",
+   "from": 1563,
    "emph": false,
-   "to": 1586
+   "to": 1567
+  },
+  {
+   "text": "BY",
+   "from": 1566,
+   "emph": false,
+   "to": 1573
+  },
+  {
+   "text": "HAND",
+   "from": 1573,
+   "emph": false,
+   "to": 1584
+  },
+  {
+   "text": "IF",
+   "from": 1584,
+   "emph": false,
+   "to": 1588
   },
   {
    "text": "YOU",
-   "from": 1586,
+   "from": 1588,
    "emph": false,
    "to": 1593
   },
   {
-   "text": "COULD",
+   "text": "LOVE",
    "from": 1593,
    "emph": false,
-   "to": 1597
+   "to": 1598
   },
   {
-   "text": "NEVER",
-   "from": 1597,
+   "text": "TRYING",
+   "from": 1598,
    "emph": false,
-   "to": 1603
+   "to": 1605
   },
   {
-   "text": "PULL",
-   "from": 1603,
+   "text": "NEW",
+   "from": 1605,
    "emph": false,
-   "to": 1609
+   "to": 1612
   },
   {
-   "text": "OFF",
-   "from": 1609,
+   "text": "FORMATS",
+   "from": 1612,
+   "emph": true,
+   "to": 1631
+  },
+  {
+   "text": "THIS",
+   "from": 1631,
    "emph": false,
-   "to": 1615
+   "to": 1635
   },
   {
-   "text": "BY",
-   "from": 1615,
+   "text": "ONE'S",
+   "from": 1633,
    "emph": false,
-   "to": 1620
+   "to": 1637
   },
   {
-   "text": "HAND",
-   "from": 1620,
-   "emph": false,
-   "to": 1639
-  },
-  {
-   "text": "IT",
-   "from": 1639,
+   "text": "WORTH",
+   "from": 1637,
    "emph": false,
    "to": 1643
   },
   {
-   "text": "RUNS",
-   "from": 1642,
-   "emph": false,
-   "to": 1648
-  },
-  {
-   "text": "ON",
-   "from": 1648,
-   "emph": false,
-   "to": 1654
-  },
-  {
    "text": "A",
-   "from": 1654,
+   "from": 1643,
    "emph": false,
-   "to": 1658
+   "to": 1647
   },
   {
-   "text": "PAID",
-   "from": 1656,
+   "text": "LOOK",
+   "from": 1647,
+   "emph": false,
+   "to": 1664
+  },
+  {
+   "text": "COMMENT",
+   "from": 1664,
    "emph": true,
-   "to": 1661
+   "to": 1669
   },
   {
-   "text": "CLAUDE",
-   "from": 1661,
+   "text": "FILM",
+   "from": 1669,
    "emph": true,
-   "to": 1671
-  },
-  {
-   "text": "PLAN",
-   "from": 1671,
-   "emph": false,
-   "to": 1677
-  },
-  {
-   "text": "AND",
-   "from": 1677,
-   "emph": false,
    "to": 1681
   },
   {
-   "text": "TAKES",
+   "text": "AND",
    "from": 1681,
    "emph": false,
-   "to": 1687
+   "to": 1688
   },
   {
-   "text": "A",
-   "from": 1687,
+   "text": "I'LL",
+   "from": 1688,
    "emph": false,
-   "to": 1692
+   "to": 1694
   },
   {
-   "text": "WHILE",
-   "from": 1692,
+   "text": "SEND",
+   "from": 1694,
    "emph": false,
-   "to": 1696
+   "to": 1698
   },
   {
-   "text": "PER",
+   "text": "YOU",
    "from": 1696,
    "emph": false,
    "to": 1700
   },
   {
-   "text": "FILM",
-   "from": 1700,
-   "emph": true,
-   "to": 1718
-  },
-  {
-   "text": "BUT",
-   "from": 1718,
-   "emph": false,
-   "to": 1722
-  },
-  {
-   "text": "IF",
-   "from": 1722,
-   "emph": false,
-   "to": 1726
-  },
-  {
-   "text": "YOU",
-   "from": 1725,
-   "emph": false,
-   "to": 1729
-  },
-  {
-   "text": "LOVE",
-   "from": 1728,
-   "emph": false,
-   "to": 1732
-  },
-  {
-   "text": "TRYING",
-   "from": 1732,
-   "emph": false,
-   "to": 1740
-  },
-  {
-   "text": "NEW",
-   "from": 1740,
-   "emph": false,
-   "to": 1747
-  },
-  {
-   "text": "FORMATS",
-   "from": 1747,
-   "emph": true,
-   "to": 1772
-  },
-  {
-   "text": "THIS",
-   "from": 1772,
-   "emph": false,
-   "to": 1776
-  },
-  {
-   "text": "ONE'S",
-   "from": 1775,
-   "emph": false,
-   "to": 1785
-  },
-  {
-   "text": "WORTH",
-   "from": 1785,
-   "emph": false,
-   "to": 1791
-  },
-  {
-   "text": "A",
-   "from": 1791,
-   "emph": false,
-   "to": 1795
-  },
-  {
-   "text": "LOOK",
-   "from": 1795,
-   "emph": false,
-   "to": 1808
-  },
-  {
-   "text": "COMMENT",
-   "from": 1808,
-   "emph": true,
-   "to": 1815
-  },
-  {
-   "text": "FILM",
-   "from": 1815,
-   "emph": true,
-   "to": 1824
-  },
-  {
-   "text": "AND",
-   "from": 1824,
-   "emph": false,
-   "to": 1828
-  },
-  {
-   "text": "I'LL",
-   "from": 1828,
-   "emph": false,
-   "to": 1833
-  },
-  {
-   "text": "SEND",
-   "from": 1833,
-   "emph": false,
-   "to": 1837
-  },
-  {
-   "text": "YOU",
-   "from": 1837,
-   "emph": false,
-   "to": 1842
-  },
-  {
    "text": "THE",
-   "from": 1842,
+   "from": 1700,
    "emph": false,
-   "to": 1846
+   "to": 1704
   },
   {
    "text": "LINK",
-   "from": 1845,
+   "from": 1704,
    "emph": true,
-   "to": 1898
+   "to": 1737
   }
  ],
  "take": true,
- "standin": true
+ "standin": false
 }

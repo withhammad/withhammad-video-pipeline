@@ -185,6 +185,7 @@ const Readme: React.FC<{u: Unit; f: number}> = ({u, f}) => {
       <Chip f={f} at={plug} text="Claude Code plugin" icon="code"/>
       <Chip f={f} at={mit} text="Free · MIT license" icon="check"/>
       <Chip f={f} at={lab} text="by LemoLab" icon="none" light/>
+      <Chip f={f} at={lab + 14} text="Needs a paid Claude plan" icon="none" size={34}/>
     </div>
   </Stage>;
 };
@@ -193,13 +194,37 @@ const OneLine: React.FC<{u: Unit; f: number}> = ({u, f}) => {
   const [a, b] = D.beats.oneline, prompt = 'Make me a film about my product launch';
   const typed = prompt.slice(0, Math.max(0, Math.floor((f - a) * 30 / FPS)));
   const arrow = ease(ramp(f, b - 16, b - 4));
-  return <Stage>
-    <div style={{position: 'absolute', left: 0, right: 0, top: 470, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 32, letterSpacing: 9, color: SKY, ...blurIn(f, u.from)}}>ONE LINE IN</div>
+  return <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
+    <AbsoluteFill style={{filter: 'blur(22px) brightness(.5) saturate(1.2)', transform: 'scale(1.15)'}}>
+      <div style={{position: 'absolute', left: -660, top: 0, width: 2400, height: 1920}}><Sequence from={u.from} layout="none">
+        <OffthreadVideo src={file('cel-anime-80s.mp4')} muted startFrom={Math.round(7 * FPS)} style={{width: 3413, height: 1920}}/></Sequence></div></AbsoluteFill>
+    <Brand top={1490}/>
+    <div style={{position: 'absolute', left: 0, right: 0, top: 470, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 32, letterSpacing: 9, color: '#fff', ...blurIn(f, u.from)}}>ONE LINE IN</div>
     <div style={{position: 'absolute', left: 90, right: 90, top: 540, background: '#161b2a', borderRadius: 26, border: '2px solid rgba(143,180,255,.35)', padding: '30px 34px',
       fontFamily: MONO, fontWeight: 500, fontSize: 38, color: '#fff', ...blurIn(f, u.from)}}><span style={{color: CLAY}}>{'> '}</span>{typed}<span style={{opacity: (f >> 3) % 2 ? 1 : 0.2, color: SKY}}>▍</span></div>
     <svg style={{position: 'absolute', left: 500, top: 690}} width={80} height={220}><path d={`M40 10 L40 ${10 + 170 * arrow}`} stroke={SKY} strokeWidth={6} strokeLinecap="round"/>
       {arrow > 0.95 ? <path d="M18 160 L40 186 L62 160" stroke={SKY} strokeWidth={6} fill="none" strokeLinecap="round" strokeLinejoin="round"/> : null}</svg>
     <Card f={f} at={b} kicker="OUT COMES" big="A finished film" top={930} size={100}/>
+  </AbsoluteFill>;
+};
+
+
+const TOOL = [['>', 'Make me a film about Claude Code in 1920s newsreel style', CLAY], ['●', 'Read styles/newsreel/STYLE.md', SKY], ['●', 'Bash setup.sh', SKY],
+  ['●', 'Write films/claude-code/TREATMENT.md', GREEN], ['●', 'Bash pip install imageio-ffmpeg', SKY], ['●', 'Bash node core/render/video.mjs', SKY]];
+const CodeTerm: React.FC<{u: Unit; f: number}> = ({u, f}) => {
+  const n = f - u.from, step = Math.max(5, Math.floor((u.to - u.from - 6) / TOOL.length));
+  return <Stage>
+    <div style={{position: 'absolute', left: 0, right: 0, top: 300, display: 'flex', justifyContent: 'center', ...blurIn(f, u.from)}}>
+      <div style={{background: '#fff', borderRadius: 999, padding: '10px 28px', display: 'flex', alignItems: 'center', gap: 12, boxShadow: '0 12px 30px rgba(0,0,0,.4)'}}>
+        <span style={{fontFamily: MONO, fontWeight: 700, fontSize: 32, color: BLUE}}>{'</>'}</span>
+        <span style={{fontFamily: SANS, fontWeight: 900, fontSize: 38, color: INK}}>Every frame drawn in code</span></div></div>
+    <div style={{position: 'absolute', left: 50, right: 50, top: 420, background: '#11151f', borderRadius: 26, border: '1.5px solid rgba(143,180,255,.25)', padding: '26px 30px',
+      minHeight: 500, boxShadow: '0 30px 70px rgba(0,0,0,.5)', transform: `translateY(${(1 - pop(f, u.from)) * 60}px)`}}>
+      <div style={{display: 'flex', alignItems: 'center', gap: 12, marginBottom: 22}}><span style={{color: CLAY, fontSize: 34}}>✻</span>
+        <span style={{fontFamily: SANS, fontWeight: 800, fontSize: 34, color: '#fff'}}>Claude Code</span></div>
+      {TOOL.map(([m, t, c], i) => n >= i * step ? <div key={i} style={{display: 'flex', gap: 16, fontFamily: MONO, fontWeight: 500, fontSize: 33, lineHeight: 1.35, color: i ? '#d6dcea' : '#fff',
+        marginBottom: 16, opacity: ramp(n, i * step, i * step + 4)}}><span style={{color: c as string, flex: 'none'}}>{m}</span><span>{t}</span></div> : null)}
+    </div>
   </Stage>;
 };
 
@@ -312,7 +337,7 @@ const Prompt: React.FC<{u: Unit; f: number}> = ({u, f}) => {
 const Output: React.FC<{u: Unit; f: number}> = ({u, f}) => {
   const t = D.beats.output;
   return <Split u={u} f={f} top={<FilmPanel list={D.shots.output} f={f} h={SEAM}/>}>
-    <Checklist f={f} title="CLAUDE DOES IT ALL" x={60} y={236} w={600} rows={[['Writes the story', t[0]], ['Draws every shot', t[1]], ['Scores the music', t[2]], ['Adds the SFX', t[3]], ['Hands you the film', t[4]]]}/>
+    <Checklist f={f} title="CLAUDE DOES IT ALL · 30-60 MIN" x={60} y={236} w={600} rows={[['Writes the story', t[0]], ['Draws every shot', t[1]], ['Scores the music', t[2]], ['Adds the SFX', t[3]], ['Hands you the film', t[4]]]}/>
   </Split>;
 };
 
@@ -335,14 +360,10 @@ const FilmPanelWide: React.FC<{list: Shot[]; f: number}> = ({list, f}) => {
 };
 
 const Caveat: React.FC<{u: Unit; f: number}> = ({u, f}) => {
-  const [paid, time, love, worth] = D.beats.caveat;
+  const [love, worth] = D.beats.caveat;
   return <><Take/><Brand top={1500}/>
-    {f < love - 2 ? <div style={{position: 'absolute', left: 0, right: 0, top: 960, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
-      <Chip f={f} at={paid} text="Runs on a paid Claude plan" icon="check" size={38}/>
-      <Chip f={f} at={time} text="About 30-60 min per film" icon="check" size={38}/></div>
-      : <Card f={f} at={love - 2} kicker="FOR CREATORS" big="New formats" top={930} size={112}
-        sub={<Chip f={f} at={worth} text="One tool worth a look →" icon="none" light size={32}/>}/>}
-  </>;
+    <Card f={f} at={love - 2} kicker="FOR CREATORS" big="New formats" top={930} size={112}
+      sub={<Chip f={f} at={worth} text="One tool worth a look →" icon="none" light size={32}/>}/></>;
 };
 
 const Cta: React.FC<{u: Unit; f: number}> = ({u, f}) => {
@@ -373,13 +394,13 @@ const Captions: React.FC<{f: number; u: Unit}> = ({f, u}) => {
   const y = SPLIT.has(u.kind) ? SEAM : FACE.has(u.kind) ? 1405 : 1405;
   const p = ease(ramp(f, c.from, c.from + 4));
   return <div style={{position: 'absolute', left: 0, right: 0, top: y, transform: 'translateY(-50%)', display: 'flex', justifyContent: 'center'}}>
-    <div style={{background: c.emph ? '#fff' : 'rgba(10,12,20,.62)', color: c.emph ? INK : '#fff', borderRadius: 16, padding: '6px 22px 8px', fontFamily: SANS, fontWeight: 900,
+    <div style={{background: c.emph ? '#fff' : 'rgba(10,12,20,.62)', color: c.emph ? INK : '#fff', borderRadius: 16, padding: '6px 22px 8px', boxShadow: c.emph ? '0 0 0 3px rgba(10,12,20,.55), 0 8px 24px rgba(0,0,0,.35)' : '0 8px 24px rgba(0,0,0,.25)', fontFamily: SANS, fontWeight: 900,
       fontSize: 66, letterSpacing: -1, lineHeight: 1.1, filter: `blur(${(1 - p) * 6}px)`, opacity: 0.3 + 0.7 * p, transform: `scale(${0.94 + 0.06 * p})`, whiteSpace: 'nowrap'}}>{c.text}</div></div>;
 };
 
 export const Reel: React.FC = () => {
   const f = useCurrentFrame(), u = unitAt(f);
-  const S: Record<string, React.FC<{u: Unit; f: number}>> = {title: Title, nomodel: NoModel, repo: Repo, readme: Readme, oneline: OneLine, allown: AllOwn,
+  const S: Record<string, React.FC<{u: Unit; f: number}>> = {title: Title, nomodel: NoModel, repo: Repo, readme: Readme, oneline: OneLine, codeterm: CodeTerm, allown: AllOwn,
     complete: Complete, gallery: Gallery, montage: Montage, own: Own, simple: Simple, install: Install, terminal: Terminal, boom: Boom, prompt: Prompt,
     output: Output, usecases: UseCases, caveat: Caveat, cta: Cta};
   const Scene = S[u.kind];
