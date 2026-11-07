@@ -20,7 +20,7 @@ const NAMES: [string, string][] = [
   ['الْبَاسِطُ', 'Al-Basit'], ['الْخَافِضُ', 'Al-Khafid'], ['الرَّافِعُ', "Ar-Rafi'"], ['الْمُعِزُّ', "Al-Mu'izz"],
   ['الْمُذِلُّ', 'Al-Mudhill'], ['السَّمِيعُ', "As-Sami'"],
 ];
-const THREADS = [['#5E77A8', '#8AA2CE', '#465D8C'], ['#9A7BB8', '#BFA3D8', '#7A5E9C']];
+const THREADS = [['#5E77A8', '#8AA2CE', '#465D8C'], ['#9A7BB8', '#BFA3D8', '#7A5E9C'], ['#B07F35', '#D4AA5E', '#8C6326']];
 const P = (n: string) => staticFile(`gift/parts/${n}.png`);
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -58,17 +58,16 @@ const Needle: React.FC<{x: number; y: number; o: number}> = ({x, y, o}) => <svg 
   <ellipse cx={66} cy={46} rx={4} ry={8} transform="rotate(37 66 46)" fill="none" stroke="#8C93A0" strokeWidth={2}/>
 </svg>;
 
-const Name: React.FC<{i: number; local: number; dur: number}> = ({i, local, dur}) => {
+const Name: React.FC<{ar: string; en: string; tone: number; local: number; dur: number; stitchSecs: number}> = ({ar, en, tone, local, dur, stitchSecs}) => {
   const {fps} = useVideoConfig();
-  const [ar, en] = NAMES[i];
-  const [base, light, dark] = THREADS[i % 2];
-  const stitch = interpolate(local, [0, 1.0 * fps], [0, 1], clamp);
-  const out = interpolate(local, [dur - 0.3 * fps, dur], [1, 0], clamp);
-  const pop = spring({frame: local - 0.9 * fps, fps, config: {damping: 9, stiffness: 140}});
+  const [base, light, dark] = THREADS[tone];
+  const stitch = interpolate(local, [0, stitchSecs * fps], [0, 1], clamp);
+  const out = interpolate(local, [dur - 0.18 * fps, dur], [1, 0], clamp);
+  const pop = spring({frame: local - stitchSecs * 0.9 * fps, fps, config: {damping: 9, stiffness: 140}});
   const glow = 0.3 + 0.3 * Math.sin(local / 6);
   const satin = `repeating-linear-gradient(-38deg, ${light} 0px, ${light} 3px, ${base} 3px, ${base} 6.5px, ${dark} 6.5px, ${dark} 8px)`;
   const left = 260, right = 820, edge = right - (right - left) * stitch;
-  const sub = interpolate(local, [1.0 * fps, 1.4 * fps], [0, 1], clamp) * out;
+  const sub = interpolate(local, [stitchSecs * fps, (stitchSecs + 0.25) * fps], [0, 1], clamp) * out;
   return <AbsoluteFill style={{opacity: out, transform: `scale(${(1 + 0.04 * pop - 0.04) * interpolate(out, [0, 1], [0.9, 1])})`,
     transformOrigin: '540px 980px'}}>
     <div style={{position: 'absolute', top: 770, width: '100%', textAlign: 'center', direction: 'rtl',
@@ -77,12 +76,12 @@ const Name: React.FC<{i: number; local: number; dur: number}> = ({i, local, dur}
       <span style={{fontFamily: 'Al Nile', fontWeight: 700, fontSize: 190, lineHeight: 1.6, color: 'transparent',
         backgroundImage: satin, WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextStroke: '3px #E8C98E'}}>{ar}</span>
     </div>
-    <Needle x={edge} y={980 + Math.sin(local / 2) * 40} o={stitch < 1 ? 1 : interpolate(local, [fps, 1.2 * fps], [1, 0], clamp)}/>
+    <Needle x={edge} y={980 + Math.sin(local / 2) * 40} o={stitch < 1 ? 1 : interpolate(local, [stitchSecs * fps, (stitchSecs + 0.15) * fps], [1, 0], clamp)}/>
     <div style={{position: 'absolute', top: 1140, width: '100%', textAlign: 'center', opacity: sub, fontFamily: 'Amiri',
       fontSize: 56, letterSpacing: 3, color: dark, textShadow: '0 2px 1px rgba(255,250,240,.7)'}}>{en}</div>
     {[...Array(10)].map((_, k) => {
-      const a = (k / 10) * Math.PI * 2, d = interpolate(local, [fps, 1.8 * fps], [0, 260], clamp);
-      const o = interpolate(local, [fps, 1.1 * fps, 1.8 * fps], [0, 1, 0], clamp);
+      const a = (k / 10) * Math.PI * 2, d = interpolate(local, [stitchSecs * fps, (stitchSecs + 0.7) * fps], [0, 260], clamp);
+      const o = interpolate(local, [stitchSecs * fps, (stitchSecs + 0.1) * fps, (stitchSecs + 0.7) * fps], [0, 1, 0], clamp);
       return <div key={k} style={{position: 'absolute', left: 540 + Math.cos(a) * d - 9, top: 980 + Math.sin(a) * d * 0.7 - 6,
         width: 18, height: 12, borderRadius: '50%', opacity: o, transform: `rotate(${a}rad)`,
         background: k % 2 ? '#F2C6D8' : '#D2BDEB'}}/>;
@@ -110,7 +109,8 @@ export const KnitNamesLive: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
   const t = frame / fps;
-  const idx = START.findIndex((s, k) => t >= s && (k === START.length - 1 || t < START[k + 1]));
+  const AUD = START.map(s => s - 0.45);   // the recited name starts ~0.45 s before the reference's caption
+  const idx = AUD.findIndex((s, k) => t >= s && (k === AUD.length - 1 || t < AUD[k + 1]));
   const arch = spring({frame, fps, config: {damping: 14, stiffness: 70}});
   const cam = 1.03 + 0.02 * Math.sin(t * 0.35);
   const outro = interpolate(frame, [durationInFrames - fps, durationInFrames], [1, 0], clamp);
@@ -143,8 +143,14 @@ export const KnitNamesLive: React.FC = () => {
       <Piece src={P('bow')} x={540} y={1610} w={240} at={1.05} sway={2.5} phase={2.4}/>
       <Footer/>
       <Fluff/>
-      {idx >= 0 && <Name key={idx} i={idx} local={frame - Math.round(START[idx] * fps)}
-        dur={Math.round(((idx < START.length - 1 ? START[idx + 1] : durationInFrames / fps) - START[idx]) * fps)}/>}
+      {idx >= 0 && (() => {
+        const seg = frame - Math.round(AUD[idx] * fps);
+        const segDur = Math.round(((idx < AUD.length - 1 ? AUD[idx + 1] : durationInFrames / fps) - AUD[idx]) * fps);
+        const split = Math.round(1.35 * fps);   // "...Allah" lands ~1.4 s into each recited cycle
+        return seg < split
+          ? <Name key={`n${idx}`} ar={NAMES[idx][0]} en={NAMES[idx][1]} tone={idx % 2} local={seg} dur={split} stitchSecs={0.55}/>
+          : <Name key={`a${idx}`} ar="اللّٰه" en="Allah" tone={2} local={seg - split} dur={segDur - split} stitchSecs={0.4}/>;
+      })()}
     </AbsoluteFill>
     <Audio src={staticFile('gift/audio.m4a')}/>
   </AbsoluteFill>;
