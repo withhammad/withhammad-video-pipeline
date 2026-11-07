@@ -263,6 +263,11 @@ slow replies -> 0.2 s gaps between lines; one-voice re-voice of a two-character 
 voices per character (him = clone, the other = a HeyGen stock voice like "Annie - Lifelike"); avatar must match the
 reference's room/outfit; thumbnails same template but the face should fit the hook.
 
+**Browser correction (owner, 7 Nov 2026):** use the owner's existing Google Chrome window/profile for login and
+browser work, in our own tabs. Open the needed login pages there; do not launch a separate Chromium/GStack browser
+or a new profile. The owner enters passwords and completes 2FA/captchas himself; verify the signed-in account before
+acting and never log out or switch an existing account without his instruction.
+
 ## 12. The editing playbook: which tools for which kind of reference (use EVERY time)
 
 Claude's method on every reference, in this order. Do not skip steps or "simplify" the edit.
