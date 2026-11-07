@@ -83,7 +83,10 @@ def watched_posts(jobs=JOBS, state=None, now=None, window_days=WINDOW_DAYS):
         entries = data.values() if isinstance(data, dict) else data
         for entry in entries:
             li = entry.get('linkedin') if isinstance(entry, dict) else None
-            if not li or not li.get('urn'):
+            if isinstance(li, str):  # some lanes store just the post URL
+                m = re.search(r'urn:li:(?:activity|ugcPost|share):\d+', li)
+                li = {'urn': m.group(0), 'url': li} if m else None
+            if not isinstance(li, dict) or not li.get('urn'):
                 continue
             when = _post_date(li)
             if when and when < cutoff:
