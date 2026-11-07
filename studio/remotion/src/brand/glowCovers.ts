@@ -12,6 +12,7 @@ const WHITE = 'linear-gradient(160deg, #FFFFFF 0%, #E9EEF6 100%)';
 
 export const LOGO = {
   claude: {mask: g('si-claude.svg'), color: '#FFFFFF', bg: 'linear-gradient(160deg, #E0845F 0%, #C9623D 100%)', glow: '#FF8A5B', fit: 0.62},
+  instagram: {mask: g('si-instagram.svg'), color: '#FFFFFF', bg: 'linear-gradient(45deg, #FEDA75 0%, #FA7E1E 25%, #D62976 55%, #962FBF 80%, #4F5BD5 100%)', glow: '#D62976', fit: 0.6},
   nvidia: {mask: g('si-nvidia.svg'), color: '#76B900', bg: DARK, glow: '#76B900', fit: 0.66},
   kimi: {src: g('kimi-mark.png'), bg: WHITE, glow: '#1783FF', fit: 0.52},
   huggingface: {mask: g('si-huggingface.svg'), color: '#FFD21E', bg: DARK, glow: '#FFD21E', fit: 0.66},
@@ -50,6 +51,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '0f869c3f2de7', date: 'awaiting approval', title: 'Claude just killed Instagram: 13 free Claude skills that run your account (instagram-agent-skill, MIT)', cover: c('Claude Killed', 'Instagram', LOGO.claude, LOGO.instagram)},
   {job: '762cf7fb383a', date: 'awaiting approval', title: 'Chamber AI Hub: Dubai Chambers launches an AI agent marketplace for Dubai businesses', cover: c('AI Agent Store', 'Now in Dubai', LOGO.uaeText, LOGO.aiText)},
   {job: '7f7f39548dd4', date: 'awaiting approval', title: '77 game-dev skills: Claude Code builds full games in Unreal, Unity, Godot and web', cover: c('Build Full Games', 'Inside Claude', LOGO.claude, LOGO.gamepad)},
   {job: 'e5c7bfbcd56c', date: 'awaiting approval', title: 'Hairline: Claude Code draws line animations that come alive under your cursor (free, MIT)', cover: c('Interactive', 'Line Animations', LOGO.claude,

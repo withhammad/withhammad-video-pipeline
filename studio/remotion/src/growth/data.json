@@ -1,0 +1,287 @@
+{
+ "frames": 957,
+ "scenes": [
+  {
+   "key": "fight",
+   "from": 0,
+   "to": 63
+  },
+  {
+   "key": "repo",
+   "from": 63,
+   "to": 91
+  },
+  {
+   "key": "skills",
+   "from": 91,
+   "to": 164
+  },
+  {
+   "key": "wall",
+   "from": 164,
+   "to": 223
+  },
+  {
+   "key": "composer",
+   "from": 223,
+   "to": 304
+  },
+  {
+   "key": "replies",
+   "from": 304,
+   "to": 348
+  },
+  {
+   "key": "profile",
+   "from": 348,
+   "to": 378
+  },
+  {
+   "key": "calendar",
+   "from": 378,
+   "to": 442
+  },
+  {
+   "key": "crazy",
+   "from": 442,
+   "to": 482
+  },
+  {
+   "key": "viral",
+   "from": 482,
+   "to": 512
+  },
+  {
+   "key": "grid",
+   "from": 512,
+   "to": 574
+  },
+  {
+   "key": "checks",
+   "from": 574,
+   "to": 617
+  },
+  {
+   "key": "chat",
+   "from": 617,
+   "to": 670
+  },
+  {
+   "key": "voice",
+   "from": 670,
+   "to": 698
+  },
+  {
+   "key": "wonder",
+   "from": 698,
+   "to": 769
+  },
+  {
+   "key": "research",
+   "from": 769,
+   "to": 805
+  },
+  {
+   "key": "idea",
+   "from": 805,
+   "to": 841
+  },
+  {
+   "key": "free",
+   "from": 841,
+   "to": 870
+  },
+  {
+   "key": "cta",
+   "from": 870,
+   "to": 957
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 28,
+   "text": "SO CLAUDE JUST"
+  },
+  {
+   "from": 28,
+   "to": 61,
+   "text": "KILLED INSTAGRAM."
+  },
+  {
+   "from": 63,
+   "to": 81,
+   "text": "A FREE SETUP"
+  },
+  {
+   "from": 81,
+   "to": 109,
+   "text": "NOW GIVES CLAUDE"
+  },
+  {
+   "from": 109,
+   "to": 164,
+   "text": "13 SKILLS TO"
+  },
+  {
+   "from": 164,
+   "to": 196,
+   "text": "RUN YOUR WHOLE"
+  },
+  {
+   "from": 196,
+   "to": 221,
+   "text": "ACCOUNT."
+  },
+  {
+   "from": 223,
+   "to": 246,
+   "text": "ONE WRITES REELS"
+  },
+  {
+   "from": 246,
+   "to": 277,
+   "text": "FROM 26 HOOK"
+  },
+  {
+   "from": 277,
+   "to": 302,
+   "text": "FORMULAS."
+  },
+  {
+   "from": 304,
+   "to": 346,
+   "text": "ONE DRAFTS REPLIES,"
+  },
+  {
+   "from": 348,
+   "to": 367,
+   "text": "ONE SCORES YOUR"
+  },
+  {
+   "from": 367,
+   "to": 378,
+   "text": "PROFILE,"
+  },
+  {
+   "from": 378,
+   "to": 414,
+   "text": "AND ONE PLANS"
+  },
+  {
+   "from": 414,
+   "to": 440,
+   "text": "YOUR WEEK."
+  },
+  {
+   "from": 442,
+   "to": 471,
+   "text": "BUT THE CRAZIEST"
+  },
+  {
+   "from": 471,
+   "to": 492,
+   "text": "IS THE VIRAL"
+  },
+  {
+   "from": 492,
+   "to": 510,
+   "text": "SKILL."
+  },
+  {
+   "from": 512,
+   "to": 533,
+   "text": "IT RANKS THE"
+  },
+  {
+   "from": 533,
+   "to": 556,
+   "text": "TOP REELS IN"
+  },
+  {
+   "from": 556,
+   "to": 572,
+   "text": "YOUR NICHE,"
+  },
+  {
+   "from": 574,
+   "to": 604,
+   "text": "BREAKS DOWN WHY"
+  },
+  {
+   "from": 604,
+   "to": 617,
+   "text": "THEY WORKED,"
+  },
+  {
+   "from": 617,
+   "to": 644,
+   "text": "AND TURNS THEM"
+  },
+  {
+   "from": 644,
+   "to": 670,
+   "text": "INTO ORIGINAL SCRIPTS"
+  },
+  {
+   "from": 670,
+   "to": 696,
+   "text": "IN YOUR VOICE."
+  },
+  {
+   "from": 698,
+   "to": 715,
+   "text": "SO INSTEAD OF"
+  },
+  {
+   "from": 715,
+   "to": 739,
+   "text": "WONDERING WHAT TO"
+  },
+  {
+   "from": 739,
+   "to": 767,
+   "text": "POST TODAY,"
+  },
+  {
+   "from": 769,
+   "to": 796,
+   "text": "CLAUDE FINDS WHAT'S"
+  },
+  {
+   "from": 796,
+   "to": 818,
+   "text": "WORKING AND BUILDS"
+  },
+  {
+   "from": 818,
+   "to": 839,
+   "text": "THE IDEA."
+  },
+  {
+   "from": 841,
+   "to": 856,
+   "text": "THE WHOLE SETUP"
+  },
+  {
+   "from": 856,
+   "to": 870,
+   "text": "IS FREE."
+  },
+  {
+   "from": 870,
+   "to": 903,
+   "text": "COMMENT GROWTH AND"
+  },
+  {
+   "from": 903,
+   "to": 915,
+   "text": "I'LL SEND IT"
+  },
+  {
+   "from": 915,
+   "to": 924,
+   "text": "OVER."
+  }
+ ]
+}
