@@ -93,7 +93,7 @@ TikTok/X for MODELS, ROAST, RANK, K2, WORLD, ANIMATE, ROBOT, JOBS, CARTOON are N
 once each page is live).
 
 In progress:
-- `reel-nick-saraev` session: @nick_saraev DfZGREyvPUX, owner wants it live TODAY on every platform.
+- `reel-nick-saraev` session: @nick_saraev DfZGREyvPUX = GAME reel, built (39.6 s, commit 0f611a0), sent to the owner, waiting for his OK; then page PR + slots (owner wanted it live today).
 - `reel-vish-claude` session: @nick_saraev DfXfZ0GPHy0 (job 3260bdc792c4) for tomorrow, paused: it duplicates the
   DOTS topic; waiting for the owner's "rebuild" or "skip" (recommended: skip).
 - @nick_saraev Blender reel (3f33678db749): built, needs the owner's A/B for the take (A recommended), parked.
