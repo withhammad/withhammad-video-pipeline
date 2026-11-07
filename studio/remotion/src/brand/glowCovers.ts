@@ -41,6 +41,7 @@ export const LOGO = {
   csvText: {text: 'CSV', color: '#FFFFFF', bg: 'linear-gradient(160deg, #2EA86B 0%, #1B6E46 100%)', glow: '#3FD68A'},
   oneText: {text: '1', color: '#FFFFFF', bg: 'linear-gradient(160deg, #2ECC71 0%, #178F4C 100%)', glow: '#3DF08A'},
   threejs: {mask: g('si-threedotjs.svg'), color: '#FFFFFF', bg: DARK, glow: '#7AA2FF', fit: 0.6},
+  gamepad: {src: g('gamepad.svg'), bg: 'linear-gradient(160deg, #FF5A4E 0%, #E0261B 100%)', glow: '#FF3B30', fit: 0.66},
   blender: {mask: g('si-blender.svg'), color: '#EA7600', bg: WHITE, glow: '#F5792A', fit: 0.66},
   twentyFourText: {text: '24', color: '#FFFFFF', bg: 'linear-gradient(160deg, #FF5F5F 0%, #C81E1E 100%)', glow: '#FF4D4D'},
 } satisfies Record<string, GlowLogo>;
@@ -49,6 +50,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '7f7f39548dd4', date: 'awaiting approval', title: '77 game-dev skills: Claude Code builds full games in Unreal, Unity, Godot and web', cover: c('Build Full Games', 'Inside Claude', LOGO.claude, LOGO.gamepad)},
   {job: 'e5c7bfbcd56c', date: 'awaiting approval', title: 'Hairline: Claude Code draws line animations that come alive under your cursor (free, MIT)', cover: c('Interactive', 'Line Animations', LOGO.claude,
     {mask: g('hairline-trays.svg'), color: '#FFFFFF', bg: 'linear-gradient(160deg, #1E3A66 0%, #0A1630 100%)', glow: '#9FD3FF', fit: 0.7})},
   {job: '4a606d94c5cd', date: 'awaiting approval', title: 'Claude Code makes cartoon episodes for YouTube, all in code (HyperFrames)', cover: c('No Animator?', 'Cartoon In Code', LOGO.claude, LOGO.youtube)},

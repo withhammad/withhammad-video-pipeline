@@ -1,0 +1,1213 @@
+{
+ "frames": 1188,
+ "fps": 30,
+ "units": [
+  {
+   "kind": "title",
+   "from": 0,
+   "to": 165
+  },
+  {
+   "kind": "repo",
+   "from": 165,
+   "to": 217
+  },
+  {
+   "kind": "readme",
+   "from": 217,
+   "to": 332
+  },
+  {
+   "kind": "engines",
+   "from": 332,
+   "to": 448
+  },
+  {
+   "kind": "router",
+   "from": 448,
+   "to": 516
+  },
+  {
+   "kind": "terminal",
+   "from": 516,
+   "to": 634
+  },
+  {
+   "kind": "punch",
+   "from": 634,
+   "to": 657
+  },
+  {
+   "kind": "catalog",
+   "from": 657,
+   "to": 696
+  },
+  {
+   "kind": "stack",
+   "from": 696,
+   "to": 821
+  },
+  {
+   "kind": "assets",
+   "from": 821,
+   "to": 876
+  },
+  {
+   "kind": "warm",
+   "from": 876,
+   "to": 901
+  },
+  {
+   "kind": "builder",
+   "from": 901,
+   "to": 990
+  },
+  {
+   "kind": "stores",
+   "from": 990,
+   "to": 1071
+  },
+  {
+   "kind": "cta",
+   "from": 1071,
+   "to": 1188
+  }
+ ],
+ "beats": {
+  "title": [
+   45,
+   79,
+   125
+  ],
+  "repo": 195,
+  "readme": {
+   "n77": 244,
+   "skills": 265
+  },
+  "engines": [
+   337,
+   370,
+   391,
+   421
+  ],
+  "router": 457,
+  "terminal": {
+   "type": 520,
+   "router": 562,
+   "load": 584,
+   "skip": 624
+  },
+  "stack": [
+   700,
+   725,
+   741,
+   777
+  ],
+  "assets": [
+   825,
+   845,
+   860
+  ],
+  "builder": [
+   930,
+   961
+  ],
+  "stores": [
+   1012,
+   1035
+  ],
+  "cta": {
+   "type": 1104,
+   "dm": 1133
+  }
+ },
+ "captions": [
+  {
+   "from": 0,
+   "to": 22,
+   "words": [
+    {
+     "t": "Your",
+     "at": 0,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "Claude",
+     "at": 4,
+     "accent": false,
+     "serif": true
+    },
+    {
+     "t": "Code",
+     "at": 16,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 22,
+   "to": 45,
+   "words": [
+    {
+     "t": "can",
+     "at": 22,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "now",
+     "at": 29,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "build",
+     "at": 36,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 45,
+   "to": 79,
+   "words": [
+    {
+     "t": "full",
+     "at": 45,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "video",
+     "at": 59,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "games",
+     "at": 69,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 79,
+   "to": 97,
+   "words": [
+    {
+     "t": "like",
+     "at": 79,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "a",
+     "at": 84,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "real",
+     "at": 89,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 97,
+   "to": 116,
+   "words": [
+    {
+     "t": "developer",
+     "at": 97,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 116,
+   "to": 165,
+   "words": [
+    {
+     "t": "with",
+     "at": 116,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "one",
+     "at": 125,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "plugin.",
+     "at": 137,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 165,
+   "to": 186,
+   "words": [
+    {
+     "t": "Someone",
+     "at": 165,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "on",
+     "at": 174,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "GitHub",
+     "at": 179,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 186,
+   "to": 203,
+   "words": [
+    {
+     "t": "just",
+     "at": 186,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "made",
+     "at": 195,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "a",
+     "at": 200,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 203,
+   "to": 223,
+   "words": [
+    {
+     "t": "repo",
+     "at": 203,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "that",
+     "at": 211,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "gives",
+     "at": 217,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 223,
+   "to": 244,
+   "words": [
+    {
+     "t": "your",
+     "at": 223,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "coding",
+     "at": 227,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "agent",
+     "at": 234,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 244,
+   "to": 286,
+   "words": [
+    {
+     "t": "77",
+     "at": 244,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "game",
+     "at": 265,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "dev",
+     "at": 279,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 286,
+   "to": 322,
+   "words": [
+    {
+     "t": "skills",
+     "at": 286,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "for",
+     "at": 295,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "full",
+     "at": 311,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 322,
+   "to": 347,
+   "words": [
+    {
+     "t": "games",
+     "at": 322,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "in",
+     "at": 332,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "Unreal",
+     "at": 337,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 347,
+   "to": 370,
+   "words": [
+    {
+     "t": "Engine",
+     "at": 347,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 370,
+   "to": 391,
+   "words": [
+    {
+     "t": "Unity",
+     "at": 370,
+     "accent": true,
+     "serif": true
+    }
+   ]
+  },
+  {
+   "from": 391,
+   "to": 421,
+   "words": [
+    {
+     "t": "Godot",
+     "at": 391,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "and",
+     "at": 400,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "even",
+     "at": 413,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 421,
+   "to": 448,
+   "words": [
+    {
+     "t": "web",
+     "at": 421,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "games.",
+     "at": 428,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 448,
+   "to": 471,
+   "words": [
+    {
+     "t": "And",
+     "at": 448,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "you",
+     "at": 452,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "never",
+     "at": 457,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 471,
+   "to": 493,
+   "words": [
+    {
+     "t": "pick",
+     "at": 471,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "the",
+     "at": 480,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "skills",
+     "at": 485,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 493,
+   "to": 516,
+   "words": [
+    {
+     "t": "yourself.",
+     "at": 493,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 516,
+   "to": 536,
+   "words": [
+    {
+     "t": "Just",
+     "at": 516,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "describe",
+     "at": 520,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "what",
+     "at": 531,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 536,
+   "to": 559,
+   "words": [
+    {
+     "t": "you're",
+     "at": 536,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "building",
+     "at": 541,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 559,
+   "to": 571,
+   "words": [
+    {
+     "t": "and",
+     "at": 559,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "a",
+     "at": 562,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "router",
+     "at": 565,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 571,
+   "to": 590,
+   "words": [
+    {
+     "t": "picks",
+     "at": 571,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "the",
+     "at": 579,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "right",
+     "at": 584,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 590,
+   "to": 608,
+   "words": [
+    {
+     "t": "skills",
+     "at": 590,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "for",
+     "at": 599,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "your",
+     "at": 606,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 608,
+   "to": 634,
+   "words": [
+    {
+     "t": "engine",
+     "at": 608,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "and",
+     "at": 617,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "task",
+     "at": 624,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 634,
+   "to": 657,
+   "words": [
+    {
+     "t": "on",
+     "at": 634,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "its",
+     "at": 641,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "own.",
+     "at": 645,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 657,
+   "to": 671,
+   "words": [
+    {
+     "t": "It",
+     "at": 657,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "has",
+     "at": 660,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "skills",
+     "at": 664,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 671,
+   "to": 696,
+   "words": [
+    {
+     "t": "for",
+     "at": 671,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "everything",
+     "at": 677,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 696,
+   "to": 717,
+   "words": [
+    {
+     "t": "from",
+     "at": 696,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "player",
+     "at": 700,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "movement",
+     "at": 708,
+     "accent": true,
+     "serif": true
+    }
+   ]
+  },
+  {
+   "from": 717,
+   "to": 757,
+   "words": [
+    {
+     "t": "to",
+     "at": 717,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "platformer",
+     "at": 725,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "mechanics",
+     "at": 741,
+     "accent": true,
+     "serif": true
+    }
+   ]
+  },
+  {
+   "from": 757,
+   "to": 777,
+   "words": [
+    {
+     "t": "to",
+     "at": 757,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "a",
+     "at": 764,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "dedicated",
+     "at": 769,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 777,
+   "to": 821,
+   "words": [
+    {
+     "t": "art",
+     "at": 777,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "direction",
+     "at": 788,
+     "accent": true,
+     "serif": true
+    },
+    {
+     "t": "workflow",
+     "at": 799,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 821,
+   "to": 845,
+   "words": [
+    {
+     "t": "so",
+     "at": 821,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "every",
+     "at": 825,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "asset",
+     "at": 833,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 845,
+   "to": 860,
+   "words": [
+    {
+     "t": "looks",
+     "at": 845,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "like",
+     "at": 851,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "it",
+     "at": 857,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 860,
+   "to": 876,
+   "words": [
+    {
+     "t": "belongs",
+     "at": 860,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "in",
+     "at": 867,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "the",
+     "at": 873,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 876,
+   "to": 901,
+   "words": [
+    {
+     "t": "same",
+     "at": 876,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "game.",
+     "at": 882,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 901,
+   "to": 923,
+   "words": [
+    {
+     "t": "With",
+     "at": 901,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "all",
+     "at": 904,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "that",
+     "at": 908,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 923,
+   "to": 935,
+   "words": [
+    {
+     "t": "you",
+     "at": 923,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "can",
+     "at": 926,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "build",
+     "at": 930,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 935,
+   "to": 954,
+   "words": [
+    {
+     "t": "a",
+     "at": 935,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "full",
+     "at": 938,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "game",
+     "at": 945,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 954,
+   "to": 973,
+   "words": [
+    {
+     "t": "from",
+     "at": 954,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "start",
+     "at": 961,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "to",
+     "at": 968,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 973,
+   "to": 990,
+   "words": [
+    {
+     "t": "finish",
+     "at": 973,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 990,
+   "to": 1008,
+   "words": [
+    {
+     "t": "then",
+     "at": 990,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "publish",
+     "at": 994,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "it",
+     "at": 1001,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 1008,
+   "to": 1035,
+   "words": [
+    {
+     "t": "on",
+     "at": 1008,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "Steam",
+     "at": 1012,
+     "accent": true,
+     "serif": true
+    },
+    {
+     "t": "or",
+     "at": 1021,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 1035,
+   "to": 1071,
+   "words": [
+    {
+     "t": "itch.io.",
+     "at": 1035,
+     "accent": true,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 1071,
+   "to": 1084,
+   "words": [
+    {
+     "t": "Want",
+     "at": 1071,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "to",
+     "at": 1075,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "try",
+     "at": 1078,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 1084,
+   "to": 1098,
+   "words": [
+    {
+     "t": "it?",
+     "at": 1084,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 1098,
+   "to": 1133,
+   "words": [
+    {
+     "t": "Comment",
+     "at": 1098,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "GAME",
+     "at": 1104,
+     "accent": true,
+     "serif": false
+    },
+    {
+     "t": "and",
+     "at": 1122,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 1133,
+   "to": 1145,
+   "words": [
+    {
+     "t": "I'll",
+     "at": 1133,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "send",
+     "at": 1136,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "you",
+     "at": 1141,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  },
+  {
+   "from": 1145,
+   "to": 1188,
+   "words": [
+    {
+     "t": "the",
+     "at": 1145,
+     "accent": false,
+     "serif": false
+    },
+    {
+     "t": "links.",
+     "at": 1147,
+     "accent": false,
+     "serif": false
+    }
+   ]
+  }
+ ],
+ "durationS": 38.586
+}
