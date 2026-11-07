@@ -2,7 +2,9 @@
 
 - Reference: https://www.instagram.com/reel/DfWys5KAq3G/ (@anylancer, 76.4 s). Ours: 70.3 s, owner approved 2026-11-07.
 - Every scene is code: studio/remotion/src/planeworlds (Remotion, composition PlaneWorldsReel). No avatar (the reference shows no face).
-- Voice: HeyGen hammadbhat126 (Pro), Creative Studio > Voice, HAMMAD YOUSUF clone, ElevenLabs v4, one generation, 4 credits (626 -> 622).
+- Voice (final, owner 2026-11-07 "Yes, voice-only ones"): HeyGen hammadbhat126 (Pro), Creative Studio > Voice, engine HeyGen Voice,
+  HAMMAD YOUSUF clone, Tone Excited, Expressiveness 0.75, 1.1x, one generation (credits 614 -> 614). Replaced the first ElevenLabs v4 take.
+- Final cut 69.7 s; final.mp4 / final_ig.mp4 / final_social.mp4 re-exported 2026-11-07 14:55; TikTok + X re-scheduled with the new cut.
 - Resource page (live, 200 at 375 px, zip download): https://withhammad.com/resources/claude-animation-styles (site commits a61ff3d + 9472683)
 - Keyword DM: PLANE -> resource page (dm-rules.json, site commit 9472683).
 - Exact-copy check + virality scorecard: job qa/side_by_side.jpg and virality.md (all lines good).
