@@ -1,3 +1,4 @@
+> **Codex: start with `docs/CODEX_MASTER_PROMPT.md`** (the full owner instruction set), then `docs/HANDOVER_CODEX.md`.
 > **Handover 2026-11-07:** the current state, standing owner rules and how posting works are in `docs/HANDOVER_CODEX.md`. Read it after this file.
 
 # Agent instructions (Codex and Claude Code read this file)
