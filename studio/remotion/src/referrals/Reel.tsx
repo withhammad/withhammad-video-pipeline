@@ -77,7 +77,7 @@ const Scene: React.FC<{f: number}> = ({f}) => {
   const smile = u.kind === 'payoff' && f >= D.beats.payoff.open;
   const nextFrom = D.shots.find((s: any) => s.from > sh.from)?.from ?? sh.from + 90;
   const push = 1 + 0.035 * ramp(f, sh.from, nextFrom);   // slow push inside every shot, hard cut between shots
-  const fy = card ? 1460 : 760;
+  const fy = card ? 1530 : 780;
   let take: React.CSSProperties, orb = {x: 0, y: 0, s: 0}, blur = 0;
   if (sh.kind === 'wide') { take = place(1.12 * push, 390, fy); orb = {x: 820, y: fy + (card ? 60 : 120), s: card ? 250 : 300}; }
   else if (sh.kind === 'cuH') take = place(1.62 * push, 540, fy + (card ? 40 : 80));
@@ -108,7 +108,7 @@ const Cursor: React.FC<{x: number; y: number; click?: number}> = ({x, y, click =
   <svg width="44" height="52" viewBox="0 0 22 26"><path d="M2 2 L2 21 L7 16.5 L10.5 24 L14 22.5 L10.6 15.2 L17 15 Z" fill="#111" stroke="#fff" strokeWidth="1.6" strokeLinejoin="round"/></svg></div>;
 
 // ================================================================= STEP card (dark header, cream body)
-const CX = 40, CY = 300, CW = 1000, CH = 880;
+const CX = 40, CY = 390, CW = 1000, CH = 880;
 const StepCard: React.FC<{f: number; u: Unit}> = ({f, u}) => {
   const [n, title] = STEP[u.kind];
   const first = D.units.find((x: Unit) => STEP[x.kind]?.[0] === n) as Unit;   // card slides in once per step
@@ -314,7 +314,7 @@ const Step4: React.FC<{f: number; u: Unit}> = ({f, u}) => {
   const banned = f >= g.bans, bar = ease(ramp(f, g.send + 6, g.bans - 2));
   const tiles: [string, string, number][] = [['✍️', 'Claude writes', g.write], ['👆', 'You send', g.you], ['🗓️', 'A few a day', g.few]];
   return <div style={{padding: '34px 30px'}}>
-    {!banned ? <div style={{...vis(f, g.send), background: '#fff', borderRadius: 22, border: `2px solid ${LINE}`, padding: '26px 28px'}}>
+    {!banned ? <div style={{...vis(f, (D.units.find((x: Unit) => x.kind === "guard") as Unit).from + 2), background: '#fff', borderRadius: 22, border: `2px solid ${LINE}`, padding: '26px 28px'}}>
       <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 34, color: INK}}><span style={{fontFamily: EMO}}>🤖</span> Auto-send to every manager</div>
       <div style={{fontFamily: SANS, fontWeight: 700, fontSize: 26, color: GREY, marginTop: 6}}>Sent: {Math.max(5, Math.round(500 * bar))} / 500</div>
       <div style={{height: 26, borderRadius: 13, background: LINE, marginTop: 16, overflow: 'hidden'}}><div style={{height: '100%', width: `${Math.max(1, 100 * bar)}%`, background: LI}}/></div>
@@ -336,23 +336,23 @@ const Step4: React.FC<{f: number; u: Unit}> = ({f, u}) => {
 // ================================================================= hook + twist overlays (no card yet)
 const HookCards: React.FC<{f: number}> = ({f}) => {
   const b = D.beats.hook, t = D.beats.twist;
-  const n = Math.round(160 + 40 * ease(ramp(f, b.card, b.card + 24)));
+  const n = Math.round(200 * ease(ramp(f, 0, 14)));
   return <>
-    {f >= b.card && f < D.units[1].from ? <div style={{position: 'absolute', left: 60, top: 330, width: 560, ...vis(f, b.card), transformOrigin: '0 0', background: '#fff', borderRadius: 28,
+    {f < D.units[1].from ? <div style={{position: 'absolute', left: 60, top: 400, width: 560, ...vis(f, 0), transformOrigin: '0 0', background: '#fff', borderRadius: 28,
       padding: '24px 32px', boxShadow: '0 24px 60px rgba(0,0,0,.4)', display: 'flex', gap: 34, alignItems: 'flex-end'}}>
       <div><div style={{fontFamily: SANS, fontWeight: 700, fontSize: 28, color: GREY}}>Applied</div><div style={{fontFamily: SANS, fontWeight: 900, fontSize: 120, color: INK, lineHeight: 1}}>{n}</div></div>
       <div style={{width: 2, alignSelf: 'stretch', background: LINE}}/>
       <div style={{position: 'relative'}}><div style={{fontFamily: SANS, fontWeight: 700, fontSize: 28, color: GREY}}>Interviews</div><div style={{fontFamily: SANS, fontWeight: 900, fontSize: 120, color: RED, lineHeight: 1}}>0</div>
         <Stamp f={f} at={b.zero} text="ZERO" c={RED} size={30} rot={-12} style={{left: 70, top: 70}}/></div>
     </div> : null}
-    {f >= b.hired && f < D.units[1].from ? <div style={{position: 'absolute', right: 50, top: 640, width: 560, ...vis(f, b.hired), background: '#fff', borderRadius: 24, padding: '20px 24px', boxShadow: '0 24px 60px rgba(0,0,0,.4)'}}>
+    {f >= b.hired && f < D.units[1].from ? <div style={{position: 'absolute', right: 50, top: 700, width: 560, ...vis(f, b.hired), background: '#fff', borderRadius: 24, padding: '20px 24px', boxShadow: '0 24px 60px rgba(0,0,0,.4)'}}>
       <div style={{display: 'flex', gap: 16, alignItems: 'center'}}><Avatar name="OK" c="#2E9E8F" s={60}/>
         <div><div style={{fontFamily: SANS, fontWeight: 800, fontSize: 28, color: INK}}>Omar Khan</div><div style={{fontFamily: SANS, fontWeight: 600, fontSize: 22, color: GREY}}>Applied to 0 jobs</div></div></div>
       <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 30, color: INK, marginTop: 12}}><span style={{fontFamily: EMO}}>🎉</span> Starting a new position as Frontend Engineer!</div></div> : null}
-    {f >= t.div && unitAt(f).kind === 'twist' && f < t.div + 70 ? <div style={{position: 'absolute', left: 0, right: 0, top: 400, display: 'flex', justifyContent: 'center', ...vis(f, t.div)}}>
+    {f >= t.div && unitAt(f).kind === 'twist' && f < t.div + 70 ? <div style={{position: 'absolute', left: 0, right: 0, top: 440, display: 'flex', justifyContent: 'center', ...vis(f, t.div)}}>
       <div style={{background: CHAR, borderRadius: 18, padding: '16px 30px', fontFamily: 'Menlo, monospace', fontWeight: 700, fontSize: 44, color: '#fff', boxShadow: '0 18px 40px rgba(0,0,0,.45)'}}>
         {'<div>'} centered? <span style={{color: RED}}>✗</span></div></div> : null}
-    {unitAt(f).kind === 'payoff' && f >= D.beats.payoff.open ? <div style={{position: 'absolute', left: 390 - 170, top: 1180, width: 340, textAlign: 'center', ...vis(f, D.beats.payoff.open)}}>
+    {unitAt(f).kind === 'payoff' && f >= D.beats.payoff.open ? <div style={{position: 'absolute', left: 390 - 170, top: 1300, width: 340, textAlign: 'center', ...vis(f, D.beats.payoff.open)}}>
       <span style={{background: GREEN, color: '#fff', fontFamily: SANS, fontWeight: 900, fontSize: 30, letterSpacing: 2, borderRadius: 999, padding: '10px 24px'}}>#OPENTOWORK</span></div> : null}
   </>;
 };
@@ -362,9 +362,9 @@ const Captions: React.FC<{f: number}> = ({f}) => {
   const c = D.captions.find((x: any) => f >= x.from && f < x.to);
   if (!c || f >= D.voiceEnd) return null;
   const k = ease(ramp(f, c.from, c.from + 4)), col = c.spk === 'C' ? YEL : '#fff';
-  return <div style={{position: 'absolute', left: 40, right: 40, top: 92, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14}}>
+  return <div style={{position: 'absolute', left: 40, right: 40, top: 228, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14}}>
     <div style={{background: 'rgba(52,36,22,.88)', borderRadius: 10, padding: '6px 16px', fontFamily: SANS, fontWeight: 900, fontSize: 24, letterSpacing: 4, color: col}}>{c.spk === 'C' ? 'CLAUDE' : 'HAMMAD'}</div>
-    <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: 68, lineHeight: 1.08, color: col, textAlign: 'center', textShadow: '0 3px 14px rgba(0,0,0,.75), 0 1px 3px rgba(0,0,0,.6)',
+    <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: Math.min(68, Math.floor(1900 / Math.max(1, c.text.length))), lineHeight: 1.08, color: col, textAlign: 'center', textShadow: '0 3px 14px rgba(0,0,0,.75), 0 1px 3px rgba(0,0,0,.6)',
       opacity: k, filter: `blur(${(1 - k) * 6}px)`, transform: `translateY(${(1 - k) * 8}px)`}}>{c.text}</div></div>;
 };
 
