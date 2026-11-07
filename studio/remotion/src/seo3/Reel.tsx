@@ -47,7 +47,7 @@ const FaceCard: React.FC = () => <div style={{position: 'absolute', left: 40, ri
 
 const Brand: React.FC<{dark?: boolean; top?: number}> = ({dark, top = 1800}) =>
   <div style={{position: 'absolute', left: 0, right: 0, top, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 22, letterSpacing: 7,
-    color: dark ? 'rgba(20,20,20,.38)' : 'rgba(255,255,255,.72)', textShadow: dark ? 'none' : '0 2px 8px rgba(0,0,0,.5)'}}>WITHHAMMAD</div>;
+    color: dark ? 'rgba(20,20,20,.38)' : 'rgba(255,255,255,.85)', textShadow: dark ? 'none' : '0 1px 2px rgba(0,0,0,.6), 0 0 14px rgba(0,0,0,.6)'}}>WITHHAMMAD</div>;
 
 const Logo: React.FC<{src: string; size: number; color?: string; style?: React.CSSProperties}> = ({src, size, color, style}) => color
   ? <div style={{width: size, height: size, background: color, WebkitMaskImage: `url(${file(src)})`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', ...style}}/>
@@ -74,8 +74,8 @@ const Captions: React.FC<{f: number; u: Unit}> = ({f, u}) => {
     const onFace = FACE.has(u.kind), gold = /audits|\$10|month/i.test(c.text) && u.kind === 'face5';
     return <div style={{position: 'absolute', left: 0, right: 0, top: onFace ? 1130 : 905, display: 'flex', justifyContent: 'center', transform: `scale(${0.92 + 0.08 * p})`, opacity: p}}>
       <div style={{fontFamily: gold ? SERIF : SANS, fontStyle: gold ? 'italic' : 'normal', fontWeight: gold ? 400 : 800, fontSize: gold ? 108 : 84, letterSpacing: gold ? 0 : -2,
-        color: onFace || u.kind === 'geo' ? '#fff' : INK, whiteSpace: 'nowrap', textShadow: onFace ? '0 4px 18px rgba(0,0,0,.45)' : 'none',
-        ...(gold ? {background: 'linear-gradient(180deg,#FFE3A3,#E0A24E)', WebkitBackgroundClip: 'text', color: 'transparent', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,.45))'} : {})}}>{c.text}</div></div>;
+        color: onFace || u.kind === 'geo' ? '#fff' : INK, whiteSpace: 'nowrap', textShadow: onFace ? '0 2px 3px rgba(0,0,0,.55), 0 0 18px rgba(0,0,0,.6), 0 0 42px rgba(0,0,0,.45)' : 'none',
+        ...(gold ? {background: 'linear-gradient(180deg,#FFE3A3,#E0A24E)', WebkitBackgroundClip: 'text', color: 'transparent', filter: 'drop-shadow(0 2px 2px rgba(0,0,0,.7)) drop-shadow(0 0 16px rgba(0,0,0,.7))'} : {})}}>{c.text}</div></div>;
   }
   const prev = i > 0 && D.captions[i - 1].from >= u.from ? D.captions[i - 1] : null;
   const accent = /three|rank|first|second|third/i.test(c.text);
@@ -105,8 +105,8 @@ const Hook: React.FC<{u: Unit; f: number}> = ({u, f}) => {
         ${after ? '120' : n.toLocaleString('en-US')}</div>
       <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 30, letterSpacing: 8, color: GREY}}>{after ? 'PER YEAR · OPEN-SOURCE STACK' : 'PER YEAR'}</div>
     </div>
-    <div style={{position: 'absolute', left: 0, right: 0, top: 1880, textAlign: 'center', fontFamily: SANS, fontWeight: 600, fontSize: 17, color: 'rgba(255,255,255,.75)'}}>
-      List prices, monthly billing, Nov 2026 · $120 = OpenSEO data at $10/mo, plus your Claude plan</div>
+    <div style={{position: 'absolute', left: 0, right: 0, top: 1880, textAlign: 'center', fontFamily: SANS, fontWeight: 600, fontSize: 17, color: '#fff'}}><span style={{background: 'rgba(0,0,0,.55)', padding: '3px 10px', borderRadius: 6}}>
+      List prices, monthly billing, Nov 2026 · $120 = OpenSEO data at $10/mo, plus your Claude plan</span></div>
   </AbsoluteFill>;
 };
 
@@ -296,7 +296,7 @@ const Cta: React.FC<{u: Unit; f: number}> = ({u, f}) => {
   const {rank, send} = D.beats.cta, p = pop(f, u.from), q = pop(f, rank - 2), d = pop(f, send);
   const gold = {background: 'linear-gradient(180deg,#FFE3A3,#E0A24E)', WebkitBackgroundClip: 'text', color: 'transparent'} as const;
   return <><Take scale={1.12}/><Brand top={1500}/>
-    <div style={{position: 'absolute', left: 0, right: 0, top: 1080, textAlign: 'center', filter: 'drop-shadow(0 6px 16px rgba(0,0,0,.5))'}}>
+    <div style={{position: 'absolute', left: 0, right: 0, top: 1080, textAlign: 'center', filter: 'drop-shadow(0 2px 2px rgba(0,0,0,.75)) drop-shadow(0 0 22px rgba(0,0,0,.75))'}}>
       <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 120, lineHeight: 0.9, transform: `scale(${0.85 + 0.15 * p})`, ...gold}}>comment</div>
       <div style={{fontFamily: SANS, fontWeight: 900, fontSize: 150, letterSpacing: -4, lineHeight: 1, transform: `scale(${q})`, ...gold}}>“RANK”</div></div>
     {f >= send ? <div style={{position: 'absolute', left: 110, right: 110, top: 1390, transform: `scale(${d})`, background: '#fff', borderRadius: 26, padding: '16px 22px',
