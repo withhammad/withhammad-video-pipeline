@@ -262,3 +262,44 @@ owner's bar is "Claude Opus 5.5 quality". Every step below has a written recipe 
 slow replies -> 0.2 s gaps between lines; one-voice re-voice of a two-character skit was rejected -> keep distinct
 voices per character (him = clone, the other = a HeyGen stock voice like "Annie - Lifelike"); avatar must match the
 reference's room/outfit; thumbnails same template but the face should fit the hook.
+
+## 12. The editing playbook: which tools for which kind of reference (use EVERY time)
+
+Claude's method on every reference, in this order. Do not skip steps or "simplify" the edit.
+
+**A. Break the reference down first (never edit from memory).** Download it, transcribe it, take a 1 fps contact sheet
+and stills of every distinct screen. Write `analysis/spec.md`: every beat with its time, scene type (talking head /
+split / full graphic / screen recording / 3D / dialogue), layout, every on-screen word, caption style, transitions,
+logos, sound (music, SFX, pauses), the cover, and the claims checked against sources. The rebuild follows spec.md
+beat by beat; the 5b side-by-side compares against it.
+
+**B. Pick the build by the reference's format** (all in `studio/`; one Remotion composition per reel in
+`studio/remotion/src/<reel>/`, Root registered in its own `index.tsx`, rendered through `studio/heavy.sh`):
+
+| Reference format | Build used (examples in the repo) |
+|---|---|
+| Talking head + clean motion cards (Apple-style explainer) | explainer-video skill + `app.edit_explainer` (Remotion `Explainer`), apple-style look; animated-numbers for every figure; word-highlight captions. e.g. `src/claude20`, `src/explainer`, `src/claudeedit`. |
+| Talking head + big hero objects per noun | big-idea-video skill. |
+| Product / tool walkthrough with real screens | product-demo or toolkit-video skill + `app.screenrec` (REAL 2x screen recordings of the same page and action, never mock-ups when the reference shows a real site). e.g. `src/gameskills`, `src/seo3`, `src/k2horizon`. |
+| News / "X just launched" reaction | news-reaction skill (headline card, source screenshot, reaction beats). |
+| List / tier / "N styles" | tier-list or toolkit-video; one card per item, exact item order and count of the reference. e.g. `src/animstyles`, `src/planeworlds`. |
+| Two-character skit / dialogue | Own Remotion comp with two voices (him = HeyGen clone, other = HeyGen stock voice), 0.2 s reply gaps, acted reactions, two-tier captions. e.g. `src/referrals`, `src/careerpages`, `src/roastroom`. |
+| 3D characters / 3D world | Three.js scene (`studio/hyperframes/pocket3d`, `src/pocket3d`) or Blender plate (`studio/blender/rubberworld`) + Remotion overlay comp; voxel style in `studio/hyperframes/voxel-reel`. |
+| Cartoon / illustrated | generated character poses (gpt-image-2 skill via the Codex model shim) + Remotion (`src/cartoon`). |
+| Desk / over-shoulder screen reel | `app.edit_deskreel`. |
+
+**C. Always on top of the build**
+- video-intake on every take (cut on true silence only, words.json from the CUT audio, snap cuts to frames).
+- opening-hook: readable 2-line hook on frame 0, same words as the reference's hook.
+- Effects from the pack only where the reference has a matching transition: one effect per beat, and only the tiers
+  that work on HeyGen footage (USE: grid-dive, tile-tunnel, phone-fan, pull-back-reveal; CARE: title-orbit,
+  infinite-zoom, shatter, zoom-through, head-pop-out; NEVER: magnifying-lens, cube-spin, liquid-glass, depth-ui,
+  vertigo, ribbon-wrap). Engine: `node ~/.claude/skills/video-effects/run.cjs <effect> in.mp4 out.mp4 --check`.
+- video-sound: voice at one gain, music ~12 dB under, steady to the last frame, -14 LUFS, true peak <= -1.5 dBTP;
+  SFX where the reference has them. call-to-action: comment-keyword ending in the last 2-3 s (no extra seconds).
+- every-format: 9:16 master; LinkedIn/feeds use the same build. video-check last, then the glow cover.
+- Fonts: Arabic in "Al Nile" or "Geeza Pro" (Amiri breaks marks in headless Chrome); brand fonts in
+  `studio/remotion/src/fonts.ts`.
+
+**D. Before sending to the owner:** the six gates of section 11, then send final.mp4 + cover sheet + virality.md +
+seo.md, and wait. Every rejection reason goes into this file (section 11, owner corrections) so it never repeats.
