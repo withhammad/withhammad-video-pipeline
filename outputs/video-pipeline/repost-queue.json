@@ -460,7 +460,9 @@
       "primary_keyword": "claude code plugin",
       "host_slug": "repost-b95794dc72cf",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-07T07:49:31Z"
     },
     {
       "id": "in-b95794dc72cf",
@@ -502,7 +504,9 @@
       "primary_keyword": "claude code plugin",
       "host_slug": "repost-b95794dc72cf",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-07T07:52:01Z"
     },
     {
       "id": "fa-b95794dc72cf",
