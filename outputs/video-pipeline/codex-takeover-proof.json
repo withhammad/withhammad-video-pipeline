@@ -694,10 +694,10 @@
       "evidence": "Own profile shows Edit profile and Promote post"
     },
     "heygen": {
-      "verified_at": "2026-11-07T19:25:47.743730+00:00",
+      "verified_at": "2026-11-07T19:48:33.291104+00:00",
       "account": "hammadbhat126@gmail.com",
       "plan": "Pro",
-      "credits_remaining": 416,
+      "credits_remaining": 379,
       "avatar_name": "HAMMAD YOUSUF",
       "browser": "existing Google Chrome",
       "mcp_account_matches": false,
@@ -748,5 +748,139 @@
       "model": "gpt-6-astra",
       "reasoning_effort": "high"
     }
-  ]
+  ],
+  "browser_scans": {
+    "checked_at": "2026-11-07T19:48:33.291104+00:00",
+    "linkedin": {
+      "activity_entries_checked": 12,
+      "comments_read": 1,
+      "eligible_keywords": 0,
+      "comment_text": "تحفة",
+      "note": "API-post watchlist traversal not completed in this scan."
+    },
+    "x": {
+      "posts": [
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\n4h\nHow to ask for a referral on LinkedIn with Claude: don't. Ask a manager one question about their work, in their tone. Jobvite data: ~7% of applicants were referrals, ~4 in 10 hires.\n\n4 templates: \nhttps://\nwithhammad.com/resources/link\nedin-referral-claude-templates\n…\n\nAI avatar of me. #LinkedInTips #JobSearch\n0:01 / 1:08\n4",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2119087369525793140"
+        },
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\n5h\nClaude Code motion graphics: clone a brand's look into one style file, then animate it. 16 loops, no After Effects.\nFree guide: \nhttps://\nwithhammad.com/resources/clau\nde-motion-graphics\n…\nByline photo: AI avatar of me.\n#ClaudeCode #MotionGraphics\n5",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2119067357846876631"
+        },
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\n9h\nAI coding agent skit: I asked for one word. It changed 24 files.\nName the exact change, check the diff, give new features their own request.\nSmall-change checklist: \nhttps://\nwithhammad.com/resources/smal\nl-change-checklist\n…\nAI avatar of me. #AICoding #VibeCoding\n0:01 / 0:45\n8",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2119006957168197827"
+        },
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\n13h\nThe 10-Minute AI Privacy Check-Up for ChatGPT and Claude\n\nFree guide: \nhttps://\nwithhammad.com/media/guides/a\ni-privacy-checkup.pdf\n…\n\nSave it for later. Follow for one free AI guide a day.\n#AIPrivacy #ChatGPT\n0:02 / 0:38\n14",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2118946553138421952"
+        },
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\nNov 6\nAgentic AI concepts explained: the 9 building blocks inside an AI agent.\n\nMemory & State · Orchestration · RAG · Harness · Evals · MCP · Skills · A2A · Multi-Agent\n\nFree guide, one plain example each: \nhttps://\nwithhammad.com/resources/agen\ntic-ai-concepts\n…\n\nAI-generated headshot of me. #AgenticAI #AIAgents\n0:01 / 0:30\n1\n28",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2118704972292342254"
+        },
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\nNov 6\nClaude Motion: 16 Apple-style animations from one brief. Only the scene line changes. Beta on Team/Enterprise; the same brief works in Claude Code as one HTML file.\n\nFree brief + 16 scene lines: \nhttps://\nwithhammad.com/resources/clau\nde-motion-apple-animations\n…\n\nAI avatar of me.\n\n#ClaudeMotion #MotionGraphics\n28",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2118644577489846581"
+        },
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\nNov 6\n8 Claude Prompts To Land a Job\n\nFree guide: \nhttps://\nwithhammad.com/media/guides/c\nlaude-job-prompts.pdf\n…\n\nSave it for later. Follow for one free AI guide a day.\n#ClaudeAI #JobSearch\n0:31\n27",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2118584165880725876"
+        },
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\nNov 5\nAI dashboard audit: one duplicate order turned AED 12,000 into AED 15,000. Check repeated IDs, currency and dates before the chart, then reconcile.\nFree guide: \nhttps://\nwithhammad.com/resources/ai-d\nashboard-data-check\n…\nSample data. AI avatar of me.\n#AI #DataQuality\n29",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2118342576260448587"
+        },
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\nNov 5\nHow AI agents work, in one loop:\nbuild context → decide → act (tools) → observe → repeat, until a step cap stops it.\nThe model only writes text; the harness does the rest.\n\nFree guide: \nhttps://\nwithhammad.com/resources/how-\nai-agents-work\n…\n\nAI-generated headshot of me.\n#AIAgents\n34",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2118282182888493144"
+        },
+        {
+          "text": "Hammad Yousuf | AI Agents & Claude Code\n@HammadYousufAI\n·\nNov 5\nBest 7 Marketing AI Agents and the free tools to build them\n\nFree guide: \nhttps://\nwithhammad.com/media/guides/m\narketing-ai-agents.pdf\n…\n\nSave it for later. Follow for one free AI guide a day.\n#AIAgents #Marketing\n36",
+          "reply": "0 Replies. Reply",
+          "url": "https://x.com/HammadYousufAI/status/2118221775653781812"
+        }
+      ],
+      "posts_checked": 10,
+      "reply_counts": [
+        "0 Replies. Reply",
+        "0 Replies. Reply",
+        "0 Replies. Reply",
+        "0 Replies. Reply",
+        "0 Replies. Reply",
+        "0 Replies. Reply",
+        "0 Replies. Reply",
+        "0 Replies. Reply",
+        "0 Replies. Reply",
+        "0 Replies. Reply"
+      ]
+    },
+    "tiktok": {
+      "videos_checked": 8,
+      "comments_read": 1,
+      "comment_text": "🔥🔥🔥",
+      "eligible_keywords": 0,
+      "video_urls": [
+        "https://www.tiktok.com/@withhammad/video/7705448747135683892",
+        "https://www.tiktok.com/@withhammad/video/7703305278090939668",
+        "https://www.tiktok.com/@withhammad/video/7703305041863576884",
+        "https://www.tiktok.com/@withhammad/video/7703308560536538389",
+        "https://www.tiktok.com/@withhammad/video/7703304884799540501",
+        "https://www.tiktok.com/@withhammad/video/7703304661104659733",
+        "https://www.tiktok.com/@withhammad/video/7703308354411564309",
+        "https://www.tiktok.com/@withhammad/video/7703304213018823937"
+      ],
+      "navigation_fix": "Use profile card clicks and in-page next-video; direct URL returned HTTP 403."
+    },
+    "replies_sent": 0,
+    "note": "No fabricated test comments or replies. Identity and scan evidence is not end-to-end delivery proof."
+  },
+  "matching_look_review": {
+    "growth": {
+      "video_id": "50d9c7c90c934f7ea18e2651df80916e",
+      "url": "https://app.heygen.com/avatar-video/50d9c7c90c934f7ea18e2651df80916e",
+      "observed_at": "2026-11-07T19:33:38.926799+00:00",
+      "account": "hammadbhat126@gmail.com (Pro)",
+      "look_name": "Podcaster in blue sweater",
+      "look_image_id": "ee9bfd59f57b43d7947a94baf6d61ba6",
+      "credits_before": 416,
+      "observed_status": "completed, downloaded; HOLD: voice energy fails",
+      "submits_observed": 1,
+      "submission_trigger": "Unconfirmed: browser changed to generating while agent was opening Tune voice; owner asked whether submitted manually or through HeyGen assistant. Do not submit again.",
+      "voice_settings": "Not verified before generation. Inspect resulting audio and submitted settings; do not claim Excited settings until verified.",
+      "motion": "Expressive selected; More expressive motion ON",
+      "script_source": "work/codex-takeover/growth-script-corrected.txt",
+      "approval": "Owner authorized matching-look rerender, approximately 38 credits. Final cut still requires owner approval.",
+      "credits_after": 379,
+      "observed_credit_delta": 37,
+      "home_list_duration": "31s",
+      "note": "Home list now shows duration rather than progress. Reload detail view before declaring complete.",
+      "duration_s": 31.44,
+      "raw_resolution": "1080x1920, 25 fps (not the requested 720p submission setting)",
+      "voice_energy_gate": {
+        "status": "FAIL",
+        "median_hz": 133.37,
+        "range_p5_p95_semitones": 10.17,
+        "required": "approximately 170 Hz median and at least 12 semitones",
+        "evidence": "matching-look/voice-energy.json"
+      }
+    },
+    "chamber": {
+      "look": "Podcast host in black polo, owner look 1",
+      "look_image_id": "8700cc25063b4aa8a8a149ac0f6d94c9",
+      "corrected_script": "studio/.local/jobs/762cf7fb383a/matching-look/script.txt",
+      "new_take_submitted": false,
+      "status": "Script prepared and facts rechecked; exact original clone selection still being verified before generation."
+    }
+  }
 }

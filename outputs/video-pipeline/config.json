@@ -77,10 +77,10 @@
       "superseded_by": "docs/CODEX_MASTER_PROMPT.md section 2, owner 7 Nov 2026: only HAMMAD YOUSUF clone in paid HeyGen account; no other TTS for him."
     },
     "production_browser": {
-      "verified_at": "2026-11-07T19:25:47.743730+00:00",
+      "verified_at": "2026-11-07T19:48:33.291104+00:00",
       "account": "hammadbhat126@gmail.com",
       "plan": "Pro",
-      "credits_remaining": 416,
+      "credits_remaining": 379,
       "avatar_name": "HAMMAD YOUSUF",
       "browser": "existing Google Chrome",
       "mcp_account_matches": false,
@@ -496,13 +496,13 @@
     ]
   },
   "keyword_delivery_verification": {
-    "checked_at": "2026-11-07T19:25:47.743730+00:00",
+    "checked_at": "2026-11-07T19:48:33.291104+00:00",
     "instagram": "identity, subscription and signed webhook verified; recipient link delivery unverified",
     "facebook": "identity, subscription, signed webhook and existing outbound guide message verified",
     "youtube": "channel identity and six existing link replies verified; live scan 500 threads, no new eligible comments",
-    "linkedin": "correct /in/withhammad account authenticated in existing Chrome; live comment scan and new reply verification pending",
-    "x": "correct @HammadYousufAI account authenticated in existing Chrome; recent visible posts have zero replies; full scan and reply verification pending",
-    "tiktok": "correct @withhammad account authenticated in existing Chrome (own Edit profile shown); comment scan and reply verification pending",
+    "linkedin": "Existing Chrome verified; first 12 activity entries checked, one non-keyword comment. API-post watchlist traversal and fresh keyword delivery remain unverified.",
+    "x": "Existing Chrome verified; ten newest non-pinned posts checked, all zero replies. No eligible reply to send.",
+    "tiktok": "Existing Chrome verified; eight latest published videos checked via profile navigation, one emoji-only comment. No eligible reply to send. Direct video navigation returned 403; profile click works.",
     "proof": "outputs/video-pipeline/codex-takeover-proof.json"
   }
 }
