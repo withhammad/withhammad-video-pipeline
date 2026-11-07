@@ -173,7 +173,7 @@ const Bubble: React.FC<{f: number}> = ({f}) => {
       <svg width={40} height={40} style={{position: 'absolute', left: -34, top: 26}}><path d="M38 4 L4 20 L38 34" fill="#fff" stroke={INK} strokeWidth={4} strokeLinejoin="round"/><rect x={36} y={6} width={8} height={26} fill="#fff"/></svg>
       {pg.w.map((i: number) => {
         const w = D.words[i], on = s >= w.s - 0.02;
-        const txt = w.t.replace(/[.,:]$/, '');
+        const txt = w.t.replace(/[.,:!]$/, '');
         return <span key={i} style={{marginRight: 12, display: 'inline-block', color: on ? (w.k ? '#fff' : INK) : '#B9B6C2', background: on && w.k ? PURPLE : 'transparent',
           borderRadius: 12, padding: w.k ? '0 10px' : 0}}>{txt}</span>;
       })}
