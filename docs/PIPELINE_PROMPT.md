@@ -31,6 +31,12 @@ Reference: <link>
      move naturally, no plastic skin or warping. If it fails, report to the owner with the frames; do not burn
      credits on a retry without his OK.
    - Credits: read the balance before and after the take and write both in the job's STATUS.md.
+   - Energy (owner rule 2026-11-07, repeated: "my voice should be excited, not a low tone ... always the excited voice"):
+     every take and every voice-only track is EXCITED. HeyGen voice settings: emotion "Excited" where the voice offers
+     it, speed 1.1-1.15, lower stability / higher style on the ElevenLabs-engine clone; the motion prompt asks for a big
+     genuine smile, raised brows, lively eyes and energetic hand gestures. The hook line is written and delivered as
+     the most excited line (punchy, exclamation, no slow intro). Gate: listen to the first 3 s; a flat or low delivery
+     fails the take. Still: avatar only on the to-camera lines, everything else voice-only over motion graphics.
 
 4. Animate it exactly like the reference, at the highest edit quality (the planning, script, edit decisions and
    Remotion/HyperFrames code are Claude Opus 5.5's work in Claude Code: every beat motivated, no filler frames). Start from the reel-editing skills pack in ~/.claude/skills:
