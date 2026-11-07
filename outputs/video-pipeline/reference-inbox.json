@@ -126,6 +126,13 @@
       "added": "2026-11-06",
       "status": "in_progress",
       "job": "8bcf01ad1b0f"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DedPp0ysIi0/",
+      "note": "Owner pasted 2026-11-07; queued behind the one-by-one order",
+      "added": "2026-11-07",
+      "status": "pending",
+      "job": null
     }
   ]
 }
