@@ -11,6 +11,8 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
   changes, not to log progress.
 - `git log` — the progress log. Commit after every meaningful change with a subject that says
   what shipped; push to `origin main` right away. Nothing stays uncommitted at the end of a turn.
+  Several sessions share this checkout and its git index: commit only your own paths with
+  `git commit -m "..." -- <paths>` (never `git add -A` / `git add .`), then `git pull --rebase` and push.
 
 ## Owner preferences (fixed)
 
