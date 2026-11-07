@@ -14,7 +14,51 @@ const ease = (x: number) => (x < 0 ? 0 : x > 1 ? 1 : 1 - Math.pow(1 - x, 3));
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 const lerp3 = (a: number[], b: number[], k: number) => a.map((v, i) => lerp(v, b[i], k)) as [number, number, number];
 
-function speech(who: string, t: number) {
+// Time warp (owner 2026-11-07 "not responsive"): shots/windows are authored on the reference clock (44.95 s);
+// the snappy dialogue runs on its own clock. toRef(new) -> ref, fromRef(ref) -> new, piecewise linear on line onsets.
+const WARP = (data as any).warp as [number, number][];
+const pw = (x: number, a: 0 | 1, b: 0 | 1) => {
+  for (let i = 0; i < WARP.length - 1; i++) {
+    const p = WARP[i], q = WARP[i + 1];
+    if (x <= q[a] || i === WARP.length - 2) { const k = (x - p[a]) / Math.max(1e-6, q[a] - p[a]); return p[b] + (q[b] - p[b]) * Math.max(0, Math.min(1, k)); }
+  }
+  return x;
+};
+export const toRef = (tNew: number) => pw(tNew, 1, 0);
+export const fromRef = (tRef: number) => pw(tRef, 0, 1);
+const lineAt = (tNew: number) => { let cur: Line | null = null; for (const l of LINES) if (tNew >= l.start) cur = l; return cur; };
+const decay = (x: number, len: number) => (x < 0 || x > len ? 0 : 1 - ease(x / len));
+// acting per line: angry beats, excited beats (YOU); hops, wiggles and squash on Claude's lines; punch-in on every reply
+const ANGRY = new Set([1, 2, 4, 9]); const HYPED = new Set([14, 18, 21, 24]); const SHAKE = new Set([2, 9, 14, 21]);
+function act(s: ShotState, tNew: number): ShotState {
+  const l = lineAt(tNew); if (!l) return s;
+  const since = tNew - l.start; const env = speechNew(l.who, tNew); const hit = decay(since, 0.35);
+  const out: ShotState = {...s, cam: {...s.cam, pos: [...s.cam.pos] as [number, number, number]}};
+  out.cam.fov = s.cam.fov * (1 - 0.07 * hit);
+  if (SHAKE.has(l.id) && since < l.dur) { out.cam.pos[0] += Math.sin(tNew * 47) * 0.025 * (0.4 + env); out.cam.pos[1] += Math.cos(tNew * 39) * 0.02 * (0.4 + env); }
+  if (s.boy && (l.who === 'YOU' || l.who === 'CTA')) {
+    const b = {...s.boy};
+    if (ANGRY.has(l.id)) { b.brow = Math.max(b.brow ?? 0, 0.85); b.headNod = (b.headNod ?? 0) + env * 0.12 + hit * 0.06; b.headTilt = (b.headTilt ?? 0) + Math.sin(tNew * 9) * env * 0.05; b.smile = Math.min(b.smile ?? 0, -0.7); }
+    if (HYPED.has(l.id)) { b.brow = -0.8; b.headNod = (b.headNod ?? 0) - env * 0.1 - hit * 0.08; b.headTilt = (b.headTilt ?? 0) + Math.sin(tNew * 7) * env * 0.07; b.smile = 0.8; b.blink = 0; }
+    out.boy = b;
+  }
+  if (s.bot && l.who === 'CLAUDE') {
+    const m = {...s.bot};
+    m.hop = Math.max(m.hop ?? 0, hit * 0.45); m.squash = Math.max(m.squash ?? 0, env * 0.6); m.tilt = (m.tilt ?? 0) + Math.sin(tNew * 8) * env * 0.08;
+    out.bot = m;
+  }
+  return out;
+}
+function speechNew(who: string, t: number) {
+  for (const l of LINES) if ((l.who === who || (who === 'YOU' && l.who === 'CTA')) && t >= l.start && t < l.start + l.dur + 0.05) {
+    const i = Math.floor((t - l.start) * FPS); const e = l.env[Math.min(l.env.length - 1, i)] ?? 0;
+    const e2 = l.env[Math.min(l.env.length - 1, i + 1)] ?? e; return (e + e2) / 2;
+  }
+  return 0;
+}
+// shots call speech() on the reference clock
+function speech(who: string, tRef: number) { return speechNew(who, fromRef(tRef)); }
+function speechOld(who: string, t: number) {
   for (const l of LINES) if (l.who === who && t >= l.start && t < l.start + l.dur + 0.05) {
     const i = Math.floor((t - l.start) * FPS); const e = l.env[Math.min(l.env.length - 1, i)] ?? 0;
     const e2 = l.env[Math.min(l.env.length - 1, i + 1)] ?? e; return (e + e2) / 2;
@@ -70,7 +114,7 @@ const stageAt = (t: number) => { const s = shotAt(t); return s.at(t, (t - s.from
 
 const Caption: React.FC<{t: number}> = ({t}) => {
   const l = LINES.find((x) => x.who !== 'CTA' && t >= x.start - 0.05 && t < (LINES[LINES.indexOf(x) + 1]?.start ?? 99) - 0.05 && t < x.start + x.dur + 1.0);
-  if (!l || t > 40.3) return null;
+  if (!l || toRef(t) > 40.3) return null;
   const a = l.id === 1 ? 1 : interpolate(t - l.start, [-0.05, 0.2], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   const y = interpolate(a, [0, 1], [10, 0]);
   const you = l.who === 'YOU';
@@ -94,25 +138,26 @@ const StandIn: React.FC = () => (
 );
 
 export const Reel: React.FC<{standIn?: boolean}> = ({standIn = true}) => {
-  const f = useCurrentFrame(); const {fps} = useVideoConfig(); const t = f / fps;
-  const end = t >= 40.33;
-  const endIn = interpolate(t, [40.33, 40.75], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const loopOut = interpolate(t, [44.6, 44.95], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const f = useCurrentFrame(); const {fps} = useVideoConfig(); const t = f / fps; const r = toRef(t);
+  const cardAt = fromRef(40.33); const total = (data as any).total as number;
+  const end = t >= cardAt;
+  const endIn = interpolate(t, [cardAt, cardAt + 0.35], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const loopOut = interpolate(t, [total - 0.35, total], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{background: '#0c1330'}}>
-      <Stage at={(tt) => (tt >= 44.6 ? SHOTS[0].at(0, 0) : stageAt(tt))} />
+      <Stage at={(tt) => (tt >= total - 0.35 ? SHOTS[0].at(0, 0) : act(stageAt(toRef(tt)), tt))} />
       {/* panels */}
-      <Google t={t} from={18.33} to={23.43} />
-      <Results t={t} from={23.43} to={25.77} />
-      <Schedule t={t} from={25.77} to={27.63} toggleAt={26.5} />
-      <LatestRun t={t} from={27.63} to={30.37} />
-      <Notice t={t} from={34.45} to={36.77} />
-      <Zz t={t} from={38.8} />
+      <Google t={r} from={18.33} to={23.43} />
+      <Results t={r} from={23.43} to={25.77} />
+      <Schedule t={r} from={25.77} to={27.63} toggleAt={26.5} />
+      <LatestRun t={r} from={27.63} to={30.37} />
+      <Notice t={r} from={34.45} to={36.77} />
+      <Zz t={r} from={38.8} />
       <Caption t={t} />
-      {end && <AbsoluteFill style={{opacity: endIn * (1 - loopOut)}}><EndCard t={t - 40.33} /></AbsoluteFill>}
+      {end && <AbsoluteFill style={{opacity: endIn * (1 - loopOut)}}><EndCard t={t - cardAt} /></AbsoluteFill>}
       {standIn && <StandIn />}
       <Audio src={staticFile('careerpages/mix.wav')} />
     </AbsoluteFill>
   );
 };
-void spring; void Easing;
+void spring; void Easing; void speechOld;
