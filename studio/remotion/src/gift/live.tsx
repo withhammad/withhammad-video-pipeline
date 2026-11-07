@@ -90,6 +90,22 @@ const Name: React.FC<{i: number; local: number; dur: number}> = ({i, local, dur}
   </AbsoluteFill>;
 };
 
+// The footer band from the owner's reference: an embroidered linen strip with a lilac scalloped edge and the two handles.
+const Footer: React.FC = () => {
+  const f = useCurrentFrame(); const {fps} = useVideoConfig();
+  const k = spring({frame: f - 1.2 * fps, fps, config: {damping: 14, stiffness: 80}});
+  const scallop = 'radial-gradient(circle at 14px 0, #B89BD3 12px, transparent 13px)';
+  return <div style={{position: 'absolute', left: 30, top: 1790, width: 1020, height: 104, transform: `translateY(${(1 - k) * 160}px)`,
+    opacity: k, borderRadius: 10, background: 'repeating-linear-gradient(0deg, #F4EAD8 0 3px, #EFE3CE 3px 6px)',
+    boxShadow: '0 -4px 14px rgba(20,25,60,.35), inset 0 0 0 4px #E7D6BC', display: 'flex', alignItems: 'center',
+    justifyContent: 'center'}}>
+    <div style={{position: 'absolute', left: 0, right: 0, top: -12, height: 14, backgroundImage: scallop, backgroundSize: '28px 14px'}}/>
+    <div style={{position: 'absolute', left: 14, right: 14, top: 10, bottom: 10, border: '3px dashed #C9A97A', borderRadius: 8}}/>
+    <div style={{fontFamily: 'Amiri', fontSize: 46, color: '#4B6291', letterSpacing: 0.5, textShadow: '0 2px 1px rgba(255,250,240,.8)',
+      whiteSpace: 'nowrap'}}>@heal.ingthroughquran&nbsp;&nbsp;|&nbsp;&nbsp;@eternalhidayah01</div>
+  </div>;
+};
+
 export const KnitNamesLive: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
@@ -120,11 +136,12 @@ export const KnitNamesLive: React.FC = () => {
       <Piece src={P('flower_blue')} x={985} y={960} w={180} at={0.65} flip phase={0.9}/>
       <Piece src={P('rose_lilac')} x={130} y={1240} w={290} at={0.75} phase={0.5}/>
       <Piece src={P('rose_lilac')} x={950} y={1240} w={290} at={0.8} flip phase={1.4}/>
-      <Piece src={P('flower_pink')} x={410} y={1660} w={140} at={0.95} phase={2.1}/>
-      <Piece src={P('flower_pink')} x={670} y={1660} w={140} at={1.0} flip phase={0.7}/>
+      <Piece src={P('flower_pink')} x={400} y={1640} w={130} at={0.95} phase={2.1}/>
+      <Piece src={P('flower_pink')} x={680} y={1640} w={130} at={1.0} flip phase={0.7}/>
       <Piece src={P('rose_cream')} x={210} y={1520} w={280} at={0.85} phase={1.7}/>
       <Piece src={P('rose_cream')} x={870} y={1520} w={280} at={0.9} flip phase={0.3}/>
-      <Piece src={P('bow')} x={540} y={1720} w={280} at={1.05} sway={2.5} phase={2.4}/>
+      <Piece src={P('bow')} x={540} y={1610} w={240} at={1.05} sway={2.5} phase={2.4}/>
+      <Footer/>
       <Fluff/>
       {idx >= 0 && <Name key={idx} i={idx} local={frame - Math.round(START[idx] * fps)}
         dur={Math.round(((idx < START.length - 1 ? START[idx + 1] : durationInFrames / fps) - START[idx]) * fps)}/>}
