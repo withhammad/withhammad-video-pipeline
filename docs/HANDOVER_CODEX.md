@@ -12,9 +12,11 @@ is exactly what is on disk. Read `AGENTS.md` first (shared rules), then this fil
   HAMMAD YOUSUF clone. Most intense (owner's pick): engine ElevenLabs, model v3, Stability minimum, Speed 1.2x,
   `[excited]` / `[shouting]` tags. Fallback: engine "HeyGen Voice", Tone Excited, Expressiveness 1.0, 1.1x,
   Similarity 2, key words in CAPS + "!". Check the voice language is **English · Original** (it was found on Italian).
-  Never "Update default settings". Gate: median pitch >= ~170 Hz, range >= ~12 semitones, hook = most excited line.
+  Never "Update default settings". If v3 reads more than 10 % longer than the reference, use the fallback. Gate: median pitch >= ~170 Hz, range >= ~12 semitones, hook = most excited line.
   No other TTS for his lines (no Chatterbox, Kokoro, `say`, stock ElevenLabs).
-- **Avatar = minimum credits.** Look "Professional in white shirt" (approved, reuse it; never a new look per reel).
+- **Avatar = matching look, minimum credits** (owner 2026-11-07, latest): every reel's look matches its reference 100 %
+  (room, light, framing, outfit, pose). Check HeyGen's credit cost for a new look first: free -> make the matching
+  look; costs credits -> reuse the closest existing look ("Professional in white shirt").
   Avatar only on the lines the reference says to camera; no face in the reference -> voice only. ONE submit, 720p,
   4 fps filmstrip gate, credits before/after in the job's STATUS.md. Credits left ~577 of 1,000.
 - **Thumbnails:** the glow-grid template (`studio/remotion/src/brand/GlowCover.tsx`, add the job to
@@ -117,3 +119,16 @@ Owner deliverables:
 - `gpt-image-2` skill needs the Codex model override (`gpt-6-astra`; the configured default is rejected for ChatGPT
   logins) via a PATH shim, without changing `~/.codex/config.toml`.
 - Do not rebuild the queue with `app.repost_queue build`: it would undo the hand re-slotting of 5-7 Nov.
+
+## 5. Latest (7 Nov, ~22:30 GST) — open items for Codex
+
+- **Chamber AI Hub** (@talcai.io DfbvLHmOlhR, job 762cf7fb383a, owner: "most important"): built, 60.8 s, HeyGen Voice
+  excited 1.1x (v3 was too slow), credits 546 -> 463. Waiting for the owner: approve as is / re-take two lines (~70 cr) /
+  changes. Then page PR + slots on all six platforms.
+- **GAME** (@nick_saraev DfZGREyvPUX): built (commit 0f611a0), waiting for the owner's OK; he wanted it live today.
+- **@nateherkai DfaNcY1FdlE**: being built in the Claude session "reel-anylancer" (first reel under the matching-look
+  rule). If that session is stopped, rebuild from the inbox entry.
+- **Dots reel** (@nick_saraev DfXfZ0GPHy0, job 3260bdc792c4): parked; duplicates DOTS; owner to say rebuild or skip.
+- HeyGen credits: ~463 of 1,000.
+- Claude Code sessions still exist in the desktop app (reel-*); they do nothing unless messaged. Codex owns the
+  pipeline from now; Claude sessions should not be given new work.
