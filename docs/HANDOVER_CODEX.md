@@ -132,3 +132,23 @@ Owner deliverables:
 - HeyGen credits: ~463 of 1,000.
 - Claude Code sessions still exist in the desktop app (reel-*); they do nothing unless messaged. Codex owns the
   pipeline from now; Claude sessions should not be given new work.
+
+## 6. Scheduled routines (still running in Claude Desktop) — Codex should take these over
+
+Each routine's full prompt is copied in `docs/routines/claude-scheduled-tasks/<id>.md`. Times are Asia/Dubai.
+
+| Routine | Schedule (cron, local) | What it does |
+|---|---|---|
+| repost-queue-run-due | `3 9,10,11,12,13,14,16,17,20 2-12 11 *` | Verifies the posts launchd made are live; refreshes the dashboard artifact. Posting itself is launchd, not this. Ends 12 Nov: extend it. |
+| content-refill | `30 7 * * *` | Checks days of content queued per type; processes the next inbox links up to the owner-approval gate; reports. |
+| linkedin-keyword-replies | `*/30 7-23 * * *` | Reads comments on recent LinkedIn posts in Chrome; replies with the resource link to keyword comments (API cannot). |
+| youtube-keyword-replies | `15,45 7-23 * * *` | Polls channel comments via the YouTube Data API (`app.youtube_keyword`); replies with the link. |
+| x-keyword-replies | `10 7-23 * * *` | Reads replies under @HammadYousufAI posts in Chrome; replies with the link. |
+| tiktok-keyword-replies | `40 7-23 * * *` | Reads comments on @withhammad TikToks in Chrome; replies with the resource path. |
+
+Instagram and Facebook keyword DMs do NOT need a routine: they run on the website webhook
+(withhammad.com/api/instagram/webhook, rules in `src/content/dm-rules.json` of withhammad-rebuild).
+
+Hand-over order: recreate each routine in Codex (its automations) from the copied prompt, run it once, confirm it
+works, then ask the owner to disable the Claude task of the same name (Claude Desktop > Scheduled). Until then both
+must not reply to the same comment: the routines record replies (`--mark`), so check their state before enabling.
