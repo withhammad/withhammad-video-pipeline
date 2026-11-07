@@ -1252,9 +1252,10 @@
       "primary_keyword": "AI engineering projects",
       "host_slug": "repost-c9d9bd2b786c",
       "collaborators": null,
-      "status": "pending",
+      "status": "failed",
       "moved_from": "2026-11-05 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id ACJpvoWQo-hooO7xO5DHrr6]"
     },
     {
       "id": "fa-fa00b63b4fa2",
@@ -1944,9 +1945,11 @@
       "primary_keyword": "how ai agents work",
       "host_slug": "repost-agent-loop",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "moved_from": "2026-11-08 09:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7524760265100435456/",
+      "posted_at": "2026-11-07T09:03:04Z"
     },
     {
       "id": "ig-claude-code-cold-email",
