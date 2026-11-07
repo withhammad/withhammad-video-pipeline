@@ -1,9 +1,10 @@
 """Synthesized SFX track (no third-party sounds) on the reel's events, mixed with the dialogue -> mix.wav (48 kHz mono).
 whoosh on every cut, pop on cards/pills, key clicks while text types, stamp thud, city rumble, car-drop thuds, confetti chirps."""
-import json, wave, subprocess
+import json, wave, subprocess, sys
+D = sys.argv[1] if len(sys.argv) > 1 else 'standin'
 import numpy as np
 SR = 48000
-tl = json.load(open('standin/timeline.json')); shots = json.load(open('blender/shots.json'))
+tl = json.load(open(f'{D}/timeline.json')); shots = json.load(open('blender/shots.json'))
 dur = tl['total']; n = int(dur * SR) + SR
 out = np.zeros(n); rng = np.random.default_rng(4)
 def add(sig, t, g):
@@ -47,7 +48,7 @@ for k in range(40): add(chirp(), F(a) + rng.uniform(0, 1.2), 0.12)
 add(pop(1000), W.get((15, 'fix'), F(shots['claude_s4'][0]) + 1), 0.35)
 add(pop(1300), W[(20, 'five')], 0.45)
 # dialogue
-raw = subprocess.check_output(['ffmpeg', '-v', 'error', '-i', 'standin/voice.wav', '-f', 'f32le', '-ac', '1', '-ar', str(SR), '-'])
+raw = subprocess.check_output(['ffmpeg', '-v', 'error', '-i', f'{D}/voice.wav', '-f', 'f32le', '-ac', '1', '-ar', str(SR), '-'])
 v = np.frombuffer(raw, np.float32).astype(float); v = v / (np.abs(v).max() + 1e-9) * 0.7
 mix = np.zeros(n); mix[:len(v)] += v[:n]; mix += out * 0.5
 mix = mix[:int(dur * SR)]; mix /= max(1.0, np.abs(mix).max() / 0.95)
