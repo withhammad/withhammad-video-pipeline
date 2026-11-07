@@ -223,3 +223,42 @@ Pinned comment / description: guide link + follow/subscribe ask (YouTube links u
   @hammadagentic.ai; LinkedIn lives in Chrome "Browser 1"; LinkedIn comment API is 403 (Chrome only).
 - Dashboard artifact: https://claude.ai/artifact/YTyT4EaZJAYFWx1vZ1F165 (refreshed by `app.dashboard_data`).
 - Never ask him to paste secrets; never post, DM or schedule without his OK; no paid tools without approval.
+
+## 11. How the videos are actually made (the craft) — read these files, do not improvise
+
+Model: use the strongest Codex model (GPT-6 Astra, high effort) for planning, script, edit decisions and code; the
+owner's bar is "Claude Opus 5.5 quality". Every step below has a written recipe on disk.
+
+**Recipes to read before the first reel**
+- Workflows (Claude workflow scripts; read them as step-by-step specs and do the same steps yourself):
+  `.claude/workflows/reference-breakdown.js` (scenes, beats, screens, captions, claims verified -> spec.md),
+  `.claude/workflows/seo-pack.js` (per-platform SEO from real search data -> seo.json),
+  `.claude/workflows/resource-page.js` (withhammad.com resource page + blog + DM rule, verified, PR).
+- Editing skills pack (`~/.claude/skills/<name>/SKILL.md`): video-intake, explainer-video, big-idea-video,
+  product-demo, toolkit-video, news-reaction, call-clips, opening-hook, animated-numbers, call-to-action,
+  every-format, video-sound, video-check, word-highlight, zoom-cut, behind-my-head, head-pop-out, plus the 20 one-command
+  effects (video-effects engine: grid-dive, title-orbit, magnifying-lens, portal, clone-room, infinite-zoom, cube-spin,
+  liquid-glass, screen-in-screen, frame-break, tile-tunnel, depth-ui, vertigo, phone-fan, shatter, spotlight,
+  pull-back-reveal, ribbon-wrap, zoom-through, head-pop-out). HyperFrames: `~/.claude/skills/hyperframes*`.
+  Remotion: `studio/remotion` (compositions per reel in `src/<reel>/`, brand covers in `src/brand/`).
+  Rule: one effect per beat, never a stack; 6 effects are known broken on HeyGen footage (see the skill notes).
+- Pipeline modules (`studio/app/`): `reel.py`/`main.py`/`worker.py` (intake via `studio/run_local.sh run '<link>'`),
+  `heygen.py` (takes), `voice.py` + `voice_gates.py` (voice lane + energy/pause gates), `tighten.py` (silence cuts),
+  `edit_explainer.py` / `edit_deskreel.py` / `edit_plan.py` (edits), `screenrec.py` (real screen recordings at 2x),
+  `thumbnail.py` (cover sizes), `exports.py` (final_ig / final_social), `carousel.py` / `guide.py` (carousels and guide
+  slide videos), `lesson.py`, `dm_rules.py`, `publish_*.py`, `repost_queue.py`, `refill.py`, `dashboard_data.py`.
+
+**Quality gates every reel must pass before the owner sees it** (all of them, with evidence in the job folder)
+1. Exact copy (step 5b): side-by-side 1 fps contact sheet vs the reference; length within 10 %.
+2. Voice gate: median pitch >= ~170 Hz, range >= ~12 st, first 3 s excited, no long pauses (voice_gates.py).
+3. Avatar filmstrip gate (4 fps): lip sync, blinks, natural head/hands, no warping.
+4. video-check skill: H.264 limited range, right size, hook on frame 0, safe zones, captions on every word, no flash
+   shots, -14 LUFS / true peak <= -1.5 dBTP, music steady to the last frame.
+5. virality.md scorecard (hook in 1 s, pattern interrupt by 3 s, change every 1.5-3 s, loopable end, keyword, cover).
+6. Covers in every size from the glow template; seo.json passes `rq.seo_caption` for all six platforms.
+
+**Recent owner corrections to respect** (each came from a rejected cut): his voice too flat -> most-intense settings;
+"too aggressive at the beginning" on a skit -> match the reference's emotional arc (deadpan opening, then build);
+slow replies -> 0.2 s gaps between lines; one-voice re-voice of a two-character skit was rejected -> keep distinct
+voices per character (him = clone, the other = a HeyGen stock voice like "Annie - Lifelike"); avatar must match the
+reference's room/outfit; thumbnails same template but the face should fit the hook.
