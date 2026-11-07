@@ -49,6 +49,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '4a606d94c5cd', date: 'awaiting approval', title: 'Claude Code makes cartoon episodes for YouTube, all in code (HyperFrames)', cover: c('No Animator?', 'Cartoon In Code', LOGO.claude, LOGO.youtube)},
   {job: '619b40c30868', date: 'awaiting approval', title: 'K2 Horizon: six free, open AI models from Abu Dhabi (MBZUAI IFM), Apache 2.0', cover: c("UAE's Free AI", 'Anyone Can Use', LOGO.uaeText, LOGO.huggingface)},
   {job: 'f34ba51f84d9', date: 'awaiting approval', title: '3 open-source SEO plugins for Claude Code: GSC MCP, OpenSEO, GEO Optimizer', cover: c('3 SEO Plugins', 'For Claude Code', LOGO.claude, LOGO.google)},
   {job: 'df71c9d45658', date: 'awaiting approval', title: 'Claude + Hammad 3D dialogue: how to make these 3D videos taking over Instagram', cover: c('3D Videos Are', 'Taking Over IG', LOGO.claude, {text: '3D', color: '#FFFFFF', bg: 'linear-gradient(160deg, #F58A4B 0%, #D9541C 100%)', glow: '#FF8A5B'})},
