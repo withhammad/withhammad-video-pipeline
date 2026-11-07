@@ -32,9 +32,9 @@ const C: Record<string, Cam> = {
   botCU: {pos: [-1.6, 1.35, 7.4], look: [-2.3, 0.8, 1.0], fov: 26},
   botTight: {pos: [-1.7, 1.25, 6.3], look: [-2.3, 0.8, 1.0], fov: 26},
   botLow: {pos: [-1.6, 1.2, 8.4], look: [-2.3, 2.1, 1.0], fov: 34},
-  wide: {pos: [0, 3.7, 11.5], look: [0, 2.2, -1.5], fov: 37},
-  wideIn: {pos: [0, 3.5, 9.6], look: [0, 2.3, -1.5], fov: 35},
-  close: {pos: [0.6, 3.4, 7.6], look: [0.2, 2.6, -1.8], fov: 34},
+  wide: {pos: [0.2, 3.9, 11.5], look: [0.2, 2.1, -1.5], fov: 46},
+  wideIn: {pos: [0.2, 3.7, 9.8], look: [0.2, 2.2, -1.5], fov: 46},
+  close: {pos: [0.5, 3.5, 8.2], look: [0.3, 2.5, -1.8], fov: 40},
 };
 const push = (a: Cam, k: number, amt = 0.06): Cam => ({...a, fov: a.fov * (1 - amt * k)});
 
