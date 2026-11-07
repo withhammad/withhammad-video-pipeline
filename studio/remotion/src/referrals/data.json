@@ -1,51 +1,51 @@
 {
- "frames": 2095,
+ "frames": 2024,
  "fps": 30,
  "units": [
   {
    "kind": "hook",
    "from": 0,
-   "to": 191
+   "to": 193
   },
   {
    "kind": "twist",
-   "from": 191,
-   "to": 409
+   "from": 193,
+   "to": 398
   },
   {
    "kind": "step1",
-   "from": 409,
-   "to": 719
+   "from": 398,
+   "to": 699
   },
   {
    "kind": "step2",
-   "from": 719,
-   "to": 1033
+   "from": 699,
+   "to": 997
   },
   {
    "kind": "step3",
-   "from": 1033,
-   "to": 1299
+   "from": 997,
+   "to": 1263
   },
   {
    "kind": "step4",
-   "from": 1299,
-   "to": 1683
+   "from": 1263,
+   "to": 1625
   },
   {
    "kind": "guard",
-   "from": 1683,
-   "to": 1886
+   "from": 1625,
+   "to": 1818
   },
   {
    "kind": "payoff",
-   "from": 1886,
-   "to": 1999
+   "from": 1818,
+   "to": 1928
   },
   {
    "kind": "cta",
-   "from": 1999,
-   "to": 2095
+   "from": 1928,
+   "to": 2024
   }
  ],
  "shots": [
@@ -55,7 +55,7 @@
   },
   {
    "kind": "cuC",
-   "from": 192
+   "from": 194
   },
   {
    "kind": "cuH",
@@ -63,71 +63,71 @@
   },
   {
    "kind": "wide",
-   "from": 322
+   "from": 323
   },
   {
    "kind": "cuC",
-   "from": 409
+   "from": 398
   },
   {
    "kind": "cuH",
-   "from": 595
+   "from": 571
   },
   {
    "kind": "wide",
-   "from": 652
+   "from": 629
   },
   {
    "kind": "cuC",
-   "from": 719
+   "from": 699
   },
   {
    "kind": "cuH",
-   "from": 893
+   "from": 859
   },
   {
    "kind": "wide",
-   "from": 935
+   "from": 902
   },
   {
    "kind": "cuC",
-   "from": 1033
+   "from": 997
   },
   {
    "kind": "cuH",
-   "from": 1161
+   "from": 1118
   },
   {
    "kind": "wide",
-   "from": 1199
+   "from": 1158
   },
   {
    "kind": "cuC",
-   "from": 1299
+   "from": 1263
   },
   {
    "kind": "cuH",
-   "from": 1504
+   "from": 1458
   },
   {
    "kind": "wide",
-   "from": 1570
+   "from": 1526
   },
   {
    "kind": "cuH",
-   "from": 1683
+   "from": 1625
   },
   {
    "kind": "wide",
-   "from": 1779
+   "from": 1723
   },
   {
    "kind": "cuH",
-   "from": 1886
+   "from": 1818
   },
   {
    "kind": "wide",
-   "from": 1936
+   "from": 1870
   }
  ],
  "speaking": [
@@ -208,62 +208,62 @@
   },
   {
    "spk": "C",
-   "from": 195,
-   "to": 198
+   "from": 197,
+   "to": 208
   },
   {
    "spk": "C",
-   "from": 198,
-   "to": 206
+   "from": 208,
+   "to": 213
   },
   {
    "spk": "C",
-   "from": 206,
-   "to": 217
+   "from": 213,
+   "to": 220
   },
   {
    "spk": "C",
-   "from": 228,
-   "to": 236
+   "from": 233,
+   "to": 238
   },
   {
    "spk": "C",
-   "from": 236,
-   "to": 245
+   "from": 238,
+   "to": 244
   },
   {
    "spk": "C",
-   "from": 245,
-   "to": 250
+   "from": 244,
+   "to": 248
   },
   {
    "spk": "C",
-   "from": 250,
+   "from": 248,
    "to": 256
   },
   {
    "spk": "H",
    "from": 263,
-   "to": 270
+   "to": 269
   },
   {
    "spk": "H",
-   "from": 270,
+   "from": 269,
    "to": 278
   },
   {
    "spk": "H",
    "from": 278,
-   "to": 284
+   "to": 283
   },
   {
    "spk": "H",
-   "from": 284,
-   "to": 297
+   "from": 283,
+   "to": 296
   },
   {
    "spk": "H",
-   "from": 297,
+   "from": 296,
    "to": 305
   },
   {
@@ -273,257 +273,282 @@
   },
   {
    "spk": "C",
-   "from": 325,
-   "to": 333
+   "from": 326,
+   "to": 331
   },
   {
    "spk": "C",
-   "from": 333,
-   "to": 338
+   "from": 331,
+   "to": 335
   },
   {
    "spk": "C",
-   "from": 338,
-   "to": 346
+   "from": 335,
+   "to": 343
   },
   {
    "spk": "C",
-   "from": 355,
-   "to": 363
+   "from": 352,
+   "to": 357
   },
   {
    "spk": "C",
-   "from": 363,
-   "to": 375
+   "from": 357,
+   "to": 366
   },
   {
    "spk": "C",
-   "from": 375,
-   "to": 380
+   "from": 366,
+   "to": 370
   },
   {
    "spk": "C",
-   "from": 380,
-   "to": 387
+   "from": 370,
+   "to": 378
   },
   {
    "spk": "C",
-   "from": 395,
-   "to": 401
+   "from": 386,
+   "to": 392
   },
   {
    "spk": "C",
-   "from": 412,
+   "from": 401,
+   "to": 403
+  },
+  {
+   "spk": "C",
+   "from": 403,
    "to": 416
   },
   {
    "spk": "C",
    "from": 416,
-   "to": 432
+   "to": 422
   },
   {
    "spk": "C",
    "from": 432,
-   "to": 440
+   "to": 436
   },
   {
    "spk": "C",
-   "from": 448,
+   "from": 436,
+   "to": 449
+  },
+  {
+   "spk": "C",
+   "from": 449,
    "to": 455
   },
   {
    "spk": "C",
    "from": 455,
-   "to": 464
+   "to": 458
   },
   {
    "spk": "C",
-   "from": 464,
-   "to": 468
+   "from": 458,
+   "to": 467
   },
   {
    "spk": "C",
-   "from": 468,
-   "to": 472
+   "from": 467,
+   "to": 480
   },
   {
    "spk": "C",
-   "from": 472,
-   "to": 479
+   "from": 480,
+   "to": 488
   },
   {
    "spk": "C",
-   "from": 479,
-   "to": 491
+   "from": 488,
+   "to": 500
   },
   {
    "spk": "C",
-   "from": 491,
-   "to": 499
+   "from": 519,
+   "to": 524
   },
   {
    "spk": "C",
-   "from": 499,
-   "to": 513
-  },
-  {
-   "spk": "C",
-   "from": 522,
+   "from": 524,
    "to": 526
   },
   {
    "spk": "C",
    "from": 526,
-   "to": 531
+   "to": 530
   },
   {
    "spk": "C",
-   "from": 531,
-   "to": 538
+   "from": 530,
+   "to": 537
   },
   {
    "spk": "C",
-   "from": 538,
-   "to": 548
+   "from": 537,
+   "to": 546
   },
   {
    "spk": "C",
-   "from": 548,
-   "to": 558
+   "from": 546,
+   "to": 549
   },
   {
    "spk": "C",
-   "from": 558,
-   "to": 570
+   "from": 553,
+   "to": 556
   },
   {
    "spk": "C",
-   "from": 570,
-   "to": 575
+   "from": 556,
+   "to": 559
   },
   {
    "spk": "C",
-   "from": 575,
-   "to": 578
+   "from": 559,
+   "to": 565
   },
   {
-   "spk": "C",
-   "from": 578,
+   "spk": "H",
+   "from": 574,
+   "to": 577
+  },
+  {
+   "spk": "H",
+   "from": 577,
+   "to": 582
+  },
+  {
+   "spk": "H",
+   "from": 582,
    "to": 586
   },
   {
    "spk": "H",
-   "from": 598,
-   "to": 602
+   "from": 586,
+   "to": 594
   },
   {
    "spk": "H",
-   "from": 602,
-   "to": 606
+   "from": 594,
+   "to": 599
   },
   {
    "spk": "H",
-   "from": 606,
-   "to": 610
+   "from": 599,
+   "to": 603
   },
   {
    "spk": "H",
-   "from": 610,
-   "to": 618
+   "from": 603,
+   "to": 608
   },
   {
    "spk": "H",
-   "from": 618,
-   "to": 624
+   "from": 608,
+   "to": 617
   },
   {
-   "spk": "H",
-   "from": 624,
-   "to": 627
-  },
-  {
-   "spk": "H",
-   "from": 627,
-   "to": 632
-  },
-  {
-   "spk": "H",
+   "spk": "C",
    "from": 632,
-   "to": 641
+   "to": 636
   },
   {
    "spk": "C",
-   "from": 655,
-   "to": 659
+   "from": 636,
+   "to": 642
   },
   {
    "spk": "C",
-   "from": 659,
+   "from": 642,
+   "to": 649
+  },
+  {
+   "spk": "C",
+   "from": 649,
    "to": 666
   },
   {
    "spk": "C",
-   "from": 666,
-   "to": 673
+   "from": 688,
+   "to": 692
   },
   {
    "spk": "C",
-   "from": 673,
-   "to": 694
+   "from": 702,
+   "to": 707
   },
   {
    "spk": "C",
-   "from": 706,
-   "to": 712
+   "from": 707,
+   "to": 714
   },
   {
    "spk": "C",
-   "from": 722,
-   "to": 731
+   "from": 714,
+   "to": 720
   },
   {
    "spk": "C",
-   "from": 731,
-   "to": 738
+   "from": 720,
+   "to": 732
   },
   {
    "spk": "C",
-   "from": 738,
-   "to": 746
+   "from": 748,
+   "to": 752
   },
   {
    "spk": "C",
-   "from": 746,
+   "from": 752,
+   "to": 755
+  },
+  {
+   "spk": "C",
+   "from": 755,
+   "to": 759
+  },
+  {
+   "spk": "C",
+   "from": 759,
    "to": 762
   },
   {
    "spk": "C",
-   "from": 777,
-   "to": 777
-  },
-  {
-   "spk": "C",
-   "from": 777,
-   "to": 783
-  },
-  {
-   "spk": "C",
-   "from": 783,
-   "to": 790
-  },
-  {
-   "spk": "C",
-   "from": 790,
-   "to": 794
+   "from": 762,
+   "to": 771
   },
   {
    "spk": "C",
    "from": 794,
-   "to": 807
+   "to": 799
   },
   {
    "spk": "C",
-   "from": 819,
+   "from": 799,
+   "to": 803
+  },
+  {
+   "spk": "C",
+   "from": 803,
+   "to": 808
+  },
+  {
+   "spk": "C",
+   "from": 808,
+   "to": 814
+  },
+  {
+   "spk": "C",
+   "from": 814,
+   "to": 820
+  },
+  {
+   "spk": "C",
+   "from": 820,
    "to": 822
   },
   {
@@ -534,592 +559,567 @@
   {
    "spk": "C",
    "from": 828,
-   "to": 834
+   "to": 832
   },
   {
    "spk": "C",
-   "from": 834,
-   "to": 842
+   "from": 832,
+   "to": 835
   },
   {
    "spk": "C",
-   "from": 842,
-   "to": 848
+   "from": 835,
+   "to": 840
   },
   {
    "spk": "C",
-   "from": 848,
-   "to": 851
+   "from": 840,
+   "to": 846
   },
   {
    "spk": "C",
-   "from": 851,
-   "to": 855
+   "from": 846,
+   "to": 854
   },
   {
-   "spk": "C",
-   "from": 855,
-   "to": 860
-  },
-  {
-   "spk": "C",
-   "from": 860,
-   "to": 863
-  },
-  {
-   "spk": "C",
-   "from": 863,
+   "spk": "H",
+   "from": 862,
    "to": 868
   },
   {
-   "spk": "C",
+   "spk": "H",
    "from": 868,
    "to": 875
   },
   {
-   "spk": "C",
+   "spk": "H",
    "from": 875,
-   "to": 884
-  },
-  {
-   "spk": "H",
-   "from": 896,
-   "to": 903
-  },
-  {
-   "spk": "H",
-   "from": 903,
-   "to": 909
-  },
-  {
-   "spk": "H",
-   "from": 909,
-   "to": 920
+   "to": 886
   },
   {
    "spk": "C",
-   "from": 938,
-   "to": 942
+   "from": 905,
+   "to": 911
   },
   {
    "spk": "C",
-   "from": 942,
-   "to": 955
+   "from": 911,
+   "to": 921
   },
   {
    "spk": "C",
-   "from": 955,
-   "to": 963
+   "from": 921,
+   "to": 928
   },
   {
    "spk": "C",
-   "from": 963,
-   "to": 969
+   "from": 928,
+   "to": 934
   },
   {
    "spk": "C",
-   "from": 969,
+   "from": 934,
+   "to": 945
+  },
+  {
+   "spk": "C",
+   "from": 957,
+   "to": 961
+  },
+  {
+   "spk": "C",
+   "from": 961,
+   "to": 972
+  },
+  {
+   "spk": "C",
+   "from": 972,
    "to": 981
   },
   {
    "spk": "C",
-   "from": 991,
-   "to": 996
+   "from": 981,
+   "to": 990
   },
   {
    "spk": "C",
-   "from": 996,
-   "to": 1008
+   "from": 1000,
+   "to": 1005
   },
   {
    "spk": "C",
-   "from": 1008,
-   "to": 1017
+   "from": 1005,
+   "to": 1015
   },
   {
    "spk": "C",
-   "from": 1017,
+   "from": 1015,
+   "to": 1021
+  },
+  {
+   "spk": "C",
+   "from": 1021,
    "to": 1024
   },
   {
    "spk": "C",
-   "from": 1036,
-   "to": 1041
+   "from": 1024,
+   "to": 1031
   },
   {
    "spk": "C",
-   "from": 1041,
-   "to": 1048
+   "from": 1031,
+   "to": 1040
   },
   {
    "spk": "C",
-   "from": 1048,
-   "to": 1054
+   "from": 1060,
+   "to": 1065
   },
   {
    "spk": "C",
-   "from": 1054,
-   "to": 1057
+   "from": 1065,
+   "to": 1073
   },
   {
    "spk": "C",
-   "from": 1057,
-   "to": 1067
+   "from": 1073,
+   "to": 1079
   },
   {
    "spk": "C",
-   "from": 1067,
-   "to": 1082
+   "from": 1079,
+   "to": 1085
   },
   {
    "spk": "C",
-   "from": 1093,
-   "to": 1099
+   "from": 1085,
+   "to": 1094
   },
   {
    "spk": "C",
-   "from": 1099,
-   "to": 1109
+   "from": 1094,
+   "to": 1097
   },
   {
    "spk": "C",
-   "from": 1109,
-   "to": 1116
+   "from": 1097,
+   "to": 1103
   },
   {
    "spk": "C",
-   "from": 1116,
-   "to": 1123
-  },
-  {
-   "spk": "C",
-   "from": 1123,
-   "to": 1131
-  },
-  {
-   "spk": "C",
-   "from": 1131,
-   "to": 1135
-  },
-  {
-   "spk": "C",
-   "from": 1135,
-   "to": 1141
-  },
-  {
-   "spk": "C",
-   "from": 1141,
-   "to": 1153
+   "from": 1103,
+   "to": 1113
   },
   {
    "spk": "H",
-   "from": 1164,
-   "to": 1167
+   "from": 1121,
+   "to": 1124
   },
   {
    "spk": "H",
-   "from": 1167,
-   "to": 1170
+   "from": 1124,
+   "to": 1127
   },
   {
    "spk": "H",
-   "from": 1170,
-   "to": 1172
+   "from": 1127,
+   "to": 1129
   },
   {
    "spk": "H",
-   "from": 1172,
-   "to": 1176
+   "from": 1129,
+   "to": 1133
   },
   {
    "spk": "H",
-   "from": 1176,
-   "to": 1180
+   "from": 1133,
+   "to": 1138
   },
   {
    "spk": "H",
-   "from": 1180,
-   "to": 1188
+   "from": 1138,
+   "to": 1145
   },
   {
    "spk": "C",
-   "from": 1202,
-   "to": 1205
+   "from": 1161,
+   "to": 1168
   },
   {
    "spk": "C",
-   "from": 1205,
-   "to": 1219
+   "from": 1168,
+   "to": 1177
   },
   {
    "spk": "C",
-   "from": 1232,
-   "to": 1237
+   "from": 1190,
+   "to": 1204
   },
   {
    "spk": "C",
-   "from": 1237,
+   "from": 1204,
+   "to": 1213
+  },
+  {
+   "spk": "C",
+   "from": 1213,
+   "to": 1228
+  },
+  {
+   "spk": "C",
+   "from": 1240,
+   "to": 1243
+  },
+  {
+   "spk": "C",
+   "from": 1243,
    "to": 1247
   },
   {
    "spk": "C",
    "from": 1247,
-   "to": 1267
+   "to": 1256
   },
   {
    "spk": "C",
-   "from": 1274,
-   "to": 1279
+   "from": 1266,
+   "to": 1268
+  },
+  {
+   "spk": "C",
+   "from": 1268,
+   "to": 1274
   },
   {
    "spk": "C",
    "from": 1279,
-   "to": 1283
+   "to": 1285
   },
   {
    "spk": "C",
-   "from": 1283,
-   "to": 1293
+   "from": 1285,
+   "to": 1288
   },
   {
    "spk": "C",
-   "from": 1302,
-   "to": 1308
+   "from": 1288,
+   "to": 1298
   },
   {
    "spk": "C",
-   "from": 1308,
-   "to": 1317
+   "from": 1313,
+   "to": 1315
   },
   {
    "spk": "C",
-   "from": 1317,
-   "to": 1321
+   "from": 1315,
+   "to": 1322
   },
   {
    "spk": "C",
-   "from": 1321,
-   "to": 1326
+   "from": 1322,
+   "to": 1333
   },
   {
    "spk": "C",
-   "from": 1326,
-   "to": 1336
+   "from": 1333,
+   "to": 1342
   },
   {
    "spk": "C",
-   "from": 1351,
-   "to": 1352
+   "from": 1342,
+   "to": 1348
   },
   {
    "spk": "C",
-   "from": 1352,
-   "to": 1361
+   "from": 1348,
+   "to": 1353
   },
   {
    "spk": "C",
-   "from": 1361,
-   "to": 1369
+   "from": 1353,
+   "to": 1357
   },
   {
    "spk": "C",
-   "from": 1369,
-   "to": 1377
+   "from": 1357,
+   "to": 1362
   },
   {
    "spk": "C",
-   "from": 1377,
-   "to": 1384
+   "from": 1362,
+   "to": 1370
   },
   {
    "spk": "C",
-   "from": 1384,
+   "from": 1370,
+   "to": 1378
+  },
+  {
+   "spk": "C",
+   "from": 1378,
    "to": 1389
   },
   {
    "spk": "C",
-   "from": 1389,
-   "to": 1393
+   "from": 1397,
+   "to": 1401
   },
   {
    "spk": "C",
-   "from": 1393,
-   "to": 1399
+   "from": 1401,
+   "to": 1403
   },
   {
    "spk": "C",
-   "from": 1399,
+   "from": 1403,
    "to": 1408
   },
   {
    "spk": "C",
    "from": 1408,
-   "to": 1416
+   "to": 1412
   },
   {
    "spk": "C",
-   "from": 1416,
-   "to": 1428
+   "from": 1427,
+   "to": 1431
+  },
+  {
+   "spk": "C",
+   "from": 1431,
+   "to": 1436
   },
   {
    "spk": "C",
    "from": 1436,
-   "to": 1442
+   "to": 1441
   },
   {
    "spk": "C",
-   "from": 1442,
-   "to": 1447
+   "from": 1441,
+   "to": 1445
   },
   {
    "spk": "C",
-   "from": 1447,
-   "to": 1455
+   "from": 1445,
+   "to": 1453
   },
   {
-   "spk": "C",
-   "from": 1455,
-   "to": 1461
+   "spk": "H",
+   "from": 1461,
+   "to": 1466
   },
   {
-   "spk": "C",
-   "from": 1468,
-   "to": 1473
+   "spk": "H",
+   "from": 1466,
+   "to": 1470
   },
   {
-   "spk": "C",
-   "from": 1473,
-   "to": 1480
+   "spk": "H",
+   "from": 1470,
+   "to": 1475
   },
   {
-   "spk": "C",
-   "from": 1480,
-   "to": 1487
+   "spk": "H",
+   "from": 1475,
+   "to": 1485
   },
   {
-   "spk": "C",
-   "from": 1487,
+   "spk": "H",
+   "from": 1485,
    "to": 1492
   },
   {
-   "spk": "C",
+   "spk": "H",
    "from": 1492,
-   "to": 1498
+   "to": 1497
   },
   {
    "spk": "H",
-   "from": 1507,
-   "to": 1512
+   "from": 1497,
+   "to": 1509
   },
   {
-   "spk": "H",
-   "from": 1512,
-   "to": 1516
+   "spk": "C",
+   "from": 1529,
+   "to": 1535
   },
   {
-   "spk": "H",
-   "from": 1516,
-   "to": 1521
-  },
-  {
-   "spk": "H",
-   "from": 1521,
-   "to": 1531
-  },
-  {
-   "spk": "H",
-   "from": 1531,
+   "spk": "C",
+   "from": 1535,
    "to": 1538
   },
   {
-   "spk": "H",
+   "spk": "C",
    "from": 1538,
-   "to": 1543
+   "to": 1546
   },
   {
-   "spk": "H",
-   "from": 1543,
-   "to": 1555
+   "spk": "C",
+   "from": 1561,
+   "to": 1568
+  },
+  {
+   "spk": "C",
+   "from": 1568,
+   "to": 1573
   },
   {
    "spk": "C",
    "from": 1573,
-   "to": 1579
+   "to": 1586
   },
   {
    "spk": "C",
-   "from": 1579,
-   "to": 1583
+   "from": 1599,
+   "to": 1605
   },
   {
    "spk": "C",
-   "from": 1583,
-   "to": 1592
+   "from": 1605,
+   "to": 1609
   },
   {
    "spk": "C",
-   "from": 1603,
-   "to": 1611
+   "from": 1609,
+   "to": 1621
   },
   {
-   "spk": "C",
-   "from": 1611,
-   "to": 1620
-  },
-  {
-   "spk": "C",
-   "from": 1620,
+   "spk": "H",
+   "from": 1628,
    "to": 1636
   },
   {
-   "spk": "C",
-   "from": 1648,
-   "to": 1654
+   "spk": "H",
+   "from": 1645,
+   "to": 1653
   },
   {
-   "spk": "C",
-   "from": 1654,
+   "spk": "H",
+   "from": 1653,
+   "to": 1657
+  },
+  {
+   "spk": "H",
+   "from": 1657,
    "to": 1663
   },
   {
-   "spk": "C",
+   "spk": "H",
    "from": 1663,
-   "to": 1674
+   "to": 1673
   },
   {
    "spk": "H",
-   "from": 1686,
-   "to": 1693
+   "from": 1673,
+   "to": 1685
   },
   {
    "spk": "H",
-   "from": 1703,
-   "to": 1711
-  },
-  {
-   "spk": "H",
-   "from": 1711,
-   "to": 1715
-  },
-  {
-   "spk": "H",
-   "from": 1715,
-   "to": 1721
-  },
-  {
-   "spk": "H",
-   "from": 1721,
-   "to": 1730
-  },
-  {
-   "spk": "H",
-   "from": 1730,
-   "to": 1743
-  },
-  {
-   "spk": "H",
-   "from": 1753,
-   "to": 1767
+   "from": 1696,
+   "to": 1709
   },
   {
    "spk": "C",
-   "from": 1782,
-   "to": 1793
+   "from": 1726,
+   "to": 1731
   },
   {
    "spk": "C",
-   "from": 1793,
-   "to": 1808
+   "from": 1731,
+   "to": 1742
   },
   {
    "spk": "C",
-   "from": 1808,
-   "to": 1823
+   "from": 1742,
+   "to": 1751
   },
   {
    "spk": "C",
-   "from": 1823,
+   "from": 1762,
+   "to": 1766
+  },
+  {
+   "spk": "C",
+   "from": 1766,
+   "to": 1772
+  },
+  {
+   "spk": "C",
+   "from": 1778,
+   "to": 1781
+  },
+  {
+   "spk": "C",
+   "from": 1781,
+   "to": 1788
+  },
+  {
+   "spk": "C",
+   "from": 1799,
+   "to": 1801
+  },
+  {
+   "spk": "C",
+   "from": 1801,
+   "to": 1805
+  },
+  {
+   "spk": "C",
+   "from": 1805,
+   "to": 1807
+  },
+  {
+   "spk": "C",
+   "from": 1807,
+   "to": 1812
+  },
+  {
+   "spk": "H",
+   "from": 1821,
    "to": 1825
   },
   {
-   "spk": "C",
-   "from": 1825,
-   "to": 1834
+   "spk": "H",
+   "from": 1839,
+   "to": 1843
   },
   {
-   "spk": "C",
+   "spk": "H",
    "from": 1843,
-   "to": 1845
+   "to": 1850
   },
   {
-   "spk": "C",
-   "from": 1845,
+   "spk": "H",
+   "from": 1850,
    "to": 1855
   },
   {
-   "spk": "C",
-   "from": 1863,
-   "to": 1865
-  },
-  {
-   "spk": "C",
-   "from": 1865,
-   "to": 1871
-  },
-  {
-   "spk": "C",
-   "from": 1871,
-   "to": 1874
-  },
-  {
-   "spk": "C",
-   "from": 1874,
-   "to": 1882
-  },
-  {
    "spk": "H",
-   "from": 1889,
-   "to": 1893
-  },
-  {
-   "spk": "H",
-   "from": 1907,
-   "to": 1911
-  },
-  {
-   "spk": "H",
-   "from": 1911,
-   "to": 1918
-  },
-  {
-   "spk": "H",
-   "from": 1918,
-   "to": 1923
-  },
-  {
-   "spk": "H",
-   "from": 1923,
-   "to": 1929
+   "from": 1855,
+   "to": 1860
   },
   {
    "spk": "C",
-   "from": 1939,
-   "to": 1952
+   "from": 1873,
+   "to": 1880
   },
   {
    "spk": "C",
-   "from": 1959,
-   "to": 1967
+   "from": 1890,
+   "to": 1897
   },
   {
    "spk": "C",
-   "from": 1967,
-   "to": 1973
+   "from": 1897,
+   "to": 1901
   },
   {
    "spk": "C",
-   "from": 1973,
-   "to": 1979
+   "from": 1901,
+   "to": 1906
   }
  ],
  "beats": {
@@ -1129,61 +1129,61 @@
    "hired": 169
   },
   "twist": {
-   "div": 284
+   "div": 283
   },
   "step1": {
-   "seven": 455,
-   "forty": 548,
-   "lanes": 598,
-   "wrong": 627,
-   "yes": 706
+   "seven": 436,
+   "forty": 537,
+   "lanes": 574,
+   "wrong": 603,
+   "yes": 688
   },
   "step2": {
-   "download": 722,
-   "connections": 746,
-   "sort": 777,
-   "check": 819,
-   "months": 868,
-   "why": 896,
-   "teams": 963,
-   "meetings": 1017
+   "download": 702,
+   "connections": 720,
+   "sort": 748,
+   "check": 794,
+   "months": 840,
+   "why": 862,
+   "teams": 928,
+   "meetings": 981
   },
   "step3": {
-   "paste": 1036,
-   "four": 1135,
-   "how": 1164,
-   "posts": 1202,
-   "rocket": 1232,
-   "analyst": 1283
+   "paste": 1000,
+   "four": 1097,
+   "how": 1121,
+   "posts": 1161,
+   "rocket": 1190,
+   "analyst": 1247
   },
   "step4": {
-   "sara": 1302,
-   "threads": 1361,
-   "beg": 1447,
-   "ask": 1468,
-   "notasking": 1507,
-   "point": 1573,
-   "q": 1603,
-   "r1": 1620,
-   "r2": 1648,
-   "ref": 1663
+   "sara": 1266,
+   "threads": 1322,
+   "beg": 1403,
+   "ask": 1427,
+   "notasking": 1461,
+   "point": 1529,
+   "q": 1561,
+   "r1": 1573,
+   "r2": 1599,
+   "ref": 1609
   },
   "guard": {
-   "send": 1703,
-   "auto": 1753,
-   "bans": 1782,
-   "write": 1823,
-   "you": 1843,
-   "few": 1863
+   "send": 1645,
+   "auto": 1696,
+   "bans": 1726,
+   "write": 1762,
+   "you": 1778,
+   "few": 1799
   },
   "payoff": {
-   "wait": 1889,
-   "type": 1907,
-   "currently": 1939,
-   "open": 1959
+   "wait": 1821,
+   "type": 1839,
+   "currently": 1873,
+   "open": 1890
   },
   "cta": {
-   "from": 1999
+   "from": 1928
   }
  },
  "captions": [
@@ -1221,17 +1221,17 @@
    "text": "and he got hired!",
    "from": 151,
    "spk": "H",
-   "to": 195
+   "to": 197
   },
   {
    "text": "He didn't apply.",
-   "from": 195,
+   "from": 197,
    "spk": "C",
-   "to": 228
+   "to": 233
   },
   {
    "text": "Someone pulled him in.",
-   "from": 228,
+   "from": 233,
    "spk": "C",
    "to": 263
   },
@@ -1239,358 +1239,358 @@
    "text": "Omar can't even",
    "from": 263,
    "spk": "H",
-   "to": 284
+   "to": 283
   },
   {
    "text": "center a div!",
-   "from": 284,
+   "from": 283,
    "spk": "H",
-   "to": 325
+   "to": 326
   },
   {
    "text": "Didn't need to.",
-   "from": 325,
+   "from": 326,
    "spk": "C",
-   "to": 355
+   "to": 352
   },
   {
    "text": "Someone vouched for him.",
-   "from": 355,
+   "from": 352,
    "spk": "C",
-   "to": 395
+   "to": 386
   },
   {
    "text": "Watch.",
-   "from": 395,
+   "from": 386,
    "spk": "C",
-   "to": 412
+   "to": 401
   },
   {
    "text": "In Jobvite's data,",
-   "from": 412,
+   "from": 401,
    "spk": "C",
-   "to": 448
+   "to": 432
   },
   {
    "text": "only seven in a",
-   "from": 448,
+   "from": 432,
    "spk": "C",
-   "to": 472
+   "to": 458
   },
   {
    "text": "hundred applicants were referrals.",
-   "from": 472,
+   "from": 458,
    "spk": "C",
-   "to": 522
+   "to": 519
   },
   {
    "text": "But they got",
-   "from": 522,
+   "from": 519,
    "spk": "C",
-   "to": 538
+   "to": 530
   },
   {
    "text": "almost 40%",
-   "from": 538,
+   "from": 530,
    "spk": "C",
-   "to": 570
+   "to": 553
   },
   {
    "text": "of the hires.",
-   "from": 570,
+   "from": 553,
    "spk": "C",
-   "to": 598
+   "to": 574
   },
   {
    "text": "So I've been standing",
-   "from": 598,
+   "from": 574,
    "spk": "H",
-   "to": 618
+   "to": 594
   },
   {
    "text": "in the wrong line?",
-   "from": 618,
+   "from": 594,
    "spk": "H",
-   "to": 655
+   "to": 632
   },
   {
    "text": "For 200 applications.",
-   "from": 655,
+   "from": 632,
    "spk": "C",
-   "to": 706
+   "to": 688
   },
   {
    "text": "Yes.",
-   "from": 706,
+   "from": 688,
    "spk": "C",
-   "to": 722
+   "to": 702
   },
   {
    "text": "Download your LinkedIn connections.",
-   "from": 722,
+   "from": 702,
    "spk": "C",
-   "to": 777
+   "to": 748
   },
   {
    "text": "I sort out",
-   "from": 777,
+   "from": 748,
    "spk": "C",
-   "to": 790
+   "to": 759
   },
   {
    "text": "the managers.",
-   "from": 790,
+   "from": 759,
    "spk": "C",
-   "to": 819
+   "to": 794
   },
   {
    "text": "You check who started",
-   "from": 819,
+   "from": 794,
    "spk": "C",
-   "to": 842
+   "to": 814
   },
   {
    "text": "a new role in",
-   "from": 842,
+   "from": 814,
    "spk": "C",
-   "to": 860
+   "to": 832
   },
   {
    "text": "the last 3 months.",
-   "from": 860,
+   "from": 832,
    "spk": "C",
-   "to": 896
+   "to": 862
   },
   {
    "text": "Why new managers?",
-   "from": 896,
+   "from": 862,
    "spk": "H",
-   "to": 938
+   "to": 905
   },
   {
    "text": "New managers build",
-   "from": 938,
+   "from": 905,
    "spk": "C",
-   "to": 963
+   "to": 928
   },
   {
    "text": "new teams.",
-   "from": 963,
+   "from": 928,
    "spk": "C",
-   "to": 991
+   "to": 957
   },
   {
    "text": "Old managers build meetings.",
-   "from": 991,
+   "from": 957,
    "spk": "C",
-   "to": 1036
+   "to": 1000
   },
   {
    "text": "Then paste in",
-   "from": 1036,
+   "from": 1000,
    "spk": "C",
-   "to": 1054
+   "to": 1021
   },
   {
    "text": "their recent posts.",
-   "from": 1054,
+   "from": 1021,
    "spk": "C",
-   "to": 1093
+   "to": 1060
   },
   {
    "text": "Most people lean towards",
-   "from": 1093,
+   "from": 1060,
    "spk": "C",
-   "to": 1123
+   "to": 1085
   },
   {
    "text": "one of four styles.",
-   "from": 1123,
+   "from": 1085,
    "spk": "C",
-   "to": 1164
+   "to": 1121
   },
   {
    "text": "How do you",
-   "from": 1164,
+   "from": 1121,
    "spk": "H",
-   "to": 1172
+   "to": 1129
   },
   {
    "text": "know which one?",
-   "from": 1172,
+   "from": 1129,
    "spk": "H",
-   "to": 1202
+   "to": 1161
   },
   {
    "text": "Their posts.",
-   "from": 1202,
+   "from": 1161,
    "spk": "C",
-   "to": 1232
+   "to": 1190
   },
   {
    "text": "5 rocket emojis?",
-   "from": 1232,
+   "from": 1190,
    "spk": "C",
-   "to": 1274
+   "to": 1240
   },
   {
    "text": "Not an analyst.",
-   "from": 1274,
+   "from": 1240,
    "spk": "C",
-   "to": 1302
+   "to": 1266
   },
   {
    "text": "Say Sara is",
-   "from": 1302,
+   "from": 1266,
    "spk": "C",
-   "to": 1321
+   "to": 1285
   },
   {
    "text": "an analyst.",
-   "from": 1321,
+   "from": 1285,
    "spk": "C",
-   "to": 1351
+   "to": 1313
   },
   {
    "text": "She posts long threads",
-   "from": 1351,
+   "from": 1313,
    "spk": "C",
-   "to": 1377
+   "to": 1342
   },
   {
    "text": "on how her team",
-   "from": 1377,
+   "from": 1342,
    "spk": "C",
-   "to": 1399
+   "to": 1362
   },
   {
    "text": "ships AI apps.",
-   "from": 1399,
+   "from": 1362,
    "spk": "C",
-   "to": 1436
+   "to": 1397
   },
   {
    "text": "So you don't beg.",
-   "from": 1436,
+   "from": 1397,
    "spk": "C",
-   "to": 1468
+   "to": 1427
   },
   {
    "text": "You ask about",
-   "from": 1468,
+   "from": 1427,
    "spk": "C",
-   "to": 1487
+   "to": 1441
   },
   {
    "text": "her work.",
-   "from": 1487,
+   "from": 1441,
    "spk": "C",
-   "to": 1507
+   "to": 1461
   },
   {
    "text": "That's not even asking",
-   "from": 1507,
+   "from": 1461,
    "spk": "H",
-   "to": 1531
+   "to": 1485
   },
   {
    "text": "for a referral!",
-   "from": 1531,
+   "from": 1485,
    "spk": "H",
-   "to": 1573
+   "to": 1529
   },
   {
    "text": "That's the point.",
-   "from": 1573,
+   "from": 1529,
    "spk": "C",
-   "to": 1603
+   "to": 1561
   },
   {
    "text": "Questions get replies.",
-   "from": 1603,
+   "from": 1561,
    "spk": "C",
-   "to": 1648
+   "to": 1599
   },
   {
    "text": "Replies get referrals.",
-   "from": 1648,
+   "from": 1599,
    "spk": "C",
-   "to": 1686
+   "to": 1628
   },
   {
    "text": "Okay.",
-   "from": 1686,
+   "from": 1628,
    "spk": "H",
-   "to": 1703
+   "to": 1645
   },
   {
    "text": "Send it to",
-   "from": 1703,
+   "from": 1645,
    "spk": "H",
-   "to": 1721
+   "to": 1663
   },
   {
    "text": "every manager.",
-   "from": 1721,
+   "from": 1663,
    "spk": "H",
-   "to": 1753
+   "to": 1696
   },
   {
    "text": "Automatically.",
-   "from": 1753,
+   "from": 1696,
    "spk": "H",
-   "to": 1782
+   "to": 1726
   },
   {
    "text": "LinkedIn bans bots.",
-   "from": 1782,
+   "from": 1726,
    "spk": "C",
-   "to": 1823
+   "to": 1762
   },
   {
    "text": "I write,",
-   "from": 1823,
+   "from": 1762,
    "spk": "C",
-   "to": 1843
+   "to": 1778
   },
   {
    "text": "you send.",
-   "from": 1843,
+   "from": 1778,
    "spk": "C",
-   "to": 1863
+   "to": 1799
   },
   {
    "text": "A few a day.",
-   "from": 1863,
+   "from": 1799,
    "spk": "C",
-   "to": 1889
+   "to": 1821
   },
   {
    "text": "Wait.",
-   "from": 1889,
+   "from": 1821,
    "spk": "H",
-   "to": 1907
+   "to": 1839
   },
   {
    "text": "Which type am I?",
-   "from": 1907,
+   "from": 1839,
    "spk": "H",
-   "to": 1939
+   "to": 1873
   },
   {
    "text": "Currently?",
-   "from": 1939,
+   "from": 1873,
    "spk": "C",
-   "to": 1959
+   "to": 1890
   },
   {
    "text": "Open to work.",
-   "from": 1959,
+   "from": 1890,
    "spk": "C",
-   "to": 1993
+   "to": 1922
   }
  ],
- "voiceEnd": 1993,
+ "voiceEnd": 1922,
  "take": true,
  "standin": false
 }
