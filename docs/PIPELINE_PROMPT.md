@@ -34,6 +34,9 @@ Reference: <link>
    - Voice source (owner 2026-11-07: "whenever I share something, use my voice from HeyGen"): ALWAYS his HAMMAD YOUSUF
      clone on the paid HeyGen account. No other TTS (no Chatterbox, Kokoro, say, ElevenLabs stock voices) for his lines.
      Audio-only where the reference shows no face; an avatar take only for the lines the reference says to camera.
+   - MOST INTENSE (owner's pick "A, most intense", 2026-11-07, job 85fb47b66b4b): HeyGen Creative Studio > Voice, engine
+     ElevenLabs, model v3, the HAMMAD YOUSUF clone, Stability minimum, Speed 1.2x, inline [excited] / [shouting] tags on
+     his lines. Use this first. Fallback when v3 is unavailable: the HeyGen Voice preset below.
    - Excited settings (owner rejected 0.75 as "not aggressive", 2026-11-07; job 6a48be151b7a): HeyGen Creative Studio >
      Voice, engine "HeyGen Voice", the HAMMAD YOUSUF clone, language English · Original (CHECK it: the shared default was
      found on Italian), Voice Settings: Tone Excited, Expressiveness 1.0 (max), Speed 1.1x, Similarity 2 (do NOT click
