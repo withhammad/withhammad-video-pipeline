@@ -69,11 +69,28 @@ def _utc(text):
     return datetime.fromisoformat(text.replace('Z', '+00:00'))
 
 
-def due(entries, now):
-    """Pending entries whose slot has passed and is less than LATE_LIMIT old; older pending ones are 'missed'."""
+def page_live(url, _cache={}):
+    """True when the reel's withhammad.com resource page answers 200 (the keyword DM links there)."""
+    if url not in _cache:
+        try:
+            import httpx
+            _cache[url] = httpx.get(url, timeout=20, follow_redirects=True).status_code == 200
+        except Exception:
+            _cache[url] = False
+    return _cache[url]
+
+
+def due(entries, now, page_check=None):
+    """Pending entries whose slot has passed and is less than LATE_LIMIT old; older pending ones are 'missed'.
+    An entry with a resource_url waits (stays pending) until that page is live, so no post links to a 404."""
+    page_check = page_check or page_live
     ready, missed = [], []
     for e in entries:
         if e.get('status') != 'pending' or e['platform'] in CHROME_LANES:
+            continue
+        if e.get('resource_url') and not page_check(e['resource_url']):
+            if now >= _utc(e['slot_utc']) + LATE_LIMIT:
+                missed.append(e)
             continue
         slot = _utc(e['slot_utc'])
         start = slot + APP_GRACE if e['platform'] in APP_SOUND_LANES else slot

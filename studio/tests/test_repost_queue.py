@@ -266,3 +266,10 @@ def test_youtube_shorts_also_wait_for_an_app_post_with_a_trending_sound(tmp_path
     (tmp_path / 'jobs' / 'j' / 'final.mp4').write_bytes(b'v')
     r = rq.sound_brief('2026-11-03', path=q, sounds_path=tmp_path / 'none.json')['reels'][0]
     assert r['platform'] == 'youtube' and r['video'].endswith('final.mp4') and r['api_fallback_gst'] == '14:00'
+
+
+def test_an_entry_waits_until_its_resource_page_is_live():
+    es = [dict(entry(1, '2026-11-02T07:00:00Z', 'linkedin'), resource_url='https://withhammad.com/resources/x')]
+    now = datetime(2026, 11, 2, 7, 5, tzinfo=timezone.utc)
+    assert rq.due(es, now, page_check=lambda u: False) == ([], [])
+    assert [e['id'] for e in rq.due(es, now, page_check=lambda u: True)[0]] == ['e1']

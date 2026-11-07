@@ -542,8 +542,8 @@
       "id": "in-b55491077ab1",
       "job": "b55491077ab1",
       "platform": "instagram",
-      "slot_utc": "2026-11-11T13:00:00Z",
-      "local": "2026-11-11 17:00 GST",
+      "slot_utc": "2026-11-16T13:00:00Z",
+      "local": "2026-11-16 17:00 GST",
       "keyword": "AITRAFFIC",
       "title": "AI search traffic converts better? How to track your own AI traffic in GA4",
       "caption": "Track AI traffic in GA4: one Semrush study found AI search visitors 4.4x as valuable as organic, by conversion rate.\nComment AITRAFFIC and I'll DM you the guide.\n\nWhy it can happen: people research inside ChatGPT, Claude or Gemini before they click, so they land further down your funnel.\n\nIt is one vendor study. Other studies range from about 1.3x to 20x+, so measure your own:\n\n1) Ask ChatGPT, Claude and Gemini what your customers ask. Are you in the answer?\n2) Add \"AI (ChatGPT, Claude, Gemini)\" to your \"Where did you hear about us?\" form.\n3) Open the GA4 AI Assistant channel (Reports > Acquisition > Traffic acquisition) and compare it with search. Many AI clicks still land as Direct.\n\nComment AITRAFFIC and I'll DM you the guide. Follow @withhammad.ai so the DM reaches you.\n\nAI avatar of me.\n\n#GA4 #AISearch #ChatGPT #AIMarketing #DigitalMarketing",
@@ -552,7 +552,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-03 11:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "li-7123480a28ca",
@@ -592,8 +592,8 @@
       "id": "fa-b55491077ab1",
       "job": "b55491077ab1",
       "platform": "facebook",
-      "slot_utc": "2026-11-11T16:00:00Z",
-      "local": "2026-11-11 20:00 GST",
+      "slot_utc": "2026-11-16T13:00:00Z",
+      "local": "2026-11-16 17:00 GST",
       "keyword": "AITRAFFIC",
       "title": "AI search traffic converts better? How to track your own AI traffic in GA4",
       "caption": "Are customers finding you through ChatGPT? Google Analytics 4 now has an AI Assistant channel that shows you. Free setup guide: https://withhammad.com/resources/ai-traffic-ga4\n\nOne Semrush study (Jul 2025) found AI search visitors 4.4x as valuable as organic search visitors, based on conversion rate. Other studies range from about 1.3x to 20x+, so the point is to measure your own.\n\nThree things to do this week:\n1) Ask ChatGPT, Claude and Gemini what your customers ask, and check whether you are in the answer.\n2) Add \"AI (ChatGPT, Claude, Gemini)\" to your \"Where did you hear about us?\" form, because many AI clicks still land as Direct.\n3) In GA4 go to Reports > Acquisition > Traffic acquisition and compare the AI Assistant channel with Organic Search. Google AI Overviews stay in Organic Search.\n\nFull guide: https://withhammad.com/resources/ai-traffic-ga4\nComment AITRAFFIC and I'll send it to your inbox. Follow With Hammad AI for a new AI build every week.\n\nAI avatar of me.\n\n#GA4 #AISearch #DigitalMarketing",
@@ -602,7 +602,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-03 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "tt-dots-20261027",
@@ -1529,8 +1529,8 @@
       "id": "in-motion20261020",
       "job": "motion20261020",
       "platform": "instagram",
-      "slot_utc": "2026-11-08T07:00:00Z",
-      "local": "2026-11-08 11:00 GST",
+      "slot_utc": "2026-11-13T10:00:00Z",
+      "local": "2026-11-13 14:00 GST",
       "keyword": "MOTION",
       "title": "AI Motion Starter Kit",
       "caption": "AI motion graphics prompts: start from a finished example, not a blank page. Comment MOTION and I'll DM you the guide.\n\nPrompt Motion is a gallery of motion videos made with Claude, each shown with the prompt behind it and credited to its creator: product demos, animated charts, kinetic text.\n\nHow to use it:\n1. Open a design and study its timing.\n2. Adapt the brief with your own product, colours and message.\n3. Be specific about the camera, transitions and final frame.\n4. Check the result. Don't expect an exact copy.\n\nThe demo at the end is an original Remotion example built with this approach.\n\nComment MOTION and I'll DM you the guide: my starter brief and review checklist.\nFollow @withhammad.ai so the DM reaches you.\n\nAI avatar of me.\n\n#AIMotionGraphics #MotionGraphics #Remotion #ClaudeAI #MotionDesign",
@@ -1539,7 +1539,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-06 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "fa-claude-linkedin-installs",
@@ -1612,8 +1612,8 @@
       "id": "fa-motion20261020",
       "job": "motion20261020",
       "platform": "facebook",
-      "slot_utc": "2026-11-08T10:00:00Z",
-      "local": "2026-11-08 14:00 GST",
+      "slot_utc": "2026-11-13T13:00:00Z",
+      "local": "2026-11-13 17:00 GST",
       "keyword": "MOTION",
       "title": "AI Motion Starter Kit",
       "caption": "AI motion graphics prompts work better when you start from a finished example. Free starter brief and checklist: https://withhammad.com/resources/ai-motion-starter-kit\n\nPrompt Motion collects motion videos made with Claude, each with the prompt behind it: product demos, animated charts, kinetic text. Open one, study its timing, then adapt the brief with your own product, colours and message. Be specific about the camera, transitions and final frame, and check the result instead of expecting an exact copy.\n\nGet the guide: https://withhammad.com/resources/ai-motion-starter-kit (or comment MOTION and I'll send it).\nFollow With Hammad AI for practical AI builds.\n\nAI avatar of me.\n\n#AIMotionGraphics #MotionGraphics #Remotion",
@@ -1622,7 +1622,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-06 17:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "tt-fef5b7f3b5af",
@@ -1811,8 +1811,8 @@
       "id": "in-dots-20261027",
       "job": "dots-20261027",
       "platform": "instagram",
-      "slot_utc": "2026-11-09T07:00:00Z",
-      "local": "2026-11-09 11:00 GST",
+      "slot_utc": "2026-11-14T10:00:00Z",
+      "local": "2026-11-14 14:00 GST",
       "keyword": "DOTS",
       "title": "OpenAI dots: AI agents that keep working after you log off",
       "caption": "OpenAI dots: the ChatGPT agent that keeps working after you log off. Comment DOTS and I'll DM you the guide.\n\nA dot is an always-on AI agent in ChatGPT with its own cloud computer and browser. Give it one goal and it works through every step across the apps you connect, then comes back to you before anything important goes out.\n\nThe real shift: stop automating single tasks. Hand over the whole workflow.\n\nComment DOTS and I'll DM you the guide (setup + your first workflow).\nFollow @withhammad.ai so the DM reaches you.\n\nSource: OpenAI, Introducing dots (29 Sep 2026). Dot characters © OpenAI; not affiliated.\n\n#openaidots #aiagents #chatgpt #openai #aiautomation",
@@ -1821,7 +1821,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-07 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "fa-6cff0a62569f",
@@ -1893,8 +1893,8 @@
       "id": "fa-dots-20261027",
       "job": "dots-20261027",
       "platform": "facebook",
-      "slot_utc": "2026-11-09T10:00:00Z",
-      "local": "2026-11-09 14:00 GST",
+      "slot_utc": "2026-11-14T13:00:00Z",
+      "local": "2026-11-14 17:00 GST",
       "keyword": "DOTS",
       "title": "OpenAI dots: AI agents that keep working after you log off",
       "caption": "OpenAI dots are ChatGPT agents that keep working after you log off.\n\nEach dot has its own cloud computer and browser. Give it one goal and it works through every step across the apps you connect, then checks with you before anything important goes out.\n\nStop automating single tasks. Hand over the whole workflow.\n\nFree guide (set up your first dot + pick the workflow): https://withhammad.com/resources/openai-dots\nFollow With Hammad AI for a new AI build every week.\n\nSource: OpenAI, Introducing dots (29 Sep 2026). Dot characters © OpenAI; not affiliated.\n\n#OpenAIDots #AIAgents #ChatGPT",
@@ -1903,7 +1903,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-07 17:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "tt-anatomy20261027",
@@ -2067,8 +2067,8 @@
       "id": "in-6f8f4ad316a3",
       "job": "6f8f4ad316a3",
       "platform": "instagram",
-      "slot_utc": "2026-11-09T13:00:00Z",
-      "local": "2026-11-09 17:00 GST",
+      "slot_utc": "2026-11-15T10:00:00Z",
+      "local": "2026-11-15 14:00 GST",
       "keyword": "STACK",
       "title": "What an AI startup really costs: the 14-tool stack and the honest monthly bill",
       "caption": "AI startup cost in 2026, tool by tool. Comment STACK and I'll DM you the guide with all 14 tools and prices.\n\nThe honest bill: about $21 a month for a personal prototype, about $41 a month once you charge customers, plus card fees.\n\nThe 7 tools on screen (prices checked Oct 18, 2026):\nAI coding: Claude Pro, $20/month, Claude Code included\nDatabase + backend: Supabase, free tier (free projects pause after a week idle)\nHosting: Vercel Pro, $20/month (the free Hobby plan is non-commercial only)\nDomain: a Namecheap .com, $11.48 in year one, then $18.68 a year\nPayments: Stripe, 2.9% + 30¢ per US card payment, no monthly fee\nCode: GitHub, free\nAnalytics: PostHog, free up to 1M events a month\n\nThe guide adds the other 7 (Clerk, Resend, Sentry, Upstash, Qdrant, Cloudflare DNS, n8n), every free-tier limit and the upgrade prices. Prices change, so check each pricing page before you commit.\n\nComment STACK and I'll DM you the guide.\nFollow @withhammad.ai so the DM reaches you.\nAI avatar of me.\n\n#aistartup #techstack #solofounder #claudecode #startupcosts",
@@ -2077,14 +2077,14 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-08 11:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "in-agent-loop",
       "job": "agent-loop",
       "platform": "instagram",
-      "slot_utc": "2026-11-10T07:00:00Z",
-      "local": "2026-11-10 11:00 GST",
+      "slot_utc": "2026-11-15T13:00:00Z",
+      "local": "2026-11-15 17:00 GST",
       "keyword": "LOOP",
       "title": "How an AI agent works: one loop inside a harness",
       "caption": "How AI agents work: one loop inside a harness. Most people can't explain this, so here's the whole loop in 20 seconds 🔁\n\nComment LOOP and I'll DM you the guide (build your first small agent with Claude Code).\n\n1. Trigger: you, an event, a timer or another agent starts it\n2. Build context: instructions, tools, chat so far, memory, earlier results\n3. Model decides: answer now, or call a tool\n4. Act: the harness runs the tool\n5. Observe: the result goes back in, and it loops\n\nThe model only writes text. The harness runs the tools, keeps memory, and holds the guardrails, permissions, human sign-off, logs and evals. Set a step cap, or a failing call can repeat and every try costs money.\n\nSave this 📌\nComment LOOP and I'll DM you the guide. Follow @withhammad.ai so the DM reaches you.\n\nThe headshot on the board is an AI-generated image of me.\n\n#aiagents #agenticai #howaiagentswork #claudecode #aiautomation",
@@ -2093,14 +2093,14 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-08 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "fa-6f8f4ad316a3",
       "job": "6f8f4ad316a3",
       "platform": "facebook",
-      "slot_utc": "2026-11-09T16:00:00Z",
-      "local": "2026-11-09 20:00 GST",
+      "slot_utc": "2026-11-15T10:00:00Z",
+      "local": "2026-11-15 14:00 GST",
       "keyword": "STACK",
       "title": "What an AI startup really costs: the 14-tool stack and the honest monthly bill",
       "caption": "How much does an AI startup cost in 2026? I priced a lean 14-tool tech stack on each vendor's own pricing page (Oct 18, 2026). About $21 a month while you build a prototype, about $41 a month once you charge customers, plus Stripe's 2.9% + 30¢ per US card payment.\n\nFree guide, all 14 tools with limits, upgrade prices and links: https://withhammad.com/resources/ai-startup-stack-costs\n\nWhat the reel shows: Claude Pro $20/month (Claude Code included), Supabase free, Vercel Pro $20/month (the free Hobby plan is non-commercial only), a Namecheap .com at $11.48 for year one (renews at $18.68), Stripe 2.9% + 30¢, GitHub free, PostHog free up to 1M events a month.\n\nFollow With Hammad AI for a practical AI build like this every week.\nAI avatar of me.\n\n#AIStartup #TechStack #SoloFounder",
@@ -2109,7 +2109,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-08 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "tt-d24ed130c3d9",
@@ -2165,8 +2165,8 @@
       "id": "fa-agent-loop",
       "job": "agent-loop",
       "platform": "facebook",
-      "slot_utc": "2026-11-10T10:00:00Z",
-      "local": "2026-11-10 14:00 GST",
+      "slot_utc": "2026-11-15T13:00:00Z",
+      "local": "2026-11-15 17:00 GST",
       "keyword": "LOOP",
       "title": "How an AI agent works: one loop inside a harness",
       "caption": "How AI agents work, explained in one loop. An agent is a model inside a harness: the harness builds the context, the model decides, the harness runs the tool, the result goes back in, and it loops until the model answers or a step cap stops it.\n\nFree guide to build your first small agent with Claude Code: https://withhammad.com/resources/how-ai-agents-work\n\nTrigger → build context → model decides → act (tools) → observe → repeat → final output\nAround the loop: memory, guardrails, permissions, human sign-off, logs and evals.\nWithout a step cap, a failing call can repeat and every try costs money.\n\nFollow With Hammad AI for a new AI build with a free guide.\nFree guide: https://withhammad.com/resources/how-ai-agents-work\n\nThe headshot on the board is an AI-generated image of me.\n\n#AIAgents #AgenticAI #ClaudeCode",
@@ -2175,7 +2175,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-08 17:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "xx-anatomy20261027",
@@ -2213,8 +2213,8 @@
       "id": "in-audit20261020",
       "job": "audit20261020",
       "platform": "instagram",
-      "slot_utc": "2026-11-10T13:00:00Z",
-      "local": "2026-11-10 17:00 GST",
+      "slot_utc": "2026-11-16T07:00:00Z",
+      "local": "2026-11-16 11:00 GST",
       "keyword": "CHECK",
       "title": "AI Dashboard Audit: The Duplicate Order Trap",
       "caption": "AI dashboard looks right, but the total is wrong. Comment CHECK and I'll DM you the guide.\n\nData cleaning with AI starts before the chart. In this sample, one duplicated order turns AED 12,000 into AED 15,000.\n\nAsk AI to audit the rows first:\n1. Check repeated order IDs\n2. Confirm the currency\n3. Check the date range\n4. Review the duplicate, rebuild from the cleaned data, reconcile the total with the source\n\nA repeated ID is a flag to review, not proof. Never delete blindly and keep the original file.\n\nFictional sample data, not client results.\nAI avatar of me.\n\nComment CHECK and I'll DM you the guide (audit prompt + practice file).\nFollow @withhammad.ai so the DM reaches you.\n\n#AIDashboard #DataCleaning #DataQuality #DataAnalysis #AIForBusiness",
@@ -2223,7 +2223,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-09 11:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "li-applemotion20261027",
@@ -2245,8 +2245,8 @@
       "id": "in-applemotion20261027",
       "job": "applemotion20261027",
       "platform": "instagram",
-      "slot_utc": "2026-11-11T07:00:00Z",
-      "local": "2026-11-11 11:00 GST",
+      "slot_utc": "2026-11-16T10:00:00Z",
+      "local": "2026-11-16 14:00 GST",
       "keyword": "APPLE",
       "title": "Claude Motion: 16 Apple-style animations from one brief",
       "caption": "Claude Motion: 16 Apple-style animations from one brief. Comment APPLE and I'll DM you the guide.\n\nThe brief never changes. You rewrite one line, the scene: one object, one change.\n• Bars to trend, monthly to yearly, dots to logo, map to route\n• Quality bar in the brief: Apple keynote polish, frosted glass, spring physics\n• In a Claude chat: Output, then Motion. Paste the brief, rewrite the scene, Export to MP4\n• No Team plan? Same brief in Claude Code builds one HTML file (that's how these 16 were made)\n\nClaude Motion is a beta on Team and Enterprise plans.\n\nAI avatar of me.\n\nComment APPLE and I'll DM you the guide. Follow @withhammad.ai so the DM reaches you.\n\n#ClaudeMotion #MotionGraphics #ClaudeAI #UIAnimation #AIMotionGraphics",
@@ -2255,14 +2255,14 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-09 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "fa-audit20261020",
       "job": "audit20261020",
       "platform": "facebook",
-      "slot_utc": "2026-11-10T16:00:00Z",
-      "local": "2026-11-10 20:00 GST",
+      "slot_utc": "2026-11-15T16:00:00Z",
+      "local": "2026-11-15 20:00 GST",
       "keyword": "CHECK",
       "title": "AI Dashboard Audit: The Duplicate Order Trap",
       "caption": "AI dashboard audit: a polished chart can still show the wrong total. Free guide: https://withhammad.com/resources/ai-dashboard-data-check\n\nIn this sample, one duplicated order turns AED 12,000 into AED 15,000. Before asking AI for charts, ask it to audit the rows: repeated order IDs, currency and date range.\n\nReview the duplicate, keep the original, rebuild from the cleaned data and reconcile the total with the source.\n\nFictional sample data, not client results.\nAI avatar of me.\n\nGet the audit prompt and practice file: https://withhammad.com/resources/ai-dashboard-data-check\nFollow With Hammad AI for more practical AI builds.\n\n#AIDashboard #DataCleaning #DataQuality",
@@ -2271,7 +2271,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-09 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "xx-d24ed130c3d9",
@@ -2309,8 +2309,8 @@
       "id": "fa-applemotion20261027",
       "job": "applemotion20261027",
       "platform": "facebook",
-      "slot_utc": "2026-11-11T10:00:00Z",
-      "local": "2026-11-11 14:00 GST",
+      "slot_utc": "2026-11-16T10:00:00Z",
+      "local": "2026-11-16 14:00 GST",
       "keyword": "APPLE",
       "title": "Claude Motion: 16 Apple-style animations from one brief",
       "caption": "Claude Motion is out, and one brief gave me 16 Apple-style animations: charts, logos, phone screens and a UAE map route.\nFree guide (the brief and all 16 scene lines): https://withhammad.com/resources/claude-motion-apple-animations\n\nThe trick is the quality bar inside the brief: Apple keynote polish, frosted glass, real depth, springs on everything. The brief never changes; each animation is one rewritten scene line.\n\nIn a Claude chat pick Output, then Motion, paste the brief, rewrite the scene, then Export to MP4. Claude Motion is a beta on Team and Enterprise plans. No Team plan? The same brief in Claude Code builds one HTML file, which is how these 16 were made.\n\nAI avatar of me.\n\nFollow With Hammad AI for more AI builds.\n\n#ClaudeMotion #MotionGraphics #ClaudeAI",
@@ -2319,14 +2319,14 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-09 17:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "li-agentic-concepts",
       "job": "agentic-concepts",
       "platform": "linkedin",
-      "slot_utc": "2026-11-09T05:00:00Z",
-      "local": "2026-11-09 09:00 GST",
+      "slot_utc": "2026-11-13T05:00:00Z",
+      "local": "2026-11-13 09:00 GST",
       "keyword": "AGENTIC",
       "title": "9 agentic AI concepts every builder should know",
       "caption": "Agentic AI concepts, explained: the 9 building blocks inside an AI agent (memory, orchestration, RAG, harness, evals, MCP, skills, A2A, multi-agent). Free guide with a plain example for each: https://withhammad.com/resources/agentic-ai-concepts\n\nEveryone says they're building agents. Ask what's inside one and it goes quiet. These are the 9 parts I'd learn first:\n\n1️⃣ Memory & State: what the agent keeps between turns, and what it saves for later\n2️⃣ Orchestration: one planner splits the goal and hands each task to a worker\n3️⃣ RAG: search your own docs first, then answer from what it found\n4️⃣ Harness: the code around the model that feeds it context, runs its tools and holds the limits\n5️⃣ Evals: fixed test cases plus a grader, so you know if a change helped or hurt\n6️⃣ MCP: an open protocol: one connector gives any MCP app its tools, resources and prompts\n7️⃣ Skills: a SKILL.md folder the agent loads only when a task needs it\n8️⃣ A2A: an open protocol for agents to find each other and hand off tasks\n9️⃣ Multi-Agent: focused agents, one role each, working toward one goal\n\nA model on its own just replies. Wrap it in memory, tools, tests and coordination, and it starts doing the work.\n\nGuide to all 9, with the spec links (MCP, A2A, Agent Skills, the RAG paper): https://withhammad.com/resources/agentic-ai-concepts\n\nThe headshot is an AI-generated image of me.\n\nWhich of the 9 is the one your team skips, and what has it cost you?\n\n#AgenticAI #AIAgents #AIEngineering",
@@ -2335,14 +2335,14 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-10 09:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "in-agentic-concepts",
       "job": "agentic-concepts",
       "platform": "instagram",
-      "slot_utc": "2026-11-12T07:00:00Z",
-      "local": "2026-11-12 11:00 GST",
+      "slot_utc": "2026-11-17T07:00:00Z",
+      "local": "2026-11-17 11:00 GST",
       "keyword": "AGENTIC",
       "title": "9 agentic AI concepts every builder should know",
       "caption": "Agentic AI concepts explained: the 9 building blocks every AI agent builder should know 🤖\n\n1. Memory & State: what the agent keeps between turns, and what it saves for later\n2. Orchestration: one planner splits the goal and hands each task to a worker\n3. RAG: search your own docs first, then answer from what it found\n4. Harness: the code around the model that feeds it context, runs its tools and holds the limits\n5. Evals: fixed test cases plus a grader, so you know if a change helped or hurt\n6. MCP: one connector gives any MCP app its tools, resources and prompts\n7. Skills: a SKILL.md folder the agent loads only when a task needs it\n8. A2A: an open protocol for agents to find each other and hand off tasks\n9. Multi-Agent: focused agents, one role each, working toward one goal\n\nA model on its own just replies. Add memory, tools, tests and coordination, and it starts doing the work. Save this for your next build 📌\n\nComment AGENTIC and I'll DM you the guide (a plain example for each of the 9).\nFollow @withhammad.ai so the DM reaches you.\n\nThe headshot is an AI-generated image of me.\n\n#agenticai #aiagents #mcp #rag #aiautomation",
@@ -2351,14 +2351,14 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-10 11:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 for the owner-approved new reels"
     },
     {
       "id": "li-comedy20261023",
       "job": "comedy20261023",
       "platform": "linkedin",
-      "slot_utc": "2026-11-09T09:00:00Z",
-      "local": "2026-11-09 13:00 GST",
+      "slot_utc": "2026-11-13T10:00:00Z",
+      "local": "2026-11-13 14:00 GST",
       "keyword": "SCOPE",
       "title": "One word. 24 files?",
       "caption": "AI coding agent scope creep, as a skit: one word on a button became 24 files. My small-change checklist for any AI code change: https://withhammad.com/resources/small-change-checklist\n\nIn the skit, \"Rename this button to Start\" grows into translation support, thirty languages, a customer database, a profile, a verified email and a mail service nobody connected. The numbers are comedy props. The review habit is not:\n\n1. Name the exact element and the change.\n2. State the behavior that must stay the same.\n3. Ask for the smallest change, and an explanation before anything outside that component is touched.\n4. Inspect the diff and the rendered result.\n5. Treat unexpected new features as separate requests.\n\nA clear scope helps; it does not guarantee what the model does. That is why step 4 exists.\n\nAI avatar of me.\n\nWhat is the smallest request that turned into a much bigger change on your team?\n\n#AICoding #ScopeCreep",
@@ -2367,7 +2367,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-10 13:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "in-comedy20261023",
@@ -2389,8 +2389,8 @@
       "id": "fa-agentic-concepts",
       "job": "agentic-concepts",
       "platform": "facebook",
-      "slot_utc": "2026-11-12T10:00:00Z",
-      "local": "2026-11-12 14:00 GST",
+      "slot_utc": "2026-11-16T16:00:00Z",
+      "local": "2026-11-16 20:00 GST",
       "keyword": "AGENTIC",
       "title": "9 agentic AI concepts every builder should know",
       "caption": "What is agentic AI, really? These are the 9 building blocks inside an AI agent, explained in one line each:\n\nMemory & State · Orchestration · RAG · Harness · Evals · MCP · Skills · A2A · Multi-Agent\n\nA model on its own only answers. Memory, tools, evals and coordination turn it into a system that does work. MCP connects an agent to tools and data; A2A connects agents to each other. Skills and RAG both bring in knowledge only when the task needs it.\n\nFree guide with a plain example for each of the 9: https://withhammad.com/resources/agentic-ai-concepts\n\nFollow With Hammad AI for a new AI build every week, each with a free guide.\n\nThe headshot is an AI-generated image of me.\n\n#AgenticAI #AIAgents",
@@ -2399,14 +2399,14 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-10 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 for the owner-approved new reels"
     },
     {
       "id": "yo-fef5b7f3b5af",
       "job": "fef5b7f3b5af",
       "platform": "youtube",
-      "slot_utc": "2026-11-08T08:00:00Z",
-      "local": "2026-11-08 12:00 GST",
+      "slot_utc": "2026-11-13T06:00:00Z",
+      "local": "2026-11-13 10:00 GST",
       "keyword": "BRAND",
       "title": "Claude motion graphics: clone a brand look, then animate it one line at a time",
       "caption": "Claude Code motion graphics: clone a brand's look into one style file, then make 16 animations from it.\nFree guide: https://withhammad.com/resources/claude-motion-graphics\n\nClone the look (once): grab the free style-file prompt, point Claude Code at a brand's website, and it reads the CSS and writes one style file (colours, corners, shadow, easing).\nThen animate: paste the motion brief under the style file, add one line per scene (one object, one change), and open the HTML file it writes in your browser.\nEach animation is one HTML file: a seamless 6-second loop with no libraries and no After Effects.\nCopy a brand's colours, corners and motion only, never its logo, name or paid font. This set was measured from Stripe's public CSS and uses the free Inter font. Not affiliated with Stripe. Made in Claude Code, not Claude Motion.\n\nTested 2026-10-18: the style values were measured in stripe.com's public CSS.\nSources: https://code.claude.com/docs/en/overview\n\nSaw \"Comment BRAND\"? YouTube has no DMs, so the guide is linked above: the style-file prompt, the motion brief and all 16 scene lines.\nSubscribe for more AI builds.\nByline photo: AI avatar of me.\n#Shorts #ClaudeCode #MotionGraphics",
@@ -2415,7 +2415,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-10 16:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "fa-comedy20261023",
@@ -2437,8 +2437,8 @@
       "id": "li-fef5b7f3b5af",
       "job": "fef5b7f3b5af",
       "platform": "linkedin",
-      "slot_utc": "2026-11-10T05:00:00Z",
-      "local": "2026-11-10 09:00 GST",
+      "slot_utc": "2026-11-13T13:00:00Z",
+      "local": "2026-11-13 17:00 GST",
       "keyword": "BRAND",
       "title": "Claude motion graphics: clone a brand look, then animate it one line at a time",
       "caption": "Claude Code motion graphics from a brand's own CSS: one style file (a mini design system), then 16 animations, one line each.\n\nFree guide with the style-file prompt, the motion brief and all 16 scene lines: https://withhammad.com/resources/claude-motion-graphics\n\nBrief Claude with adjectives (\"clean\", \"premium\", \"modern\") and it has to guess, so every result looks different.\n\nGive it the brand's real CSS values instead: colours, corner radii, shadow and easing curve, measured from the public website and written into one style file of under 40 lines. That is how these 16 Stripe-style loops were made (colours and motion only; not affiliated with Stripe).\n\nClone the look (once):\n1. Grab the free style-file prompt (link above).\n2. Point Claude Code at the brand's website.\n3. It reads the CSS and writes one style file.\n\nThen animate:\n4. Paste the motion brief under the style file.\n5. Add one line per scene: one object, one change.\n6. Open the HTML file it writes in your browser.\n\nEach animation is its own HTML file and a seamless 6-second loop, with no libraries and no After Effects. Made in Claude Code, not Claude Motion.\n\nWhat it copies: colours, corners and motion. What it never copies: the logo, the brand name or the paid font (Stripe's Söhne is licensed, so the file uses the free Inter).\n\nByline photo: AI avatar of me.\n\nWhich brand's look would you clone first?\n\n#ClaudeCode #MotionGraphics #DesignSystems",
@@ -2447,7 +2447,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-11 09:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "in-fef5b7f3b5af",
@@ -2469,8 +2469,8 @@
       "id": "li-harness-engineering",
       "job": "harness-engineering",
       "platform": "linkedin",
-      "slot_utc": "2026-11-10T09:00:00Z",
-      "local": "2026-11-10 13:00 GST",
+      "slot_utc": "2026-11-14T06:00:00Z",
+      "local": "2026-11-14 10:00 GST",
       "keyword": "HARNESS",
       "title": "Harness engineering: the layer that makes an AI agent reliable",
       "caption": "Harness engineering: why AI agents fail in real work even when the model is fine.\n\nWhen an agent breaks, people blame the model. Often the system around it is the problem.\n\nFree guide, a checklist for each layer: https://withhammad.com/resources/harness-engineering\n\nEveryone chases smarter agents:\nA bigger model.\nA better prompt.\nMore context.\n\nThe harness is everything around the model that keeps the agent dependable.\n\nThe model suggests what to do.\nThe harness decides how, and whether, it happens.\n\n1/ Context Builder\n→ The docs and data that matter\n→ What's already been said and done\n→ Where the task stands right now\nSkip this and the model fills the gaps with guesses.\n\n2/ The Model\nIt reasons, picks a tool, suggests an action.\nIt can also make things up, misread an instruction or loop on the same step.\nA strong model helps. It doesn't make the result safe.\n\n3/ Permission Check\n→ May it read this data?\n→ May it change this record?\n→ Does a human need to sign off first?\nThat call belongs to your system, not the model.\n\n4/ Tools & Runtime\nAPIs. Databases. CRMs. MCP servers.\nGive each tool only the access the task needs. Then one wrong decision stays a small one.\n\n5/ Verification\n→ Did the payment really go through?\n→ Is the right record updated?\n→ Do the tests pass?\nThe model can say it worked. Your system has to show it.\n\n6/ Observability & Feedback\nLog every tool call. Record the errors. Count the retries.\nFeed what you learn back into the system.\nA failure you can see is a failure you can fix.\n\nThe short version: the model comes up with options. The harness turns them into actions, inside clear rules, and checks the result instead of trusting the reply.\n\nThat's the gap between a good demo and an AI product people can rely on.\n\nMy free guide, with a checklist for each layer and an audit prompt: https://withhammad.com/resources/harness-engineering\n\n♻️ Repost if someone on your team keeps blaming the model.\n➕ Follow Hammad Yousuf for more on AI agents.\n\nDiagram: my own version of a ByteByteGo-style harness visual.\n\nWhich layer is weakest in the agent you're building right now?\n\n#AIAgents #AgenticAI #HarnessEngineering",
@@ -2479,7 +2479,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-11 13:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "in-harness-engineering",
@@ -2549,8 +2549,8 @@
       "id": "li-d24ed130c3d9",
       "job": "d24ed130c3d9",
       "platform": "linkedin",
-      "slot_utc": "2026-11-11T05:00:00Z",
-      "local": "2026-11-11 09:00 GST",
+      "slot_utc": "2026-11-14T10:00:00Z",
+      "local": "2026-11-14 14:00 GST",
       "keyword": "AGENT",
       "title": "Dubai's Create AI Agents Championship: $150,000 per winning AI agent, how to enter",
       "caption": "Dubai AI Agents Championship registration is open: a USD 150,000 grant for each of 4 winning AI agents. Free, worldwide, no technical background needed.\nHow to register: https://withhammad.com/resources/dubai-ai-agents-championship\n\nThe Create AI Agents Championship is run by the Dubai Chamber of Digital Economy and was launched on 7 Oct 2026 by H.H. Sheikh Hamdan bin Mohammed, Crown Prince of Dubai. The brief: pick a real problem and build an AI agent that solves it.\n\nPer the official page (checked 1 Nov 2026):\n- 4 categories: Societal, Personal, Business, Youth (lead applicant under 21)\n- USD 150,000 grant per category winner\n- One winner is also named Dubai AI Agent of the Year, with extra funding\n- USD 750,000 in grants in total\n- Free, worldwide, no minimum age, solo or teams of up to 6\n- Registration closes January 2027 (exact day not published yet)\n\nFine print: you submit a prototype, a pitch deck and a demo video. Winners need a Dubai trade licence to receive the prize, and finalists attend the Grand Final in Dubai.\n\nFor UAE founders and marketers, the Business category is the natural fit: AI agents for business that chase invoices, screen tenders or resolve support tickets end to end.\n\nMy guide (registration steps, category picker, 10-question idea checklist): https://withhammad.com/resources/dubai-ai-agents-championship\n\nAI avatar of me. Not affiliated with Dubai Chamber.\n\nWhich category would you enter: Societal, Personal, Business or Youth?\n\n#AIAgents #Dubai #AgenticAI",
@@ -2559,7 +2559,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-12 09:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "in-d24ed130c3d9",
@@ -2581,8 +2581,8 @@
       "id": "li-anatomy20261027",
       "job": "anatomy20261027",
       "platform": "linkedin",
-      "slot_utc": "2026-11-11T09:00:00Z",
-      "local": "2026-11-11 13:00 GST",
+      "slot_utc": "2026-11-14T16:00:00Z",
+      "local": "2026-11-14 20:00 GST",
       "keyword": "BRIEF",
       "title": "The 8 parts of a Claude Motion prompt: write 7 once, rewrite only the scene",
       "caption": "Claude Motion prompt: write 7 parts once, rewrite only the scene. A motion graphics prompt written from scratch leaves gaps, and Claude fills every gap with its defaults.\n\nThe full 8-part brief is free here: https://withhammad.com/resources/claude-motion-prompt\n\nParts 1 to 7 are written once: quality bar, format, one rule, look, motion, never, self-check. Part 8, the scene, is the only line you rewrite: one object, one change.\n\nSet it up once:\n1. Open a new chat on claude.ai and pick Output, then Motion.\n2. Paste the brief.\n3. Swap the orange bits: size, length, colours.\n\nThen for every animation:\n4. Write the scene in one line.\n5. Send it and let Claude build it.\n6. Preview it and ask for small fixes in the chat.\n7. Click Export and choose MP4.\n\nClaude Motion is in beta on Team and Enterprise plans. Not on one of those? Paste the same brief into Claude Code and ask for one HTML file. That is how the Publish button in this video was built.\n\nAI avatar of me.\n\nWhich scene would you write first?\n\n#ClaudeAI #MotionGraphics #PromptEngineering",
@@ -2591,7 +2591,7 @@
       "collaborators": null,
       "status": "pending",
       "moved_from": "2026-11-12 13:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
     },
     {
       "id": "in-anatomy20261027",
