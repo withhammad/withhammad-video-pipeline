@@ -1,0 +1,1596 @@
+{
+ "frames": 2077,
+ "fps": 30,
+ "units": [
+  {
+   "kind": "hook",
+   "from": 0,
+   "to": 169
+  },
+  {
+   "kind": "twist",
+   "from": 169,
+   "to": 378
+  },
+  {
+   "kind": "step1",
+   "from": 378,
+   "to": 697
+  },
+  {
+   "kind": "step2",
+   "from": 697,
+   "to": 1009
+  },
+  {
+   "kind": "step3",
+   "from": 1009,
+   "to": 1282
+  },
+  {
+   "kind": "step4",
+   "from": 1282,
+   "to": 1667
+  },
+  {
+   "kind": "guard",
+   "from": 1667,
+   "to": 1873
+  },
+  {
+   "kind": "payoff",
+   "from": 1873,
+   "to": 1981
+  },
+  {
+   "kind": "cta",
+   "from": 1981,
+   "to": 2077
+  }
+ ],
+ "shots": [
+  {
+   "kind": "wide",
+   "from": 0
+  },
+  {
+   "kind": "cuC",
+   "from": 170
+  },
+  {
+   "kind": "cuH",
+   "from": 240
+  },
+  {
+   "kind": "wide",
+   "from": 292
+  },
+  {
+   "kind": "cuC",
+   "from": 378
+  },
+  {
+   "kind": "cuH",
+   "from": 566
+  },
+  {
+   "kind": "wide",
+   "from": 631
+  },
+  {
+   "kind": "cuC",
+   "from": 697
+  },
+  {
+   "kind": "cuH",
+   "from": 873
+  },
+  {
+   "kind": "wide",
+   "from": 911
+  },
+  {
+   "kind": "cuC",
+   "from": 1009
+  },
+  {
+   "kind": "cuH",
+   "from": 1139
+  },
+  {
+   "kind": "wide",
+   "from": 1183
+  },
+  {
+   "kind": "cuC",
+   "from": 1282
+  },
+  {
+   "kind": "cuH",
+   "from": 1489
+  },
+  {
+   "kind": "wide",
+   "from": 1552
+  },
+  {
+   "kind": "cuH",
+   "from": 1667
+  },
+  {
+   "kind": "wide",
+   "from": 1764
+  },
+  {
+   "kind": "cuH",
+   "from": 1873
+  },
+  {
+   "kind": "wide",
+   "from": 1921
+  }
+ ],
+ "speaking": [
+  {
+   "spk": "H",
+   "from": 8,
+   "to": 16
+  },
+  {
+   "spk": "H",
+   "from": 25,
+   "to": 28
+  },
+  {
+   "spk": "H",
+   "from": 28,
+   "to": 35
+  },
+  {
+   "spk": "H",
+   "from": 35,
+   "to": 42
+  },
+  {
+   "spk": "H",
+   "from": 42,
+   "to": 49
+  },
+  {
+   "spk": "H",
+   "from": 49,
+   "to": 70
+  },
+  {
+   "spk": "H",
+   "from": 87,
+   "to": 92
+  },
+  {
+   "spk": "H",
+   "from": 92,
+   "to": 105
+  },
+  {
+   "spk": "H",
+   "from": 105,
+   "to": 113
+  },
+  {
+   "spk": "H",
+   "from": 113,
+   "to": 120
+  },
+  {
+   "spk": "H",
+   "from": 120,
+   "to": 130
+  },
+  {
+   "spk": "H",
+   "from": 141,
+   "to": 145
+  },
+  {
+   "spk": "H",
+   "from": 145,
+   "to": 148
+  },
+  {
+   "spk": "H",
+   "from": 148,
+   "to": 154
+  },
+  {
+   "spk": "H",
+   "from": 154,
+   "to": 162
+  },
+  {
+   "spk": "C",
+   "from": 173,
+   "to": 176
+  },
+  {
+   "spk": "C",
+   "from": 176,
+   "to": 184
+  },
+  {
+   "spk": "C",
+   "from": 184,
+   "to": 195
+  },
+  {
+   "spk": "C",
+   "from": 205,
+   "to": 214
+  },
+  {
+   "spk": "C",
+   "from": 214,
+   "to": 223
+  },
+  {
+   "spk": "C",
+   "from": 223,
+   "to": 228
+  },
+  {
+   "spk": "C",
+   "from": 228,
+   "to": 234
+  },
+  {
+   "spk": "H",
+   "from": 243,
+   "to": 250
+  },
+  {
+   "spk": "H",
+   "from": 250,
+   "to": 260
+  },
+  {
+   "spk": "H",
+   "from": 260,
+   "to": 265
+  },
+  {
+   "spk": "H",
+   "from": 265,
+   "to": 277
+  },
+  {
+   "spk": "H",
+   "from": 277,
+   "to": 282
+  },
+  {
+   "spk": "H",
+   "from": 282,
+   "to": 287
+  },
+  {
+   "spk": "C",
+   "from": 295,
+   "to": 303
+  },
+  {
+   "spk": "C",
+   "from": 303,
+   "to": 307
+  },
+  {
+   "spk": "C",
+   "from": 307,
+   "to": 316
+  },
+  {
+   "spk": "C",
+   "from": 325,
+   "to": 333
+  },
+  {
+   "spk": "C",
+   "from": 333,
+   "to": 345
+  },
+  {
+   "spk": "C",
+   "from": 345,
+   "to": 350
+  },
+  {
+   "spk": "C",
+   "from": 350,
+   "to": 356
+  },
+  {
+   "spk": "C",
+   "from": 365,
+   "to": 371
+  },
+  {
+   "spk": "C",
+   "from": 381,
+   "to": 385
+  },
+  {
+   "spk": "C",
+   "from": 385,
+   "to": 401
+  },
+  {
+   "spk": "C",
+   "from": 401,
+   "to": 409
+  },
+  {
+   "spk": "C",
+   "from": 417,
+   "to": 424
+  },
+  {
+   "spk": "C",
+   "from": 424,
+   "to": 433
+  },
+  {
+   "spk": "C",
+   "from": 433,
+   "to": 437
+  },
+  {
+   "spk": "C",
+   "from": 437,
+   "to": 441
+  },
+  {
+   "spk": "C",
+   "from": 441,
+   "to": 448
+  },
+  {
+   "spk": "C",
+   "from": 448,
+   "to": 460
+  },
+  {
+   "spk": "C",
+   "from": 460,
+   "to": 468
+  },
+  {
+   "spk": "C",
+   "from": 468,
+   "to": 482
+  },
+  {
+   "spk": "C",
+   "from": 491,
+   "to": 495
+  },
+  {
+   "spk": "C",
+   "from": 495,
+   "to": 500
+  },
+  {
+   "spk": "C",
+   "from": 500,
+   "to": 507
+  },
+  {
+   "spk": "C",
+   "from": 507,
+   "to": 517
+  },
+  {
+   "spk": "C",
+   "from": 517,
+   "to": 527
+  },
+  {
+   "spk": "C",
+   "from": 527,
+   "to": 539
+  },
+  {
+   "spk": "C",
+   "from": 539,
+   "to": 544
+  },
+  {
+   "spk": "C",
+   "from": 544,
+   "to": 547
+  },
+  {
+   "spk": "C",
+   "from": 547,
+   "to": 555
+  },
+  {
+   "spk": "H",
+   "from": 569,
+   "to": 574
+  },
+  {
+   "spk": "H",
+   "from": 574,
+   "to": 581
+  },
+  {
+   "spk": "H",
+   "from": 581,
+   "to": 587
+  },
+  {
+   "spk": "H",
+   "from": 587,
+   "to": 597
+  },
+  {
+   "spk": "H",
+   "from": 597,
+   "to": 604
+  },
+  {
+   "spk": "H",
+   "from": 604,
+   "to": 607
+  },
+  {
+   "spk": "H",
+   "from": 607,
+   "to": 612
+  },
+  {
+   "spk": "H",
+   "from": 612,
+   "to": 620
+  },
+  {
+   "spk": "C",
+   "from": 634,
+   "to": 638
+  },
+  {
+   "spk": "C",
+   "from": 638,
+   "to": 645
+  },
+  {
+   "spk": "C",
+   "from": 645,
+   "to": 652
+  },
+  {
+   "spk": "C",
+   "from": 652,
+   "to": 673
+  },
+  {
+   "spk": "C",
+   "from": 685,
+   "to": 691
+  },
+  {
+   "spk": "C",
+   "from": 700,
+   "to": 709
+  },
+  {
+   "spk": "C",
+   "from": 709,
+   "to": 716
+  },
+  {
+   "spk": "C",
+   "from": 716,
+   "to": 724
+  },
+  {
+   "spk": "C",
+   "from": 724,
+   "to": 741
+  },
+  {
+   "spk": "C",
+   "from": 755,
+   "to": 756
+  },
+  {
+   "spk": "C",
+   "from": 756,
+   "to": 762
+  },
+  {
+   "spk": "C",
+   "from": 762,
+   "to": 768
+  },
+  {
+   "spk": "C",
+   "from": 768,
+   "to": 772
+  },
+  {
+   "spk": "C",
+   "from": 772,
+   "to": 785
+  },
+  {
+   "spk": "C",
+   "from": 798,
+   "to": 800
+  },
+  {
+   "spk": "C",
+   "from": 800,
+   "to": 806
+  },
+  {
+   "spk": "C",
+   "from": 806,
+   "to": 812
+  },
+  {
+   "spk": "C",
+   "from": 812,
+   "to": 820
+  },
+  {
+   "spk": "C",
+   "from": 820,
+   "to": 826
+  },
+  {
+   "spk": "C",
+   "from": 826,
+   "to": 829
+  },
+  {
+   "spk": "C",
+   "from": 829,
+   "to": 834
+  },
+  {
+   "spk": "C",
+   "from": 834,
+   "to": 838
+  },
+  {
+   "spk": "C",
+   "from": 838,
+   "to": 841
+  },
+  {
+   "spk": "C",
+   "from": 841,
+   "to": 846
+  },
+  {
+   "spk": "C",
+   "from": 846,
+   "to": 853
+  },
+  {
+   "spk": "C",
+   "from": 853,
+   "to": 862
+  },
+  {
+   "spk": "H",
+   "from": 876,
+   "to": 882
+  },
+  {
+   "spk": "H",
+   "from": 882,
+   "to": 888
+  },
+  {
+   "spk": "H",
+   "from": 888,
+   "to": 899
+  },
+  {
+   "spk": "C",
+   "from": 914,
+   "to": 919
+  },
+  {
+   "spk": "C",
+   "from": 919,
+   "to": 931
+  },
+  {
+   "spk": "C",
+   "from": 931,
+   "to": 939
+  },
+  {
+   "spk": "C",
+   "from": 939,
+   "to": 945
+  },
+  {
+   "spk": "C",
+   "from": 945,
+   "to": 957
+  },
+  {
+   "spk": "C",
+   "from": 967,
+   "to": 972
+  },
+  {
+   "spk": "C",
+   "from": 972,
+   "to": 985
+  },
+  {
+   "spk": "C",
+   "from": 985,
+   "to": 993
+  },
+  {
+   "spk": "C",
+   "from": 993,
+   "to": 1000
+  },
+  {
+   "spk": "C",
+   "from": 1012,
+   "to": 1017
+  },
+  {
+   "spk": "C",
+   "from": 1017,
+   "to": 1024
+  },
+  {
+   "spk": "C",
+   "from": 1024,
+   "to": 1029
+  },
+  {
+   "spk": "C",
+   "from": 1029,
+   "to": 1033
+  },
+  {
+   "spk": "C",
+   "from": 1033,
+   "to": 1043
+  },
+  {
+   "spk": "C",
+   "from": 1043,
+   "to": 1058
+  },
+  {
+   "spk": "C",
+   "from": 1068,
+   "to": 1074
+  },
+  {
+   "spk": "C",
+   "from": 1074,
+   "to": 1085
+  },
+  {
+   "spk": "C",
+   "from": 1085,
+   "to": 1092
+  },
+  {
+   "spk": "C",
+   "from": 1092,
+   "to": 1099
+  },
+  {
+   "spk": "C",
+   "from": 1099,
+   "to": 1107
+  },
+  {
+   "spk": "C",
+   "from": 1107,
+   "to": 1111
+  },
+  {
+   "spk": "C",
+   "from": 1111,
+   "to": 1116
+  },
+  {
+   "spk": "C",
+   "from": 1116,
+   "to": 1128
+  },
+  {
+   "spk": "H",
+   "from": 1142,
+   "to": 1146
+  },
+  {
+   "spk": "H",
+   "from": 1146,
+   "to": 1151
+  },
+  {
+   "spk": "H",
+   "from": 1151,
+   "to": 1156
+  },
+  {
+   "spk": "H",
+   "from": 1156,
+   "to": 1161
+  },
+  {
+   "spk": "H",
+   "from": 1161,
+   "to": 1166
+  },
+  {
+   "spk": "H",
+   "from": 1166,
+   "to": 1174
+  },
+  {
+   "spk": "C",
+   "from": 1186,
+   "to": 1189
+  },
+  {
+   "spk": "C",
+   "from": 1189,
+   "to": 1203
+  },
+  {
+   "spk": "C",
+   "from": 1216,
+   "to": 1221
+  },
+  {
+   "spk": "C",
+   "from": 1221,
+   "to": 1231
+  },
+  {
+   "spk": "C",
+   "from": 1231,
+   "to": 1251
+  },
+  {
+   "spk": "C",
+   "from": 1258,
+   "to": 1263
+  },
+  {
+   "spk": "C",
+   "from": 1263,
+   "to": 1267
+  },
+  {
+   "spk": "C",
+   "from": 1267,
+   "to": 1277
+  },
+  {
+   "spk": "C",
+   "from": 1285,
+   "to": 1292
+  },
+  {
+   "spk": "C",
+   "from": 1292,
+   "to": 1300
+  },
+  {
+   "spk": "C",
+   "from": 1300,
+   "to": 1305
+  },
+  {
+   "spk": "C",
+   "from": 1305,
+   "to": 1309
+  },
+  {
+   "spk": "C",
+   "from": 1309,
+   "to": 1320
+  },
+  {
+   "spk": "C",
+   "from": 1335,
+   "to": 1335
+  },
+  {
+   "spk": "C",
+   "from": 1335,
+   "to": 1344
+  },
+  {
+   "spk": "C",
+   "from": 1344,
+   "to": 1353
+  },
+  {
+   "spk": "C",
+   "from": 1353,
+   "to": 1361
+  },
+  {
+   "spk": "C",
+   "from": 1361,
+   "to": 1367
+  },
+  {
+   "spk": "C",
+   "from": 1367,
+   "to": 1372
+  },
+  {
+   "spk": "C",
+   "from": 1372,
+   "to": 1377
+  },
+  {
+   "spk": "C",
+   "from": 1377,
+   "to": 1383
+  },
+  {
+   "spk": "C",
+   "from": 1383,
+   "to": 1391
+  },
+  {
+   "spk": "C",
+   "from": 1391,
+   "to": 1400
+  },
+  {
+   "spk": "C",
+   "from": 1400,
+   "to": 1412
+  },
+  {
+   "spk": "C",
+   "from": 1419,
+   "to": 1425
+  },
+  {
+   "spk": "C",
+   "from": 1425,
+   "to": 1431
+  },
+  {
+   "spk": "C",
+   "from": 1431,
+   "to": 1439
+  },
+  {
+   "spk": "C",
+   "from": 1439,
+   "to": 1445
+  },
+  {
+   "spk": "C",
+   "from": 1452,
+   "to": 1457
+  },
+  {
+   "spk": "C",
+   "from": 1457,
+   "to": 1463
+  },
+  {
+   "spk": "C",
+   "from": 1463,
+   "to": 1470
+  },
+  {
+   "spk": "C",
+   "from": 1470,
+   "to": 1476
+  },
+  {
+   "spk": "C",
+   "from": 1476,
+   "to": 1482
+  },
+  {
+   "spk": "H",
+   "from": 1492,
+   "to": 1500
+  },
+  {
+   "spk": "H",
+   "from": 1500,
+   "to": 1504
+  },
+  {
+   "spk": "H",
+   "from": 1504,
+   "to": 1512
+  },
+  {
+   "spk": "H",
+   "from": 1512,
+   "to": 1521
+  },
+  {
+   "spk": "H",
+   "from": 1521,
+   "to": 1530
+  },
+  {
+   "spk": "H",
+   "from": 1530,
+   "to": 1533
+  },
+  {
+   "spk": "H",
+   "from": 1533,
+   "to": 1541
+  },
+  {
+   "spk": "C",
+   "from": 1555,
+   "to": 1561
+  },
+  {
+   "spk": "C",
+   "from": 1561,
+   "to": 1565
+  },
+  {
+   "spk": "C",
+   "from": 1565,
+   "to": 1574
+  },
+  {
+   "spk": "C",
+   "from": 1585,
+   "to": 1593
+  },
+  {
+   "spk": "C",
+   "from": 1593,
+   "to": 1602
+  },
+  {
+   "spk": "C",
+   "from": 1602,
+   "to": 1618
+  },
+  {
+   "spk": "C",
+   "from": 1630,
+   "to": 1636
+  },
+  {
+   "spk": "C",
+   "from": 1636,
+   "to": 1645
+  },
+  {
+   "spk": "C",
+   "from": 1645,
+   "to": 1655
+  },
+  {
+   "spk": "H",
+   "from": 1670,
+   "to": 1681
+  },
+  {
+   "spk": "H",
+   "from": 1691,
+   "to": 1698
+  },
+  {
+   "spk": "H",
+   "from": 1698,
+   "to": 1703
+  },
+  {
+   "spk": "H",
+   "from": 1703,
+   "to": 1706
+  },
+  {
+   "spk": "H",
+   "from": 1706,
+   "to": 1712
+  },
+  {
+   "spk": "H",
+   "from": 1712,
+   "to": 1727
+  },
+  {
+   "spk": "H",
+   "from": 1736,
+   "to": 1747
+  },
+  {
+   "spk": "C",
+   "from": 1767,
+   "to": 1778
+  },
+  {
+   "spk": "C",
+   "from": 1778,
+   "to": 1793
+  },
+  {
+   "spk": "C",
+   "from": 1793,
+   "to": 1809
+  },
+  {
+   "spk": "C",
+   "from": 1809,
+   "to": 1810
+  },
+  {
+   "spk": "C",
+   "from": 1810,
+   "to": 1820
+  },
+  {
+   "spk": "C",
+   "from": 1828,
+   "to": 1830
+  },
+  {
+   "spk": "C",
+   "from": 1830,
+   "to": 1840
+  },
+  {
+   "spk": "C",
+   "from": 1848,
+   "to": 1851
+  },
+  {
+   "spk": "C",
+   "from": 1851,
+   "to": 1857
+  },
+  {
+   "spk": "C",
+   "from": 1857,
+   "to": 1860
+  },
+  {
+   "spk": "C",
+   "from": 1860,
+   "to": 1867
+  },
+  {
+   "spk": "H",
+   "from": 1876,
+   "to": 1883
+  },
+  {
+   "spk": "H",
+   "from": 1892,
+   "to": 1897
+  },
+  {
+   "spk": "H",
+   "from": 1897,
+   "to": 1906
+  },
+  {
+   "spk": "H",
+   "from": 1906,
+   "to": 1910
+  },
+  {
+   "spk": "H",
+   "from": 1910,
+   "to": 1916
+  },
+  {
+   "spk": "C",
+   "from": 1924,
+   "to": 1937
+  },
+  {
+   "spk": "C",
+   "from": 1944,
+   "to": 1952
+  },
+  {
+   "spk": "C",
+   "from": 1952,
+   "to": 1958
+  },
+  {
+   "spk": "C",
+   "from": 1958,
+   "to": 1964
+  }
+ ],
+ "beats": {
+  "hook": {
+   "card": 35,
+   "zero": 120,
+   "hired": 154
+  },
+  "twist": {
+   "div": 265
+  },
+  "step1": {
+   "seven": 424,
+   "forty": 517,
+   "lanes": 569,
+   "wrong": 607,
+   "yes": 685
+  },
+  "step2": {
+   "download": 700,
+   "connections": 724,
+   "sort": 755,
+   "check": 798,
+   "months": 846,
+   "why": 876,
+   "teams": 939,
+   "meetings": 993
+  },
+  "step3": {
+   "paste": 1012,
+   "four": 1111,
+   "how": 1142,
+   "posts": 1186,
+   "rocket": 1216,
+   "analyst": 1267
+  },
+  "step4": {
+   "sara": 1285,
+   "threads": 1344,
+   "beg": 1431,
+   "ask": 1452,
+   "notasking": 1492,
+   "point": 1555,
+   "q": 1585,
+   "r1": 1602,
+   "r2": 1630,
+   "ref": 1645
+  },
+  "guard": {
+   "send": 1691,
+   "auto": 1736,
+   "bans": 1767,
+   "write": 1809,
+   "you": 1828,
+   "few": 1848
+  },
+  "payoff": {
+   "wait": 1876,
+   "type": 1892,
+   "currently": 1924,
+   "open": 1944
+  },
+  "cta": {
+   "from": 1981
+  }
+ },
+ "captions": [
+  {
+   "text": "Claude!",
+   "from": 8,
+   "spk": "H",
+   "to": 25
+  },
+  {
+   "text": "I sent two",
+   "from": 25,
+   "spk": "H",
+   "to": 42
+  },
+  {
+   "text": "hundred applications.",
+   "from": 42,
+   "spk": "H",
+   "to": 87
+  },
+  {
+   "text": "My flatmate Omar",
+   "from": 87,
+   "spk": "H",
+   "to": 113
+  },
+  {
+   "text": "sent zero,",
+   "from": 113,
+   "spk": "H",
+   "to": 141
+  },
+  {
+   "text": "and he got hired!",
+   "from": 141,
+   "spk": "H",
+   "to": 173
+  },
+  {
+   "text": "He didn't apply.",
+   "from": 173,
+   "spk": "C",
+   "to": 205
+  },
+  {
+   "text": "Someone pulled him in.",
+   "from": 205,
+   "spk": "C",
+   "to": 243
+  },
+  {
+   "text": "Omar can't even",
+   "from": 243,
+   "spk": "H",
+   "to": 265
+  },
+  {
+   "text": "center a div!",
+   "from": 265,
+   "spk": "H",
+   "to": 295
+  },
+  {
+   "text": "Didn't need to.",
+   "from": 295,
+   "spk": "C",
+   "to": 325
+  },
+  {
+   "text": "Someone vouched for him.",
+   "from": 325,
+   "spk": "C",
+   "to": 365
+  },
+  {
+   "text": "Watch.",
+   "from": 365,
+   "spk": "C",
+   "to": 381
+  },
+  {
+   "text": "In Jobvite's data,",
+   "from": 381,
+   "spk": "C",
+   "to": 417
+  },
+  {
+   "text": "only seven in a",
+   "from": 417,
+   "spk": "C",
+   "to": 441
+  },
+  {
+   "text": "hundred applicants were referrals.",
+   "from": 441,
+   "spk": "C",
+   "to": 491
+  },
+  {
+   "text": "But they got",
+   "from": 491,
+   "spk": "C",
+   "to": 507
+  },
+  {
+   "text": "almost 40%",
+   "from": 507,
+   "spk": "C",
+   "to": 539
+  },
+  {
+   "text": "of the hires.",
+   "from": 539,
+   "spk": "C",
+   "to": 569
+  },
+  {
+   "text": "So I've been standing",
+   "from": 569,
+   "spk": "H",
+   "to": 597
+  },
+  {
+   "text": "in the wrong line?",
+   "from": 597,
+   "spk": "H",
+   "to": 634
+  },
+  {
+   "text": "For 200 applications.",
+   "from": 634,
+   "spk": "C",
+   "to": 685
+  },
+  {
+   "text": "Yes.",
+   "from": 685,
+   "spk": "C",
+   "to": 700
+  },
+  {
+   "text": "Download your LinkedIn connections.",
+   "from": 700,
+   "spk": "C",
+   "to": 755
+  },
+  {
+   "text": "I sort out",
+   "from": 755,
+   "spk": "C",
+   "to": 768
+  },
+  {
+   "text": "the managers.",
+   "from": 768,
+   "spk": "C",
+   "to": 798
+  },
+  {
+   "text": "You check who started",
+   "from": 798,
+   "spk": "C",
+   "to": 820
+  },
+  {
+   "text": "a new role in",
+   "from": 820,
+   "spk": "C",
+   "to": 838
+  },
+  {
+   "text": "the last 3 months.",
+   "from": 838,
+   "spk": "C",
+   "to": 876
+  },
+  {
+   "text": "Why new managers?",
+   "from": 876,
+   "spk": "H",
+   "to": 914
+  },
+  {
+   "text": "New managers build",
+   "from": 914,
+   "spk": "C",
+   "to": 939
+  },
+  {
+   "text": "new teams.",
+   "from": 939,
+   "spk": "C",
+   "to": 967
+  },
+  {
+   "text": "Old managers build meetings.",
+   "from": 967,
+   "spk": "C",
+   "to": 1012
+  },
+  {
+   "text": "Then paste in",
+   "from": 1012,
+   "spk": "C",
+   "to": 1029
+  },
+  {
+   "text": "their recent posts.",
+   "from": 1029,
+   "spk": "C",
+   "to": 1068
+  },
+  {
+   "text": "Most people lean towards",
+   "from": 1068,
+   "spk": "C",
+   "to": 1099
+  },
+  {
+   "text": "one of four styles.",
+   "from": 1099,
+   "spk": "C",
+   "to": 1142
+  },
+  {
+   "text": "How do you",
+   "from": 1142,
+   "spk": "H",
+   "to": 1156
+  },
+  {
+   "text": "know which one?",
+   "from": 1156,
+   "spk": "H",
+   "to": 1186
+  },
+  {
+   "text": "Their posts.",
+   "from": 1186,
+   "spk": "C",
+   "to": 1216
+  },
+  {
+   "text": "5 rocket emojis?",
+   "from": 1216,
+   "spk": "C",
+   "to": 1258
+  },
+  {
+   "text": "Not an analyst.",
+   "from": 1258,
+   "spk": "C",
+   "to": 1285
+  },
+  {
+   "text": "Say Sara is",
+   "from": 1285,
+   "spk": "C",
+   "to": 1305
+  },
+  {
+   "text": "an analyst.",
+   "from": 1305,
+   "spk": "C",
+   "to": 1335
+  },
+  {
+   "text": "She posts long threads",
+   "from": 1335,
+   "spk": "C",
+   "to": 1361
+  },
+  {
+   "text": "on how her team",
+   "from": 1361,
+   "spk": "C",
+   "to": 1383
+  },
+  {
+   "text": "ships AI apps.",
+   "from": 1383,
+   "spk": "C",
+   "to": 1419
+  },
+  {
+   "text": "So you don't beg.",
+   "from": 1419,
+   "spk": "C",
+   "to": 1452
+  },
+  {
+   "text": "You ask about",
+   "from": 1452,
+   "spk": "C",
+   "to": 1470
+  },
+  {
+   "text": "her work.",
+   "from": 1470,
+   "spk": "C",
+   "to": 1492
+  },
+  {
+   "text": "That's not even asking",
+   "from": 1492,
+   "spk": "H",
+   "to": 1521
+  },
+  {
+   "text": "for a referral!",
+   "from": 1521,
+   "spk": "H",
+   "to": 1555
+  },
+  {
+   "text": "That's the point.",
+   "from": 1555,
+   "spk": "C",
+   "to": 1585
+  },
+  {
+   "text": "Questions get replies.",
+   "from": 1585,
+   "spk": "C",
+   "to": 1630
+  },
+  {
+   "text": "Replies get referrals.",
+   "from": 1630,
+   "spk": "C",
+   "to": 1670
+  },
+  {
+   "text": "Okay.",
+   "from": 1670,
+   "spk": "H",
+   "to": 1691
+  },
+  {
+   "text": "Send it to",
+   "from": 1691,
+   "spk": "H",
+   "to": 1706
+  },
+  {
+   "text": "every manager.",
+   "from": 1706,
+   "spk": "H",
+   "to": 1736
+  },
+  {
+   "text": "Automatically.",
+   "from": 1736,
+   "spk": "H",
+   "to": 1767
+  },
+  {
+   "text": "LinkedIn bans bots.",
+   "from": 1767,
+   "spk": "C",
+   "to": 1809
+  },
+  {
+   "text": "I write,",
+   "from": 1809,
+   "spk": "C",
+   "to": 1828
+  },
+  {
+   "text": "you send.",
+   "from": 1828,
+   "spk": "C",
+   "to": 1848
+  },
+  {
+   "text": "A few a day.",
+   "from": 1848,
+   "spk": "C",
+   "to": 1876
+  },
+  {
+   "text": "Wait.",
+   "from": 1876,
+   "spk": "H",
+   "to": 1892
+  },
+  {
+   "text": "Which type am I?",
+   "from": 1892,
+   "spk": "H",
+   "to": 1924
+  },
+  {
+   "text": "Currently?",
+   "from": 1924,
+   "spk": "C",
+   "to": 1944
+  },
+  {
+   "text": "Open to work.",
+   "from": 1944,
+   "spk": "C",
+   "to": 1975
+  }
+ ],
+ "voiceEnd": 1975,
+ "take": false,
+ "standin": true
+}
