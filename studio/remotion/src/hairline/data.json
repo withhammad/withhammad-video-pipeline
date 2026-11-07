@@ -1,0 +1,896 @@
+{
+ "frames": 807,
+ "fps": 30,
+ "units": [
+  {
+   "id": "U01",
+   "layout": "split_hdr",
+   "from": 0,
+   "to": 109,
+   "rec": "R01p_hook_storm_pointer",
+   "recAt": 0.5,
+   "rate": 1.0,
+   "url": "hairline.lucasmarkes.com/skill/hairline-storm.html",
+   "push": true,
+   "holdsLast": false
+  },
+  {
+   "id": "U02",
+   "layout": "split_hdr",
+   "from": 109,
+   "to": 153,
+   "rec": "R02_prompt_storm",
+   "recAt": 3.62,
+   "rate": 1.0,
+   "url": "hairline.lucasmarkes.com/skills",
+   "vblurIn": 4,
+   "holdsLast": false
+  },
+  {
+   "id": "U03",
+   "layout": "github",
+   "from": 153,
+   "to": 238,
+   "rec": "R03_repo_mit_light",
+   "recAt": 0.25,
+   "rate": 1.0,
+   "url": "github.com/lucasmarkes/hairline",
+   "settle": 1.08,
+   "segB": {
+    "from": 201,
+    "recAt": 3.36,
+    "rate": 1.0,
+    "vblur": 4
+   },
+   "holdsLast": false
+  },
+  {
+   "id": "U04",
+   "layout": "split",
+   "from": 238,
+   "to": 275,
+   "rec": "R04a_skills_intro",
+   "recAt": 0.69,
+   "rate": 1.0,
+   "url": "hairline.lucasmarkes.com/skills",
+   "holdsLast": false
+  },
+  {
+   "id": "U05",
+   "layout": "split_tall",
+   "from": 275,
+   "to": 328,
+   "rec": "R04b_rules_outline_light",
+   "recAt": 0.85,
+   "rate": 1.0,
+   "url": "github.com/lucasmarkes/hairline/blob/main/skills/hairline-create/rules.md",
+   "whipIn": 8,
+   "segB": {
+    "from": 287,
+    "recAt": 48.06
+   },
+   "crop": [
+    40,
+    1060
+   ],
+   "circles": {
+    "at": 289,
+    "stagger": 3,
+    "cx": 165,
+    "cy": [
+     360,
+     424,
+     488,
+     552
+    ],
+    "rx": 36,
+    "ry": 24
+   },
+   "marker": {
+    "at": 310,
+    "x0": 140,
+    "x1": 620,
+    "y0": 920,
+    "y1": 952
+   },
+   "holdsLast": false
+  },
+  {
+   "id": "U06a",
+   "layout": "dark",
+   "from": 328,
+   "to": 355,
+   "rec": "R05_use_concepts",
+   "recAt": 3.39,
+   "rate": 1.0,
+   "url": "hairline.lucasmarkes.com/skills",
+   "settle": 1.12,
+   "holdsLast": false
+  },
+  {
+   "id": "U06b",
+   "layout": "dark",
+   "from": 355,
+   "to": 383,
+   "rec": "R05_use_concepts",
+   "recAt": 5.93,
+   "rate": 1.0,
+   "url": "hairline.lucasmarkes.com/skills",
+   "vblurIn": 4,
+   "holdsLast": false
+  },
+  {
+   "id": "U06c",
+   "layout": "dark",
+   "from": 383,
+   "to": 457,
+   "rec": "R05_use_concepts",
+   "recAt": 8.19,
+   "rate": 1.0,
+   "url": "hairline.lucasmarkes.com/skills",
+   "vblurIn": 4,
+   "holdsLast": false
+  },
+  {
+   "id": "U07",
+   "layout": "dark",
+   "from": 457,
+   "to": 491,
+   "rec": "R10_real_run_light",
+   "recAt": 2.13,
+   "rate": 2.0,
+   "url": "file:///\u2026/hairline-lead-to-call.html",
+   "whipIn": 6,
+   "holdsLast": false
+  },
+  {
+   "id": "U08",
+   "layout": "dark",
+   "from": 491,
+   "to": 526,
+   "rec": "R06_build_check",
+   "recAt": 2.29,
+   "rate": 1.0,
+   "url": "hairline.lucasmarkes.com/skills",
+   "holdsLast": false
+  },
+  {
+   "id": "U09",
+   "layout": "split",
+   "from": 526,
+   "to": 594,
+   "rec": "R08_onefile",
+   "recAt": 0.774,
+   "rate": 1.185,
+   "url": "hairline.lucasmarkes.com/skills",
+   "holdsLast": false
+  },
+  {
+   "id": "U10",
+   "layout": "split",
+   "from": 594,
+   "to": 695,
+   "rec": "R09_landing_embed",
+   "recAt": 0.495,
+   "rate": 1.25,
+   "url": "file:///\u2026/landing_embed.html",
+   "panIn": 6,
+   "cursor": [
+    [
+     623,
+     463,
+     372
+    ],
+    [
+     631,
+     540,
+     418
+    ],
+    [
+     658,
+     540,
+     418
+    ],
+    [
+     680,
+     749,
+     565
+    ]
+   ],
+   "holdsLast": false
+  },
+  {
+   "id": "U11",
+   "layout": "face",
+   "from": 695,
+   "to": 807
+  }
+ ],
+ "caps": [
+  {
+   "from": 0,
+   "to": 31,
+   "words": [
+    {
+     "t": "Make",
+     "at": 0,
+     "s": ""
+    },
+    {
+     "t": "Claude",
+     "at": 17,
+     "s": ""
+    },
+    {
+     "t": "Code",
+     "at": 26,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 31,
+   "to": 38,
+   "words": [
+    {
+     "t": "draw",
+     "at": 31,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 38,
+   "to": 58,
+   "words": [
+    {
+     "t": "line",
+     "at": 38,
+     "s": "s"
+    },
+    {
+     "t": "animations",
+     "at": 46,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 58,
+   "to": 77,
+   "words": [
+    {
+     "t": "that",
+     "at": 58,
+     "s": ""
+    },
+    {
+     "t": "come",
+     "at": 65,
+     "s": ""
+    },
+    {
+     "t": "alive",
+     "at": 71,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 77,
+   "to": 91,
+   "words": [
+    {
+     "t": "under",
+     "at": 77,
+     "s": ""
+    },
+    {
+     "t": "your",
+     "at": 85,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 91,
+   "to": 109,
+   "words": [
+    {
+     "t": "cursor,",
+     "at": 91,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 109,
+   "to": 126,
+   "words": [
+    {
+     "t": "starting",
+     "at": 109,
+     "s": ""
+    },
+    {
+     "t": "from",
+     "at": 116,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 126,
+   "to": 153,
+   "words": [
+    {
+     "t": "one",
+     "at": 126,
+     "s": "s"
+    },
+    {
+     "t": "sentence!",
+     "at": 133,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 153,
+   "to": 178,
+   "words": [
+    {
+     "t": "It's",
+     "at": 153,
+     "s": ""
+    },
+    {
+     "t": "Hairline,",
+     "at": 158,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 178,
+   "to": 182,
+   "words": [
+    {
+     "t": "free",
+     "at": 178,
+     "s": "n"
+    }
+   ]
+  },
+  {
+   "from": 182,
+   "to": 201,
+   "words": [
+    {
+     "t": "and",
+     "at": 182,
+     "s": ""
+    },
+    {
+     "t": "open",
+     "at": 185,
+     "s": ""
+    },
+    {
+     "t": "source,",
+     "at": 191,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 201,
+   "to": 238,
+   "words": [
+    {
+     "t": "by",
+     "at": 201,
+     "s": ""
+    },
+    {
+     "t": "Lucas",
+     "at": 211,
+     "s": "s"
+    },
+    {
+     "t": "Marques,",
+     "at": 219,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 238,
+   "to": 251,
+   "words": [
+    {
+     "t": "and",
+     "at": 238,
+     "s": ""
+    },
+    {
+     "t": "its",
+     "at": 241,
+     "s": ""
+    },
+    {
+     "t": "skill",
+     "at": 247,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 251,
+   "to": 275,
+   "words": [
+    {
+     "t": "teaches",
+     "at": 251,
+     "s": ""
+    },
+    {
+     "t": "your",
+     "at": 260,
+     "s": ""
+    },
+    {
+     "t": "agent",
+     "at": 268,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 275,
+   "to": 285,
+   "words": [
+    {
+     "t": "10",
+     "at": 275,
+     "s": "n"
+    }
+   ]
+  },
+  {
+   "from": 285,
+   "to": 302,
+   "words": [
+    {
+     "t": "design",
+     "at": 285,
+     "s": "s"
+    },
+    {
+     "t": "rules",
+     "at": 294,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 302,
+   "to": 310,
+   "words": [
+    {
+     "t": "behind",
+     "at": 302,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 310,
+   "to": 328,
+   "words": [
+    {
+     "t": "this",
+     "at": 310,
+     "s": ""
+    },
+    {
+     "t": "style.",
+     "at": 318,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 328,
+   "to": 333,
+   "words": [
+    {
+     "t": "Type",
+     "at": 328,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 333,
+   "to": 355,
+   "words": [
+    {
+     "t": "your",
+     "at": 333,
+     "s": "s"
+    },
+    {
+     "t": "idea,",
+     "at": 341,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 355,
+   "to": 364,
+   "words": [
+    {
+     "t": "say",
+     "at": 355,
+     "s": ""
+    },
+    {
+     "t": "a",
+     "at": 359,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 364,
+   "to": 383,
+   "words": [
+    {
+     "t": "sales",
+     "at": 364,
+     "s": "s"
+    },
+    {
+     "t": "funnel,",
+     "at": 369,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 383,
+   "to": 396,
+   "words": [
+    {
+     "t": "and",
+     "at": 383,
+     "s": ""
+    },
+    {
+     "t": "it",
+     "at": 386,
+     "s": ""
+    },
+    {
+     "t": "pitches",
+     "at": 390,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 396,
+   "to": 415,
+   "words": [
+    {
+     "t": "two",
+     "at": 396,
+     "s": "n"
+    },
+    {
+     "t": "or",
+     "at": 405,
+     "s": "n"
+    },
+    {
+     "t": "three",
+     "at": 408,
+     "s": "n"
+    }
+   ]
+  },
+  {
+   "from": 415,
+   "to": 435,
+   "words": [
+    {
+     "t": "concepts.",
+     "at": 415,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 435,
+   "to": 457,
+   "words": [
+    {
+     "t": "Choose",
+     "at": 435,
+     "s": "s"
+    },
+    {
+     "t": "one,",
+     "at": 443,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 457,
+   "to": 470,
+   "words": [
+    {
+     "t": "and",
+     "at": 457,
+     "s": ""
+    },
+    {
+     "t": "it",
+     "at": 459,
+     "s": ""
+    },
+    {
+     "t": "builds",
+     "at": 463,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 470,
+   "to": 491,
+   "words": [
+    {
+     "t": "the",
+     "at": 470,
+     "s": ""
+    },
+    {
+     "t": "figure,",
+     "at": 477,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 491,
+   "to": 509,
+   "words": [
+    {
+     "t": "then",
+     "at": 491,
+     "s": ""
+    },
+    {
+     "t": "tests",
+     "at": 497,
+     "s": ""
+    },
+    {
+     "t": "it",
+     "at": 505,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 509,
+   "to": 526,
+   "words": [
+    {
+     "t": "in",
+     "at": 509,
+     "s": ""
+    },
+    {
+     "t": "a",
+     "at": 512,
+     "s": ""
+    },
+    {
+     "t": "browser.",
+     "at": 515,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 526,
+   "to": 535,
+   "words": [
+    {
+     "t": "You",
+     "at": 526,
+     "s": ""
+    },
+    {
+     "t": "get",
+     "at": 530,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 535,
+   "to": 565,
+   "words": [
+    {
+     "t": "one",
+     "at": 535,
+     "s": "s"
+    },
+    {
+     "t": "HTML",
+     "at": 544,
+     "s": "s"
+    },
+    {
+     "t": "file",
+     "at": 554,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 565,
+   "to": 579,
+   "words": [
+    {
+     "t": "with",
+     "at": 565,
+     "s": ""
+    },
+    {
+     "t": "no",
+     "at": 572,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 579,
+   "to": 594,
+   "words": [
+    {
+     "t": "dependencies,",
+     "at": 579,
+     "s": "s"
+    }
+   ]
+  },
+  {
+   "from": 594,
+   "to": 619,
+   "words": [
+    {
+     "t": "to",
+     "at": 594,
+     "s": ""
+    },
+    {
+     "t": "embed",
+     "at": 607,
+     "s": ""
+    },
+    {
+     "t": "on",
+     "at": 614,
+     "s": ""
+    }
+   ]
+  },
+  {
+   "from": 619,
+   "to": 650,
+   "words": [
+    {
+     "t": "a",
+     "at": 619,
+     "s": "g"
+    },
+    {
+     "t": "landing",
+     "at": 622,
+     "s": "G"
+    },
+    {
+     "t": "page,",
+     "at": 629,
+     "s": "G"
+    }
+   ]
+  },
+  {
+   "from": 650,
+   "to": 673,
+   "words": [
+    {
+     "t": "your",
+     "at": 650,
+     "s": "g"
+    },
+    {
+     "t": "docs",
+     "at": 656,
+     "s": "G"
+    }
+   ]
+  },
+  {
+   "from": 673,
+   "to": 722,
+   "words": [
+    {
+     "t": "or",
+     "at": 673,
+     "s": "g"
+    },
+    {
+     "t": "a",
+     "at": 677,
+     "s": "g"
+    },
+    {
+     "t": "demo.",
+     "at": 680,
+     "s": "G"
+    }
+   ]
+  },
+  {
+   "from": 722,
+   "to": 745,
+   "words": [
+    {
+     "t": "and",
+     "at": 722,
+     "s": ""
+    },
+    {
+     "t": "I'll",
+     "at": 726,
+     "s": ""
+    },
+    {
+     "t": "DM",
+     "at": 734,
+     "s": ""
+    },
+    {
+     "t": "you",
+     "at": 740,
+     "s": ""
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "comment": 695,
+  "lines": 704,
+  "dm": 734,
+  "punchOut": 734
+ },
+ "presenter": {
+  "w": 1080,
+  "h": 1920,
+  "hair_top": 240,
+  "head_w": 493,
+  "cx": 543
+ },
+ "headerTo": 153,
+ "keyword": "LINES",
+ "guideUrl": "withhammad.com/resources/hairline-line-animations"
+}

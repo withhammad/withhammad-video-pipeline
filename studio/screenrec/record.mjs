@@ -3,7 +3,7 @@
 // what it shows (Page.startScreencast), then builds a constant-frame-rate MP4 with ffmpeg.
 // Never touches the owner's own Chrome, tabs or screen: fresh profile, logged out, headless.
 //
-//   node record.mjs plan.json            plan = {url, out, width?, height?, scale?, fps?, cursor?, actions:[...]}
+//   node record.mjs plan.json            plan = {url, out, width?, height?, scale?, fps?, cursor?, colorScheme?, actions:[...]}
 //
 // Actions (run in order):
 //   {"wait": ms}
@@ -139,6 +139,8 @@ async function run() {
   await cdp.send('Page.enable');
   await cdp.send('Runtime.enable');
   await cdp.send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: SCALE, mobile: false });
+  // plan.colorScheme "light" | "dark": pin prefers-color-scheme (headless Chrome otherwise follows the Mac's appearance)
+  if (plan.colorScheme) await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: plan.colorScheme }] });
   await cdp.send('Page.addScriptToEvaluateOnNewDocument', { source: HELPERS });
   // Headless Chrome announces itself as HeadlessChrome; some sites then serve a different page.
   const ua = (await cdp.send('Browser.getVersion')).userAgent.replace('HeadlessChrome', 'Chrome');
