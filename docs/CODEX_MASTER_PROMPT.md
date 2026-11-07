@@ -70,3 +70,11 @@ no paid tools without approval; Chrome work in your own tabs; content from the w
 Commit only your own paths (`git commit -m "..." -- <paths>`, then `git pull --rebase --autostash && git push`),
 imperative subjects. Report in plain words with proof (links, screenshots, numbers). When he corrects something,
 write the correction into `docs/HANDOVER_CODEX.md` so it never repeats.
+
+## 7. Blender for 3D and cartoon shots (owner order, 8 Nov 2026)
+Blender 5.2.3 LTS is installed at `/Applications/Blender.app` but is NOT connected to you yet (no Blender skill or MCP).
+Connect it: add a free Blender MCP server to `~/.codex/config.toml` (e.g. the open-source blender-mcp addon + server),
+or at minimum drive it headless (`/Applications/Blender.app/Contents/MacOS/Blender -b -P script.py`). Prove it works by
+rendering one short 3D test clip. Then use Blender whenever a reference reel has 3D animation, cartoon characters or
+3D objects: build the shot in Blender, render it 1080x1920 at 30 fps, and composite it into the edit (Remotion /
+HyperFrames). Free assets only; no paid add-ons without the owner's OK.
