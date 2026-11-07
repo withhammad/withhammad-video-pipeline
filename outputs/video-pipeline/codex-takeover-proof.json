@@ -668,13 +668,85 @@
   "limitations": [
     "Signed empty webhook events validate routing and signatures, not recipient delivery.",
     "Resource rule coverage uses production main source and live URL checks.",
-    "LinkedIn shows authwall; authenticated browser reply verification incomplete.",
-    "No Instagram outbound guide link found in latest 9 conversations, up to 10 messages each."
+    "No Instagram outbound guide link found in latest 9 conversations, up to 10 messages each.",
+    "LinkedIn, X and TikTok identities are now verified in existing Chrome; a fresh keyword reply has not yet been delivered/read back in this check."
   ],
   "decisions": {
     "chamber": "Look 1 approved for one take",
     "growth": "Matching look rerender approved at approximately 38 credits",
     "dots": "Rejected duplicate per owner",
-    "phone": "Owner performs QR pairing"
-  }
+    "phone": "Owner performs QR pairing",
+    "browser": "Owner existing Google Chrome only, task-owned tabs; no separate browser or profile."
+  },
+  "browser_verification": {
+    "verified_at": "2026-11-07T19:25:47.743730+00:00",
+    "method": "Google Chrome AppleScript and DOM, existing owner profile",
+    "linkedin": {
+      "profile": "https://www.linkedin.com/in/withhammad/",
+      "evidence": "Feed own-profile links and recent activity show Hammad Yousuf, You"
+    },
+    "x": {
+      "profile": "https://x.com/HammadYousufAI",
+      "evidence": "AppTabBar_Profile_Link points to /HammadYousufAI"
+    },
+    "tiktok": {
+      "profile": "https://www.tiktok.com/@withhammad",
+      "evidence": "Own profile shows Edit profile and Promote post"
+    },
+    "heygen": {
+      "verified_at": "2026-11-07T19:25:47.743730+00:00",
+      "account": "hammadbhat126@gmail.com",
+      "plan": "Pro",
+      "credits_remaining": 416,
+      "avatar_name": "HAMMAD YOUSUF",
+      "browser": "existing Google Chrome",
+      "mcp_account_matches": false,
+      "note": "Connected MCP is a different account with zero premium credits. Use the verified paid browser account for these approved takes."
+    },
+    "new_reply_delivery_verified": false
+  },
+  "automations_current": [
+    {
+      "id": "withhammad-content-refill",
+      "status": "ACTIVE",
+      "rrule": "FREQ=DAILY;BYHOUR=7;BYMINUTE=30",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "id": "withhammad-linkedin-keyword-replies",
+      "status": "ACTIVE",
+      "rrule": "FREQ=DAILY;BYHOUR=7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23;BYMINUTE=0,30",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "id": "withhammad-repost-queue-run-due",
+      "status": "ACTIVE",
+      "rrule": "FREQ=DAILY;BYHOUR=9,10,11,12,13,14,15,16,17,18,19,20,21;BYMINUTE=3",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "id": "withhammad-tiktok-keyword-replies",
+      "status": "ACTIVE",
+      "rrule": "FREQ=DAILY;BYHOUR=7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23;BYMINUTE=40",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "id": "withhammad-x-keyword-replies",
+      "status": "ACTIVE",
+      "rrule": "FREQ=DAILY;BYHOUR=7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23;BYMINUTE=10",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    },
+    {
+      "id": "withhammad-youtube-keyword-replies",
+      "status": "ACTIVE",
+      "rrule": "FREQ=DAILY;BYHOUR=7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23;BYMINUTE=15,45",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high"
+    }
+  ]
 }

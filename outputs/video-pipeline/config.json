@@ -73,7 +73,18 @@
       "secrets_file": "work/.secrets/studio.env (studio/set_secret.sh NAME; never pasted in chat)",
       "cli": "studio/.venv/bin/python -m app.voice status | synth --script script.txt --out <job>/cut-audio.wav",
       "output": "cut-audio.wav 48 kHz mono + voice.json (provider, cost) + words.json/words.js (faster-whisper small)",
-      "status_2026_11_01": "code + 18 tests; local lane verified live; ELEVENLABS_API_KEY / FISH_API_KEY / FISH_VOICE_ID not yet in studio.env"
+      "status_2026_11_01": "code + 18 tests; local lane verified live; ELEVENLABS_API_KEY / FISH_API_KEY / FISH_VOICE_ID not yet in studio.env",
+      "superseded_by": "docs/CODEX_MASTER_PROMPT.md section 2, owner 7 Nov 2026: only HAMMAD YOUSUF clone in paid HeyGen account; no other TTS for him."
+    },
+    "production_browser": {
+      "verified_at": "2026-11-07T19:25:47.743730+00:00",
+      "account": "hammadbhat126@gmail.com",
+      "plan": "Pro",
+      "credits_remaining": 416,
+      "avatar_name": "HAMMAD YOUSUF",
+      "browser": "existing Google Chrome",
+      "mcp_account_matches": false,
+      "note": "Connected MCP is a different account with zero premium credits. Use the verified paid browser account for these approved takes."
     }
   },
   "publishing": {
@@ -286,7 +297,7 @@
     "verification_note": "Logged in; Free-plan limit popup on the dashboard; still bound to @with.hammad, @withhammad.ai not connected as a channel",
     "replaced_by": "own Instagram keyword-DM webhook (withhammad.com/api/instagram/webhook), 2026-10-31"
   },
-  "browser_preference": "Google Chrome",
+  "browser_preference": "Owner existing Google Chrome window/profile, task-owned tabs; no separate Chromium/GStack or new profile (owner 7 Nov 2026)",
   "scheduler_scope": {
     "automation_id": "publish-approved-projects-and-jobkit-reels",
     "jobs": [
@@ -485,13 +496,13 @@
     ]
   },
   "keyword_delivery_verification": {
-    "checked_at": "2026-11-07T19:12:30.730587+00:00",
+    "checked_at": "2026-11-07T19:25:47.743730+00:00",
     "instagram": "identity, subscription and signed webhook verified; recipient link delivery unverified",
     "facebook": "identity, subscription, signed webhook and existing outbound guide message verified",
     "youtube": "channel identity and six existing link replies verified; live scan 500 threads, no new eligible comments",
-    "linkedin": "blocked at authentication wall",
-    "x": "authenticated reply unverified",
-    "tiktok": "authenticated reply unverified",
+    "linkedin": "correct /in/withhammad account authenticated in existing Chrome; live comment scan and new reply verification pending",
+    "x": "correct @HammadYousufAI account authenticated in existing Chrome; recent visible posts have zero replies; full scan and reply verification pending",
+    "tiktok": "correct @withhammad account authenticated in existing Chrome (own Edit profile shown); comment scan and reply verification pending",
     "proof": "outputs/video-pipeline/codex-takeover-proof.json"
   }
 }
