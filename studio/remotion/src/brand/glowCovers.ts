@@ -50,6 +50,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '762cf7fb383a', date: 'awaiting approval', title: 'Chamber AI Hub: Dubai Chambers launches an AI agent marketplace for Dubai businesses', cover: c('AI Agent Store', 'Now in Dubai', LOGO.uaeText, LOGO.aiText)},
   {job: '7f7f39548dd4', date: 'awaiting approval', title: '77 game-dev skills: Claude Code builds full games in Unreal, Unity, Godot and web', cover: c('Build Full Games', 'Inside Claude', LOGO.claude, LOGO.gamepad)},
   {job: 'e5c7bfbcd56c', date: 'awaiting approval', title: 'Hairline: Claude Code draws line animations that come alive under your cursor (free, MIT)', cover: c('Interactive', 'Line Animations', LOGO.claude,
     {mask: g('hairline-trays.svg'), color: '#FFFFFF', bg: 'linear-gradient(160deg, #1E3A66 0%, #0A1630 100%)', glow: '#9FD3FF', fit: 0.7})},

@@ -1,0 +1,131 @@
+{
+ "frames": 1823,
+ "fps": 30,
+ "units": [
+  {
+   "kind": "hook",
+   "from": 0,
+   "to": 165
+  },
+  {
+   "kind": "press",
+   "from": 165,
+   "to": 352
+  },
+  {
+   "kind": "ready",
+   "from": 352,
+   "to": 503
+  },
+  {
+   "kind": "agents22",
+   "from": 503,
+   "to": 766
+  },
+  {
+   "kind": "face",
+   "from": 766,
+   "to": 785
+  },
+  {
+   "kind": "plan100",
+   "from": 785,
+   "to": 868
+  },
+  {
+   "kind": "site",
+   "from": 868,
+   "to": 1025
+  },
+  {
+   "kind": "sandbox",
+   "from": 1025,
+   "to": 1145
+  },
+  {
+   "kind": "face",
+   "from": 1145,
+   "to": 1205
+  },
+  {
+   "kind": "paid",
+   "from": 1205,
+   "to": 1314
+  },
+  {
+   "kind": "face",
+   "from": 1314,
+   "to": 1428
+  },
+  {
+   "kind": "hosted",
+   "from": 1428,
+   "to": 1560
+  },
+  {
+   "kind": "endcard",
+   "from": 1560,
+   "to": 1698
+  },
+  {
+   "kind": "cta",
+   "from": 1698,
+   "to": 1823
+  }
+ ],
+ "beats": {
+  "hook": [
+   53,
+   105
+  ],
+  "press": 261,
+  "ready": [
+   394,
+   459
+  ],
+  "tags": [
+   622,
+   644,
+   662,
+   688,
+   708,
+   722,
+   738
+  ],
+  "plan100": [
+   803,
+   839
+  ],
+  "site": [
+   883,
+   929,
+   971,
+   1002
+  ],
+  "sandbox": [
+   1115,
+   1165
+  ],
+  "paid": [
+   1234,
+   1281
+  ],
+  "face_langs": [
+   1332,
+   1387
+  ],
+  "hosted": [
+   1453,
+   1508
+  ],
+  "endcard": [
+   1589,
+   1623
+  ],
+  "cta": {
+   "type": 1703,
+   "dm": 1720
+  }
+ },
+ "take": true
+}
