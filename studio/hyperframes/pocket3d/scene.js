@@ -292,12 +292,12 @@
     switch (kind) {
       case 'wide': p = [lerp(0.3, 0.1, k), 1.7, lerp(11.5, 10.6, k)]; q = [0.1, 1.15, 0]; break;
       case 'wide_end': p = [lerp(0.1, 0.2, k), lerp(1.6, 1.9, k), lerp(10.2, 12.0, ease(k))]; q = [0.1, 1.05, 0]; break;
-      case 'robot_med': p = [B.x - 0.15 + k * 0.1, 0.95, B.z + lerp(3.7, 3.4, k)]; q = [B.x, 0.8, B.z]; break;
-      case 'robot_med2': p = [B.x + lerp(0.6, 0.3, k), 0.55, B.z + lerp(3.4, 3.1, k)]; q = [B.x, 0.85, B.z]; break;
+      case 'robot_med': p = [B.x - 0.55 + k * 0.1, 1.0, B.z + lerp(4.5, 4.2, k)]; q = [B.x, 0.8, B.z]; break;
+      case 'robot_med2': p = [B.x + lerp(0.8, 0.5, k), 0.5, B.z + lerp(4.1, 3.8, k)]; q = [B.x, 0.88, B.z]; break;
       case 'robot_push': { const e = easeOut(k); p = [B.x - 0.05, lerp(0.95, 0.88, e), B.z + lerp(3.3, 2.25, e)]; q = [B.x, lerp(0.8, 0.86, e), B.z]; break; }
       case 'robot_close': p = [B.x + 0.05, 0.95, B.z + lerp(3.0, 2.8, k)]; q = [B.x, 0.84, B.z]; break;
-      case 'human_close': p = [H.x + 0.12, 1.95, H.z + lerp(3.45, 3.2, k)]; q = [H.x, 1.66, H.z]; break;
-      case 'human_close34': p = [H.x + lerp(1.2, 1.0, k), 1.95, H.z + lerp(3.2, 3.0, k)]; q = [H.x + 0.05, 1.66, H.z]; break;
+      case 'human_close': p = [H.x + 0.35, 1.8, H.z + lerp(3.45, 3.25, k)]; q = [H.x, 1.66, H.z]; break;
+      case 'human_close34': p = [H.x + lerp(1.45, 1.25, k), 1.85, H.z + lerp(3.7, 3.5, k)]; q = [H.x + 0.05, 1.62, H.z]; break;
       case 'human_full': p = [H.x + 0.3, 1.3, H.z + lerp(5.0, 4.7, k)]; q = [H.x, 1.15, H.z]; break;
     }
     cam.fov = fov; cam.position.set(p[0] + noise1(t * 0.35) * 0.01, p[1] + noise1(t * 0.3 + 7) * 0.008, p[2]);
@@ -306,8 +306,8 @@
   // who looks where in each shot: close-ups face the lens, two-shots face each other
   function looks(kind) {
     if (kind === 'wide' || kind === 'wide_end') return {h: 0.55, b: -0.45};
-    if (kind.startsWith('human')) return {h: kind === 'human_close34' ? 0.2 : 0.05, b: -0.5};
-    return {h: 0.6, b: kind === 'robot_med2' ? 0.1 : -0.05};
+    if (kind.startsWith('human')) return {h: kind === 'human_close34' ? 0.2 : 0.28, b: -0.5};
+    return {h: 0.6, b: kind === 'robot_med2' ? 0.1 : kind === 'robot_med' ? -0.35 : -0.05};
   }
 
   function renderAt(t) {
@@ -346,7 +346,7 @@
     const mcs = document.querySelectorAll('#montage .mcap');
     mcs.forEach((el, i) => { const lines = el.dataset.lines.split('|'); const mk = Math.max(0, t - TL.montage[0]); el.textContent = lines[Math.min(lines.length - 1, Math.floor(mk / ((TL.montage[1] - TL.montage[0]) / lines.length)))]; });
     // fade to black at the very end (reference)
-    document.getElementById('fade').style.opacity = clamp((t - (TL.end - 0.9)) / 0.8);
+    const lastE = TL.lines[TL.lines.length - 1].e; document.getElementById('fade').style.opacity = clamp((t - (lastE + 0.05)) / 0.35);
   }
 
   window.__pocketRender = renderAt;

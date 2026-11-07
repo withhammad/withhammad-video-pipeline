@@ -69,6 +69,8 @@ export const Reel: React.FC = () => {
     <div style={{position: 'absolute', left: 0, right: 0, top: 1440, textAlign: 'center', fontFamily: FONT, fontWeight: 700, fontSize: 30, letterSpacing: 6, color: '#fff', opacity: brand * 0.9}}>WITHHAMMAD</div>
     {D.standin && <div style={{position: 'absolute', left: 0, right: 0, top: 60, display: 'flex', justifyContent: 'center'}}>
       <div style={{background: '#D32F2F', color: '#fff', fontFamily: FONT, fontWeight: 700, fontSize: 26, letterSpacing: 2, padding: '8px 20px', borderRadius: 10}}>STAND-IN VOICE · NOT FOR POSTING</div></div>}
+    {/* reference: fade to black right after the last line, black loop tail */}
+    <AbsoluteFill style={{background: '#000', opacity: interpolate(t, [D.lines[11].e + 0.05, D.lines[11].e + 0.4], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}/>
     <Audio src={staticFile('pocket3d/voice.wav')}/>
   </AbsoluteFill>;
 };
