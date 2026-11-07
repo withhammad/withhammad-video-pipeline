@@ -242,14 +242,22 @@
       "date": "2026-11-11",
       "instagram": [
         "fef5b7f3b5af",
-        "harness-engineering"
+        "harness-engineering",
+        "g2-edit-videos-guide"
       ],
       "linkedin": [
         "fef5b7f3b5af",
         "harness-engineering"
       ],
       "youtube": [
-        "harness-engineering"
+        "harness-engineering",
+        "g2-edit-videos-guide"
+      ],
+      "tiktok": [
+        "g2-edit-videos-guide"
+      ],
+      "x": [
+        "g2-edit-videos-guide"
       ]
     },
     {
@@ -274,6 +282,22 @@
       "x": [
         "990543b928c4"
       ]
+    },
+    {
+      "date": "2026-11-14",
+      "instagram": [
+        "g2-edit-prompt"
+      ],
+      "youtube": [
+        "g2-edit-prompt"
+      ],
+      "tiktok": [
+        "g2-edit-prompt"
+      ],
+      "x": [
+        "g2-edit-prompt"
+      ],
+      "note": "G2 post 2: real slots set in repost-queue.json (IG 20:00, FB 11:00, YT 16:00, TikTok/X 14:00)"
     }
   ],
   "facebook": "same reels as instagram, same day, at facebook_times",

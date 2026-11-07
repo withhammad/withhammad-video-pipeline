@@ -3942,8 +3942,8 @@
       "id": "tt-g2-edit-videos-guide",
       "job": "g2-edit-videos-guide",
       "platform": "tiktok",
-      "slot_utc": "2026-11-11T10:00:00Z",
-      "local": "2026-11-11 14:00 GST",
+      "slot_utc": "2026-11-11T13:00:00Z",
+      "local": "2026-11-11 17:00 GST",
       "keyword": "EDIT",
       "title": "How to edit videos with Claude Code: the 10-step setup (one take in, finished reel out)",
       "caption": "Claude Code video editing in 10 steps: one take in, finished reel out. Full guide: link in bio.\nWhisper stamps every word so the dead air gets cut, OpenCV keeps you in frame, Remotion adds the motion graphics, and Claude Code checks its own cut before you see it. Your notes become a skill, so each edit needs fewer notes. Needs a paid Claude plan.\nFull guide: link in bio. Follow for more AI builds.\nThe reel playing in the phone shows an AI avatar of me.\n#claudecode #aivideoediting #videoediting #videoeditingtips #aitools",
@@ -3952,7 +3952,9 @@
       "collaborators": null,
       "status": "scheduled",
       "url": "https://www.tiktok.com/tiktokstudio/content",
-      "scheduled_at": "2026-11-07T17:01:40Z"
+      "scheduled_at": "2026-11-07T17:01:40Z",
+      "moved_from": "2026-11-11 14:00 GST",
+      "note": "moved 2026-11-07 off slots other reels already hold"
     },
     {
       "id": "xx-g2-edit-videos-guide",
@@ -4016,36 +4018,40 @@
       "id": "in-g2-edit-prompt",
       "job": "g2-edit-prompt",
       "platform": "instagram",
-      "slot_utc": "2026-11-13T07:00:00Z",
-      "local": "2026-11-13 11:00 GST",
+      "slot_utc": "2026-11-14T16:00:00Z",
+      "local": "2026-11-14 20:00 GST",
       "keyword": "PROMPT",
       "title": "The Claude Code video edit prompt: 7 free installs + 1 copy-paste prompt",
       "caption": "Claude Code video editing: 7 free installs + 1 copy-paste prompt. Comment PROMPT and I'll DM you the prompt.\n\nOut of the box, Claude Code only plans an edit. Give it these and it can cut and render:\n1. Claude Code\n2. Homebrew\n3. ffmpeg + Node\n4. Whisper (word-timed transcript)\n5. OpenCV (keeps your face in frame)\n6. Remotion (graphics as code)\n7. A skill file, so you paste the prompt once\n\nThe prompt: goal, installs, folder, references, workflow, checks, notes and export. It trims your pauses, lands each graphic on its word, keeps the music under your voice and checks its own render.\n\nMost people skip number 7. Save the prompt as a skill and every note becomes a rule for the next edit.\nHonest catch: Claude Code needs a paid Claude plan.\n\nComment PROMPT and I'll DM you the copy-paste prompt.\nFollow @withhammad.ai first so the DM reaches you.\n\nThe phones in the video play reels with an AI avatar of me.\n\n#claudecode #claudeai #aivideoediting #remotion #promptengineering",
       "primary_keyword": "claude code video editing",
       "host_slug": "repost-g2-edit-prompt",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "moved_from": "2026-11-13 11:00 GST",
+      "note": "moved 2026-11-07 off slots other reels already hold"
     },
     {
       "id": "fa-g2-edit-prompt",
       "job": "g2-edit-prompt",
       "platform": "facebook",
-      "slot_utc": "2026-11-13T10:00:00Z",
-      "local": "2026-11-13 14:00 GST",
+      "slot_utc": "2026-11-14T07:00:00Z",
+      "local": "2026-11-14 11:00 GST",
       "keyword": "PROMPT",
       "title": "The Claude Code video edit prompt: 7 free installs + 1 copy-paste prompt",
       "caption": "How to edit videos with Claude Code: 7 free installs + 1 copy-paste prompt. Free prompt: https://withhammad.com/resources/claude-code-video-edit-prompt\n\nOut of the box Claude Code only plans an edit. Install Claude Code, Homebrew, ffmpeg + Node, Whisper, OpenCV and Remotion, then save this prompt as a skill file.\nThe prompt covers the goal, installs, folder, references, workflow, checks, notes and export. It trims pauses without cutting into a word, lands each graphic on its word, keeps the music 12 dB under your voice and checks its own render.\nThe catch: Claude Code needs a paid Claude plan.\n\nWhich part of your edit would you hand over first?\nFree prompt: https://withhammad.com/resources/claude-code-video-edit-prompt\nFollow With Hammad AI for more AI builds.\n\nThe phones in the video play reels with an AI avatar of me.\n\n#ClaudeCode #AIVideoEditing #Remotion",
       "primary_keyword": "claude code video editing",
       "host_slug": "repost-g2-edit-prompt",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "moved_from": "2026-11-13 14:00 GST",
+      "note": "moved 2026-11-07 off slots other reels already hold"
     },
     {
       "id": "tt-g2-edit-prompt",
       "job": "g2-edit-prompt",
       "platform": "tiktok",
-      "slot_utc": "2026-11-13T10:00:00Z",
-      "local": "2026-11-13 14:00 GST",
+      "slot_utc": "2026-11-14T10:00:00Z",
+      "local": "2026-11-14 14:00 GST",
       "keyword": "PROMPT",
       "title": "The Claude Code video edit prompt: 7 free installs + 1 copy-paste prompt",
       "caption": "Claude Code video editing: 7 free installs + 1 copy-paste prompt. Full prompt: link in bio.\nOut of the box Claude Code only plans an edit. With Homebrew, ffmpeg + Node, Whisper, OpenCV, Remotion and a skill file, this prompt has it trim pauses, time graphics to your words and check its own render. Needs a paid Claude plan.\nFull prompt: link in bio. Follow for more AI builds.\nThe phones in the video play reels with an AI avatar of me.\n#claudecode #aivideoediting #videoediting #remotion #aitools",
@@ -4054,14 +4060,16 @@
       "collaborators": null,
       "status": "scheduled",
       "url": "https://www.tiktok.com/tiktokstudio/content",
-      "scheduled_at": "2026-11-07T17:01:40Z"
+      "scheduled_at": "2026-11-07T17:01:40Z",
+      "moved_from": "2026-11-13 14:00 GST",
+      "note": "moved 2026-11-07 off slots other reels already hold"
     },
     {
       "id": "xx-g2-edit-prompt",
       "job": "g2-edit-prompt",
       "platform": "x",
-      "slot_utc": "2026-11-13T10:00:00Z",
-      "local": "2026-11-13 14:00 GST",
+      "slot_utc": "2026-11-14T10:00:00Z",
+      "local": "2026-11-14 14:00 GST",
       "keyword": "PROMPT",
       "title": "The Claude Code video edit prompt: 7 free installs + 1 copy-paste prompt",
       "caption": "Claude Code video editing: out of the box it only plans an edit.\n\n7 free installs + 1 prompt, and it trims pauses, times graphics to your words and checks its own render.\n\nFree prompt: https://withhammad.com/resources/claude-code-video-edit-prompt\n\nPhones show an AI avatar of me.\n#ClaudeCode #AIVideoEditing",
@@ -4070,21 +4078,25 @@
       "collaborators": null,
       "status": "scheduled",
       "url": "https://x.com/compose/post/unsent/scheduled",
-      "scheduled_at": "2026-11-07T16:53:54Z"
+      "scheduled_at": "2026-11-07T16:53:54Z",
+      "moved_from": "2026-11-13 14:00 GST",
+      "note": "moved 2026-11-07 off slots other reels already hold"
     },
     {
       "id": "yo-g2-edit-prompt",
       "job": "g2-edit-prompt",
       "platform": "youtube",
-      "slot_utc": "2026-11-13T12:00:00Z",
-      "local": "2026-11-13 16:00 GST",
+      "slot_utc": "2026-11-14T12:00:00Z",
+      "local": "2026-11-14 16:00 GST",
       "keyword": "PROMPT",
       "title": "The Claude Code video edit prompt: 7 free installs + 1 copy-paste prompt",
       "caption": "Claude Code video editing starts with 7 free installs and 1 copy-paste prompt: out of the box Claude Code only plans an edit, it can't cut or render one.\nFree guide: https://withhammad.com/resources/claude-code-video-edit-prompt\n\nThe 7 installs: Claude Code, Homebrew, ffmpeg + Node, Whisper, OpenCV, Remotion and a skill file.\nThe prompt has 8 parts: goal, installs, folder, references, workflow, checks, notes and export, plus fixes for when it breaks.\nWhat it tells Claude Code to do: transcribe with Whisper word timestamps, trim silences without cutting into a word, storyboard and wait for your OK, land each graphic on its word, keep a music bed 12 dB under your voice, then check its own render with a contact sheet.\nSave it as .claude/skills/edit-reel/SKILL.md so every note you give becomes a rule for the next edit.\n\nThe catch: Claude Code needs a paid Claude plan, and Remotion is free for individuals and small teams but bigger companies need a licence.\nSources: https://code.claude.com/docs/en/setup , https://code.claude.com/docs/en/skills and https://www.remotion.dev/license\nThe phones in the video play reels with an AI avatar of me.\n\nFree guide: https://withhammad.com/resources/claude-code-video-edit-prompt\nSubscribe for more AI builds: https://www.youtube.com/channel/UCJtrEDGg1R3kNe7t7PQFiEw?sub_confirmation=1\n#Shorts #ClaudeCode #AIVideoEditing",
       "primary_keyword": "claude code video editing",
       "host_slug": "repost-g2-edit-prompt",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "moved_from": "2026-11-13 16:00 GST",
+      "note": "moved 2026-11-07 off slots other reels already hold"
     }
   ]
 }
