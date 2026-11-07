@@ -58,14 +58,19 @@ const Header: React.FC<{i: number; t: number}> = ({i, t}) => {
 const PLANE_X = 410, PLANE_Y = 920;
 const planePose = (key: WorldKey, t: number, cue: number) => {
   let x = PLANE_X + Math.sin(t / 26) * 18, y = PLANE_Y + Math.sin(t / 14) * 14, r = Math.sin(t / 20) * 3, s = 1.3;
+  if (key === 'cgi') s = 1.0 + 0.45 * ease(ramp(t, 0, 110));
   if (key === 'zack' && cue > 0) {const k = ease(ramp(cue, 10, 34)); x += k * 260; y += k * 120; r += k * 14; s = 1.3 - 0.35 * k;}
   return {x, y, r, s};
 };
+// The plane; over the CGI sea it also gets its mirrored reflection on the water (horizon y 1090).
+const PlaneFx: React.FC<{k: WorldKey; t: number; p: {x: number; y: number; r: number; s: number}; extra?: number}> = ({k, t, p, extra = 1}) => <>
+  {k === 'cgi' && <div style={{position: 'absolute', left: p.x, top: 2 * 1090 - p.y - 150, opacity: 0.32, filter: 'blur(3px)', transform: `scaleY(-1) rotate(${-p.r}deg) scale(${p.s})`}}><Plane style={k} t={t}/></div>}
+  <div style={{position: 'absolute', left: p.x, top: p.y, transform: `rotate(${p.r}deg) scale(${p.s * extra})`}}><Plane style={k} t={t}/></div></>;
 export const WorldView: React.FC<{i: number; t: number; cue?: number; header?: boolean; plane?: boolean}> = ({i, t, cue = -999, header = true, plane = true}) => {
   const w = WORLDS[i], C = w.C, p = planePose(w.key, t, cue);
   return <AbsoluteFill style={{width: W, height: H, overflow: 'hidden'}}>
     <C t={t} cue={cue}/>
-    {plane && <div style={{position: 'absolute', left: p.x, top: p.y, transform: `rotate(${p.r}deg) scale(${p.s})`}}><Plane style={w.key} t={t}/></div>}
+    {plane && <PlaneFx k={w.key} t={t} p={p}/>}
     {header && <Header i={i} t={t}/>}
   </AbsoluteFill>;
 };
@@ -237,9 +242,27 @@ const EndGrid: React.FC<{f: number; at: number}> = ({f, at}) => {
   </>;
 };
 
+// Cursor that clicks the Comic Art row (reference: a cursor picks the style)
+const Cursor: React.FC<{f: number; at: number}> = ({f, at}) => {
+  const k = ease(ramp(f, at - 14, at - 2)), click = f >= at && f < at + 6;
+  const x = 520 - k * 300, y = 1300 - k * (1300 - (LIST_Y + 4 * 72 + 30));
+  return <svg width={60} height={70} viewBox="0 0 24 28" style={{position: 'absolute', left: x, top: y, transform: `scale(${click ? 0.85 : 1})`, filter: 'drop-shadow(0 4px 6px rgba(0,0,0,.3))'}}>
+    <path d="M2 2 L2 22 L7.5 17 L11 25 L14.5 23.5 L11 15.8 L18.5 15.8 Z" fill="#fff" stroke={INK} strokeWidth={1.6} strokeLinejoin="round"/></svg>;
+};
+// The plane draws an orange loop around the cards, then hands over to the navy end card (reference 65-67.7 s)
+const PlaneLoop: React.FC<{f: number; from: number; to: number}> = ({f, from, to}) => {
+  if (f < from) return null;
+  const pos = (u: number) => {const a = Math.PI * 0.9 + u * Math.PI * 2.05; return {x: 540 + 430 * Math.cos(a), y: 1000 + 470 * Math.sin(a)};};
+  const k = ease(ramp(f, from, to)), n = 60, pts = Array.from({length: n + 1}, (_, i) => pos((i / n) * k));
+  const a = pos(k), b = pos(Math.max(0, k - 0.01)), ang = Math.atan2(a.y - b.y, a.x - b.x) * 180 / Math.PI;
+  return <>
+    <svg width={W} height={H} style={{position: 'absolute', inset: 0}}><polyline points={pts.map((q) => `${q.x},${q.y}`).join(' ')} fill="none" stroke={CLAY} strokeWidth={9} strokeLinecap="round" strokeLinejoin="round"/></svg>
+    <div style={{position: 'absolute', left: a.x - 130, top: a.y - 65, transform: `rotate(${ang}deg) scale(.7)`}}><Plane style="flat" t={f}/></div></>;
+};
+
 // ------------------------------------------------------------------------------------------- main
 const worldAt = (f: number) => D.worlds.reduce((a: number, w: any, i: number) => (f >= w.from ? i : a), 0);
-const WHIP = 8;
+const WHIP = 10; // light wipe like the reference: the new world is revealed left to right behind a soft white glow band
 export const Reel: React.FC = () => {
   const f = useCurrentFrame(), U = D.units, B = D.beats;
   const inU = (k: string) => f >= U[k][0] && f < U[k][1];
@@ -256,14 +279,18 @@ export const Reel: React.FC = () => {
     const prev = i > 0 && t < WHIP ? i - 1 : -1, k = ease(t / WHIP);
     const out = ease(ramp(f, U.worlds[1] - 14, U.worlds[1])); // the last world pulls back into the phone
     const p = planePose(WORLDS[i].key, t, cue);
+    // Zack D. Films: the camera punches in on the kid once the plane lands (reference 'punch-in zoom')
+    const zz = WORLDS[i].key === 'zack' ? 1 + 0.16 * ease(ramp(cue, 30, 52)) : 1;
     const scene = <>
-      {prev >= 0 && <div style={{position: 'absolute', inset: 0, transform: `translateX(${-k * W}px)`, filter: `blur(${Math.sin(k * Math.PI) * 14}px)`}}>
-        <WorldView i={prev} t={f - D.worlds[prev].from} cue={f - D.worlds[prev].cue} plane={false}/></div>}
-      <div style={{position: 'absolute', inset: 0, transform: prev >= 0 ? `translateX(${(1 - k) * W}px)` : undefined, filter: prev >= 0 ? `blur(${Math.sin(k * Math.PI) * 14}px)` : undefined}}>
-        <WorldView i={i} t={t} cue={cue} plane={false}/></div>
-      {/* one continuous plane on top; it restyles mid-whip with a small pop */}
-      <div style={{position: 'absolute', left: p.x, top: p.y, transform: `rotate(${p.r}deg) scale(${p.s * (1 + (prev >= 0 ? 0.12 * Math.sin(k * Math.PI) : 0))})`}}>
-        <Plane style={(prev >= 0 && k < 0.5 ? WORLDS[prev] : WORLDS[i]).key} t={t}/></div>
+      {prev >= 0 && <WorldView i={prev} t={f - D.worlds[prev].from} cue={f - D.worlds[prev].cue} plane={false}/>}
+      <div style={{position: 'absolute', inset: 0, clipPath: prev >= 0 ? `inset(0 ${(1 - k) * 100}% 0 0)` : undefined,
+        transform: zz > 1 ? `scale(${zz})` : undefined, transformOrigin: '62% 64%'}}>
+        <WorldView i={i} t={t} cue={cue} plane={false}/>
+        {zz > 1 && <PlaneFx k={WORLDS[i].key} t={t} p={p}/>}</div>
+      {prev >= 0 && <div style={{position: 'absolute', top: 0, bottom: 0, left: k * W - 120, width: 240,
+        background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.85) 50%, rgba(255,255,255,0) 100%)', filter: 'blur(18px)', opacity: Math.sin(k * Math.PI)}}/>}
+      {/* one continuous plane on top; it restyles as the light band passes it */}
+      {zz <= 1 && <PlaneFx k={(prev >= 0 && k < 0.5 ? WORLDS[prev] : WORLDS[i]).key} t={t} p={p} extra={1 + (prev >= 0 ? 0.08 * Math.sin(k * Math.PI) : 0)}/>}
     </>;
     body = out > 0 ? <><Canvas/><Title f={f} at={U.worlds[1] - 14}/><Phone k={1 - out}>{scene}</Phone></> : scene;
     darkCaps = WORLDS[i].key === 'koe' || WORLDS[i].key === 'glow';
@@ -276,26 +303,27 @@ export const Reel: React.FC = () => {
     body = <><Canvas/><Title f={f} at={at - 30}/>
       <List f={f} fill={-100} checks={at} pick={B.pick} fade={Math.max(0, Math.min(1, listFade))}/>
       {f < B.pick && <><Strike f={f} at={B.noEditor} text="Video editor" y={760}/><Strike f={f} at={B.noAE} text="After Effects" y={900}/></>}
+      {f >= B.pick - 14 && f < B.paste && <Cursor f={f} at={B.pick}/>}
       {f >= B.paste && f < B.everyCode + 4 && <ClaudeCard f={f} at={B.paste}/>}
       <div style={{opacity: f >= B.everyCode ? 1 - ramp(f, B.everyCode, B.everyCode + 6) * 0.0 : 1}}>
         <Phone><div style={{opacity: building ? 0.25 + 0.75 * bk : 1}}><WorldView i={phoneWorld} t={f - at + 60} cue={building ? f - B.claudeWrites - 10 : 60}/></div>
-          {building && bk < 1 && <div style={{position: 'absolute', left: 140, right: 140, top: 1500, height: 70, borderRadius: 40, background: 'rgba(14,18,32,.82)', overflow: 'hidden'}}>
-            <div style={{width: `${bk * 100}%`, height: '100%', background: CLAY}}/>
-            <div style={{position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 40, color: '#fff'}}>Rendering… {Math.round(bk * 100)}%</div></div>}
+          {building && f < B.claudeWrites + 56 && <div style={{position: 'absolute', left: 140, right: 140, top: 1500, height: 70, borderRadius: 40, background: 'rgba(14,18,32,.82)', overflow: 'hidden'}}>
+            <div style={{width: `${bk * 100}%`, height: '100%', background: bk < 1 ? CLAY : GREEN}}/>
+            <div style={{position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 40, color: '#fff'}}>{bk < 1 ? `Building… ${Math.round(bk * 100)}%` : '✓ Done'}</div></div>}
         </Phone></div>
       {f >= B.everyCode && <CodeCard f={f} at={B.everyCode}/>}
     </>;
   } else if (inU('cta')) {
     const at = U.cta[0];
     body = <><Canvas/>
-      <div style={{position: 'absolute', top: 290, left: 0, right: 0, textAlign: 'center', fontFamily: SANS, fontWeight: 900, fontSize: 84, lineHeight: 1.05, letterSpacing: -3, color: INK, ...fadeIn(f, at - 4)}}>
-        Want all <span style={{color: CLAY}}>10 styles?</span></div>
       <CommentCard f={f} at={at}/><DmCard f={f} at={B.dm}/><PackCards f={f} at={B.pack} guide={B.guide - 6}/>
       {/* the plane carries the DM in */}
+      <PlaneLoop f={f} from={U.cta[1] - 34} to={U.cta[1]}/>
       {(() => {const k = ease(ramp(f, B.dm - 14, B.dm + 2)); return k < 1 ? <div style={{position: 'absolute', left: 1100 - k * 900, top: 640 + Math.sin(k * Math.PI) * -120, transform: 'scale(.6) rotate(-170deg) scaleY(-1)'}}><Plane style="flat" t={f}/></div> : null;})()}
     </>;
   } else if (inU('plug')) {
-    body = <Plug f={f} at={U.plug[0]}/>; darkCaps = true;
+    const ir = ease(ramp(f, U.plug[0], U.plug[0] + 10));
+    body = <><Canvas/><div style={{position: 'absolute', inset: 0, clipPath: `circle(${ir * 120}% at 50% 52%)`}}><Plug f={f} at={U.plug[0]}/></div></>; darkCaps = ir > 0.5;
   } else {
     body = <><Canvas/><EndGrid f={f} at={U.end[0]}/></>; caps = false;
   }

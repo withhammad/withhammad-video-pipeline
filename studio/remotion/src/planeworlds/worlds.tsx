@@ -129,6 +129,7 @@ export const Glow: React.FC<WorldProps> = ({t}) => {
     <g fill="#F2C14E" filter="url(#gglow)" opacity={lit}>{bridge(ox)}{bridge(ox + 1700)}</g>
     {/* reflection */}
     <g fill="#F2C14E" opacity={0.18 * lit} transform="translate(0 3460) scale(1 -1)" style={{filter: 'blur(3px)'}}>{bridge(ox)}</g>
+    {[0, 1, 2].map((k) => {const q = ((t + k * 20) % 60) / 60; return <circle key={k} cx={540} cy={985} r={90 + q * 300} fill="none" stroke="#F2C14E" strokeWidth={2.5} strokeDasharray="2 12" strokeLinecap="round" opacity={(1 - q) * 0.7 * lit}/>;})}
     {/* the glowing trail of dots behind the plane */}
     <g fill="#FFD27A" filter="url(#gglow)">{Array.from({length: 26}, (_, i) => <circle key={i} cx={470 - i * 22} cy={985 + Math.sin((t - i * 2) / 9) * 10} r={4 - i * 0.12} opacity={1 - i / 26}/>)}</g>
   </Svg></AbsoluteFill>;
@@ -243,6 +244,9 @@ export const Koe: React.FC<WorldProps> = ({t, cue = -999}) => {
       <line x1={300} y1={1318} x2={300} y2={1440}/><line x1={300} y1={1440} x2={270} y2={1555}/><line x1={300} y1={1440} x2={330} y2={1555}/>
       <line x1={300} y1={1350} x2={262} y2={1420}/><line x1={300} y1={1350} x2={355} y2={1270}/>
     </g>
+    {/* the string from his hand to the plane, drawing on */}
+    <path d={`M355 1270 Q ${380 + Math.sin(t / 26) * 9} ${1150 + Math.sin(t / 14) * 7} ${402 + Math.sin(t / 26) * 18} ${1066 + Math.sin(t / 14) * 14}`} fill="none" stroke="#fff" strokeWidth={2.4}
+      pathLength={1} strokeDasharray={1} strokeDashoffset={1 - ease(ramp(t, 14, 34))}/>
     {/* orbit drawn in dots around the plane */}
     <circle cx={540} cy={985} r={230} fill="none" stroke="#fff" strokeWidth={2.4} pathLength={1} strokeDasharray={`${orbit} 1`} transform="rotate(-90 540 985)"/>
     <circle cx={540} cy={985} r={300} fill="none" stroke="#fff" strokeWidth={2} strokeDasharray="1 18" strokeLinecap="round" opacity={orbit * 0.6}/>
@@ -280,7 +284,7 @@ const Stud: React.FC<{x: number; y: number; c: string; r?: number}> = ({x, y, c,
 const Brick: React.FC<{x: number; y: number; w: number; h: number; c: string; studs?: boolean}> = ({x, y, w, h, c, studs = true}) =>
   <g><rect x={x} y={y} width={w} height={h} fill={c}/><rect x={x} y={y} width={w} height={6} fill="rgba(255,255,255,.28)"/><rect x={x} y={y + h - 6} width={w} height={6} fill="rgba(0,0,0,.18)"/>
     {studs && Array.from({length: Math.max(1, Math.round(w / 40))}, (_, i) => <Stud key={i} x={x + (i + 0.5) * (w / Math.max(1, Math.round(w / 40)))} y={y} c={c}/>)}</g>;
-export const Lego: React.FC<WorldProps> = ({t}) => {
+export const Lego: React.FC<WorldProps> = ({t, cue = -999}) => {
   const s = t * 2.2;
   const hill = (cx: number, base: number, k: number) => [0, 1, 2, 3, 4].map((r) => <Brick key={k + '-' + r} x={cx - 260 + r * 52} y={base - (r + 1) * 46} w={520 - r * 104} h={46} c={r % 2 ? '#3FA34D' : '#48B556'}/>);
   const house = (x: number, k: number, roof: string) => <g key={k}>
@@ -294,7 +298,9 @@ export const Lego: React.FC<WorldProps> = ({t}) => {
     {Array.from({length: 7}, (_, r) => Array.from({length: 30}, (_, k) => <Stud key={r + '-' + k} x={wrap(k * 40 - s * 1.4 + (r % 2) * 20, 1200, 40)} y={1420 + r * 72} c="#36A847" r={12}/>))}
     {[0, 1, 2].map((i) => house(wrap(i * 420 + 60 - s * 1.4, 1260, 220), i, ['#D0312D', '#E8A33D', '#2F6BD8'][i]))}
     {/* a minifig-sized tower of stacked bricks */}
-    <g transform={`translate(${wrap(820 - s * 1.4, 1260, 220)} 0)`}>{['#D0312D', '#F2CD37', '#2F6BD8', '#3FA34D', '#D0312D', '#F2CD37'].map((c, i) => <Brick key={i} x={0} y={1520 - i * 44} w={80} h={44} c={c}/>)}</g>
+    <g transform={`translate(${wrap(620 - s * 1.4, 1260, 220)} 0)`}>{['#D0312D', '#F2CD37', '#2F6BD8', '#3FA34D', '#D0312D', '#F2CD37', '#2F6BD8', '#D0312D'].map((c, i) => {
+      const at = Math.max(0, cue) >= 0 && cue > -900 ? i * 5 : 0, d = cue > -900 ? ease(ramp(cue, at, at + 6)) : 1;
+      return d > 0 ? <g key={i} transform={`translate(0 ${(1 - d) * -160})`} opacity={d}><Brick x={0} y={1520 - i * 44} w={80} h={44} c={c}/></g> : null;})}</g>
   </Svg></AbsoluteFill>;
 };
 
