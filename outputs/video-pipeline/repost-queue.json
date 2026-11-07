@@ -2754,7 +2754,9 @@
       "primary_keyword": "claude code 3d animation",
       "host_slug": "repost-85fb47b66b4b",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/@withhammad/video/7705343764709035270",
+      "scheduled_at": "2026-11-07T08:31:27Z"
     },
     {
       "id": "xx-85fb47b66b4b",
@@ -2768,7 +2770,9 @@
       "primary_keyword": "claude code 3d animation",
       "host_slug": "repost-85fb47b66b4b",
       "collaborators": null,
-      "status": "pending"
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-07T08:34:49Z"
     },
     {
       "id": "yo-85fb47b66b4b",
