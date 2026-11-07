@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame} from 'remotion';
 import {Audio} from '@remotion/media';
 import {loadFont} from '@remotion/fonts';
 import data from './data.json';
@@ -61,7 +61,18 @@ const Icon: React.FC<{kind: string; size?: number}> = ({kind, size = 40}) => <di
 const Take: React.FC<{style?: React.CSSProperties}> = ({style}) => D.take
   ? <OffthreadVideo src={file('take.mp4')} muted style={{width: 1080, height: 1920, objectFit: 'cover', ...style}}/>
   : <AbsoluteFill style={{background: '#222', color: '#888', fontFamily: SANS, fontSize: 60, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>TAKE</AbsoluteFill>;
-const Face: React.FC<{u: Unit}> = ({u}) => <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
+// Voice-only lane (no lip-synced take): his cut-out on the stage with a slow push, never a face with unsynced lips.
+const Presenter: React.FC<{u: Unit; f: number}> = ({u, f}) => {
+  const n = f - u.from, k = ramp(n, 0, u.to - u.from), tight = u.framing === 'B';
+  return <Stage>
+    <AbsoluteFill style={{background: 'radial-gradient(circle 620px at 540px 760px, rgba(61,123,255,.45), rgba(11,16,32,0) 70%)'}}/>
+    <Img src={staticFile('glow/pose-B-cut.png')} style={{position: 'absolute', left: tight ? -110 : 4, top: tight ? -40 : 220, width: tight ? 1300 : 1072,
+      transform: `scale(${1 + 0.05 * k}) translateY(${-14 * k}px)`, transformOrigin: '50% 35%', filter: 'drop-shadow(0 30px 60px rgba(0,0,0,.55))'}}/>
+    <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(11,16,32,0) 55%, rgba(11,16,32,.85) 100%)'}}/>
+    <Brand/>
+  </Stage>;
+};
+const Face: React.FC<{u: Unit; f: number}> = ({u, f}) => D.presenter ? <Presenter u={u} f={f}/> : <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
   <AbsoluteFill style={{transform: u.framing === 'B' ? 'scale(1.2) translateX(-40px)' : 'scale(1.0)', transformOrigin: '50% 30%'}}><Take/></AbsoluteFill>
   <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%)'}}/>
   <Brand/>
@@ -337,7 +348,7 @@ export const Reel: React.FC = () => {
     {u.kind === 'title' ? <Title u={u} f={f}/> : null}
     {u.kind === 'family' ? <Family u={u} f={f}/> : null}
     {u.kind === 'rec' ? <Rec u={u} f={f}/> : null}
-    {u.kind === 'face' ? <Face u={u}/> : null}
+    {u.kind === 'face' ? <Face u={u} f={f}/> : null}
     {u.kind === 'map25' ? <Map25 u={u} f={f}/> : null}
     {u.kind === 'part1' ? <Part1 u={u} f={f}/> : null}
     {u.kind === 'picker' ? <Picker u={u} f={f}/> : null}
@@ -347,6 +358,6 @@ export const Reel: React.FC = () => {
     {u.kind === 'face' && !last ? <Chips f={f}/> : null}
     {last ? <Cta f={f}/> : null}
     <Captions f={f} u={u}/>
-    {D.standin ? <div style={{position: 'absolute', top: 90, right: 40, background: RED, color: '#fff', fontFamily: SANS, fontWeight: 900, fontSize: 26, padding: '8px 16px', borderRadius: 10}}>STAND-IN VOICE · NOT FOR POSTING</div> : null}
+    {D.standin && !D.clone ? <div style={{position: 'absolute', top: 90, right: 40, background: RED, color: '#fff', fontFamily: SANS, fontWeight: 900, fontSize: 26, padding: '8px 16px', borderRadius: 10}}>STAND-IN VOICE · NOT FOR POSTING</div> : null}
   </AbsoluteFill>;
 };
