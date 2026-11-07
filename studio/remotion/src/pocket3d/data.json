@@ -5,91 +5,91 @@
   {
    "text": "Claude, have you seen these 3D videos taking over Instagram?",
    "s": 0.0,
-   "e": 3.937
+   "e": 3.784
   },
   {
    "text": "Hard to miss.",
-   "s": 3.937,
-   "e": 4.952
+   "s": 3.784,
+   "e": 4.799
   },
   {
    "text": "Everyone wants to make them.",
-   "s": 4.952,
+   "s": 4.799,
    "e": 7.0
   },
   {
    "text": "And the crazy part?",
    "s": 7.0,
-   "e": 8.415
+   "e": 8.145
   },
   {
    "text": "Some creators are selling courses just to teach people how to make them.",
-   "s": 8.415,
-   "e": 12.91
+   "s": 8.145,
+   "e": 12.379
   },
   {
    "text": "Smart move.",
-   "s": 12.91,
-   "e": 13.7
+   "s": 12.379,
+   "e": 13.169
   },
   {
    "text": "People don't just want to watch these videos.",
-   "s": 13.7,
-   "e": 16.085
+   "s": 13.169,
+   "e": 15.554
   },
   {
    "text": "They want to make them too.",
-   "s": 16.085,
+   "s": 15.554,
    "e": 17.7
   },
   {
    "text": "Exactly.",
    "s": 17.7,
-   "e": 18.6
+   "e": 18.585
   },
   {
    "text": "But how do I make videos like these without spending weeks figuring everything out?",
-   "s": 18.6,
-   "e": 22.9
+   "s": 18.585,
+   "e": 23.153
   },
   {
    "text": "What if I told you there's a much simpler way?",
-   "s": 22.9,
+   "s": 23.153,
    "e": 25.9
   },
   {
    "text": "Wait.",
    "s": 25.9,
-   "e": 26.525
+   "e": 26.425
   },
   {
    "text": "You mean I can actually do this myself?",
-   "s": 26.525,
-   "e": 29.285
+   "s": 26.425,
+   "e": 28.7
   },
   {
    "text": "Yes.",
-   "s": 29.285,
-   "e": 30.03
+   "s": 28.7,
+   "e": 29.445
   },
   {
    "text": "We put together a free guide with the exact prompts and the starter project behind this video.",
-   "s": 30.03,
+   "s": 29.445,
    "e": 35.7
   },
   {
    "text": "Hold on.",
    "s": 35.7,
-   "e": 36.505
+   "e": 36.29
   },
   {
    "text": "And how do I get it?",
-   "s": 36.505,
-   "e": 37.803
+   "s": 36.29,
+   "e": 37.7
   },
   {
-   "text": "Just comment 3D below and I'll send you the guide.",
-   "s": 37.803,
+   "text": "Just comment ROBOT below and I'll send you the guide.",
+   "s": 37.7,
    "e": 40.7
   },
   {
@@ -112,74 +112,74 @@
   0.95,
   3.7
  ],
- "keyword": "3D",
+ "keyword": "ROBOT",
  "standin": false,
  "lines": [
   {
    "i": 0,
    "who": "H",
    "s": 0.0,
-   "e": 3.797
+   "e": 3.644
   },
   {
    "i": 1,
    "who": "C",
-   "s": 3.937,
-   "e": 6.673
+   "s": 3.784,
+   "e": 6.519
   },
   {
    "i": 2,
    "who": "H",
    "s": 7.0,
-   "e": 12.77
+   "e": 12.239
   },
   {
    "i": 3,
    "who": "C",
-   "s": 12.91,
-   "e": 17.174
+   "s": 12.379,
+   "e": 16.643
   },
   {
    "i": 4,
    "who": "H",
    "s": 17.7,
-   "e": 22.75
+   "e": 23.013
   },
   {
    "i": 5,
    "who": "C",
-   "s": 22.9,
-   "e": 25.31
+   "s": 23.153,
+   "e": 25.563
   },
   {
    "i": 6,
    "who": "H",
    "s": 25.9,
-   "e": 29.145
+   "e": 28.177
   },
   {
    "i": 7,
    "who": "C",
-   "s": 29.285,
-   "e": 34.406
+   "s": 28.7,
+   "e": 33.821
   },
   {
    "i": 8,
    "who": "H",
    "s": 35.7,
-   "e": 37.663
+   "e": 37.096
   },
   {
    "i": 9,
    "who": "C",
-   "s": 37.803,
-   "e": 40.508
+   "s": 37.7,
+   "e": 40.415
   },
   {
    "i": 10,
    "who": "H",
    "s": 40.7,
-   "e": 41.242
+   "e": 41.167
   },
   {
    "i": 11,
