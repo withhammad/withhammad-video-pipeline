@@ -18,9 +18,11 @@ Reference: <link>
    HeyGen. Fix the reference's flaws (blurry inserts, typos, wrong labels): ours is the polished version.
 
 3. Avatar take (owner rules 2026-10-23, 2026-11-06: real-human quality, minimum credits).
-   - Look: REUSE an approved look. Only when none fits the reference's setting, create ONE new look (Avatar >
-     Create new look > Generate with AI, portrait, photoreal room, natural light, normal clothes; never the
-     creator's logos or likeness), show the owner, wait for his OK. Never a new look per reel by default.
+   - Look (owner 2026-11-07, replaces "reuse one look"): EVERY reel gets a look that matches its reference 100 %:
+     same setting/room, lighting, framing, outfit style and pose (never the creator's likeness or logos). In HeyGen
+     (Avatar > Create new look > Generate with AI, account hammadbhat126) check the credit cost shown before generating
+     and log it in STATUS.md: if a new look is FREE, always make the matching look; if it COSTS credits, reuse the
+     closest existing look ("Professional in white shirt" or an earlier matching one) instead. Show the owner the look.
    - No face in the reference = no avatar take at all: voice only (step 4 voice lane), zero video credits.
    - Script first: final, fact-checked and read aloud for timing BEFORE any submit. Only the lines the reference
      says to camera go to HeyGen (target under 30 s, hard cap 60 s); everything else is motion graphics.
