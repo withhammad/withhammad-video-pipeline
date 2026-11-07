@@ -84,7 +84,7 @@ New reels (owner-approved, booked; each waits for its PR to be merged):
 | ANIMATE | 6a48be151b7a | Tue 10 Nov | #5 |
 | BETTER | dbedc134cc10 | Tue 10 Nov | live |
 | VOXEL | 85fb47b66b4b | 10-12 Nov | live (#15 fixes numbers) |
-| JOBS (career pages) | d463f2086d47 | 11-12 Nov | #12 (owner hasn't OK'd the 31.8 s re-cut yet) |
+| JOBS (career pages) | d463f2086d47 | HELD until the owner approves the latest 32.5 s cut (deadpan opening building to excited); then set the six entries back to pending | #12 |
 | CARTOON | 4a606d94c5cd | Thu 12 Nov | #13 |
 | PLANE | 990543b928c4 | Thu 12 Nov | live |
 | ROBOT (3D dialogue) | df71c9d45658 | Fri 13 Nov | #11 |
