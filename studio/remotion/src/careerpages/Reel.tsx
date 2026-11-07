@@ -29,16 +29,18 @@ export const fromRef = (tRef: number) => pw(tRef, 0, 1);
 const lineAt = (tNew: number) => { let cur: Line | null = null; for (const l of LINES) if (tNew >= l.start) cur = l; return cur; };
 const decay = (x: number, len: number) => (x < 0 || x > len ? 0 : 1 - ease(x / len));
 // acting per line: angry beats, excited beats (YOU); hops, wiggles and squash on Claude's lines; punch-in on every reply
-const ANGRY = new Set([1, 2, 4, 9]); const HYPED = new Set([14, 18, 21, 24]); const SHAKE = new Set([2, 9, 14, 21]);
+// owner 2026-11-07: the opening was "too aggressive" -> lines 1/2/4 are tired and deadpan (as in the reference); energy builds from line 9
+const TIRED = new Set([1, 2, 4]); const ANGRY = new Set([9]); const HYPED = new Set([14, 18, 21, 24]); const SHAKE = new Set([14, 21]);
 function act(s: ShotState, tNew: number): ShotState {
   const l = lineAt(tNew); if (!l) return s;
   const since = tNew - l.start; const env = speechNew(l.who, tNew); const hit = decay(since, 0.35);
   const out: ShotState = {...s, cam: {...s.cam, pos: [...s.cam.pos] as [number, number, number]}};
-  out.cam.fov = s.cam.fov * (1 - 0.07 * hit);
+  out.cam.fov = s.cam.fov * (1 - (TIRED.has(l.id) || l.id <= 6 ? 0.025 : 0.07) * hit);
   if (SHAKE.has(l.id) && since < l.dur) { out.cam.pos[0] += Math.sin(tNew * 47) * 0.025 * (0.4 + env); out.cam.pos[1] += Math.cos(tNew * 39) * 0.02 * (0.4 + env); }
   if (s.boy && (l.who === 'YOU' || l.who === 'CTA')) {
     const b = {...s.boy};
-    if (ANGRY.has(l.id)) { b.brow = Math.max(b.brow ?? 0, 0.85); b.headNod = (b.headNod ?? 0) + env * 0.12 + hit * 0.06; b.headTilt = (b.headTilt ?? 0) + Math.sin(tNew * 9) * env * 0.05; b.smile = Math.min(b.smile ?? 0, -0.7); }
+    if (TIRED.has(l.id)) { b.brow = -0.35; b.blink = Math.max(b.blink ?? 0, 0.45); b.headNod = (b.headNod ?? 0) + 0.06 + env * 0.03; b.smile = -0.45; }
+    if (ANGRY.has(l.id)) { b.brow = Math.max(b.brow ?? 0, 0.6); b.headNod = (b.headNod ?? 0) + env * 0.08 + hit * 0.04; b.headTilt = (b.headTilt ?? 0) + Math.sin(tNew * 9) * env * 0.05; b.smile = Math.min(b.smile ?? 0, -0.7); }
     if (HYPED.has(l.id)) { b.brow = -0.8; b.headNod = (b.headNod ?? 0) - env * 0.1 - hit * 0.08; b.headTilt = (b.headTilt ?? 0) + Math.sin(tNew * 7) * env * 0.07; b.smile = 0.8; b.blink = 0; }
     out.boy = b;
   }
