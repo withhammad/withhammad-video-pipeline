@@ -131,8 +131,8 @@
       "url": "https://www.instagram.com/reel/DedPp0ysIi0/",
       "note": "Owner pasted 2026-11-07; queued behind the one-by-one order",
       "added": "2026-11-07",
-      "status": "pending",
-      "job": null
+      "status": "in_progress",
+      "job": "3392f8abb96e"
     },
     {
       "url": "https://www.instagram.com/reel/DfScEcQh-Zh/",
@@ -178,9 +178,9 @@
     },
     {
       "url": "https://www.instagram.com/reel/DfXfZ0GPHy0/",
-      "note": "Owner pasted 2026-11-07: post tomorrow on every platform",
+      "note": "Owner pasted 2026-11-07: post tomorrow on every platform; Owner decision 2026-11-07: SKIP, duplicates the DOTS reel already posted.",
       "added": "2026-11-07",
-      "status": "in_progress",
+      "status": "rejected",
       "job": "3260bdc792c4"
     },
     {
