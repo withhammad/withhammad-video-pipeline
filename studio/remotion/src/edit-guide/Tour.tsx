@@ -31,12 +31,10 @@ export const TOUR2: TourSpec = {
   full: {cx: 540, cy: 675, k: 1},
   stops: [
     {cx: 540, cy: 190, k: 1.55, hold: 2.0},
-    {cx: 292, cy: 560, k: 1.85, hold: 3.6},
-    {cx: 292, cy: 1000, k: 1.85, hold: 3.6},
-    {cx: 786, cy: 520, k: 1.85, hold: 3.6},
-    {cx: 786, cy: 1040, k: 1.85, hold: 3.2},
+    {cx: 292, cy: 540, k: 1.85}, {cx: 292, cy: 800, k: 1.85}, {cx: 292, cy: 1050, k: 1.85},
+    {cx: 786, cy: 520, k: 1.85}, {cx: 786, cy: 780, k: 1.85}, {cx: 786, cy: 1050, k: 1.85},
   ],
-  intro: 2.6, move: 0.6, hold: 3.4, outro: 3.6,
+  intro: 2.6, move: 0.6, hold: 2.3, outro: 3.6,
 };
 export const TOUR2_S = tourLength(TOUR2);
 

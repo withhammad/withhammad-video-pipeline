@@ -26,14 +26,24 @@ export const moveStarts = (s: TourSpec) => {
 
 const ease = Easing.bezier(0.65, 0, 0.35, 1);
 
+// Slow push-in while the camera holds on a stop, so no stretch of the reel sits still (virality: a change every
+// 1.5-3 s, no flat stretch over 2 s). The next move starts from the drifted framing, so there is no jump.
+const DRIFT = 1.035;
+const drifted = (k: Stop): Stop => ({...k, k: k.k * DRIFT});
+
 const cameraAt = (s: TourSpec, t: number): Stop => {
   const keys = [s.full, ...s.stops, s.full];
   const starts = moveStarts(s);
   for (let i = 0; i < keys.length - 1; i++) {
-    if (t < starts[i]) return keys[i];
+    if (t < starts[i]) {
+      if (i === 0) return keys[0];
+      const arrive = starts[i - 1] + s.move;
+      const p = Math.min(1, Math.max(0, (t - arrive) / (starts[i] - arrive)));
+      return {...keys[i], k: keys[i].k * (1 + (DRIFT - 1) * p)};
+    }
     if (t < starts[i] + s.move) {
       const p = ease((t - starts[i]) / s.move);
-      const a = keys[i], b = keys[i + 1];
+      const a = i === 0 ? keys[i] : drifted(keys[i]), b = keys[i + 1];
       // zoom in log space so the scale change feels even
       const k = Math.exp(Math.log(a.k) + (Math.log(b.k) - Math.log(a.k)) * p);
       return {cx: a.cx + (b.cx - a.cx) * p, cy: a.cy + (b.cy - a.cy) * p, k};
