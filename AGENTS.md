@@ -1,3 +1,5 @@
+> **Handover 2026-11-07:** the current state, standing owner rules and how posting works are in `docs/HANDOVER_CODEX.md`. Read it after this file.
+
 # Agent instructions (Codex and Claude Code read this file)
 
 This repository is shared between Claude Code and Codex. Both agents must be able to pick
