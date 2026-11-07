@@ -5,7 +5,7 @@ from faster_whisper import WhisperModel
 L = json.load(open('standin/lines.json'))
 m = WhisperModel('small.en', compute_type='int8')
 out = {}
-for who, f in (('G', 'take/guy_hammad_v2.mp3'), ('C', 'take/claude_hammad.mp3')):
+for who, f in (('G', 'take/guy_hammad_v2.mp3'), ('C', 'take/claude_annie.mp3')):
     raw = subprocess.check_output(['ffmpeg', '-v', 'error', '-i', f, '-f', 'f32le', '-ac', '1', '-ar', '16000', '-'])
     segs, _ = m.transcribe(np.frombuffer(raw, np.float32), word_timestamps=True, language='en')
     ww = [w for s in segs for w in s.words]
