@@ -167,3 +167,59 @@ must not reply to the same comment: the routines record replies (`--mark`), so c
 
 Owner merges still pending: withhammad-rebuild #4 #5 #6 #7 #9 #10 #11 #12 #13 #14 #15 (#8 only after the Rubber World OK).
 After each merge: schedule that reel's TikTok and X natively (chrome-schedule.md) and `mark --scheduled`.
+
+## 8. Keyword-DM automation (every post, every platform) — no ManyChat, no paid tools
+
+Every reel/carousel ships with a comment keyword (e.g. VOXEL) and a guide page on withhammad.com/resources/<slug>.
+A comment with the keyword gets the link, the same day the post goes live.
+
+| Platform | How it works | Where |
+|---|---|---|
+| Instagram (@withhammad.ai) | Website webhook, ManyChat-style: comment keyword -> ask to follow -> "I followed" -> follow check (`is_user_follow_business`) -> DM with the link + public reply "Sent you a DM ✅". | withhammad-rebuild `src/app/api/instagram/webhook/route.ts`, rules in `src/content/dm-rules.json`. Meta app 1098576635873878 (IG app 2225240621741205), fields comments + messages. Vercel env: IG_WEBHOOK_VERIFY_TOKEN, IG_APP_SECRET, IG_USER_ID, IG_ACCESS_TOKEN (update IG_ACCESS_TOKEN whenever the IG token is refreshed). |
+| Facebook Page (With Hammad AI, 1394106800452348) | Same webhook (`object: page`): Messenger private reply with the link + comment reply. No follow check. | Same route. The app needs its own `object=page` subscription via /{app}/subscriptions. |
+| YouTube | `cd studio && .venv/bin/python -m app.youtube_keyword run` (Data API, force-ssl scope) replies to keyword comments with the link. | Routine youtube-keyword-replies. |
+| LinkedIn | Free API cannot read/write comments (403). Routine reads comments in Chrome and types the reply; `python -m app.linkedin_keyword` gives watchlist/rules/dedupe; record with `--mark`. | Routine linkedin-keyword-replies. |
+| X / TikTok | Chrome routines via `app.linkedin_keyword --platform x|tiktok` (TikTok cannot hold clickable links: reply names the path + "link in bio"). | Routines x-keyword-replies, tiktok-keyword-replies. |
+
+Adding a rule: `cd studio && .venv/bin/python -m app.dm_rules add --keyword KEY --link https://withhammad.com/resources/<slug> [--media-id ID]`
+(writes `work/site/withhammad-rebuild/src/content/dm-rules.json`; live with the next site deploy, so it rides in the
+resource-page PR). Keywords are 4-10 letters. A common word (e.g. MODELS) should be pinned to the post's media id.
+Every post that invites a keyword MUST have its rule live before it posts; the queue guard waits for the page.
+Pinned comment / description: guide link + follow/subscribe ask (YouTube links use `?sub_confirmation=1`).
+
+## 9. Runbook: what to do every time the owner pastes a reference link
+
+1. `curl -s -A "Mozilla/5.0" <link> | grep og:url` to see the creator; check `outputs/video-pipeline/reference-inbox.json`
+   and existing jobs for a duplicate TOPIC (e.g. the dots reel) and ask before spending credits on a duplicate.
+2. `cd studio && .venv/bin/python -m app.refill add "<link>" --note "Owner pasted <date>[; priority]"`; commit the inbox.
+3. Build it (one or two at a time; heavy work through `studio/heavy.sh`): `docs/PIPELINE_PROMPT.md` steps 1-6:
+   intake `studio/run_local.sh run '<link>'`, reference-breakdown, script (same beats, facts verified), matching avatar
+   look + his HeyGen voice (section 1), edit (reel skills pack, HyperFrames, Remotion), video-check, step 5b exact copy +
+   `virality.md`, glow cover (`glowCovers.ts` + `render-glow.mjs`), seo-pack. `python -m app.refill mark <link> in_progress --job <job>`.
+4. Send the owner final.mp4 + cover sheet + copy; mark `awaiting_approval`; STOP until he says OK.
+5. After OK: `python -m app.exports <job>/final.mp4`; covers 1080x1920 + 720x1280 in the job root; seo.json with
+   keyword, resource_url, researched_at, sources, Instagram follow line, no retired handles; `rq.seo_caption` passes x6.
+6. Resource page + dm rule PR on withhammad-rebuild (resource-page workflow); the OWNER merges it.
+7. Book slots at the best times (section 2): add rows to `new-reels-slot-plan.json`, run
+   `PYTHONPATH=. .venv/bin/python .local/add_new_reel.py <job>`; mark the inbox `queued`.
+8. When the page answers 200: schedule TikTok + X in Chrome (`docs/routines/chrome-schedule.md`), `mark --scheduled`.
+9. Copy final.mp4 into the owner's dated Downloads folder (`~/Downloads/<D Month>/<KEYWORD> - <title>.mp4`, covers in
+   `Thumbnails/`). After posting, verify each link and that the keyword reply fires; log 24 h / 72 h numbers in virality.md.
+
+## 10. Owner rules that lived only in Claude's memory (summary)
+
+- Polish beyond the reference while keeping its flow; reference visuals exact, logos included; only wrong facts change.
+- No "AI avatar" text on screen; branding is only WITHHAMMAD; platform AI labels and caption disclosure stay.
+- Thumbnails: click-through first, glow-grid template on every platform incl. X (first frames), strongest-emotion face
+  matching the hook, whole head inside the 3:4 / 4:5 / 1:1 crops.
+- Automation on every post (section 8); a guide page per reel and carousel; follow-first funnel.
+- SEO per platform on every post: researched caption + hashtags per platform (the queue refuses unresearched seo.json).
+- Cadence: never stop; per platform per day >= 2 reels + 1 carousel; queue 7+ days ahead; catch up the same day.
+- Carousels copy the AI Central paper template (real screenshots, curated lists); carousels go to every platform.
+- YouTube first (it pays): every video also on YouTube; pitch long-video ideas; trending sounds via the phone window.
+- Profile optimization is a standing job: audit, fix (covers too), test by searching, iterate.
+- Reels one by one (max two rendering); excited/aggressive voice; avatar real and low-credit; matching look per reel.
+- Instagram posts from @withhammad.ai with Collab invites to @with.hammad (handle has flipped with @with.hamad) and
+  @hammadagentic.ai; LinkedIn lives in Chrome "Browser 1"; LinkedIn comment API is 403 (Chrome only).
+- Dashboard artifact: https://claude.ai/artifact/YTyT4EaZJAYFWx1vZ1F165 (refreshed by `app.dashboard_data`).
+- Never ask him to paste secrets; never post, DM or schedule without his OK; no paid tools without approval.
