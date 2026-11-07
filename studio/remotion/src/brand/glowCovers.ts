@@ -49,6 +49,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'f34ba51f84d9', date: 'awaiting approval', title: '3 open-source SEO plugins for Claude Code: GSC MCP, OpenSEO, GEO Optimizer', cover: c('3 SEO Plugins', 'For Claude Code', LOGO.claude, LOGO.google)},
   {job: 'df71c9d45658', date: 'awaiting approval', title: 'Claude + Hammad 3D dialogue: how to make these 3D videos taking over Instagram', cover: c('3D Videos Are', 'Taking Over IG', LOGO.claude, {text: '3D', color: '#FFFFFF', bg: 'linear-gradient(160deg, #F58A4B 0%, #D9541C 100%)', glow: '#FF8A5B'})},
   {job: 'd463f2086d47', date: 'awaiting approval', title: 'Jobs not on LinkedIn: one Google search of Lever, Ashby and Greenhouse boards, Claude shortlists every morning (3D dialogue)', cover: c('40 Jobs', 'I Never Saw', LOGO.google, LOGO.claude)},
   {job: '33d9c1e97156', date: 'awaiting approval', title: 'Get a referral with Claude: 200 applications, 0 interviews (LinkedIn skit)', cover: c('200 Applied.', '0 Interviews', LOGO.linkedinText, LOGO.claude)},

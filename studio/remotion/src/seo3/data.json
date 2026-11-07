@@ -1,0 +1,501 @@
+{
+ "frames": 1280,
+ "fps": 30,
+ "units": [
+  {
+   "kind": "hook",
+   "from": 0,
+   "to": 85
+  },
+  {
+   "kind": "plugins",
+   "from": 85,
+   "to": 128
+  },
+  {
+   "kind": "face1",
+   "from": 128,
+   "to": 161
+  },
+  {
+   "kind": "terminal",
+   "from": 161,
+   "to": 208
+  },
+  {
+   "kind": "first",
+   "from": 208,
+   "to": 271
+  },
+  {
+   "kind": "gsc",
+   "from": 271,
+   "to": 349
+  },
+  {
+   "kind": "face2",
+   "from": 349,
+   "to": 412
+  },
+  {
+   "kind": "ranks",
+   "from": 412,
+   "to": 475
+  },
+  {
+   "kind": "face3",
+   "from": 475,
+   "to": 537
+  },
+  {
+   "kind": "second",
+   "from": 537,
+   "to": 578
+  },
+  {
+   "kind": "face4",
+   "from": 578,
+   "to": 620
+  },
+  {
+   "kind": "rivals",
+   "from": 620,
+   "to": 656
+  },
+  {
+   "kind": "openseo",
+   "from": 656,
+   "to": 737
+  },
+  {
+   "kind": "face5",
+   "from": 737,
+   "to": 844
+  },
+  {
+   "kind": "third",
+   "from": 844,
+   "to": 905
+  },
+  {
+   "kind": "geo",
+   "from": 905,
+   "to": 989
+  },
+  {
+   "kind": "cite",
+   "from": 989,
+   "to": 1172
+  },
+  {
+   "kind": "cta",
+   "from": 1172,
+   "to": 1280
+  }
+ ],
+ "beats": {
+  "hook": {
+   "pay": 20,
+   "tools": 55
+  },
+  "plugins": {
+   "three": 95,
+   "plugins": 117
+  },
+  "terminal": 181,
+  "first": 229,
+  "gsc": {
+   "google": 308,
+   "console": 323
+  },
+  "ranks": {
+   "off": 442,
+   "one": 457
+  },
+  "face3": 515,
+  "second": 553,
+  "rivals": {
+   "ahrefs": 620,
+   "semrush": 632
+  },
+  "openseo": {
+   "kw": 656,
+   "rank": 692,
+   "links": 722
+  },
+  "face5": {
+   "audits": 749,
+   "ten": 796
+  },
+  "third": 865,
+  "geo": {
+   "gen": 933
+  },
+  "cite": {
+   "chatgpt": 994,
+   "claude": 1030,
+   "google": 1051,
+   "shot": 1091,
+   "citing": 1109,
+   "comp": 1144
+  },
+  "cta": {
+   "rank": 1180,
+   "send": 1193
+  }
+ },
+ "captions": [
+  {
+   "text": "You don't",
+   "from": 0,
+   "to": 10
+  },
+  {
+   "text": "need to",
+   "from": 10,
+   "to": 20
+  },
+  {
+   "text": "pay for",
+   "from": 20,
+   "to": 29
+  },
+  {
+   "text": "expensive SEO",
+   "from": 29,
+   "to": 55
+  },
+  {
+   "text": "tools anymore",
+   "from": 55,
+   "to": 85
+  },
+  {
+   "text": "Use these",
+   "from": 85,
+   "to": 95
+  },
+  {
+   "text": "three open-source",
+   "from": 95,
+   "to": 117
+  },
+  {
+   "text": "plugins and",
+   "from": 117,
+   "to": 137
+  },
+  {
+   "text": "Claude Code",
+   "from": 137,
+   "to": 152
+  },
+  {
+   "text": "turns into",
+   "from": 152,
+   "to": 167
+  },
+  {
+   "text": "your own",
+   "from": 167,
+   "to": 181
+  },
+  {
+   "text": "SEO expert",
+   "from": 181,
+   "to": 208
+  },
+  {
+   "text": "The first",
+   "from": 208,
+   "to": 220
+  },
+  {
+   "text": "is the",
+   "from": 220,
+   "to": 229
+  },
+  {
+   "text": "GSC MCP",
+   "from": 229,
+   "to": 271
+  },
+  {
+   "text": "It connects",
+   "from": 271,
+   "to": 283
+  },
+  {
+   "text": "Claude straight",
+   "from": 283,
+   "to": 302
+  },
+  {
+   "text": "to Google",
+   "from": 302,
+   "to": 314
+  },
+  {
+   "text": "Search Console",
+   "from": 314,
+   "to": 349
+  },
+  {
+   "text": "so it",
+   "from": 349,
+   "to": 359
+  },
+  {
+   "text": "can read",
+   "from": 359,
+   "to": 370
+  },
+  {
+   "text": "your real",
+   "from": 370,
+   "to": 382
+  },
+  {
+   "text": "search data",
+   "from": 382,
+   "to": 412
+  },
+  {
+   "text": "find the",
+   "from": 412,
+   "to": 423
+  },
+  {
+   "text": "keywords sitting",
+   "from": 423,
+   "to": 442
+  },
+  {
+   "text": "just off",
+   "from": 442,
+   "to": 457
+  },
+  {
+   "text": "page one",
+   "from": 457,
+   "to": 475
+  },
+  {
+   "text": "and tell",
+   "from": 475,
+   "to": 490
+  },
+  {
+   "text": "you what",
+   "from": 490,
+   "to": 500
+  },
+  {
+   "text": "to fix",
+   "from": 500,
+   "to": 510
+  },
+  {
+   "text": "to climb",
+   "from": 510,
+   "to": 523
+  },
+  {
+   "text": "higher",
+   "from": 523,
+   "to": 537
+  },
+  {
+   "text": "The second",
+   "from": 537,
+   "to": 548
+  },
+  {
+   "text": "is OpenSEO",
+   "from": 548,
+   "to": 578
+  },
+  {
+   "text": "an open-source",
+   "from": 578,
+   "to": 595
+  },
+  {
+   "text": "alternative",
+   "from": 595,
+   "to": 613
+  },
+  {
+   "text": "to Ahrefs",
+   "from": 613,
+   "to": 627
+  },
+  {
+   "text": "and Semrush",
+   "from": 627,
+   "to": 656
+  },
+  {
+   "text": "Keyword research",
+   "from": 656,
+   "to": 692
+  },
+  {
+   "text": "rank tracking",
+   "from": 692,
+   "to": 722
+  },
+  {
+   "text": "backlinks",
+   "from": 722,
+   "to": 737
+  },
+  {
+   "text": "and full",
+   "from": 737,
+   "to": 757
+  },
+  {
+   "text": "site audits",
+   "from": 757,
+   "to": 778
+  },
+  {
+   "text": "for about",
+   "from": 778,
+   "to": 796
+  },
+  {
+   "text": "$10 dollars",
+   "from": 796,
+   "to": 806
+  },
+  {
+   "text": "a month",
+   "from": 806,
+   "to": 823
+  },
+  {
+   "text": "in data",
+   "from": 823,
+   "to": 844
+  },
+  {
+   "text": "And the",
+   "from": 844,
+   "to": 851
+  },
+  {
+   "text": "third is",
+   "from": 851,
+   "to": 861
+  },
+  {
+   "text": "the GEO",
+   "from": 861,
+   "to": 871
+  },
+  {
+   "text": "Optimizer skill",
+   "from": 871,
+   "to": 905
+  },
+  {
+   "text": "It audits",
+   "from": 905,
+   "to": 917
+  },
+  {
+   "text": "your site",
+   "from": 917,
+   "to": 928
+  },
+  {
+   "text": "for generative",
+   "from": 928,
+   "to": 947
+  },
+  {
+   "text": "engine optimization",
+   "from": 947,
+   "to": 989
+  },
+  {
+   "text": "so ChatGPT",
+   "from": 989,
+   "to": 1030
+  },
+  {
+   "text": "Claude",
+   "from": 1030,
+   "to": 1048
+  },
+  {
+   "text": "and Google's",
+   "from": 1048,
+   "to": 1063
+  },
+  {
+   "text": "AI Overviews",
+   "from": 1063,
+   "to": 1085
+  },
+  {
+   "text": "have a",
+   "from": 1085,
+   "to": 1091
+  },
+  {
+   "text": "better shot",
+   "from": 1091,
+   "to": 1105
+  },
+  {
+   "text": "at citing",
+   "from": 1105,
+   "to": 1118
+  },
+  {
+   "text": "you instead",
+   "from": 1118,
+   "to": 1133
+  },
+  {
+   "text": "of your",
+   "from": 1133,
+   "to": 1144
+  },
+  {
+   "text": "competitors",
+   "from": 1144,
+   "to": 1172
+  },
+  {
+   "text": "Comment RANK",
+   "from": 1172,
+   "to": 1188
+  },
+  {
+   "text": "and I'll",
+   "from": 1188,
+   "to": 1198
+  },
+  {
+   "text": "send you",
+   "from": 1198,
+   "to": 1208
+  },
+  {
+   "text": "all three",
+   "from": 1208,
+   "to": 1218
+  },
+  {
+   "text": "links",
+   "from": 1218,
+   "to": 1280
+  }
+ ],
+ "take": false,
+ "standin": true
+}
