@@ -1807,9 +1807,10 @@
       "primary_keyword": "Forward Deployed Engineer roadmap",
       "host_slug": "repost-6cff0a62569f",
       "collaborators": null,
-      "status": "pending",
+      "status": "failed",
       "moved_from": "2026-11-07 11:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand"
     },
     {
       "id": "in-dots-20261027",
