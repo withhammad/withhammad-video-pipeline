@@ -1,0 +1,119 @@
+{
+  "job": "6eba3a812294",
+  "owner_approved": true,
+  "website_merge_authorized": true,
+  "guide": {
+    "url": "https://withhammad.com/resources/edge0-local-ai",
+    "status": 200,
+    "has_edge0": true,
+    "has_memory_caveat": true,
+    "h1_count": 1,
+    "schema_count": 2
+  },
+  "rule": {
+    "keyword": "EDGE",
+    "link": "https://withhammad.com/resources/edge0-local-ai",
+    "deployed_commit": "d8ac399b50b0774fa805e22bf30f468062148d9a"
+  },
+  "webhook_checks": {
+    "handshake": {
+      "status": 200,
+      "challenge_matches": true
+    },
+    "instagram_signed_empty_event": {
+      "status": 200,
+      "body": {
+        "ok": true,
+        "comments": 0,
+        "messages": 0
+      }
+    },
+    "page_signed_empty_event": {
+      "status": 200,
+      "body": {
+        "ok": true,
+        "feed": 0,
+        "messages": 0
+      }
+    }
+  },
+  "delivery_scope": "Signed empty events validate webhook acceptance; no customer message or test comment sent. Actual EDGE delivery awaits eligible comments.",
+  "media": [
+    {
+      "file": "final_ig.mp4",
+      "url": "https://withhammad.com/media/reels/repost-6eba3a812294.mp4",
+      "status": 200,
+      "bytes": 5278347,
+      "sha256_matches": true
+    },
+    {
+      "file": "cover_1080x1920.jpg",
+      "url": "https://withhammad.com/media/covers/repost-6eba3a812294.jpg",
+      "status": 200,
+      "bytes": 328761,
+      "sha256_matches": true
+    }
+  ],
+  "media_commit": "63b1d5f",
+  "media_deployment": "dpl_8zMNSkPNEZXj7uEBMkDhNd3mYzr5",
+  "slots": [
+    {
+      "id": "yo-6eba3a812294",
+      "platform": "youtube",
+      "local": "2026-11-09 10:00 GST",
+      "slot_utc": "2026-11-09T06:00:00Z",
+      "status": "pending",
+      "collaborators": null
+    },
+    {
+      "id": "in-6eba3a812294",
+      "platform": "instagram",
+      "local": "2026-11-09 18:00 GST",
+      "slot_utc": "2026-11-09T14:00:00Z",
+      "status": "pending",
+      "collaborators": [
+        "with.hammad",
+        "hammadagentic.ai"
+      ]
+    },
+    {
+      "id": "li-6eba3a812294",
+      "platform": "linkedin",
+      "local": "2026-11-09 16:00 GST",
+      "slot_utc": "2026-11-09T12:00:00Z",
+      "status": "pending",
+      "video_variant": "linkedin",
+      "collaborators": null
+    },
+    {
+      "id": "fa-6eba3a812294",
+      "platform": "facebook",
+      "local": "2026-11-09 21:00 GST",
+      "slot_utc": "2026-11-09T17:00:00Z",
+      "status": "pending",
+      "collaborators": null
+    },
+    {
+      "id": "tt-6eba3a812294",
+      "platform": "tiktok",
+      "local": "2026-11-09 21:00 GST",
+      "slot_utc": "2026-11-09T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.tiktok.com/@withhammad/video/7705830238797696257",
+      "collaborators": null
+    },
+    {
+      "id": "xx-6eba3a812294",
+      "platform": "x",
+      "local": "2026-11-09 21:00 GST",
+      "slot_utc": "2026-11-09T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "collaborators": null
+    }
+  ],
+  "tiktok_confirmation": "Nov 9, 9:00 PM (GMT+4) Dubai",
+  "x_confirmation": "Your post will be sent on Mon, Nov 9, 2026 at 9:00 PM",
+  "tests": "631 passed, one existing warning, 83.14 seconds",
+  "new_heygen_credits": 0
+}

@@ -8,6 +8,17 @@ is scheduled ahead in TikTok Studio / X's own scheduler (posts go out even if th
     .venv/bin/python -m app.repost_queue chrome                      # pending TikTok + X entries (video, caption, slot)
     .venv/bin/python -m app.repost_queue mark <id> <url> --scheduled  # after the platform confirms
 
+Queue writes must hold the same `work/.run-due.lock` directory used by `studio/run_due.sh`.
+Check that it is free, acquire it with an atomic mkdir, perform the append/mark from a fresh queue read,
+and release it in a finally block. If busy, wait for the current poster to finish; do not remove its lock.
+The 8 Nov 20:03 poster overwrote an unguarded X mark while finishing a run. The native schedule was
+already confirmed and must not be submitted again; only its local mark needed restoring under the lock.
+
+TikTok's current picker has `[aria-label="Select date"]`, `[aria-label="Select time"]` and hour/minute
+options such as `[aria-label="Hours 21"]`. Change one value, allow React to update, then change the next.
+A single synchronous hour+minute sequence can restore the old hour. Read the final date, time, time zone,
+caption and AI flag before clicking Schedule. Activate our tab immediately before any real Delete key.
+
 Videos are `final_social.mp4` (python -m app.exports; the Chrome upload limit is 10 MB). run-due never touches
 these lanes. TikTok schedules at most 10 days ahead; X allows more.
 

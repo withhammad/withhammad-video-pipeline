@@ -19,10 +19,13 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
 
 ## Owner preferences (fixed)
 
-- Latest voice correction (owner, 2026-11-08): Hammad's narration ALWAYS uses the ElevenLabs engine inside the paid
-  HeyGen account, with his original clone and excited delivery. NEVER use the HeyGen Voice engine, even as a
-  fallback; the owner rejects its slow delivery. This overrides all older engine/default instructions below.
-  See docs/CODEX_MASTER_PROMPT.md section 2 and docs/HANDOVER_CODEX.md section 11 for the current settings.
+- Latest voice correction (owner, 2026-11-08): use the SAME voice and energy as his published REFERRAL reel,
+  https://www.linkedin.com/feed/update/urn:li:ugcPost:7524851759706714113/ (job `33d9c1e97156`). The saved HeyGen
+  project verifies clone `4b02b874862049f69b6034bbdc0fb282`, ElevenLabs, model labelled **ElevenLabs v4**, speed
+  **1.1x**, stability **50**, volume 100%, language Detected, no accent override. Keep this voice consistent across
+  topics. This supersedes the v3 / stability 0 / speed 1.2 default and all older conflicting instructions.
+  NEVER use HeyGen Voice or treat a matching clone name/ID as proof of an audible match. The owner rejected the
+  REPO take (`dfa218634321`) as "not my voice"; it is held for correction. See docs/HANDOVER_CODEX.md section 11.
 
 - Latest owner correction (2026-10-18, after the full tutorial was published): applies to NEW videos only;
   do not re-edit or replace the already published tutorial. Prioritize a natural, human-like introduction,

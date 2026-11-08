@@ -4602,9 +4602,11 @@
       "primary_keyword": "Edge0 AI model",
       "host_slug": "repost-6eba3a812294",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/edge0-local-ai",
-      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026."
+      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026.",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-08T16:11:47Z"
     }
   ]
 }

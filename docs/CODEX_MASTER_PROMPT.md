@@ -29,12 +29,14 @@ exact copy + virality) -> `docs/SKILLS_FOR_CODEX.md` (all 127 skills + plugin sk
 3. Rebuild it EXACTLY: same hook, beats, screens, logos, pacing, length within 10 %. Only his face, his voice,
    WITHHAMMAD branding, the comment keyword and wrong facts change. Break it down first (spec.md), then build with the
    playbook for that format (handover section 12) and the skills pack; quality polished beyond the reference.
-4. Voice (owner correction, 8 Nov 2026): ALWAYS the ElevenLabs engine inside the paid HeyGen account
-   (hammadbhat126), using his original HAMMAD YOUSUF clone with excited delivery. NEVER use the HeyGen Voice
-   engine, including as a fallback: the owner rejects its slow delivery. Use ElevenLabs v3, Stability min,
-   1.2x, [excited]/[shouting]; language English · Original; never save defaults. If it runs long, edit redundant
-   wording and genuine silence while preserving natural pace; do not switch to HeyGen Voice. Match the reference's emotional arc (a
-   deadpan opening stays deadpan). Two characters = two voices (him + a HeyGen stock voice). No other TTS for him.
+4. Voice (latest owner correction, 8 Nov 2026): ALWAYS the SAME voice and energy as his published REFERRAL reel:
+   https://www.linkedin.com/feed/update/urn:li:ugcPost:7524851759706714113/ (job `33d9c1e97156`). Paid HeyGen account
+   hammadbhat126; clone `4b02b874862049f69b6034bbdc0fb282`; saved source settings verified: ElevenLabs engine,
+   model labelled **ElevenLabs v4**, speed **1.1x**, stability **50**, volume 100%, language Detected, no accent
+   override. Do not change his voice to suit the topic. This replaces the v3 / stability 0 / speed 1.2 default.
+   NEVER use HeyGen Voice, even as fallback. Never save account defaults or mechanically raise pitch/speed.
+   Verify against the REFERRAL audio, not just a clone label. REPO's v3 take was rejected as "not my voice" and
+   must be corrected before approval. Two characters = his fixed voice plus a separate stock voice for the other.
 5. Avatar: a NEW look matching the reference's room, light, framing, outfit and pose when HeyGen makes it free; if a
    look costs credits, reuse the closest existing one. Avatar only on lines said to camera; no face in the reference =
    voice only. ONE submit, 720p, filmstrip gate, credits logged in STATUS.md. Credits are scarce (~463 left).

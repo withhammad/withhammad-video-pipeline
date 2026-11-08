@@ -36,13 +36,13 @@ Reference: <link>
    - Voice source (owner 2026-11-07: "whenever I share something, use my voice from HeyGen"): ALWAYS his HAMMAD YOUSUF
      clone on the paid HeyGen account. No other TTS (no Chatterbox, Kokoro, say, ElevenLabs stock voices) for his lines.
      Audio-only where the reference shows no face; an avatar take only for the lines the reference says to camera.
-   - MOST INTENSE (owner's pick "A, most intense", 2026-11-07, job 85fb47b66b4b): HeyGen Creative Studio > Voice, engine
-     ElevenLabs, model v3, the HAMMAD YOUSUF clone, Stability minimum, Speed 1.2x, inline [excited] / [shouting] tags on
-     his lines. Owner correction, 2026-11-08: **ALWAYS ElevenLabs; NEVER the HeyGen Voice engine, even as a fallback.**
-     The owner rejects its slow delivery. If a take runs long, edit redundant wording and true silence while
-     preserving natural pace. Reuse a suitable ElevenLabs take; another paid generation needs authorization.
-     Verify the original clone `4b02b874862049f69b6034bbdc0fb282`, English · Original, actual take metadata and excited
-     delivery before an avatar submit. Do NOT click "Update default settings".
+   - FIXED VOICE (latest owner correction, 2026-11-08): use the same voice and energy as his REFERRAL reel,
+     https://www.linkedin.com/feed/update/urn:li:ugcPost:7524851759706714113/ (job `33d9c1e97156`). Saved source
+     project verifies clone `4b02b874862049f69b6034bbdc0fb282`, ElevenLabs engine, model labelled ElevenLabs v4,
+     speed 1.1x, stability 50, volume 100%, language Detected, no accent override. Do not change his voice for
+     the topic. This replaces the v3 / stability-zero / 1.2x profile. REPO's take was rejected as "not my voice".
+     ALWAYS ElevenLabs; NEVER HeyGen Voice. Compare the sound to the actual REFERRAL take, not just its voice ID.
+     Preserve natural pace; another paid generation needs authorization. Do NOT click "Update default settings".
    - Energy (owner rule 2026-11-07, repeated: "my voice should be excited, not a low tone ... always the excited voice"):
      every take and every voice-only track is EXCITED, using the ElevenLabs settings above; the motion prompt asks for a big
      genuine smile, raised brows, lively eyes and energetic hand gestures. The hook line is written and delivered as

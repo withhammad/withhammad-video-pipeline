@@ -8,15 +8,14 @@ is exactly what is on disk. Read `AGENTS.md` first (shared rules), then this fil
 
 - **Paste a reference link -> rebuild it EXACTLY.** Only his face, his voice, WITHHAMMAD branding, the CTA keyword and
   facts the reference got wrong change. Same hook, beats, screens, logos, pacing, length within 10 %.
-- **Voice = his HeyGen clone, always.** HeyGen Creative Studio > Voice, account hammadbhat126 (paid, in Chrome),
-  HAMMAD YOUSUF clone. Most intense (owner's pick): engine ElevenLabs, model v3, Stability minimum, Speed 1.2x,
-  `[excited]` / `[shouting]` tags. **Owner correction, 8 Nov 2026: NEVER use the HeyGen Voice engine, even as a
-  fallback. Always ElevenLabs with his original clone and excited delivery.** Check the voice language is
-  **English · Original** (it was found on Italian). Never "Update default settings". If v3 runs long, edit
-  redundant wording and real silence without mechanically speeding up the voice. The older HeyGen Voice fallback
-  instruction is revoked. Gate: median pitch >= ~170 Hz, range >= ~12 semitones, hook = most excited line;
-  the later natural-voice correction below forbids forcing pitch or speed just to meet a number.
-  No other TTS for his lines (no Chatterbox, Kokoro, `say`, stock ElevenLabs).
+- **Voice = the fixed REFERRAL voice and energy.** Latest owner reference (8 Nov):
+  https://www.linkedin.com/feed/update/urn:li:ugcPost:7524851759706714113/, job `33d9c1e97156`. Paid HeyGen account
+  hammadbhat126, clone `4b02b874862049f69b6034bbdc0fb282`. Verified saved project: ElevenLabs engine, model labelled
+  **ElevenLabs v4**, speed **1.1x**, stability **50**, volume 100%, language Detected and no accent override.
+  Same voice every time; do not change it to suit the topic. This supersedes v3 / stability 0 / speed 1.2.
+  NEVER HeyGen Voice, other TTS, a stock voice for him, or forced pitch/speed changes. Never "Update default settings".
+  Compare to the actual REFERRAL recording; clone metadata alone is not an audible likeness check. REPO's v3 take
+  was explicitly rejected as "not my voice". Retain the source's energy without changing his identity.
 - **Avatar = matching look, minimum credits** (owner 2026-11-07, latest): every reel's look matches its reference 100 %
   (room, light, framing, outfit, pose). Check HeyGen's credit cost for a new look first: free -> make the matching
   look; costs credits -> reuse the closest existing look ("Professional in white shirt").
@@ -163,8 +162,10 @@ must not reply to the same comment: the routines record replies (`--mark`), so c
 | Chamber AI Hub (@talcai.io DfbvLHmOlhR, job 762cf7fb383a, "Dubai reel") | Finished 73.6 s look-1 edit, approved by owner. Exact approved voice, full edit/music/captions/covers, platform exports and Downloads ready. | PR #17 merged; live guide/rule verified. Six slots booked for 8–9 Nov; TikTok and X native schedules confirmed. No further approval needed. |
 | GROWTH (@nateherkai DfaNcY1FdlE) | Approved corrected cut, cover, exports and Downloads ready. PR #16 merged and deployed; guide/rule verified. | None: all six releases booked for 8–9 Nov. TikTok 8 Nov 15:00 and X 8 Nov 21:00 confirmed natively. Verify publication and eligible keyword replies after release. |
 | HARNESS (LinkedIn dQVK4qeE, job b6b36d9b50b3) | Approved video, LinkedIn variant, seven-page carousel, covers and Downloads ready. PR #16 merged and deployed; both HARNESS routes preserved. | None: six video releases booked for 9–10 Nov; three carousel releases for 11 Nov. LinkedIn selects `video_variant: "linkedin"` and matching SRT. TikTok/X native schedules confirmed. |
-| EDGE0 (@repo_xray DfchkCOMAEF, job 6eba3a812294) | Finished 30 s edit, original Blender owl, reference inserts, approved clone, music, captions, six covers and copy. One voice take: 2 credits (243 → 241). Technical checks pass; natural voice measurements documented. See docs/videos/2026-11-08-edge0-review.md. | Owner approved the finished package. Resource/EDGE rule PR #18 is open; both previews are ready and the guide returns 200. Owner merges, then verify production and book all six platforms. |
-| REPO (@nick_saraev DfeW3F8PIsk, job dfa218634321) | Finished 49 s five-repo edit: original ElevenLabs clone, matching white-shirt/mic look, source inserts, cutout presenter, captions/music and six covers. Total debit 30 credits (241 → 211), including the rejected HeyGen Voice take. Technical checks pass; natural pitch and the 1080p avatar exception are documented in docs/videos/2026-11-08-five-open-repos-review.md. | Approve the finished package; then REPO guide/rule PR and owner merge before any booking. |
+| EDGE0 (@repo_xray DfchkCOMAEF, job 6eba3a812294) | Owner-approved 30 s package. PR #18 merged under the owner's explicit deploy instruction; guide and EDGE routing are live. Six releases booked for 9 Nov; TikTok and X native schedules confirmed. Exports and Downloads ready. | No further approval needed. Verify posts and eligible keyword replies after release. See docs/videos/2026-11-08-edge0-release.md for slots and evidence. |
+| REPO (@nick_saraev DfeW3F8PIsk, job dfa218634321) | Owner rejected the 49 s cut: "not my voice". HOLD. Visual edit/covers reusable; replace narration using the fixed REFERRAL voice reference, then rebuild timing/lip sync. Prior total debit 30 credits (241 → 211); no further credits spent on the voice audit. | Corrected narration prepared: ElevenLabs v4, 1.1x, stability 50. UI quotes 3 credits; one paid retry authorization requested. No avatar submit or release until the corrected voice and finished package pass review. |
+| AI agent developer roadmap (LinkedIn dDH3f9E4) | Finished WITHHAMMAD static infographic matching the seven-branch source; copy for six image destinations and a guide draft. Keyword proposal AGENTMAP. Zero HeyGen credits. | Approve graphic/copy, then guide/rule PR for owner merge. Not posted or scheduled. See docs/videos/2026-11-08-ai-agent-developer-learning-plan-review.md. |
+| Vector databases (LinkedIn dJJbWzcy) | Finished WITHHAMMAD static infographic matching the nine-panel source; copy for six image destinations and a guide draft. Keyword proposal VECTORS. Zero HeyGen credits. | Approve graphic/copy, then guide/rule PR for owner merge. Not posted or scheduled. See docs/videos/2026-11-08-vector-databases-explained-review.md. |
 | GAME (@nick_saraev DfZGREyvPUX) | Built, commit 0f611a0, thumbnails sent. | Approve, then page PR + slots. |
 | Rubber World (8bcf01ad1b0f) | Two-voice cut (him + Annie), commit 99c60bd; queue entries HELD. | Approve this cut, then set the six entries to pending and merge #8. |
 | JOBS (d463f2086d47) | 32.5 s cut with a deadpan opening building to excited, commit d9a11e6; queue entries HELD. | Approve, then set entries to pending. |
@@ -173,6 +174,10 @@ must not reply to the same comment: the routines record replies (`--mark`), so c
 
 Earlier handover's remaining merge list: withhammad-rebuild #4 #5 #6 #7 #9 #10 #11 #12 #13 #14 #15 (#8 only after the Rubber World OK). Recheck each PR before reporting its current state. #16 and #17 are confirmed merged. Prioritize #7 because REFERRAL is already live.
 After each merge: schedule that reel's TikTok and X natively (chrome-schedule.md) and `mark --scheduled`.
+Keep the publishing website clone `work/site/withhammad-rebuild` on updated `main`; use a separate checkout
+for PR work. A feature branch blocked two Meta uploads at 20:03 on 8 Nov; restored to main, with retries due
+at the normal 21:03 tick. Queue append/mark writes must hold `work/.run-due.lock` so the poster cannot overwrite
+a native schedule confirmation. Details: docs/videos/2026-11-08-edge0-release.md.
 
 ## 8. Keyword-DM automation (every post, every platform) — no ManyChat, no paid tools
 
@@ -269,7 +274,25 @@ slow replies -> 0.2 s gaps between lines; one-voice re-voice of a two-character 
 voices per character (him = clone, the other = a HeyGen stock voice like "Annie - Lifelike"); avatar must match the
 reference's room/outfit; thumbnails same template but the face should fit the hook.
 
-**ElevenLabs-only correction (owner, 8 Nov 2026):** "In HeyGen use the ElevenLabs, always ... excited ... don't use
+**Fixed voice reference (owner, later 8 Nov 2026):** after hearing REPO, "its not my voice". He supplied his
+REFERRAL post https://www.linkedin.com/feed/update/urn:li:ugcPost:7524851759706714113/ and said "This is exactly
+what you need energy ... Same voice every time, not change the voice." That recording is the authoritative
+voice-and-energy reference, not a new content reference. Existing job `33d9c1e97156`, saved HeyGen project
+`e2fed2c195b748ecba1c8de796e201ee`, raw take `take/heygen_raw.mp4`. Read-only UI verification found the original
+clone `4b02b874862049f69b6034bbdc0fb282` (current label HAMMAD YOUSUF -- 1), ElevenLabs **v4** label, speed 1.1,
+stability 50, volume 1, language Detected and no accent override. No defaults changed, no new generation.
+Proof: `work/voice-anchor-referral/verified-settings.json`; user sample in outputs/Voice-Reference. REPO used
+v3 / stability 0 / speed 1.2 and is rejected despite matching clone metadata. Do not reuse that take or silently
+claim a voice match from the ID. Preserve this source's voice/energy across topics. These settings supersede
+earlier v3 directions below; the ban on HeyGen Voice remains.
+
+Canonical machine-readable reference: `outputs/video-pipeline/voice-reference.json`. The new Creative Studio
+composer initially opened on Eleven Multilingual v2 / speed 1.0 despite the correct clone label: select v4
+explicitly and verify every control per take. REPO's corrected script is prepared on task-owned Chrome tab
+1913613557 with v4 / 1.1 / stability 50 / volume 100%, English Original. Quote: 3 credits, balance 211, not
+submitted; the paid-retry question is pending. Never overwrite the saved REFERRAL project or its audio.
+
+**ElevenLabs-only correction (owner, earlier 8 Nov 2026; v3 settings superseded above):** "In HeyGen use the ElevenLabs, always ... excited ... don't use
 the HeyGen voice directly. It's very slow ... never use that one." This revokes every older HeyGen Voice fallback
 instruction for Hammad's narration. Use the original clone `4b02b874862049f69b6034bbdc0fb282` through ElevenLabs,
 with excited delivery, English Original and the current approved v3 settings. Verify the actual take metadata,

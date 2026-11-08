@@ -216,19 +216,35 @@
     },
     {
       "url": "https://www.instagram.com/reel/DfchkCOMAEF/",
-      "note": "Owner: Approve Edge0 package. Prepare guide and EDGE rule PR; owner merges before six-platform booking.",
+      "note": "Owner approved package and explicitly authorized deploying PR #18; merged and live.",
       "added": "2026-11-08",
-      "status": "approved_awaiting_resource",
+      "status": "queued",
       "job": "6eba3a812294",
-      "notes": "Owner approved the BYTES follow-up topic. Finished 30-second animated package: original Blender owl, clean reference inserts, original Hammad clone, music, full captions, six covers and copy. One voice take cost 2 credits (243 → 241). Owner approved the finished package on 8 Nov. Deploy EDGE guide/rule before booking. See docs/videos/2026-11-08-edge0-review.md."
+      "notes": "All six releases booked for 9 Nov 2026. YouTube 10:00, LinkedIn 16:00, Instagram 18:00, Facebook/TikTok/X 21:00 GST. TikTok/X native confirmations recorded. Guide and EDGE rule live; signed empty webhooks and keyword routing verified. Actual EDGE reply awaits an eligible comment. See docs/videos/2026-11-08-edge0-release.md."
     },
     {
       "url": "https://www.instagram.com/reel/DfeW3F8PIsk/",
       "note": "",
       "added": "2026-11-08",
-      "status": "awaiting_approval",
+      "status": "in_progress",
       "job": "dfa218634321",
-      "notes": "Finished 49 s REPO package: original excited ElevenLabs v3 clone, matching white-shirt/mic look, reference screen inserts, animated edit, captions/music, LinkedIn variant and six covers. Total HeyGen debit 30 credits, including rejected HeyGen Voice fallback; no more voice generation. Awaiting owner approval, then guide/REPO rule PR, owner merge and live verification before six-platform booking."
+      "notes": "HOLD: owner rejected narration as not my voice. Fixed voice/energy reference is published REFERRAL job 33d9c1e97156, ElevenLabs v4 / stability 50 / speed 1.1 as verified in saved HeyGen project. Reuse visual edit; correct voice and lip/timing before new package approval. No scheduling; voice audit spent zero credits."
+    },
+    {
+      "url": "https://lnkd.in/p/dJJbWzcy",
+      "note": "Owner reference 8 Nov 2026: Sumit Gupta vector-database infographic; preserve its structure, adapt to WITHHAMMAD.",
+      "added": "2026-11-08",
+      "status": "awaiting_approval",
+      "job": null,
+      "notes": "Finished branded single-image package, six caption drafts and guide draft. Keyword VECTORS. Zero HeyGen credits. Await owner approval; no rule, page, posting or scheduling authorized. See docs/videos/2026-11-08-vector-databases-explained-review.md."
+    },
+    {
+      "url": "https://lnkd.in/p/dDH3f9E4",
+      "note": "Owner reference 8 Nov 2026; intake next, maximum two productions active.",
+      "added": "2026-11-08",
+      "status": "awaiting_approval",
+      "job": null,
+      "notes": "Finished branded single-image package, six caption drafts and guide draft. Keyword AGENTMAP. Zero HeyGen credits. Await owner approval; no rule, page, posting or scheduling authorized. See docs/videos/2026-11-08-ai-agent-developer-learning-plan-review.md."
     }
   ]
 }
