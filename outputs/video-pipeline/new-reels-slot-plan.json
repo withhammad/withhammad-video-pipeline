@@ -460,5 +460,47 @@
   "day": "2026-11-11",
   "slot": "17:00",
   "slot_utc": "2026-11-11T13:00:00Z"
+ },
+ {
+  "job": "762cf7fb383a",
+  "platform": "youtube",
+  "day": "2026-11-08",
+  "slot": "14:00",
+  "slot_utc": "2026-11-08T10:00:00Z"
+ },
+ {
+  "job": "762cf7fb383a",
+  "platform": "instagram",
+  "day": "2026-11-08",
+  "slot": "18:00",
+  "slot_utc": "2026-11-08T14:00:00Z"
+ },
+ {
+  "job": "762cf7fb383a",
+  "platform": "linkedin",
+  "day": "2026-11-08",
+  "slot": "20:00",
+  "slot_utc": "2026-11-08T16:00:00Z"
+ },
+ {
+  "job": "762cf7fb383a",
+  "platform": "facebook",
+  "day": "2026-11-09",
+  "slot": "11:00",
+  "slot_utc": "2026-11-09T07:00:00Z"
+ },
+ {
+  "job": "762cf7fb383a",
+  "platform": "tiktok",
+  "day": "2026-11-09",
+  "slot": "11:00",
+  "slot_utc": "2026-11-09T07:00:00Z"
+ },
+ {
+  "job": "762cf7fb383a",
+  "platform": "x",
+  "day": "2026-11-09",
+  "slot": "10:00",
+  "slot_utc": "2026-11-09T06:00:00Z"
  }
 ]

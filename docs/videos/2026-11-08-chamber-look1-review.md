@@ -19,11 +19,11 @@ Website PR: https://github.com/withhammad/withhammad-rebuild/pull/17. Local prod
 390/1280 px layouts and exact prompt copying pass; guide Lighthouse 95 performance / 96 accessibility / 100 SEO,
 companion article SEO 100. The new DUBAI matcher passes case-insensitive and whole-word checks; AGENT remains a
 separate championship guide. The official pricing screen was checked in both monthly and annual modes on 8 Nov.
-These are local validation results; live delivery waits for the owner's merge and deployment. Publication readiness
-now reports only the missing live guide as a blocker. Studio suite: 631 passed, one existing warning.
+PR #17 is merged and its production deployment is live on commit 3274267. Publication readiness now reports
+zero blockers and warnings. Studio suite: 631 passed, one existing warning.
 
 Remote verification: both PR #17 Vercel previews passed. GitHub CI reports the exact same 64 prompt-drift
-failures as main, unrelated to this page. Owner merge is still pending; existing Chrome needs GitHub sign-in.
+failures as main, unrelated to this page. Owner merged PR #17 on 8 Nov. The guide returns 200; the DUBAI rule is in the deployed commit.
 
 # Chamber editorial scorecard
 
@@ -38,3 +38,24 @@ Editorial judgement, not a prediction of reach.
 - Cover: 8/10. Established glow layout, relevant confident face, hook retained in six crops.
 
 Main limitation: the 73.6-second explanation is longer than a quick news hook. It stays within the owner's 10% reference-runtime allowance. Delivery is the exact sample the owner accepted, not a newly altered or artificially pitch-raised voice.
+
+## Approved release booking — 8 November 2026
+
+| Platform | Dubai slot | Verified state |
+|---|---|---|
+| YouTube | 8 Nov 14:00 | Queued; phone sound window until 16:00, launchd fallback 16:03 |
+| Instagram | 8 Nov 18:00 | Queued; Collabs with.hammad + hammadagentic.ai; phone sound window until 20:00, fallback 20:03 |
+| LinkedIn | 8 Nov 20:00 | Queued for launchd 20:03 |
+| Facebook | 9 Nov 11:00 | Queued for launchd 11:03 |
+| TikTok | 9 Nov 11:00 | Native confirmation: https://www.tiktok.com/@withhammad/video/7705707818384411905 |
+| X | 9 Nov 10:00 | Native scheduled list confirms caption, 1:13 video and time; media 2119340734679814144 |
+
+TikTok uses the approved cover and AI label. X received English SRT and its Made with AI label; this composer
+exposes no custom-cover control, so its video thumbnail is the platform frame. Both uploaded final_social.mp4
+(13,047,844 bytes); the approved master was not altered. No extra credits were spent. The six queues preserve all
+older entries. The launchd poster remains the only API publishing process; no manual live run was performed.
+
+Funnel proof: live guide 200; deployed DUBAI rule; Instagram and Facebook signed empty webhook events 200,
+correct identities and active comment/message subscriptions; YouTube/LinkedIn/X/TikTok matchers return the
+same live guide. These checks verify configuration, not a fresh viewer delivery. Verify that after a real eligible
+comment arrives. TikTok provides the guide path and bio directions because comment links are not clickable.

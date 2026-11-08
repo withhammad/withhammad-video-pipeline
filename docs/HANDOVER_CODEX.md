@@ -157,7 +157,7 @@ must not reply to the same comment: the routines record replies (`--mark`), so c
 
 | Reel | Where it stopped | Owner decision needed |
 |---|---|---|
-| Chamber AI Hub (@talcai.io DfbvLHmOlhR, job 762cf7fb383a, "Dubai reel") | Finished 73.6 s look-1 edit, approved by owner. Exact approved voice, full edit/music/captions/covers, platform exports and Downloads ready. | Merge website #17, then verify live DUBAI guide/rule and book all six platforms. No further video approval needed. |
+| Chamber AI Hub (@talcai.io DfbvLHmOlhR, job 762cf7fb383a, "Dubai reel") | Finished 73.6 s look-1 edit, approved by owner. Exact approved voice, full edit/music/captions/covers, platform exports and Downloads ready. | PR #17 merged; live guide/rule verified. Six slots booked for 8–9 Nov; TikTok and X native schedules confirmed. No further approval needed. |
 | GROWTH (@nateherkai DfaNcY1FdlE) | Corrected matching-look edit and cover approved; exports and Downloads ready. | Merge website #16, then verify the live GROWTH guide/rule and book all six platforms. No further video approval needed. |
 | HARNESS (LinkedIn dQVK4qeE, job b6b36d9b50b3) | Full video, LinkedIn variant, seven-page carousel and covers approved; exports and Downloads ready. | Merge website #16. Preserve the older HARNESS landing URL; the PR adds the Mini Harness path there. Book LinkedIn with `video_variant: "linkedin"` and its matching SRT. |
 | GAME (@nick_saraev DfZGREyvPUX) | Built, commit 0f611a0, thumbnails sent. | Approve, then page PR + slots. |
@@ -313,17 +313,25 @@ an exception for that sample, not a new global voice target. One completed look-
 merges the website PR. The approved master and covers are in the job root and `~/Downloads/8 November/`.
 See `docs/videos/2026-11-08-chamber-look1-review.md`; do not ask for this final-package approval again.
 
-Chamber's guide and DUBAI rule are in website PR #17. The guide passed build, lint, TypeScript, 390/1280 px
-layout and exact-copy-button checks; mobile Lighthouse 95 performance / 96 accessibility / 100 SEO.
-PR #16's failed font fetch cleared on an unchanged preview redeploy; both Vercel project checks pass. GitHub CI
-reports the same 64 pre-existing prompt-drift failures as main. These are separate from the guide implementation.
-All three approved packages pass local publication checks except that their promised guide URLs still return 404.
-No slots have been booked for these three while the pages are unavailable.
+Chamber's website PR #17 merged at 07:29 UTC on 8 Nov (commit `3274267`). Production deployment
+`dpl_4BzZWzS9CbxiQPLvi1GXN7MfvsjD` is Ready on that exact commit, and the DUBAI guide returns 200.
+Instagram and Facebook verification handshake and signed empty events return 200; the correct account/page
+subscriptions are active. All four other platform matchers resolve DUBAI to the live guide. This proves wiring,
+not a fresh customer delivery; verify actual replies after eligible comments arrive. Publication check has zero
+blockers and warnings. Guide Lighthouse: 95 performance / 96 accessibility / 100 SEO.
 
-PR #17's two Vercel previews also passed; its GitHub CI has the identical 64 pre-existing prompt-drift errors.
-Existing Chrome is signed out of GitHub (verified on the new PR tab). The owner must sign in as `withhammad` and
-complete the merges of #16 and #17; the authenticated CLI can prepare PRs, but the standing rule reserves merges
-for him. The GitHub sign-in page is open in task tab 1913613092. No passwords or codes are needed in chat.
+Owner reported both PRs merged, but GitHub showed #16 still OPEN and conflicting after #17. Resolved the three
+shared-file conflicts, preserving Chamber, and rebased the sole own commit to `fae7eb4`. Updated #16 with an exact
+force-with-lease. Build, lint, TypeScript and both authenticated preview-page checks pass; deployment is Ready.
+The remaining GitHub failure is the same 64 pre-existing prompt-governance violations. Asked owner to complete
+#16's merge; GROWTH and HARNESS remain approved and unscheduled until their guides/rules deploy. No new media
+approval or paid render is needed. GitHub sign-in is no longer the blocker.
+
+Chamber booking (GST): YouTube 8 Nov 14:00, Instagram 8 Nov 18:00, LinkedIn 8 Nov 20:00;
+Facebook/TikTok 9 Nov 11:00, X 9 Nov 10:00. Instagram invites `with.hammad` and `hammadagentic.ai`.
+Instagram/YouTube keep the owner's two-hour phone-sound window; launchd fallback is 20:03/16:03 respectively.
+TikTok confirmed scheduled video `7705707818384411905`. X confirms 9 Nov 10:00 AM in its native scheduled list; media ID `2119340734679814144`, English SRT and Made with AI enabled. X exposes no custom-cover upload in this composer. Do not duplicate.
+The existing launchd poster is healthy (exit 0), and all six Codex routines remain ACTIVE on Astra/high.
 
 The repost queue now accepts `video_variant: "linkedin"` on an explicitly selected LinkedIn entry, using
 `final_linkedin.mp4` and, when captions are declared, `captions_linkedin.srt`. It stops if the selected video or
