@@ -1,0 +1,849 @@
+[
+  {
+    "text": "These",
+    "startMs": 0,
+    "endMs": 360,
+    "timestampMs": 180,
+    "confidence": 0.89447021484375
+  },
+  {
+    "text": " five",
+    "startMs": 360,
+    "endMs": 740,
+    "timestampMs": 550,
+    "confidence": 0.6887853145599365
+  },
+  {
+    "text": " open-source",
+    "startMs": 740,
+    "endMs": 1480,
+    "timestampMs": 1110,
+    "confidence": 0.653705820441246
+  },
+  {
+    "text": " repos",
+    "startMs": 1480,
+    "endMs": 2000,
+    "timestampMs": 1740,
+    "confidence": 0.9868013560771942
+  },
+  {
+    "text": " could",
+    "startMs": 2000,
+    "endMs": 2280,
+    "timestampMs": 2140,
+    "confidence": 0.9925756454467773
+  },
+  {
+    "text": " replace",
+    "startMs": 2280,
+    "endMs": 2840,
+    "timestampMs": 2560,
+    "confidence": 0.9966431856155396
+  },
+  {
+    "text": " paid",
+    "startMs": 2840,
+    "endMs": 3200,
+    "timestampMs": 3020,
+    "confidence": 0.7725009322166443
+  },
+  {
+    "text": " tools",
+    "startMs": 3200,
+    "endMs": 3600,
+    "timestampMs": 3400,
+    "confidence": 0.9964978694915771
+  },
+  {
+    "text": " in",
+    "startMs": 3600,
+    "endMs": 3820,
+    "timestampMs": 3710,
+    "confidence": 0.9886533617973328
+  },
+  {
+    "text": " your",
+    "startMs": 3820,
+    "endMs": 3960,
+    "timestampMs": 3890,
+    "confidence": 0.9953364729881287
+  },
+  {
+    "text": " stack,",
+    "startMs": 3960,
+    "endMs": 4300,
+    "timestampMs": 4130,
+    "confidence": 0.9807716012001038
+  },
+  {
+    "text": " First,",
+    "startMs": 4720,
+    "endMs": 4920,
+    "timestampMs": 4820,
+    "confidence": 0.938295304775238
+  },
+  {
+    "text": " OpenCode,",
+    "startMs": 5100,
+    "endMs": 5620,
+    "timestampMs": 5360,
+    "confidence": 0.432420939207077
+  },
+  {
+    "text": " a",
+    "startMs": 5920,
+    "endMs": 6020,
+    "timestampMs": 5970,
+    "confidence": 0.9897089600563049
+  },
+  {
+    "text": " Claude",
+    "startMs": 6020,
+    "endMs": 6340,
+    "timestampMs": 6180,
+    "confidence": 0.036775410175323486
+  },
+  {
+    "text": " Code",
+    "startMs": 6340,
+    "endMs": 6700,
+    "timestampMs": 6520,
+    "confidence": 0.48681724071502686
+  },
+  {
+    "text": " alternative",
+    "startMs": 6700,
+    "endMs": 7060,
+    "timestampMs": 6880,
+    "confidence": 0.9214033484458923
+  },
+  {
+    "text": " with",
+    "startMs": 7060,
+    "endMs": 7500,
+    "timestampMs": 7280,
+    "confidence": 0.9820099472999573
+  },
+  {
+    "text": " selected",
+    "startMs": 7500,
+    "endMs": 7900,
+    "timestampMs": 7700,
+    "confidence": 0.9903510212898254
+  },
+  {
+    "text": " free",
+    "startMs": 7900,
+    "endMs": 8260,
+    "timestampMs": 8080,
+    "confidence": 0.932540774345398
+  },
+  {
+    "text": " models,",
+    "startMs": 8260,
+    "endMs": 8700,
+    "timestampMs": 8480,
+    "confidence": 0.9650313258171082
+  },
+  {
+    "text": " including",
+    "startMs": 9140,
+    "endMs": 9520,
+    "timestampMs": 9330,
+    "confidence": 0.9978142976760864
+  },
+  {
+    "text": " GLM",
+    "startMs": 9520,
+    "endMs": 10100,
+    "timestampMs": 9810,
+    "confidence": 0.9341208934783936
+  },
+  {
+    "text": " and",
+    "startMs": 10100,
+    "endMs": 10400,
+    "timestampMs": 10250,
+    "confidence": 0.9875405430793762
+  },
+  {
+    "text": " DeepSeek.",
+    "startMs": 10400,
+    "endMs": 10940,
+    "timestampMs": 10670,
+    "confidence": 0.814013401667277
+  },
+  {
+    "text": " Second,",
+    "startMs": 11240,
+    "endMs": 11520,
+    "timestampMs": 11380,
+    "confidence": 0.9895952343940735
+  },
+  {
+    "text": " VoiceStudio,",
+    "startMs": 11920,
+    "endMs": 12400,
+    "timestampMs": 12160,
+    "confidence": 0.5973900556564331
+  },
+  {
+    "text": " an",
+    "startMs": 12860,
+    "endMs": 12920,
+    "timestampMs": 12890,
+    "confidence": 0.9821668863296509
+  },
+  {
+    "text": " ElevenLabs",
+    "startMs": 12920,
+    "endMs": 13580,
+    "timestampMs": 13250,
+    "confidence": 0.47027208904425305
+  },
+  {
+    "text": " alternative",
+    "startMs": 13580,
+    "endMs": 14100,
+    "timestampMs": 13840,
+    "confidence": 0.97268146276474
+  },
+  {
+    "text": " that",
+    "startMs": 14100,
+    "endMs": 14600,
+    "timestampMs": 14350,
+    "confidence": 0.9904206991195679
+  },
+  {
+    "text": " clones",
+    "startMs": 14600,
+    "endMs": 14860,
+    "timestampMs": 14730,
+    "confidence": 0.9978247880935669
+  },
+  {
+    "text": " your",
+    "startMs": 14860,
+    "endMs": 15140,
+    "timestampMs": 15000,
+    "confidence": 0.9973827004432678
+  },
+  {
+    "text": " own",
+    "startMs": 15140,
+    "endMs": 15420,
+    "timestampMs": 15280,
+    "confidence": 0.9969726800918579
+  },
+  {
+    "text": " voice",
+    "startMs": 15420,
+    "endMs": 15700,
+    "timestampMs": 15560,
+    "confidence": 0.9926969408988953
+  },
+  {
+    "text": " from",
+    "startMs": 15700,
+    "endMs": 15960,
+    "timestampMs": 15830,
+    "confidence": 0.9972212314605713
+  },
+  {
+    "text": " a",
+    "startMs": 15960,
+    "endMs": 16140,
+    "timestampMs": 16050,
+    "confidence": 0.9983964562416077
+  },
+  {
+    "text": " short",
+    "startMs": 16140,
+    "endMs": 16340,
+    "timestampMs": 16240,
+    "confidence": 0.9945448637008667
+  },
+  {
+    "text": " sample",
+    "startMs": 16340,
+    "endMs": 16740,
+    "timestampMs": 16540,
+    "confidence": 0.9934154748916626
+  },
+  {
+    "text": " and",
+    "startMs": 16740,
+    "endMs": 17260,
+    "timestampMs": 17000,
+    "confidence": 0.9283226728439331
+  },
+  {
+    "text": " runs",
+    "startMs": 17260,
+    "endMs": 17620,
+    "timestampMs": 17440,
+    "confidence": 0.9977508187294006
+  },
+  {
+    "text": " locally.",
+    "startMs": 17620,
+    "endMs": 18060,
+    "timestampMs": 17840,
+    "confidence": 0.9982656836509705
+  },
+  {
+    "text": " Third,",
+    "startMs": 18420,
+    "endMs": 18580,
+    "timestampMs": 18500,
+    "confidence": 0.9881837964057922
+  },
+  {
+    "text": " OpenSEO",
+    "startMs": 19120,
+    "endMs": 19540,
+    "timestampMs": 19330,
+    "confidence": 0.7707374890645345
+  },
+  {
+    "text": " handles",
+    "startMs": 19540,
+    "endMs": 20000,
+    "timestampMs": 19770,
+    "confidence": 0.9990202188491821
+  },
+  {
+    "text": " keywords,",
+    "startMs": 20000,
+    "endMs": 20420,
+    "timestampMs": 20210,
+    "confidence": 0.9161362648010254
+  },
+  {
+    "text": " rankings,",
+    "startMs": 20860,
+    "endMs": 21200,
+    "timestampMs": 21030,
+    "confidence": 0.9969435334205627
+  },
+  {
+    "text": " backlinks",
+    "startMs": 21660,
+    "endMs": 21960,
+    "timestampMs": 21810,
+    "confidence": 0.9919402599334717
+  },
+  {
+    "text": " and",
+    "startMs": 21960,
+    "endMs": 22300,
+    "timestampMs": 22130,
+    "confidence": 0.3583950698375702
+  },
+  {
+    "text": " site",
+    "startMs": 22300,
+    "endMs": 22580,
+    "timestampMs": 22440,
+    "confidence": 0.9812204837799072
+  },
+  {
+    "text": " audits,",
+    "startMs": 22580,
+    "endMs": 22960,
+    "timestampMs": 22770,
+    "confidence": 0.9878072142601013
+  },
+  {
+    "text": " like",
+    "startMs": 23440,
+    "endMs": 23520,
+    "timestampMs": 23480,
+    "confidence": 0.9963962435722351
+  },
+  {
+    "text": " Ahrefs",
+    "startMs": 23520,
+    "endMs": 24220,
+    "timestampMs": 23870,
+    "confidence": 0.8797423839569092
+  },
+  {
+    "text": " or",
+    "startMs": 24220,
+    "endMs": 24380,
+    "timestampMs": 24300,
+    "confidence": 0.9833342432975769
+  },
+  {
+    "text": " Semrush.",
+    "startMs": 24380,
+    "endMs": 24820,
+    "timestampMs": 24600,
+    "confidence": 0.5452246963977814
+  },
+  {
+    "text": " The",
+    "startMs": 25180,
+    "endMs": 25360,
+    "timestampMs": 25270,
+    "confidence": 0.9920198321342468
+  },
+  {
+    "text": " code",
+    "startMs": 25360,
+    "endMs": 25560,
+    "timestampMs": 25460,
+    "confidence": 0.9692893624305725
+  },
+  {
+    "text": " is",
+    "startMs": 25560,
+    "endMs": 25740,
+    "timestampMs": 25650,
+    "confidence": 0.9988757967948914
+  },
+  {
+    "text": " free;",
+    "startMs": 25740,
+    "endMs": 26040,
+    "timestampMs": 25890,
+    "confidence": 0.9949674010276794
+  },
+  {
+    "text": " the",
+    "startMs": 26320,
+    "endMs": 26420,
+    "timestampMs": 26370,
+    "confidence": 0.9877371788024902
+  },
+  {
+    "text": " data",
+    "startMs": 26420,
+    "endMs": 26700,
+    "timestampMs": 26560,
+    "confidence": 0.9990321397781372
+  },
+  {
+    "text": " isn't.",
+    "startMs": 26700,
+    "endMs": 27100,
+    "timestampMs": 26900,
+    "confidence": 0.9943200945854187
+  },
+  {
+    "text": " Fourth,",
+    "startMs": 27100,
+    "endMs": 27600,
+    "timestampMs": 27350,
+    "confidence": 0.8847538828849792
+  },
+  {
+    "text": " OpenMausBot",
+    "startMs": 28220,
+    "endMs": 28720,
+    "timestampMs": 28470,
+    "confidence": 0.32688368298113346
+  },
+  {
+    "text": " gives",
+    "startMs": 28720,
+    "endMs": 28980,
+    "timestampMs": 28850,
+    "confidence": 0.9847869277000427
+  },
+  {
+    "text": " you",
+    "startMs": 28980,
+    "endMs": 29180,
+    "timestampMs": 29080,
+    "confidence": 0.9918136596679688
+  },
+  {
+    "text": " AI",
+    "startMs": 29180,
+    "endMs": 29580,
+    "timestampMs": 29380,
+    "confidence": 0.9524673819541931
+  },
+  {
+    "text": " teammates",
+    "startMs": 29580,
+    "endMs": 30020,
+    "timestampMs": 29800,
+    "confidence": 0.8693369626998901
+  },
+  {
+    "text": " using",
+    "startMs": 30020,
+    "endMs": 30520,
+    "timestampMs": 30270,
+    "confidence": 0.9772059917449951
+  },
+  {
+    "text": " Claude,",
+    "startMs": 30520,
+    "endMs": 30880,
+    "timestampMs": 30700,
+    "confidence": 0.3139335513114929
+  },
+  {
+    "text": " Codex",
+    "startMs": 31120,
+    "endMs": 31460,
+    "timestampMs": 31290,
+    "confidence": 0.727870523929596
+  },
+  {
+    "text": " or",
+    "startMs": 31460,
+    "endMs": 31820,
+    "timestampMs": 31640,
+    "confidence": 0.6742369532585144
+  },
+  {
+    "text": " other",
+    "startMs": 31820,
+    "endMs": 32100,
+    "timestampMs": 31960,
+    "confidence": 0.9952625036239624
+  },
+  {
+    "text": " supported",
+    "startMs": 32100,
+    "endMs": 32560,
+    "timestampMs": 32330,
+    "confidence": 0.9855898022651672
+  },
+  {
+    "text": " models,",
+    "startMs": 32560,
+    "endMs": 32980,
+    "timestampMs": 32770,
+    "confidence": 0.9748937487602234
+  },
+  {
+    "text": " so",
+    "startMs": 33300,
+    "endMs": 33600,
+    "timestampMs": 33450,
+    "confidence": 0.9918701648712158
+  },
+  {
+    "text": " you",
+    "startMs": 33600,
+    "endMs": 33780,
+    "timestampMs": 33690,
+    "confidence": 0.9897730946540833
+  },
+  {
+    "text": " choose",
+    "startMs": 33780,
+    "endMs": 33980,
+    "timestampMs": 33880,
+    "confidence": 0.9727298021316528
+  },
+  {
+    "text": " the",
+    "startMs": 33980,
+    "endMs": 34180,
+    "timestampMs": 34080,
+    "confidence": 0.9936717748641968
+  },
+  {
+    "text": " engine",
+    "startMs": 34180,
+    "endMs": 34480,
+    "timestampMs": 34330,
+    "confidence": 0.9520168304443359
+  },
+  {
+    "text": " without",
+    "startMs": 34480,
+    "endMs": 34840,
+    "timestampMs": 34660,
+    "confidence": 0.9931453466415405
+  },
+  {
+    "text": " being",
+    "startMs": 34840,
+    "endMs": 35120,
+    "timestampMs": 34980,
+    "confidence": 0.9959318041801453
+  },
+  {
+    "text": " locked",
+    "startMs": 35120,
+    "endMs": 35440,
+    "timestampMs": 35280,
+    "confidence": 0.9921995997428894
+  },
+  {
+    "text": " into",
+    "startMs": 35440,
+    "endMs": 35760,
+    "timestampMs": 35600,
+    "confidence": 0.9516654014587402
+  },
+  {
+    "text": " one",
+    "startMs": 35760,
+    "endMs": 36000,
+    "timestampMs": 35880,
+    "confidence": 0.9904971122741699
+  },
+  {
+    "text": " provider.",
+    "startMs": 36000,
+    "endMs": 36480,
+    "timestampMs": 36240,
+    "confidence": 0.9931290149688721
+  },
+  {
+    "text": " Model",
+    "startMs": 36667,
+    "endMs": 36846,
+    "timestampMs": 36756,
+    "confidence": 1
+  },
+  {
+    "text": " costs",
+    "startMs": 36940,
+    "endMs": 37380,
+    "timestampMs": 37160,
+    "confidence": 0.9405679702758789
+  },
+  {
+    "text": " still",
+    "startMs": 37380,
+    "endMs": 37820,
+    "timestampMs": 37600,
+    "confidence": 0.9816412925720215
+  },
+  {
+    "text": " apply.",
+    "startMs": 37820,
+    "endMs": 38200,
+    "timestampMs": 38010,
+    "confidence": 0.9989123344421387
+  },
+  {
+    "text": " And",
+    "startMs": 38480,
+    "endMs": 38520,
+    "timestampMs": 38500,
+    "confidence": 0.9638517498970032
+  },
+  {
+    "text": " fifth,",
+    "startMs": 38520,
+    "endMs": 38860,
+    "timestampMs": 38690,
+    "confidence": 0.9753586053848267
+  },
+  {
+    "text": " Replica:",
+    "startMs": 39280,
+    "endMs": 39640,
+    "timestampMs": 39460,
+    "confidence": 0.841556042432785
+  },
+  {
+    "text": " eleven",
+    "startMs": 40060,
+    "endMs": 40140,
+    "timestampMs": 40100,
+    "confidence": 0.23778565227985382
+  },
+  {
+    "text": " skills",
+    "startMs": 40140,
+    "endMs": 40500,
+    "timestampMs": 40320,
+    "confidence": 0.9305669665336609
+  },
+  {
+    "text": " to",
+    "startMs": 40500,
+    "endMs": 40780,
+    "timestampMs": 40640,
+    "confidence": 0.9977591037750244
+  },
+  {
+    "text": " study",
+    "startMs": 40780,
+    "endMs": 41100,
+    "timestampMs": 40940,
+    "confidence": 0.9941468238830566
+  },
+  {
+    "text": " an",
+    "startMs": 41100,
+    "endMs": 41300,
+    "timestampMs": 41200,
+    "confidence": 0.7402845025062561
+  },
+  {
+    "text": " app's",
+    "startMs": 41300,
+    "endMs": 41720,
+    "timestampMs": 41510,
+    "confidence": 0.9458815455436707
+  },
+  {
+    "text": " features,",
+    "startMs": 41720,
+    "endMs": 42080,
+    "timestampMs": 41900,
+    "confidence": 0.9944118857383728
+  },
+  {
+    "text": " rebuild,",
+    "startMs": 42480,
+    "endMs": 42820,
+    "timestampMs": 42650,
+    "confidence": 0.971889317035675
+  },
+  {
+    "text": " test",
+    "startMs": 43160,
+    "endMs": 43340,
+    "timestampMs": 43250,
+    "confidence": 0.9981928467750549
+  },
+  {
+    "text": " and",
+    "startMs": 43340,
+    "endMs": 43700,
+    "timestampMs": 43520,
+    "confidence": 0.7227818369865417
+  },
+  {
+    "text": " improve",
+    "startMs": 43700,
+    "endMs": 44040,
+    "timestampMs": 43870,
+    "confidence": 0.9984022974967957
+  },
+  {
+    "text": " them",
+    "startMs": 44040,
+    "endMs": 44300,
+    "timestampMs": 44170,
+    "confidence": 0.9934720993041992
+  },
+  {
+    "text": " with",
+    "startMs": 44300,
+    "endMs": 44500,
+    "timestampMs": 44400,
+    "confidence": 0.9974396228790283
+  },
+  {
+    "text": " your",
+    "startMs": 44500,
+    "endMs": 44660,
+    "timestampMs": 44580,
+    "confidence": 0.9964420199394226
+  },
+  {
+    "text": " own",
+    "startMs": 44660,
+    "endMs": 44920,
+    "timestampMs": 44790,
+    "confidence": 0.9962102174758911
+  },
+  {
+    "text": " branding.",
+    "startMs": 44920,
+    "endMs": 45320,
+    "timestampMs": 45120,
+    "confidence": 0.9954485297203064
+  },
+  {
+    "text": " Comment",
+    "startMs": 45680,
+    "endMs": 45940,
+    "timestampMs": 45810,
+    "confidence": 0.992997407913208
+  },
+  {
+    "text": " REPO",
+    "startMs": 45940,
+    "endMs": 46340,
+    "timestampMs": 46140,
+    "confidence": 0.46284459077287465
+  },
+  {
+    "text": " and",
+    "startMs": 46340,
+    "endMs": 46620,
+    "timestampMs": 46480,
+    "confidence": 0.8337501883506775
+  },
+  {
+    "text": " I'll",
+    "startMs": 46620,
+    "endMs": 46800,
+    "timestampMs": 46710,
+    "confidence": 0.9857989847660065
+  },
+  {
+    "text": " send",
+    "startMs": 46800,
+    "endMs": 46960,
+    "timestampMs": 46880,
+    "confidence": 0.9979628324508667
+  },
+  {
+    "text": " you",
+    "startMs": 46960,
+    "endMs": 47140,
+    "timestampMs": 47050,
+    "confidence": 0.9963186979293823
+  },
+  {
+    "text": " the",
+    "startMs": 47140,
+    "endMs": 47300,
+    "timestampMs": 47220,
+    "confidence": 0.9917192459106445
+  },
+  {
+    "text": " five",
+    "startMs": 47300,
+    "endMs": 47560,
+    "timestampMs": 47430,
+    "confidence": 0.7857195734977722
+  },
+  {
+    "text": " links",
+    "startMs": 47560,
+    "endMs": 47860,
+    "timestampMs": 47710,
+    "confidence": 0.9371258616447449
+  },
+  {
+    "text": " and",
+    "startMs": 47860,
+    "endMs": 48140,
+    "timestampMs": 48000,
+    "confidence": 0.9663960933685303
+  },
+  {
+    "text": " setup",
+    "startMs": 48140,
+    "endMs": 48400,
+    "timestampMs": 48270,
+    "confidence": 0.8531194925308228
+  },
+  {
+    "text": " guide!",
+    "startMs": 48400,
+    "endMs": 48700,
+    "timestampMs": 48550,
+    "confidence": 0.9527802467346191
+  }
+]

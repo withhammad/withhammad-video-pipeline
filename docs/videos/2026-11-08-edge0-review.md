@@ -1,7 +1,7 @@
 # Edge0 follow-up · approval package · 8 November 2026
 
 Job `6eba3a812294`, source https://www.instagram.com/reel/DfchkCOMAEF/.
-Owner approved the overlap with published BYTES; the final cut is awaiting package approval. No release is authorized yet.
+Owner approved the overlap with published BYTES and then approved the finished package. Release remains held until the guide and keyword rule are merged and verified live.
 
 ## Deliverables
 
@@ -42,4 +42,6 @@ Final SHA-256:
 
 The current upstream benchmark is ~2.9 GiB peak MLX allocation on a 24 GB M4 Pro Mac, not total RAM. Checkpoint ~23 GB for 35B. Android requirements are model-specific. Primary sources: [README](https://github.com/Edge0-AI/Edge0), [report](https://arxiv.org/abs/2609.18063), [Android](https://github.com/Edge0-AI/Edge0/blob/main/android/README.md), [iOS](https://github.com/Edge0-AI/Edge0/blob/main/ios/README.md). The benchmark was not independently reproduced.
 
-After owner approval: create website resource + EDGE rule PR; owner merges (PR #16's merge exception does not apply). Verify the deployed guide and all six keyword matchers, then append six approved slots without rebuilding the queue; native TikTok/X bookings only after the page is live. Use `video_variant: linkedin` for LinkedIn. Preserve Instagram Collabs and the Instagram/YouTube 2 h phone-sound window. Copy approved video/covers into the dated Downloads folder. Never run the live poster by hand.
+Resource + EDGE rule [PR #18](https://github.com/withhammad/withhammad-rebuild/pull/18) is ready. Owner merges (PR #16's merge exception does not apply). Build, TypeScript and local guide/blog browser checks pass; both Vercel previews are ready and the protected deployed guide returns HTTP 200 with the expected content and schema. The red CI check is existing prompt-version drift, not a modified prompt. Lighthouse: SEO 100, performance 96, accessibility 96, best practices 100; LCP 2.7 s is above the 2.5 s target. Local EDGE keyword/destination matching passes; this is not proof of a delivered customer DM.
+
+After the owner merges, verify production and all six keyword routes, then append six approved slots without rebuilding the queue; native TikTok/X bookings only after the page is live. Use `video_variant: linkedin` for LinkedIn. Preserve Instagram Collabs and the Instagram/YouTube 2 h phone-sound window. Copy approved video/covers into the dated Downloads folder. Never run the live poster by hand. Proof is archived under `work/edge0/preview-proof.json`, `site-browser.log` and `lighthouse-current.json`.
