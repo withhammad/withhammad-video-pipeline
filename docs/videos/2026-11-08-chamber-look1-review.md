@@ -22,6 +22,9 @@ separate championship guide. The official pricing screen was checked in both mon
 These are local validation results; live delivery waits for the owner's merge and deployment. Publication readiness
 now reports only the missing live guide as a blocker. Studio suite: 631 passed, one existing warning.
 
+Remote verification: both PR #17 Vercel previews passed. GitHub CI reports the exact same 64 prompt-drift
+failures as main, unrelated to this page. Owner merge is still pending; existing Chrome needs GitHub sign-in.
+
 # Chamber editorial scorecard
 
 Editorial judgement, not a prediction of reach.

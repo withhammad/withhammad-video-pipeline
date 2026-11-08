@@ -320,6 +320,11 @@ reports the same 64 pre-existing prompt-drift failures as main. These are separa
 All three approved packages pass local publication checks except that their promised guide URLs still return 404.
 No slots have been booked for these three while the pages are unavailable.
 
+PR #17's two Vercel previews also passed; its GitHub CI has the identical 64 pre-existing prompt-drift errors.
+Existing Chrome is signed out of GitHub (verified on the new PR tab). The owner must sign in as `withhammad` and
+complete the merges of #16 and #17; the authenticated CLI can prepare PRs, but the standing rule reserves merges
+for him. The GitHub sign-in page is open in task tab 1913613092. No passwords or codes are needed in chat.
+
 The repost queue now accepts `video_variant: "linkedin"` on an explicitly selected LinkedIn entry, using
 `final_linkedin.mp4` and, when captions are declared, `captions_linkedin.srt`. It stops if the selected video or
 matching captions are missing; it never silently substitutes the general cut. HARNESS needs this option.
