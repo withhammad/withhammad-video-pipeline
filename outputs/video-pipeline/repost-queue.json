@@ -3351,7 +3351,7 @@
       "primary_keyword": "which Claude model to use",
       "host_slug": "repost-cd157c0bece4",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/claude-models-cheat-sheet"
     },
     {
@@ -4132,10 +4132,12 @@
       "primary_keyword": "ai agents for small business",
       "host_slug": "repost-762cf7fb383a",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/chamber-ai-hub-dubai",
       "owner_approved_at": "2026-11-08",
-      "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json"
+      "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json",
+      "url": "https://www.youtube.com/shorts/llPk9BYnrHk",
+      "posted_at": "2026-11-08T12:03:05Z"
     },
     {
       "id": "in-762cf7fb383a",
