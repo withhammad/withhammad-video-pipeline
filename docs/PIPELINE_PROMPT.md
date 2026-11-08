@@ -38,16 +38,13 @@ Reference: <link>
      Audio-only where the reference shows no face; an avatar take only for the lines the reference says to camera.
    - MOST INTENSE (owner's pick "A, most intense", 2026-11-07, job 85fb47b66b4b): HeyGen Creative Studio > Voice, engine
      ElevenLabs, model v3, the HAMMAD YOUSUF clone, Stability minimum, Speed 1.2x, inline [excited] / [shouting] tags on
-     his lines. Use this first. Fallback when v3 is unavailable or reads too slowly (take > reference length + 10 %, seen
-     on job 762cf7fb383a): the HeyGen Voice preset below.
-   - Excited settings (owner rejected 0.75 as "not aggressive", 2026-11-07; job 6a48be151b7a): HeyGen Creative Studio >
-     Voice, engine "HeyGen Voice", the HAMMAD YOUSUF clone, language English · Original (CHECK it: the shared default was
-     found on Italian), Voice Settings: Tone Excited, Expressiveness 1.0 (max), Speed 1.1x, Similarity 2 (do NOT click
-     "Update default settings"); key words in CAPITALS and "!" / "?!" on his lines (words unchanged). Measured: median
-     pitch ~198 Hz, range ~16 semitones; below ~170 Hz / 12 st fails the energy gate.
+     his lines. Owner correction, 2026-11-08: **ALWAYS ElevenLabs; NEVER the HeyGen Voice engine, even as a fallback.**
+     The owner rejects its slow delivery. If a take runs long, edit redundant wording and true silence while
+     preserving natural pace. Reuse a suitable ElevenLabs take; another paid generation needs authorization.
+     Verify the original clone `4b02b874862049f69b6034bbdc0fb282`, English · Original, actual take metadata and excited
+     delivery before an avatar submit. Do NOT click "Update default settings".
    - Energy (owner rule 2026-11-07, repeated: "my voice should be excited, not a low tone ... always the excited voice"):
-     every take and every voice-only track is EXCITED. HeyGen voice settings: emotion "Excited" where the voice offers
-     it, speed 1.1-1.15, lower stability / higher style on the ElevenLabs-engine clone; the motion prompt asks for a big
+     every take and every voice-only track is EXCITED, using the ElevenLabs settings above; the motion prompt asks for a big
      genuine smile, raised brows, lively eyes and energetic hand gestures. The hook line is written and delivered as
      the most excited line (punchy, exclamation, no slow intro). Gate: listen to the first 3 s; a flat or low delivery
      fails the take. Still: avatar only on the to-camera lines, everything else voice-only over motion graphics.

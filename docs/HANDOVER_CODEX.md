@@ -10,9 +10,12 @@ is exactly what is on disk. Read `AGENTS.md` first (shared rules), then this fil
   facts the reference got wrong change. Same hook, beats, screens, logos, pacing, length within 10 %.
 - **Voice = his HeyGen clone, always.** HeyGen Creative Studio > Voice, account hammadbhat126 (paid, in Chrome),
   HAMMAD YOUSUF clone. Most intense (owner's pick): engine ElevenLabs, model v3, Stability minimum, Speed 1.2x,
-  `[excited]` / `[shouting]` tags. Fallback: engine "HeyGen Voice", Tone Excited, Expressiveness 1.0, 1.1x,
-  Similarity 2, key words in CAPS + "!". Check the voice language is **English · Original** (it was found on Italian).
-  Never "Update default settings". If v3 reads more than 10 % longer than the reference, use the fallback. Gate: median pitch >= ~170 Hz, range >= ~12 semitones, hook = most excited line.
+  `[excited]` / `[shouting]` tags. **Owner correction, 8 Nov 2026: NEVER use the HeyGen Voice engine, even as a
+  fallback. Always ElevenLabs with his original clone and excited delivery.** Check the voice language is
+  **English · Original** (it was found on Italian). Never "Update default settings". If v3 runs long, edit
+  redundant wording and real silence without mechanically speeding up the voice. The older HeyGen Voice fallback
+  instruction is revoked. Gate: median pitch >= ~170 Hz, range >= ~12 semitones, hook = most excited line;
+  the later natural-voice correction below forbids forcing pitch or speed just to meet a number.
   No other TTS for his lines (no Chatterbox, Kokoro, `say`, stock ElevenLabs).
 - **Avatar = matching look, minimum credits** (owner 2026-11-07, latest): every reel's look matches its reference 100 %
   (room, light, framing, outfit, pose). Check HeyGen's credit cost for a new look first: free -> make the matching
@@ -160,7 +163,7 @@ must not reply to the same comment: the routines record replies (`--mark`), so c
 | Chamber AI Hub (@talcai.io DfbvLHmOlhR, job 762cf7fb383a, "Dubai reel") | Finished 73.6 s look-1 edit, approved by owner. Exact approved voice, full edit/music/captions/covers, platform exports and Downloads ready. | PR #17 merged; live guide/rule verified. Six slots booked for 8–9 Nov; TikTok and X native schedules confirmed. No further approval needed. |
 | GROWTH (@nateherkai DfaNcY1FdlE) | Approved corrected cut, cover, exports and Downloads ready. PR #16 merged and deployed; guide/rule verified. | None: all six releases booked for 8–9 Nov. TikTok 8 Nov 15:00 and X 8 Nov 21:00 confirmed natively. Verify publication and eligible keyword replies after release. |
 | HARNESS (LinkedIn dQVK4qeE, job b6b36d9b50b3) | Approved video, LinkedIn variant, seven-page carousel, covers and Downloads ready. PR #16 merged and deployed; both HARNESS routes preserved. | None: six video releases booked for 9–10 Nov; three carousel releases for 11 Nov. LinkedIn selects `video_variant: "linkedin"` and matching SRT. TikTok/X native schedules confirmed. |
-| EDGE0 (@repo_xray DfchkCOMAEF, job 6eba3a812294) | Finished 30 s edit, original Blender owl, reference inserts, approved clone, music, captions, six covers and copy. One voice take: 2 credits (243 → 241). Technical checks pass; natural voice measurements documented. See docs/videos/2026-11-08-edge0-review.md. | Approve the finished package, then resource/EDGE rule PR and owner merge before six-platform booking. Topic approval is not publishing approval. |
+| EDGE0 (@repo_xray DfchkCOMAEF, job 6eba3a812294) | Finished 30 s edit, original Blender owl, reference inserts, approved clone, music, captions, six covers and copy. One voice take: 2 credits (243 → 241). Technical checks pass; natural voice measurements documented. See docs/videos/2026-11-08-edge0-review.md. | Owner approved the finished package: “Approve Edge0 package.” Prepare resource/EDGE rule PR; owner merges before six-platform booking. |
 | GAME (@nick_saraev DfZGREyvPUX) | Built, commit 0f611a0, thumbnails sent. | Approve, then page PR + slots. |
 | Rubber World (8bcf01ad1b0f) | Two-voice cut (him + Annie), commit 99c60bd; queue entries HELD. | Approve this cut, then set the six entries to pending and merge #8. |
 | JOBS (d463f2086d47) | 32.5 s cut with a deadpan opening building to excited, commit d9a11e6; queue entries HELD. | Approve, then set entries to pending. |
@@ -264,6 +267,14 @@ owner's bar is "Claude Opus 5.5 quality". Every step below has a written recipe 
 slow replies -> 0.2 s gaps between lines; one-voice re-voice of a two-character skit was rejected -> keep distinct
 voices per character (him = clone, the other = a HeyGen stock voice like "Annie - Lifelike"); avatar must match the
 reference's room/outfit; thumbnails same template but the face should fit the hook.
+
+**ElevenLabs-only correction (owner, 8 Nov 2026):** "In HeyGen use the ElevenLabs, always ... excited ... don't use
+the HeyGen voice directly. It's very slow ... never use that one." This revokes every older HeyGen Voice fallback
+instruction for Hammad's narration. Use the original clone `4b02b874862049f69b6034bbdc0fb282` through ElevenLabs,
+with excited delivery, English Original and the current approved v3 settings. Verify the actual take metadata,
+not just the engine label. On job `dfa218634321`, the just-created HeyGen Voice fallback is rejected and must not
+enter the edit or avatar render; reuse the existing ElevenLabs take. No avatar has been submitted for this job.
+Previously approved/published videos are not replaced by this forward-looking correction.
 
 **Browser correction (owner, 7 Nov 2026):** use the owner's existing Google Chrome window/profile for login and
 browser work, in our own tabs. Open the needed login pages there; do not launch a separate Chromium/GStack browser

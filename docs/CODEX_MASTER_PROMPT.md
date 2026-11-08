@@ -29,9 +29,11 @@ exact copy + virality) -> `docs/SKILLS_FOR_CODEX.md` (all 127 skills + plugin sk
 3. Rebuild it EXACTLY: same hook, beats, screens, logos, pacing, length within 10 %. Only his face, his voice,
    WITHHAMMAD branding, the comment keyword and wrong facts change. Break it down first (spec.md), then build with the
    playbook for that format (handover section 12) and the skills pack; quality polished beyond the reference.
-4. Voice: ALWAYS his HAMMAD YOUSUF clone on the paid HeyGen account (hammadbhat126). Most intense first (ElevenLabs v3,
-   Stability min, 1.2x, [excited]/[shouting]); fallback HeyGen Voice Excited, Expressiveness 1.0, 1.1x, CAPS + "!" when
-   v3 runs >10 % long; language English · Original; never save defaults. Match the reference's emotional arc (a
+4. Voice (owner correction, 8 Nov 2026): ALWAYS the ElevenLabs engine inside the paid HeyGen account
+   (hammadbhat126), using his original HAMMAD YOUSUF clone with excited delivery. NEVER use the HeyGen Voice
+   engine, including as a fallback: the owner rejects its slow delivery. Use ElevenLabs v3, Stability min,
+   1.2x, [excited]/[shouting]; language English · Original; never save defaults. If it runs long, edit redundant
+   wording and genuine silence while preserving natural pace; do not switch to HeyGen Voice. Match the reference's emotional arc (a
    deadpan opening stays deadpan). Two characters = two voices (him + a HeyGen stock voice). No other TTS for him.
 5. Avatar: a NEW look matching the reference's room, light, framing, outfit and pose when HeyGen makes it free; if a
    look costs credits, reuse the closest existing one. Avatar only on lines said to camera; no face in the reference =
