@@ -1840,9 +1840,10 @@
       "primary_keyword": "Forward Deployed Engineer roadmap",
       "host_slug": "repost-6cff0a62569f",
       "collaborators": null,
-      "status": "pending",
+      "status": "failed",
       "moved_from": "2026-11-07 14:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand"
     },
     {
       "id": "tt-harness-engineering",
@@ -3153,7 +3154,7 @@
       "primary_keyword": "ai board of directors (Claude Code)",
       "host_slug": "repost-23519e29c243",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/roast-room"
     },
     {
@@ -3168,7 +3169,7 @@
       "primary_keyword": "ai board of directors (Claude Code)",
       "host_slug": "repost-23519e29c243",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/roast-room"
     },
     {
@@ -3324,7 +3325,7 @@
       "primary_keyword": "which Claude model to use",
       "host_slug": "repost-cd157c0bece4",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/claude-models-cheat-sheet"
     },
     {
@@ -4157,10 +4158,11 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "pending",
+      "status": "failed",
       "resource_url": "https://withhammad.com/resources/chamber-ai-hub-dubai",
       "owner_approved_at": "2026-11-08",
-      "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json"
+      "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json",
+      "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand"
     },
     {
       "id": "li-762cf7fb383a",
@@ -4174,10 +4176,12 @@
       "primary_keyword": "ai agents for small business",
       "host_slug": "repost-762cf7fb383a",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/chamber-ai-hub-dubai",
       "owner_approved_at": "2026-11-08",
-      "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json"
+      "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7525226794204016640/",
+      "posted_at": "2026-11-08T16:03:06Z"
     },
     {
       "id": "fa-762cf7fb383a",
@@ -4250,9 +4254,11 @@
       "primary_keyword": "claude instagram skill",
       "host_slug": "repost-0f869c3f2de7",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-instagram-skills",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "url": "https://www.youtube.com/shorts/Ist5Pt_Cexg",
+      "posted_at": "2026-11-08T16:03:06Z"
     },
     {
       "id": "in-0f869c3f2de7",
@@ -4497,6 +4503,108 @@
       "resource_url": "https://withhammad.com/resources/build-an-agent-harness",
       "owner_approval": "owner-approval-20261108.json",
       "doc_title": "Build Your Own Claude Code: 15 Agent Harness Parts"
+    },
+    {
+      "id": "yo-6eba3a812294",
+      "job": "6eba3a812294",
+      "platform": "youtube",
+      "slot_utc": "2026-11-09T06:00:00Z",
+      "local": "2026-11-09 10:00 GST",
+      "keyword": "EDGE",
+      "title": "Edge0 AI: A 35B Local LLM with ~3 GiB Active Memory",
+      "caption": "Edge0 AI model runs a 35B local LLM with about 3 GiB of active allocation.\nFree guide: https://withhammad.com/resources/edge0-local-ai\n\nIt streams selected experts from storage and predicts the next ones with a trained router. This is active allocation, not your computer's total RAM: the published benchmark used a 24 GB M4 Pro Mac, and the 35B checkpoint needs about 23 GB of storage.\n\nAndroid and iOS routes exist, with device-specific requirements. Free engine code does not mean zero hardware cost.\n\nSources: https://github.com/Edge0-AI/Edge0\nTechnical report: https://arxiv.org/abs/2609.18063\nDocumentation checked 8 November 2026; benchmark not independently reproduced.\nNarrated with my approved AI voice clone; animation by WITHHAMMAD.\nVisual reference: @repo_xray. Clean GPU/SSD/repository inserts reused from the supplied reel.\n\nComment EDGE for the guide link, or open the free guide above. Subscribe for more practical AI builds.\n#Shorts #LocalLLM #Edge0",
+      "primary_keyword": "Edge0 AI model",
+      "host_slug": "repost-6eba3a812294",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/edge0-local-ai",
+      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026."
+    },
+    {
+      "id": "in-6eba3a812294",
+      "job": "6eba3a812294",
+      "platform": "instagram",
+      "slot_utc": "2026-11-09T14:00:00Z",
+      "local": "2026-11-09 18:00 GST",
+      "keyword": "EDGE",
+      "title": "Edge0 AI: A 35B Local LLM with ~3 GiB Active Memory",
+      "caption": "Edge0 AI model: a 35B local LLM with about 3 GiB of active memory.\nComment EDGE for the setup guide. Follow @withhammad.ai so the DM reaches you.\n\nThe trick is expert streaming from storage plus a trained router that predicts what to load next.\n\nThe catch: active allocation is NOT total computer RAM. The published benchmark used a 24 GB M4 Pro Mac, and the 35B checkpoint takes about 23 GB of storage. Phone builds have their own hardware limits.\n\nNarrated with my approved AI voice clone; animation by WITHHAMMAD.\nVisual reference: @repo_xray. Clean GPU/SSD/repository inserts reused from the supplied reel.\n\nSave the explanation and comment EDGE for the guide.\n#Edge0 #LocalLLM #LocalAI #OpenSourceAI",
+      "primary_keyword": "Edge0 AI model",
+      "host_slug": "repost-6eba3a812294",
+      "collaborators": [
+        "with.hammad",
+        "hammadagentic.ai"
+      ],
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/edge0-local-ai",
+      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026."
+    },
+    {
+      "id": "li-6eba3a812294",
+      "job": "6eba3a812294",
+      "platform": "linkedin",
+      "slot_utc": "2026-11-09T12:00:00Z",
+      "local": "2026-11-09 16:00 GST",
+      "keyword": "EDGE",
+      "title": "Edge0 AI: A 35B Local LLM with ~3 GiB Active Memory",
+      "caption": "Edge0 AI model: a useful local LLM memory result, with an important qualification.\nSetup guide: https://withhammad.com/resources/edge0-local-ai\n\nA 35B model does not need every expert resident in active memory for every token. Edge0 keeps weights on storage, predicts the next experts, and overlaps reads with compute.\n\nIts reported ~2.9 GiB peak MLX allocation is not total process memory. The published benchmark used a 24 GB M4 Pro Mac; the 35B checkpoint is about 23 GB on disk. Mobile builds have separate hardware requirements.\n\nFor a local AI project, measure total process memory, latency and answer quality on your device before choosing a deployment.\n\nOfficial project: https://github.com/Edge0-AI/Edge0\nDocumentation checked 8 November 2026; benchmark not independently reproduced.\nNarrated with my approved AI voice clone; animation by WITHHAMMAD.\nVisual reference: @repo_xray. Clean GPU/SSD/repository inserts reused from the supplied reel.\n\nRead the guide above. Which matters most for your use case: memory, latency or answer quality? Follow Hammad Yousuf for practical AI builds.\n#LocalAI #OpenSourceAI",
+      "primary_keyword": "Edge0 AI model",
+      "host_slug": "repost-6eba3a812294",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/edge0-local-ai",
+      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026.",
+      "video_variant": "linkedin"
+    },
+    {
+      "id": "fa-6eba3a812294",
+      "job": "6eba3a812294",
+      "platform": "facebook",
+      "slot_utc": "2026-11-09T17:00:00Z",
+      "local": "2026-11-09 21:00 GST",
+      "keyword": "EDGE",
+      "title": "Edge0 AI: A 35B Local LLM with ~3 GiB Active Memory",
+      "caption": "Edge0 AI model explains a different way to run a large local LLM.\nFree guide: https://withhammad.com/resources/edge0-local-ai\n\nThe 35B benchmark reports about 3 GiB of active allocation, using SSD expert streaming and a trained predictive router. That is not total device RAM. The benchmark used a 24 GB Mac and the 35B checkpoint needs about 23 GB of storage.\n\nNarrated with my approved AI voice clone; animation by WITHHAMMAD.\nVisual reference: @repo_xray. Clean GPU/SSD/repository inserts reused from the supplied reel.\n\nOpen the guide or comment EDGE for the link. Follow WITHHAMMAD for practical AI builds.\n#Edge0 #LocalAI #OpenSourceAI",
+      "primary_keyword": "Edge0 AI model",
+      "host_slug": "repost-6eba3a812294",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/edge0-local-ai",
+      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026."
+    },
+    {
+      "id": "tt-6eba3a812294",
+      "job": "6eba3a812294",
+      "platform": "tiktok",
+      "slot_utc": "2026-11-09T17:00:00Z",
+      "local": "2026-11-09 21:00 GST",
+      "keyword": "EDGE",
+      "title": "Edge0 AI: A 35B Local LLM with ~3 GiB Active Memory",
+      "caption": "Edge0 AI model: 35B, about 3 GiB active memory. Comment EDGE for the guide link; full guide via link in bio.\n\nActive memory is not total phone/computer RAM. Storage and device limits still apply.\n\nAI voice clone of me; animation by WITHHAMMAD. Visual reference: @repo_xray.\n\nSave this and comment EDGE. Follow @withhammad for practical AI builds.\n#Edge0 #LocalLLM #LocalAI #OpenSourceAI",
+      "primary_keyword": "Edge0 AI model",
+      "host_slug": "repost-6eba3a812294",
+      "collaborators": null,
+      "status": "scheduled",
+      "resource_url": "https://withhammad.com/resources/edge0-local-ai",
+      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026.",
+      "url": "https://www.tiktok.com/@withhammad/video/7705830238797696257",
+      "scheduled_at": "2026-11-08T16:00:21Z"
+    },
+    {
+      "id": "xx-6eba3a812294",
+      "job": "6eba3a812294",
+      "platform": "x",
+      "slot_utc": "2026-11-09T17:00:00Z",
+      "local": "2026-11-09 21:00 GST",
+      "keyword": "EDGE",
+      "title": "Edge0 AI: A 35B Local LLM with ~3 GiB Active Memory",
+      "caption": "Edge0 AI model: 35B with ~3 GiB active allocation. SSD streaming + a predictive router. Extra RAM/storage required.\nGuide: https://withhammad.com/resources/edge0-local-ai\nComment EDGE. Follow for AI builds.\nAI voice clone of me.\n#LocalAI #Edge0",
+      "primary_keyword": "Edge0 AI model",
+      "host_slug": "repost-6eba3a812294",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/edge0-local-ai",
+      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026."
     }
   ]
 }
