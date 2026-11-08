@@ -2541,9 +2541,11 @@
       "primary_keyword": "harness engineering",
       "host_slug": "repost-harness-engineering",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "moved_from": "2026-11-11 16:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "url": "https://www.youtube.com/shorts/WbdQCw6_LFM",
+      "posted_at": "2026-11-08T14:03:05Z"
     },
     {
       "id": "fa-harness-engineering",
@@ -3180,7 +3182,7 @@
       "primary_keyword": "ai board of directors (Claude Code)",
       "host_slug": "repost-23519e29c243",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/roast-room"
     },
     {
