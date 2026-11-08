@@ -277,8 +277,9 @@
     "vercel_project": "withhammad-rebuild (production = main, ~70 s deploy)",
     "not_the_site": "withhammad-next / Vercel withhammad-site do NOT serve withhammad.com",
     "resources_path": "/resources/<slug> (src/app/(site)/resources/<slug>/page.tsx + src/content/resources/<slug>.ts, sitemap + /resources index link)",
-    "identity_last_verified": "2026-10-31",
-    "verification_note": "/resources 200; hosted reels under /media/reels answer 200"
+    "identity_last_verified": "2026-11-08",
+    "verification_note": "PR #16 explicitly authorized for Codex merge; merged fbf6b829. Exact production deployment Ready; GROWTH and Mini Harness guides HTTP 200. Existing HARNESS landing retained.",
+    "production_commit": "fbf6b8296d553afde50c619c32ed8858de1f92e3"
   },
   "manychat": {
     "connected": false,
@@ -506,6 +507,17 @@
     "linkedin": "Existing Chrome verified; first 12 activity entries checked, one non-keyword comment. API-post watchlist traversal and fresh keyword delivery remain unverified.",
     "x": "Existing Chrome verified; ten newest non-pinned posts checked, all zero replies. No eligible reply to send.",
     "tiktok": "Existing Chrome verified; eight latest published videos checked via profile navigation, one emoji-only comment. No eligible reply to send. Direct video navigation returned 403; profile click works.",
-    "proof": "outputs/video-pipeline/codex-takeover-proof.json"
+    "proof": "outputs/video-pipeline/codex-takeover-proof.json",
+    "release_preflight_20261108": {
+      "checked_at": "2026-11-08T13:16:48.138877+04:00",
+      "keywords": [
+        "GROWTH",
+        "HARNESS"
+      ],
+      "production_commit": "fbf6b8296d553afde50c619c32ed8858de1f92e3",
+      "instagram_facebook": "Signed empty webhook events 200; account identities and subscriptions verified. Rules deployed. No fresh customer send claimed.",
+      "youtube_linkedin_x_tiktok": "All matchers resolve both keywords from updated site clone; YouTube dry run scanned 500 threads, seven already handled, no new eligible comments.",
+      "proof": "docs/videos/2026-11-08-growth-harness-release.md"
+    }
   }
 }

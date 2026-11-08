@@ -4330,9 +4330,11 @@
       "primary_keyword": "claude instagram skill",
       "host_slug": "repost-0f869c3f2de7",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/claude-instagram-skills",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-08T09:04:39Z"
     },
     {
       "id": "yo-b6b36d9b50b3",
@@ -4414,9 +4416,11 @@
       "primary_keyword": "build your own claude code",
       "host_slug": "repost-b6b36d9b50b3",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/build-an-agent-harness",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "url": "https://www.tiktok.com/@withhammad/video/7705724702609755393",
+      "scheduled_at": "2026-11-08T09:09:47Z"
     },
     {
       "id": "xx-b6b36d9b50b3",
@@ -4430,9 +4434,11 @@
       "primary_keyword": "build your own claude code",
       "host_slug": "repost-b6b36d9b50b3",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/build-an-agent-harness",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "url": "https://x.com/compose/post/unsent/scheduled",
+      "scheduled_at": "2026-11-08T09:05:44Z"
     },
     {
       "id": "ic-b6b36d9b50b3",

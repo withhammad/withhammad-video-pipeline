@@ -14,6 +14,16 @@ these lanes. TikTok schedules at most 10 days ahead; X allows more.
 The Chrome window is often minimized (viewport 0x0): screenshots and coordinate clicks fail, so drive both sites
 with javascript_tool, file_upload for the video, and one real `Delete` key press on TikTok.
 
+Codex Chrome check (8 Nov): activate the task-owned tab and unminimize its window before interacting.
+Background React pages can return stale/empty dialogs even after a successful click. Keep one platform visible
+until its schedule is confirmed. Standard file inputs accept an explicitly supplied local File/DataTransfer;
+scope X selectors to `[role=dialog]` so the home composer is not edited accidentally.
+On TikTok, paste after the filename, then select only that filename prefix and send a real Delete key.
+Do not use `execCommand('delete')` to clear Draft.js: it can leave the first paragraph missing from the DOM
+while the preview still contains it. Compare the visible caption against the approved copy before scheduling.
+The AI label follows the content: enabled for Hammad's synthetic presenter, off for HARNESS's diagram-only edit.
+After submitting, reload the TikTok content list before treating a missing new row as a failure; do not resubmit.
+
 ## TikTok Studio (https://www.tiktok.com/tiktokstudio/upload?from=webapp)
 1. find the video file input, file_upload the video; wait until the page text shows "Uploaded".
 2. Caption: `.public-DraftEditor-content` is pre-filled with the file name. Paste the caption with a synthetic

@@ -158,15 +158,16 @@ must not reply to the same comment: the routines record replies (`--mark`), so c
 | Reel | Where it stopped | Owner decision needed |
 |---|---|---|
 | Chamber AI Hub (@talcai.io DfbvLHmOlhR, job 762cf7fb383a, "Dubai reel") | Finished 73.6 s look-1 edit, approved by owner. Exact approved voice, full edit/music/captions/covers, platform exports and Downloads ready. | PR #17 merged; live guide/rule verified. Six slots booked for 8–9 Nov; TikTok and X native schedules confirmed. No further approval needed. |
-| GROWTH (@nateherkai DfaNcY1FdlE) | Corrected matching-look edit and cover approved; exports and Downloads ready. | Merge website #16, then verify the live GROWTH guide/rule and book all six platforms. No further video approval needed. |
-| HARNESS (LinkedIn dQVK4qeE, job b6b36d9b50b3) | Full video, LinkedIn variant, seven-page carousel and covers approved; exports and Downloads ready. | Merge website #16. Preserve the older HARNESS landing URL; the PR adds the Mini Harness path there. Book LinkedIn with `video_variant: "linkedin"` and its matching SRT. |
+| GROWTH (@nateherkai DfaNcY1FdlE) | Approved corrected cut, cover, exports and Downloads ready. PR #16 merged and deployed; guide/rule verified. | None: all six releases booked for 8–9 Nov. TikTok 8 Nov 15:00 and X 8 Nov 21:00 confirmed natively. Verify publication and eligible keyword replies after release. |
+| HARNESS (LinkedIn dQVK4qeE, job b6b36d9b50b3) | Approved video, LinkedIn variant, seven-page carousel, covers and Downloads ready. PR #16 merged and deployed; both HARNESS routes preserved. | None: six video releases booked for 9–10 Nov; three carousel releases for 11 Nov. LinkedIn selects `video_variant: "linkedin"` and matching SRT. TikTok/X native schedules confirmed. |
+| EDGE0 (@repo_xray DfchkCOMAEF, job 6eba3a812294) | Free intake complete: source, local transcript and 1 fps contact sheet. Owner approved the follow-up despite overlap with BYTES. | Build with cloned voice only, Blender cartoon plates and Remotion; then send the finished package for approval. Topic approval is not publishing approval. |
 | GAME (@nick_saraev DfZGREyvPUX) | Built, commit 0f611a0, thumbnails sent. | Approve, then page PR + slots. |
 | Rubber World (8bcf01ad1b0f) | Two-voice cut (him + Annie), commit 99c60bd; queue entries HELD. | Approve this cut, then set the six entries to pending and merge #8. |
 | JOBS (d463f2086d47) | 32.5 s cut with a deadpan opening building to excited, commit d9a11e6; queue entries HELD. | Approve, then set entries to pending. |
 | REFERRAL (33d9c1e97156) | Live on all six since 7 Nov; keyword automation ready but needs PR #7 merged. | Merge #7; pick a repost/variant approach (the session offered options). |
 | Dots (@nick_saraev DfXfZ0GPHy0, job 3260bdc792c4) | Rejected as a duplicate of the already posted DOTS reel, per the owner. | None. Do not rebuild or spend credits. |
 
-Owner merges still pending: withhammad-rebuild #4 #5 #6 #7 #9 #10 #11 #12 #13 #14 #15 #16 #17 (#8 only after the Rubber World OK). Prioritize #7 because REFERRAL is already live.
+Earlier handover's remaining merge list: withhammad-rebuild #4 #5 #6 #7 #9 #10 #11 #12 #13 #14 #15 (#8 only after the Rubber World OK). Recheck each PR before reporting its current state. #16 and #17 are confirmed merged. Prioritize #7 because REFERRAL is already live.
 After each merge: schedule that reel's TikTok and X natively (chrome-schedule.md) and `mark --scheduled`.
 
 ## 8. Keyword-DM automation (every post, every platform) — no ManyChat, no paid tools
@@ -302,9 +303,13 @@ credit delta and any settings the provider did not retain. No extra paid render 
 **Latest approvals and connections (8 Nov 2026):** GROWTH's corrected cut and cover are approved; HARNESS's full
 package is approved. Both have platform exports, covers and copies in `~/Downloads/8 November/`. Website PR #16
 adds both guides, the GROWTH rule, and shared HARNESS routing without breaking the older HARNESS reel. The owner
-said he would complete the GitHub merge; last verified state was OPEN with new guide URLs still 404. Verify the
-actual merge/deployment before scheduling. HARNESS already has a live rule to `/resources/harness-engineering`;
-the PR adds the Mini Harness guide prominently there and includes both links in Instagram/Facebook DMs.
+explicitly authorized Codex to merge #16: **“Yes, merge PR #16 and continue.”** This is a one-PR exception to his
+website merge rule, not blanket authorization for future PRs. Codex merged #16 at 08:45:31 UTC on 8 Nov,
+commit `fbf6b8296d553afde50c619c32ed8858de1f92e3`. Production deployment
+`dpl_2SbX3BDMgcC3ibJ9pzZsvSMg1Uzh` is Ready on that exact commit. Both new guides return 200 with the expected H1.
+HARNESS keeps `/resources/harness-engineering` as its primary reply link; that live landing links to Mini Harness,
+and Instagram/Facebook DMs contain both guide URLs. Signed empty webhook events and verification return 200;
+all four other platform matchers resolve GROWTH/HARNESS. These checks prove routing, not a fresh customer delivery.
 
 Chamber: the owner explicitly accepted voice take 1794083468342-3 for look 1 despite its 147.37 Hz median. This is
 an exception for that sample, not a new global voice target. One completed look-1 project
@@ -323,9 +328,20 @@ blockers and warnings. Guide Lighthouse: 95 performance / 96 accessibility / 100
 Owner reported both PRs merged, but GitHub showed #16 still OPEN and conflicting after #17. Resolved the three
 shared-file conflicts, preserving Chamber, and rebased the sole own commit to `fae7eb4`. Updated #16 with an exact
 force-with-lease. Build, lint, TypeScript and both authenticated preview-page checks pass; deployment is Ready.
-The remaining GitHub failure is the same 64 pre-existing prompt-governance violations. Asked owner to complete
-#16's merge; GROWTH and HARNESS remain approved and unscheduled until their guides/rules deploy. No new media
-approval or paid render is needed. GitHub sign-in is no longer the blocker.
+The remaining GitHub failure was the same 64 pre-existing prompt-governance violations. The owner then granted
+the explicit #16 merge exception above. GROWTH/HARNESS are now booked; no further approval, login or render is needed.
+
+GROWTH booking (GST): YouTube 8 Nov 18:00, Facebook/TikTok 8 Nov 15:00, X 8 Nov 21:00,
+Instagram/LinkedIn 9 Nov 12:00. HARNESS: YouTube 9 Nov 14:00, X 10 Nov 10:00,
+Facebook/TikTok 10 Nov 11:00, Instagram/LinkedIn 10 Nov 12:00. HARNESS carousel: IG 11 Nov 20:00,
+Facebook/LinkedIn 11 Nov 11:00. All Instagram entries invite `with.hammad` and `hammadagentic.ai`.
+Instagram/YouTube retain two hours for phone sounds, then the next :03 launchd run publishes without a library sound.
+Native TikTok IDs: GROWTH `7705722433147243782`, HARNESS `7705724702609755393`.
+X scheduled-list confirmations: GROWTH 8 Nov 21:00 (media `2119353842748022784`), HARNESS 10 Nov 10:00
+(media `2119355297726877697`). X media IDs are not public post IDs. Both have English SRTs; GROWTH has the AI label,
+HARNESS has no synthetic presenter/narration. TikTok uses approved custom covers; X exposes no custom-cover upload.
+See `docs/videos/2026-11-08-growth-harness-release.md`. Fifteen entries appended without rebuilding the queue;
+existing and held slots preserved. Studio tests: 631 passed, one existing warning, 72.22 seconds. No generation credits spent.
 
 Chamber booking (GST): YouTube 8 Nov 14:00, Instagram 8 Nov 18:00, LinkedIn 8 Nov 20:00;
 Facebook/TikTok 9 Nov 11:00, X 9 Nov 10:00. Instagram invites `with.hammad` and `hammadagentic.ai`.
