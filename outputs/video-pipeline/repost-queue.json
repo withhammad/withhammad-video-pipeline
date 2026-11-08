@@ -1832,18 +1832,24 @@
       "id": "fa-6cff0a62569f",
       "job": "6cff0a62569f",
       "platform": "facebook",
-      "slot_utc": "2026-11-08T16:00:00Z",
-      "local": "2026-11-08 20:00 GST",
+      "slot_utc": "2026-11-09T12:00:00Z",
+      "local": "2026-11-09 16:00 GST",
       "keyword": "ROADMAP",
       "title": "Forward Deployed Engineer: a free 6-week roadmap (2026)",
       "caption": "Forward Deployed Engineer roadmap: a free 6-week plan for developers moving into FDE work.\n\nFull guide with every link and milestone: https://withhammad.com/resources/forward-deployed-engineer-roadmap\n\nForward Deployed Engineer job posts rose more than 1,000% in Jan-Aug 2026 vs the same months of 2025 (Lightcast data via Fortune, 3 Sep 2026). On 18 Oct 2026 Palantir listed 77 FDE roles and Google 52 on their own job boards. The job is AI engineering plus customer deployment: Palantir's FDSEs work directly with customers, often on site.\n\nThe six weeks, one free official resource and one milestone each:\nWeek 1 Python\nWeek 2 LLM APIs (Gemini API free tier)\nWeek 3 RAG: a chatbot over your own PDFs\nWeek 4 ADK agents: tools with Google's Agent Development Kit\nWeek 5 Evals: 20+ scored test cases\nWeek 6 Ship it: live on Cloud Run, plus a one-page system design\n\nHonest caveat: this builds the skills and a portfolio project, not the job title. Most FDE roles ask for experience (Google FDE III: 5 years; OpenAI's UAE role: 5+); Palantir runs new-grad tracks.\n\nFree guide: https://withhammad.com/resources/forward-deployed-engineer-roadmap\nFollow With Hammad AI for more AI builds.\n\nAI avatar of me.\n\n#forwarddeployedengineer #aiengineer #techcareers",
       "primary_keyword": "Forward Deployed Engineer roadmap",
       "host_slug": "repost-6cff0a62569f",
       "collaborators": null,
-      "status": "failed",
+      "status": "pending",
       "moved_from": "2026-11-07 14:00 GST",
       "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
-      "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand"
+      "retry_history": [
+        {
+          "local": "2026-11-08 20:00 GST",
+          "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand",
+          "resolution": "Publishing clone restored to clean main. Failed queue entries require explicit requeue; launchd does not automatically retry failed status."
+        }
+      ]
     },
     {
       "id": "tt-harness-engineering",
@@ -4147,8 +4153,8 @@
       "id": "in-762cf7fb383a",
       "job": "762cf7fb383a",
       "platform": "instagram",
-      "slot_utc": "2026-11-08T14:00:00Z",
-      "local": "2026-11-08 18:00 GST",
+      "slot_utc": "2026-11-09T09:00:00Z",
+      "local": "2026-11-09 13:00 GST",
       "keyword": "DUBAI",
       "title": "AI Agents for Small Business in Dubai: Chamber AI Hub's 22 Agents",
       "caption": "Dubai Chambers AI agents are live: 22 ready-made AI agents for Dubai businesses on the new Chamber AI Hub.\nComment DUBAI and I'll DM you the guide.\n\nWhat is on it: compliance, procurement, operations, finance, sales, HR and logistics agents. Think contract review, invoice processing, talent matching and lead scoring. 100 agents are planned over two years.\n\nWho can sign up: Dubai Chambers members, via UAE Pass, a matching trade licence and an active membership.\n\nWhat it costs: starter credits are complimentary, then plans from AED 270/month billed annually, plus usage credits.\n\nArabic + English agents, an admin portal and data hosted in the UAE, per @dubaichambers (they call it the world's first chamber-led agentic AI marketplace).\n\nComment DUBAI and I'll DM you the guide.\nFollow @withhammad.ai so the DM reaches you.\n\nAI avatar of me.\n\n#AIAgents #AgenticAI #DubaiChambers #DubaiBusiness #AIForBusiness",
@@ -4158,11 +4164,17 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "failed",
+      "status": "pending",
       "resource_url": "https://withhammad.com/resources/chamber-ai-hub-dubai",
       "owner_approved_at": "2026-11-08",
       "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json",
-      "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand"
+      "retry_history": [
+        {
+          "local": "2026-11-08 18:00 GST",
+          "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand",
+          "resolution": "Publishing clone restored to clean main. Failed queue entries require explicit requeue; launchd does not automatically retry failed status."
+        }
+      ]
     },
     {
       "id": "li-762cf7fb383a",

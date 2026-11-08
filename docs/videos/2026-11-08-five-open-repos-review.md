@@ -1,6 +1,6 @@
 # Five open-source repos · approval package · 8 November 2026
 
-**HOLD — owner rejected this cut’s voice on 8 Nov 2026. This package is not approved. Correct narration against REFERRAL job `33d9c1e97156` (ElevenLabs v4, stability 50, speed 1.1), rebuild timing/lip sync and request approval of the new cut. Prior technical checks below do not establish an audible voice match.**
+**ARCHIVED v3 PACKAGE — corrected cut is now documented in `docs/videos/2026-11-09-repo-corrected-voice-review.md`. Owner rejected this cut’s voice on 8 Nov 2026. This package is not approved. Correct narration against REFERRAL job `33d9c1e97156` (ElevenLabs v4, stability 50, speed 1.1), rebuild timing/lip sync and request approval of the new cut. Prior technical checks below do not establish an audible voice match.**
 
 Job `dfa218634321`, reference https://www.instagram.com/reel/DfeW3F8PIsk/ (@nick_saraev). Finished package awaiting owner approval. No publication or scheduling authorized.
 

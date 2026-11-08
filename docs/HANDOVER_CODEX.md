@@ -155,7 +155,7 @@ Hand-over order: recreate each routine in Codex (its automations) from the copie
 works, then ask the owner to disable the Claude task of the same name (Claude Desktop > Scheduled). Until then both
 must not reply to the same comment: the routines record replies (`--mark`), so check their state before enabling.
 
-## 7. Open items from the handover — updated 8 Nov 2026
+## 7. Open items from the handover — updated 9 Nov 2026
 
 | Reel | Where it stopped | Owner decision needed |
 |---|---|---|
@@ -163,9 +163,10 @@ must not reply to the same comment: the routines record replies (`--mark`), so c
 | GROWTH (@nateherkai DfaNcY1FdlE) | Approved corrected cut, cover, exports and Downloads ready. PR #16 merged and deployed; guide/rule verified. | None: all six releases booked for 8–9 Nov. TikTok 8 Nov 15:00 and X 8 Nov 21:00 confirmed natively. Verify publication and eligible keyword replies after release. |
 | HARNESS (LinkedIn dQVK4qeE, job b6b36d9b50b3) | Approved video, LinkedIn variant, seven-page carousel, covers and Downloads ready. PR #16 merged and deployed; both HARNESS routes preserved. | None: six video releases booked for 9–10 Nov; three carousel releases for 11 Nov. LinkedIn selects `video_variant: "linkedin"` and matching SRT. TikTok/X native schedules confirmed. |
 | EDGE0 (@repo_xray DfchkCOMAEF, job 6eba3a812294) | Owner-approved 30 s package. PR #18 merged under the owner's explicit deploy instruction; guide and EDGE routing are live. Six releases booked for 9 Nov; TikTok and X native schedules confirmed. Exports and Downloads ready. | No further approval needed. Verify posts and eligible keyword replies after release. See docs/videos/2026-11-08-edge0-release.md for slots and evidence. |
-| REPO (@nick_saraev DfeW3F8PIsk, job dfa218634321) | Owner rejected the 49 s cut: "not my voice". HOLD. Visual edit/covers reusable; replace narration using the fixed REFERRAL voice reference, then rebuild timing/lip sync. Prior total debit 30 credits (241 → 211); no further credits spent on the voice audit. | Corrected narration prepared: ElevenLabs v4, 1.1x, stability 50. UI quotes 3 credits; one paid retry authorization requested. No avatar submit or release until the corrected voice and finished package pass review. |
-| AI agent developer roadmap (LinkedIn dDH3f9E4) | Finished WITHHAMMAD static infographic matching the seven-branch source; copy for six image destinations and a guide draft. Keyword proposal AGENTMAP. Zero HeyGen credits. | Approve graphic/copy, then guide/rule PR for owner merge. Not posted or scheduled. See docs/videos/2026-11-08-ai-agent-developer-learning-plan-review.md. |
-| Vector databases (LinkedIn dJJbWzcy) | Finished WITHHAMMAD static infographic matching the nine-panel source; copy for six image destinations and a guide draft. Keyword proposal VECTORS. Zero HeyGen credits. | Approve graphic/copy, then guide/rule PR for owner merge. Not posted or scheduled. See docs/videos/2026-11-08-vector-databases-explained-review.md. |
+| REPO (@nick_saraev DfeW3F8PIsk, job dfa218634321) | Corrected 45.567 s cut ready using verified REFERRAL clone, ElevenLabs v4 / 1.1x / stability 50. One owner-authorized take cost exactly 3 credits (211 → 208); existing avatar/edit reused. Old v3 cut stays rejected. | Owner listening/package approval of corrected cut; then guide/rule PR and release. Natural pitch differs from REFERRAL’s skit and legacy pause metric is 6.8%; disclosed, no pitch or speech-speed alteration. See docs/videos/2026-11-09-repo-corrected-voice-review.md. |
+| AI agent developer roadmap (LinkedIn dDH3f9E4) | Owner approved static infographic/copy on 8 Nov. Guide, approved image and AGENTMAP rule ready in PR #19. Build/typecheck/mobile/desktop checks pass; Lighthouse SEO 100. | Owner merges #19, then verify production and release on image destinations. No repeat content approval needed. |
+| Vector databases (LinkedIn dJJbWzcy) | Owner approved static infographic/copy on 8 Nov. Guide, approved image and VECTORS rule ready in PR #19; same checks as roadmap pass. | Owner merges #19, then verify production and release on image destinations. No repeat content approval needed. |
+| AI guardrails (LinkedIn dEY7GakW) | Finished reference-matched static graphic, six copy adaptations and guide draft. Keyword GUARD. Zero HeyGen credits. | Approve graphic/copy, then guide/rule PR for owner merge. Nothing posted or scheduled. See docs/videos/2026-11-08-ai-guardrails-review.md. |
 | GAME (@nick_saraev DfZGREyvPUX) | Built, commit 0f611a0, thumbnails sent. | Approve, then page PR + slots. |
 | Rubber World (8bcf01ad1b0f) | Two-voice cut (him + Annie), commit 99c60bd; queue entries HELD. | Approve this cut, then set the six entries to pending and merge #8. |
 | JOBS (d463f2086d47) | 32.5 s cut with a deadpan opening building to excited, commit d9a11e6; queue entries HELD. | Approve, then set entries to pending. |
@@ -289,8 +290,12 @@ earlier v3 directions below; the ban on HeyGen Voice remains.
 Canonical machine-readable reference: `outputs/video-pipeline/voice-reference.json`. The new Creative Studio
 composer initially opened on Eleven Multilingual v2 / speed 1.0 despite the correct clone label: select v4
 explicitly and verify every control per take. REPO's corrected script is prepared on task-owned Chrome tab
-1913613557 with v4 / 1.1 / stability 50 / volume 100%, English Original. Quote: 3 credits, balance 211, not
-submitted; the paid-retry question is pending. Never overwrite the saved REFERRAL project or its audio.
+1913613557 with v4 / 1.1 / stability 50 / volume 100%, English Original. Owner approved one 3-credit take;
+asset `cad2bdeda9b54597a380ce7790187400` completed once. Actual balance 211 → 208, exactly 3 credits.
+Corrected 45.567 s cut is ready for owner listening approval. Existing same-script avatar was retimed locally,
+with no new avatar spend. Never overwrite the saved REFERRAL project or its audio. See `v4-revision` in the
+REPO job and `outputs/video-pipeline/reviews/2026-11-09-repo-referral-voice.json` for measurements. Do not claim
+that settings alone guarantee an audible match; natural pitch and the legacy 6.8% pause result are disclosed.
 
 **ElevenLabs-only correction (owner, earlier 8 Nov 2026; v3 settings superseded above):** "In HeyGen use the ElevenLabs, always ... excited ... don't use
 the HeyGen voice directly. It's very slow ... never use that one." This revokes every older HeyGen Voice fallback
@@ -433,3 +438,16 @@ beat by beat; the 5b side-by-side compares against it.
 
 **D. Before sending to the owner:** the six gates of section 11, then send final.mp4 + cover sheet + virality.md +
 seo.md, and wait. Every rejection reason goes into this file (section 11, owner corrections) so it never repeats.
+
+
+### Posting recovery, 9 November 2026
+
+A `failed` queue entry is **not** automatically retried by the next launchd run. Restoring the website clone to
+clean main fixes the cause but does not reset that status. Under `work/.run-due.lock`, re-read the queue, verify
+that no post was created, preserve the failure history, and rebook only the affected approved entry as pending.
+Do not rebuild the queue or run the live poster manually.
+
+Chamber Instagram `in-762cf7fb383a` is rebooked for 9 Nov 13:00 GST (phone sound window; launchd fallback 15:03).
+FDE roadmap Facebook `fa-6cff0a62569f` is rebooked for 9 Nov 16:00 GST (launchd 16:03). Both guides return 200;
+both publisher dry runs return planned. All other bookings are preserved. Posting clone stays on clean main;
+new guide PR #19 uses the managed approved-learning-guides worktree.

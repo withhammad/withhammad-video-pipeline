@@ -1,0 +1,30 @@
+{
+  "pr": "https://github.com/withhammad/withhammad-rebuild/pull/19",
+  "commit": "35a088c71bd1dcadd92737305f43ffc948c11347",
+  "preview": "https://withhammad-rebuild-2i92vn2eg-hammad-s-projects9.vercel.app",
+  "preview_ready": true,
+  "pages": [
+    {
+      "slug": "ai-agent-developer-learning-plan",
+      "h1_count": 1,
+      "title": "AI Agent Developer: Four-Month Learning Plan",
+      "graphic_label": true,
+      "canonical": "https://withhammad.com/resources/ai-agent-developer-learning-plan"
+    },
+    {
+      "slug": "vector-databases-explained",
+      "h1_count": 1,
+      "title": "Vector Databases Explained: A Practical Guide",
+      "graphic_label": true,
+      "canonical": "https://withhammad.com/resources/vector-databases-explained"
+    }
+  ],
+  "ci_baseline_violations": 64,
+  "ci_same_as_main": true,
+  "lighthouse_seo": {
+    "AGENTMAP": 100,
+    "VECTORS": 100
+  },
+  "keyword_cases": 20,
+  "production_deployed": false
+}

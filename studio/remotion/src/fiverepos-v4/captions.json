@@ -1,0 +1,849 @@
+[
+  {
+    "text": "These",
+    "startMs": 0,
+    "endMs": 207,
+    "timestampMs": 103,
+    "confidence": 1
+  },
+  {
+    "text": " five",
+    "startMs": 367,
+    "endMs": 607,
+    "timestampMs": 487,
+    "confidence": 1
+  },
+  {
+    "text": " open-source",
+    "startMs": 687,
+    "endMs": 1247,
+    "timestampMs": 967,
+    "confidence": 1
+  },
+  {
+    "text": " repos",
+    "startMs": 1327,
+    "endMs": 1727,
+    "timestampMs": 1527,
+    "confidence": 1
+  },
+  {
+    "text": " could",
+    "startMs": 1807,
+    "endMs": 1967,
+    "timestampMs": 1887,
+    "confidence": 1
+  },
+  {
+    "text": " replace",
+    "startMs": 2207,
+    "endMs": 2447,
+    "timestampMs": 2327,
+    "confidence": 1
+  },
+  {
+    "text": " paid",
+    "startMs": 2527,
+    "endMs": 2767,
+    "timestampMs": 2647,
+    "confidence": 1
+  },
+  {
+    "text": " tools",
+    "startMs": 2847,
+    "endMs": 3167,
+    "timestampMs": 3007,
+    "confidence": 1
+  },
+  {
+    "text": " in",
+    "startMs": 3207,
+    "endMs": 3247,
+    "timestampMs": 3227,
+    "confidence": 1
+  },
+  {
+    "text": " your",
+    "startMs": 3327,
+    "endMs": 3407,
+    "timestampMs": 3367,
+    "confidence": 1
+  },
+  {
+    "text": " stack!",
+    "startMs": 3487,
+    "endMs": 3887,
+    "timestampMs": 3687,
+    "confidence": 1
+  },
+  {
+    "text": " First,",
+    "startMs": 4080,
+    "endMs": 4400,
+    "timestampMs": 4240,
+    "confidence": 1
+  },
+  {
+    "text": " OpenCode,",
+    "startMs": 4767,
+    "endMs": 5207,
+    "timestampMs": 4987,
+    "confidence": 1
+  },
+  {
+    "text": " a",
+    "startMs": 5367,
+    "endMs": 5433,
+    "timestampMs": 5400,
+    "confidence": 1
+  },
+  {
+    "text": " Claude",
+    "startMs": 5513,
+    "endMs": 5753,
+    "timestampMs": 5633,
+    "confidence": 1
+  },
+  {
+    "text": " Code",
+    "startMs": 5873,
+    "endMs": 5993,
+    "timestampMs": 5933,
+    "confidence": 1
+  },
+  {
+    "text": " alternative",
+    "startMs": 6073,
+    "endMs": 6633,
+    "timestampMs": 6353,
+    "confidence": 1
+  },
+  {
+    "text": " with",
+    "startMs": 6713,
+    "endMs": 6873,
+    "timestampMs": 6793,
+    "confidence": 1
+  },
+  {
+    "text": " selected",
+    "startMs": 6953,
+    "endMs": 7433,
+    "timestampMs": 7193,
+    "confidence": 1
+  },
+  {
+    "text": " free",
+    "startMs": 7513,
+    "endMs": 7673,
+    "timestampMs": 7593,
+    "confidence": 1
+  },
+  {
+    "text": " models,",
+    "startMs": 7753,
+    "endMs": 8153,
+    "timestampMs": 7953,
+    "confidence": 1
+  },
+  {
+    "text": " including",
+    "startMs": 8473,
+    "endMs": 8713,
+    "timestampMs": 8593,
+    "confidence": 1
+  },
+  {
+    "text": " GLM",
+    "startMs": 8793,
+    "endMs": 9353,
+    "timestampMs": 9073,
+    "confidence": 1
+  },
+  {
+    "text": " and",
+    "startMs": 9433,
+    "endMs": 9513,
+    "timestampMs": 9473,
+    "confidence": 1
+  },
+  {
+    "text": " DeepSeek.",
+    "startMs": 9593,
+    "endMs": 10153,
+    "timestampMs": 9873,
+    "confidence": 1
+  },
+  {
+    "text": " Second,",
+    "startMs": 10347,
+    "endMs": 10667,
+    "timestampMs": 10507,
+    "confidence": 1
+  },
+  {
+    "text": " VoiceStudio,",
+    "startMs": 10880,
+    "endMs": 11600,
+    "timestampMs": 11240,
+    "confidence": 1
+  },
+  {
+    "text": " an",
+    "startMs": 11733,
+    "endMs": 11747,
+    "timestampMs": 11740,
+    "confidence": 1
+  },
+  {
+    "text": " ElevenLabs",
+    "startMs": 11827,
+    "endMs": 12467,
+    "timestampMs": 12147,
+    "confidence": 1
+  },
+  {
+    "text": " alternative",
+    "startMs": 12747,
+    "endMs": 13027,
+    "timestampMs": 12887,
+    "confidence": 1
+  },
+  {
+    "text": " that",
+    "startMs": 13107,
+    "endMs": 13187,
+    "timestampMs": 13147,
+    "confidence": 1
+  },
+  {
+    "text": " clones",
+    "startMs": 13347,
+    "endMs": 13667,
+    "timestampMs": 13507,
+    "confidence": 1
+  },
+  {
+    "text": " your",
+    "startMs": 13787,
+    "endMs": 13907,
+    "timestampMs": 13847,
+    "confidence": 1
+  },
+  {
+    "text": " own",
+    "startMs": 14027,
+    "endMs": 14147,
+    "timestampMs": 14087,
+    "confidence": 1
+  },
+  {
+    "text": " voice",
+    "startMs": 14227,
+    "endMs": 14467,
+    "timestampMs": 14347,
+    "confidence": 1
+  },
+  {
+    "text": " from",
+    "startMs": 14547,
+    "endMs": 14627,
+    "timestampMs": 14587,
+    "confidence": 1
+  },
+  {
+    "text": " a",
+    "startMs": 14707,
+    "endMs": 14787,
+    "timestampMs": 14747,
+    "confidence": 1
+  },
+  {
+    "text": " short",
+    "startMs": 14867,
+    "endMs": 15027,
+    "timestampMs": 14947,
+    "confidence": 1
+  },
+  {
+    "text": " sample",
+    "startMs": 15107,
+    "endMs": 15507,
+    "timestampMs": 15307,
+    "confidence": 1
+  },
+  {
+    "text": " and",
+    "startMs": 15587,
+    "endMs": 15667,
+    "timestampMs": 15627,
+    "confidence": 1
+  },
+  {
+    "text": " runs",
+    "startMs": 15747,
+    "endMs": 15987,
+    "timestampMs": 15867,
+    "confidence": 1
+  },
+  {
+    "text": " locally.",
+    "startMs": 16067,
+    "endMs": 16467,
+    "timestampMs": 16267,
+    "confidence": 1
+  },
+  {
+    "text": " Third,",
+    "startMs": 16633,
+    "endMs": 16947,
+    "timestampMs": 16790,
+    "confidence": 1
+  },
+  {
+    "text": " OpenSEO",
+    "startMs": 17100,
+    "endMs": 17893,
+    "timestampMs": 17496,
+    "confidence": 1
+  },
+  {
+    "text": " handles",
+    "startMs": 18033,
+    "endMs": 18313,
+    "timestampMs": 18173,
+    "confidence": 1
+  },
+  {
+    "text": " keywords,",
+    "startMs": 18393,
+    "endMs": 18953,
+    "timestampMs": 18673,
+    "confidence": 1
+  },
+  {
+    "text": " rankings,",
+    "startMs": 19193,
+    "endMs": 19673,
+    "timestampMs": 19433,
+    "confidence": 1
+  },
+  {
+    "text": " backlinks",
+    "startMs": 20033,
+    "endMs": 20393,
+    "timestampMs": 20213,
+    "confidence": 1
+  },
+  {
+    "text": " and",
+    "startMs": 20553,
+    "endMs": 20713,
+    "timestampMs": 20633,
+    "confidence": 1
+  },
+  {
+    "text": " site",
+    "startMs": 20873,
+    "endMs": 21033,
+    "timestampMs": 20953,
+    "confidence": 1
+  },
+  {
+    "text": " audits,",
+    "startMs": 21113,
+    "endMs": 21433,
+    "timestampMs": 21273,
+    "confidence": 1
+  },
+  {
+    "text": " like",
+    "startMs": 21753,
+    "endMs": 21833,
+    "timestampMs": 21793,
+    "confidence": 1
+  },
+  {
+    "text": " Ahrefs",
+    "startMs": 21913,
+    "endMs": 22473,
+    "timestampMs": 22193,
+    "confidence": 1
+  },
+  {
+    "text": " or",
+    "startMs": 22513,
+    "endMs": 22553,
+    "timestampMs": 22533,
+    "confidence": 1
+  },
+  {
+    "text": " Semrush.",
+    "startMs": 22713,
+    "endMs": 23193,
+    "timestampMs": 22953,
+    "confidence": 1
+  },
+  {
+    "text": " The",
+    "startMs": 23333,
+    "endMs": 23373,
+    "timestampMs": 23353,
+    "confidence": 1
+  },
+  {
+    "text": " code",
+    "startMs": 23453,
+    "endMs": 23533,
+    "timestampMs": 23493,
+    "confidence": 1
+  },
+  {
+    "text": " is",
+    "startMs": 23613,
+    "endMs": 23693,
+    "timestampMs": 23653,
+    "confidence": 1
+  },
+  {
+    "text": " free;",
+    "startMs": 23773,
+    "endMs": 24093,
+    "timestampMs": 23933,
+    "confidence": 1
+  },
+  {
+    "text": " the",
+    "startMs": 24333,
+    "endMs": 24334,
+    "timestampMs": 24333,
+    "confidence": 1
+  },
+  {
+    "text": " data",
+    "startMs": 24407,
+    "endMs": 24727,
+    "timestampMs": 24567,
+    "confidence": 1
+  },
+  {
+    "text": " isn't.",
+    "startMs": 24807,
+    "endMs": 25127,
+    "timestampMs": 24967,
+    "confidence": 1
+  },
+  {
+    "text": " Fourth,",
+    "startMs": 25287,
+    "endMs": 25687,
+    "timestampMs": 25487,
+    "confidence": 1
+  },
+  {
+    "text": " OpenMausBot",
+    "startMs": 25800,
+    "endMs": 26667,
+    "timestampMs": 26233,
+    "confidence": 1
+  },
+  {
+    "text": " gives",
+    "startMs": 26767,
+    "endMs": 26880,
+    "timestampMs": 26823,
+    "confidence": 1
+  },
+  {
+    "text": " you",
+    "startMs": 26960,
+    "endMs": 27120,
+    "timestampMs": 27040,
+    "confidence": 1
+  },
+  {
+    "text": " AI",
+    "startMs": 27160,
+    "endMs": 27440,
+    "timestampMs": 27300,
+    "confidence": 1
+  },
+  {
+    "text": " teammates",
+    "startMs": 27520,
+    "endMs": 28000,
+    "timestampMs": 27760,
+    "confidence": 1
+  },
+  {
+    "text": " using",
+    "startMs": 28080,
+    "endMs": 28320,
+    "timestampMs": 28200,
+    "confidence": 1
+  },
+  {
+    "text": " Claude,",
+    "startMs": 28400,
+    "endMs": 28800,
+    "timestampMs": 28600,
+    "confidence": 1
+  },
+  {
+    "text": " Codex",
+    "startMs": 29060,
+    "endMs": 29420,
+    "timestampMs": 29240,
+    "confidence": 1
+  },
+  {
+    "text": " or",
+    "startMs": 29500,
+    "endMs": 29660,
+    "timestampMs": 29580,
+    "confidence": 1
+  },
+  {
+    "text": " other",
+    "startMs": 29740,
+    "endMs": 29900,
+    "timestampMs": 29820,
+    "confidence": 1
+  },
+  {
+    "text": " supported",
+    "startMs": 30140,
+    "endMs": 30380,
+    "timestampMs": 30260,
+    "confidence": 1
+  },
+  {
+    "text": " models,",
+    "startMs": 30460,
+    "endMs": 30780,
+    "timestampMs": 30620,
+    "confidence": 1
+  },
+  {
+    "text": " so",
+    "startMs": 31180,
+    "endMs": 31260,
+    "timestampMs": 31220,
+    "confidence": 1
+  },
+  {
+    "text": " you",
+    "startMs": 31340,
+    "endMs": 31500,
+    "timestampMs": 31420,
+    "confidence": 1
+  },
+  {
+    "text": " choose",
+    "startMs": 31580,
+    "endMs": 31740,
+    "timestampMs": 31660,
+    "confidence": 1
+  },
+  {
+    "text": " the",
+    "startMs": 31820,
+    "endMs": 31900,
+    "timestampMs": 31860,
+    "confidence": 1
+  },
+  {
+    "text": " engine",
+    "startMs": 31980,
+    "endMs": 32220,
+    "timestampMs": 32100,
+    "confidence": 1
+  },
+  {
+    "text": " without",
+    "startMs": 32300,
+    "endMs": 32620,
+    "timestampMs": 32460,
+    "confidence": 1
+  },
+  {
+    "text": " being",
+    "startMs": 32740,
+    "endMs": 32860,
+    "timestampMs": 32800,
+    "confidence": 1
+  },
+  {
+    "text": " locked",
+    "startMs": 32940,
+    "endMs": 33180,
+    "timestampMs": 33060,
+    "confidence": 1
+  },
+  {
+    "text": " into",
+    "startMs": 33300,
+    "endMs": 33420,
+    "timestampMs": 33360,
+    "confidence": 1
+  },
+  {
+    "text": " one",
+    "startMs": 33500,
+    "endMs": 33580,
+    "timestampMs": 33540,
+    "confidence": 1
+  },
+  {
+    "text": " provider.",
+    "startMs": 33660,
+    "endMs": 34140,
+    "timestampMs": 33900,
+    "confidence": 1
+  },
+  {
+    "text": " Model",
+    "startMs": 34293,
+    "endMs": 34413,
+    "timestampMs": 34353,
+    "confidence": 1
+  },
+  {
+    "text": " costs",
+    "startMs": 34493,
+    "endMs": 34893,
+    "timestampMs": 34693,
+    "confidence": 1
+  },
+  {
+    "text": " still",
+    "startMs": 34973,
+    "endMs": 35133,
+    "timestampMs": 35053,
+    "confidence": 1
+  },
+  {
+    "text": " apply.",
+    "startMs": 35333,
+    "endMs": 35533,
+    "timestampMs": 35433,
+    "confidence": 1
+  },
+  {
+    "text": " And",
+    "startMs": 35700,
+    "endMs": 35773,
+    "timestampMs": 35736,
+    "confidence": 1
+  },
+  {
+    "text": " fifth,",
+    "startMs": 35853,
+    "endMs": 36173,
+    "timestampMs": 36013,
+    "confidence": 1
+  },
+  {
+    "text": " Replica:",
+    "startMs": 36340,
+    "endMs": 36820,
+    "timestampMs": 36580,
+    "confidence": 1
+  },
+  {
+    "text": " eleven",
+    "startMs": 36933,
+    "endMs": 37220,
+    "timestampMs": 37076,
+    "confidence": 1
+  },
+  {
+    "text": " skills",
+    "startMs": 37300,
+    "endMs": 37700,
+    "timestampMs": 37500,
+    "confidence": 1
+  },
+  {
+    "text": " to",
+    "startMs": 37740,
+    "endMs": 37780,
+    "timestampMs": 37760,
+    "confidence": 1
+  },
+  {
+    "text": " study",
+    "startMs": 37940,
+    "endMs": 38180,
+    "timestampMs": 38060,
+    "confidence": 1
+  },
+  {
+    "text": " an",
+    "startMs": 38220,
+    "endMs": 38260,
+    "timestampMs": 38240,
+    "confidence": 1
+  },
+  {
+    "text": " app's",
+    "startMs": 38340,
+    "endMs": 38660,
+    "timestampMs": 38500,
+    "confidence": 1
+  },
+  {
+    "text": " features,",
+    "startMs": 38900,
+    "endMs": 39140,
+    "timestampMs": 39020,
+    "confidence": 1
+  },
+  {
+    "text": " rebuild,",
+    "startMs": 39500,
+    "endMs": 39860,
+    "timestampMs": 39680,
+    "confidence": 1
+  },
+  {
+    "text": " test",
+    "startMs": 40300,
+    "endMs": 40500,
+    "timestampMs": 40400,
+    "confidence": 1
+  },
+  {
+    "text": " and",
+    "startMs": 40580,
+    "endMs": 40740,
+    "timestampMs": 40660,
+    "confidence": 1
+  },
+  {
+    "text": " improve",
+    "startMs": 40860,
+    "endMs": 41220,
+    "timestampMs": 41040,
+    "confidence": 1
+  },
+  {
+    "text": " them",
+    "startMs": 41300,
+    "endMs": 41380,
+    "timestampMs": 41340,
+    "confidence": 1
+  },
+  {
+    "text": " with",
+    "startMs": 41460,
+    "endMs": 41540,
+    "timestampMs": 41500,
+    "confidence": 1
+  },
+  {
+    "text": " your",
+    "startMs": 41620,
+    "endMs": 41780,
+    "timestampMs": 41700,
+    "confidence": 1
+  },
+  {
+    "text": " own",
+    "startMs": 41860,
+    "endMs": 41940,
+    "timestampMs": 41900,
+    "confidence": 1
+  },
+  {
+    "text": " branding.",
+    "startMs": 42020,
+    "endMs": 42500,
+    "timestampMs": 42260,
+    "confidence": 1
+  },
+  {
+    "text": " Comment",
+    "startMs": 42673,
+    "endMs": 42833,
+    "timestampMs": 42753,
+    "confidence": 1
+  },
+  {
+    "text": " REPO",
+    "startMs": 42913,
+    "endMs": 43313,
+    "timestampMs": 43113,
+    "confidence": 1
+  },
+  {
+    "text": " and",
+    "startMs": 43353,
+    "endMs": 43393,
+    "timestampMs": 43373,
+    "confidence": 1
+  },
+  {
+    "text": " I'll",
+    "startMs": 43473,
+    "endMs": 43553,
+    "timestampMs": 43513,
+    "confidence": 1
+  },
+  {
+    "text": " send",
+    "startMs": 43633,
+    "endMs": 43793,
+    "timestampMs": 43713,
+    "confidence": 1
+  },
+  {
+    "text": " you",
+    "startMs": 43833,
+    "endMs": 43873,
+    "timestampMs": 43853,
+    "confidence": 1
+  },
+  {
+    "text": " the",
+    "startMs": 43993,
+    "endMs": 44113,
+    "timestampMs": 44053,
+    "confidence": 1
+  },
+  {
+    "text": " five",
+    "startMs": 44233,
+    "endMs": 44353,
+    "timestampMs": 44293,
+    "confidence": 1
+  },
+  {
+    "text": " links",
+    "startMs": 44433,
+    "endMs": 44673,
+    "timestampMs": 44553,
+    "confidence": 1
+  },
+  {
+    "text": " and",
+    "startMs": 44713,
+    "endMs": 44753,
+    "timestampMs": 44733,
+    "confidence": 1
+  },
+  {
+    "text": " setup",
+    "startMs": 44833,
+    "endMs": 45073,
+    "timestampMs": 44953,
+    "confidence": 1
+  },
+  {
+    "text": " guide!",
+    "startMs": 45153,
+    "endMs": 45393,
+    "timestampMs": 45273,
+    "confidence": 1
+  }
+]
