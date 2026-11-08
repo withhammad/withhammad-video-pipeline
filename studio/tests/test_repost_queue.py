@@ -114,6 +114,63 @@ def test_youtube_entry_uses_seo_title_public_and_cover(tmp_path, monkeypatch):
     assert seen == {'title': 'T', 'desc': 'c', 'privacy': 'public', 'thumb': str(tmp_path / 'jobs' / 'j' / 'cover_1080x1920.jpg'), 'dry': False}
 
 
+@pytest.mark.parametrize('variant,expected', [(None, 'final.mp4'), ('linkedin', 'final_linkedin.mp4')])
+def test_linkedin_uses_only_explicitly_selected_cut(tmp_path, monkeypatch, variant, expected):
+    e = entry(1, '2026-11-09T05:00:00Z', 'linkedin')
+    if variant is not None:
+        e['video_variant'] = variant
+    q = setup(tmp_path, monkeypatch, [e])
+    job = tmp_path / 'jobs' / 'j'
+    for name in ('final.mp4', 'final_linkedin.mp4'):
+        (job / name).write_bytes(b'approved-test-cut')
+    seen = []
+
+    class Rt(FakeRt):
+        def linkedin_publish(self, video, lesson, **options):
+            seen.append((video.name, options['dry_run']))
+            return super().linkedin_publish(video, lesson, **options)
+
+    rep = rq.run_due(datetime(2026, 11, 9, 5, 5, tzinfo=timezone.utc), live=False, rt=Rt(), path=q)
+    assert not rep['failed']
+    assert seen == [(expected, True)]
+
+
+@pytest.mark.parametrize('variant', ['linkedin', '../../unexpected.mp4'])
+def test_linkedin_never_falls_back_when_selected_cut_is_unavailable(tmp_path, monkeypatch, variant):
+    e = dict(entry(1, '2026-11-09T05:00:00Z', 'linkedin'), video_variant=variant)
+    q = setup(tmp_path, monkeypatch, [e])
+    (tmp_path / 'jobs' / 'j' / 'final.mp4').write_bytes(b'default-cut')
+    rt = FakeRt()
+    rep = rq.run_due(datetime(2026, 11, 9, 5, 5, tzinfo=timezone.utc), live=False, rt=rt, path=q)
+    assert len(rep['failed']) == 1 and not rep['posted']
+    assert rt.calls == []
+    assert json.loads(q.read_text())['entries'][0]['status'] == 'pending'
+
+
+@pytest.mark.parametrize('variant_captions_exist', [False, True])
+def test_linkedin_variant_keeps_its_own_captions(tmp_path, monkeypatch, variant_captions_exist):
+    e = dict(entry(1, '2026-11-09T05:00:00Z', 'linkedin'), video_variant='linkedin')
+    q = setup(tmp_path, monkeypatch, [e])
+    job = tmp_path / 'jobs' / 'j'
+    (job / 'final_linkedin.mp4').write_bytes(b'approved-linkedin-cut')
+    (job / 'captions.srt').write_text('General ending')
+    (job / 'lesson.json').write_text(json.dumps({'captions': {}, 'caption_file': str(job / 'captions.srt')}))
+    if variant_captions_exist:
+        (job / 'captions_linkedin.srt').write_text('LinkedIn ending')
+    seen = []
+
+    class Rt(FakeRt):
+        def linkedin_publish(self, video, lesson, **options):
+            seen.append(lesson['caption_file'])
+            return super().linkedin_publish(video, lesson, **options)
+
+    rep = rq.run_due(datetime(2026, 11, 9, 5, 5, tzinfo=timezone.utc), live=False, rt=Rt(), path=q)
+    if variant_captions_exist:
+        assert not rep['failed'] and seen == [str(job / 'captions_linkedin.srt')]
+    else:
+        assert not seen and 'captions_linkedin.srt is missing' in rep['failed'][0]['error']
+
+
 class CarouselRt(FakeRt):
     def instagram_carousel_publish(self, urls, lesson, **o):
         self.calls.append(('ic', o['dry_run'], urls, lesson['captions']['instagram'], o['expected_username'], o['image_sizes']))

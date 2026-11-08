@@ -1,6 +1,6 @@
 # Mini Harness review package
 
-Job: `b6b36d9b50b3`. Reference: https://lnkd.in/p/dQVK4qeE . Status: awaiting owner review, never queued.
+Job: `b6b36d9b50b3`. Reference: https://lnkd.in/p/dQVK4qeE . Status: package approved by owner on 8 November (“Approve HARNESS package”); not queued until website PR #16 is confirmed merged and live.
 
 The owner asked to reuse suitable reference inserts. This edit crops the original 15 diagrams from Paweł Huryn's
 infographic, preserves their order and charcoal/cream/coral palette, and adds readable type, gentle movement,
@@ -19,7 +19,7 @@ reference. No paid generation was used. The cover uses the existing approved poi
 | Caption coverage | All explanatory text visible in the video; descriptive SRTs provided; no spoken words to align | Pass for non-narrated format |
 | Cover | All six crops, complete head and both hook lines; real Claude/GitHub marks | Pass, cover sheet inspected |
 | SEO | Six packs pass `rq.seo_caption`; 16 autocomplete queries; primary-source facts; public video-title examples | Pass for copy, with API research limitation recorded |
-| Delivery | Owner approval, live guide, live HARNESS rule, restored YouTube OAuth | Pending; publication blocked |
+| Delivery | Owner approval, live guide, live HARNESS rule, restored YouTube OAuth | Owner approval and YouTube reconnect complete; website release still pending |
 
 ## Editorial scorecard
 
@@ -39,7 +39,14 @@ This is an editorial assessment, not a performance forecast.
 | Limitation | Music-only teaching may retain less attention than narrated delivery; it preserves the supplied static format without spending voice credits |
 
 The handover's general gates are applied to the actual media format. A music-only infographic cannot truthfully
-receive a voice-energy or lip-sync measurement. No queue or posting approval is implied by this review.
+receive a voice-energy or lip-sync measurement. The separate owner approval authorizes release after the guide and reply route are live.
 
 Validation: 625 project tests passed in 69.28 seconds, with one existing Starlette/AnyIO deprecation warning.
 The video and carousel rendered successfully; all seven PDF pages were rasterized for visual checking.
+
+Release preparation on 8 November: the approved general and LinkedIn masters, matching SRTs, seven
+`carousel/instagram-NN.jpg` slides, `carousel/carousel-linkedin.pdf` and six covers are now in the job root.
+Approved SEO copy is applied to the lesson. `seo.presenter: "none"` correctly identifies the diagram-only reel;
+no false AI-avatar line is added. The LinkedIn queue entry must explicitly use `video_variant: "linkedin"`.
+The publisher checks the variant and matching subtitle file before upload. All local publication checks now pass
+except the new guide's HTTP 404 while PR #16 awaits owner merge. Latest suite: 631 tests pass.

@@ -187,15 +187,17 @@
       "url": "https://www.instagram.com/reel/DfbvLHmOlhR/",
       "note": "Owner pasted 2026-11-07: MOST IMPORTANT, build first",
       "added": "2026-11-07",
-      "status": "awaiting_approval",
-      "job": "762cf7fb383a"
+      "status": "in_progress",
+      "job": "762cf7fb383a",
+      "notes": "Owner approved finished look 1 package on 8 Nov 2026. Exports and Downloads ready. Website PR #17 adds guide and DUBAI rule; awaiting owner merge and live verification before booking."
     },
     {
       "url": "https://www.instagram.com/reel/DfaNcY1FdlE/",
       "note": "Owner pasted 2026-11-07",
       "added": "2026-11-07",
-      "status": "awaiting_approval",
-      "job": "0f869c3f2de7"
+      "status": "in_progress",
+      "job": "0f869c3f2de7",
+      "notes": "Final cut/package approved 8 Nov 2026; exports ready. PR #16 created for guides and keyword routing. Await confirmed merge and live deployment before booking."
     },
     {
       "url": "https://www.instagram.com/reel/DfcLoDvEgMg/",
@@ -206,10 +208,11 @@
     },
     {
       "url": "https://lnkd.in/p/dQVK4qeE",
-      "note": "Completed review package 8 Nov: 62.4-second motion adaptation of Pawel Huryn’s 15-part Mini Harness infographic using its original diagram crops, original music, seven carousel pages/PDF, six covers and six caption packs. Zero generation credits. Owner approval and live HARNESS page/rule required before scheduling. See docs/videos/2026-11-08-mini-harness-review.md.",
+      "note": "Completed review package 8 Nov: 62.4-second motion adaptation of Pawel Huryn’s 15-part Mini Harness infographic using its original diagram crops, original music, seven carousel pages/PDF, six covers and six caption packs. Zero generation credits. Owner approved the package on 8 Nov 2026; live HARNESS page/rule required before scheduling. See docs/videos/2026-11-08-mini-harness-review.md.",
       "added": "2026-11-08",
-      "status": "awaiting_approval",
-      "job": "b6b36d9b50b3"
+      "status": "in_progress",
+      "job": "b6b36d9b50b3",
+      "notes": "Final cut/package approved 8 Nov 2026; exports ready. PR #16 created for guides and keyword routing. Await confirmed merge and live deployment before booking."
     }
   ]
 }

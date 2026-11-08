@@ -146,24 +146,24 @@
         "handle": "with.hammad",
         "account_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
         "profile_url": "https://www.youtube.com/@with.hammad",
-        "connection_status": "reauthorization_required",
+        "connection_status": "identity_and_scopes_verified",
         "provider": "youtube_direct_api",
-        "channel_title": "HAMMAD YOUSUF",
+        "channel_title": "Hammad Yousuf | Claude Code & AI Agents",
         "scopes": [
           "youtube.upload",
-          "youtube.readonly"
+          "youtube.readonly",
+          "youtube.force-ssl"
         ],
         "video_publish_tested": true,
-        "identity_last_verified": "2026-10-31",
+        "identity_last_verified": "2026-11-08",
         "last_long_video": "https://www.youtube.com/watch?v=u4J1oQqQoTM",
         "separate_caption_permission": "verified",
-        "reconsented": "2026-10-31",
+        "reconsented": "2026-11-08",
         "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
         "token_file": "work/.secrets/youtube-oauth.json",
         "note": "refresh token had expired (invalid_grant) on 2026-10-31; re-consent via outputs/video-pipeline/youtube_oauth.py",
-        "last_auth_check": "2026-11-08",
-        "auth_error": "invalid_grant: Token has been expired or revoked.",
-        "verification_note": "2026-11-08: OAuth refresh rejected. Reconnect opened in existing Chrome; owner consent pending. API uploads and keyword replies cannot run until restored."
+        "last_auth_check": "2026-11-08T10:28:36+04:00",
+        "verification_note": "Owner reconnected in existing Chrome. Channel UCJtrEDGg1R3kNe7t7PQFiEw verified; keyword dry-run read 500 threads, 7 already recorded by dedupe, no new eligible replies."
       },
       {
         "key": "tiktok",
@@ -502,7 +502,7 @@
     "checked_at": "2026-11-07T19:48:33.291104+00:00",
     "instagram": "identity, subscription and signed webhook verified; recipient link delivery unverified",
     "facebook": "identity, subscription, signed webhook and existing outbound guide message verified",
-    "youtube": "2026-11-08: blocked by OAuth invalid_grant (expired or revoked). Six earlier link replies remain verified historically; current replies require owner re-consent.",
+    "youtube": "2026-11-08: OAuth restored; expected channel verified, force-ssl scope verified by keyword scanner. Dry-run scanned 500 threads, seven already handled, no new eligible keyword replies.",
     "linkedin": "Existing Chrome verified; first 12 activity entries checked, one non-keyword comment. API-post watchlist traversal and fresh keyword delivery remain unverified.",
     "x": "Existing Chrome verified; ten newest non-pinned posts checked, all zero replies. No eligible reply to send.",
     "tiktok": "Existing Chrome verified; eight latest published videos checked via profile navigation, one emoji-only comment. No eligible reply to send. Direct video navigation returned 403; profile click works.",

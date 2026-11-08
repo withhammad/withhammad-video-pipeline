@@ -76,12 +76,15 @@ const Tag: React.FC<{f: number; at: number; text: string}> = ({f, at, text}) => 
 // ---------------------------------------------------------------- layouts
 const Split: React.FC<{top: React.ReactNode}> = ({top}) => <AbsoluteFill style={{background: '#000'}}>
   <div style={{position: 'absolute', left: 0, top: TOP, width: 1080, height: 1920 - TOP, overflow: 'hidden'}}>
-    <div style={{position: 'absolute', left: 0, top: -TOP, width: 1080, height: 1920}}><Take y={TOP - 260}/></div></div>
+    <div style={{position: 'absolute', left: 0, top: -TOP, width: 1080, height: 1920}}>
+      {D.splitScale && <div style={{position: 'absolute', inset: 0, filter: 'blur(22px)', opacity: .7}}><Take y={TOP - 260}/></div>}
+      <Take y={D.splitY ?? TOP - 260} scale={D.splitScale ?? 1}/>
+    </div></div>
   {top}
   <div style={{position: 'absolute', left: 0, right: 0, top: TOP - 2, height: 4, background: 'rgba(0,0,0,.4)'}}/>
-  <Brand top={D.caps ? 1460 : 1720}/>
+  <Brand top={D.splitScale ? 780 : D.caps ? 1460 : 1720}/>
 </AbsoluteFill>;
-const Face: React.FC<{children?: React.ReactNode; scale?: number}> = ({children, scale = 1}) => <AbsoluteFill style={{background: '#000'}}><Take scale={scale}/><Brand top={D.caps ? 1460 : 1560}/>{children}</AbsoluteFill>;
+const Face: React.FC<{children?: React.ReactNode; scale?: number}> = ({children, scale = 1}) => <AbsoluteFill style={{background: '#000'}}><Take scale={scale}/><Brand top={D.splitScale ? 1240 : D.caps ? 1460 : 1560}/>{children}</AbsoluteFill>;
 
 const RecTop: React.FC<{src: string; from: number; startS: number; h?: number; y?: number; zoom?: [number, number]; origin?: string}> = ({src, from, startS, h = TOP, y = 0, zoom = [1, 1], origin = '50% 20%'}) => {
   const f = useCurrentFrame(), z = interpolate(f, [from, from + 60], zoom, clamp);
@@ -245,9 +248,9 @@ const Cta: React.FC<{u: Unit; f: number}> = ({u, f}) => {
 const Captions: React.FC<{f: number}> = ({f}) => {
   const c = D.caps?.find((x: any) => f >= x.from && f < x.to);
   if (!c) return null;
-  return <div style={{position: 'absolute', left: 70, right: 150, top: 1320, textAlign: 'center'}}>
+  return <div style={{position: 'absolute', left: 70, right: 150, top: D.captionY ?? 1320, textAlign: 'center'}}>
     <span style={{display: 'inline-block', maxWidth: 860, borderRadius: 12, padding: '10px 20px', background: 'rgba(10,16,24,.86)',
-      color: '#fff', fontFamily: SANS, fontWeight: 800, fontSize: 52, lineHeight: 1.12}}>{c.text}</span>
+      color: '#fff', fontFamily: SANS, fontWeight: 800, fontSize: D.captionSize ?? 52, lineHeight: 1.12}}>{c.text}</span>
   </div>;
 };
 export const Reel: React.FC = () => {

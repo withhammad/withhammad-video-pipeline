@@ -1,7 +1,7 @@
 """Prepare Chamber's isolated edit assets without submitting a HeyGen render.
 
-Run through studio/heavy.sh after word alignment. --prepare works while the voice
-decision is pending. Without it, an existing approved look-1 avatar file is required.
+Run through studio/heavy.sh after word alignment. --prepare builds the edit assets.
+Without it, the owner-approved voice and an existing look-1 avatar file are required.
 The original job exports, composition data, and posting queue are left untouched.
 """
 import json
@@ -73,7 +73,7 @@ beats = {
 caps, group = [], []
 for word in words:
     group.append(word)
-    if len(group) == 4 or re.search('[.,!?]$', word['w']):
+    if len(group) == 3 or re.search('[.,!?]$', word['w']):
         caps.append({'from': round(group[0]['s'] * FPS), 'to': round(group[-1]['e'] * FPS),
                      'text': ' '.join(x['w'] for x in group)})
         group = []
@@ -91,18 +91,26 @@ ff('-ss', 13.6, '-i', JOB / 'source.mp4', '-t', 2.4, '-an', '-vf',
 run([ROOT / 'studio/.venv/bin/python', JOB / 'sound-bed.py', frames / FPS + 2], cwd=WORK)
 
 data = {'frames': frames, 'fps': FPS, 'units': units, 'beats': beats, 'caps': caps,
+        'splitScale': .78, 'splitY': 580, 'captionY': 1370, 'captionSize': 46,
         'take': True, 'revised': True, 'takeFile': NAME + '/take.mp4', 'voiceFile': NAME + '/voice.wav',
         'orbitFile': NAME + '/reference-orbit.mp4', 'orbitDuration': 2.4, 'orbitIsFullPortrait': False}
 (SRC / 'data.json').write_text(json.dumps(data, indent=2) + '\n')
 for f in ('Reel.tsx', 'index.tsx'):
     shutil.copy2(REM / 'src/dubaihub' / f, SRC / f)
+approval_path = JOB / 'matching-look/owner-voice-approval.json'
+submission_path = JOB / 'matching-look/look1-submission.json'
+approval = json.loads(approval_path.read_text()) if approval_path.exists() else None
+submission = json.loads(submission_path.read_text()) if submission_path.exists() else None
 (WORK / 'source-record.json').write_text(json.dumps({
     'reference': 'https://www.instagram.com/reel/DfbvLHmOlhR/', 'insert_seconds': [13.6, 16.0],
     'crop_xywh': [0, 0, 540, 386], 'voice_take': '1794083468342-3',
-    'voice_status': 'Owner decision pending: verified clone and Excited settings, median 147.37 Hz below written energy target',
-    'avatar_status': 'No look-1 render submitted; do not render until voice decision resolves',
-    'audio_advance_ms': 100, 'lip_sync_status': 'Must verify again on the new avatar before final render'}, indent=2) + '\n')
+    'voice_status': 'Owner approved this verified Excited take despite median 147.37 Hz' if approval else 'Owner decision pending',
+    'owner_voice_approval': approval, 'avatar_submission': submission,
+    'audio_advance_ms': round(OFFSET * 1000),
+    'lip_sync_status': 'See matching-look/lipsync-check.json for this rendered take'}, indent=2) + '\n')
 if '--prepare' not in sys.argv:
+    if not approval or not submission:
+        raise SystemExit('Owner voice approval and the single look-1 submission record are required.')
     avatar = JOB / 'matching-look/look1-avatar-raw.mp4'
     if not avatar.exists():
         raise SystemExit('Prepared only: look-1 avatar is not rendered yet. No credits were spent.')

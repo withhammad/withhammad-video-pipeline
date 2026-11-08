@@ -2,7 +2,13 @@
 
 Owner authorized Chamber look 1 (one take) and GROWTH's saved matching look (~38 credits). Final publication still requires owner approval.
 
-## Current state — 8 November, corrected GROWTH delivered
+## Latest state — 8 November
+
+GROWTH's corrected cut and cover are approved (owner: “Approve GROWTH”). Approved master, six covers, captions and platform exports are in job 0f869c3f2de7 and the dated Downloads folder. Website PR #16 supplies its guide and keyword rule; posting waits for a confirmed merge and live deployment.
+
+Chamber's exact voice sample was approved (owner: “Use this voice on look 1”). One look-1 render completed, 86 credits, balance 243. The owner then approved the full finished package (“Approve Chamber package”); release waits for its guide and DUBAI rule to be live. See 2026-11-08-chamber-look1-review.md. Earlier pending-voice and no-render entries below are historical.
+
+## Earlier state — corrected GROWTH delivered
 
 - **GROWTH:** full 30.37-second edit delivered for approval in the Codex chat. Matching blue-sweater look, verified
   original clone, Excited / expressiveness 1.0 / speed 1.1 / English Original. Median 167.57 Hz (near the approximate

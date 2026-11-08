@@ -226,7 +226,18 @@ def post(entry, rt, live):
         return {'url': result.get('permalink'), 'video_id': result.get('video_id'), 'status': result.get('status'),
                 'warnings': result.get('warnings')}
     lesson = {**lesson, 'captions': {**(lesson.get('captions') or {}), 'linkedin': entry['caption']}}
-    result = rt.linkedin_publish(jdir / 'final.mp4', lesson, dry_run=not live,
+    variant = entry.get('video_variant', 'default')
+    if variant not in ('default', 'linkedin'):
+        raise ValueError(f"{entry['job']}: unsupported LinkedIn video_variant {variant!r}")
+    video = jdir / ('final_linkedin.mp4' if variant == 'linkedin' else 'final.mp4')
+    if variant == 'linkedin' and not video.is_file():
+        raise ValueError(f"{entry['job']}: approved LinkedIn variant final_linkedin.mp4 is missing")
+    if variant == 'linkedin' and lesson.get('caption_file'):
+        captions = jdir / 'captions_linkedin.srt'
+        if not captions.is_file():
+            raise ValueError(f"{entry['job']}: approved LinkedIn variant captions_linkedin.srt is missing")
+        lesson = {**lesson, 'caption_file': str(captions)}
+    result = rt.linkedin_publish(video, lesson, dry_run=not live,
                                  state_path=jdir / STATE['linkedin'] if live else None,
                                  thumbnail_path=jdir / 'cover_720x1280.jpg')
     return {'url': result.get('post_url'), 'post_urn': result.get('post_urn'), 'status': result.get('status')}

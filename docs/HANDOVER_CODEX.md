@@ -153,19 +153,20 @@ Hand-over order: recreate each routine in Codex (its automations) from the copie
 works, then ask the owner to disable the Claude task of the same name (Claude Desktop > Scheduled). Until then both
 must not reply to the same comment: the routines record replies (`--mark`), so check their state before enabling.
 
-## 7. Final state when Claude stopped (7 Nov, ~22:45 GST) — every item waits on the owner
+## 7. Open items from the handover — updated 8 Nov 2026
 
 | Reel | Where it stopped | Owner decision needed |
 |---|---|---|
-| Chamber AI Hub (@talcai.io DfbvLHmOlhR, job 762cf7fb383a, "Dubai reel") | Pulled back to awaiting approval. Two new podcast-studio looks (black polo, boom mic, bookshelf) generated, not saved. Next: one high-energy take (ElevenLabs v3 with long pauses cut, Presenter-level gestures). | Which of the two new looks to record with. |
-| GROWTH (@nateherkai DfaNcY1FdlE) | Built on the white-shirt take. A new look matching Nate's room is saved (free, logged in STATUS.md). | OK to re-render on the new look (~38 credits). |
+| Chamber AI Hub (@talcai.io DfbvLHmOlhR, job 762cf7fb383a, "Dubai reel") | Finished 73.6 s look-1 edit, approved by owner. Exact approved voice, full edit/music/captions/covers, platform exports and Downloads ready. | Merge website #17, then verify live DUBAI guide/rule and book all six platforms. No further video approval needed. |
+| GROWTH (@nateherkai DfaNcY1FdlE) | Corrected matching-look edit and cover approved; exports and Downloads ready. | Merge website #16, then verify the live GROWTH guide/rule and book all six platforms. No further video approval needed. |
+| HARNESS (LinkedIn dQVK4qeE, job b6b36d9b50b3) | Full video, LinkedIn variant, seven-page carousel and covers approved; exports and Downloads ready. | Merge website #16. Preserve the older HARNESS landing URL; the PR adds the Mini Harness path there. Book LinkedIn with `video_variant: "linkedin"` and its matching SRT. |
 | GAME (@nick_saraev DfZGREyvPUX) | Built, commit 0f611a0, thumbnails sent. | Approve, then page PR + slots. |
 | Rubber World (8bcf01ad1b0f) | Two-voice cut (him + Annie), commit 99c60bd; queue entries HELD. | Approve this cut, then set the six entries to pending and merge #8. |
 | JOBS (d463f2086d47) | 32.5 s cut with a deadpan opening building to excited, commit d9a11e6; queue entries HELD. | Approve, then set entries to pending. |
 | REFERRAL (33d9c1e97156) | Live on all six since 7 Nov; keyword automation ready but needs PR #7 merged. | Merge #7; pick a repost/variant approach (the session offered options). |
-| Dots (@nick_saraev DfXfZ0GPHy0, job 3260bdc792c4) | Parked. | Rebuild or skip (recommended: skip). |
+| Dots (@nick_saraev DfXfZ0GPHy0, job 3260bdc792c4) | Rejected as a duplicate of the already posted DOTS reel, per the owner. | None. Do not rebuild or spend credits. |
 
-Owner merges still pending: withhammad-rebuild #4 #5 #6 #7 #9 #10 #11 #12 #13 #14 #15 (#8 only after the Rubber World OK).
+Owner merges still pending: withhammad-rebuild #4 #5 #6 #7 #9 #10 #11 #12 #13 #14 #15 #16 #17 (#8 only after the Rubber World OK). Prioritize #7 because REFERRAL is already live.
 After each merge: schedule that reel's TikTok and X natively (chrome-schedule.md) and `mark --scheduled`.
 
 ## 8. Keyword-DM automation (every post, every platform) — no ManyChat, no paid tools
@@ -289,6 +290,44 @@ Crop inserts cleanly so another presenter's face or unrelated captions do not re
 missing assets and Blender for shots that actually need a new 3D build. This later instruction permits reuse of
 reference 3D inserts instead of recreating each in Blender. Keep source/timecode records. A requested progress
 preview may be shown before the final gates, clearly labelled with what is still unfinished; never call it final.
+
+**Credit and quality correction (owner, 8 Nov 2026):** conserve agent and generation credits while keeping the
+finished video excellent. Reuse approved takes and suitable reference assets; check the exact voice, look and
+settings before a paid full render. Use small previews where available, then one authorized submit. Build the
+animation, captions, compositing and music locally. Saving credits must not produce a flat voice, weak movement,
+unfinished edit or missing music. Aim for energetic, natural delivery and expressive movement that fit the
+reference and its emotional arc; do not raise pitch or speed mechanically to satisfy a number. Record the actual
+credit delta and any settings the provider did not retain. No extra paid render without the owner's authorization.
+
+**Latest approvals and connections (8 Nov 2026):** GROWTH's corrected cut and cover are approved; HARNESS's full
+package is approved. Both have platform exports, covers and copies in `~/Downloads/8 November/`. Website PR #16
+adds both guides, the GROWTH rule, and shared HARNESS routing without breaking the older HARNESS reel. The owner
+said he would complete the GitHub merge; last verified state was OPEN with new guide URLs still 404. Verify the
+actual merge/deployment before scheduling. HARNESS already has a live rule to `/resources/harness-engineering`;
+the PR adds the Mini Harness guide prominently there and includes both links in Instagram/Facebook DMs.
+
+Chamber: the owner explicitly accepted voice take 1794083468342-3 for look 1 despite its 147.37 Hz median. This is
+an exception for that sample, not a new global voice target. One completed look-1 project
+`ebcd07269e3446c3ba8881577c9b908c`; credits 329 → 243 (86). The owner then approved the finished cut, covers and copy:
+**“Approve Chamber package.”** Release is authorized after the DUBAI guide and keyword rule are live; the owner
+merges the website PR. The approved master and covers are in the job root and `~/Downloads/8 November/`.
+See `docs/videos/2026-11-08-chamber-look1-review.md`; do not ask for this final-package approval again.
+
+Chamber's guide and DUBAI rule are in website PR #17. The guide passed build, lint, TypeScript, 390/1280 px
+layout and exact-copy-button checks; mobile Lighthouse 95 performance / 96 accessibility / 100 SEO.
+PR #16's failed font fetch cleared on an unchanged preview redeploy; both Vercel project checks pass. GitHub CI
+reports the same 64 pre-existing prompt-drift failures as main. These are separate from the guide implementation.
+All three approved packages pass local publication checks except that their promised guide URLs still return 404.
+No slots have been booked for these three while the pages are unavailable.
+
+The repost queue now accepts `video_variant: "linkedin"` on an explicitly selected LinkedIn entry, using
+`final_linkedin.mp4` and, when captions are declared, `captions_linkedin.srt`. It stops if the selected video or
+matching captions are missing; it never silently substitutes the general cut. HARNESS needs this option.
+Validation after this release fix: 631 studio tests pass, one existing Starlette/AnyIO deprecation warning.
+
+YouTube reconnect completed on 8 Nov: channel `UCJtrEDGg1R3kNe7t7PQFiEw`, Hammad Yousuf | Claude Code & AI Agents,
+upload/read-only/force-ssl scopes verified. Read-only keyword run scanned 500 threads, skipped 7 already recorded,
+and found no new eligible keyword comments. Credentials were stored locally with mode 0600; no secrets in logs.
 
 ## 12. The editing playbook: which tools for which kind of reference (use EVERY time)
 
