@@ -3366,7 +3366,7 @@
       "primary_keyword": "which Claude model to use",
       "host_slug": "repost-cd157c0bece4",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/claude-models-cheat-sheet"
     },
     {
@@ -4296,9 +4296,10 @@
       "primary_keyword": "claude instagram skill",
       "host_slug": "repost-0f869c3f2de7",
       "collaborators": null,
-      "status": "pending",
+      "status": "failed",
       "resource_url": "https://withhammad.com/resources/claude-instagram-skills",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand"
     },
     {
       "id": "tt-0f869c3f2de7",
