@@ -1,10 +1,20 @@
 {
-  "scope": "separate personal video; excluded from business queue",
+  "scope": "personal video only; explicitly not for any business account",
   "status": "ready_for_owner_review",
   "reference": "https://www.instagram.com/reel/DfgtetEsqUB/",
-  "source_credit": "@multazimmominx",
-  "new_work": "Animated opening and closing card, re-typeset and corrected three-language subtitles; source footage and audio retained.",
+  "owner_correction": "Anime/cartoon of Hammad actually walking through scenes and valleys, animated in Blender or code. Keep original audio and captions; personal use only.",
+  "animation": "Blender 5.2.3 LTS; 17-bone skinned 2D illustrated character, alternating knee/foot walking cycles, counter-swing arms, spine/head motion, blinks and hair. 150 RGBA animation frames composited on travelling paths in Remotion.",
+  "scenes": [
+    "Andalusian terrace",
+    "mountain valley",
+    "river promenade",
+    "palace courtyard",
+    "valley return"
+  ],
+  "no_source_video_imagery": true,
+  "no_heygen": true,
   "heygen_credits": 0,
+  "paid_generation_credits": 0,
   "published": false,
   "probe": {
     "programs": [],
@@ -28,12 +38,30 @@
     ],
     "format": {
       "duration": "35.409002",
-      "size": "14154291"
+      "size": "11055335"
     }
   },
   "audio_lufs": -14.36,
   "true_peak_dbtp": -1.51,
   "source_audio_sha256": "b229796744bdec6b4d37510a3598c52eab84ca0459ab1bbee224209a42dbb67e",
   "final_audio_sha256": "b229796744bdec6b4d37510a3598c52eab84ca0459ab1bbee224209a42dbb67e",
-  "sha256": "cf496cfde38c54f8f1c1bdbb3e0df39c7fa8d007e9447507b8993a735e50db6c"
+  "sha256": "af9e199040e0ba941e3d6d9f451cfbda5efc613f44aabf7a337103ed772f218d",
+  "supersedes": [
+    "Andalus-personal-edit.mp4",
+    "Andalus-personal-photos.mp4"
+  ],
+  "visual_review": "Full 1 fps filmstrip, 4 fps opening walking sheet, valley preview and last frame inspected. Moving knees/feet and scene travel are visible; complete body, readable captions, no original footage or black tail.",
+  "rig_check": {
+    "frames": 150,
+    "alpha_coverage_min": 197623,
+    "max": 199200,
+    "minimum_ratio": 0.9920833333333333,
+    "passed": true
+  },
+  "studio_validation": {
+    "passed": 646,
+    "warnings": 1,
+    "seconds": 85.21,
+    "warning": "Existing Starlette/AnyIO deprecation"
+  }
 }

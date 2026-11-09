@@ -271,6 +271,30 @@
       "owner_approved_at": "2026-11-09",
       "release_hold": "Owner approved package. PR #20 ready; awaiting owner merge or explicit merge exception, then verify production.",
       "guide_pr": "https://github.com/withhammad/withhammad-rebuild/pull/20"
+    },
+    {
+      "url": "https://www.instagram.com/reel/Dfg5JcTvzKZ/",
+      "note": "Owner reference, received twice; one intake. Nick Saraev API-credit benefit. Official OpenAI eligibility verified: Pro and eligible Business, excludes Plus. Full breakdown pending; fixed REFERRAL voice only; no credits spent.",
+      "added": "2026-11-09",
+      "status": "in_progress",
+      "job": "087c5f89b591"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfAtBw1iQj9/",
+      "note": "Duncan Rogoff five web-design tools; overlaps Taste and Awesome Design MD from 6eea2483df7b. Owner 9 Nov explicitly approved an updated follow-up with the three new tools (Impeccable, Playwright CLI, img2threejs). Intake and facts first; no generation credits spent.",
+      "added": "2026-11-09",
+      "status": "in_progress",
+      "job": "caaec352237e",
+      "owner_decision": "Make an updated follow-up"
+    },
+    {
+      "url": "https://lnkd.in/p/d_T7mq6B",
+      "note": "Received twice; one intake. Charlie Hills Claude edits my videos infographic, LinkedIn share 7525420467562909697. Owner 9 Nov: Use the existing EDIT package. Mapped to already-approved g2-edit-videos-guide scheduled 11 Nov; no second build, booking or credits.",
+      "added": "2026-11-09",
+      "status": "queued",
+      "job": "g2-edit-videos-guide",
+      "duplicate_of": "g2-edit-videos-guide",
+      "owner_decision": "Use the existing EDIT package"
     }
   ]
 }

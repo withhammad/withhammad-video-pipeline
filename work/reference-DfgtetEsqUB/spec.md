@@ -1,18 +1,39 @@
-# Andalus — personal edit
+# Current revision: personal anime walking film
 
-Reference: https://www.instagram.com/reel/DfgtetEsqUB/
-Source creator: @multazimmominx. Caption: 9th November; Allama Iqbal.
-Owner scope confirmation, 9 Nov 2026: **Separate personal video**.
-This is outside the withhammad business inbox, website, DM rules and posting queue. No publication approval.
+Latest owner instruction on 9 November: make a cartoon of Hammad actually walking through outdoor scenes and valleys; Blender or code may be used. This is a personal file for the owner, expressly not for his business accounts. The photo-camera-motion version below is superseded.
 
-Source: 1916×1080, 25 fps, 35.409 s, VP9/AAC. Six shots change at 5.76, 10.60, 15.36, 19.80 and 24.24 s. Picture cuts to black at 30.72 s; audio continues to 35.409 s. Source mix measures -14.36 LUFS / -1.51 dBTP.
+The current build uses an original full-body anime illustration of Hammad on a 17-bone Blender rig. A dense skinned mesh animates knees/feet with a planted-foot/swing phase, alternating arms, spine, head, blinks and hair. 150 RGBA frames form a six-second walking cycle. Remotion places the animated character along travelling paths through terrace, valley, riverside and courtyard backgrounds. It is layered 2D character animation, not a stationary photo pan.
 
-Preserve the supplied footage, its sequence, Arabic / Roman Urdu / English subtitle meaning, recitation, music and natural pacing. Re-typeset the six subtitle beats in a dedicated lower band; correct the source's misspelled English ("Oh anden"), inconsistent Roman Urdu, and punctuation. This is an edit of the reference, not new footage, an original recitation or Hammad's clone. No identity replacement. No new claims, synthetic voice or paid assets.
+Current composition: `studio/remotion/src/personal-iqbal/anime.tsx`, `PersonalIqbalAnime`. Rig: `studio/blender/personal-iqbal-anime/build.py`. Current assets: `studio/remotion/public/personal-iqbal-anime`. Generate the sprite sequence using `studio/heavy.sh /Applications/Blender.app/Contents/MacOS/Blender -b -P studio/blender/personal-iqbal-anime/build.py -- render`; render the 885-frame Remotion composition, then `studio/heavy.sh studio/.venv/bin/python work/reference-DfgtetEsqUB/finish-anime.py`.
 
-Use a restrained Instrument Serif title, muted gold and cream on deep olive. Show an understated animated opening title for the first 4.48 s, clear of the subtitle band. Replace the baked caption region at y=850–1080 with crisp Arabic, Roman Urdu and English. Replace the 4.68-second black tail with a gently moving palace still and an Iqbal credit card. Preserve the original audio stream without compression, time stretching or additional music. Render 1920×1080 H.264, limited-range Rec.709, 25 fps, 885 frames. Keep the source format; no forced portrait crop.
+Use the same original audio and caption timings; no HeyGen, business branding, resource page, keyword rule, posting or scheduling. Final file: `Andalus-anime-walking.mp4` in the chat output folder and dated Downloads/Personal folder. The following photo specification is retained only as revision history.
 
-Skills consulted: video-intake, video-effects, video-sound, video-check, Remotion best-practices/create/markup/render. The talking-head effects are unsuitable for this contemplative travel poem, so no effect is forced onto it. A slow closing push and title reveal are sufficient.
+---
 
-Poem attribution verified against Iqbal Academy Pakistan: https://allamaiqbal.com/poetry.php?bookbup=22&conType=ur&lang=4&lang_code=ur&orderno=102 — Tarana-e-Milli, Bang-e-Dara.
+# Andalus — corrected personal photo animation
 
-Quality checks: complete 1 fps filmstrip, readable first frame, close-card Urdu shaping and creator attribution, no original subtitles covered, exact source/audio duration, H.264/yuv420p/limited range, final audio loudness and peak. HeyGen credits: 0.
+Reference: https://www.instagram.com/reel/DfgtetEsqUB/ by @multazimmominx.
+Owner: separate personal video; later correction “Yes—animate my photos, no HeyGen.” Remove every source video frame. Retain only original recitation/music and caption meaning. No titles, haze, business branding or publication.
+
+Source: 1916×1080, 25 fps, 35.409 s. Six verse boundaries: 0, 5.76, 10.60, 15.36, 19.80, 24.24; spoken captions originally finish at 30.72. Preserve natural pacing and unmodified audio; hold the last photo and caption through the remaining music. No forced portrait crop.
+
+Generate three landscape photo scenes using verified Hammad identity photo `studio/.local/jobs/6eea2483df7b/look/hammad-ref.jpg`: terrace / river / courtyard. Reuse his olive overshirt and white tee, natural face and closed mouth. No other people. Built-in image generation only; all prompts recorded in `image-prompts-v2.json`. Images saved in `studio/remotion/public/personal-iqbal-v2`.
+
+| Frames (25 fps) | Photo | Camera move |
+|---|---|---|
+| 0–143 | terrace | gentle push 1.025→1.07, small horizontal drift |
+| 144–264 | terrace | closer framing, pull 1.17→1.13 |
+| 265–383 | river | gentle push 1.035→1.075 |
+| 384–494 | river | closer framing, pull 1.15→1.105 |
+| 495–605 | courtyard | gentle push 1.02→1.055 |
+| 606–884 | courtyard | closer framing, push 1.10→1.14 through the music tail |
+
+Hard cuts on verse boundaries avoid face-dissolve ghosting. Upper transform origin preserves hair/head. Photo motion only; no claim of character animation, walking, lip sync or actual travel footage.
+
+Captions occupy a deep-olive band y=850–1080: Arabic Amiri 43 px muted gold; Roman Urdu Inter 30 px cream; English Instrument Serif 39 px. Clean the reference’s transcription/spelling. Six complete lines with no overlays or credit cards; attribution lives in README. Captions are on frame zero and held through the end.
+
+Render standalone `studio/remotion/src/personal-iqbal/photos.tsx`, composition `PersonalIqbalPhotos`, 1920×1080,25 fps,885 frames,H.264/yuv420p/limited Rec.709,CRF18,concurrency2 via `studio/heavy.sh`. Mux unchanged AAC source using `-c:a copy`; no new music, processing or timing change. Audio SHA256 must match `b229796744bdec6b4d37510a3598c52eab84ca0459ab1bbee224209a42dbb67e`; source −14.36 LUFS / −1.51 dBTP.
+
+Skills consulted: video-intake, video-effects, video-sound, video-check, imagegen, Remotion create/markup/render. The 20 talking-head effects are not automatically stacked; restrained camera motion suits this personal poetry brief. Quality: inspect full 1 fps filmstrip and enlarged first/river/last frames, head and caption margins, metadata, frame count, source-identical audio. No HeyGen credits.
+
+The earlier `index.tsx` / `Andalus-personal-edit.mp4` are history only and are superseded. Current output: chat workspace `outputs/Personal-Iqbal/Andalus-personal-photos.mp4` and `~/Downloads/9 November/Personal/Andalus-personal-photos.mp4`.

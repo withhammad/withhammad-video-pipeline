@@ -1,0 +1,35 @@
+[
+  {
+    "name": "character",
+    "prompt": "Use case: style-transfer / identity-preserve. Create a professional 2D anime animation character cel of the man in the reference photo, preserving his recognisable face, swept-back black hair, thick eyebrows, brown eyes, short neatly shaped dark beard, warm medium skin and adult proportions. Change the medium to beautifully hand-drawn cinematic anime, clean precise ink contours and tasteful 2-tone cel shading, NOT a photograph, not chibi, not 3D plastic. He wears the same olive green open overshirt over plain white T-shirt. Quiet reflective expression, lips gently closed, eyes open. Three-quarter view looking very slightly to the viewer's left, face still clearly visible. Both arms relaxed naturally by his side, hands visible below waist if possible. Mid-thigh to above the whole head, entire shoulders and arms inside the canvas, 8 percent transparent margin around his silhouette. Straight posture with no props. Soft golden daylight from upper left, warm cream and sage colour palette. Single character only on GENUINELY TRANSPARENT BACKGROUND, suitable as a layered animation sprite. No ground, no shadow rectangle, no scenery, no words, no captions, no watermark. High quality expressive anime portrait, recognisably the SAME man, do not replace with a generic clean-shaven anime teenager.",
+    "refs": [
+      "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/6eea2483df7b/look/hammad-ref.jpg"
+    ],
+    "transparent": true
+  },
+  {
+    "name": "terrace",
+    "prompt": "Create a cinematic hand-painted 2D anime background plate, wide 16:9 landscape. An Andalusian palace garden seen from a limestone terrace at warm late afternoon. Distant ochre palace towers and layered green cypress trees, a graceful carved Moorish arch at the extreme right edge, garden pathways and flowers below. Composition has usable open foreground on right for a waist-up character added later, foreground low stone terrace along bottom. Beautiful watercolor gouache background, fine architectural ink lines, cel-animation aesthetic, warm ivory, terracotta, muted sage green and clear blue sky with a few soft clouds. Luminous clean crisp sunlight, NO haze or fog. Scene only: no people, no characters, no text, no captions, no watermark. This is an animation production background, not a photograph or a 3D render.",
+    "transparent": false
+  },
+  {
+    "name": "river",
+    "prompt": "Create a cinematic hand-painted 2D anime background plate, wide 16:9 landscape, matching a contemplative Andalusian poetry animation. A calm emerald river through an old Andalusian city with an elegant pale stone arch bridge crossing the middle distance, warm ochre historic buildings and cypress trees on the far bank. Low stone promenade foreground. Clear water occupies the lower half, with soft sunlit reflections that will be animated later. Leafy tree branch entering from upper left. Keep usable open space on left for a waist-up character added later. Watercolor gouache scenery with fine architectural ink lines, warm ivory, terracotta, muted sage and pale blue sky; classic theatrical 2D anime background aesthetic. Crisp golden afternoon sunlight, NO haze. Environment only, absolutely no people, no characters, no text, no watermark. Not a photograph or 3D render.",
+    "transparent": false
+  },
+  {
+    "name": "courtyard",
+    "prompt": "Create a beautifully hand-painted cinematic 2D anime background plate, wide 16:9 landscape. A serene Andalusian Moorish palace courtyard with intricate cream carved arches receding into perspective at left, sunlit terracotta columns, a small reflecting pool and potted green plants. A broad carved stone wall at the far right; keep the right-middle foreground uncluttered for a waist-up character added later. Warm luminous late afternoon sunlight and painted cool sage shadows, refined ink architectural detail, watercolor gouache backgrounds with clean cel animation style, tasteful ivory and terracotta palette. No fog, no haze, no people, no characters, no lettering, no captions, no branding. This should feel like a high-quality anime film environment, not a photograph.",
+    "transparent": false
+  },
+  {
+    "name": "fullbody",
+    "prompt": "Use case: identity-preserve / style-transfer. Create ONE FULL BODY anime cartoon character cutout of the same adult man shown in the two reference images. The photo is identity; the illustration is the character's design and outfit. Keep his recognisable swept-back black hair, thick eyebrows, warm brown eyes, short dark beard and face shape. Hand-drawn 2D anime with crisp outlines and cel shading, warm illustrated skin, NOT a photograph. Full body from the very top of his hair to the complete soles of his shoes, with generous transparent margin all around. He wears the same unbuttoned olive overshirt with sleeves rolled to forearms over a white T-shirt, slim dark charcoal trousers, simple off-white low-top sneakers, silver wristwatch. ANIMATION RIG REST POSE: both arms straight and angled 25 degrees away from the torso so there is a clear transparent gap between each hand/arm and the torso; both legs straight and feet shoulder-width apart, with a clear transparent gap between the legs. No overlapping limbs. Body front facing with head turned very slightly to viewer's left; calm thoughtful expression, lips closed, eyes open. Natural adult anatomy (about 7 heads tall), not chibi. Every hand and foot completely visible, no cropping, no props. Soft golden light from upper left. Single character only on a GENUINELY TRANSPARENT BACKGROUND, no floor or rectangle, no text, no labels, no shadow backdrop. This is a clean production sprite to rig and animate WALKING in Blender; preserve strong silhouette and Hammad's likeness.\n",
+    "transparent": true
+  },
+  {
+    "name": "valley",
+    "prompt": "Create a cinematic hand-painted 2D anime film background, wide 16:9. A beautiful peaceful mountain valley in Andalusia, a warm sandstone walking path leading diagonally through foreground from lower left toward middle right, terraces of green cypress and olive trees, wildflowers, distant blue-green mountains, a clear little river below. Make the foreground walking path broad and unobstructed so an animated full-body character can walk across it. Bright gentle afternoon sunlight, clear air, no fog or haze, elegant watercolor gouache painted scenery with fine ink detail and cel-animation colour palette. Warm golden ochre, sage green, deep emerald, pale sky blue. This must match an animated travel poetry film, not a photograph or game screenshot. Empty landscape only, no people, no characters, no letters, no title, no watermark.\n",
+    "transparent": false
+  }
+]
