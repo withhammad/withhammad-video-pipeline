@@ -3445,7 +3445,7 @@
       "primary_keyword": "claude code seo",
       "host_slug": "repost-f34ba51f84d9",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/claude-code-seo-plugins"
     },
     {
@@ -4566,9 +4566,10 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "pending",
+      "status": "failed",
       "resource_url": "https://withhammad.com/resources/edge0-local-ai",
-      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026."
+      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026.",
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id ARnPRvUoTfZ4WQxDxbiJvhY]"
     },
     {
       "id": "li-6eba3a812294",
