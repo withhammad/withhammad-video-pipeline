@@ -3453,7 +3453,7 @@
       "primary_keyword": "claude code seo",
       "host_slug": "repost-f34ba51f84d9",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/claude-code-seo-plugins"
     },
     {
@@ -3468,7 +3468,7 @@
       "primary_keyword": "claude code seo",
       "host_slug": "repost-f34ba51f84d9",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/claude-code-seo-plugins"
     },
     {
@@ -4166,7 +4166,7 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "pending",
+      "status": "failed",
       "resource_url": "https://withhammad.com/resources/chamber-ai-hub-dubai",
       "owner_approved_at": "2026-11-08",
       "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json",
@@ -4176,7 +4176,8 @@
           "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand",
           "resolution": "Publishing clone restored to clean main. Failed queue entries require explicit requeue; launchd does not automatically retry failed status."
         }
-      ]
+      ],
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id Af6N_hr4T8HCREOm1wiZX9t]"
     },
     {
       "id": "li-762cf7fb383a",
