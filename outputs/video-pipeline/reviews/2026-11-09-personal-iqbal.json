@@ -1,6 +1,6 @@
 {
   "scope": "personal video only; explicitly not for any business account",
-  "status": "ready_for_owner_review",
+  "status": "rejected_by_owner",
   "reference": "https://www.instagram.com/reel/DfgtetEsqUB/",
   "owner_correction": "Anime/cartoon of Hammad actually walking through scenes and valleys, animated in Blender or code. Keep original audio and captions; personal use only.",
   "animation": "Blender 5.2.3 LTS; 17-bone skinned 2D illustrated character, alternating knee/foot walking cycles, counter-swing arms, spine/head motion, blinks and hair. 150 RGBA animation frames composited on travelling paths in Remotion.",
@@ -50,7 +50,7 @@
     "Andalus-personal-edit.mp4",
     "Andalus-personal-photos.mp4"
   ],
-  "visual_review": "Full 1 fps filmstrip, 4 fps opening walking sheet, valley preview and last frame inspected. Moving knees/feet and scene travel are visible; complete body, readable captions, no original footage or black tail.",
+  "visual_review": "FAILED owner review. Prior inspection failed to catch the stiff frontal cutout and sideways sliding. Technical validation is not evidence of believable locomotion.",
   "rig_check": {
     "frames": 150,
     "alpha_coverage_min": 197623,
@@ -63,5 +63,18 @@
     "warnings": 1,
     "seconds": 85.21,
     "warning": "Existing Starlette/AnyIO deprecation"
+  },
+  "owner_rejection": {
+    "quote": "It's totally ridiculous that you have made the funny cartoon here. ... scenery is good. ... It's totally rejected.",
+    "keep": [
+      "scenery",
+      "original audio",
+      "captions"
+    ],
+    "replace": [
+      "character design",
+      "walking animation"
+    ],
+    "next_gate": "Short genuine Blender character-motion preview before any full-length rebuild"
   }
 }

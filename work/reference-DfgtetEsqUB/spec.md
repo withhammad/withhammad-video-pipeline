@@ -1,3 +1,9 @@
+# Rejected v3 — replacement requirements
+
+The owner rejected the funny character and its movement. Scenery is acceptable. No deliverable below is approved. Retain only scenery, original audio and captions. Before rebuilding the 35-second personal film, prove a recognisable, proportionate character with natural foot planting, turns, weight transfer and coordinated body movement in a short Blender/code preview. No frontal cutout sliding over a background. No HeyGen or paid credits without specific authorization.
+
+---
+
 # Current revision: personal anime walking film
 
 Latest owner instruction on 9 November: make a cartoon of Hammad actually walking through outdoor scenes and valleys; Blender or code may be used. This is a personal file for the owner, expressly not for his business accounts. The photo-camera-motion version below is superseded.

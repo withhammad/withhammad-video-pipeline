@@ -1,10 +1,13 @@
-# Andalus — personal anime walking film
+# Andalus — rejected personal animation
+
+**Status: REJECTED by the owner on 9 November.** The scenery may be reused, but the character treatment and walking must be replaced. No finished or approved personal cut currently exists. A short genuine motion preview must pass visual review before a full rebuild.
+
 
 Reference: https://www.instagram.com/reel/DfgtetEsqUB/
 
 Latest owner brief: make an anime/cartoon of Hammad walking through outdoor scenes and valleys, animated in Blender or code. Keep original audio and captions. He explicitly says **personal use only, not for his business accounts**. Excluded from business inbox, website, keyword rules and posting queue.
 
-Current video: `/Users/hammad/Documents/Codex/2026-11-07/you-are-taking-over-the-withhammad/outputs/Personal-Iqbal/Andalus-anime-walking.mp4`.
+Rejected v3 video: `/Users/hammad/Documents/Codex/2026-11-07/you-are-taking-over-the-withhammad/outputs/Personal-Iqbal/Andalus-anime-walking.mp4`.
 Downloads: `~/Downloads/9 November/Personal/Andalus-anime-walking.mp4`.
 
 Blender 5.2.3 LTS renders a 17-bone skinned anime character with independently keyed knees, feet, counter-swinging arms, spine, head, blinks and hair. Remotion composites its 150-frame walking cycle on travelling paths through a terrace, mountain valley, river promenade and courtyard. This is layered 2D anime character animation; the camera is fixed while the character moves. The illustration preserves his saved-photo identity and olive overshirt/white tee. Built-in image generation supplied the original artwork. No HeyGen or paid generation credits.
