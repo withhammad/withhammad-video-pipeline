@@ -492,7 +492,9 @@
       "primary_keyword": "claude code plugin",
       "host_slug": "repost-b95794dc72cf",
       "collaborators": null,
-      "status": "pending"
+      "status": "posted",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7525543747124801537/",
+      "posted_at": "2026-11-09T13:03:03Z"
     },
     {
       "id": "xx-b95794dc72cf",
@@ -522,8 +524,10 @@
       "primary_keyword": "claude code plugin",
       "host_slug": "repost-b95794dc72cf",
       "collaborators": null,
-      "status": "pending",
-      "moved_from": "2026-11-09 20:00 GST"
+      "status": "posted",
+      "moved_from": "2026-11-09 20:00 GST",
+      "url": "https://www.facebook.com/reel/2732566480472344/",
+      "posted_at": "2026-11-09T13:03:03Z"
     },
     {
       "id": "yo-b95794dc72cf",
@@ -3426,7 +3430,7 @@
       "primary_keyword": "claude code seo",
       "host_slug": "repost-f34ba51f84d9",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/claude-code-seo-plugins"
     },
     {
