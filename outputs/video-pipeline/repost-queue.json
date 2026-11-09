@@ -476,8 +476,9 @@
       "primary_keyword": "claude code plugin",
       "host_slug": "repost-b95794dc72cf",
       "collaborators": null,
-      "status": "pending",
-      "moved_from": "2026-11-09 17:00 GST"
+      "status": "failed",
+      "moved_from": "2026-11-09 17:00 GST",
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AtsR66UQ1ppQOMYAXIfeBTg]"
     },
     {
       "id": "li-b95794dc72cf",
@@ -1840,7 +1841,7 @@
       "primary_keyword": "Forward Deployed Engineer roadmap",
       "host_slug": "repost-6cff0a62569f",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "moved_from": "2026-11-07 14:00 GST",
       "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
       "retry_history": [
@@ -1849,7 +1850,9 @@
           "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand",
           "resolution": "Publishing clone restored to clean main. Failed queue entries require explicit requeue; launchd does not automatically retry failed status."
         }
-      ]
+      ],
+      "url": "https://www.facebook.com/reel/1437545345084932/",
+      "posted_at": "2026-11-09T12:03:04Z"
     },
     {
       "id": "tt-harness-engineering",
@@ -4380,9 +4383,11 @@
       "primary_keyword": "build your own claude code",
       "host_slug": "repost-b6b36d9b50b3",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/build-an-agent-harness",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "url": "https://www.youtube.com/shorts/2kuB6QEVvpk",
+      "posted_at": "2026-11-09T12:03:04Z"
     },
     {
       "id": "in-b6b36d9b50b3",
@@ -4573,10 +4578,12 @@
       "primary_keyword": "Edge0 AI model",
       "host_slug": "repost-6eba3a812294",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/edge0-local-ai",
       "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026.",
-      "video_variant": "linkedin"
+      "video_variant": "linkedin",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7525532202034585600/",
+      "posted_at": "2026-11-09T12:03:04Z"
     },
     {
       "id": "fa-6eba3a812294",
