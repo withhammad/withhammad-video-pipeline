@@ -4305,9 +4305,11 @@
       "primary_keyword": "claude instagram skill",
       "host_slug": "repost-0f869c3f2de7",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-instagram-skills",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7525468160649658368/",
+      "posted_at": "2026-11-09T08:03:03Z"
     },
     {
       "id": "fa-0f869c3f2de7",
@@ -4530,9 +4532,11 @@
       "primary_keyword": "Edge0 AI model",
       "host_slug": "repost-6eba3a812294",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/edge0-local-ai",
-      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026."
+      "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026.",
+      "url": "https://www.youtube.com/shorts/hVYUWREWo78",
+      "posted_at": "2026-11-09T08:03:03Z"
     },
     {
       "id": "in-6eba3a812294",
