@@ -4207,10 +4207,12 @@
       "primary_keyword": "ai agents for small business",
       "host_slug": "repost-762cf7fb383a",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/chamber-ai-hub-dubai",
       "owner_approved_at": "2026-11-08",
-      "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json"
+      "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json",
+      "url": "https://www.facebook.com/reel/1894991911465330/",
+      "posted_at": "2026-11-09T07:03:04Z"
     },
     {
       "id": "tt-762cf7fb383a",
@@ -4674,9 +4676,11 @@
       "resource_url": "https://withhammad.com/resources/ai-agent-developer-learning-plan",
       "local": "2026-11-09 11:00 GST",
       "slot_utc": "2026-11-09T07:00:00Z",
-      "status": "pending",
+      "status": "posted",
       "owner_approved": true,
-      "approved_at": "2026-11-08"
+      "approved_at": "2026-11-08",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7525454970842951680/",
+      "posted_at": "2026-11-09T07:03:04Z"
     },
     {
       "id": "facebook-image-agentmap",
