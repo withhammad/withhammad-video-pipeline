@@ -20,7 +20,7 @@ is exactly what is on disk. Read `AGENTS.md` first (shared rules), then this fil
   (room, light, framing, outfit, pose). Check HeyGen's credit cost for a new look first: free -> make the matching
   look; costs credits -> reuse the closest existing look ("Professional in white shirt").
   Avatar only on the lines the reference says to camera; no face in the reference -> voice only. ONE submit, 720p,
-  4 fps filmstrip gate, credits before/after in the job's STATUS.md. Credits left ~577 of 1,000.
+  4 fps filmstrip gate, credits before/after in the job's STATUS.md. Last verified balance: 208 after the authorized REPO correction (9 Nov).
 - **Thumbnails:** the glow-grid template (`studio/remotion/src/brand/GlowCover.tsx`, add the job to
   `glowCovers.ts`, render with `node src/brand/render-glow.mjs`), cover on every platform, YouTube 16:9 via GlowWide.
 - **Cadence (red line):** every platform every day >= 2 reels + 1 carousel (3 posts). YouTube first (it pays).
@@ -163,10 +163,10 @@ must not reply to the same comment: the routines record replies (`--mark`), so c
 | GROWTH (@nateherkai DfaNcY1FdlE) | Approved corrected cut, cover, exports and Downloads ready. PR #16 merged and deployed; guide/rule verified. | None: all six releases booked for 8–9 Nov. TikTok 8 Nov 15:00 and X 8 Nov 21:00 confirmed natively. Verify publication and eligible keyword replies after release. |
 | HARNESS (LinkedIn dQVK4qeE, job b6b36d9b50b3) | Approved video, LinkedIn variant, seven-page carousel, covers and Downloads ready. PR #16 merged and deployed; both HARNESS routes preserved. | None: six video releases booked for 9–10 Nov; three carousel releases for 11 Nov. LinkedIn selects `video_variant: "linkedin"` and matching SRT. TikTok/X native schedules confirmed. |
 | EDGE0 (@repo_xray DfchkCOMAEF, job 6eba3a812294) | Owner-approved 30 s package. PR #18 merged under the owner's explicit deploy instruction; guide and EDGE routing are live. Six releases booked for 9 Nov; TikTok and X native schedules confirmed. Exports and Downloads ready. | No further approval needed. Verify posts and eligible keyword replies after release. See docs/videos/2026-11-08-edge0-release.md for slots and evidence. |
-| REPO (@nick_saraev DfeW3F8PIsk, job dfa218634321) | Corrected 45.567 s cut ready using verified REFERRAL clone, ElevenLabs v4 / 1.1x / stability 50. One owner-authorized take cost exactly 3 credits (211 → 208); existing avatar/edit reused. Old v3 cut stays rejected. | Owner listening/package approval of corrected cut; then guide/rule PR and release. Natural pitch differs from REFERRAL’s skit and legacy pause metric is 6.8%; disclosed, no pitch or speech-speed alteration. See docs/videos/2026-11-09-repo-corrected-voice-review.md. |
-| AI agent developer roadmap (LinkedIn dDH3f9E4) | Owner approved static infographic/copy on 8 Nov. Guide, approved image and AGENTMAP rule ready in PR #19. Build/typecheck/mobile/desktop checks pass; Lighthouse SEO 100. | Owner merges #19, then verify production and release on image destinations. No repeat content approval needed. |
-| Vector databases (LinkedIn dJJbWzcy) | Owner approved static infographic/copy on 8 Nov. Guide, approved image and VECTORS rule ready in PR #19; same checks as roadmap pass. | Owner merges #19, then verify production and release on image destinations. No repeat content approval needed. |
-| AI guardrails (LinkedIn dEY7GakW) | Finished reference-matched static graphic, six copy adaptations and guide draft. Keyword GUARD. Zero HeyGen credits. | Approve graphic/copy, then guide/rule PR for owner merge. Nothing posted or scheduled. See docs/videos/2026-11-08-ai-guardrails-review.md. |
+| REPO (@nick_saraev DfeW3F8PIsk, job dfa218634321) | Corrected 45.567 s cut ready using verified REFERRAL clone, ElevenLabs v4 / 1.1x / stability 50. One owner-authorized take cost exactly 3 credits (211 → 208); existing avatar/edit reused. Old v3 cut stays rejected. | Owner approved the corrected package on 9 Nov. Guide/rule PR #20 is ready; owner merge (or explicit merge exception) is still needed before release. Natural pitch differs from REFERRAL’s skit and legacy pause metric is 6.8%; disclosed, no pitch or speech-speed alteration. See docs/videos/2026-11-09-repo-corrected-voice-review.md. |
+| AI agent developer roadmap (LinkedIn dDH3f9E4) | Owner approved; PR #19 merged under his explicit exception. Guide/rule live. YouTube Community, LinkedIn and Facebook published 9 Nov. | Instagram returned action/rate restriction 403 / 2207051; no bypass or blind retry. X/TikTok upload requires the ChatGPT Chrome extension file-access switch. No repeat content approval. |
+| Vector databases (LinkedIn dJJbWzcy) | Owner approved; PR #19 merged, guide/rule live. YouTube native schedule confirmed for 10 Nov 08:30 GST; IG 09:00, LI 11:00, FB 19:00 in the queue. | Finish X/TikTok native schedules (10 Nov 19:00 GST) once Chrome extension file uploads are enabled. Watch the Instagram restriction; never bypass it. |
+| AI guardrails (LinkedIn dEY7GakW) | Owner approved graphic/copy on 9 Nov. Keyword GUARD; zero HeyGen credits. Guide/rule ready in PR #20, deployed previews pass, Lighthouse SEO 100. | Owner merges #20 or explicitly authorizes Codex to merge it. Then verify production and release; no repeat package approval. |
 | GAME (@nick_saraev DfZGREyvPUX) | Built, commit 0f611a0, thumbnails sent. | Approve, then page PR + slots. |
 | Rubber World (8bcf01ad1b0f) | Two-voice cut (him + Annie), commit 99c60bd; queue entries HELD. | Approve this cut, then set the six entries to pending and merge #8. |
 | JOBS (d463f2086d47) | 32.5 s cut with a deadpan opening building to excited, commit d9a11e6; queue entries HELD. | Approve, then set entries to pending. |
@@ -292,7 +292,7 @@ composer initially opened on Eleven Multilingual v2 / speed 1.0 despite the corr
 explicitly and verify every control per take. REPO's corrected script is prepared on task-owned Chrome tab
 1913613557 with v4 / 1.1 / stability 50 / volume 100%, English Original. Owner approved one 3-credit take;
 asset `cad2bdeda9b54597a380ce7790187400` completed once. Actual balance 211 → 208, exactly 3 credits.
-Corrected 45.567 s cut is ready for owner listening approval. Existing same-script avatar was retimed locally,
+Owner approved the corrected 45.567 s package on 9 Nov. Existing same-script avatar was retimed locally,
 with no new avatar spend. Never overwrite the saved REFERRAL project or its audio. See `v4-revision` in the
 REPO job and `outputs/video-pipeline/reviews/2026-11-09-repo-referral-voice.json` for measurements. Do not claim
 that settings alone guarantee an audible match; natural pitch and the legacy 6.8% pause result are disclosed.
@@ -451,3 +451,14 @@ Chamber Instagram `in-762cf7fb383a` is rebooked for 9 Nov 13:00 GST (phone sound
 FDE roadmap Facebook `fa-6cff0a62569f` is rebooked for 9 Nov 16:00 GST (launchd 16:03). Both guides return 200;
 both publisher dry runs return planned. All other bookings are preserved. Posting clone stays on clean main;
 new guide PR #19 uses the managed approved-learning-guides worktree.
+
+
+### 9 Nov: approved graphics, Community replies and personal-video boundary
+
+- PR #19 merged with the owner’s explicit authorization: merge `c1cf56a5e44624f3143de04cf488adbe344282f5`. AGENTMAP and VECTORS guides return 200; deployed rules match. Signed empty webhook events and the challenge pass, but these do not prove an actual customer DM. YouTube roadmap page had zero comments at the 9 Nov evening check.
+- Queue now supports approved single-image posts via `app.publish_graphic` for IG/FB/LI. It verifies identity, image hash, approved copy, guide and rule, and records an attempt before the publish call to prevent an uncertain response causing a duplicate. Native `youtube_image`, `tiktok_image`, `x_image` entries are excluded from the API poster. Full studio suite: 646 passed, one existing deprecation warning.
+- YouTube Community comments need the Chrome branch in `youtube-keyword-replies.md`, in addition to the video API. `app.youtube_community` supplies the watchlist; `app.linkedin_keyword reply --platform youtube_community` supplies matching and deduplication. Mark only a reply visibly confirmed in the browser. The YouTube automation remains ACTIVE, GPT-6 Astra/high, :15/:45, 07–23 GST.
+- PR #20 contains the approved REPO/GUARD guides and rules. Build, TypeScript, mobile/desktop layout and previews pass, SEO 100; CI has the exact same 64 existing prompt errors as main. Owner merge authorization is still pending.
+- Owner explicitly classified Instagram `DfgtetEsqUB` as a **separate personal video**. Keep it out of the business inbox, posting queue, resource website and keyword bots. Use the supplied recitation and footage with source credit; no HeyGen spend. Personal-edit files live in the chat workspace’s `outputs/Personal-Iqbal`, source/spec in `work/reference-DfgtetEsqUB`. Nothing is authorized for publication.
+
+Browser adapter update, 9 Nov: LinkedIn/X/TikTok automation prompts now use the available CUA controls in existing Chrome; no AppleScript fallback while CUA is available. Schedules, ACTIVE status and GPT-6 Astra/high are preserved. TikTok includes photo posts as well as videos. Chrome file uploads currently need the owner to enable the ChatGPT extension’s “Allow access to file URLs”; this does not prevent reading/replying to comments.

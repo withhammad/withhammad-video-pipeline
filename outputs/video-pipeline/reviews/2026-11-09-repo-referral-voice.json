@@ -1,7 +1,7 @@
 {
   "job": "dfa218634321",
   "revision": "REFERRAL voice correction",
-  "release_status": "AWAITING_OWNER_APPROVAL",
+  "release_status": "OWNER_APPROVED_AWAITING_GUIDE_MERGE",
   "reference_seconds": 48.533333,
   "duration_seconds": 45.56666666666667,
   "difference_percent": -6.11,
@@ -965,15 +965,15 @@
   },
   "gates": {
     "reference_edit": "Same 16 visual beats and order; existing assets reused; length within 10%",
-    "voice": "Verified fixed REFERRAL clone/settings. Identity and energy remain subject to owner listening approval.",
+    "voice": "Owner approved the corrected cut and voice on 9 Nov; retain the verified REFERRAL clone/settings and the disclosed acoustic measurements.",
     "avatar": "Existing matching white-shirt/microphone look; frame mapping and opening bilabial inspected",
     "video": "Measured below; all 121 words captioned; full filmstrip reviewed",
     "virality": "Updated editorial scorecard; no claim of guaranteed views",
     "covers_and_copy": "Same six covers and platform copy, carried forward into corrected package"
   },
   "limitations": [
-    "Legacy 3\u20135% pause target reads 6.8%; natural word pace and audible endings retained under latest owner instruction. No pitch shift or speech speed-up used.",
-    "New median pitch differs from REFERRAL\u2019s question-based skit; matching settings alone does not prove the owner will perceive an exact match."
+    "Legacy 3–5% pause target reads 6.8%; natural word pace and audible endings retained under latest owner instruction. No pitch shift or speech speed-up used.",
+    "New median pitch differs from REFERRAL’s question-based skit; matching settings alone does not prove the owner will perceive an exact match."
   ],
   "files": {
     "final.mp4": {
@@ -1046,5 +1046,7 @@
       "sha256": "bb9ef469a5891327151aeb7b11ee6c61cf345d0547b5ef153f5a94870d01395f",
       "bytes": 11449105
     }
-  }
+  },
+  "owner_approved_at": "2026-11-09",
+  "guide_pr": "https://github.com/withhammad/withhammad-rebuild/pull/20"
 }

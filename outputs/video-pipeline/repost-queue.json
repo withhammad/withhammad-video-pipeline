@@ -4655,11 +4655,13 @@
       "resource_url": "https://withhammad.com/resources/ai-agent-developer-learning-plan",
       "local": "2026-11-09 08:30 GST",
       "slot_utc": "2026-11-09T04:30:00Z",
-      "status": "scheduled",
+      "status": "posted",
       "owner_approved": true,
       "approved_at": "2026-11-08",
       "url": "https://www.youtube.com/post/Ugkx5pusOqkIZsv_YD24mvhOl5LZWqwNXlDy",
-      "scheduled_at": "2026-11-08T20:37:15.401857+00:00"
+      "scheduled_at": "2026-11-08T20:37:15.401857+00:00",
+      "verified_at": "2026-11-09T18:07:15.978295+00:00",
+      "verification": "Public Community page shows @with.hammad, approved copy/guide and 13 hours ago; 0 comments."
     },
     {
       "id": "instagram-image-agentmap",
@@ -4736,7 +4738,8 @@
       "slot_utc": "2026-11-09T15:00:00Z",
       "status": "pending",
       "owner_approved": true,
-      "approved_at": "2026-11-08"
+      "approved_at": "2026-11-08",
+      "native_blocker": "Chrome ChatGPT extension file access disabled; owner asked to enable Allow access to file URLs. No image uploaded or post submitted."
     },
     {
       "id": "x-image-agentmap",
@@ -4753,7 +4756,8 @@
       "slot_utc": "2026-11-09T15:00:00Z",
       "status": "pending",
       "owner_approved": true,
-      "approved_at": "2026-11-08"
+      "approved_at": "2026-11-08",
+      "native_blocker": "Chrome ChatGPT extension file access disabled; owner asked to enable Allow access to file URLs. No image uploaded or post submitted."
     },
     {
       "id": "youtube-image-vectors",
@@ -4843,7 +4847,8 @@
       "slot_utc": "2026-11-10T15:00:00Z",
       "status": "pending",
       "owner_approved": true,
-      "approved_at": "2026-11-08"
+      "approved_at": "2026-11-08",
+      "native_blocker": "Chrome ChatGPT extension file access disabled; owner asked to enable Allow access to file URLs. No image uploaded or post submitted."
     },
     {
       "id": "x-image-vectors",
@@ -4860,7 +4865,8 @@
       "slot_utc": "2026-11-10T15:00:00Z",
       "status": "pending",
       "owner_approved": true,
-      "approved_at": "2026-11-08"
+      "approved_at": "2026-11-08",
+      "native_blocker": "Chrome ChatGPT extension file access disabled; owner asked to enable Allow access to file URLs. No image uploaded or post submitted."
     }
   ]
 }

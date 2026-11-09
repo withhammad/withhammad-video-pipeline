@@ -46,7 +46,7 @@ GUIDE_LANES = {'instagram_guide': 'instagram_carousel', 'facebook_guide': 'faceb
                'linkedin_guide': 'linkedin_carousel'}
 # TikTok and X have no free posting API: their entries are scheduled ahead in TikTok Studio / X's own scheduler
 # through Claude in Chrome (owner 2026-11-02 "add them now"), then recorded with `mark`. run-due never touches them.
-CHROME_LANES = ('tiktok', 'x', 'tiktok_guide', 'x_guide')
+CHROME_LANES = ('tiktok', 'x', 'tiktok_guide', 'x_guide', 'youtube_image', 'tiktok_image', 'x_image')
 ID_PREFIX.update(tiktok='tt', x='xx', youtube_guide='yg', tiktok_guide='tg', x_guide='xg')
 # Owner 2026-11-02 (red line: 2-3 posts a day on every platform): each guide also goes out as a 9:16 slide video
 # (python -m app.guide short <slug> -> outputs/guides/<slug>/short.mp4) on YouTube Shorts (API), TikTok and X (Chrome).
@@ -175,6 +175,9 @@ def _guide_stage(slug, base=None):
 
 
 def post(entry, rt, live):
+    if entry['platform'] in ('instagram_image', 'facebook_image', 'linkedin_image'):
+        from app import publish_graphic
+        return publish_graphic.publish(entry, live=live)
     if entry['platform'] == 'youtube_guide':
         gdir = GUIDES / entry['guide']
         lesson = {'captions': {'youtube_title': entry['title'], 'youtube_description': entry['caption']}, 'hashtags': []}
@@ -377,12 +380,13 @@ def build(plan_path=PLAN, path=QUEUE):
 
 
 def chrome_todo(path=QUEUE):
-    """Pending TikTok/X entries, oldest slot first, with what Chrome needs: the file, the copy and the slot."""
+    """Pending native-browser entries with the approved image/video, copy and slot."""
     out = []
     for e in load(path)['entries']:
         if e['platform'] in CHROME_LANES and e.get('status') == 'pending':
             out.append({'id': e['id'], 'platform': e['platform'], 'local': e['local'], 'slot_utc': e['slot_utc'],
-                        'video': str(GUIDES / e['guide'] / 'short.mp4') if e.get('guide') else str(JOBS / e['job'] / 'final_social.mp4'),
+                        **({'image': e['image_path']} if e.get('graphic') else
+                           {'video': str(GUIDES / e['guide'] / 'short.mp4') if e.get('guide') else str(JOBS / e['job'] / 'final_social.mp4')}),
                         'keyword': e['keyword'], 'caption': e['caption']})
     return out
 

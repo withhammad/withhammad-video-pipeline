@@ -36,10 +36,10 @@ exact copy + virality) -> `docs/SKILLS_FOR_CODEX.md` (all 127 skills + plugin sk
    override. Do not change his voice to suit the topic. This replaces the v3 / stability 0 / speed 1.2 default.
    NEVER use HeyGen Voice, even as fallback. Never save account defaults or mechanically raise pitch/speed.
    Verify against the REFERRAL audio, not just a clone label. REPO's v3 take was rejected as "not my voice" and
-   must be corrected before approval. Two characters = his fixed voice plus a separate stock voice for the other.
+   was corrected with one authorized 3-credit take and the owner approved the v4 package on 9 Nov. Two characters = his fixed voice plus a separate stock voice for the other.
 5. Avatar: a NEW look matching the reference's room, light, framing, outfit and pose when HeyGen makes it free; if a
    look costs credits, reuse the closest existing one. Avatar only on lines said to camera; no face in the reference =
-   voice only. ONE submit, 720p, filmstrip gate, credits logged in STATUS.md. Credits are scarce (~463 left).
+   voice only. ONE submit, 720p, filmstrip gate, credits logged in STATUS.md. Credits are scarce (last verified balance: 208 after the authorized REPO correction).
 6. Gates before he sees it: exact-copy side-by-side, voice energy gate, avatar filmstrip, video-check (H.264, -14 LUFS,
    true peak <= -1.5, safe zones, captions every word), virality.md scorecard, glow-grid cover in every size (face
    matching the hook), per-platform SEO passing `rq.seo_caption`.

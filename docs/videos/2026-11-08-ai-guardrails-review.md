@@ -6,4 +6,4 @@ Finished single-image graphic preserves the reference's square framing, three ex
 
 Deliverables: `/Users/hammad/Documents/Codex/2026-11-07/you-are-taking-over-the-withhammad/outputs/AI-Guardrails` — graphic, six copy adaptations, guide draft, spec, generation prompt and package metadata. Keyword GUARD; planned guide https://withhammad.com/resources/ai-guardrails-explained. Neither guide nor rule is live.
 
-Status: awaiting owner approval of graphic/copy. After approval, prepare the guide/rule PR for owner merge, verify it live, then release on appropriate image surfaces. No posting, scheduling or paid generation occurred.
+Status: owner approved graphic/copy on 9 Nov. Guide and GUARD rule are ready in PR #20 (https://github.com/withhammad/withhammad-rebuild/pull/20). Build, TypeScript, mobile/desktop and preview checks pass; Lighthouse SEO 100. Owner merge or explicit merge exception is pending. No publishing, scheduling or further paid generation.

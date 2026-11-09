@@ -38,6 +38,8 @@ REPLY = '{author}, sent it: {link}\nFollow for the next one 🙌'
 # X and TikTok reuse this module (same rules, own state file, own wording). TikTok comments cannot
 # carry a clickable link, so the reply spells the path and points at the bio link.
 PLATFORMS = {
+    'youtube_community': {'state': ROOT / 'studio' / '.local' / 'youtube-community-keyword-state.json',
+                          'reply': '{author}, here is the guide: {link}\nSubscribe for practical AI builds.'},
     'linkedin': {'state': STATE, 'reply': REPLY},
     'x': {'state': ROOT / 'studio' / '.local' / 'x-keyword-state.json',
           'reply': '{author} here it is 👇 {link}\nFollow for the next one 🙌'},

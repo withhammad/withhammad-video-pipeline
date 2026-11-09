@@ -1,0 +1,13 @@
+{
+  "preview": "https://withhammad-rebuild-ffwwpccxt-hammad-s-projects9.vercel.app",
+  "pages_http": {
+    "REPO": 200,
+    "GUARD": 200
+  },
+  "lighthouse_seo": {
+    "REPO": 100,
+    "GUARD": 100
+  },
+  "ci_same_as_main": true,
+  "ci_existing_violations": 64
+}

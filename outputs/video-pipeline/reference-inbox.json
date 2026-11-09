@@ -226,9 +226,13 @@
       "url": "https://www.instagram.com/reel/DfeW3F8PIsk/",
       "note": "",
       "added": "2026-11-08",
-      "status": "awaiting_approval",
+      "status": "in_progress",
       "job": "dfa218634321",
-      "notes": "Corrected REFERRAL v4 voice cut ready at 45.567s. Authorized correction cost exactly 3 credits (211→208); existing avatar/edit reused. Await owner listening/package approval. See docs/videos/2026-11-09-repo-corrected-voice-review.md."
+      "notes": "Owner approved corrected REFERRAL v4 package; one 3-credit correction, 211→208. Old narration remains rejected. Guide/rule preview checks pass; SEO 100.",
+      "owner_approved": true,
+      "owner_approved_at": "2026-11-09",
+      "release_hold": "Owner approved package. PR #20 ready; awaiting owner merge or explicit merge exception, then verify production.",
+      "guide_pr": "https://github.com/withhammad/withhammad-rebuild/pull/20"
     },
     {
       "url": "https://lnkd.in/p/dJJbWzcy",
@@ -236,10 +240,10 @@
       "added": "2026-11-08",
       "status": "in_progress",
       "job": null,
-      "notes": "Owner approved finished graphic/copy on 8 Nov. Guide and keyword rule PR in preparation. No publishing before live guide/rule verification.",
+      "notes": "PR #19 merged with explicit owner authorization; production guide/rule verified. VECTORS YouTube schedule confirmed 10 Nov 08:30 GST; API lanes queued for 10 Nov.",
       "owner_approved": true,
       "owner_approved_at": "2026-11-08",
-      "release_hold": "Owner approved graphic/copy. PR #19 awaits owner merge; verify live pages/rules before publishing.",
+      "release_hold": "X/TikTok native uploads await ChatGPT Chrome extension file-access permission; AGENTMAP IG failed with Meta action restriction.",
       "guide_pr": "https://github.com/withhammad/withhammad-rebuild/pull/19"
     },
     {
@@ -248,21 +252,25 @@
       "added": "2026-11-08",
       "status": "in_progress",
       "job": null,
-      "notes": "Owner approved finished graphic/copy on 8 Nov. Guide and keyword rule PR in preparation. No publishing before live guide/rule verification.",
+      "notes": "PR #19 merged with explicit owner authorization; production guide/rule verified. Roadmap is public on YouTube, LinkedIn and Facebook.",
       "owner_approved": true,
       "owner_approved_at": "2026-11-08",
-      "release_hold": "Owner approved graphic/copy. PR #19 awaits owner merge; verify live pages/rules before publishing.",
+      "release_hold": "X/TikTok native uploads await ChatGPT Chrome extension file-access permission; AGENTMAP IG failed with Meta action restriction.",
       "guide_pr": "https://github.com/withhammad/withhammad-rebuild/pull/19"
     },
     {
       "url": "https://lnkd.in/p/dEY7GakW",
       "note": "AI guardrails static infographic; focused validation workflow, distinct from broader agent-loop and harness posts. No HeyGen needed.",
       "added": "2026-11-08",
-      "status": "awaiting_approval",
+      "status": "in_progress",
       "job": null,
       "keyword": "GUARD",
       "format": "single-image infographic",
-      "notes": "Finished reference-matched AI guardrails infographic, copy and guide draft; keyword GUARD. Zero HeyGen credits. Await owner approval. See docs/videos/2026-11-08-ai-guardrails-review.md."
+      "notes": "Owner approved GUARD graphic/copy; zero HeyGen credits. Guide/rule preview checks pass; SEO 100.",
+      "owner_approved": true,
+      "owner_approved_at": "2026-11-09",
+      "release_hold": "Owner approved package. PR #20 ready; awaiting owner merge or explicit merge exception, then verify production.",
+      "guide_pr": "https://github.com/withhammad/withhammad-rebuild/pull/20"
     }
   ]
 }

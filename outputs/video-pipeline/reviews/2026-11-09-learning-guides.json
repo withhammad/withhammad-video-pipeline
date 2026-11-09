@@ -26,5 +26,155 @@
     "VECTORS": 100
   },
   "keyword_cases": 20,
-  "production_deployed": false
+  "production_deployed": true,
+  "merge_commit": "c1cf56a5e44624f3143de04cf488adbe344282f5",
+  "production_proof": {
+    "handshake": {
+      "status": 200,
+      "challenge_matches": true
+    },
+    "instagram": {
+      "signed_empty_event_status": 200,
+      "body": "{\"ok\":true,\"comments\":0,\"messages\":0}"
+    },
+    "page": {
+      "signed_empty_event_status": 200,
+      "body": "{\"ok\":true,\"feed\":0,\"messages\":0}"
+    },
+    "rules": [
+      {
+        "keyword": "AGENTMAP",
+        "url": "https://withhammad.com/resources/ai-agent-developer-learning-plan",
+        "http": 200,
+        "shared_matcher_cases": 5
+      },
+      {
+        "keyword": "VECTORS",
+        "url": "https://withhammad.com/resources/vector-databases-explained",
+        "http": 200,
+        "shared_matcher_cases": 5
+      }
+    ],
+    "actual_reply": "No test customer comment was created; delivery for these new posts will be checked after publication."
+  },
+  "release_proof": {
+    "verified_at": "2026-11-09T18:07:15.981837+00:00",
+    "youtube_agentmap": {
+      "url": "https://www.youtube.com/post/Ugkx5pusOqkIZsv_YD24mvhOl5LZWqwNXlDy",
+      "status": "public",
+      "author": "@with.hammad",
+      "comments": 0
+    },
+    "native_upload_blocker": "Chrome ChatGPT extension does not have Allow access to file URLs; requested owner action; no X/TikTok submit",
+    "entries": [
+      {
+        "id": "youtube-image-agentmap",
+        "platform": "youtube_image",
+        "keyword": "AGENTMAP",
+        "status": "posted",
+        "local": "2026-11-09 08:30 GST",
+        "url": "https://www.youtube.com/post/Ugkx5pusOqkIZsv_YD24mvhOl5LZWqwNXlDy",
+        "error": null
+      },
+      {
+        "id": "instagram-image-agentmap",
+        "platform": "instagram_image",
+        "keyword": "AGENTMAP",
+        "status": "failed",
+        "local": "2026-11-09 09:00 GST",
+        "url": null,
+        "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai"
+      },
+      {
+        "id": "linkedin-image-agentmap",
+        "platform": "linkedin_image",
+        "keyword": "AGENTMAP",
+        "status": "posted",
+        "local": "2026-11-09 11:00 GST",
+        "url": "https://www.linkedin.com/feed/update/urn:li:share:7525454970842951680/",
+        "error": null
+      },
+      {
+        "id": "facebook-image-agentmap",
+        "platform": "facebook_image",
+        "keyword": "AGENTMAP",
+        "status": "posted",
+        "local": "2026-11-09 19:00 GST",
+        "url": "https://www.facebook.com/1394106800452348_122108927103523467",
+        "error": null
+      },
+      {
+        "id": "tiktok-image-agentmap",
+        "platform": "tiktok_image",
+        "keyword": "AGENTMAP",
+        "status": "pending",
+        "local": "2026-11-09 19:00 GST",
+        "url": null,
+        "error": null
+      },
+      {
+        "id": "x-image-agentmap",
+        "platform": "x_image",
+        "keyword": "AGENTMAP",
+        "status": "pending",
+        "local": "2026-11-09 19:00 GST",
+        "url": null,
+        "error": null
+      },
+      {
+        "id": "youtube-image-vectors",
+        "platform": "youtube_image",
+        "keyword": "VECTORS",
+        "status": "scheduled",
+        "local": "2026-11-10 08:30 GST",
+        "url": "https://www.youtube.com/post/Ugkx5nglN66RuIb2_Hz1t6kbv1doPqMivLEv",
+        "error": null
+      },
+      {
+        "id": "instagram-image-vectors",
+        "platform": "instagram_image",
+        "keyword": "VECTORS",
+        "status": "pending",
+        "local": "2026-11-10 09:00 GST",
+        "url": null,
+        "error": null
+      },
+      {
+        "id": "linkedin-image-vectors",
+        "platform": "linkedin_image",
+        "keyword": "VECTORS",
+        "status": "pending",
+        "local": "2026-11-10 11:00 GST",
+        "url": null,
+        "error": null
+      },
+      {
+        "id": "facebook-image-vectors",
+        "platform": "facebook_image",
+        "keyword": "VECTORS",
+        "status": "pending",
+        "local": "2026-11-10 19:00 GST",
+        "url": null,
+        "error": null
+      },
+      {
+        "id": "tiktok-image-vectors",
+        "platform": "tiktok_image",
+        "keyword": "VECTORS",
+        "status": "pending",
+        "local": "2026-11-10 19:00 GST",
+        "url": null,
+        "error": null
+      },
+      {
+        "id": "x-image-vectors",
+        "platform": "x_image",
+        "keyword": "VECTORS",
+        "status": "pending",
+        "local": "2026-11-10 19:00 GST",
+        "url": null,
+        "error": null
+      }
+    ]
+  }
 }

@@ -25,7 +25,7 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
   **1.1x**, stability **50**, volume 100%, language Detected, no accent override. Keep this voice consistent across
   topics. This supersedes the v3 / stability 0 / speed 1.2 default and all older conflicting instructions.
   NEVER use HeyGen Voice or treat a matching clone name/ID as proof of an audible match. The owner rejected the
-  REPO take (`dfa218634321`) as "not my voice"; it is held for correction. See docs/HANDOVER_CODEX.md section 11.
+  REPO v3 take (`dfa218634321`) as "not my voice". The corrected REFERRAL v4 package was approved on 9 Nov; the old take stays rejected. See docs/HANDOVER_CODEX.md section 11.
 
 - Latest owner correction (2026-10-18, after the full tutorial was published): applies to NEW videos only;
   do not re-edit or replace the already published tutorial. Prioritize a natural, human-like introduction,
