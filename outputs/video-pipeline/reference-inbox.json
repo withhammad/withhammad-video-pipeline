@@ -298,11 +298,14 @@
     },
     {
       "url": "https://www.instagram.com/reel/DfdAvbfRQY5/",
-      "note": "David Ho: one clip, seven Claude Code edits. Overlaps approved EDIT topic. Awaiting owner choice: apply techniques to existing edits or make a separate follow-up. No credits authorized for a duplicate; do not start paid generation.",
+      "note": "Owner 10 Nov: Use its techniques on existing edits. Retain as a style reference only; no standalone reel, duplicate EDIT build or generation credits.",
       "added": "2026-11-10",
-      "status": "in_progress",
+      "status": "rejected",
       "job": null,
-      "release_hold": "Duplicate-topic decision pending: Codex asked whether to use these techniques in existing edits or make a separate follow-up. No paid generation."
+      "owner_decision": "Use its techniques on existing edits",
+      "owner_decision_date_gst": "2026-11-10",
+      "disposition": "style_reference_only",
+      "standalone_build": false
     }
   ]
 }

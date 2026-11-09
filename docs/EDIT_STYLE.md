@@ -1,5 +1,29 @@
 # Edit style (stage 5 — Remotion)
 
+## Owner-selected effects reference — 10 November 2026
+
+The owner chose **“Use its techniques on existing edits”** for David Ho's
+[seven-effects demonstration](https://www.instagram.com/reel/DfdAvbfRQY5/).
+This is editing guidance, not a separate reel or another EDIT-topic build.
+Beat map and scope: `work/reference-DfdAvbfRQY5/spec.md`.
+
+Use floating information cards, a focused-light moment, a checklist that advances
+with speech, a progress/playhead animation, a text-aligned match cut or a toggle
+only when it clarifies an existing beat. Normally choose one effect per beat.
+Keep the reference's sequence and timing, the owner's approved voice/face and
+readable captions. Implement overlays in Remotion/HyperFrames or use the matching
+installed effect skill after checking its framing. The handover's restrictions
+on effects that distort HeyGen footage still apply; the video's `/effects`
+commands are not assumed to exist in our installed pack.
+
+Current applications: the API-credit job `087c5f89b591` gets claim-step checkmarks
+and an eligibility comparison; the five-design-tools job `caaec352237e` gets a
+five-item progress indicator and aligned tool-to-tool cuts. Their detailed effect
+plans are in each job's `analysis/effects-plan.json`. These are plans for the
+unfinished cuts, not completed renders. This decision does not replace approved
+or published files, authorize credits or publishing, or turn personal poetry into
+fast tutorial edits.
+
 Derived from the first reference reel (job `09a9d211fff0`), see `assets/reference-edit-style.jpg`.
 The owner wants every video to look like the reference — same structure and edit style — with
 Hammad's HeyGen avatar as the presenter. Wording is always our own (no verbatim copying of

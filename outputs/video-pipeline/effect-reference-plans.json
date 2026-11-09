@@ -1,0 +1,62 @@
+{
+  "reference": "https://www.instagram.com/reel/DfdAvbfRQY5/",
+  "scope": "Existing unfinished edits only",
+  "plans": [
+    {
+      "job": "087c5f89b591",
+      "source_reference": "https://www.instagram.com/reel/DfdAvbfRQY5/",
+      "owner_decision": "Use its techniques on existing edits",
+      "decision_date_gst": "2026-11-10",
+      "status": "planned_for_existing_unfinished_edit",
+      "beats": [
+        {
+          "beat": "Eligible plan / benefit comparison",
+          "effect": "floating_information_cards",
+          "purpose": "Keep the verified eligibility and benefit limits legible",
+          "condition": "Use current verified facts; preserve the source beat timing; no unverified amounts or implied paid-plan availability"
+        },
+        {
+          "beat": "Claim workflow",
+          "effect": "speech_synced_checklist",
+          "purpose": "Tick each real action as it is demonstrated",
+          "condition": "Capture the actual UI; align ticks to the final fixed-voice word timestamps"
+        }
+      ],
+      "constraints": [
+        "One suitable effect per beat",
+        "Preserve fixed REFERRAL voice and natural pace",
+        "Preserve original reference sequence and duration",
+        "Do not cover captions, face or essential screen controls",
+        "No standalone reel, new credits, publishing or replacement of approved cuts authorized by this decision"
+      ]
+    },
+    {
+      "job": "caaec352237e",
+      "source_reference": "https://www.instagram.com/reel/DfdAvbfRQY5/",
+      "owner_decision": "Use its techniques on existing edits",
+      "decision_date_gst": "2026-11-10",
+      "status": "planned_for_existing_unfinished_edit",
+      "beats": [
+        {
+          "beat": "Five tools in original order",
+          "effect": "speech_synced_checklist",
+          "purpose": "Advance one item per tool without covering its actual screen",
+          "condition": "One indicator; large names; original order and source timing"
+        },
+        {
+          "beat": "Tool-to-tool handoff",
+          "effect": "text_aligned_match_cut",
+          "purpose": "Keep the common label anchored as the actual tool screen changes",
+          "condition": "Only where clean; do not add extra transitions inside the same beat"
+        }
+      ],
+      "constraints": [
+        "One suitable effect per beat",
+        "Preserve fixed REFERRAL voice and natural pace",
+        "Preserve original reference sequence and duration",
+        "Do not cover captions, face or essential screen controls",
+        "No standalone reel, new credits, publishing or replacement of approved cuts authorized by this decision"
+      ]
+    }
+  ]
+}
