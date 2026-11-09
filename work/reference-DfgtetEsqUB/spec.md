@@ -1,3 +1,11 @@
+## 10 November: full approved-treatment film delivered
+
+Current file: chat workspace `outputs/Personal-Iqbal/Andalus-Blender-full.mp4`, 35.409 seconds. Approved Blender walk retained; original full audio/captions. No business publication. Proof `outputs/personal/reviews/2026-11-10-valley-full.json`. Earlier pending notes below are historical.
+
+# Approved replacement sample — full film still pending
+
+The 5.76-second `Valley-Blender-walk-sample.mp4` was shown and the owner answered “Use this for the full video.” Use the actual 3D human rig in `studio/blender/personal-iqbal-valley` and the packed `work/personal-iqbal-3d/Hammad-valley-sample.blend`. Keep original full audio/captions and scenery. Approval is recorded with the sample hash in `outputs/personal/reviews/2026-11-09-valley-sample.json`. Do not mistake the old illustrated puppet below for the approved model. The full 35-second replacement is not yet rendered.
+
 # Rejected v3 — replacement requirements
 
 The owner rejected the funny character and its movement. Scenery is acceptable. No deliverable below is approved. Retain only scenery, original audio and captions. Before rebuilding the 35-second personal film, prove a recognisable, proportionate character with natural foot planting, turns, weight transfer and coordinated body movement in a short Blender/code preview. No frontal cutout sliding over a background. No HeyGen or paid credits without specific authorization.

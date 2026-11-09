@@ -1,0 +1,64 @@
+[
+  {
+    "id": "DdYT44ixsZ6",
+    "integrated_lufs": -14.11,
+    "true_peak_dbtp": -3.71,
+    "policy": "Original audio retained byte-for-byte as requested; no loudness processing applied."
+  },
+  {
+    "id": "De-zAp8M8iN",
+    "integrated_lufs": -14.15,
+    "true_peak_dbtp": -4.02,
+    "policy": "Original audio retained byte-for-byte as requested; no loudness processing applied."
+  },
+  {
+    "id": "De56ZCoMpvv",
+    "integrated_lufs": -14.28,
+    "true_peak_dbtp": -4.04,
+    "policy": "Original audio retained byte-for-byte as requested; no loudness processing applied."
+  },
+  {
+    "id": "DfBVYpUMJAw",
+    "integrated_lufs": -14.15,
+    "true_peak_dbtp": -4.23,
+    "policy": "Original audio retained byte-for-byte as requested; no loudness processing applied."
+  },
+  {
+    "id": "DfFKSo_PYdt",
+    "integrated_lufs": -14.22,
+    "true_peak_dbtp": -3.3,
+    "policy": "Original audio retained byte-for-byte as requested; no loudness processing applied."
+  },
+  {
+    "id": "DfGsUSvSKvt",
+    "integrated_lufs": -14.02,
+    "true_peak_dbtp": -4.33,
+    "policy": "Original audio retained byte-for-byte as requested; no loudness processing applied."
+  },
+  {
+    "id": "DfJyYbJyJ2L",
+    "integrated_lufs": -14.18,
+    "true_peak_dbtp": -4.38,
+    "policy": "Original audio retained byte-for-byte as requested; no loudness processing applied."
+  },
+  {
+    "id": "DfLqb8qtYRh",
+    "integrated_lufs": -15.15,
+    "true_peak_dbtp": -1.89,
+    "policy": "Constant -1 dB gain applied; original recitation, music and timing retained.",
+    "source_integrated_lufs": -14.12,
+    "source_true_peak_dbtp": -0.88
+  },
+  {
+    "id": "DfRSqTbR_1a",
+    "integrated_lufs": -14.07,
+    "true_peak_dbtp": -4.16,
+    "policy": "Original audio retained byte-for-byte as requested; no loudness processing applied."
+  },
+  {
+    "id": "DfT3T7Iy8F_",
+    "integrated_lufs": -14.16,
+    "true_peak_dbtp": -4.65,
+    "policy": "Original audio retained byte-for-byte as requested; no loudness processing applied."
+  }
+]

@@ -295,6 +295,14 @@
       "job": "g2-edit-videos-guide",
       "duplicate_of": "g2-edit-videos-guide",
       "owner_decision": "Use the existing EDIT package"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfdAvbfRQY5/",
+      "note": "David Ho: one clip, seven Claude Code edits. Overlaps approved EDIT topic. Awaiting owner choice: apply techniques to existing edits or make a separate follow-up. No credits authorized for a duplicate; do not start paid generation.",
+      "added": "2026-11-10",
+      "status": "in_progress",
+      "job": null,
+      "release_hold": "Duplicate-topic decision pending: Codex asked whether to use these techniques in existing edits or make a separate follow-up. No paid generation."
     }
   ]
 }

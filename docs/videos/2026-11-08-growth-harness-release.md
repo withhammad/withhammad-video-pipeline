@@ -33,3 +33,6 @@ Keyword proof: Meta verification and signed empty Instagram/Facebook events retu
 Validation: both publication checks have zero blockers/warnings; approved masters, LinkedIn variant, covers and carousel file hashes match. 631 tests passed (one existing warning). Poster: 31 runs, last exit 0. No manual run-due --live and no queue rebuild.
 
 The masters and covers remain in ~/Downloads/8 November/.
+
+
+9 Nov recovery: GROWTH Facebook `fa-0f869c3f2de7` failed before upload because the publishing checkout was on `codex/edge0-guide`. The checkout is now clean on main; no Facebook publish state exists, the final video hash still equals the owner-approved `e2b5c1b35c8e87d5223e23ab3c31c6228d79ed2aaecf02a9d399b499d95a5eb0`, guide is live and publisher dry-run returns planned. Rebooked only this approved entry for **10 Nov 09:00 GST**, launchd at **09:03**; retained failure history. No manual live poster call. Instagram failures remain unresolved.

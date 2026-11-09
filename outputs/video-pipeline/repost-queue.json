@@ -4326,18 +4326,25 @@
       "id": "fa-0f869c3f2de7",
       "job": "0f869c3f2de7",
       "platform": "facebook",
-      "slot_utc": "2026-11-08T11:00:00Z",
-      "local": "2026-11-08 15:00 GST",
+      "slot_utc": "2026-11-10T05:00:00Z",
+      "local": "2026-11-10 09:00 GST",
       "keyword": "GROWTH",
       "title": "Claude Instagram Skill: 13 Free Claude Code Skills for Reels",
       "caption": "Claude AI for social media: 13 free Claude Code skills for Instagram that draft your reels, captions, replies and weekly plan.\nFree guide: https://withhammad.com/resources/claude-instagram-skills\n\nThe pack is instagram-agent-skill, free on GitHub (MIT). /ig-reel writes hooks from 26 formulas and scores them, /ig-viral ranks reels you collect against each account's median, /ig-profile scores your profile out of 100 and /ig-plan plans your week.\nIt drafts, you post. Claude Code needs a paid Claude plan or API credits.\n\nGet the free guide with the install steps: https://withhammad.com/resources/claude-instagram-skills\nFollow With Hammad AI for a new AI build in your feed.\nAI avatar of me.\n\n#ClaudeAI #InstagramGrowth",
       "primary_keyword": "claude instagram skill",
       "host_slug": "repost-0f869c3f2de7",
       "collaborators": null,
-      "status": "failed",
+      "status": "pending",
       "resource_url": "https://withhammad.com/resources/claude-instagram-skills",
       "owner_approval": "owner-approval-20261108.json",
-      "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand"
+      "retry_history": [
+        {
+          "local": "2026-11-08 15:00 GST",
+          "error": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild is on branch 'codex/edge0-guide', expected main; fix the clone by hand",
+          "resolution": "Publishing checkout verified clean on main. No Facebook publish state exists; failure preceded remote upload. Approved video SHA256 matches; guide live and Facebook dry run planned on 9 Nov."
+        }
+      ],
+      "requeued_at": "2026-11-09T19:34:48.608020+00:00"
     },
     {
       "id": "tt-0f869c3f2de7",

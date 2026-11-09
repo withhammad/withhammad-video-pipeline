@@ -1,0 +1,11 @@
+vendor/
+assets/
+*.blend
+*.blend1
+*.log
+frames/
+*.png
+*.mp4
+mpfb-state/
+*.jpg
+rig-inspection.json

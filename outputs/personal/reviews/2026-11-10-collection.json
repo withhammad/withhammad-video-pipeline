@@ -1,0 +1,94 @@
+{
+  "status": "complete_personal_collection",
+  "count": 12,
+  "downloads": "/Users/hammad/Downloads/10 November/Personal",
+  "files": [
+    {
+      "name": "10-Saada-Dil.mp4",
+      "sha256": "d69ff69185b874f7ea953d9c654f9ad8cb762e304de0bb43f603b6b0adb25267",
+      "duration": "29.133333",
+      "original_aac_packets": 627,
+      "audio_gain_db": null
+    },
+    {
+      "name": "07-Dar-e-Khaibar.mp4",
+      "sha256": "d20b00a94ccb2a1bd6793291207325f5500f7bd07b3364648fd0a40e893fee7f",
+      "duration": "22.300000",
+      "original_aac_packets": 482,
+      "audio_gain_db": null
+    },
+    {
+      "name": "08-Naqsh-e-Tauheed.mp4",
+      "sha256": "e4b82c6e1e190aa1a5e6b2702f93760db97b7492efe23296a9e1f15668ffaff7",
+      "duration": "23.700000",
+      "original_aac_packets": 513,
+      "audio_gain_db": null
+    },
+    {
+      "name": "06-Maarka-Ara.mp4",
+      "sha256": "56052181c648bbc656ebea2d7b172fba935460f489bd31a8ffa594cd22567c3c",
+      "duration": "62.900000",
+      "original_aac_packets": 1357,
+      "audio_gain_db": null
+    },
+    {
+      "name": "09-Diyar-e-Ishq.mp4",
+      "sha256": "29e336c80e48ab36e36d034bfc9efc49503588419be5ea228386d74396eccabd",
+      "duration": "28.233333",
+      "original_aac_packets": 610,
+      "audio_gain_db": null
+    },
+    {
+      "name": "05-Chiragh-e-Rukh.mp4",
+      "sha256": "fa59d09d5a42332384c43f329b27b29fbdcf6c97e662bb8174cc7867f4dcd666",
+      "duration": "23.433333",
+      "original_aac_packets": 507,
+      "audio_gain_db": null
+    },
+    {
+      "name": "04-Dasht-o-Darya.mp4",
+      "sha256": "2e31e0fc395cc3f9a669afdcba6574ba1efdb4dc3c7a9d1ba6972c47b63d1a6e",
+      "duration": "23.433333",
+      "original_aac_packets": 507,
+      "audio_gain_db": null
+    },
+    {
+      "name": "03-Safha-e-Dahr.mp4",
+      "sha256": "66c739b1048d93492c31599e44e8015f2b884e5c732662675dd8395a2983f40f",
+      "duration": "27.333333",
+      "original_aac_packets": 0,
+      "audio_gain_db": -1.0
+    },
+    {
+      "name": "02-Sar-e-Faran.mp4",
+      "sha256": "c458cd71458fb5862fcf55f37387f747b4ba233a8ead58043fd5509628715f39",
+      "duration": "22.500000",
+      "original_aac_packets": 486,
+      "audio_gain_db": null
+    },
+    {
+      "name": "01-Wadi-e-Najd.mp4",
+      "sha256": "5132593e49b03424b05d33446dd912402638db5305f223c07c507771b5f331db",
+      "duration": "25.666667",
+      "original_aac_packets": 555,
+      "audio_gain_db": null
+    },
+    {
+      "name": "Andalus-Blender-full.mp4",
+      "sha256": "fcf1987c17b56b30969eed4b21fd51b8fd2872f3b42e2448d1834db5da96c4b9",
+      "duration": "35.409002",
+      "original_aac_packets": 765,
+      "audio_gain_db": null
+    },
+    {
+      "name": "Dikhawa-full-video.mp4",
+      "sha256": "d73b97f875bbf563adc1b85664f2d60e4185d335076fb8f0bb745addbbe1a286",
+      "duration": "11.866667",
+      "original_aac_packets": 256
+    }
+  ],
+  "publishing": false,
+  "heygen_credits": 0,
+  "source_audio": "Original sound retained; one track attenuated 1 dB for peak headroom. No timing or voice changes.",
+  "qa": "Complete 1 fps filmstrips and representative full-size frames inspected; full file duration/frame/audio checks; download hashes match."
+}

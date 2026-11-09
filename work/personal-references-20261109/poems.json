@@ -1,0 +1,495 @@
+[
+  {
+    "id": "DfT3T7Iy8F_",
+    "slug": "01-Wadi-e-Najd",
+    "title": "شکوہ",
+    "duration": 25.633991,
+    "crop": [
+      54,
+      359,
+      432,
+      242
+    ],
+    "verses": [
+      {
+        "start": 0,
+        "ur": "وادیٔ نجد میں وہ شورِ سلاسل نہ رہا",
+        "en": "The valley of Najd no longer echoes with those chains."
+      },
+      {
+        "start": 3.5,
+        "ur": "قیس دیوانۂ نظارۂ محمل نہ رہا",
+        "en": "Qais no longer waits, lost in longing for her caravan."
+      },
+      {
+        "start": 7.44,
+        "ur": "حوصلے وہ نہ رہے ہم نہ رہے دل نہ رہا",
+        "en": "That courage is gone; we are changed, and so are our hearts."
+      },
+      {
+        "start": 11.1,
+        "ur": "گھر یہ اجڑا ہے کہ تو رونقِ محفل نہ رہا",
+        "en": "This home lies desolate without Your presence."
+      },
+      {
+        "start": 15.56,
+        "ur": "اے خوشا آں روز کہ آئی و بصد ناز آئی",
+        "en": "How blessed the day You return in all Your grace."
+      },
+      {
+        "start": 20.86,
+        "ur": "بے حجابانہ سوئے محفلِ ما باز آئی",
+        "en": "Return unveiled to our gathering once again."
+      }
+    ]
+  },
+  {
+    "id": "DfRSqTbR_1a",
+    "slug": "02-Sar-e-Faran",
+    "title": "شکوہ",
+    "duration": 22.466667,
+    "crop": [
+      54,
+      359,
+      432,
+      242
+    ],
+    "verses": [
+      {
+        "start": 0,
+        "ur": "سرِ فاراں پہ کیا دین کو کامل تو نے",
+        "en": "On Mount Faran, You brought faith to completion."
+      },
+      {
+        "start": 3.78,
+        "ur": "اک اشارے میں ہزاروں کے لیے دل تو نے",
+        "en": "With one gesture, You won thousands of hearts."
+      },
+      {
+        "start": 7.6,
+        "ur": "آتش اندوز کیا عشق کا حاصل تو نے",
+        "en": "You kindled the very essence of love."
+      },
+      {
+        "start": 11.18,
+        "ur": "پھونک دی گرمیِ رخسار سے محفل تو نے",
+        "en": "Your radiance set the whole gathering alight."
+      },
+      {
+        "start": 14.64,
+        "ur": "آج کیوں سینے ہمارے شرر آباد نہیں",
+        "en": "Why do our hearts no longer blaze with sparks?"
+      },
+      {
+        "start": 18.52,
+        "ur": "ہم وہی سوختہ ساماں ہیں تجھے یاد نہیں",
+        "en": "We are those same devoted souls. Do You not remember?"
+      }
+    ]
+  },
+  {
+    "id": "DfLqb8qtYRh",
+    "slug": "03-Safha-e-Dahr",
+    "title": "شکوہ",
+    "duration": 27.333008,
+    "crop": [
+      0,
+      186,
+      360,
+      202
+    ],
+    "verses": [
+      {
+        "start": 0,
+        "ur": "صفحۂ دہر سے باطل کو مٹایا ہم نے",
+        "en": "We erased falsehood from the page of time."
+      },
+      {
+        "start": 4.58,
+        "ur": "نوعِ انساں کو غلامی سے چھڑایا ہم نے",
+        "en": "We freed humankind from the chains of slavery."
+      },
+      {
+        "start": 8.98,
+        "ur": "تیرے کعبے کو جبینوں سے بسایا ہم نے",
+        "en": "We filled Your Kaaba with foreheads bowed in prayer."
+      },
+      {
+        "start": 12.8,
+        "ur": "تیرے قرآن کو سینوں سے لگایا ہم نے",
+        "en": "We held Your Quran close to our hearts."
+      },
+      {
+        "start": 16.28,
+        "ur": "پھر بھی ہم سے یہ گلہ ہے کہ وفادار نہیں",
+        "en": "Yet the complaint remains: we have not been faithful."
+      },
+      {
+        "start": 21.18,
+        "ur": "ہم وفادار نہیں",
+        "en": "If we have not been faithful…"
+      },
+      {
+        "start": 24.19,
+        "ur": "تو بھی تو دل دار نہیں",
+        "en": "…have You been a loving companion to us?"
+      }
+    ]
+  },
+  {
+    "id": "DfJyYbJyJ2L",
+    "slug": "04-Dasht-o-Darya",
+    "title": "شکوہ",
+    "duration": 23.403991,
+    "crop": [
+      0,
+      370,
+      540,
+      304
+    ],
+    "verses": [
+      {
+        "start": 0,
+        "ur": "محفلِ کون و مکاں میں سحر و شام پھرے",
+        "en": "Through the vast world we wandered, morning and evening."
+      },
+      {
+        "start": 3.48,
+        "ur": "مئے توحید کو لے کر صفتِ جام پھرے",
+        "en": "Like a cup, we carried the wine of Divine Oneness."
+      },
+      {
+        "start": 7.82,
+        "ur": "کوہ میں دشت میں لے کر ترا پیغام پھرے",
+        "en": "Across mountains and deserts, we carried Your message."
+      },
+      {
+        "start": 11.3,
+        "ur": "اور معلوم ہے تجھ کو کبھی ناکام پھرے",
+        "en": "You know: did we ever return defeated?"
+      },
+      {
+        "start": 14.98,
+        "ur": "دشت تو دشت ہیں دریا بھی نہ چھوڑے ہم نے",
+        "en": "Beyond the deserts, even the seas did not stop us."
+      },
+      {
+        "start": 19.22,
+        "ur": "بحرِ ظلمات میں دوڑا دیے گھوڑے ہم نے",
+        "en": "We drove our horses into the Sea of Darkness."
+      }
+    ]
+  },
+  {
+    "id": "DfGsUSvSKvt",
+    "slug": "05-Chiragh-e-Rukh",
+    "title": "شکوہ",
+    "duration": 23.433333,
+    "crop": [
+      54,
+      359,
+      432,
+      242
+    ],
+    "verses": [
+      {
+        "start": 0,
+        "ur": "تیری محفل بھی گئی چاہنے والے بھی گئے",
+        "en": "Your gathering has gone, and so have those who loved You."
+      },
+      {
+        "start": 3.62,
+        "ur": "شب کی آہیں بھی گئیں صبح کے نالے بھی گئے",
+        "en": "Gone are the sighs of night and the cries of dawn."
+      },
+      {
+        "start": 7.72,
+        "ur": "دل تجھے دے بھی گئے اپنا صلہ لے بھی گئے",
+        "en": "They gave You their hearts and carried away their reward."
+      },
+      {
+        "start": 11.76,
+        "ur": "آ کے بیٹھے بھی نہ تھے اور نکالے بھی گئے",
+        "en": "They had barely arrived before they were sent away."
+      },
+      {
+        "start": 14.98,
+        "ur": "آئے عشاق گئے وعدۂ فردا لے کر",
+        "en": "The lovers came, then left with a promise of tomorrow."
+      },
+      {
+        "start": 19.32,
+        "ur": "اب انہیں ڈھونڈ چراغِ رخِ زیبا لے کر",
+        "en": "Now seek them by the lamp of Your beautiful face."
+      }
+    ]
+  },
+  {
+    "id": "DfBVYpUMJAw",
+    "slug": "06-Maarka-Ara",
+    "title": "شکوہ",
+    "duration": 62.878005,
+    "crop": [
+      54,
+      359,
+      432,
+      242
+    ],
+    "verses": [
+      {
+        "start": 0,
+        "ur": "تھے ہمیں ایک ترے معرکہ آراؤں میں",
+        "en": "We stood among those who fought in Your cause."
+      },
+      {
+        "start": 3.18,
+        "ur": "خشکیوں میں کبھی لڑتے کبھی دریاؤں میں",
+        "en": "Sometimes on land, sometimes upon the seas."
+      },
+      {
+        "start": 6.72,
+        "ur": "دیں اذانیں کبھی یورپ کے کلیساؤں میں",
+        "en": "Our call to prayer rang in the churches of Europe."
+      },
+      {
+        "start": 10.16,
+        "ur": "کبھی افریقہ کے تپتے ہوئے صحراؤں میں",
+        "en": "And across the burning deserts of Africa."
+      },
+      {
+        "start": 13.74,
+        "ur": "شان آنکھوں میں نہ جچتی تھی جہانداروں کی",
+        "en": "The splendour of kings could not dazzle our eyes."
+      },
+      {
+        "start": 16.8,
+        "ur": "کلمہ پڑھتے تھے ہم چھاؤں میں تلواروں کی",
+        "en": "We professed our faith in the shadow of swords."
+      },
+      {
+        "start": 20.66,
+        "ur": "ہم جو جیتے تھے تو جنگوں کی مصیبت کے لیے",
+        "en": "We lived to bear the hardships of battle."
+      },
+      {
+        "start": 24.68,
+        "ur": "اور مرتے تھے ترے نام کی عظمت کے لیے",
+        "en": "And gave our lives for the honour of Your name."
+      },
+      {
+        "start": 28.01,
+        "ur": "تھی نہ کچھ تیغ زنی اپنی حکومت کے لیے",
+        "en": "Our swords were not drawn to claim a kingdom."
+      },
+      {
+        "start": 31.93,
+        "ur": "سر بکف پھرتے تھے کیا دہر میں دولت کے لیے",
+        "en": "Did we risk our lives for the wealth of this world?"
+      },
+      {
+        "start": 36.21,
+        "ur": "قوم اپنی جو زر و مالِ جہاں پر مرتی",
+        "en": "Had our people lived only for gold and possessions…"
+      },
+      {
+        "start": 39.61,
+        "ur": "بت فروشی کے عوض بت شکنی کیوں کرتی",
+        "en": "…why shatter idols when selling them would bring riches?"
+      },
+      {
+        "start": 42.79,
+        "ur": "ٹل نہ سکتے تھے اگر جنگ میں اڑ جاتے تھے",
+        "en": "Once we stood firm in battle, we could not be moved."
+      },
+      {
+        "start": 46.43,
+        "ur": "پاؤں شیروں کے بھی میداں سے اکھڑ جاتے تھے",
+        "en": "Even the lions lost their footing on that field."
+      },
+      {
+        "start": 50.13,
+        "ur": "تجھ سے سرکش ہوا کوئی تو بگڑ جاتے تھے",
+        "en": "We rose against those who rebelled against You."
+      },
+      {
+        "start": 53.51,
+        "ur": "تیغ کیا چیز ہے ہم توپ سے لڑ جاتے تھے",
+        "en": "What was a sword? We faced the cannons themselves."
+      },
+      {
+        "start": 56.89,
+        "ur": "نقشِ توحید کا ہر دل پہ بٹھایا ہم نے",
+        "en": "We impressed Divine Oneness upon every heart."
+      },
+      {
+        "start": 61.31,
+        "ur": "زیرِ خنجر بھی یہ پیغام",
+        "en": "Even beneath the dagger, this message…"
+      }
+    ]
+  },
+  {
+    "id": "De-zAp8M8iN",
+    "slug": "07-Dar-e-Khaibar",
+    "title": "شکوہ",
+    "duration": 22.267007,
+    "crop": [
+      54,
+      359,
+      432,
+      242
+    ],
+    "verses": [
+      {
+        "start": 0,
+        "ur": "تو ہی کہہ دے کہ اکھاڑا درِ خیبر کس نے",
+        "en": "Tell us: who tore down the gate of Khaibar?"
+      },
+      {
+        "start": 4.16,
+        "ur": "شہرِ قیصر کا جو تھا اس کو کیا سر کس نے",
+        "en": "Who overcame the city of Caesar?"
+      },
+      {
+        "start": 8.24,
+        "ur": "توڑے مخلوق خداوندوں کے پیکر کس نے",
+        "en": "Who broke the images of gods made by human hands?"
+      },
+      {
+        "start": 11.78,
+        "ur": "کاٹ کر رکھ دیے کفار کے لشکر کس نے",
+        "en": "Who cut through the opposing armies?"
+      },
+      {
+        "start": 14.76,
+        "ur": "کس نے ٹھنڈا کیا آتشکدۂ ایراں کو",
+        "en": "Who cooled the fire-temple of Iran?"
+      },
+      {
+        "start": 17.8,
+        "ur": "کس نے پھر زندہ کیا تذکرۂ یزداں کو",
+        "en": "Who revived the remembrance of the Divine?"
+      }
+    ]
+  },
+  {
+    "id": "De56ZCoMpvv",
+    "slug": "08-Naqsh-e-Tauheed",
+    "title": "شکوہ",
+    "duration": 23.7,
+    "crop": [
+      54,
+      359,
+      432,
+      242
+    ],
+    "verses": [
+      {
+        "start": 0,
+        "ur": "ٹل نہ سکتے تھے اگر جنگ میں اڑ جاتے تھے",
+        "en": "Once we stood firm in battle, we could not be moved."
+      },
+      {
+        "start": 3.5,
+        "ur": "پاؤں شیروں کے بھی میداں سے اکھڑ جاتے تھے",
+        "en": "Even the lions lost their footing on that field."
+      },
+      {
+        "start": 7.24,
+        "ur": "تجھ سے سرکش ہوا کوئی تو بگڑ جاتے تھے",
+        "en": "We rose against those who rebelled against You."
+      },
+      {
+        "start": 10.6,
+        "ur": "تیغ کیا چیز ہے ہم توپ سے لڑ جاتے تھے",
+        "en": "What was a sword? We faced the cannons themselves."
+      },
+      {
+        "start": 14.08,
+        "ur": "نقشِ توحید کا ہر دل پہ بٹھایا ہم نے",
+        "en": "We impressed Divine Oneness upon every heart."
+      },
+      {
+        "start": 18.46,
+        "ur": "زیرِ خنجر بھی یہ پیغام سنایا ہم نے",
+        "en": "Even beneath the dagger, we proclaimed this message."
+      }
+    ]
+  },
+  {
+    "id": "DfFKSo_PYdt",
+    "slug": "09-Diyar-e-Ishq",
+    "title": "دیارِ عشق",
+    "duration": 28.211995,
+    "verses": [
+      {
+        "start": 0,
+        "ur": "دیارِ عشق میں اپنا مقام پیدا کر",
+        "en": "Make a place for yourself in the realm of love."
+      },
+      {
+        "start": 5.01,
+        "ur": "نیا زمانہ نئے صبح و شام پیدا کر",
+        "en": "Create a new age, with new mornings and evenings."
+      },
+      {
+        "start": 10.31,
+        "ur": "خدا اگر دلِ فطرت شناس دے تجھ کو",
+        "en": "If God gives you a heart that understands nature…"
+      },
+      {
+        "start": 14.69,
+        "ur": "سکوتِ لالہ و گل سے کلام پیدا کر",
+        "en": "…find a conversation in the silence of flowers."
+      },
+      {
+        "start": 18.61,
+        "ur": "مرا طریق امیری نہیں فقیری ہے",
+        "en": "My way is simplicity, not the pursuit of riches."
+      },
+      {
+        "start": 23.13,
+        "ur": "خودی نہ بیچ غریبی میں نام پیدا کر",
+        "en": "Never sell your selfhood. Earn your name, even in poverty."
+      }
+    ]
+  },
+  {
+    "id": "DdYT44ixsZ6",
+    "slug": "10-Saada-Dil",
+    "title": "سادہ دل",
+    "duration": 29.116417,
+    "verses": [
+      {
+        "start": 0,
+        "ur": "خداوندا یہ تیرے سادہ دل بندے کدھر جائیں",
+        "en": "O Lord, where should Your simple-hearted servants go?"
+      },
+      {
+        "start": 4.5,
+        "ur": "کہ درویشی بھی عیاری ہے سلطانی بھی عیاری",
+        "en": "When both the ascetic and the ruler practise deception."
+      },
+      {
+        "start": 9.48,
+        "ur": "مجھے تہذیبِ حاضر نے عطا کی ہے وہ آزادی",
+        "en": "Modern civilisation has given me a kind of freedom…"
+      },
+      {
+        "start": 14.06,
+        "ur": "کہ ظاہر میں تو آزادی ہے باطن میں گرفتاری",
+        "en": "…that looks free outside, yet keeps me captive within."
+      },
+      {
+        "start": 18.98,
+        "ur": "تو اے مولائے یثرب آپ میری چارہ سازی کر",
+        "en": "O master of Yathrib, come to my aid."
+      },
+      {
+        "start": 23.26,
+        "ur": "مری دانش ہے افرنگی مرا ایماں ہے زنّاری",
+        "en": "My reason is Western; my faith is bound in contradiction."
+      }
+    ]
+  }
+]

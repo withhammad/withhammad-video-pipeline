@@ -1,6 +1,16 @@
-# Andalus — rejected personal animation
+# Andalus — full Blender personal film
 
-**Status: REJECTED by the owner on 9 November.** The scenery may be reused, but the character treatment and walking must be replaced. No finished or approved personal cut currently exists. A short genuine motion preview must pass visual review before a full rebuild.
+**Current status: full 35.409-second film FINISHED on 10 November.** The owner said “Use this for the full video.” The 5.76-second preview uses an actual 3D human mesh, Hammad photo texture, a free Quaternius walk, grounded travel and Cycles contact shadows. Original first-verse audio/captions and valley painting are retained. The full film extends that approved treatment across valley and courtyard shots, with river/terrace scenery between verses. No publication is authorized.
+
+Full file: `/Users/hammad/Documents/Codex/2026-11-07/you-are-taking-over-the-withhammad/outputs/Personal-Iqbal/Andalus-Blender-full.mp4`; matching SRT and copy in `~/Downloads/10 November/Personal`. All 765 original AAC packet hashes and timestamps match; 885 frames, 1920×1080, 25 fps, limited Rec.709. Full filmstrip and representative large frames reviewed. Proof: `outputs/personal/reviews/2026-11-10-valley-full.json`.
+
+Approved sample: `/Users/hammad/Documents/Codex/2026-11-07/you-are-taking-over-the-withhammad/outputs/Personal-Iqbal/Valley-Blender-walk-sample.mp4`. 1920×1080, 25 fps, 144 frames, H.264, limited Rec.709. All 127 source AAC packets in the excerpt are unchanged; first PTS matches. SHA256 `10a3f235aa8eced2fe7b200bfc4a67ff778a913acda0aec139708a27af858fc7`. Full-size first/last frames and 6 fps motion sheet inspected. Owner approval establishes the character/movement direction; technical checks alone do not.
+
+Editable packed project: `Hammad-valley-sample.blend` beside the sample and in Downloads. Reproduction and asset attribution: `studio/blender/personal-iqbal-valley/README.md`; composition `PersonalValleySample`. Generated human mesh/system assets and Quaternius walk are CC0; olive shirt by Elvaerwyn is CC-BY. This is an artistic reconstruction from his photo, not a scan. Zero HeyGen or external paid generation.
+
+## Rejected v3 history — do not use as the replacement
+
+The owner rejected the earlier character treatment and walking on 9 November. The scenery was accepted for reuse. All descriptions below refer to the rejected v3 and earlier revisions.
 
 
 Reference: https://www.instagram.com/reel/DfgtetEsqUB/
