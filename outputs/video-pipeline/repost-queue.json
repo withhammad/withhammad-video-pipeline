@@ -2663,9 +2663,11 @@
       "primary_keyword": "claude motion prompt",
       "host_slug": "repost-anatomy20261027",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "moved_from": "2026-11-12 16:00 GST",
-      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)"
+      "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
+      "url": "https://www.youtube.com/shorts/y8lFVeIFwzg",
+      "posted_at": "2026-11-09T10:03:05Z"
     },
     {
       "id": "fa-anatomy20261027",
@@ -4289,9 +4291,10 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "pending",
+      "status": "failed",
       "resource_url": "https://withhammad.com/resources/claude-instagram-skills",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id A9wNOr5lHZr44KqIElE0iIt]"
     },
     {
       "id": "li-0f869c3f2de7",
