@@ -20,7 +20,7 @@ is exactly what is on disk. Read `AGENTS.md` first (shared rules), then this fil
   (room, light, framing, outfit, pose). Check HeyGen's credit cost for a new look first: free -> make the matching
   look; costs credits -> reuse the closest existing look ("Professional in white shirt").
   Avatar only on the lines the reference says to camera; no face in the reference -> voice only. ONE submit, 720p,
-  4 fps filmstrip gate, credits before/after in the job's STATUS.md. Last verified balance: 208 after the authorized REPO correction (9 Nov).
+  4 fps filmstrip gate, credits before/after in the job's STATUS.md. Last verified balance: 206 after the single BLENDER narration take (10 Nov); avatar not yet submitted.
 - **Thumbnails:** the glow-grid template (`studio/remotion/src/brand/GlowCover.tsx`, add the job to
   `glowCovers.ts`, render with `node src/brand/render-glow.mjs`), cover on every platform, YouTube 16:9 via GlowWide.
 - **Cadence (red line):** every platform every day >= 2 reels + 1 carousel (3 posts). YouTube first (it pays).
@@ -167,7 +167,8 @@ must not reply to the same comment: the routines record replies (`--mark`), so c
 | AI agent developer roadmap (LinkedIn dDH3f9E4) | Owner approved; PR #19 merged under his explicit exception. Guide/rule live. YouTube Community, LinkedIn and Facebook published 9 Nov. | Instagram returned action/rate restriction 403 / 2207051; no bypass or blind retry. X/TikTok upload requires the ChatGPT Chrome extension file-access switch. No repeat content approval. |
 | Vector databases (LinkedIn dJJbWzcy) | Owner approved; PR #19 merged, guide/rule live. YouTube native schedule confirmed for 10 Nov 08:30 GST; IG 09:00, LI 11:00, FB 19:00 in the queue. | Finish X/TikTok native schedules (10 Nov 19:00 GST) once Chrome extension file uploads are enabled. Watch the Instagram restriction; never bypass it. |
 | AI guardrails (LinkedIn dEY7GakW) | Owner approved graphic/copy on 9 Nov. Keyword GUARD; zero HeyGen credits. Guide/rule ready in PR #20, deployed previews pass, Lighthouse SEO 100. | Owner merges #20 or explicitly authorizes Codex to merge it. Then verify production and release; no repeat package approval. |
-| GAME (@nick_saraev DfZGREyvPUX) | Built, commit 0f611a0, thumbnails sent. | Approve, then page PR + slots. |
+| GAME (@nick_saraev DfZGREyvPUX) | Existing full 39.6 s cut, commit 0f611a0, thumbnails sent. The 10 Nov audit found ElevenLabs v3 plus an old 1.2x post speed-up; this predates the fixed REFERRAL-v4 rule. | Review voice match before presenting it as ready under the latest rule; do not silently reuse the outdated voice or spend a retry. Then finished-package approval, page PR and slots. |
+| BLENDER (@nick_saraev DfUBU1tPVZn, job 3f33678db749) | Resumed 10 Nov. Earlier export was a labelled stand-in, not a finished owner-voice reel. New 37.77 s visual draft, captions, music and copy ready; single REFERRAL v4 narration cost 2 credits. Matching white T-shirt avatar draft contains only 16.33 s of camera lines. | Owner narration review is pending before the avatar submit; then filmstrip, lip-sync/cover gates and finished-cut approval. Details: docs/videos/2026-11-10-business-edit-resume.md. |
 | Rubber World (8bcf01ad1b0f) | Two-voice cut (him + Annie), commit 99c60bd; queue entries HELD. | Approve this cut, then set the six entries to pending and merge #8. |
 | JOBS (d463f2086d47) | 32.5 s cut with a deadpan opening building to excited, commit d9a11e6; queue entries HELD. | Approve, then set entries to pending. |
 | REFERRAL (33d9c1e97156) | Live on all six since 7 Nov; keyword automation ready but needs PR #7 merged. | Merge #7; pick a repost/variant approach (the session offered options). |

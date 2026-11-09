@@ -7,6 +7,14 @@ The owner chose **“Use its techniques on existing edits”** for David Ho's
 This is editing guidance, not a separate reel or another EDIT-topic build.
 Beat map and scope: `work/reference-DfdAvbfRQY5/spec.md`.
 
+The second effects reference, [Toni Stelk's 24-effect reel](https://www.instagram.com/reels/DfcJIAlo1Hu/),
+has the owner's explicit decision **“Use techniques on existing business reels.”**
+Keep it as style guidance only (`3973661d8acb`); no separate demonstration or EDIT duplicate.
+The BLENDER revision uses a readable floating number card, a gentle digital push
+on the real 3D footage and a word-timed checklist. Each serves an existing beat;
+do not add the entire effects list or distort the presenter's face. Evidence and
+the implementation map: `work/blender-resume/effects-plan.md`.
+
 Use floating information cards, a focused-light moment, a checklist that advances
 with speech, a progress/playhead animation, a text-aligned match cut or a toggle
 only when it clarifies an existing beat. Normally choose one effect per beat.

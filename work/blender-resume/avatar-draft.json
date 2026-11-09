@@ -1,0 +1,18 @@
+{
+  "job": "3f33678db749",
+  "account": "hammadbhat126@gmail.com",
+  "draft_id": "46cd179b9329409ea1a1729e54dd0665",
+  "draft_url": "https://app.heygen.com/home?returnTo=%2Favatar%2Fmy-avatars&create=46cd179b9329409ea1a1729e54dd0665",
+  "look": "Podcaster in white t-shirt",
+  "audio_file": "studio/.local/jobs/3f33678db749/referral-v4/avatar-audio.wav",
+  "audio_duration_s": 16.333333333333332,
+  "upload_verified_in_ui": true,
+  "draft_step": "Review voice delivery",
+  "generation_submitted": false,
+  "resolution": "720p required; verify in final generation dialog",
+  "motion": "Expressive and Enthusiastic were selected; recheck after final look selection before submitting",
+  "owner_voice_review": "pending",
+  "credits_last_verified": 206,
+  "avatar_credit_quote": null,
+  "notes": "No second voice take or avatar submit. UI transcription confirms the uploaded on-camera lines. Preserve the original narration rather than regenerating it through HeyGen Voice."
+}

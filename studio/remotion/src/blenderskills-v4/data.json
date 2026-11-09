@@ -1,0 +1,1001 @@
+{
+  "frames": 1133,
+  "fps": 30,
+  "units": [
+    {
+      "kind": "title",
+      "from": 0,
+      "to": 109
+    },
+    {
+      "kind": "renders",
+      "from": 109,
+      "to": 204
+    },
+    {
+      "kind": "free",
+      "from": 204,
+      "to": 247
+    },
+    {
+      "kind": "site",
+      "from": 247,
+      "to": 298
+    },
+    {
+      "kind": "repo",
+      "from": 298,
+      "to": 415
+    },
+    {
+      "kind": "blender",
+      "from": 415,
+      "to": 532
+    },
+    {
+      "kind": "prompt",
+      "from": 532,
+      "to": 649
+    },
+    {
+      "kind": "director",
+      "from": 649,
+      "to": 717
+    },
+    {
+      "kind": "build",
+      "from": 717,
+      "to": 999
+    },
+    {
+      "kind": "cta",
+      "from": 999,
+      "to": 1133
+    }
+  ],
+  "beats": {
+    "title": [
+      34,
+      81,
+      88
+    ],
+    "renders": [
+      109,
+      145,
+      172
+    ],
+    "free": 228,
+    "site": 259,
+    "repo": {
+      "free": 303,
+      "open": 319,
+      "n94": 349,
+      "pro": 390
+    },
+    "blender": {
+      "open": 436,
+      "mcp": 468,
+      "connects": 513
+    },
+    "prompt": {
+      "type": 537,
+      "hi": 588,
+      "unreal": 619
+    },
+    "director": {
+      "hi": 660,
+      "over": 681
+    },
+    "build": {
+      "plan": 681,
+      "char": 721,
+      "props": 750,
+      "env": 771,
+      "light": 814,
+      "tex": 831,
+      "opt": 846,
+      "exp": 883,
+      "check": 905,
+      "cost": 947
+    },
+    "cta": {
+      "type": 1027,
+      "dm": 1052
+    }
+  },
+  "captions": [
+    {
+      "from": 0,
+      "to": 25,
+      "words": [
+        {
+          "t": "Claude",
+          "at": 0,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "Code",
+          "at": 11,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "can",
+          "at": 18,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 25,
+      "to": 53,
+      "words": [
+        {
+          "t": "now",
+          "at": 25,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "run",
+          "at": 34,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "Blender",
+          "at": 42,
+          "accent": true,
+          "serif": true
+        }
+      ]
+    },
+    {
+      "from": 53,
+      "to": 70,
+      "words": [
+        {
+          "t": "for",
+          "at": 53,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "you",
+          "at": 61,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 70,
+      "to": 81,
+      "words": [
+        {
+          "t": "so",
+          "at": 70,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "you",
+          "at": 74,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "can",
+          "at": 78,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 81,
+      "to": 109,
+      "words": [
+        {
+          "t": "build",
+          "at": 81,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "3D",
+          "at": 88,
+          "accent": true,
+          "serif": false
+        },
+        {
+          "t": "models",
+          "at": 99,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 109,
+      "to": 145,
+      "words": [
+        {
+          "t": "textures",
+          "at": 109,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "and",
+          "at": 136,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 145,
+      "to": 172,
+      "words": [
+        {
+          "t": "animations",
+          "at": 145,
+          "accent": true,
+          "serif": false
+        },
+        {
+          "t": "by",
+          "at": 162,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 172,
+      "to": 204,
+      "words": [
+        {
+          "t": "describing",
+          "at": 172,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "them",
+          "at": 187,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 204,
+      "to": 220,
+      "words": [
+        {
+          "t": "and",
+          "at": 204,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "the",
+          "at": 210,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "skills",
+          "at": 213,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 220,
+      "to": 247,
+      "words": [
+        {
+          "t": "are",
+          "at": 220,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "free!",
+          "at": 228,
+          "accent": true,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 247,
+      "to": 273,
+      "words": [
+        {
+          "t": "It's",
+          "at": 247,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "called",
+          "at": 252,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "Blender",
+          "at": 259,
+          "accent": true,
+          "serif": true
+        }
+      ]
+    },
+    {
+      "from": 273,
+      "to": 298,
+      "words": [
+        {
+          "t": "Skills",
+          "at": 273,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 298,
+      "to": 319,
+      "words": [
+        {
+          "t": "a",
+          "at": 298,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "free",
+          "at": 303,
+          "accent": true,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 319,
+      "to": 343,
+      "words": [
+        {
+          "t": "open",
+          "at": 319,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "source",
+          "at": 324,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "pack",
+          "at": 333,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 343,
+      "to": 379,
+      "words": [
+        {
+          "t": "of",
+          "at": 343,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "94",
+          "at": 349,
+          "accent": true,
+          "serif": false
+        },
+        {
+          "t": "skills",
+          "at": 363,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 379,
+      "to": 399,
+      "words": [
+        {
+          "t": "for",
+          "at": 379,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "your",
+          "at": 387,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "coding",
+          "at": 390,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 399,
+      "to": 415,
+      "words": [
+        {
+          "t": "agent.",
+          "at": 399,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 415,
+      "to": 430,
+      "words": [
+        {
+          "t": "All",
+          "at": 415,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "you",
+          "at": 420,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "need",
+          "at": 424,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 430,
+      "to": 457,
+      "words": [
+        {
+          "t": "is",
+          "at": 430,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "Blender",
+          "at": 436,
+          "accent": true,
+          "serif": true
+        },
+        {
+          "t": "open",
+          "at": 447,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 457,
+      "to": 487,
+      "words": [
+        {
+          "t": "with",
+          "at": 457,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "the",
+          "at": 465,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "MCP",
+          "at": 468,
+          "accent": true,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 487,
+      "to": 513,
+      "words": [
+        {
+          "t": "for",
+          "at": 487,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "Blender",
+          "at": 492,
+          "accent": true,
+          "serif": true
+        },
+        {
+          "t": "add-on",
+          "at": 502,
+          "accent": true,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 513,
+      "to": 532,
+      "words": [
+        {
+          "t": "connected.",
+          "at": 513,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 532,
+      "to": 555,
+      "words": [
+        {
+          "t": "Just",
+          "at": 532,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "describe",
+          "at": 537,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "your",
+          "at": 549,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 555,
+      "to": 573,
+      "words": [
+        {
+          "t": "scene",
+          "at": 555,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 573,
+      "to": 602,
+      "words": [
+        {
+          "t": "like",
+          "at": 573,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "a",
+          "at": 582,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "cyberpunk",
+          "at": 588,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 602,
+      "to": 628,
+      "words": [
+        {
+          "t": "alley",
+          "at": 602,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "for",
+          "at": 612,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "Unreal",
+          "at": 619,
+          "accent": true,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 628,
+      "to": 649,
+      "words": [
+        {
+          "t": "Engine",
+          "at": 628,
+          "accent": true,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 649,
+      "to": 668,
+      "words": [
+        {
+          "t": "and",
+          "at": 649,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "the",
+          "at": 657,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "Blender",
+          "at": 660,
+          "accent": true,
+          "serif": true
+        }
+      ]
+    },
+    {
+      "from": 668,
+      "to": 699,
+      "words": [
+        {
+          "t": "Director",
+          "at": 668,
+          "accent": true,
+          "serif": true
+        },
+        {
+          "t": "plans",
+          "at": 681,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "the",
+          "at": 693,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 699,
+      "to": 717,
+      "words": [
+        {
+          "t": "job",
+          "at": 699,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 717,
+      "to": 750,
+      "words": [
+        {
+          "t": "builds",
+          "at": 717,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "characters",
+          "at": 721,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 750,
+      "to": 771,
+      "words": [
+        {
+          "t": "props",
+          "at": 750,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "and",
+          "at": 756,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "the",
+          "at": 767,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 771,
+      "to": 798,
+      "words": [
+        {
+          "t": "environment",
+          "at": 771,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 798,
+      "to": 823,
+      "words": [
+        {
+          "t": "then",
+          "at": 798,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "adds",
+          "at": 804,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "lighting",
+          "at": 814,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 823,
+      "to": 846,
+      "words": [
+        {
+          "t": "and",
+          "at": 823,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "textures",
+          "at": 831,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 846,
+      "to": 883,
+      "words": [
+        {
+          "t": "optimizes",
+          "at": 846,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "it",
+          "at": 871,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "and",
+          "at": 877,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 883,
+      "to": 905,
+      "words": [
+        {
+          "t": "exports",
+          "at": 883,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "it",
+          "at": 894,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 905,
+      "to": 933,
+      "words": [
+        {
+          "t": "coordinating",
+          "at": 905,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "each",
+          "at": 919,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 933,
+      "to": 947,
+      "words": [
+        {
+          "t": "step.",
+          "at": 933,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 947,
+      "to": 977,
+      "words": [
+        {
+          "t": "Claude",
+          "at": 947,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "usage",
+          "at": 957,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "still",
+          "at": 963,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 977,
+      "to": 999,
+      "words": [
+        {
+          "t": "costs.",
+          "at": 977,
+          "accent": true,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 999,
+      "to": 1021,
+      "words": [
+        {
+          "t": "Want",
+          "at": 999,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "the",
+          "at": 1002,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "setup?",
+          "at": 1007,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 1021,
+      "to": 1052,
+      "words": [
+        {
+          "t": "Comment",
+          "at": 1021,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "BLENDER",
+          "at": 1027,
+          "accent": true,
+          "serif": true
+        },
+        {
+          "t": "and",
+          "at": 1046,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    },
+    {
+      "from": 1052,
+      "to": 1133,
+      "words": [
+        {
+          "t": "I'll",
+          "at": 1052,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "send",
+          "at": 1056,
+          "accent": false,
+          "serif": false
+        },
+        {
+          "t": "it!",
+          "at": 1062,
+          "accent": false,
+          "serif": false
+        }
+      ]
+    }
+  ],
+  "durationS": 35.767,
+  "avatarReady": false,
+  "standin": false,
+  "voiceFile": "referral-v4-voice.wav",
+  "takeFile": "referral-v4-take.mp4"
+}

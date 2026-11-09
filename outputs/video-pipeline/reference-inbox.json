@@ -306,6 +306,18 @@
       "owner_decision_date_gst": "2026-11-10",
       "disposition": "style_reference_only",
       "standalone_build": false
+    },
+    {
+      "url": "https://www.instagram.com/reels/DfcJIAlo1Hu/",
+      "note": "Owner reference 10 Nov 2026. Business queue; duplicate-topic check before generation; continue unfinished avatar reels first.",
+      "added": "2026-11-10",
+      "status": "rejected",
+      "job": "3973661d8acb",
+      "disposition": "style_reference_only",
+      "standalone_build": false,
+      "owner_decision": "Use techniques on existing business reels",
+      "owner_decision_date_gst": "2026-11-10",
+      "notes": "23.5-second 24-effect demonstration. Apply only suitable beats to unfinished business edits; no separate EDIT reel, no extra generation credits."
     }
   ]
 }
