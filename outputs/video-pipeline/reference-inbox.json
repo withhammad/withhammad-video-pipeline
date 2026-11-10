@@ -231,7 +231,7 @@
       "notes": "Owner approved corrected REFERRAL v4 package; one 3-credit correction, 211→208. Old narration remains rejected. Guide/rule preview checks pass; SEO 100.",
       "owner_approved": true,
       "owner_approved_at": "2026-11-09",
-      "release_hold": "Instagram and YouTube manually published by owner; REPO guide/rule deployed. YouTube approved cover verified live. Subscriber-only comment setting awaits unlocked Chrome; real REPO keyword delivery awaits a customer comment. Other destinations remain manual; no automatic fallback.",
+      "release_hold": "Instagram and YouTube manually published by owner; REPO guide/rule deployed. YouTube approved cover, subscriber-only comments (Any duration), Basic moderation, AI disclosure and public profile guide link verified. Real REPO keyword delivery awaits a customer comment. Other destinations remain manual; no automatic fallback.",
       "guide_pr": "https://github.com/withhammad/withhammad-rebuild/pull/20",
       "release_mode": "owner_manual_native_sound",
       "manual_upload_package": "/Users/hammad/Downloads/10 November/REPO - Manual Upload",

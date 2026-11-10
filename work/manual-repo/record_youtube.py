@@ -19,6 +19,11 @@ assert video['status']['privacyStatus'] == 'public'
 assert video['contentDetails']['hasCustomThumbnail'] is True
 published = datetime.fromisoformat(video['snippet']['publishedAt'].replace('Z', '+00:00'))
 now = datetime.now(timezone.utc).isoformat()
+proof_path = ROOT / 'outputs/video-pipeline/reviews/2026-11-10-repo-youtube-settings.json'
+studio_verified = (
+    json.loads(proof_path.read_text()).get('studio', {}).get('verified') is True
+    if proof_path.exists() else False
+)
 
 
 def update_json(path, update):
@@ -49,7 +54,10 @@ with publisher._state_lock(state_path):
 def manual_update(data):
     data.setdefault('posted_urls', {})['youtube'] = URL
     data['youtube_receipt'] = receipt
-    data['youtube_subscriber_gate'] = 'pending Studio access; Mac locked'
+    data['youtube_subscriber_gate'] = (
+        'verified: Subscribers and members; Any duration'
+        if studio_verified else 'pending Studio verification'
+    )
 
 
 update_json(JOB / 'manual-release.json', manual_update)
@@ -85,8 +93,11 @@ def inbox_update(data):
             row.setdefault('published_urls', {})['youtube'] = URL
             row['release_hold'] = (
                 'Instagram and YouTube manually published by owner; REPO guide/rule deployed. '
-                'YouTube approved cover verified live. Subscriber-only comment setting awaits '
-                'unlocked Chrome; real REPO keyword delivery awaits a customer comment. '
+                'YouTube approved cover verified live. '
+                + ('Subscriber-only comments, Any duration, Basic moderation, AI disclosure and '
+                   'profile guide link verified in Studio. ' if studio_verified else
+                   'Subscriber-only comment setting awaits Studio verification. ')
+                + 'Real REPO keyword delivery awaits a customer comment. '
                 'Other destinations remain manual; no automatic fallback.'
             )
 

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-10T06:59:51.740972+00:00",
+  "checked_at": "2026-11-10T08:31:55.224657+00:00",
   "job": "dfa218634321",
   "video_id": "J15kXiijiZI",
   "url": "https://www.youtube.com/shorts/J15kXiijiZI",
@@ -44,7 +44,8 @@
       "requested": true,
       "update_http": 200,
       "readback": null,
-      "verification": "Pending Studio; absent API field is not treated as confirmation"
+      "verification": "Verified in YouTube Studio: Yes, AI was used",
+      "studio_value": true
     }
   },
   "captions": {
@@ -73,23 +74,45 @@
       "already": 11,
       "dry_run": true
     },
-    "real_repo_delivery_verified": false
+    "real_repo_delivery_verified": false,
+    "live_run": {
+      "threads": 500,
+      "replied": [],
+      "skipped_own": 0,
+      "already": 11,
+      "dry_run": false
+    },
+    "subscription_gate": "YouTube native Subscribers and members / Any duration"
   },
-  "pending_studio": [
-    "Subscribers and members / Any duration",
-    "Basic comment moderation",
-    "Verify synthetic-content disclosure",
-    "Verify/add clickable guide in channel profile Links"
-  ],
-  "access_blocker": "Mac locked; owner unlock requested",
+  "pending_studio": [],
+  "access_blocker": null,
   "validation": {
     "studio_tests_passed": 646,
     "warnings": 1,
-    "seconds": 78.0
+    "seconds": 84.05,
+    "log": "work/manual-repo/youtube-studio-tests.log"
   },
   "sources": [
     "https://support.google.com/youtube/answer/72431",
     "https://developers.google.com/youtube/v3/docs/thumbnails/set",
     "https://support.google.com/youtube/answer/9483359"
-  ]
+  ],
+  "studio": {
+    "verified": true,
+    "verified_at": "2026-11-10T08:31:55.224657+00:00",
+    "video_settings_url": "https://studio.youtube.com/video/J15kXiijiZI/edit",
+    "save_confirmation": "All changes saved.",
+    "comments": "On",
+    "who_can_comment": "Subscribers and members",
+    "minimum_subscription_time": "Any duration",
+    "moderation": "Basic",
+    "ai_use": "Yes, AI was used",
+    "profile_link": {
+      "title": "REPO — Five AI Repos",
+      "url": "https://withhammad.com/resources/five-open-source-ai-repos",
+      "public_channel": "https://www.youtube.com/@with.hammad",
+      "public_about_panel_verified": true,
+      "existing_links_preserved": 5
+    }
+  }
 }
