@@ -541,7 +541,7 @@
       "primary_keyword": "claude code plugin",
       "host_slug": "repost-b95794dc72cf",
       "collaborators": null,
-      "status": "pending"
+      "status": "missed"
     },
     {
       "id": "in-b55491077ab1",
@@ -2974,7 +2974,7 @@
       "primary_keyword": "K2 Horizon",
       "host_slug": "repost-619b40c30868",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/k2-horizon-free-uae-ai-models"
     },
     {
@@ -2989,7 +2989,7 @@
       "primary_keyword": "K2 Horizon",
       "host_slug": "repost-619b40c30868",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/k2-horizon-free-uae-ai-models"
     },
     {
@@ -3019,7 +3019,7 @@
       "primary_keyword": "K2 Horizon",
       "host_slug": "repost-619b40c30868",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/k2-horizon-free-uae-ai-models"
     },
     {
@@ -4334,7 +4334,7 @@
       "primary_keyword": "claude instagram skill",
       "host_slug": "repost-0f869c3f2de7",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-instagram-skills",
       "owner_approval": "owner-approval-20261108.json",
       "retry_history": [
@@ -4344,7 +4344,9 @@
           "resolution": "Publishing checkout verified clean on main. No Facebook publish state exists; failure preceded remote upload. Approved video SHA256 matches; guide live and Facebook dry run planned on 9 Nov."
         }
       ],
-      "requeued_at": "2026-11-09T19:34:48.608020+00:00"
+      "requeued_at": "2026-11-09T19:34:48.608020+00:00",
+      "url": "https://www.facebook.com/reel/1174398084943597/",
+      "posted_at": "2026-11-10T05:03:05Z"
     },
     {
       "id": "tt-0f869c3f2de7",
@@ -4609,7 +4611,7 @@
       "primary_keyword": "Edge0 AI model",
       "host_slug": "repost-6eba3a812294",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/edge0-local-ai",
       "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026."
     },
@@ -4797,13 +4799,14 @@
       "resource_url": "https://withhammad.com/resources/vector-databases-explained",
       "local": "2026-11-10 09:00 GST",
       "slot_utc": "2026-11-10T05:00:00Z",
-      "status": "pending",
+      "status": "failed",
       "owner_approved": true,
       "approved_at": "2026-11-08",
       "collaborators": [
         "with.hammad",
         "hammadagentic.ai"
-      ]
+      ],
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai"
     },
     {
       "id": "linkedin-image-vectors",
