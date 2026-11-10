@@ -1,0 +1,95 @@
+{
+  "checked_at": "2026-11-10T06:59:51.740972+00:00",
+  "job": "dfa218634321",
+  "video_id": "J15kXiijiZI",
+  "url": "https://www.youtube.com/shorts/J15kXiijiZI",
+  "channel_id": "UCJtrEDGg1R3kNe7t7PQFiEw",
+  "owner_upload": true,
+  "reuploaded": false,
+  "audio_modified": false,
+  "paid_credits_used": 0,
+  "thumbnail": {
+    "status": "set_and_verified",
+    "set_at": "2026-11-10T06:53:16Z",
+    "sha256": "e55bcf3e29dd742d0bb136778aa055773ad91242474f5f2cd59294aab919150d",
+    "source": ".local/jobs/dfa218634321/cover_1080x1920.jpg",
+    "hasCustomThumbnail": true,
+    "live_url": "https://i.ytimg.com/vi/J15kXiijiZI/sardefault.jpg",
+    "live_file_sha256": "88b1935f3724a3ee8c95bf8eeb041372e51c9aefe1dea5458b2d1769457364d6",
+    "visual_check": "Downloaded YouTube sardefault.jpg and visually matched the approved 5 Open Repos / Less To Pay cover"
+  },
+  "metadata": {
+    "title": "5 Open Source AI Tools That Could Replace Paid Apps",
+    "title_description_preserved": true,
+    "tags": [
+      "AI agents",
+      "AI tools",
+      "Hammad Yousuf",
+      "OpenCode",
+      "OpenMausBot",
+      "OpenSEO",
+      "Replica",
+      "VoiceStudio",
+      "coding tools",
+      "free AI tools",
+      "open source AI"
+    ],
+    "category_id": "28",
+    "default_language": "en",
+    "audio_language": "en",
+    "privacy": "public",
+    "made_for_kids": false,
+    "self_declared_made_for_kids": false,
+    "synthetic_disclosure": {
+      "requested": true,
+      "update_http": 200,
+      "readback": null,
+      "verification": "Pending Studio; absent API field is not treated as confirmation"
+    }
+  },
+  "captions": {
+    "status": "serving",
+    "language": "en",
+    "kind": "standard",
+    "track_id": "AUieDaYrkNJ7sCQ-8pN6-dMfpwrUgH3RXAU15xqvL0W401sIny_E-isQ",
+    "source": "studio/.local/jobs/dfa218634321/captions.srt",
+    "sha256": "488ae1ac5b6b577253581461a5ed416b6345e757433485563e38788cbf6f39f8"
+  },
+  "keyword_bot": {
+    "automation": "withhammad-youtube-keyword-replies",
+    "status": "ACTIVE",
+    "model": "gpt-6-astra",
+    "effort": "high",
+    "schedule_gst": ":15/:45, 07-23 daily",
+    "keyword": "REPO",
+    "guide": "https://withhammad.com/resources/five-open-source-ai-repos",
+    "guide_http_status": 200,
+    "reply_kind": "public comment",
+    "short_comments": 0,
+    "dry_run": {
+      "threads": 500,
+      "replied": [],
+      "skipped_own": 0,
+      "already": 11,
+      "dry_run": true
+    },
+    "real_repo_delivery_verified": false
+  },
+  "pending_studio": [
+    "Subscribers and members / Any duration",
+    "Basic comment moderation",
+    "Verify synthetic-content disclosure",
+    "Verify/add clickable guide in channel profile Links"
+  ],
+  "access_blocker": "Mac locked; owner unlock requested",
+  "validation": {
+    "studio_tests_passed": 646,
+    "warnings": 1,
+    "seconds": 78.0
+  },
+  "sources": [
+    "https://support.google.com/youtube/answer/72431",
+    "https://developers.google.com/youtube/v3/docs/thumbnails/set",
+    "https://support.google.com/youtube/answer/9483359"
+  ]
+}

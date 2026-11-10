@@ -4898,6 +4898,28 @@
       "publication_method": "owner_manual_upload",
       "verified_at": "2026-11-10T05:47:57.090721+00:00",
       "native_sound_verified": false
+    },
+    {
+      "id": "yo-dfa218634321",
+      "job": "dfa218634321",
+      "platform": "youtube",
+      "slot_utc": "2026-11-10T06:48:07Z",
+      "local": "2026-11-10 10:48 GST",
+      "keyword": "REPO",
+      "title": "5 Open Source AI Tools That Could Replace Paid Apps",
+      "caption": "Five open source AI tools for coding, local voice, SEO and AI agents.\n\nSetup guide:\nhttps://withhammad.com/resources/five-open-source-ai-repos\n\n1. OpenCode — an open-source coding agent.\n2. VoiceStudio — a local voice-generation toolkit.\n3. OpenSEO — keywords, rankings, backlinks and audits.\n4. OpenMausBot — AI teammates with supported model engines.\n5. Replica — skills for studying and rebuilding product features.\n\nFree code does not mean every service is free. Model, data, hosting and hardware costs can still apply.\n\nSubscribe, then comment REPO for the five links and setup guide.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference and product inserts: @nick_saraev on Instagram.\n\n#Shorts #OpenSourceAI #AITools",
+      "primary_keyword": "open source AI tools",
+      "resource_url": "https://withhammad.com/resources/five-open-source-ai-repos",
+      "host_slug": "repost-dfa218634321",
+      "collaborators": null,
+      "status": "posted",
+      "url": "https://www.youtube.com/shorts/J15kXiijiZI",
+      "video_id": "J15kXiijiZI",
+      "posted_at": "2026-11-10T06:48:07Z",
+      "publication_method": "owner_manual_upload",
+      "verified_at": "2026-11-10T06:57:29.706255+00:00",
+      "native_sound_verified": false,
+      "custom_thumbnail_verified": true
     }
   ]
 }

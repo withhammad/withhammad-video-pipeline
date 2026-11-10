@@ -33,11 +33,18 @@
     "keyword": "REPO",
     "reply_type": "public comment reply, no private DM",
     "clickable_guide": "Add this guide URL to channel profile Links; Shorts description/comment URLs are non-clickable",
-    "short_url": null
+    "short_url": "https://www.youtube.com/shorts/J15kXiijiZI"
   },
   "settings_sources": [
     "https://support.google.com/youtube/answer/9483359",
     "https://support.google.com/youtube/answer/13748639"
   ],
-  "prepared_at": "2026-11-10T05:52:37.257803+00:00"
+  "prepared_at": "2026-11-10T05:52:37.257803+00:00",
+  "applied_settings_proof": "outputs/video-pipeline/reviews/2026-11-10-repo-youtube-settings.json",
+  "settings_pending_studio": [
+    "Subscribers and members / Any duration",
+    "Basic comment moderation",
+    "Verify synthetic-content disclosure",
+    "Verify/add clickable guide in channel profile Links"
+  ]
 }
