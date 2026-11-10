@@ -324,6 +324,66 @@
       "owner_decision": "Use techniques on existing business reels",
       "owner_decision_date_gst": "2026-11-10",
       "notes": "23.5-second 24-effect demonstration. Apply only suitable beats to unfinished business edits; no separate EDIT reel, no extra generation credits."
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfjGcIczq-V/",
+      "note": "Owner 10 Nov: make with HeyGen, prepare for all six platforms; final-cut approval gate remains. Check duplicate topic before credits.",
+      "added": "2026-11-10",
+      "status": "in_progress",
+      "job": "ee41d72bf8cd",
+      "delivery_dates": [
+        "2026-11-10",
+        "2026-11-11"
+      ],
+      "delivery_timezone": "Asia/Dubai"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfiuRiRBE2i/",
+      "note": "Second owner reference in 10 Nov HeyGen/all-six batch; final-cut approval gate remains. Check duplicate topic before credits.",
+      "added": "2026-11-10",
+      "status": "in_progress",
+      "job": "62eec03e1e93",
+      "delivery_dates": [
+        "2026-11-10",
+        "2026-11-11"
+      ],
+      "delivery_timezone": "Asia/Dubai"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfiYCJzsbRX/",
+      "note": "Third owner reference in 10 Nov HeyGen/all-six batch; next after the first two builds, maximum two productions active; final package approval required.",
+      "added": "2026-11-10",
+      "status": "pending",
+      "job": "c5bc128a0a8d",
+      "delivery_dates": [
+        "2026-11-10",
+        "2026-11-11"
+      ],
+      "delivery_timezone": "Asia/Dubai"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfjiRwPOxa3/",
+      "note": "Owner 10 Nov: fourth reference; five-video batch for 10–11 Nov only, all six platforms, HeyGen REFERRAL voice. Distinct topic angle checked; finished package approval pending.",
+      "added": "2026-11-10",
+      "status": "pending",
+      "job": "0e375e205e9d",
+      "delivery_dates": [
+        "2026-11-10",
+        "2026-11-11"
+      ],
+      "delivery_timezone": "Asia/Dubai"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfiSD87RqEA/",
+      "note": "Owner 10 Nov: fifth reference; five-video batch for 10–11 Nov only, all six platforms, HeyGen REFERRAL voice. Distinct topic angle checked; finished package approval pending.",
+      "added": "2026-11-10",
+      "status": "pending",
+      "job": "e25d352a1b20",
+      "delivery_dates": [
+        "2026-11-10",
+        "2026-11-11"
+      ],
+      "delivery_timezone": "Asia/Dubai"
     }
   ]
 }

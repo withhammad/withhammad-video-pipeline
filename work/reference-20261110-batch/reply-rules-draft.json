@@ -1,0 +1,40 @@
+{
+  "status": "draft_not_deployed",
+  "rules": [
+    {
+      "keyword": "HIGGS",
+      "link": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "dm": "Here is the guide 👇\n{link}",
+      "reply": "Sent you a DM ✅",
+      "media_ids": []
+    },
+    {
+      "keyword": "ADVISOR",
+      "link": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "dm": "Here is the guide 👇\n{link}",
+      "reply": "Sent you a DM ✅",
+      "media_ids": []
+    },
+    {
+      "keyword": "FABLE",
+      "link": "https://withhammad.com/resources/fable-creative-project-starter",
+      "dm": "Here is the guide 👇\n{link}",
+      "reply": "Sent you a DM ✅",
+      "media_ids": []
+    },
+    {
+      "keyword": "CLONE",
+      "link": "https://withhammad.com/resources/claude-avatar-workflow-checklist",
+      "dm": "Here is the guide 👇\n{link}",
+      "reply": "Sent you a DM ✅",
+      "media_ids": []
+    },
+    {
+      "keyword": "BENCH",
+      "link": "https://withhammad.com/resources/fable-benchmarks-explained",
+      "dm": "Here is the guide 👇\n{link}",
+      "reply": "Sent you a DM ✅",
+      "media_ids": []
+    }
+  ]
+}

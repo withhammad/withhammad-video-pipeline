@@ -510,6 +510,17 @@ YouTube's API bot is ACTIVE (GPT-6 Astra/high, :15/:45 07–23 GST). A fresh dry
 
 Production connectivity proof: `outputs/video-pipeline/reviews/2026-11-10-repo-bot-live.json`. Existing conversation profile checks returned confirmed follows twice and HTTP 500 once, illustrating why unknown must ask for a retry. No unrelated message content was collected and no test customer DM was manufactured. Vercel `env pull` masks sensitive values; never mistake those placeholders for real credentials or report their failed authentication as an expired live token. The real local token and known webhook secrets passed identity, handshake and signed-empty checks.
 
+### 10 Nov: five business references for today and tomorrow
+
+Related production correction, later 10 Nov: the owner assigned the five references DfjGcIczq-V,
+DfiuRiRBE2i, DfiYCJzsbRX, DfjiRwPOxa3 and DfiSD87RqEA to **10–11 November only**, on all six platforms,
+using HeyGen. This overrides the usual next-free-day timing for this batch, while retaining the finished-package
+approval and live guide/reply gates. Do not silently spill into later dates or overwrite existing scheduled posts.
+Two productions at once; the benchmark reference has no face and therefore needs voice only. The source-of-truth
+batch handoff is `docs/videos/2026-11-10-five-reference-batch.md`. At the new production access check the Mac was
+locked, the other HeyGen plugin account had zero credits, and no new paid take had been submitted. The owner was
+asked to unlock existing Chrome; continue independent edit preparation meanwhile.
+
 ### 10 Nov: add the approved cover to the owner's existing Short
 
 Owner clarification: **add the approved thumbnail** to his manually uploaded Short; the automatically selected video frame is not the requested cover. Use the existing approved portrait cover and update the existing upload. Do not reupload or replace its audio. YouTube now supports custom Shorts thumbnails on desktop and through `thumbnails.set` after processing succeeds (official docs checked 10 Nov: https://support.google.com/youtube/answer/72431 and https://developers.google.com/youtube/v3/docs/thumbnails/set). Do not repeat the outdated claim that Shorts cannot have an uploaded custom thumbnail.

@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-11-10T19:12:44+04:00",
+  "scope": "Preproduction and edit layouts only; no finished video gate claimed",
+  "studio_tests": {
+    "passed": 646,
+    "warnings": 1,
+    "seconds": 76.74,
+    "warning": "Existing Starlette/AnyIO BlockingPortal deprecation"
+  },
+  "typescript": {
+    "status": "PASS",
+    "project": "studio/remotion/src/batchnov10/tsconfig.json"
+  },
+  "caption_checks": {
+    "passed": 30,
+    "total": 30
+  },
+  "visual_review": {
+    "source_frames_inspected": 307,
+    "source_contact_sheets": 10,
+    "initial_layout_frames": 22,
+    "targeted_crop_rechecks": 3,
+    "status": "layout_reviewed"
+  },
+  "paid_generation": {
+    "narration_submissions": 0,
+    "avatar_submissions": 0,
+    "credits_spent": 0,
+    "blocker": "Mac locked; owner unlock pending"
+  },
+  "final_gates": {
+    "voice_reference": "PENDING",
+    "avatar_filmstrip": "PENDING",
+    "side_by_side": "PENDING",
+    "video_check": "PENDING",
+    "virality": "PENDING",
+    "covers": "PENDING"
+  },
+  "publication": {
+    "new_schedules": 0,
+    "new_posts": 0,
+    "keyword_rules": "draft_not_deployed",
+    "owner_approval": false
+  }
+}

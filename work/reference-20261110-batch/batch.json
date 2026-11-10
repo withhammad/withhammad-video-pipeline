@@ -1,0 +1,964 @@
+{
+  "date": "2026-11-10",
+  "timezone": "Asia/Dubai",
+  "delivery_dates": [
+    "2026-11-10",
+    "2026-11-11"
+  ],
+  "platforms": [
+    "youtube",
+    "instagram",
+    "facebook",
+    "linkedin",
+    "tiktok",
+    "x"
+  ],
+  "owner_instruction": "Make this batch with HeyGen for today and tomorrow on every platform. Preserve finished-package approval, fixed REFERRAL voice and minimum-credit rules.",
+  "voice": {
+    "account": "hammadbhat126",
+    "id": "4b02b874862049f69b6034bbdc0fb282",
+    "name": "HAMMAD YOUSUF -- 1",
+    "engine": "ElevenLabs",
+    "model": "ElevenLabs v4",
+    "speed": 1.1,
+    "stability": 50,
+    "volume": 1,
+    "language": "Detected",
+    "accent": "Original",
+    "reference_job": "33d9c1e97156"
+  },
+  "jobs": [
+    {
+      "job": "ee41d72bf8cd",
+      "reference": "DfjGcIczq-V",
+      "creator": "Vishnu Vijayan",
+      "title": "Make AI videos inside Claude with Higgsfield MCP",
+      "keyword": "HIGGS",
+      "slug": "claude-higgsfield-video-setup",
+      "reference_seconds": 34.2,
+      "format": "Warm presenter split-screen, dark orange-accent connector walkthrough, short 3D demonstrations",
+      "look": "Hammad at a dark desk, white open-collar button shirt, medium portrait framing, warm beige curtains, soft lamp on camera left, natural hand gestures. Free matching look if available; otherwise closest existing white-shirt look.",
+      "duplicate_check": "No existing identical URL. Higgsfield connector setup is distinct from MODELS (Fable 5.1 model selection), ROAST (role-based advisors), and the forthcoming clone workflow.",
+      "corrections": [
+        "Do not repeat an unverified three-day countdown or promise all models are permanently free. Higgsfield's current homepage advertises unlimited generations for new users; current account terms still need checking.",
+        "Do not say Fable is universally the strongest model.",
+        "Narration is original wording; the demonstrated workflow and visual sequence follow the reference."
+      ],
+      "segments": [
+        {
+          "spoken": "Claude just launched Fable five point two, and video creation now fits inside your chat!",
+          "on_screen_text": "Fable 5.2 · Video inside Claude",
+          "visual": "avatar+caption",
+          "ref": [
+            0,
+            5.4
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Higgsfield is promoting unlimited generations for eligible new users. Check the current terms.",
+          "on_screen_text": "Launch offer · New users · Check terms",
+          "visual": "card",
+          "ref": [
+            5.4,
+            10.8
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Describe the scene",
+          "on_screen_text": "Your idea",
+          "visual": "avatar+caption",
+          "ref": [
+            10.8,
+            12
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "like you’re texting a friend, and connected tools create your video.",
+          "on_screen_text": "Prompt → tools → clip",
+          "visual": "demo",
+          "ref": [
+            12,
+            14.7
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Setup is simple: open Settings, choose Connectors, add Higgsfield, and sign in.",
+          "on_screen_text": "Settings → Connectors → Higgsfield",
+          "visual": "demo",
+          "ref": [
+            14.7,
+            20.9
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Then describe the shot,",
+          "on_screen_text": "Subject + camera + style",
+          "visual": "avatar+caption",
+          "ref": [
+            20.9,
+            22
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "its camera, motion and style, and review the finished result.",
+          "on_screen_text": "Prompt → image → video",
+          "visual": "demo",
+          "ref": [
+            22,
+            26
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Check which models qualify and when your offer ends before spending credits.",
+          "on_screen_text": "Check models and end date",
+          "visual": "card",
+          "ref": [
+            26,
+            30.7
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Follow me and comment HIGGS for the setup guide!",
+          "on_screen_text": "Comment HIGGS",
+          "visual": "avatar",
+          "ref": [
+            30.7,
+            34.2
+          ],
+          "camera": true
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Fable 5.2 launched 9 November; strongest daily driver recommendation remains Opus for most work.",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+        },
+        {
+          "claim": "Higgsfield MCP connects to Claude and provides image/video workflows.",
+          "url": "https://higgsfield.ai/mcp"
+        },
+        {
+          "claim": "Current homepage advertises Fable 5.2 x Higgsfield MCP unlimited generations for new users; exact duration unverified.",
+          "url": "https://higgsfield.ai/"
+        }
+      ],
+      "beats": [
+        [
+          0,
+          3,
+          "Warm sand/blue Fable launch banner above presenter; immediate motion and hook"
+        ],
+        [
+          3,
+          5.4,
+          "Model-name typographic sweep above the same presenter"
+        ],
+        [
+          5.4,
+          8.8,
+          "Dark orange-accent connector toggle; offer eligibility replaces unconditional free claim"
+        ],
+        [
+          8.8,
+          10.8,
+          "Launch-offer card; no invented 72-hour expiry"
+        ],
+        [
+          10.8,
+          14.7,
+          "Claude prompt and a brief Da Vinci flying-machine demonstration"
+        ],
+        [
+          14.7,
+          16.8,
+          "Animated setup progress ring; avoid promising setup time for every account"
+        ],
+        [
+          16.8,
+          20.9,
+          "Settings, Connectors, Add Higgsfield and connected state in sequence"
+        ],
+        [
+          20.9,
+          23.8,
+          "Prompt blueprint then flying-machine result, presenter returns briefly"
+        ],
+        [
+          23.8,
+          26,
+          "Model/result montage in source order"
+        ],
+        [
+          26,
+          30.7,
+          "Offer-check reminder then presenter; no false countdown"
+        ],
+        [
+          30.7,
+          34.2,
+          "Result insert into Hammad comment-keyword ending"
+        ]
+      ]
+    },
+    {
+      "job": "62eec03e1e93",
+      "reference": "DfiuRiRBE2i",
+      "creator": "Charlie Hills",
+      "title": "Use Fable 5.2 as a Claude Code advisor",
+      "keyword": "ADVISOR",
+      "slug": "claude-fable-advisor-setup",
+      "reference_seconds": 42.1,
+      "format": "White editorial comparison cards, presenter below, brief full-frame rehook, command walkthrough",
+      "look": "Hammad in a cream casual T-shirt, handheld small black microphone, natural creator close-up, softly lit neutral room with warm lamp on left. Free matching look or closest existing white-T-shirt look.",
+      "duplicate_check": "New advisor command workflow, not the published ROAST role-play board or MODELS Fable 5.1 selection explainer. This is a distinct practical follow-up to the new 5.2 release.",
+      "corrections": [
+        "Seven builds and costs are Charlie Hills's reported experiment, not Hammad's tests or universal results.",
+        "A third less refers to $25.81 versus $39.29, not less than half the total cost.",
+        "Advisor is experimental and can increase usage over Opus alone; availability and billing depend on account/provider.",
+        "Keep commands on screen, not as literal spoken code."
+      ],
+      "segments": [
+        {
+          "spoken": "Fable five point two looks impressive, but you don't need it doing every step!",
+          "on_screen_text": "Fable 5.2 · Use it selectively",
+          "visual": "avatar+caption",
+          "ref": [
+            0,
+            5.8
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Charlie Hills compared seven builds and found stronger results, at a higher cost.",
+          "on_screen_text": "Seven builds · Charlie Hills's test",
+          "visual": "demo",
+          "ref": [
+            5.8,
+            14.6
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Here's the useful setup: let Opus build, and bring Fable in as an advisor.",
+          "on_screen_text": "Opus builds · Fable advises",
+          "visual": "avatar",
+          "ref": [
+            14.6,
+            19.1
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "First, update Claude Code and select Opus as your main model. Next, enable Fable in the advisor menu.",
+          "on_screen_text": "claude update · /model opus · /advisor fable",
+          "visual": "avatar+caption",
+          "ref": [
+            19.1,
+            25.4
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Opus handles the routine work, while Fable can review the plan, help when you're stuck, and check the result.",
+          "on_screen_text": "Plan → build → review",
+          "visual": "demo",
+          "ref": [
+            25.4,
+            29.8
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Charlie's test cost about a third less than Fable alone; your usage will vary.",
+          "on_screen_text": "$39.29 → $25.81 · Reported test",
+          "visual": "avatar+caption",
+          "ref": [
+            29.8,
+            34.9
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Give it a substantial task, and check usage as it works.",
+          "on_screen_text": "Review the plan and usage",
+          "visual": "avatar+caption",
+          "ref": [
+            34.9,
+            39.5
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Follow me and comment ADVISOR for the commands and guide!",
+          "on_screen_text": "Comment ADVISOR",
+          "visual": "avatar",
+          "ref": [
+            39.5,
+            42.1
+          ],
+          "camera": true
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Opus with Fable advisor is supported; version 2.1.321+ for Fable 5.2; experimental, account/provider and billing limits apply.",
+          "url": "https://code.claude.com/docs/en/advisor"
+        },
+        {
+          "claim": "Model aliases and Fable selection behavior.",
+          "url": "https://code.claude.com/docs/en/model-config"
+        },
+        {
+          "claim": "Seven-build demonstration and $39.29/$25.81 costs are the creator's own reported results, visible in the supplied reference.",
+          "url": "https://www.instagram.com/reel/DfiuRiRBE2i/"
+        }
+      ],
+      "beats": [
+        [
+          0,
+          5.8,
+          "White canvas, seven-build preview collage, blue Fable heading and rounded presenter panel"
+        ],
+        [
+          5.8,
+          9.8,
+          "Side-by-side generated demos, clean source excerpts, creator attribution"
+        ],
+        [
+          9.8,
+          12.8,
+          "Count-up bars for reported costs, presenter below"
+        ],
+        [
+          12.8,
+          14.6,
+          "Real usage-warning excerpt, restrained highlight"
+        ],
+        [
+          14.6,
+          19.1,
+          "Full presenter rehook; hidden-command reveal"
+        ],
+        [
+          19.1,
+          22.9,
+          "Claude Code command: /model opus and model confirmation"
+        ],
+        [
+          22.9,
+          25.4,
+          "Command: /advisor fable and advisor confirmation"
+        ],
+        [
+          25.4,
+          29.8,
+          "Comparison demos in original order, Opus+Fable versus Fable"
+        ],
+        [
+          29.8,
+          34.9,
+          "Reported $39.29 versus $25.81 cost comparison; no guaranteed savings"
+        ],
+        [
+          34.9,
+          39.5,
+          "Task prompt, advisor review and resulting demo"
+        ],
+        [
+          39.5,
+          42.1,
+          "Guide preview and single comment ADVISOR ending"
+        ]
+      ]
+    },
+    {
+      "job": "c5bc128a0a8d",
+      "reference": "DfiYCJzsbRX",
+      "creator": "Sanjar Nai-Chien",
+      "title": "Fable 5.2 creative projects, pricing and starter skill",
+      "keyword": "FABLE",
+      "slug": "fable-creative-project-starter",
+      "reference_seconds": 108.7,
+      "format": "Podcast presenter, blue chapter cards, creator project footage, cream pricing graphics, cyberpunk example",
+      "look": "Hammad at a pale desk with podcast microphone, dark green checked overshirt over white T-shirt, plain red cap without third-party lettering, softly lit creator room and framed wall art. Free matching look or closest approved podcast look.",
+      "duplicate_check": "A new creative-build tutorial with a starter skill. Distinct from the short advisor workflow and the faceless benchmark explanation in this batch. DOTS appears only as a brief attributed launch example, not a second DOTS tutorial.",
+      "corrections": [
+        "Remove 'an hour ago'; release was 9 Nov 2026.",
+        "Do not claim creator examples, one-prompt tests, or their custom skill as Hammad's own results.",
+        "The future-history demo is speculative fiction, not a prediction.",
+        "Use 'up to 30%' output speed and standard API prices; do not imply subscription prices fell 20%.",
+        "A starter skill is a reusable workflow, not a guarantee of one-click flawless output."
+      ],
+      "segments": [
+        {
+          "spoken": "Fable five point two is here, and the demos are wild! But is it worth the hype and the cost? Let's break it down.",
+          "on_screen_text": "Fable 5.2 · Is it worth it?",
+          "visual": "avatar+caption",
+          "ref": [
+            0,
+            10
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "First, look at the use cases. One creator asked for a dot and shared a short animated film, complete with music.",
+          "on_screen_text": "1 · Use cases · Creator demonstrations",
+          "visual": "demo",
+          "ref": [
+            10,
+            23.8
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Another showed a timeline of human progress stretching into an imagined future. Those future dates are storytelling, not scientific predictions.",
+          "on_screen_text": "Imagined future · Not a forecast",
+          "visual": "demo",
+          "ref": [
+            23.8,
+            36
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Then a creator asked for a self-portrait and got a moving, code-generated pattern instead of a face. These are creator demonstrations, not a promise that every prompt works first time.",
+          "on_screen_text": "Code-generated self-portrait",
+          "visual": "avatar+caption",
+          "ref": [
+            36,
+            49
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "The official changes matter too. Anthropic says output can be up to thirty percent faster than Fable five point one, with improvements in coding, reasoning, and vision. Adaptive thinking stays on, and higher effort lets it work harder on demanding tasks.",
+          "on_screen_text": "Up to 30% faster output · Effort controls",
+          "visual": "card",
+          "ref": [
+            49,
+            60.7
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Now the price: standard A P I rates fell twenty percent, from ten dollars in and fifty dollars out, to eight dollars in and forty dollars out per million tokens. Fast mode costs extra, and a subscription still has usage limits.",
+          "on_screen_text": "2 · Standard API pricing · $8 in / $40 out per MTok",
+          "visual": "card",
+          "ref": [
+            60.7,
+            72
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Now the practical part. In the reference, the creator asks for an interactive cyberpunk Tokyo street, then shows neon lighting, moving cameras, and sound.",
+          "on_screen_text": "3 · Build · Scene + camera + sound",
+          "visual": "avatar+caption",
+          "ref": [
+            72,
+            92.7
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "That is the workflow to learn: specify the scene, the camera, the interactions, and the output, then review what it actually produces.",
+          "on_screen_text": "Specify → build → inspect",
+          "visual": "avatar",
+          "ref": [
+            92.7,
+            95
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "You can reuse a skill to keep those requirements together, instead of rewriting a giant prompt each time. I've made a starter checklist with a scene prompt, performance checks, and a review step.",
+          "on_screen_text": "Reusable starter skill · Review required",
+          "visual": "demo",
+          "ref": [
+            95,
+            105.3
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "It won't guarantee a perfect one-click result, but it gives your next build a clear direction. Follow me and comment FABLE for the starter skill!",
+          "on_screen_text": "Comment FABLE",
+          "visual": "avatar",
+          "ref": [
+            105.3,
+            108.7
+          ],
+          "camera": true
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Launch date, speed qualifier, standard API pricing and creative/technical use cases.",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+        },
+        {
+          "claim": "Current Fable effort controls and model selection.",
+          "url": "https://code.claude.com/docs/en/model-config"
+        },
+        {
+          "claim": "Project demonstrations belong to the named source creator(s); no original test by Hammad claimed.",
+          "url": "https://www.instagram.com/reel/DfiYCJzsbRX/"
+        }
+      ],
+      "beats": [
+        [
+          0,
+          10,
+          "Launch collage, podcast host, blue visual rehook"
+        ],
+        [
+          10,
+          12,
+          "Blue chapter 1 use-cases card"
+        ],
+        [
+          12,
+          24,
+          "Attributed dot-animation excerpt in original order"
+        ],
+        [
+          24,
+          36,
+          "Human-history timeline and explicitly speculative future dates"
+        ],
+        [
+          36,
+          49,
+          "Code-pattern self-portrait excerpt and presenter"
+        ],
+        [
+          49,
+          60.7,
+          "Cream model, speed, task list and effort graphics"
+        ],
+        [
+          60.7,
+          72,
+          "Chapter 2, animated standard API price drop"
+        ],
+        [
+          72,
+          79,
+          "Chapter 3, short project montage and presenter"
+        ],
+        [
+          79,
+          84,
+          "Cyberpunk prompt; label source demonstration"
+        ],
+        [
+          84,
+          93,
+          "Cyberpunk footage, original Blender insert where useful"
+        ],
+        [
+          93,
+          99,
+          "Clear brief versus vague prompt; no invented failure costs"
+        ],
+        [
+          99,
+          105.3,
+          "Actual downloadable starter skill and scene checklist"
+        ],
+        [
+          105.3,
+          108.7,
+          "Comment FABLE ending"
+        ]
+      ]
+    },
+    {
+      "job": "0e375e205e9d",
+      "reference": "DfjiRwPOxa3",
+      "creator": "Arshman Khalid",
+      "title": "Plan an AI clone video with Claude and Higgsfield",
+      "keyword": "CLONE",
+      "slug": "claude-avatar-workflow-checklist",
+      "reference_seconds": 54.9,
+      "format": "Dark split demonstration, recurring presenter, real Claude connector/skill screens, before-and-after review",
+      "look": "Hammad in a casual navy or brown hoodie and plain neutral cap, handheld compact mic, dark warm-lit room with floor lamp behind camera right. Two panels at the hook must be truthfully labelled owner reference versus generated output; never label an earlier avatar as a real camera recording.",
+      "duplicate_check": "No existing identical URL or published Higgsfield clone setup in the queue. Distinct from the first reel's general connector/video setup.",
+      "corrections": [
+        "Claude orchestrates connected generation tools; it does not itself train the face or voice.",
+        "Creator view counts are not Hammad's channel results; omit or visibly attribute.",
+        "Three photos/25 seconds of audio is the reference creator's example, not a universal training requirement.",
+        "Only use Hammad's own authorized face and fixed voice in our edit; do not send his files to Higgsfield to train a new clone."
+      ],
+      "segments": [
+        {
+          "spoken": "Claude can coordinate a video version of you, with your look and voice! The connected tools do the cloning; Claude plans the work.",
+          "on_screen_text": "Your look + your voice · Connected tools",
+          "visual": "avatar+caption",
+          "ref": [
+            0,
+            8.3
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "This creator demonstrated the workflow across three reels, but those are their results.",
+          "on_screen_text": "Source creator's demonstration",
+          "visual": "avatar+caption",
+          "ref": [
+            8.3,
+            14.1
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Start in Claude, select Fable five point two, and give it your topic and script structure.",
+          "on_screen_text": "Model → topic → script",
+          "visual": "avatar+caption",
+          "ref": [
+            14.1,
+            23.3
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Next, provide your own reference photos and a clear recording of your voice. The demo uses three photos and about twenty-five seconds of audio; follow your provider's actual requirements.",
+          "on_screen_text": "Your own photos + clean voice recording",
+          "visual": "avatar+caption",
+          "ref": [
+            23.3,
+            31.6
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Add the workflow skill, open Connectors, find Higgsfield, and connect your account.",
+          "on_screen_text": "Skill → Connectors → Higgsfield",
+          "visual": "avatar+caption",
+          "ref": [
+            31.6,
+            36.5
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Now ask Claude to study the skill and prepare your video from those references.",
+          "on_screen_text": "Read the skill and prepare the video",
+          "visual": "avatar+caption",
+          "ref": [
+            36.5,
+            44.2
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Review the script before generating, then check the returned video for your likeness, pronunciation, and movement.",
+          "on_screen_text": "Check face · voice · motion",
+          "visual": "avatar+caption",
+          "ref": [
+            44.2,
+            47.8
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "If something is wrong, describe the specific fix and check its credit cost before another take.",
+          "on_screen_text": "Specific fix · Check credit cost",
+          "visual": "avatar+caption",
+          "ref": [
+            47.8,
+            51.5
+          ],
+          "camera": true
+        },
+        {
+          "spoken": "Follow me and comment CLONE for the setup checklist!",
+          "on_screen_text": "Comment CLONE",
+          "visual": "avatar",
+          "ref": [
+            51.5,
+            54.9
+          ],
+          "camera": true
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Claude connector, skill and media-generation workflows.",
+          "url": "https://higgsfield.ai/mcp"
+        },
+        {
+          "claim": "The three-reel demonstration and example input quantities are the creator's report.",
+          "url": "https://www.instagram.com/reel/DfjiRwPOxa3/"
+        },
+        {
+          "claim": "Provider requirements and credit costs must be checked in the actual generation service.",
+          "url": "https://higgsfield.ai/creator-hub/changelog"
+        }
+      ],
+      "beats": [
+        [
+          0,
+          8.3,
+          "Owner reference and generated-output comparison, dark warm palette"
+        ],
+        [
+          8.3,
+          14.1,
+          "Source demonstration overview, no invented owner analytics"
+        ],
+        [
+          14.1,
+          18,
+          "Claude model selector and topic prompt"
+        ],
+        [
+          18,
+          23.3,
+          "Research and script-structure walkthrough"
+        ],
+        [
+          23.3,
+          31.6,
+          "Owner photo/audio input checklist; no unauthorized third-party identity"
+        ],
+        [
+          31.6,
+          36.5,
+          "Skill upload, Connectors and Higgsfield consent screen excerpt"
+        ],
+        [
+          36.5,
+          44.2,
+          "Instruction to study the skill and prepare the clip"
+        ],
+        [
+          44.2,
+          47.8,
+          "Returned output and review"
+        ],
+        [
+          47.8,
+          51.5,
+          "Targeted revision example, disclose any illustrative UI"
+        ],
+        [
+          51.5,
+          54.9,
+          "Comment CLONE and checklist preview"
+        ]
+      ]
+    },
+    {
+      "job": "e25d352a1b20",
+      "reference": "DfiSD87RqEA",
+      "creator": "agentmash",
+      "title": "Fable 5.2 benchmarks explained",
+      "keyword": "BENCH",
+      "slug": "fable-benchmarks-explained",
+      "reference_seconds": 67.0,
+      "format": "Faceless editorial motion graphics: blue/cream charts, benchmark cards, animated numbers and agent graph",
+      "look": "No presenter in the reference. Use only the fixed HeyGen/ElevenLabs REFERRAL narration; zero avatar-render credits.",
+      "duplicate_check": "Evidence and benchmark interpretation, distinct from the creative-project skill tutorial and advisor how-to. No identical existing queue topic.",
+      "corrections": [
+        "Replace 'killed every AI' with a specific robotics benchmark comparison.",
+        "Charts use exact published results; spoken numbers may be rounded.",
+        "Fermat result is formalization of a mathematical proof, not a new discovery of the theorem.",
+        "Anthropic's reported benchmarks and single-run formalization comparison are not universal real-world guarantees.",
+        "Replace the reference creator's AgentMash sales plug with the withhammad benchmark/setup guide."
+      ],
+      "segments": [
+        {
+          "spoken": "Fable five point two more than doubled GPT-six Astra on this robotics benchmark!",
+          "on_screen_text": "Fable 5.2 · Robotics benchmark",
+          "visual": "card",
+          "ref": [
+            0,
+            3.2
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "In Anthropic's reported tests, robotics was about sixty-five percent versus thirty.",
+          "on_screen_text": "RoboDojo Sim · 64.9% vs 29.8%",
+          "visual": "card",
+          "ref": [
+            3.2,
+            8.2
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Remote work tasks: forty-one percent, versus about twenty-one for Opus and GPT-six Astra.",
+          "on_screen_text": "RLI · 41.3% vs 21.3% / 20.8%",
+          "visual": "card",
+          "ref": [
+            8.2,
+            14
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Humanity's Last Exam, with tools: seventy-four versus fifty-seven. Real coding projects: seventy versus Gemini's sixty-one.",
+          "on_screen_text": "HLE 74.2 / 57.2 · FrontierSWE 69.9 / 61.2",
+          "visual": "card",
+          "ref": [
+            14,
+            23.5
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Computer use: eighty-nine versus almost eighty. Scientific research tasks: roughly seventy-five versus sixty-five.",
+          "on_screen_text": "OSWorld 89.3 / 79.5 · Science 74.6 / 64.8",
+          "visual": "card",
+          "ref": [
+            23.5,
+            33.2
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Its restricted twin, Mythos, scored seventy-six against GPT-six Cyber's sixty-one on a cybersecurity evaluation. These are specific tests, not proof that one model wins everything.",
+          "on_screen_text": "CyScenarioBench · Mythos 76.3% / GPT-6 Cyber 61%",
+          "visual": "card",
+          "ref": [
+            33.2,
+            40.2
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Against the previous Fable, robotics and remote-work scores more than doubled.",
+          "on_screen_text": "Fable 5.1 → 5.2 · Robotics 2.35× / RLI 2.31×",
+          "visual": "card",
+          "ref": [
+            40.2,
+            44.8
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "And a team of a thousand agents formalized Fermat's Last Theorem in thirty hours, making the proof machine-checkable. That wasn't a new discovery of the theorem.",
+          "on_screen_text": "1,000 agents · Proof formalization · 30 hours",
+          "visual": "card",
+          "ref": [
+            44.8,
+            49.4
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Opus reached about a quarter in the same comparison.",
+          "on_screen_text": "Opus 5.5 · About 26% · Same setup",
+          "visual": "card",
+          "ref": [
+            49.4,
+            51.7
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "You can use Fable five point two in Claude Code if your account has access. Choose it for demanding work, check your costs, and review the result.",
+          "on_screen_text": "Fable 5.2 in Claude Code · Access required",
+          "visual": "demo",
+          "ref": [
+            51.7,
+            63
+          ],
+          "camera": false
+        },
+        {
+          "spoken": "Follow me and comment BENCH for the benchmarks and setup guide!",
+          "on_screen_text": "Comment BENCH",
+          "visual": "card",
+          "ref": [
+            63,
+            67
+          ],
+          "camera": false
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Exact benchmark values and 1,000-agent, 30-hour Fermat proof formalization comparison.",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+        },
+        {
+          "claim": "Fable 5.2 availability in Claude Code depends on version, provider and account.",
+          "url": "https://code.claude.com/docs/en/model-config"
+        }
+      ],
+      "beats": [
+        [
+          0,
+          3.2,
+          "Black hook: model card moves forward; specific benchmark claim"
+        ],
+        [
+          3.2,
+          8.2,
+          "Cream robotics chart, blue stack and exact scores"
+        ],
+        [
+          8.2,
+          14,
+          "Completed-task stacks: RLI comparison"
+        ],
+        [
+          14,
+          19.3,
+          "Exam sheets: HLE with-tools comparison"
+        ],
+        [
+          19.3,
+          23.5,
+          "Horizontal coding bars: FrontierSWE v2"
+        ],
+        [
+          23.5,
+          28.1,
+          "100-cell computer-use grid: OSWorld partial offline set"
+        ],
+        [
+          28.1,
+          33.2,
+          "Science columns: Terminal-Bench-Science 0.1"
+        ],
+        [
+          33.2,
+          40.2,
+          "Purple cybersecurity chart: Mythos versus GPT-6 Cyber"
+        ],
+        [
+          40.2,
+          44.8,
+          "Previous/current Fable slope chart"
+        ],
+        [
+          44.8,
+          51.7,
+          "1,000 agent nodes and formalization progress; mark single reported run"
+        ],
+        [
+          51.7,
+          63,
+          "Model selection and agent workflow, no unrelated sponsor promotion"
+        ],
+        [
+          63,
+          67,
+          "Comment BENCH and guide ending"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "as_of": "2026-11-10T19:11:58+04:00",
+  "target_dates": [
+    "2026-11-10",
+    "2026-11-11"
+  ],
+  "timezone": "Asia/Dubai",
+  "jobs": [
+    {
+      "job": "ee41d72bf8cd",
+      "keyword": "HIGGS",
+      "reference": "DfjGcIczq-V",
+      "title": "Make AI videos inside Claude with Higgsfield MCP",
+      "reference_seconds": 34.2,
+      "script_words": 89,
+      "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "state": "edit_layout_prepared",
+      "credits_spent": 0,
+      "platforms": {
+        "youtube": {
+          "state": "not_booked",
+          "url": null
+        },
+        "instagram": {
+          "state": "not_booked",
+          "url": null
+        },
+        "facebook": {
+          "state": "not_booked",
+          "url": null
+        },
+        "linkedin": {
+          "state": "not_booked",
+          "url": null
+        },
+        "tiktok": {
+          "state": "not_booked",
+          "url": null
+        },
+        "x": {
+          "state": "not_booked",
+          "url": null
+        }
+      },
+      "copy_checks_passed": 6,
+      "owner_approved": false
+    },
+    {
+      "job": "62eec03e1e93",
+      "keyword": "ADVISOR",
+      "reference": "DfiuRiRBE2i",
+      "title": "Use Fable 5.2 as a Claude Code advisor",
+      "reference_seconds": 42.1,
+      "script_words": 113,
+      "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "state": "edit_layout_prepared",
+      "credits_spent": 0,
+      "platforms": {
+        "youtube": {
+          "state": "not_booked",
+          "url": null
+        },
+        "instagram": {
+          "state": "not_booked",
+          "url": null
+        },
+        "facebook": {
+          "state": "not_booked",
+          "url": null
+        },
+        "linkedin": {
+          "state": "not_booked",
+          "url": null
+        },
+        "tiktok": {
+          "state": "not_booked",
+          "url": null
+        },
+        "x": {
+          "state": "not_booked",
+          "url": null
+        }
+      },
+      "copy_checks_passed": 6,
+      "owner_approved": false
+    },
+    {
+      "job": "c5bc128a0a8d",
+      "keyword": "FABLE",
+      "reference": "DfiYCJzsbRX",
+      "title": "Fable 5.2 creative projects, pricing and starter skill",
+      "reference_seconds": 108.7,
+      "script_words": 281,
+      "resource_url": "https://withhammad.com/resources/fable-creative-project-starter",
+      "state": "preproduction",
+      "credits_spent": 0,
+      "platforms": {
+        "youtube": {
+          "state": "not_booked",
+          "url": null
+        },
+        "instagram": {
+          "state": "not_booked",
+          "url": null
+        },
+        "facebook": {
+          "state": "not_booked",
+          "url": null
+        },
+        "linkedin": {
+          "state": "not_booked",
+          "url": null
+        },
+        "tiktok": {
+          "state": "not_booked",
+          "url": null
+        },
+        "x": {
+          "state": "not_booked",
+          "url": null
+        }
+      },
+      "copy_checks_passed": 6,
+      "owner_approved": false
+    },
+    {
+      "job": "0e375e205e9d",
+      "keyword": "CLONE",
+      "reference": "DfjiRwPOxa3",
+      "title": "Plan an AI clone video with Claude and Higgsfield",
+      "reference_seconds": 54.9,
+      "script_words": 148,
+      "resource_url": "https://withhammad.com/resources/claude-avatar-workflow-checklist",
+      "state": "preproduction",
+      "credits_spent": 0,
+      "platforms": {
+        "youtube": {
+          "state": "not_booked",
+          "url": null
+        },
+        "instagram": {
+          "state": "not_booked",
+          "url": null
+        },
+        "facebook": {
+          "state": "not_booked",
+          "url": null
+        },
+        "linkedin": {
+          "state": "not_booked",
+          "url": null
+        },
+        "tiktok": {
+          "state": "not_booked",
+          "url": null
+        },
+        "x": {
+          "state": "not_booked",
+          "url": null
+        }
+      },
+      "copy_checks_passed": 6,
+      "owner_approved": false
+    },
+    {
+      "job": "e25d352a1b20",
+      "keyword": "BENCH",
+      "reference": "DfiSD87RqEA",
+      "title": "Fable 5.2 benchmarks explained",
+      "reference_seconds": 67.0,
+      "script_words": 174,
+      "resource_url": "https://withhammad.com/resources/fable-benchmarks-explained",
+      "state": "preproduction",
+      "credits_spent": 0,
+      "platforms": {
+        "youtube": {
+          "state": "not_booked",
+          "url": null
+        },
+        "instagram": {
+          "state": "not_booked",
+          "url": null
+        },
+        "facebook": {
+          "state": "not_booked",
+          "url": null
+        },
+        "linkedin": {
+          "state": "not_booked",
+          "url": null
+        },
+        "tiktok": {
+          "state": "not_booked",
+          "url": null
+        },
+        "x": {
+          "state": "not_booked",
+          "url": null
+        }
+      },
+      "copy_checks_passed": 6,
+      "owner_approved": false
+    }
+  ],
+  "blocker": "Mac locked; paid HeyGen hammadbhat126 session requires owner unlock. No new generation submitted."
+}
