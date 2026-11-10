@@ -4433,10 +4433,12 @@
       "primary_keyword": "build your own claude code",
       "host_slug": "repost-b6b36d9b50b3",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/build-an-agent-harness",
       "owner_approval": "owner-approval-20261108.json",
-      "video_variant": "linkedin"
+      "video_variant": "linkedin",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7525830507796848640/",
+      "posted_at": "2026-11-10T08:03:05Z"
     },
     {
       "id": "fa-b6b36d9b50b3",
