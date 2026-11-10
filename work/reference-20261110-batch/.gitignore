@@ -1,0 +1,8 @@
+# Local media inspection and UI evidence; source and machine-readable ledgers stay tracked.
+*.log
+*.jpg
+*.png
+/preflight/
+/fable-preflight/
+/fable-crop-edges/
+__pycache__/

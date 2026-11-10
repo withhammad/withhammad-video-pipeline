@@ -86,8 +86,8 @@
           "camera": false
         },
         {
-          "spoken": "Setup is simple: open Settings, choose Connectors, add Higgsfield, and sign in.",
-          "on_screen_text": "Settings → Connectors → Higgsfield",
+          "spoken": "Setup is simple: open Customize, choose Connectors, add Higgsfield, and sign in.",
+          "on_screen_text": "Customize → Connectors → Higgsfield",
           "visual": "demo",
           "ref": [
             14.7,
@@ -184,7 +184,7 @@
         [
           16.8,
           20.9,
-          "Settings, Connectors, Add Higgsfield and connected state in sequence"
+          "Customize, Connectors, Add Higgsfield and connected state in sequence"
         ],
         [
           20.9,

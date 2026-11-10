@@ -5,7 +5,7 @@ Checked 10 November 2026. Keyword: **HIGGS**.
 ## Connect the tools
 
 1. Open [Higgsfield's official MCP page](https://higgsfield.ai/mcp) and use its current connection instructions.
-2. In Claude, open **Settings → Connectors**. Find Higgsfield, or use the official custom-connector URL shown by
+2. In Claude, open **Customize → Connectors**. Find Higgsfield, or use the official custom-connector URL shown by
    Higgsfield if the directory option is unavailable.
 3. Sign in to your own Higgsfield account and review the requested permissions. Return to a Claude conversation
    with the connector available.

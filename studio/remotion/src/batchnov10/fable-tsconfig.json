@@ -1,0 +1,1 @@
+{"extends":"../../tsconfig.json","include":["Fable.tsx","fable-entry.tsx","fable.preflight.json","types.ts","../fonts.ts"],"exclude":[]}

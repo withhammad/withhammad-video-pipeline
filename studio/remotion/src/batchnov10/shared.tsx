@@ -17,8 +17,9 @@ export const Presenter:React.FC<{p:BatchProps;style:React.CSSProperties}>=({p,st
   const t=useCurrentFrame()/30;
   const s=p.segments.find(s=>t>=s.start&&t<s.end);
   const cameraTime=s&&s.camera?s.avatarStart+(t-s.start):0;
-  return <div style={{position:'absolute',overflow:'hidden',...style}}>
-    {p.avatar&&s?.camera?<Freeze frame={Math.round(cameraTime*30)}><OffthreadVideo src={staticFile(p.avatar)} muted style={{width:'100%',height:'100%',objectFit:'cover'}}/></Freeze>:
+  const split=style?.inset!==0;
+  return <div style={{position:'absolute',overflow:'hidden',background:split?(p.keyword==='ADVISOR'?'#767a79':'linear-gradient(120deg,#c7b397,#8d775f)'):undefined,...style}}>
+    {p.avatar&&s?.camera?<Freeze frame={Math.round(cameraTime*30)}><OffthreadVideo src={staticFile(p.avatar)} muted style={{width:'100%',height:'100%',objectFit:split?'contain':'cover'}}/></Freeze>:
       <AbsoluteFill style={{background:'linear-gradient(130deg,#c5b39b,#66574d)',alignItems:'center',justifyContent:'center'}}>
         <div style={{width:'70%',fontSize:32,textAlign:'center',color:'#fff',lineHeight:1.5}}>INTERNAL LAYOUT CHECK<br/>Verified presenter take pending</div>
       </AbsoluteFill>}
@@ -38,7 +39,7 @@ export const Captions:React.FC<{p:BatchProps;y:number;dark?:boolean}>=({p,y,dark
   </div>;
 };
 export const Brand:React.FC<{dark?:boolean}>=({dark=false})=><div style={{position:'absolute',left:76,top:230,fontWeight:800,fontSize:23,letterSpacing:4,color:dark?'#e7ddd0':'#46545f',opacity:.8}}>WITHHAMMAD</div>;
-export const DraftFlag:React.FC=()=> <div style={{position:'absolute',left:0,right:0,top:0,padding:18,background:'#aa2828',color:'white',fontSize:29,textAlign:'center',fontWeight:800}}>INTERNAL PREFLIGHT • NO GENERATED VOICE OR AVATAR</div>;
+export const DraftFlag:React.FC=()=> <div style={{position:'absolute',left:0,right:0,top:0,padding:18,background:'#aa2828',color:'white',fontSize:29,textAlign:'center',fontWeight:800}}>INTERNAL PREFLIGHT • NOT FOR RELEASE</div>;
 export const GuideCard:React.FC<{keyword:string;accent:string;light?:boolean}>=({keyword,accent,light=false})=>(
   <div style={{border:`2px solid ${accent}`,borderRadius:25,background:light?'#fff':'#17191c',padding:'25px 38px',boxShadow:'0 18px 40px #00000015'}}>
     <div style={{fontSize:25,color:light?'#546775':'#c6c9cf',marginBottom:12}}>Your setup guide</div>

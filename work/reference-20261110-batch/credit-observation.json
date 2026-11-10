@@ -1,0 +1,36 @@
+{
+  "account": "hammadbhat126@gmail.com",
+  "before_narrations": 206,
+  "after_narrations_refresh": 202,
+  "quotes": {
+    "HIGGS": 2,
+    "ADVISOR": 3
+  },
+  "observed_narration_debit": 4,
+  "quote_difference": "Do not overwrite observed balance with assumed quote total.",
+  "avatar_higgs": "completed, one take, actual 1080p default",
+  "avatar_advisor": "completed, one take, 720p selected",
+  "after_both_avatar_submissions_refresh": 175,
+  "observed_total_batch_debit": 31,
+  "observed_avatar_combined_debit": 27,
+  "proof": "credits-175.png",
+  "itemized_receipts": {
+    "HIGGS": {
+      "narration": 2,
+      "avatar": 8,
+      "total": 10
+    },
+    "ADVISOR": {
+      "narration": 2,
+      "avatar": 19,
+      "total": 21
+    }
+  },
+  "receipt_proof": "credit-history-175.png",
+  "FABLE": {
+    "narration_quote": 6,
+    "narration_actual": null,
+    "avatar_submitted": false,
+    "voice_review_pending": true
+  }
+}

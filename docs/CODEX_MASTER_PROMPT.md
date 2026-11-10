@@ -39,7 +39,7 @@ exact copy + virality) -> `docs/SKILLS_FOR_CODEX.md` (all 127 skills + plugin sk
    was corrected with one authorized 3-credit take and the owner approved the v4 package on 9 Nov. Two characters = his fixed voice plus a separate stock voice for the other.
 5. Avatar: a NEW look matching the reference's room, light, framing, outfit and pose when HeyGen makes it free; if a
    look costs credits, reuse the closest existing one. Avatar only on lines said to camera; no face in the reference =
-   voice only. ONE submit, 720p, filmstrip gate, credits logged in STATUS.md. Credits are scarce (last verified balance: 206 after the single BLENDER voice take on 10 Nov; avatar not yet submitted).
+   voice only. ONE submit, 720p, filmstrip gate, credits logged in STATUS.md. Credits are scarce (11 Nov itemized balance: 175 after HIGGS 10 + ADVISOR 21 credits; FABLE's subsequent narration was quoted 6, actual receipt pending. See `work/reference-20261110-batch/credit-observation.json`).
 6. Gates before he sees it: exact-copy side-by-side, voice energy gate, avatar filmstrip, video-check (H.264, -14 LUFS,
    true peak <= -1.5, safe zones, captions every word), virality.md scorecard, glow-grid cover in every size (face
    matching the hook), per-platform SEO passing `rq.seo_caption`.

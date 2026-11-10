@@ -1,0 +1,97 @@
+{
+  "review_date": "2026-11-11",
+  "timezone": "Asia/Dubai",
+  "packages": [
+    {
+      "keyword": "HIGGS",
+      "job": "ee41d72bf8cd",
+      "file": "studio/.local/jobs/ee41d72bf8cd/referral-v4/final.mp4",
+      "sha256": "6b70d8ef8595208663af82cea51e5f0e5c5ef87066260d05c2edfa08f0368def",
+      "duration_seconds": 34.3,
+      "technical_checks": {
+        "h264": true,
+        "portrait": true,
+        "pixelFormat": true,
+        "limitedRange": true,
+        "fps": true,
+        "frameCount": true,
+        "duration": true,
+        "aac": true,
+        "sampleRate": true,
+        "finalAudio": true
+      },
+      "lufs": -14.3,
+      "true_peak_dbtp": -1.9,
+      "caption_timing_errors": [],
+      "caption_overlap_errors": [],
+      "owner_voice_approved": true,
+      "owner_voice_approval": "Both match\u2014continue",
+      "voice_approval_date": "2026-11-11",
+      "agent_subjective_audio_review": false,
+      "root_final_contact_sheet_and_cover_review": true,
+      "actual_credits": 10,
+      "chat_output": "/Users/hammad/Documents/Codex/2026-11-07/you-are-taking-over-the-withhammad/outputs/HIGGS",
+      "downloads_folder": "/Users/hammad/Downloads/11 November/HIGGS",
+      "final_package_approved": false,
+      "scheduled": false,
+      "posted": false,
+      "release_blockers": [
+        "Owner finished-package approval pending",
+        "Resource guide HTTP404 at 11 Nov read-only audit",
+        "Keyword routing draft only"
+      ]
+    },
+    {
+      "keyword": "ADVISOR",
+      "job": "62eec03e1e93",
+      "file": "studio/.local/jobs/62eec03e1e93/referral-v4/final.mp4",
+      "sha256": "b94d2e866fd0eafcddc8b403dc59cccf0ddfb0ce8f6abc7656eba2010198e48d",
+      "duration_seconds": 39.833333,
+      "technical_checks": {
+        "h264": true,
+        "portrait": true,
+        "pixelFormat": true,
+        "limitedRange": true,
+        "fps": true,
+        "frameCount": true,
+        "duration": true,
+        "aac": true,
+        "sampleRate": true,
+        "finalAudio": true
+      },
+      "lufs": -14.3,
+      "true_peak_dbtp": -1.9,
+      "caption_timing_errors": [],
+      "caption_overlap_errors": [],
+      "owner_voice_approved": true,
+      "owner_voice_approval": "Both match\u2014continue",
+      "voice_approval_date": "2026-11-11",
+      "agent_subjective_audio_review": false,
+      "root_final_contact_sheet_and_cover_review": true,
+      "actual_credits": 21,
+      "chat_output": "/Users/hammad/Documents/Codex/2026-11-07/you-are-taking-over-the-withhammad/outputs/ADVISOR",
+      "downloads_folder": "/Users/hammad/Downloads/11 November/ADVISOR",
+      "final_package_approved": false,
+      "scheduled": false,
+      "posted": false,
+      "release_blockers": [
+        "Owner finished-package approval pending",
+        "Resource guide HTTP404 at 11 Nov read-only audit",
+        "Keyword routing draft only"
+      ]
+    }
+  ],
+  "validation": {
+    "studio_tests": 646,
+    "test_warnings": 1,
+    "test_seconds": 89.23,
+    "isolated_typescript": "pass",
+    "python_compile": "pass",
+    "git_diff_check": "pass"
+  },
+  "next": {
+    "FABLE": "99.239s narration and visual edit prepared; voice approval pending before avatar spend",
+    "CLONE": "preproduction",
+    "BENCH": "preproduction, voice only"
+  }
+}

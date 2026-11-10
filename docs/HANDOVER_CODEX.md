@@ -521,6 +521,42 @@ batch handoff is `docs/videos/2026-11-10-five-reference-batch.md`. At the new pr
 locked, the other HeyGen plugin account had zero credits, and no new paid take had been submitted. The owner was
 asked to unlock existing Chrome; continue independent edit preparation meanwhile.
 
+### 11 Nov: first two batch edits delivered; preserve verified voice and credit receipts
+
+The owner unlocked Chrome, then listened to the HIGGS and ADVISOR ElevenLabs v4 narration files and approved
+**“Both match—continue.”** This approves those voices, not the finished packages. Both edited packages are now in
+the chat workspace `outputs/HIGGS` / `outputs/ADVISOR` and `~/Downloads/11 November/`, with masters, platform exports,
+captions, six glow covers, copy and honest review reports. HIGGS is 34.3 s; ADVISOR is 39.833 s. They retain the
+original generated voice pace and pauses, reference inserts, appropriate animations and original background music.
+The owner has been asked to approve each finished package. Neither is scheduled or posted; their guides still
+returned 404 and rules were draft-only at the release audit. The 10 November delivery portion was missed; do not
+quietly move this batch beyond 11 November.
+
+Paid HeyGen Usage & History verifies HIGGS **2 voice + 8 avatar = 10 credits**, ADVISOR **2 voice + 19 avatar = 21**,
+leaving **175** from 206. ADVISOR's quote was 3 voice credits but the actual receipt is 2. Trust itemized receipts,
+not estimates. The current wizard uses **Pro / Avatar 6** and defaults to 1080p: HIGGS completed once at that default;
+ADVISOR was explicitly set to 720p. No retry was purchased. Set and verify 720p before future submits. Creative Studio
+also resets to HeyGen Voice / multilingual v2 / 1.0 pace on reopening: reselect and read back ElevenLabs v4, 1.1x,
+stability 50, English·Original each time; do not change account defaults.
+
+Only camera speech was uploaded: HIGGS 12.306 s, ADVISOR 28.877 s. Root inspected 49 and 116 frames respectively at
+4 fps; waveform alignment found a consistent +23 ms offset in each take, applied to camera mapping without changing
+the narration. Full renders and exports pass H.264, limited BT.709, 1080×1920/30fps, frame count, caption timing and
+audio gates (masters −14.3 LUFS / −1.9 dBTP). Split-panel head crops and source-presenter transition fragments were
+fixed locally. Technical metering is not an assertion that the agent listened; the owner reviewed the exact voices.
+
+FABLE's one narration take is generated (99.239 s, quoted 6 credits), with the same UI-verified settings. Its voice
+review is pending before avatar spend. The closest saved look is Podcaster in blue sweater (gray room, framed wall,
+microphone); paid look generation is not authorized by the free-look preference. FABLE edit preparation continues.
+CLONE and BENCH remain pending. Do not rerun preparation over paid ledgers or replace actual captions with uniform
+preflight timings.
+
+Chrome upload recovery: extension file upload may require “Allow access to file URLs,” but the **native Mac Open
+picker works without changing extension permissions**. Focus the agent's Chrome tab, open the picker, observe it,
+then Cmd-Shift-G, observe the Path field, enter the exact path and Open. Do not type a path before the Path field is
+visible or reuse another active tab's controls. HeyGen media downloads that navigate to ERR_BLOCKED_BY_CLIENT were
+retrieved by ordinary file transfer from the exact download URL exposed by the UI; no browser protections changed.
+
 ### 10 Nov: add the approved cover to the owner's existing Short
 
 Owner clarification: **add the approved thumbnail** to his manually uploaded Short; the automatically selected video frame is not the requested cover. Use the existing approved portrait cover and update the existing upload. Do not reupload or replace its audio. YouTube now supports custom Shorts thumbnails on desktop and through `thumbnails.set` after processing succeeds (official docs checked 10 Nov: https://support.google.com/youtube/answer/72431 and https://developers.google.com/youtube/v3/docs/thumbnails/set). Do not repeat the outdated claim that Shorts cannot have an uploaded custom thumbnail.

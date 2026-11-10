@@ -22,7 +22,7 @@ export const Advisor:React.FC<BatchProps>=(p)=>{
       <div style={{position:'absolute',left:76,right:76,top:320,fontSize:55,fontWeight:800}}>More quality,<br/><span style={{color:blue}}>more cost</span></div>
       <Paper style={{left:90,right:90,top:540,height:700}}><Media job={p.job} name={r<12.8?'costs':'usage'} at={r<12.8?r-9.8:r-12.8} length={r<12.8?4.7:1.4} style={{objectFit:'contain'}}/></Paper>
     </>}
-    {full&&<div style={{position:'absolute',left:76,right:150,top:350,fontSize:66,fontWeight:800,background:'#ffffffee',padding:30,borderRadius:22,boxShadow:'0 16px 40px #0002'}}>
+    {full&&<div style={{position:'absolute',left:76,right:150,top:1080,fontSize:66,fontWeight:800,background:'#ffffffee',padding:30,borderRadius:22,boxShadow:'0 16px 40px #0002'}}>
       Opus builds<br/><span style={{color:blue}}>Fable advises</span>
     </div>}
     {r>=19.1&&r<25.4&&<>
@@ -32,7 +32,7 @@ export const Advisor:React.FC<BatchProps>=(p)=>{
     </>}
     {r>=25.4&&r<29.8&&<>
       <div style={{position:'absolute',left:76,top:310,fontSize:48,fontWeight:800}}>Build → consult → review</div>
-      <Paper style={{left:60,right:60,top:430,height:1050}}><Media job={p.job} name="comparison-c" at={r-25.4} length={3.7} style={{objectFit:'contain'}}/></Paper>
+      <Paper style={{left:60,right:60,top:430,height:1050}}><Media job={p.job} name="comparison-c" at={r-25.4} length={3.4} style={{objectFit:'contain'}}/></Paper>
     </>}
     {r>=29.8&&r<34.9&&<>
       <div style={{position:'absolute',left:76,right:76,top:315,fontSize:52,fontWeight:800}}>Charlie’s seven-build test</div>

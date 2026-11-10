@@ -26,7 +26,7 @@ export const Higgs:React.FC<BatchProps>=(p)=>{
       <div style={{marginTop:45,fontSize:35,lineHeight:1.45,color:'#c6c5c2'}}>Check eligible models<br/>and current terms</div>
     </div>}
     {r>=10.8&&r<14.7&&<>
-      <div style={{position:'absolute',left:72,right:72,top:370,height:seg?.camera?470:850,borderRadius:24,overflow:'hidden',boxShadow:'0 20px 90px #000'}}><Media job={p.job} name="prompt" at={(r-10.8)*.5} length={1.5} style={{objectFit:'contain',background:'#fff'}}/></div>
+      <div style={{position:'absolute',left:72,right:72,top:370,height:seg?.camera?470:850,borderRadius:24,overflow:'hidden',boxShadow:'0 20px 90px #000'}}><Media job={p.job} name="prompt-clean" at={(r-10.8)*.5} length={1.5} style={{objectFit:'contain',background:'#fff'}}/></div>
       <div style={{position:'absolute',left:76,top:seg?.camera?770:1280,fontSize:42,color:orange}}>Describe the shot</div>
     </>}
     {r>=14.7&&r<16.8&&<div style={{position:'absolute',left:170,top:540,width:650,height:650,display:'grid',placeItems:'center'}}>
@@ -36,7 +36,7 @@ export const Higgs:React.FC<BatchProps>=(p)=>{
     {r>=16.8&&r<20.9&&<>
       <div style={{position:'absolute',left:90,top:340,fontSize:62,fontWeight:800}}>Add the connector</div>
       <div style={{position:'absolute',left:90,right:90,top:490,height:700,borderRadius:30,overflow:'hidden',border:'1px solid #444'}}><Media job={p.job} name="settings" at={r-16.8} length={3.7} style={{objectFit:'contain'}}/></div>
-      <div style={{position:'absolute',left:100,right:150,top:1250,padding:18,background:orange,borderRadius:35,color:'#17120d',fontSize:35,fontWeight:800,textAlign:'center'}}>Settings → Connectors → Higgsfield</div>
+      <div style={{position:'absolute',left:100,right:150,top:1250,padding:18,background:orange,borderRadius:35,color:'#17120d',fontSize:35,fontWeight:800,textAlign:'center'}}>Customize → Connectors → Higgsfield</div>
     </>}
     {r>=20.9&&r<26&&<>
       <div style={{position:'absolute',left:0,right:0,top:seg?.camera?220:400,height:seg?.camera?640:900,overflow:'hidden'}}>

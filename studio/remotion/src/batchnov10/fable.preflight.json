@@ -1,0 +1,1516 @@
+{
+  "job": "c5bc128a0a8d",
+  "keyword": "FABLE",
+  "duration": 108.7,
+  "draft": true,
+  "timingSource": "preflight",
+  "words": [
+    {
+      "text": "Fable",
+      "startMs": 0.0,
+      "endMs": 416.66666666666663
+    },
+    {
+      "text": "five",
+      "startMs": 416.66666666666663,
+      "endMs": 833.3333333333333
+    },
+    {
+      "text": "point",
+      "startMs": 833.3333333333333,
+      "endMs": 1250.0
+    },
+    {
+      "text": "two",
+      "startMs": 1250.0,
+      "endMs": 1666.6666666666665
+    },
+    {
+      "text": "is",
+      "startMs": 1666.6666666666665,
+      "endMs": 2083.3333333333335
+    },
+    {
+      "text": "here,",
+      "startMs": 2083.3333333333335,
+      "endMs": 2500.0
+    },
+    {
+      "text": "and",
+      "startMs": 2500.0,
+      "endMs": 2916.666666666667
+    },
+    {
+      "text": "the",
+      "startMs": 2916.666666666667,
+      "endMs": 3333.333333333333
+    },
+    {
+      "text": "demos",
+      "startMs": 3333.333333333333,
+      "endMs": 3750.0
+    },
+    {
+      "text": "are",
+      "startMs": 3750.0,
+      "endMs": 4166.666666666667
+    },
+    {
+      "text": "wild!",
+      "startMs": 4166.666666666667,
+      "endMs": 4583.333333333333
+    },
+    {
+      "text": "But",
+      "startMs": 4583.333333333333,
+      "endMs": 5000.0
+    },
+    {
+      "text": "is",
+      "startMs": 5000.0,
+      "endMs": 5416.666666666666
+    },
+    {
+      "text": "it",
+      "startMs": 5416.666666666666,
+      "endMs": 5833.333333333334
+    },
+    {
+      "text": "worth",
+      "startMs": 5833.333333333334,
+      "endMs": 6250.0
+    },
+    {
+      "text": "the",
+      "startMs": 6250.0,
+      "endMs": 6666.666666666666
+    },
+    {
+      "text": "hype",
+      "startMs": 6666.666666666666,
+      "endMs": 7083.333333333334
+    },
+    {
+      "text": "and",
+      "startMs": 7083.333333333334,
+      "endMs": 7500.0
+    },
+    {
+      "text": "the",
+      "startMs": 7500.0,
+      "endMs": 7916.666666666666
+    },
+    {
+      "text": "cost?",
+      "startMs": 7916.666666666666,
+      "endMs": 8333.333333333334
+    },
+    {
+      "text": "Let's",
+      "startMs": 8333.333333333334,
+      "endMs": 8750.0
+    },
+    {
+      "text": "break",
+      "startMs": 8750.0,
+      "endMs": 9166.666666666666
+    },
+    {
+      "text": "it",
+      "startMs": 9166.666666666666,
+      "endMs": 9583.333333333334
+    },
+    {
+      "text": "down.",
+      "startMs": 9583.333333333334,
+      "endMs": 10000.0
+    },
+    {
+      "text": "First,",
+      "startMs": 10000.0,
+      "endMs": 10657.142857142857
+    },
+    {
+      "text": "look",
+      "startMs": 10657.142857142857,
+      "endMs": 11314.285714285716
+    },
+    {
+      "text": "at",
+      "startMs": 11314.285714285716,
+      "endMs": 11971.42857142857
+    },
+    {
+      "text": "the",
+      "startMs": 11971.42857142857,
+      "endMs": 12628.571428571428
+    },
+    {
+      "text": "use",
+      "startMs": 12628.571428571428,
+      "endMs": 13285.714285714284
+    },
+    {
+      "text": "cases.",
+      "startMs": 13285.714285714284,
+      "endMs": 13942.857142857143
+    },
+    {
+      "text": "One",
+      "startMs": 13942.857142857143,
+      "endMs": 14600.0
+    },
+    {
+      "text": "creator",
+      "startMs": 14600.0,
+      "endMs": 15257.142857142857
+    },
+    {
+      "text": "asked",
+      "startMs": 15257.142857142857,
+      "endMs": 15914.285714285714
+    },
+    {
+      "text": "for",
+      "startMs": 15914.285714285714,
+      "endMs": 16571.42857142857
+    },
+    {
+      "text": "a",
+      "startMs": 16571.42857142857,
+      "endMs": 17228.571428571428
+    },
+    {
+      "text": "dot",
+      "startMs": 17228.571428571428,
+      "endMs": 17885.714285714286
+    },
+    {
+      "text": "and",
+      "startMs": 17885.714285714286,
+      "endMs": 18542.857142857145
+    },
+    {
+      "text": "shared",
+      "startMs": 18542.857142857145,
+      "endMs": 19200.0
+    },
+    {
+      "text": "a",
+      "startMs": 19200.0,
+      "endMs": 19857.14285714286
+    },
+    {
+      "text": "short",
+      "startMs": 19857.14285714286,
+      "endMs": 20514.285714285714
+    },
+    {
+      "text": "animated",
+      "startMs": 20514.285714285714,
+      "endMs": 21171.428571428572
+    },
+    {
+      "text": "film,",
+      "startMs": 21171.428571428572,
+      "endMs": 21828.571428571428
+    },
+    {
+      "text": "complete",
+      "startMs": 21828.571428571428,
+      "endMs": 22485.714285714286
+    },
+    {
+      "text": "with",
+      "startMs": 22485.714285714286,
+      "endMs": 23142.85714285714
+    },
+    {
+      "text": "music.",
+      "startMs": 23142.85714285714,
+      "endMs": 23800.0
+    },
+    {
+      "text": "Another",
+      "startMs": 23800.0,
+      "endMs": 24410.0
+    },
+    {
+      "text": "showed",
+      "startMs": 24410.0,
+      "endMs": 25020.0
+    },
+    {
+      "text": "a",
+      "startMs": 25020.0,
+      "endMs": 25630.0
+    },
+    {
+      "text": "timeline",
+      "startMs": 25630.0,
+      "endMs": 26240.000000000004
+    },
+    {
+      "text": "of",
+      "startMs": 26240.000000000004,
+      "endMs": 26850.0
+    },
+    {
+      "text": "human",
+      "startMs": 26850.0,
+      "endMs": 27460.0
+    },
+    {
+      "text": "progress",
+      "startMs": 27460.0,
+      "endMs": 28070.0
+    },
+    {
+      "text": "stretching",
+      "startMs": 28070.0,
+      "endMs": 28680.0
+    },
+    {
+      "text": "into",
+      "startMs": 28680.0,
+      "endMs": 29290.0
+    },
+    {
+      "text": "an",
+      "startMs": 29290.0,
+      "endMs": 29900.0
+    },
+    {
+      "text": "imagined",
+      "startMs": 29900.0,
+      "endMs": 30510.0
+    },
+    {
+      "text": "future.",
+      "startMs": 30510.0,
+      "endMs": 31120.0
+    },
+    {
+      "text": "Those",
+      "startMs": 31120.0,
+      "endMs": 31730.0
+    },
+    {
+      "text": "future",
+      "startMs": 31730.0,
+      "endMs": 32340.000000000004
+    },
+    {
+      "text": "dates",
+      "startMs": 32340.000000000004,
+      "endMs": 32950.0
+    },
+    {
+      "text": "are",
+      "startMs": 32950.0,
+      "endMs": 33560.0
+    },
+    {
+      "text": "storytelling,",
+      "startMs": 33560.0,
+      "endMs": 34170.0
+    },
+    {
+      "text": "not",
+      "startMs": 34170.0,
+      "endMs": 34780.0
+    },
+    {
+      "text": "scientific",
+      "startMs": 34780.0,
+      "endMs": 35390.0
+    },
+    {
+      "text": "predictions.",
+      "startMs": 35390.0,
+      "endMs": 36000.0
+    },
+    {
+      "text": "Then",
+      "startMs": 36000.0,
+      "endMs": 36433.33333333333
+    },
+    {
+      "text": "a",
+      "startMs": 36433.33333333333,
+      "endMs": 36866.666666666664
+    },
+    {
+      "text": "creator",
+      "startMs": 36866.666666666664,
+      "endMs": 37300.0
+    },
+    {
+      "text": "asked",
+      "startMs": 37300.0,
+      "endMs": 37733.333333333336
+    },
+    {
+      "text": "for",
+      "startMs": 37733.333333333336,
+      "endMs": 38166.666666666664
+    },
+    {
+      "text": "a",
+      "startMs": 38166.666666666664,
+      "endMs": 38600.0
+    },
+    {
+      "text": "self-portrait",
+      "startMs": 38600.0,
+      "endMs": 39033.33333333333
+    },
+    {
+      "text": "and",
+      "startMs": 39033.33333333333,
+      "endMs": 39466.66666666667
+    },
+    {
+      "text": "got",
+      "startMs": 39466.66666666667,
+      "endMs": 39900.0
+    },
+    {
+      "text": "a",
+      "startMs": 39900.0,
+      "endMs": 40333.333333333336
+    },
+    {
+      "text": "moving,",
+      "startMs": 40333.333333333336,
+      "endMs": 40766.666666666664
+    },
+    {
+      "text": "code-generated",
+      "startMs": 40766.666666666664,
+      "endMs": 41200.0
+    },
+    {
+      "text": "pattern",
+      "startMs": 41200.0,
+      "endMs": 41633.333333333336
+    },
+    {
+      "text": "instead",
+      "startMs": 41633.333333333336,
+      "endMs": 42066.666666666664
+    },
+    {
+      "text": "of",
+      "startMs": 42066.666666666664,
+      "endMs": 42500.0
+    },
+    {
+      "text": "a",
+      "startMs": 42500.0,
+      "endMs": 42933.333333333336
+    },
+    {
+      "text": "face.",
+      "startMs": 42933.333333333336,
+      "endMs": 43366.666666666664
+    },
+    {
+      "text": "These",
+      "startMs": 43366.666666666664,
+      "endMs": 43800.0
+    },
+    {
+      "text": "are",
+      "startMs": 43800.0,
+      "endMs": 44233.333333333336
+    },
+    {
+      "text": "creator",
+      "startMs": 44233.333333333336,
+      "endMs": 44666.666666666664
+    },
+    {
+      "text": "demonstrations,",
+      "startMs": 44666.666666666664,
+      "endMs": 45100.0
+    },
+    {
+      "text": "not",
+      "startMs": 45100.0,
+      "endMs": 45533.33333333333
+    },
+    {
+      "text": "a",
+      "startMs": 45533.33333333333,
+      "endMs": 45966.66666666667
+    },
+    {
+      "text": "promise",
+      "startMs": 45966.66666666667,
+      "endMs": 46400.0
+    },
+    {
+      "text": "that",
+      "startMs": 46400.0,
+      "endMs": 46833.333333333336
+    },
+    {
+      "text": "every",
+      "startMs": 46833.333333333336,
+      "endMs": 47266.666666666664
+    },
+    {
+      "text": "prompt",
+      "startMs": 47266.666666666664,
+      "endMs": 47700.0
+    },
+    {
+      "text": "works",
+      "startMs": 47700.0,
+      "endMs": 48133.333333333336
+    },
+    {
+      "text": "first",
+      "startMs": 48133.333333333336,
+      "endMs": 48566.666666666664
+    },
+    {
+      "text": "time.",
+      "startMs": 48566.666666666664,
+      "endMs": 49000.0
+    },
+    {
+      "text": "The",
+      "startMs": 49000.0,
+      "endMs": 49285.36585365854
+    },
+    {
+      "text": "official",
+      "startMs": 49285.36585365854,
+      "endMs": 49570.73170731707
+    },
+    {
+      "text": "changes",
+      "startMs": 49570.73170731707,
+      "endMs": 49856.09756097561
+    },
+    {
+      "text": "matter",
+      "startMs": 49856.09756097561,
+      "endMs": 50141.46341463415
+    },
+    {
+      "text": "too.",
+      "startMs": 50141.46341463415,
+      "endMs": 50426.829268292684
+    },
+    {
+      "text": "Anthropic",
+      "startMs": 50426.829268292684,
+      "endMs": 50712.19512195122
+    },
+    {
+      "text": "says",
+      "startMs": 50712.19512195122,
+      "endMs": 50997.560975609755
+    },
+    {
+      "text": "output",
+      "startMs": 50997.560975609755,
+      "endMs": 51282.92682926829
+    },
+    {
+      "text": "can",
+      "startMs": 51282.92682926829,
+      "endMs": 51568.29268292683
+    },
+    {
+      "text": "be",
+      "startMs": 51568.29268292683,
+      "endMs": 51853.65853658536
+    },
+    {
+      "text": "up",
+      "startMs": 51853.65853658536,
+      "endMs": 52139.0243902439
+    },
+    {
+      "text": "to",
+      "startMs": 52139.0243902439,
+      "endMs": 52424.39024390244
+    },
+    {
+      "text": "thirty",
+      "startMs": 52424.39024390244,
+      "endMs": 52709.756097560974
+    },
+    {
+      "text": "percent",
+      "startMs": 52709.756097560974,
+      "endMs": 52995.12195121952
+    },
+    {
+      "text": "faster",
+      "startMs": 52995.12195121952,
+      "endMs": 53280.48780487805
+    },
+    {
+      "text": "than",
+      "startMs": 53280.48780487805,
+      "endMs": 53565.85365853659
+    },
+    {
+      "text": "Fable",
+      "startMs": 53565.85365853659,
+      "endMs": 53851.21951219512
+    },
+    {
+      "text": "five",
+      "startMs": 53851.21951219512,
+      "endMs": 54136.585365853665
+    },
+    {
+      "text": "point",
+      "startMs": 54136.585365853665,
+      "endMs": 54421.95121951219
+    },
+    {
+      "text": "one,",
+      "startMs": 54421.95121951219,
+      "endMs": 54707.317073170736
+    },
+    {
+      "text": "with",
+      "startMs": 54707.317073170736,
+      "endMs": 54992.68292682927
+    },
+    {
+      "text": "improvements",
+      "startMs": 54992.68292682927,
+      "endMs": 55278.04878048781
+    },
+    {
+      "text": "in",
+      "startMs": 55278.04878048781,
+      "endMs": 55563.41463414634
+    },
+    {
+      "text": "coding,",
+      "startMs": 55563.41463414634,
+      "endMs": 55848.78048780488
+    },
+    {
+      "text": "reasoning,",
+      "startMs": 55848.78048780488,
+      "endMs": 56134.14634146341
+    },
+    {
+      "text": "and",
+      "startMs": 56134.14634146341,
+      "endMs": 56419.512195121955
+    },
+    {
+      "text": "vision.",
+      "startMs": 56419.512195121955,
+      "endMs": 56704.87804878048
+    },
+    {
+      "text": "Adaptive",
+      "startMs": 56704.87804878048,
+      "endMs": 56990.243902439026
+    },
+    {
+      "text": "thinking",
+      "startMs": 56990.243902439026,
+      "endMs": 57275.60975609757
+    },
+    {
+      "text": "stays",
+      "startMs": 57275.60975609757,
+      "endMs": 57560.9756097561
+    },
+    {
+      "text": "on,",
+      "startMs": 57560.9756097561,
+      "endMs": 57846.34146341464
+    },
+    {
+      "text": "and",
+      "startMs": 57846.34146341464,
+      "endMs": 58131.707317073175
+    },
+    {
+      "text": "higher",
+      "startMs": 58131.707317073175,
+      "endMs": 58417.07317073171
+    },
+    {
+      "text": "effort",
+      "startMs": 58417.07317073171,
+      "endMs": 58702.439024390245
+    },
+    {
+      "text": "lets",
+      "startMs": 58702.439024390245,
+      "endMs": 58987.80487804879
+    },
+    {
+      "text": "it",
+      "startMs": 58987.80487804879,
+      "endMs": 59273.170731707316
+    },
+    {
+      "text": "work",
+      "startMs": 59273.170731707316,
+      "endMs": 59558.53658536586
+    },
+    {
+      "text": "harder",
+      "startMs": 59558.53658536586,
+      "endMs": 59843.90243902439
+    },
+    {
+      "text": "on",
+      "startMs": 59843.90243902439,
+      "endMs": 60129.26829268293
+    },
+    {
+      "text": "demanding",
+      "startMs": 60129.26829268293,
+      "endMs": 60414.63414634147
+    },
+    {
+      "text": "tasks.",
+      "startMs": 60414.63414634147,
+      "endMs": 60700.0
+    },
+    {
+      "text": "Now",
+      "startMs": 60700.0,
+      "endMs": 60975.60975609756
+    },
+    {
+      "text": "the",
+      "startMs": 60975.60975609756,
+      "endMs": 61251.21951219513
+    },
+    {
+      "text": "price:",
+      "startMs": 61251.21951219513,
+      "endMs": 61526.829268292684
+    },
+    {
+      "text": "standard",
+      "startMs": 61526.829268292684,
+      "endMs": 61802.439024390245
+    },
+    {
+      "text": "A",
+      "startMs": 61802.439024390245,
+      "endMs": 62078.04878048781
+    },
+    {
+      "text": "P",
+      "startMs": 62078.04878048781,
+      "endMs": 62353.65853658537
+    },
+    {
+      "text": "I",
+      "startMs": 62353.65853658537,
+      "endMs": 62629.26829268293
+    },
+    {
+      "text": "rates",
+      "startMs": 62629.26829268293,
+      "endMs": 62904.87804878049
+    },
+    {
+      "text": "fell",
+      "startMs": 62904.87804878049,
+      "endMs": 63180.487804878045
+    },
+    {
+      "text": "twenty",
+      "startMs": 63180.487804878045,
+      "endMs": 63456.09756097561
+    },
+    {
+      "text": "percent,",
+      "startMs": 63456.09756097561,
+      "endMs": 63731.707317073175
+    },
+    {
+      "text": "from",
+      "startMs": 63731.707317073175,
+      "endMs": 64007.317073170736
+    },
+    {
+      "text": "ten",
+      "startMs": 64007.317073170736,
+      "endMs": 64282.92682926829
+    },
+    {
+      "text": "dollars",
+      "startMs": 64282.92682926829,
+      "endMs": 64558.53658536586
+    },
+    {
+      "text": "in",
+      "startMs": 64558.53658536586,
+      "endMs": 64834.14634146342
+    },
+    {
+      "text": "and",
+      "startMs": 64834.14634146342,
+      "endMs": 65109.756097560974
+    },
+    {
+      "text": "fifty",
+      "startMs": 65109.756097560974,
+      "endMs": 65385.36585365854
+    },
+    {
+      "text": "dollars",
+      "startMs": 65385.36585365854,
+      "endMs": 65660.97560975609
+    },
+    {
+      "text": "out,",
+      "startMs": 65660.97560975609,
+      "endMs": 65936.58536585367
+    },
+    {
+      "text": "to",
+      "startMs": 65936.58536585367,
+      "endMs": 66212.19512195123
+    },
+    {
+      "text": "eight",
+      "startMs": 66212.19512195123,
+      "endMs": 66487.80487804877
+    },
+    {
+      "text": "dollars",
+      "startMs": 66487.80487804877,
+      "endMs": 66763.41463414635
+    },
+    {
+      "text": "in",
+      "startMs": 66763.41463414635,
+      "endMs": 67039.02439024391
+    },
+    {
+      "text": "and",
+      "startMs": 67039.02439024391,
+      "endMs": 67314.63414634146
+    },
+    {
+      "text": "forty",
+      "startMs": 67314.63414634146,
+      "endMs": 67590.24390243903
+    },
+    {
+      "text": "dollars",
+      "startMs": 67590.24390243903,
+      "endMs": 67865.8536585366
+    },
+    {
+      "text": "out",
+      "startMs": 67865.8536585366,
+      "endMs": 68141.46341463414
+    },
+    {
+      "text": "per",
+      "startMs": 68141.46341463414,
+      "endMs": 68417.07317073172
+    },
+    {
+      "text": "million",
+      "startMs": 68417.07317073172,
+      "endMs": 68692.68292682926
+    },
+    {
+      "text": "tokens.",
+      "startMs": 68692.68292682926,
+      "endMs": 68968.29268292683
+    },
+    {
+      "text": "Fast",
+      "startMs": 68968.29268292683,
+      "endMs": 69243.9024390244
+    },
+    {
+      "text": "mode",
+      "startMs": 69243.9024390244,
+      "endMs": 69519.51219512195
+    },
+    {
+      "text": "costs",
+      "startMs": 69519.51219512195,
+      "endMs": 69795.12195121951
+    },
+    {
+      "text": "extra,",
+      "startMs": 69795.12195121951,
+      "endMs": 70070.73170731707
+    },
+    {
+      "text": "and",
+      "startMs": 70070.73170731707,
+      "endMs": 70346.34146341463
+    },
+    {
+      "text": "a",
+      "startMs": 70346.34146341463,
+      "endMs": 70621.9512195122
+    },
+    {
+      "text": "subscription",
+      "startMs": 70621.9512195122,
+      "endMs": 70897.56097560977
+    },
+    {
+      "text": "still",
+      "startMs": 70897.56097560977,
+      "endMs": 71173.17073170732
+    },
+    {
+      "text": "has",
+      "startMs": 71173.17073170732,
+      "endMs": 71448.78048780488
+    },
+    {
+      "text": "usage",
+      "startMs": 71448.78048780488,
+      "endMs": 71724.39024390244
+    },
+    {
+      "text": "limits.",
+      "startMs": 71724.39024390244,
+      "endMs": 72000.0
+    },
+    {
+      "text": "Now",
+      "startMs": 72000.0,
+      "endMs": 72862.5
+    },
+    {
+      "text": "the",
+      "startMs": 72862.5,
+      "endMs": 73725.0
+    },
+    {
+      "text": "practical",
+      "startMs": 73725.0,
+      "endMs": 74587.5
+    },
+    {
+      "text": "part.",
+      "startMs": 74587.5,
+      "endMs": 75450.0
+    },
+    {
+      "text": "In",
+      "startMs": 75450.0,
+      "endMs": 76312.5
+    },
+    {
+      "text": "the",
+      "startMs": 76312.5,
+      "endMs": 77175.0
+    },
+    {
+      "text": "reference,",
+      "startMs": 77175.0,
+      "endMs": 78037.5
+    },
+    {
+      "text": "the",
+      "startMs": 78037.5,
+      "endMs": 78900.0
+    },
+    {
+      "text": "creator",
+      "startMs": 78900.0,
+      "endMs": 79762.5
+    },
+    {
+      "text": "asks",
+      "startMs": 79762.5,
+      "endMs": 80625.0
+    },
+    {
+      "text": "for",
+      "startMs": 80625.0,
+      "endMs": 81487.5
+    },
+    {
+      "text": "an",
+      "startMs": 81487.5,
+      "endMs": 82350.0
+    },
+    {
+      "text": "interactive",
+      "startMs": 82350.0,
+      "endMs": 83212.5
+    },
+    {
+      "text": "cyberpunk",
+      "startMs": 83212.5,
+      "endMs": 84075.0
+    },
+    {
+      "text": "Tokyo",
+      "startMs": 84075.0,
+      "endMs": 84937.5
+    },
+    {
+      "text": "street,",
+      "startMs": 84937.5,
+      "endMs": 85800.0
+    },
+    {
+      "text": "then",
+      "startMs": 85800.0,
+      "endMs": 86662.50000000001
+    },
+    {
+      "text": "shows",
+      "startMs": 86662.50000000001,
+      "endMs": 87525.0
+    },
+    {
+      "text": "neon",
+      "startMs": 87525.0,
+      "endMs": 88387.5
+    },
+    {
+      "text": "lighting,",
+      "startMs": 88387.5,
+      "endMs": 89250.0
+    },
+    {
+      "text": "moving",
+      "startMs": 89250.0,
+      "endMs": 90112.50000000001
+    },
+    {
+      "text": "cameras,",
+      "startMs": 90112.50000000001,
+      "endMs": 90975.0
+    },
+    {
+      "text": "and",
+      "startMs": 90975.0,
+      "endMs": 91837.5
+    },
+    {
+      "text": "sound.",
+      "startMs": 91837.5,
+      "endMs": 92700.0
+    },
+    {
+      "text": "That",
+      "startMs": 92700.0,
+      "endMs": 92804.54545454546
+    },
+    {
+      "text": "is",
+      "startMs": 92804.54545454546,
+      "endMs": 92909.09090909091
+    },
+    {
+      "text": "the",
+      "startMs": 92909.09090909091,
+      "endMs": 93013.63636363637
+    },
+    {
+      "text": "workflow",
+      "startMs": 93013.63636363637,
+      "endMs": 93118.18181818182
+    },
+    {
+      "text": "to",
+      "startMs": 93118.18181818182,
+      "endMs": 93222.72727272726
+    },
+    {
+      "text": "learn:",
+      "startMs": 93222.72727272726,
+      "endMs": 93327.27272727274
+    },
+    {
+      "text": "specify",
+      "startMs": 93327.27272727274,
+      "endMs": 93431.81818181819
+    },
+    {
+      "text": "the",
+      "startMs": 93431.81818181819,
+      "endMs": 93536.36363636363
+    },
+    {
+      "text": "scene,",
+      "startMs": 93536.36363636363,
+      "endMs": 93640.90909090909
+    },
+    {
+      "text": "the",
+      "startMs": 93640.90909090909,
+      "endMs": 93745.45454545454
+    },
+    {
+      "text": "camera,",
+      "startMs": 93745.45454545454,
+      "endMs": 93850.0
+    },
+    {
+      "text": "the",
+      "startMs": 93850.0,
+      "endMs": 93954.54545454546
+    },
+    {
+      "text": "interactions,",
+      "startMs": 93954.54545454546,
+      "endMs": 94059.09090909091
+    },
+    {
+      "text": "and",
+      "startMs": 94059.09090909091,
+      "endMs": 94163.63636363637
+    },
+    {
+      "text": "the",
+      "startMs": 94163.63636363637,
+      "endMs": 94268.18181818181
+    },
+    {
+      "text": "output,",
+      "startMs": 94268.18181818181,
+      "endMs": 94372.72727272728
+    },
+    {
+      "text": "then",
+      "startMs": 94372.72727272728,
+      "endMs": 94477.27272727274
+    },
+    {
+      "text": "review",
+      "startMs": 94477.27272727274,
+      "endMs": 94581.81818181818
+    },
+    {
+      "text": "what",
+      "startMs": 94581.81818181818,
+      "endMs": 94686.36363636363
+    },
+    {
+      "text": "it",
+      "startMs": 94686.36363636363,
+      "endMs": 94790.9090909091
+    },
+    {
+      "text": "actually",
+      "startMs": 94790.9090909091,
+      "endMs": 94895.45454545454
+    },
+    {
+      "text": "produces.",
+      "startMs": 94895.45454545454,
+      "endMs": 95000.0
+    },
+    {
+      "text": "You",
+      "startMs": 95000.0,
+      "endMs": 95312.12121212122
+    },
+    {
+      "text": "can",
+      "startMs": 95312.12121212122,
+      "endMs": 95624.24242424243
+    },
+    {
+      "text": "reuse",
+      "startMs": 95624.24242424243,
+      "endMs": 95936.36363636363
+    },
+    {
+      "text": "a",
+      "startMs": 95936.36363636363,
+      "endMs": 96248.48484848485
+    },
+    {
+      "text": "skill",
+      "startMs": 96248.48484848485,
+      "endMs": 96560.60606060606
+    },
+    {
+      "text": "to",
+      "startMs": 96560.60606060606,
+      "endMs": 96872.72727272728
+    },
+    {
+      "text": "keep",
+      "startMs": 96872.72727272728,
+      "endMs": 97184.84848484848
+    },
+    {
+      "text": "those",
+      "startMs": 97184.84848484848,
+      "endMs": 97496.9696969697
+    },
+    {
+      "text": "requirements",
+      "startMs": 97496.9696969697,
+      "endMs": 97809.09090909091
+    },
+    {
+      "text": "together,",
+      "startMs": 97809.09090909091,
+      "endMs": 98121.21212121213
+    },
+    {
+      "text": "instead",
+      "startMs": 98121.21212121213,
+      "endMs": 98433.33333333334
+    },
+    {
+      "text": "of",
+      "startMs": 98433.33333333334,
+      "endMs": 98745.45454545454
+    },
+    {
+      "text": "rewriting",
+      "startMs": 98745.45454545454,
+      "endMs": 99057.57575757576
+    },
+    {
+      "text": "a",
+      "startMs": 99057.57575757576,
+      "endMs": 99369.69696969698
+    },
+    {
+      "text": "giant",
+      "startMs": 99369.69696969698,
+      "endMs": 99681.81818181819
+    },
+    {
+      "text": "prompt",
+      "startMs": 99681.81818181819,
+      "endMs": 99993.93939393939
+    },
+    {
+      "text": "each",
+      "startMs": 99993.93939393939,
+      "endMs": 100306.06060606061
+    },
+    {
+      "text": "time.",
+      "startMs": 100306.06060606061,
+      "endMs": 100618.18181818181
+    },
+    {
+      "text": "I've",
+      "startMs": 100618.18181818181,
+      "endMs": 100930.30303030302
+    },
+    {
+      "text": "made",
+      "startMs": 100930.30303030302,
+      "endMs": 101242.42424242424
+    },
+    {
+      "text": "a",
+      "startMs": 101242.42424242424,
+      "endMs": 101554.54545454544
+    },
+    {
+      "text": "starter",
+      "startMs": 101554.54545454544,
+      "endMs": 101866.66666666666
+    },
+    {
+      "text": "checklist",
+      "startMs": 101866.66666666666,
+      "endMs": 102178.78787878787
+    },
+    {
+      "text": "with",
+      "startMs": 102178.78787878787,
+      "endMs": 102490.90909090909
+    },
+    {
+      "text": "a",
+      "startMs": 102490.90909090909,
+      "endMs": 102803.0303030303
+    },
+    {
+      "text": "scene",
+      "startMs": 102803.0303030303,
+      "endMs": 103115.1515151515
+    },
+    {
+      "text": "prompt,",
+      "startMs": 103115.1515151515,
+      "endMs": 103427.27272727272
+    },
+    {
+      "text": "performance",
+      "startMs": 103427.27272727272,
+      "endMs": 103739.39393939394
+    },
+    {
+      "text": "checks,",
+      "startMs": 103739.39393939394,
+      "endMs": 104051.51515151515
+    },
+    {
+      "text": "and",
+      "startMs": 104051.51515151515,
+      "endMs": 104363.63636363635
+    },
+    {
+      "text": "a",
+      "startMs": 104363.63636363635,
+      "endMs": 104675.75757575757
+    },
+    {
+      "text": "review",
+      "startMs": 104675.75757575757,
+      "endMs": 104987.87878787878
+    },
+    {
+      "text": "step.",
+      "startMs": 104987.87878787878,
+      "endMs": 105300.0
+    },
+    {
+      "text": "It",
+      "startMs": 105300.0,
+      "endMs": 105436.0
+    },
+    {
+      "text": "won't",
+      "startMs": 105436.0,
+      "endMs": 105572.0
+    },
+    {
+      "text": "guarantee",
+      "startMs": 105572.0,
+      "endMs": 105708.0
+    },
+    {
+      "text": "a",
+      "startMs": 105708.0,
+      "endMs": 105844.0
+    },
+    {
+      "text": "perfect",
+      "startMs": 105844.0,
+      "endMs": 105980.0
+    },
+    {
+      "text": "one-click",
+      "startMs": 105980.0,
+      "endMs": 106116.0
+    },
+    {
+      "text": "result,",
+      "startMs": 106116.0,
+      "endMs": 106252.0
+    },
+    {
+      "text": "but",
+      "startMs": 106252.0,
+      "endMs": 106388.0
+    },
+    {
+      "text": "it",
+      "startMs": 106388.0,
+      "endMs": 106524.0
+    },
+    {
+      "text": "gives",
+      "startMs": 106524.0,
+      "endMs": 106660.0
+    },
+    {
+      "text": "your",
+      "startMs": 106660.0,
+      "endMs": 106796.0
+    },
+    {
+      "text": "next",
+      "startMs": 106796.0,
+      "endMs": 106932.0
+    },
+    {
+      "text": "build",
+      "startMs": 106932.0,
+      "endMs": 107068.0
+    },
+    {
+      "text": "a",
+      "startMs": 107068.0,
+      "endMs": 107204.00000000001
+    },
+    {
+      "text": "clear",
+      "startMs": 107204.00000000001,
+      "endMs": 107340.0
+    },
+    {
+      "text": "direction.",
+      "startMs": 107340.0,
+      "endMs": 107476.0
+    },
+    {
+      "text": "Follow",
+      "startMs": 107476.0,
+      "endMs": 107612.0
+    },
+    {
+      "text": "me",
+      "startMs": 107612.0,
+      "endMs": 107748.0
+    },
+    {
+      "text": "and",
+      "startMs": 107748.0,
+      "endMs": 107884.0
+    },
+    {
+      "text": "comment",
+      "startMs": 107884.0,
+      "endMs": 108020.0
+    },
+    {
+      "text": "FABLE",
+      "startMs": 108020.0,
+      "endMs": 108156.0
+    },
+    {
+      "text": "for",
+      "startMs": 108156.0,
+      "endMs": 108292.0
+    },
+    {
+      "text": "the",
+      "startMs": 108292.0,
+      "endMs": 108428.0
+    },
+    {
+      "text": "starter",
+      "startMs": 108428.0,
+      "endMs": 108564.0
+    },
+    {
+      "text": "skill!",
+      "startMs": 108564.0,
+      "endMs": 108700.0
+    }
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 10,
+      "ref": [
+        0,
+        10
+      ],
+      "camera": true,
+      "avatarStart": 0
+    },
+    {
+      "start": 10,
+      "end": 23.8,
+      "ref": [
+        10,
+        23.8
+      ],
+      "camera": false,
+      "avatarStart": 10
+    },
+    {
+      "start": 23.8,
+      "end": 36,
+      "ref": [
+        23.8,
+        36
+      ],
+      "camera": false,
+      "avatarStart": 10
+    },
+    {
+      "start": 36,
+      "end": 49,
+      "ref": [
+        36,
+        49
+      ],
+      "camera": true,
+      "avatarStart": 10
+    },
+    {
+      "start": 49,
+      "end": 60.7,
+      "ref": [
+        49,
+        60.7
+      ],
+      "camera": false,
+      "avatarStart": 23
+    },
+    {
+      "start": 60.7,
+      "end": 72,
+      "ref": [
+        60.7,
+        72
+      ],
+      "camera": false,
+      "avatarStart": 23
+    },
+    {
+      "start": 72,
+      "end": 92.7,
+      "ref": [
+        72,
+        92.7
+      ],
+      "camera": true,
+      "avatarStart": 23
+    },
+    {
+      "start": 92.7,
+      "end": 95,
+      "ref": [
+        92.7,
+        95
+      ],
+      "camera": true,
+      "avatarStart": 43.7
+    },
+    {
+      "start": 95,
+      "end": 105.3,
+      "ref": [
+        95,
+        105.3
+      ],
+      "camera": false,
+      "avatarStart": 46.0
+    },
+    {
+      "start": 105.3,
+      "end": 108.7,
+      "ref": [
+        105.3,
+        108.7
+      ],
+      "camera": true,
+      "avatarStart": 46.0
+    }
+  ]
+}

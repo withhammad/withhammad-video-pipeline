@@ -1,0 +1,35 @@
+{
+  "job": "c5bc128a0a8d",
+  "duration": 99.23918367346938,
+  "timings": "recorded",
+  "framesReviewed": 45,
+  "draftOnly": true,
+  "voiceVerified": false,
+  "avatarVerified": false,
+  "avatarPresent": false,
+  "isolatedTypecheck": "PASS",
+  "isolatedLint": "PASS",
+  "sourceEdges": "13 used asset start/middle/end samples checked; presenter flashes removed; project-a uses clean midpoint still; original collage excluded",
+  "facts": "Primary source checks support existing script; no narration change needed",
+  "remainingVisualFixes": [
+    "Verify real presenter framing/lip sync after approved avatar exists",
+    "Full final-video reference, captions and sound review after verified media integration"
+  ],
+  "remainingReleaseGates": [
+    "Owner exact-source voice approval",
+    "Verified avatar",
+    "FABLE mixer recipe and audio validation",
+    "Final video/cover/SEO package approval",
+    "Live guide and keyword rule"
+  ],
+  "sourceSha256": "3aca3d287c9a6277cc5585951e06fceb6105b70f1baa68c8cca640d2129ffa51",
+  "reviewScope": "35 baseline actual-timing frames plus10 targeted frames after timing repairs; baseline layout-sheet predates visualClock changes; timing-fixes-sheet is current for changed beats",
+  "timingFixes": {
+    "chapter1Seconds": 1.5,
+    "chapter3Seconds": 1.5,
+    "chapter3MontageShotSeconds": 0.31,
+    "briefCards": 3,
+    "briefCardSeconds": 2.75555555555556,
+    "method": "Visual sub-beat remap only; original narration, word timing and avatar clock unchanged"
+  }
+}
