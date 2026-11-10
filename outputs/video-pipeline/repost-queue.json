@@ -2788,8 +2788,10 @@
       "primary_keyword": "opus 5.5 vs sonnet 5.5",
       "host_slug": "repost-dbedc134cc10",
       "collaborators": null,
-      "status": "pending",
-      "note": "owner approved 2026-11-07 (\"Approved, queue it\"); placed on the 10 Nov free slots"
+      "status": "posted",
+      "note": "owner approved 2026-11-07 (\"Approved, queue it\"); placed on the 10 Nov free slots",
+      "url": "https://www.youtube.com/shorts/4Swhyf3wGAg",
+      "posted_at": "2026-11-10T14:03:04Z"
     },
     {
       "id": "tt-85fb47b66b4b",
@@ -3114,7 +3116,7 @@
       "primary_keyword": "claude animation",
       "host_slug": "repost-6a48be151b7a",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/claude-animation-styles-prompts"
     },
     {
