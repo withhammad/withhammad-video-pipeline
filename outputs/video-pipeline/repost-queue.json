@@ -3101,7 +3101,7 @@
       "primary_keyword": "claude animation",
       "host_slug": "repost-6a48be151b7a",
       "collaborators": null,
-      "status": "pending",
+      "status": "missed",
       "resource_url": "https://withhammad.com/resources/claude-animation-styles-prompts"
     },
     {
@@ -4852,9 +4852,11 @@
       "resource_url": "https://withhammad.com/resources/vector-databases-explained",
       "local": "2026-11-10 19:00 GST",
       "slot_utc": "2026-11-10T15:00:00Z",
-      "status": "pending",
+      "status": "posted",
       "owner_approved": true,
-      "approved_at": "2026-11-08"
+      "approved_at": "2026-11-08",
+      "url": "https://www.facebook.com/1394106800452348_122109248805523467",
+      "posted_at": "2026-11-10T15:03:04Z"
     },
     {
       "id": "tiktok-image-vectors",
