@@ -4417,9 +4417,10 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "pending",
+      "status": "failed",
       "resource_url": "https://withhammad.com/resources/build-an-agent-harness",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AUQlMEjDtO6ZNZlycx7tTKY]"
     },
     {
       "id": "li-b6b36d9b50b3",
