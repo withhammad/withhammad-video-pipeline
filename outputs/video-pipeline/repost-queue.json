@@ -4450,9 +4450,11 @@
       "primary_keyword": "build your own claude code",
       "host_slug": "repost-b6b36d9b50b3",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/build-an-agent-harness",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "url": "https://www.facebook.com/reel/1652813733183039/",
+      "posted_at": "2026-11-10T07:03:05Z"
     },
     {
       "id": "tt-b6b36d9b50b3",
@@ -4821,9 +4823,11 @@
       "resource_url": "https://withhammad.com/resources/vector-databases-explained",
       "local": "2026-11-10 11:00 GST",
       "slot_utc": "2026-11-10T07:00:00Z",
-      "status": "pending",
+      "status": "posted",
       "owner_approved": true,
-      "approved_at": "2026-11-08"
+      "approved_at": "2026-11-08",
+      "url": "https://www.linkedin.com/feed/update/urn:li:share:7525816239575867392/",
+      "posted_at": "2026-11-10T07:03:05Z"
     },
     {
       "id": "facebook-image-vectors",
