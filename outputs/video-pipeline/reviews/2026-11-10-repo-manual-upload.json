@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-11-10T04:56:39.027895+00:00",
+  "job": "dfa218634321",
+  "keyword": "REPO",
+  "source": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/dfa218634321/v4-revision/final.mp4",
+  "voice_stem": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/dfa218634321/v4-revision/voice.wav",
+  "phone_export": "/Users/hammad/Downloads/10 November/REPO - Manual Upload/REPO - add your app sound.mp4",
+  "source_sha256": "2cd643037acc98620c9ea183c5222bf07d31767ef393ce8783ffb1412652b28a",
+  "phone_export_sha256": "dbd890f29c6c72abf8e790981111e4e8fdcac579c23b808995904880b4ee133a",
+  "video_bitstream_sha256": "SHA256=bdc8871a229a1a0b6de2889fa52e27991e2fefac4dfe6c8535515b246abec4c0",
+  "identical_picture_bitstream": true,
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "pix_fmt": "yuv420p",
+        "color_range": "tv",
+        "r_frame_rate": "30/1",
+        "start_time": "0.000000",
+        "nb_frames": "1367"
+      },
+      {
+        "codec_name": "aac",
+        "r_frame_rate": "0/0",
+        "start_time": "0.000000",
+        "nb_frames": "2137"
+      }
+    ],
+    "format": {
+      "duration": "45.566667"
+    }
+  },
+  "voice_only_loudness": {
+    "lufs": -19.2,
+    "lra": 4.0,
+    "true_peak_dbtp": -2.0
+  },
+  "static_gain_db": -0.19999999999999996,
+  "audio_status": "Voice-only handoff, not a mastered music mix. Static gain is peak-limited; check the full mix in the phone app after selecting its sound.",
+  "voice_speed": 1,
+  "pitch_shift": 0,
+  "heygen_credits": 0,
+  "music": "Owner selects native platform music on phone before publication",
+  "automatic_upload": false,
+  "release_blocker": "PR #20 must be deployed and verified"
+}
