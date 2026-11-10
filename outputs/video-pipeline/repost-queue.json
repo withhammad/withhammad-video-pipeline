@@ -2738,8 +2738,9 @@
       "primary_keyword": "opus 5.5 vs sonnet 5.5",
       "host_slug": "repost-dbedc134cc10",
       "collaborators": null,
-      "status": "pending",
-      "note": "owner approved 2026-11-07 (\"Approved, queue it\"); placed on the 10 Nov free slots"
+      "status": "failed",
+      "note": "owner approved 2026-11-07 (\"Approved, queue it\"); placed on the 10 Nov free slots",
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AOCD_wlSWIZ1Nmlpl0eSIIn]"
     },
     {
       "id": "li-dbedc134cc10",
