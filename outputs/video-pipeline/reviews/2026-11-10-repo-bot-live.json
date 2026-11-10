@@ -1,0 +1,48 @@
+{
+  "credential_source": "Known local Instagram OAuth token; Vercel env pull masks sensitive values, so placeholders are not credentials.",
+  "identity": {
+    "http": 200,
+    "id": "30478611728406214",
+    "username": "withhammad.ai"
+  },
+  "follow_checks": [
+    {
+      "http": 200,
+      "boolean_response": true,
+      "follows": true
+    },
+    {
+      "http": 200,
+      "boolean_response": true,
+      "follows": true
+    },
+    {
+      "http": 500,
+      "boolean_response": false,
+      "follows": null
+    }
+  ],
+  "handshake": {
+    "http": 200,
+    "challenge_matches": true
+  },
+  "signed_empty_event": {
+    "http": 200,
+    "response": {
+      "ok": true,
+      "comments": 0,
+      "messages": 0
+    }
+  },
+  "repo_guide_http": 200,
+  "production_commit": "cfc2887953fd2939309bd18c08bfcbab71237567",
+  "production_deployment": "dpl_GPmyCyZzCFyuBPgjNosLgvvxFGVv",
+  "production_alias": "https://withhammad.com",
+  "instagram_media_id": "17919246270264710",
+  "instagram_url": "https://www.instagram.com/reel/DfjJM3yIDQI/",
+  "keyword": "REPO",
+  "comments_after_deploy": 0,
+  "actual_customer_dm": "not verified: no REPO comments at the check",
+  "merge_authorization": "Owner: This I uploaded in Instagram now, so make the bot of it, everything just from yourself. In response to the explicit PR #20 merge question; treated as authorization for this prepared deployment.",
+  "verified_at": "2026-11-10T05:52:37.265954+00:00"
+}

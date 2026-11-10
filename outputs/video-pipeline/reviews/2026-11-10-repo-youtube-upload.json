@@ -1,0 +1,43 @@
+{
+  "title": "5 Open Source AI Tools That Could Replace Paid Apps",
+  "description": "Five open source AI tools for coding, local voice, SEO and AI agents.\nFree guide: https://withhammad.com/resources/five-open-source-ai-repos\n\n1. OpenCode — an open-source coding agent, with selected free models.\n2. VoiceStudio — a local ElevenLabs alternative for your own voice.\n3. OpenSEO — keywords, rankings, backlinks and audits.\n4. OpenMausBot — AI teammates with your choice of supported engine.\n5. Replica — 11 skills to study features, rebuild and improve them with your own branding.\n\nFree code does not make every service free: OpenCode's free-model availability changes, OpenSEO uses paid DataForSEO data, and model/compute costs still apply. VoiceStudio is an independent alternative to ElevenLabs.\n\nAI avatar of me, using my own ElevenLabs voice clone. Visual reference and product inserts: @nick_saraev.\nDocumentation checked 8 November 2026.\n\nSubscribe, then comment REPO for the five links and setup guide.\n#Shorts #OpenSourceAI #AITools\n",
+  "tags": [
+    "open source AI",
+    "AI tools",
+    "free AI tools",
+    "OpenCode",
+    "VoiceStudio",
+    "OpenSEO",
+    "OpenMausBot",
+    "Replica",
+    "AI agents",
+    "coding tools",
+    "Hammad Yousuf"
+  ],
+  "settings": {
+    "channel": "HAMMAD YOUSUF (@with.hammad)",
+    "visibility": "Public",
+    "category": "Science & Technology",
+    "language": "English",
+    "made_for_kids": false,
+    "altered_or_synthetic_content": true,
+    "comments": "On",
+    "who_can_comment": "Subscribers and members",
+    "minimum_subscription_time": "Any duration",
+    "comment_moderation": "Basic",
+    "native_sound": "Owner selects in YouTube phone app; preserve corrected narration",
+    "native_sound_mix_starting_point": "Original 100; added sound 5–10, preview and lower if it masks speech",
+    "publication_mode": "owner manual; no API fallback",
+    "guide_url": "https://withhammad.com/resources/five-open-source-ai-repos",
+    "guide_status": "live, HTTP 200",
+    "keyword": "REPO",
+    "reply_type": "public comment reply, no private DM",
+    "clickable_guide": "Add this guide URL to channel profile Links; Shorts description/comment URLs are non-clickable",
+    "short_url": null
+  },
+  "settings_sources": [
+    "https://support.google.com/youtube/answer/9483359",
+    "https://support.google.com/youtube/answer/13748639"
+  ],
+  "prepared_at": "2026-11-10T05:52:37.257803+00:00"
+}

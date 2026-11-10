@@ -4877,6 +4877,27 @@
       "owner_approved": true,
       "approved_at": "2026-11-08",
       "native_blocker": "Chrome ChatGPT extension file access disabled; owner asked to enable Allow access to file URLs. No image uploaded or post submitted."
+    },
+    {
+      "id": "in-dfa218634321",
+      "job": "dfa218634321",
+      "platform": "instagram",
+      "slot_utc": "2026-11-10T05:22:29Z",
+      "local": "2026-11-10 09:22 GST",
+      "keyword": "REPO",
+      "title": "5 Open Source AI Tools That Could Replace Paid Apps",
+      "caption": "5 open source AI tools worth checking before another subscription.\nComment REPO for the five links and setup guide. Check your DM, follow @withhammad.ai, then tap “I followed” to receive the guide.\n\n1. OpenCode — an open-source coding agent, with selected free models.\n2. VoiceStudio — a local ElevenLabs alternative for your own voice.\n3. OpenSEO — keywords, rankings, backlinks and audits.\n4. OpenMausBot — AI teammates with your choice of supported engine.\n5. Replica — 11 skills to study features, rebuild and improve them with your own branding.\n\nFree code does not make every service free: OpenCode’s free-model availability changes, OpenSEO uses paid DataForSEO data, and model/compute costs still apply. VoiceStudio is an independent alternative to ElevenLabs.\n\nAI avatar of me, using my own ElevenLabs voice clone. Visual reference and product inserts: @nick_saraev.\n\nSave this list and comment REPO for the guide.\n#OpenSourceAI #AITools #OpenCode #AIMarketing",
+      "primary_keyword": "open source AI tools",
+      "resource_url": "https://withhammad.com/resources/five-open-source-ai-repos",
+      "host_slug": "repost-dfa218634321",
+      "collaborators": null,
+      "status": "posted",
+      "url": "https://www.instagram.com/reel/DfjJM3yIDQI/",
+      "media_id": "17919246270264710",
+      "posted_at": "2026-11-10T05:22:29Z",
+      "publication_method": "owner_manual_upload",
+      "verified_at": "2026-11-10T05:47:57.090721+00:00",
+      "native_sound_verified": false
     }
   ]
 }
