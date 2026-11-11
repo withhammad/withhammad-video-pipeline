@@ -592,3 +592,13 @@ BENCH local preparation now has 19 inspected stills covering all reference beats
 scoped TypeScript/ESLint and six-platform copy checks. The final entry blocks an out-of-range length unless the
 owner explicitly accepts it. Current stills supersede the older silent draft, which is marked pre-safe-zone-review.
 No final music mix or publishable BENCH cut exists yet. See `work/reference-20261110-batch/BENCH-INTEGRATION.md`.
+
+
+### 11 Nov: isolate the posting timer's Git commit
+
+The launchd posting run at 11:09 included this editing session's 45 staged source/proof files in commit `ed7cd9b`,
+because `studio/run_due.sh` used an unscoped `git commit`. The files were preserved and pushed; no history rewrite
+was performed. The timer now commits only `outputs/video-pipeline/repost-queue.json` with an explicit path and
+no longer stages through the shared index. Its obsolete Claude co-author trailer was removed. A temporary-repo
+regression test executes only the extracted Git commit step and verifies that unrelated staged work stays staged;
+it never invokes the live poster. Do not return to an unscoped timer commit. Existing posting times are unchanged.

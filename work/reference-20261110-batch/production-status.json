@@ -245,14 +245,16 @@
   "schedule_note": "10 November portion missed. No new bookings or rollover beyond 11 November. PR21 merge and live guides required; existing queue plus 3-hour spacing/native-sound windows cannot fit both approved packages on all6today. Owner asked whether to prioritize this batch by moving older bookings or allow later dates. See site-pr21/release-slot-plan-readonly.md.",
   "verification": {
     "studio_pytest": {
-      "passed": 646,
+      "passed": 647,
       "warnings": 1,
-      "seconds": 81.45
+      "seconds": 105.33,
+      "includes_timer_commit_isolation": true
     },
     "fable_final": "fable-delivery-review.json",
     "clone_preflight": "clone-layout-review.json",
     "bench_preflight": "bench-layout-review.json",
     "website": "site-pr21/validation.json",
     "phone_exports": "phone-exports-proof.json"
-  }
+  },
+  "source_checkpoint": "ed7cd9b (included by concurrent posting timer; subsequent fix scopes timer commits to queue path)"
 }

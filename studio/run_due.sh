@@ -15,8 +15,8 @@ if ! git -C "$ROOT" diff --quiet -- outputs/video-pipeline/repost-queue.json; th
   IDS="$(printf '%s' "$OUT" | /usr/bin/python3 -c 'import json,sys
 try: d=json.load(sys.stdin); print(" ".join(p["id"] for p in d["posted"]+d["failed"]))
 except Exception: print("run")' )"
-  git -C "$ROOT" add outputs/video-pipeline/repost-queue.json
-  git -C "$ROOT" commit -q -m "Record repost queue posts $IDS" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" >> "$LOG" 2>&1
+  # The index is shared with editing sessions; commit only this timer's queue path.
+  git -C "$ROOT" commit -q -m "Record repost queue posts $IDS" -- outputs/video-pipeline/repost-queue.json >> "$LOG" 2>&1
   git -C "$ROOT" push -q >> "$LOG" 2>&1 || echo "push failed" >> "$LOG"
 fi
 exit 0
