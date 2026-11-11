@@ -5305,14 +5305,23 @@
       "primary_keyword": "Claude Code advisor Fable",
       "host_slug": "repost-62eec03e1e93",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": null,
         "expected_runner_gst": "19:03"
-      }
+      },
+      "url": "https://www.facebook.com/reel/1034824059017707/",
+      "posted_at": "2026-11-11T14:48:00Z",
+      "sound": {
+        "title": "Aura Farming",
+        "artist": "Mustafa Saboori",
+        "volume": "about 10%",
+        "source": "Facebook reel composer > Audio > For you (252.3K reels)"
+      },
+      "posted_via": "facebook.com/reels/create as the Page, no-music cut + platform sound (owner rule 2026-11-11)"
     },
     {
       "id": "li-62eec03e1e93",
