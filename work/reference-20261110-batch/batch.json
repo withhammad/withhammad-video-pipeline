@@ -773,7 +773,8 @@
         "Charts use exact published results; spoken numbers may be rounded.",
         "Fermat result is formalization of a mathematical proof, not a new discovery of the theorem.",
         "Anthropic's reported benchmarks and single-run formalization comparison are not universal real-world guarantees.",
-        "Replace the reference creator's AgentMash sales plug with the withhammad benchmark/setup guide."
+        "Replace the reference creator's AgentMash sales plug with the withhammad benchmark/setup guide.",
+        "CyScenarioBench uses unique tasks for each lab; these scores are not a like-for-like head-to-head comparison."
       ],
       "segments": [
         {
@@ -827,8 +828,8 @@
           "camera": false
         },
         {
-          "spoken": "Its restricted twin, Mythos, scored seventy-six against GPT-six Cyber's sixty-one on a cybersecurity evaluation. These are specific tests, not proof that one model wins everything.",
-          "on_screen_text": "CyScenarioBench · Mythos 76.3% / GPT-6 Cyber 61%",
+          "spoken": "Mythos reported seventy-six percent in cybersecurity, versus GPT-six Cyber's sixty-one, but on different task sets. These are specific tests, not proof that one model wins everything.",
+          "on_screen_text": "CyScenarioBench · Mythos 76.3% / GPT-6 Cyber 61% · Different tasks per lab",
           "visual": "card",
           "ref": [
             33.2,

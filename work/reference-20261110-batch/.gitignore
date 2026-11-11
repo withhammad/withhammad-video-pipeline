@@ -6,3 +6,12 @@
 /fable-preflight/
 /fable-crop-edges/
 __pycache__/
+
+# Generated local draft media and verbose website audit output.
+/clone-preflight/
+/site-pr21/*
+!/site-pr21/validation.json
+!/site-pr21/pr-body.md
+!/site-pr21/layout.json
+!/site-pr21/release-slot-plan-readonly.md
+!/site-pr21/release-slot-plan-strict.json

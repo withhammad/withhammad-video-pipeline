@@ -1,0 +1,942 @@
+[
+  {
+    "slug": "claude-higgsfield-video-setup",
+    "width": 390,
+    "h1": 1,
+    "scrollWidth": 390,
+    "title": "Higgsfield Claude MCP: Setup and Video Prompt",
+    "description": "Connect Higgsfield to Claude, brief a short video and check credits before generating. Includes a reusable prompt and a practical quality checklist.",
+    "canonical": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://withhammad.com/#person",
+            "name": "Hammad Yousuf",
+            "jobTitle": "AI Marketing Automation Engineer",
+            "description": "Performance marketer turned AI implementation specialist in Dubai: eight years of GCC media buying, now building autonomous AI agents for ads, SEO, outreach and quoting with real numbers behind them.",
+            "image": "https://withhammad.com/hammad-headshot-v3.jpg",
+            "email": "marketing@withhammad.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "url": "https://withhammad.com/about",
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://www.instagram.com/withhammad.ai",
+              "https://www.facebook.com/profile.php?id=61595704034607",
+              "https://www.tiktok.com/@withhammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "Generative engine optimisation",
+              "Claude Code"
+            ],
+            "worksFor": {
+              "@id": "https://withhammad.com/#organization"
+            },
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google AI Professional Certificate"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Ads AI-Powered Performance"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Social Media Marketing Professional"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "One Million Prompters – AI Prompt Engineering (Dubai Future Foundation)"
+              }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://withhammad.com/#organization",
+            "name": "withhammad",
+            "legalName": "Hammad Yousuf",
+            "url": "https://withhammad.com",
+            "founder": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://withhammad.com/api/og?title=withhammad",
+              "width": 1200,
+              "height": 630
+            },
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://www.instagram.com/withhammad.ai",
+              "https://www.facebook.com/profile.php?id=61595704034607",
+              "https://www.tiktok.com/@withhammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "areaServed": [
+              "AE",
+              "SA",
+              "QA",
+              "BH"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "Generative engine optimisation",
+              "Claude Code"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://withhammad.com/#website",
+            "url": "https://withhammad.com",
+            "name": "withhammad.com",
+            "publisher": {
+              "@id": "https://withhammad.com/#organization"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Higgsfield generation free through Claude?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Do not assume so. Read the live offer for your account, eligible models, dates and limits, and check the cost before each generation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if I cannot find the connector?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Start from Higgsfield’s official MCP instructions and check your Claude workspace permissions. Use a custom connector address only when the official instructions provide it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will the result match the reel exactly?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No identical result is promised. The reel demonstrates a workflow; your prompt, inputs, selected model and settings affect the output."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://withhammad.com/resources/claude-higgsfield-video-setup#article",
+            "headline": "Higgsfield Claude MCP: make your first video",
+            "description": "Connect Higgsfield to Claude, brief a short video and check credits before generating. Includes a reusable prompt and a practical quality checklist.",
+            "url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://withhammad.com/resources/claude-higgsfield-video-setup"
+            },
+            "image": [
+              "https://withhammad.com/api/og?title=Higgsfield%20Claude%20MCP%3A%20make%20your%20first%20video"
+            ],
+            "datePublished": "2026-11-11",
+            "dateModified": "2026-11-11",
+            "inLanguage": "en",
+            "isAccessibleForFree": true,
+            "author": {
+              "@type": "Person",
+              "@id": "https://withhammad.com/#person",
+              "name": "Hammad Yousuf",
+              "url": "https://withhammad.com/about"
+            },
+            "publisher": {
+              "@id": "https://withhammad.com/#organization"
+            }
+          },
+          {
+            "@type": "HowTo",
+            "name": "Higgsfield Claude MCP: make your first video",
+            "description": "Higgsfield Claude MCP lets you request video generation from a Claude conversation. Connect your own account, describe one short shot, review the model and credit cost, then generate and inspect the result.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Open the official connection instructions",
+                "text": "Use Higgsfield’s MCP page, linked below, as the starting point. In Claude, open Customize → Connectors and find Higgsfield. If the directory option is unavailable, use only the current custom-connector address supplied by Higgsfield. Avoid copying an old address from a social post."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Connect your account",
+                "text": "Sign in to your own Higgsfield account and review the requested permissions. Return to a Claude conversation where the connector is available. If it is missing, check the account you connected and whether your workspace allows that connector."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Brief one shot before a full sequence",
+                "text": "Supply a reference image you have rights to use. Describe the subject, action, camera movement, visual style, duration and aspect ratio. State which identity details must remain unchanged. A single clear shot is easier to inspect and refine than an entire film."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Use this product-shot prompt",
+                "text": "Replace the product details with your own. The instruction asks for a cost check before generation; confirm that a usable quote is actually shown before approving paid work.\nCreate a vertical product shot of my supplied coffee cup on a sunlit desk. Use a slow camera push-in, subtle steam and natural shadows. Duration: five seconds. Preserve the logo and product shape. Show the selected model and credit cost before generating; wait for my confirmation."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Inspect before requesting another generation",
+                "text": "Watch the entire returned clip. Check the product shape, logo, text, motion and first/last frames. Describe one targeted correction rather than starting a large batch. Save the original output, prompt, model and settings so you can compare versions."
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://withhammad.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://withhammad.com/resources"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Higgsfield Claude MCP: make your first video",
+                "item": "https://withhammad.com/resources/claude-higgsfield-video-setup"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "brokenAnchors": []
+  },
+  {
+    "slug": "claude-higgsfield-video-setup",
+    "width": 1440,
+    "h1": 1,
+    "scrollWidth": 1440,
+    "title": "Higgsfield Claude MCP: Setup and Video Prompt",
+    "description": "Connect Higgsfield to Claude, brief a short video and check credits before generating. Includes a reusable prompt and a practical quality checklist.",
+    "canonical": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://withhammad.com/#person",
+            "name": "Hammad Yousuf",
+            "jobTitle": "AI Marketing Automation Engineer",
+            "description": "Performance marketer turned AI implementation specialist in Dubai: eight years of GCC media buying, now building autonomous AI agents for ads, SEO, outreach and quoting with real numbers behind them.",
+            "image": "https://withhammad.com/hammad-headshot-v3.jpg",
+            "email": "marketing@withhammad.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "url": "https://withhammad.com/about",
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://www.instagram.com/withhammad.ai",
+              "https://www.facebook.com/profile.php?id=61595704034607",
+              "https://www.tiktok.com/@withhammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "Generative engine optimisation",
+              "Claude Code"
+            ],
+            "worksFor": {
+              "@id": "https://withhammad.com/#organization"
+            },
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google AI Professional Certificate"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Ads AI-Powered Performance"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Social Media Marketing Professional"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "One Million Prompters – AI Prompt Engineering (Dubai Future Foundation)"
+              }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://withhammad.com/#organization",
+            "name": "withhammad",
+            "legalName": "Hammad Yousuf",
+            "url": "https://withhammad.com",
+            "founder": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://withhammad.com/api/og?title=withhammad",
+              "width": 1200,
+              "height": 630
+            },
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://www.instagram.com/withhammad.ai",
+              "https://www.facebook.com/profile.php?id=61595704034607",
+              "https://www.tiktok.com/@withhammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "areaServed": [
+              "AE",
+              "SA",
+              "QA",
+              "BH"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "Generative engine optimisation",
+              "Claude Code"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://withhammad.com/#website",
+            "url": "https://withhammad.com",
+            "name": "withhammad.com",
+            "publisher": {
+              "@id": "https://withhammad.com/#organization"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Higgsfield generation free through Claude?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Do not assume so. Read the live offer for your account, eligible models, dates and limits, and check the cost before each generation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if I cannot find the connector?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Start from Higgsfield’s official MCP instructions and check your Claude workspace permissions. Use a custom connector address only when the official instructions provide it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will the result match the reel exactly?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No identical result is promised. The reel demonstrates a workflow; your prompt, inputs, selected model and settings affect the output."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://withhammad.com/resources/claude-higgsfield-video-setup#article",
+            "headline": "Higgsfield Claude MCP: make your first video",
+            "description": "Connect Higgsfield to Claude, brief a short video and check credits before generating. Includes a reusable prompt and a practical quality checklist.",
+            "url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://withhammad.com/resources/claude-higgsfield-video-setup"
+            },
+            "image": [
+              "https://withhammad.com/api/og?title=Higgsfield%20Claude%20MCP%3A%20make%20your%20first%20video"
+            ],
+            "datePublished": "2026-11-11",
+            "dateModified": "2026-11-11",
+            "inLanguage": "en",
+            "isAccessibleForFree": true,
+            "author": {
+              "@type": "Person",
+              "@id": "https://withhammad.com/#person",
+              "name": "Hammad Yousuf",
+              "url": "https://withhammad.com/about"
+            },
+            "publisher": {
+              "@id": "https://withhammad.com/#organization"
+            }
+          },
+          {
+            "@type": "HowTo",
+            "name": "Higgsfield Claude MCP: make your first video",
+            "description": "Higgsfield Claude MCP lets you request video generation from a Claude conversation. Connect your own account, describe one short shot, review the model and credit cost, then generate and inspect the result.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Open the official connection instructions",
+                "text": "Use Higgsfield’s MCP page, linked below, as the starting point. In Claude, open Customize → Connectors and find Higgsfield. If the directory option is unavailable, use only the current custom-connector address supplied by Higgsfield. Avoid copying an old address from a social post."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Connect your account",
+                "text": "Sign in to your own Higgsfield account and review the requested permissions. Return to a Claude conversation where the connector is available. If it is missing, check the account you connected and whether your workspace allows that connector."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Brief one shot before a full sequence",
+                "text": "Supply a reference image you have rights to use. Describe the subject, action, camera movement, visual style, duration and aspect ratio. State which identity details must remain unchanged. A single clear shot is easier to inspect and refine than an entire film."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Use this product-shot prompt",
+                "text": "Replace the product details with your own. The instruction asks for a cost check before generation; confirm that a usable quote is actually shown before approving paid work.\nCreate a vertical product shot of my supplied coffee cup on a sunlit desk. Use a slow camera push-in, subtle steam and natural shadows. Duration: five seconds. Preserve the logo and product shape. Show the selected model and credit cost before generating; wait for my confirmation."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Inspect before requesting another generation",
+                "text": "Watch the entire returned clip. Check the product shape, logo, text, motion and first/last frames. Describe one targeted correction rather than starting a large batch. Save the original output, prompt, model and settings so you can compare versions."
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://withhammad.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://withhammad.com/resources"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Higgsfield Claude MCP: make your first video",
+                "item": "https://withhammad.com/resources/claude-higgsfield-video-setup"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "brokenAnchors": []
+  },
+  {
+    "slug": "claude-fable-advisor-setup",
+    "width": 390,
+    "h1": 1,
+    "scrollWidth": 390,
+    "title": "Claude Code Fable Advisor: Setup and Cost Checks",
+    "description": "Set up Opus with a Fable 5.2 advisor in Claude Code. Check versions, provider access, billing consent and usage before your first substantial task.",
+    "canonical": "https://withhammad.com/resources/claude-fable-advisor-setup",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://withhammad.com/#person",
+            "name": "Hammad Yousuf",
+            "jobTitle": "AI Marketing Automation Engineer",
+            "description": "Performance marketer turned AI implementation specialist in Dubai: eight years of GCC media buying, now building autonomous AI agents for ads, SEO, outreach and quoting with real numbers behind them.",
+            "image": "https://withhammad.com/hammad-headshot-v3.jpg",
+            "email": "marketing@withhammad.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "url": "https://withhammad.com/about",
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://www.instagram.com/withhammad.ai",
+              "https://www.facebook.com/profile.php?id=61595704034607",
+              "https://www.tiktok.com/@withhammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "Generative engine optimisation",
+              "Claude Code"
+            ],
+            "worksFor": {
+              "@id": "https://withhammad.com/#organization"
+            },
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google AI Professional Certificate"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Ads AI-Powered Performance"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Social Media Marketing Professional"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "One Million Prompters – AI Prompt Engineering (Dubai Future Foundation)"
+              }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://withhammad.com/#organization",
+            "name": "withhammad",
+            "legalName": "Hammad Yousuf",
+            "url": "https://withhammad.com",
+            "founder": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://withhammad.com/api/og?title=withhammad",
+              "width": 1200,
+              "height": 630
+            },
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://www.instagram.com/withhammad.ai",
+              "https://www.facebook.com/profile.php?id=61595704034607",
+              "https://www.tiktok.com/@withhammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "areaServed": [
+              "AE",
+              "SA",
+              "QA",
+              "BH"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "Generative engine optimisation",
+              "Claude Code"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://withhammad.com/#website",
+            "url": "https://withhammad.com",
+            "name": "withhammad.com",
+            "publisher": {
+              "@id": "https://withhammad.com/#organization"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Does Fable run on every turn?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Claude decides when to consult the advisor. Watch the consultation messages and usage instead of assuming every turn invokes it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will this save 34% on my work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "That figure describes Charlie Hills’s supplied experiment. Task complexity, conversation length, model rates and consultation frequency can change your result."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if the advisor is enabled but never appears?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Check the installed version, provider or gateway, allowed models, billing consent and session feature flags. Read the current official requirements before retrying."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://withhammad.com/resources/claude-fable-advisor-setup#article",
+            "headline": "Claude Code Fable advisor: Opus builds, Fable advises",
+            "description": "Set up Opus with a Fable 5.2 advisor in Claude Code. Check versions, provider access, billing consent and usage before your first substantial task.",
+            "url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://withhammad.com/resources/claude-fable-advisor-setup"
+            },
+            "image": [
+              "https://withhammad.com/api/og?title=Claude%20Code%20Fable%20advisor%3A%20Opus%20builds%2C%20Fable%20advises"
+            ],
+            "datePublished": "2026-11-11",
+            "dateModified": "2026-11-11",
+            "inLanguage": "en",
+            "isAccessibleForFree": true,
+            "author": {
+              "@type": "Person",
+              "@id": "https://withhammad.com/#person",
+              "name": "Hammad Yousuf",
+              "url": "https://withhammad.com/about"
+            },
+            "publisher": {
+              "@id": "https://withhammad.com/#organization"
+            }
+          },
+          {
+            "@type": "HowTo",
+            "name": "Claude Code Fable advisor: Opus builds, Fable advises",
+            "description": "Use Opus for the main Claude Code session and Fable as an advisor at decision points. This guide shows the setup, a practical task prompt and the checks that help you avoid mistaking an unavailable advisor for a working one.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Update and check the version",
+                "text": "Update Claude Code and confirm the installed version before setting up Fable 5.2. If your installation uses a managed update process, follow that process.\nclaude update\nclaude --version"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Choose the main model and advisor",
+                "text": "Inside Claude Code, select Opus, then enable Fable as the advisor. Confirm the displayed model versions; aliases can advance with releases. For the reel’s pairing, check Opus 5.5 and Fable 5.2.\n/model opus\n/advisor fable"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Read any billing-consent prompt",
+                "text": "Some plans require one-time consent for Fable usage credits. If directed to /model fable, read the terms and accept only if you agree. That changes the selected model, so select Opus again before enabling the Fable advisor. Do not assume a promotion applies to every account."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Choose whether the setting should persist",
+                "text": "The advisor command normally saves your selection for later sessions. To request the pairing for one session, launch Claude Code with these flags. Confirm the advisor is active after launch.\nclaude --model opus --advisor fable"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Give it a substantial, reviewable task",
+                "text": "Use a real specification and a bounded task with clear verification. Start with a branch or working copy you can review. The model decides when consultation is useful; this is not a second worker independently executing every task.\nImplement the changes described in SPEC.md. Read the existing code and tests first. Consult the advisor before committing to the approach, if the same error recurs, and before declaring the work complete. Keep a concise record of the plan, changes and verification. Ask before paid external actions or publishing anything."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 6,
+                "name": "Check usage and turn it off when finished",
+                "text": "Review the consultation messages and the session’s usage. Compare against a similar bounded task before deciding whether this pairing is worthwhile for your work.\n/usage\n/advisor off"
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://withhammad.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://withhammad.com/resources"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Claude Code Fable advisor: Opus builds, Fable advises",
+                "item": "https://withhammad.com/resources/claude-fable-advisor-setup"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "brokenAnchors": []
+  },
+  {
+    "slug": "claude-fable-advisor-setup",
+    "width": 1440,
+    "h1": 1,
+    "scrollWidth": 1440,
+    "title": "Claude Code Fable Advisor: Setup and Cost Checks",
+    "description": "Set up Opus with a Fable 5.2 advisor in Claude Code. Check versions, provider access, billing consent and usage before your first substantial task.",
+    "canonical": "https://withhammad.com/resources/claude-fable-advisor-setup",
+    "jsonld": [
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://withhammad.com/#person",
+            "name": "Hammad Yousuf",
+            "jobTitle": "AI Marketing Automation Engineer",
+            "description": "Performance marketer turned AI implementation specialist in Dubai: eight years of GCC media buying, now building autonomous AI agents for ads, SEO, outreach and quoting with real numbers behind them.",
+            "image": "https://withhammad.com/hammad-headshot-v3.jpg",
+            "email": "marketing@withhammad.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "url": "https://withhammad.com/about",
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://www.instagram.com/withhammad.ai",
+              "https://www.facebook.com/profile.php?id=61595704034607",
+              "https://www.tiktok.com/@withhammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "Generative engine optimisation",
+              "Claude Code"
+            ],
+            "worksFor": {
+              "@id": "https://withhammad.com/#organization"
+            },
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google AI Professional Certificate"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Ads AI-Powered Performance"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Social Media Marketing Professional"
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "One Million Prompters – AI Prompt Engineering (Dubai Future Foundation)"
+              }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://withhammad.com/#organization",
+            "name": "withhammad",
+            "legalName": "Hammad Yousuf",
+            "url": "https://withhammad.com",
+            "founder": {
+              "@id": "https://withhammad.com/#person"
+            },
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://withhammad.com/api/og?title=withhammad",
+              "width": 1200,
+              "height": 630
+            },
+            "sameAs": [
+              "https://www.youtube.com/@with.hammad",
+              "https://www.instagram.com/withhammad.ai",
+              "https://www.facebook.com/profile.php?id=61595704034607",
+              "https://www.tiktok.com/@withhammad",
+              "https://www.linkedin.com/in/withhammad",
+              "https://github.com/withhammad"
+            ],
+            "areaServed": [
+              "AE",
+              "SA",
+              "QA",
+              "BH"
+            ],
+            "knowsAbout": [
+              "AI agents",
+              "Marketing automation",
+              "Google Ads",
+              "AI voice agents",
+              "Generative engine optimisation",
+              "Claude Code"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://withhammad.com/#website",
+            "url": "https://withhammad.com",
+            "name": "withhammad.com",
+            "publisher": {
+              "@id": "https://withhammad.com/#organization"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Does Fable run on every turn?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Claude decides when to consult the advisor. Watch the consultation messages and usage instead of assuming every turn invokes it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will this save 34% on my work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "That figure describes Charlie Hills’s supplied experiment. Task complexity, conversation length, model rates and consultation frequency can change your result."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if the advisor is enabled but never appears?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Check the installed version, provider or gateway, allowed models, billing consent and session feature flags. Read the current official requirements before retrying."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://withhammad.com/resources/claude-fable-advisor-setup#article",
+            "headline": "Claude Code Fable advisor: Opus builds, Fable advises",
+            "description": "Set up Opus with a Fable 5.2 advisor in Claude Code. Check versions, provider access, billing consent and usage before your first substantial task.",
+            "url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://withhammad.com/resources/claude-fable-advisor-setup"
+            },
+            "image": [
+              "https://withhammad.com/api/og?title=Claude%20Code%20Fable%20advisor%3A%20Opus%20builds%2C%20Fable%20advises"
+            ],
+            "datePublished": "2026-11-11",
+            "dateModified": "2026-11-11",
+            "inLanguage": "en",
+            "isAccessibleForFree": true,
+            "author": {
+              "@type": "Person",
+              "@id": "https://withhammad.com/#person",
+              "name": "Hammad Yousuf",
+              "url": "https://withhammad.com/about"
+            },
+            "publisher": {
+              "@id": "https://withhammad.com/#organization"
+            }
+          },
+          {
+            "@type": "HowTo",
+            "name": "Claude Code Fable advisor: Opus builds, Fable advises",
+            "description": "Use Opus for the main Claude Code session and Fable as an advisor at decision points. This guide shows the setup, a practical task prompt and the checks that help you avoid mistaking an unavailable advisor for a working one.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Update and check the version",
+                "text": "Update Claude Code and confirm the installed version before setting up Fable 5.2. If your installation uses a managed update process, follow that process.\nclaude update\nclaude --version"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Choose the main model and advisor",
+                "text": "Inside Claude Code, select Opus, then enable Fable as the advisor. Confirm the displayed model versions; aliases can advance with releases. For the reel’s pairing, check Opus 5.5 and Fable 5.2.\n/model opus\n/advisor fable"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Read any billing-consent prompt",
+                "text": "Some plans require one-time consent for Fable usage credits. If directed to /model fable, read the terms and accept only if you agree. That changes the selected model, so select Opus again before enabling the Fable advisor. Do not assume a promotion applies to every account."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Choose whether the setting should persist",
+                "text": "The advisor command normally saves your selection for later sessions. To request the pairing for one session, launch Claude Code with these flags. Confirm the advisor is active after launch.\nclaude --model opus --advisor fable"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Give it a substantial, reviewable task",
+                "text": "Use a real specification and a bounded task with clear verification. Start with a branch or working copy you can review. The model decides when consultation is useful; this is not a second worker independently executing every task.\nImplement the changes described in SPEC.md. Read the existing code and tests first. Consult the advisor before committing to the approach, if the same error recurs, and before declaring the work complete. Keep a concise record of the plan, changes and verification. Ask before paid external actions or publishing anything."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 6,
+                "name": "Check usage and turn it off when finished",
+                "text": "Review the consultation messages and the session’s usage. Compare against a similar bounded task before deciding whether this pairing is worthwhile for your work.\n/usage\n/advisor off"
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://withhammad.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resources",
+                "item": "https://withhammad.com/resources"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Claude Code Fable advisor: Opus builds, Fable advises",
+                "item": "https://withhammad.com/resources/claude-fable-advisor-setup"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "brokenAnchors": []
+  }
+]

@@ -524,12 +524,11 @@ asked to unlock existing Chrome; continue independent edit preparation meanwhile
 ### 11 Nov: first two batch edits delivered; preserve verified voice and credit receipts
 
 The owner unlocked Chrome, then listened to the HIGGS and ADVISOR ElevenLabs v4 narration files and approved
-**“Both match—continue.”** This approves those voices, not the finished packages. Both edited packages are now in
+**“Both match—continue.”** On 11 Nov he also explicitly approved both finished packages: **“Approve HIGGS package”** and **“Approve ADVISOR package.”** Exact approved hashes are recorded in `work/reference-20261110-batch/owner-approvals-20261111.json`. Both edited packages are now in
 the chat workspace `outputs/HIGGS` / `outputs/ADVISOR` and `~/Downloads/11 November/`, with masters, platform exports,
 captions, six glow covers, copy and honest review reports. HIGGS is 34.3 s; ADVISOR is 39.833 s. They retain the
 original generated voice pace and pauses, reference inserts, appropriate animations and original background music.
-The owner has been asked to approve each finished package. Neither is scheduled or posted; their guides still
-returned 404 and rules were draft-only at the release audit. The 10 November delivery portion was missed; do not
+Neither is scheduled or posted: guide pages and HIGGS/ADVISOR rules are prepared in website **PR #21** (commit `fc7b362`), and the owner has been asked to merge it. Both deployed preview pages return200, have one H1, correct production canonicals and FAQ schema; SEO100. Production guides still return404 pending merge. Build/type/lint pass; existing prompt/eval failures reproduce on main. HIGGS mobile LCP2.7s is recorded, not represented as passing the2.5s budget. The 10 November delivery portion was missed; do not
 quietly move this batch beyond 11 November.
 
 Paid HeyGen Usage & History verifies HIGGS **2 voice + 8 avatar = 10 credits**, ADVISOR **2 voice + 19 avatar = 21**,
@@ -545,10 +544,20 @@ the narration. Full renders and exports pass H.264, limited BT.709, 1080×1920/3
 audio gates (masters −14.3 LUFS / −1.9 dBTP). Split-panel head crops and source-presenter transition fragments were
 fixed locally. Technical metering is not an assertion that the agent listened; the owner reviewed the exact voices.
 
-FABLE's one narration take is generated (99.239 s, quoted 6 credits), with the same UI-verified settings. Its voice
-review is pending before avatar spend. The closest saved look is Podcaster in blue sweater (gray room, framed wall,
-microphone); paid look generation is not authorized by the free-look preference. FABLE edit preparation continues.
-CLONE and BENCH remain pending. Do not rerun preparation over paid ledgers or replace actual captions with uniform
+FABLE's one narration take is 99.239 seconds (quote 6, actual 5 credits), using the same UI-verified settings.
+The owner approved the exact take: **“Voice matches—continue.”** One accepted camera render completed as
+`e9e9dc0d691c42cda55d20d5050411f8`: 44.48 seconds, 720×1280, 25 fps, existing Podcaster in blue sweater look,
+Expressive motion and Enthusiastic expression. Its actual charge is 30 credits; FABLE totals 35, leaving 137
+on the account after CLONE's narration. The first Generate attempt left an uncharged Draft; the independent
+draft and itemized 167-credit balance were checked before resuming the same draft. No paid retry was purchased.
+Root inspected all 178 frames at 4 fps; source visuals passed. Waveform alignment measured +23 ms with no drift.
+The complete 99.267-second edit is delivered in `~/Downloads/11 November/` and chat `outputs/FABLE`, with platform exports, SRT, covers, copy and starter skill. It passed root visual review and technical checks (master −14.4 LUFS / −1.9 dBTP); the finished-package approval has been requested. Captions now clear the chin, and blurred fill replaces gray sidebars.
+
+CLONE's one narration is 54.282 seconds and costs 3 credits (quote 4); its exact voice review has been requested
+before any avatar spend. Its real-timing visual draft has 146 aligned display tokens. The all-camera PCM is byte
+identical to the narration; `prepare_voice.py` now preserves all caption words in that exact-identity case,
+including a word crossing a segment boundary. No audio, pace or pauses changed. BENCH is now in local preparation with one corrected 75.233-second narration (4 credits), leaving 133 credits. Its reference is faceless, so no avatar is required. The owner has been asked to confirm the exact voice and accept its natural length, 1.533 seconds beyond the 10% limit. No paid retry or speed change is authorized.
+Do not rerun preparation over paid ledgers or replace actual captions with uniform
 preflight timings.
 
 Chrome upload recovery: extension file upload may require “Allow access to file URLs,” but the **native Mac Open
@@ -564,3 +573,22 @@ Owner clarification: **add the approved thumbnail** to his manually uploaded Sho
 REPO Short `J15kXiijiZI` belongs to channel `UCJtrEDGg1R3kNe7t7PQFiEw`, published 10 Nov at 10:48:07 GST. The approved `cover_1080x1920.jpg` was applied at 10:53:16 GST. Owner API readback reports `hasCustomThumbnail: true`; its live `sardefault.jpg` was downloaded and visually matched. Title/description were already correct and preserved; 11 prepared tags added, English/Science & Technology/public confirmed, self-declared not-for-kids saved. Uploaded the corrected SRT once; the standard English track is `serving`. API accepted the synthetic-content request but does not return that field; the later Studio check confirmed **Yes, AI was used**. Do not interpret an absent API field as a disabled disclosure. The original automatic English track was retained.
 
 Publisher receipt and one posted queue row now prevent duplicate YouTube uploads. The REPO rule matches the live guide (HTTP 200); latest check found zero Short comments and no new eligible channel-wide replies. Bot is active, but actual REPO reply delivery is not yet demonstrated. The owner unlocked the Mac. Studio now confirms Comments On, Subscribers and members, Any duration and Basic moderation, with “All changes saved.” AI disclosure is Yes. Added **REPO — Five AI Repos** to profile Links, preserving the existing five links, and verified it on the public @with.hammad About panel. A live bot run around 12:29 GST read 500 threads, skipped 11 already answered and sent zero new replies; this Short still has zero comments. No Studio setup blockers remain for this Short. No paid-tool credits used. Proof: `outputs/video-pipeline/reviews/2026-11-10-repo-youtube-settings.json`.
+
+
+Release timing: the current queue, three-hour actual spacing and native-sound windows cannot fit both newly
+approved packages on all six platforms on 11 November. The owner has been asked to choose whether this batch
+should displace older bookings or be allowed beyond 11 November. No bookings were moved or added. The read-only
+plan is `work/reference-20261110-batch/site-pr21/release-slot-plan-readonly.md`. Both approved lesson metadata
+files now link their exact job-root SRT for LinkedIn upload.
+
+
+Optional phone-sound exports for HIGGS and ADVISOR are in `~/Downloads/11 November/<KEYWORD> - Manual Upload`.
+They preserve the exact approved video bitstreams and use the original narration with constant peak-limited gain,
+without music; the approved masters remain unchanged. Both peak at −2.5 dBTP. Voice-only loudness is −22.6/−23.3
+LUFS respectively, so these are phone-mixing inputs, not final mastered mixes. Preview the chosen native sound
+against the voice. PR #21, live keyword routes and confirmed bookings are still required before upload.
+
+BENCH local preparation now has 19 inspected stills covering all reference beats, exact-source caption alignment,
+scoped TypeScript/ESLint and six-platform copy checks. The final entry blocks an out-of-range length unless the
+owner explicitly accepts it. Current stills supersede the older silent draft, which is marked pre-safe-zone-review.
+No final music mix or publishable BENCH cut exists yet. See `work/reference-20261110-batch/BENCH-INTEGRATION.md`.

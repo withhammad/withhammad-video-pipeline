@@ -1,0 +1,87 @@
+{
+  "pr": "https://github.com/withhammad/withhammad-rebuild/pull/21",
+  "commit": "fc7b36206ff758811e6794f6bcd6cd1e95cec996",
+  "base": "52c4c92",
+  "build": true,
+  "typecheck": true,
+  "lint": {
+    "errors": 0,
+    "existingWarnings": 5
+  },
+  "viewportWidths": [
+    390,
+    1440
+  ],
+  "overflow": false,
+  "singleH1": true,
+  "serverRendered": true,
+  "uniqueMetadataAndOg": true,
+  "resourceIndexAndSitemap": true,
+  "keywordRules": {
+    "positiveCaseInsensitive": true,
+    "negativeSubstring": true,
+    "exactApprovedUrls": true,
+    "remoteMessagesSent": false
+  },
+  "lighthouse": {
+    "higgs": {
+      "scores": {
+        "performance": 95,
+        "accessibility": 96,
+        "seo": 100
+      },
+      "LCP": "2.7\u00a0s",
+      "CLS": "0.022",
+      "TBT": "110\u00a0ms"
+    },
+    "advisor": {
+      "scores": {
+        "performance": 97,
+        "accessibility": 96,
+        "seo": 100
+      },
+      "LCP": "2.4\u00a0s",
+      "CLS": "0",
+      "TBT": "90\u00a0ms"
+    }
+  },
+  "existingBaselineFailures": {
+    "promptGovernance": 64,
+    "agentEvals": "JARVIS Arabic FAQ has5 versus English7",
+    "baselineLogsByteIdentical": true,
+    "siteSeo": "1 of382routes fails: /resources/ai-business missing JSON-LD, also absent on production"
+  },
+  "productionGuides": {
+    "HIGGS": 404,
+    "ADVISOR": 404
+  },
+  "ownerMergeRequired": true,
+  "productionDeployed": false,
+  "limitations": [
+    "HIGGS mobile LCP2.7s exceeds2.5s budget; repeated run agrees. Performance95 exceeds85 score floor.",
+    "INP requires field interaction measurement; lab TBT is not INP.",
+    "CI blocked by reproduced pre-existing prompt governance drift."
+  ],
+  "preview": {
+    "url": "https://withhammad-rebuild-8wzdgqb08-hammad-s-projects9.vercel.app",
+    "deploymentId": "dpl_GbwqzmymANmUSG7sAhoWGx5cdPt8",
+    "ready": true,
+    "authMethod": "vercel curl, correct linked project",
+    "routes": {
+      "higgs": {
+        "status": 200,
+        "title": "Higgsfield Claude MCP: Setup and Video Prompt",
+        "h1Count": 1,
+        "canonical": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+        "faqSchema": true
+      },
+      "advisor": {
+        "status": 200,
+        "title": "Claude Code Fable Advisor: Setup and Cost Checks",
+        "h1Count": 1,
+        "canonical": "https://withhammad.com/resources/claude-fable-advisor-setup",
+        "faqSchema": true
+      }
+    }
+  }
+}

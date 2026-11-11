@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-11",
+  "packages": [
+    {
+      "approved_at": "2026-11-11",
+      "statement": "Approve HIGGS package",
+      "keyword": "HIGGS",
+      "job": "ee41d72bf8cd",
+      "video_sha256": "6b70d8ef8595208663af82cea51e5f0e5c5ef87066260d05c2edfa08f0368def",
+      "copy_sha256": "23d05e0c78c7ff773c0c6f1fc6b8129a341f97859a760229e6be9774ecfed3aa",
+      "cover_sha256": "7b076cf8e285329c9b5d623030e55b9fd54ac3222bca26133c7aedc611ba444a",
+      "platform_cover_sha256": {
+        "instagram": "9eeb9bd4282e6bd19d6c9415b0d1e0b5673f03c1f8edb5557c3dd27296cdfa10",
+        "facebook": "9eeb9bd4282e6bd19d6c9415b0d1e0b5673f03c1f8edb5557c3dd27296cdfa10",
+        "linkedin": "047c380574b75fb33321871a24b32fe96b61f5de436c43d6ece1825e2f7cc105",
+        "youtube": "4fd1e65457a7c534ec67dc0455dc2be04b60b4e32faad80fb36f025a3355db19",
+        "tiktok": "9eeb9bd4282e6bd19d6c9415b0d1e0b5673f03c1f8edb5557c3dd27296cdfa10",
+        "x": "4fd1e65457a7c534ec67dc0455dc2be04b60b4e32faad80fb36f025a3355db19"
+      },
+      "condition": "Resource guide and keyword reply rule live before scheduling or release; owner merges website PR",
+      "scheduled": false,
+      "posted": false
+    },
+    {
+      "approved_at": "2026-11-11",
+      "statement": "Approve ADVISOR package",
+      "keyword": "ADVISOR",
+      "job": "62eec03e1e93",
+      "video_sha256": "b94d2e866fd0eafcddc8b403dc59cccf0ddfb0ce8f6abc7656eba2010198e48d",
+      "copy_sha256": "44c91664cd33ad03413079fbe9e4a70c27e6d0bcdb0b9ffb59c27673310c6f15",
+      "cover_sha256": "3eda701f3aee88a026e031c123e7d62121cc2bced493f2ed8ed72f871f519fc3",
+      "platform_cover_sha256": {
+        "instagram": "3eda701f3aee88a026e031c123e7d62121cc2bced493f2ed8ed72f871f519fc3",
+        "facebook": "3eda701f3aee88a026e031c123e7d62121cc2bced493f2ed8ed72f871f519fc3",
+        "linkedin": "2a4166828a1e6eeb406806063787075b0ce2afa408c2004949866a59da30baef",
+        "youtube": "faffe40f54f6b02b4f42f28af2692006838172fd68575a472c511ea9b1a356d6",
+        "tiktok": "3eda701f3aee88a026e031c123e7d62121cc2bced493f2ed8ed72f871f519fc3",
+        "x": "faffe40f54f6b02b4f42f28af2692006838172fd68575a472c511ea9b1a356d6"
+      },
+      "condition": "Resource guide and keyword reply rule live before scheduling or release; owner merges website PR",
+      "scheduled": false,
+      "posted": false
+    }
+  ],
+  "FABLE_voice": {
+    "approved": true,
+    "ownerMessage": "Voice matches—continue",
+    "clientDate": "2026-11-11",
+    "sourceSha256": "864456dbd440f213ad1adfafe2eb5df4fd67679082e69a56391514e2ef88cf23",
+    "scope": "Exact FABLE narration voice likeness and energy; continue single matching-look avatar render. Final edited package requires separate approval.",
+    "avatarApproved": false
+  }
+}

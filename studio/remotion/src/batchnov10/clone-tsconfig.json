@@ -1,0 +1,1 @@
+{"extends":"../../tsconfig.json","include":["Clone.tsx","clone-entry.tsx","clone.preflight.json","types.ts","../fonts.ts"],"exclude":[]}

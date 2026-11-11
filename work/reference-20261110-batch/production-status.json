@@ -14,7 +14,7 @@
       "reference_seconds": 34.2,
       "script_words": 89,
       "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
-      "state": "awaiting_package_approval",
+      "state": "approved_guide_pr_pending_merge",
       "credits_spent": 10,
       "platforms": {
         "youtube": {
@@ -43,11 +43,13 @@
         }
       },
       "copy_checks_passed": 6,
-      "owner_approved": false,
+      "owner_approved": true,
       "voice_owner_approved": true,
       "voice_approval_date": "2026-11-11",
       "voice_quote_credits": 2,
-      "credit_note": "Itemized HeyGen history: voice2/avatar8"
+      "credit_note": "Itemized HeyGen history: voice2/avatar8",
+      "approval_record": "owner-approvals-20261111.json",
+      "website_pr": "https://github.com/withhammad/withhammad-rebuild/pull/21"
     },
     {
       "job": "62eec03e1e93",
@@ -57,7 +59,7 @@
       "reference_seconds": 42.1,
       "script_words": 113,
       "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
-      "state": "awaiting_package_approval",
+      "state": "approved_guide_pr_pending_merge",
       "credits_spent": 21,
       "platforms": {
         "youtube": {
@@ -86,11 +88,13 @@
         }
       },
       "copy_checks_passed": 6,
-      "owner_approved": false,
+      "owner_approved": true,
       "voice_owner_approved": true,
       "voice_approval_date": "2026-11-11",
       "voice_quote_credits": 3,
-      "credit_note": "Itemized HeyGen history: voice2/avatar19"
+      "credit_note": "Itemized HeyGen history: voice2/avatar19",
+      "approval_record": "owner-approvals-20261111.json",
+      "website_pr": "https://github.com/withhammad/withhammad-rebuild/pull/21"
     },
     {
       "job": "c5bc128a0a8d",
@@ -100,8 +104,8 @@
       "reference_seconds": 108.7,
       "script_words": 281,
       "resource_url": "https://withhammad.com/resources/fable-creative-project-starter",
-      "state": "awaiting_voice_approval",
-      "credits_spent": null,
+      "state": "finished_package_awaiting_owner",
+      "credits_spent": 35,
       "platforms": {
         "youtube": {
           "state": "not_booked",
@@ -133,9 +137,14 @@
       "voice_quote_credits": 6,
       "narration_seconds": 99.23918367346938,
       "camera_upload_seconds": 44.47251700680272,
-      "voice_owner_approved": false,
-      "avatar_submitted": false,
-      "look_candidate": "Podcaster in blue sweater"
+      "voice_owner_approved": true,
+      "avatar_submitted": true,
+      "look_candidate": "Podcaster in blue sweater",
+      "accepted_avatar_submissions": 1,
+      "credit_note": "Itemized HeyGen history: voice5/avatar30; one accepted render",
+      "avatar_id": "e9e9dc0d691c42cda55d20d5050411f8",
+      "final_seconds": 99.26666666666667,
+      "final_file": "/Users/hammad/Downloads/11 November/FABLE - Creative projects, pricing and starter skill.mp4"
     },
     {
       "job": "0e375e205e9d",
@@ -145,8 +154,8 @@
       "reference_seconds": 54.9,
       "script_words": 148,
       "resource_url": "https://withhammad.com/resources/claude-avatar-workflow-checklist",
-      "state": "preproduction",
-      "credits_spent": 0,
+      "state": "narration_ready_owner_voice_review",
+      "credits_spent": 3,
       "platforms": {
         "youtube": {
           "state": "not_booked",
@@ -174,7 +183,15 @@
         }
       },
       "copy_checks_passed": 6,
-      "owner_approved": false
+      "owner_approved": false,
+      "voice_quote_credits": 4,
+      "voice_owner_approved": false,
+      "credit_note": "Voice3actual, quote4; noavatar",
+      "narration_seconds": 54.282448979591834,
+      "camera_upload_seconds": 54.282448979591834,
+      "caption_words": 146,
+      "voice_source_sha256": "9f6df9b3d778d5b268ee43fbe76ae89f9307886ca5050a71aee8e2bc82c8d8d7",
+      "visual_draft_review": "clone-layout-review.json"
     },
     {
       "job": "e25d352a1b20",
@@ -182,10 +199,10 @@
       "reference": "DfiSD87RqEA",
       "title": "Fable 5.2 benchmarks explained",
       "reference_seconds": 67.0,
-      "script_words": 174,
+      "script_words": 175,
       "resource_url": "https://withhammad.com/resources/fable-benchmarks-explained",
-      "state": "preproduction",
-      "credits_spent": 0,
+      "state": "voice_and_duration_review_pending",
+      "credits_spent": 4,
       "platforms": {
         "youtube": {
           "state": "not_booked",
@@ -213,9 +230,29 @@
         }
       },
       "copy_checks_passed": 6,
-      "owner_approved": false
+      "owner_approved": false,
+      "voice_quote_credits": 4,
+      "narration_seconds": 75.23265306122448,
+      "caption_words": 170,
+      "voice_owner_approved": false,
+      "duration_exception_pending": true,
+      "avatar_required": false,
+      "voice_source_sha256": "429724519a16571fe8701cec16e8670b6bb0c9f4bd6c1aeb67646b6bc71be130",
+      "visual_draft_review": "bench-layout-review.json"
     }
   ],
   "blocker": null,
-  "schedule_note": "10 November portion missed; no booking or rollover beyond 11 November. Finished-package approval and live guides remain required."
+  "schedule_note": "10 November portion missed. No new bookings or rollover beyond 11 November. PR21 merge and live guides required; existing queue plus 3-hour spacing/native-sound windows cannot fit both approved packages on all6today. Owner asked whether to prioritize this batch by moving older bookings or allow later dates. See site-pr21/release-slot-plan-readonly.md.",
+  "verification": {
+    "studio_pytest": {
+      "passed": 646,
+      "warnings": 1,
+      "seconds": 81.45
+    },
+    "fable_final": "fable-delivery-review.json",
+    "clone_preflight": "clone-layout-review.json",
+    "bench_preflight": "bench-layout-review.json",
+    "website": "site-pr21/validation.json",
+    "phone_exports": "phone-exports-proof.json"
+  }
 }

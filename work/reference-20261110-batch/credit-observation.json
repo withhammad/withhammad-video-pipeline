@@ -11,7 +11,7 @@
   "avatar_higgs": "completed, one take, actual 1080p default",
   "avatar_advisor": "completed, one take, 720p selected",
   "after_both_avatar_submissions_refresh": 175,
-  "observed_total_batch_debit": 31,
+  "observed_total_batch_debit": 73,
   "observed_avatar_combined_debit": 27,
   "proof": "credits-175.png",
   "itemized_receipts": {
@@ -24,13 +24,52 @@
       "narration": 2,
       "avatar": 19,
       "total": 21
+    },
+    "FABLE": {
+      "narration": 5,
+      "avatar": 30,
+      "total": 35
+    },
+    "CLONE": {
+      "narration": 3,
+      "avatar": 0,
+      "total": 3
+    },
+    "BENCH": {
+      "narration": 4,
+      "avatar": 0,
+      "total": 4
     }
   },
   "receipt_proof": "credit-history-175.png",
   "FABLE": {
     "narration_quote": 6,
-    "narration_actual": null,
-    "avatar_submitted": false,
-    "voice_review_pending": true
-  }
+    "narration_actual": 5,
+    "avatar_submitted": true,
+    "voice_review_pending": false,
+    "voice_approved": true,
+    "avatar_actual": 30,
+    "total": 35,
+    "avatar_state": "completed",
+    "accepted_avatar_submissions": 1
+  },
+  "CLONE": {
+    "narration_quote": 4,
+    "narration_actual": 3,
+    "voice_review_pending": true,
+    "avatar_submitted": false
+  },
+  "balance_before_fable_avatar": 167,
+  "receipt_proof_voice_fable_clone": "credit-history-167.png",
+  "observed_total_batch_debit_before_fable_avatar": 39,
+  "after_fable_avatar": 137,
+  "latest_receipt_proof": "credit-history-133.png",
+  "BENCH": {
+    "narration_quote": 4,
+    "narration_actual": 4,
+    "avatar_required": false,
+    "voice_review_pending": true,
+    "duration_exception_pending": true
+  },
+  "after_bench_narration": 133
 }

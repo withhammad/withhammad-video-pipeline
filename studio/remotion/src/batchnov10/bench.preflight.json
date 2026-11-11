@@ -1,0 +1,1347 @@
+{
+  "job": "e25d352a1b20",
+  "keyword": "BENCH",
+  "duration": 67,
+  "draft": true,
+  "timingSource": "preflight",
+  "voiceVerified": false,
+  "words": [
+    {
+      "text": "Fable",
+      "startMs": 0,
+      "endMs": 383,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "five",
+      "startMs": 383,
+      "endMs": 766,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "point",
+      "startMs": 766,
+      "endMs": 1149,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "two",
+      "startMs": 1149,
+      "endMs": 1531,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "more",
+      "startMs": 1531,
+      "endMs": 1914,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "than",
+      "startMs": 1914,
+      "endMs": 2297,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "doubled",
+      "startMs": 2297,
+      "endMs": 2680,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "GPT-six",
+      "startMs": 2680,
+      "endMs": 3063,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Astra",
+      "startMs": 3063,
+      "endMs": 3446,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "on",
+      "startMs": 3446,
+      "endMs": 3829,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "this",
+      "startMs": 3829,
+      "endMs": 4211,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "robotics",
+      "startMs": 4211,
+      "endMs": 4594,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "benchmark!",
+      "startMs": 4594,
+      "endMs": 4977,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "In",
+      "startMs": 4977,
+      "endMs": 5360,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Anthropic's",
+      "startMs": 5360,
+      "endMs": 5743,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "reported",
+      "startMs": 5743,
+      "endMs": 6126,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "tests,",
+      "startMs": 6126,
+      "endMs": 6509,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "robotics",
+      "startMs": 6509,
+      "endMs": 6891,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "was",
+      "startMs": 6891,
+      "endMs": 7274,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "about",
+      "startMs": 7274,
+      "endMs": 7657,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "sixty-five",
+      "startMs": 7657,
+      "endMs": 8040,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "percent",
+      "startMs": 8040,
+      "endMs": 8423,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "versus",
+      "startMs": 8423,
+      "endMs": 8806,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "thirty.",
+      "startMs": 8806,
+      "endMs": 9189,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Remote",
+      "startMs": 9189,
+      "endMs": 9571,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "work",
+      "startMs": 9571,
+      "endMs": 9954,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "tasks:",
+      "startMs": 9954,
+      "endMs": 10337,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "forty-one",
+      "startMs": 10337,
+      "endMs": 10720,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "percent,",
+      "startMs": 10720,
+      "endMs": 11103,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "versus",
+      "startMs": 11103,
+      "endMs": 11486,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "about",
+      "startMs": 11486,
+      "endMs": 11869,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "twenty-one",
+      "startMs": 11869,
+      "endMs": 12251,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "for",
+      "startMs": 12251,
+      "endMs": 12634,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Opus",
+      "startMs": 12634,
+      "endMs": 13017,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "and",
+      "startMs": 13017,
+      "endMs": 13400,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "GPT-six",
+      "startMs": 13400,
+      "endMs": 13783,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Astra.",
+      "startMs": 13783,
+      "endMs": 14166,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Humanity's",
+      "startMs": 14166,
+      "endMs": 14549,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Last",
+      "startMs": 14549,
+      "endMs": 14931,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Exam,",
+      "startMs": 14931,
+      "endMs": 15314,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "with",
+      "startMs": 15314,
+      "endMs": 15697,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "tools:",
+      "startMs": 15697,
+      "endMs": 16080,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "seventy-four",
+      "startMs": 16080,
+      "endMs": 16463,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "versus",
+      "startMs": 16463,
+      "endMs": 16846,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "fifty-seven.",
+      "startMs": 16846,
+      "endMs": 17229,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Real",
+      "startMs": 17229,
+      "endMs": 17611,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "coding",
+      "startMs": 17611,
+      "endMs": 17994,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "projects:",
+      "startMs": 17994,
+      "endMs": 18377,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "seventy",
+      "startMs": 18377,
+      "endMs": 18760,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "versus",
+      "startMs": 18760,
+      "endMs": 19143,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Gemini's",
+      "startMs": 19143,
+      "endMs": 19526,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "sixty-one.",
+      "startMs": 19526,
+      "endMs": 19909,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Computer",
+      "startMs": 19909,
+      "endMs": 20291,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "use:",
+      "startMs": 20291,
+      "endMs": 20674,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "eighty-nine",
+      "startMs": 20674,
+      "endMs": 21057,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "versus",
+      "startMs": 21057,
+      "endMs": 21440,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "almost",
+      "startMs": 21440,
+      "endMs": 21823,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "eighty.",
+      "startMs": 21823,
+      "endMs": 22206,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Scientific",
+      "startMs": 22206,
+      "endMs": 22589,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "research",
+      "startMs": 22589,
+      "endMs": 22971,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "tasks:",
+      "startMs": 22971,
+      "endMs": 23354,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "roughly",
+      "startMs": 23354,
+      "endMs": 23737,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "seventy-five",
+      "startMs": 23737,
+      "endMs": 24120,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "versus",
+      "startMs": 24120,
+      "endMs": 24503,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "sixty-five.",
+      "startMs": 24503,
+      "endMs": 24886,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Mythos",
+      "startMs": 24886,
+      "endMs": 25269,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "reported",
+      "startMs": 25269,
+      "endMs": 25651,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "seventy-six",
+      "startMs": 25651,
+      "endMs": 26034,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "percent",
+      "startMs": 26034,
+      "endMs": 26417,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "in",
+      "startMs": 26417,
+      "endMs": 26800,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "cybersecurity,",
+      "startMs": 26800,
+      "endMs": 27183,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "versus",
+      "startMs": 27183,
+      "endMs": 27566,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "GPT-six",
+      "startMs": 27566,
+      "endMs": 27949,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Cyber's",
+      "startMs": 27949,
+      "endMs": 28331,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "sixty-one,",
+      "startMs": 28331,
+      "endMs": 28714,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "but",
+      "startMs": 28714,
+      "endMs": 29097,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "on",
+      "startMs": 29097,
+      "endMs": 29480,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "different",
+      "startMs": 29480,
+      "endMs": 29863,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "task",
+      "startMs": 29863,
+      "endMs": 30246,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "sets.",
+      "startMs": 30246,
+      "endMs": 30629,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "These",
+      "startMs": 30629,
+      "endMs": 31011,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "are",
+      "startMs": 31011,
+      "endMs": 31394,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "specific",
+      "startMs": 31394,
+      "endMs": 31777,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "tests,",
+      "startMs": 31777,
+      "endMs": 32160,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "not",
+      "startMs": 32160,
+      "endMs": 32543,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "proof",
+      "startMs": 32543,
+      "endMs": 32926,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "that",
+      "startMs": 32926,
+      "endMs": 33309,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "one",
+      "startMs": 33309,
+      "endMs": 33691,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "model",
+      "startMs": 33691,
+      "endMs": 34074,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "wins",
+      "startMs": 34074,
+      "endMs": 34457,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "everything.",
+      "startMs": 34457,
+      "endMs": 34840,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Against",
+      "startMs": 34840,
+      "endMs": 35223,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "the",
+      "startMs": 35223,
+      "endMs": 35606,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "previous",
+      "startMs": 35606,
+      "endMs": 35989,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Fable,",
+      "startMs": 35989,
+      "endMs": 36371,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "robotics",
+      "startMs": 36371,
+      "endMs": 36754,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "and",
+      "startMs": 36754,
+      "endMs": 37137,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "remote-work",
+      "startMs": 37137,
+      "endMs": 37520,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "scores",
+      "startMs": 37520,
+      "endMs": 37903,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "more",
+      "startMs": 37903,
+      "endMs": 38286,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "than",
+      "startMs": 38286,
+      "endMs": 38669,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "doubled.",
+      "startMs": 38669,
+      "endMs": 39051,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "And",
+      "startMs": 39051,
+      "endMs": 39434,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "a",
+      "startMs": 39434,
+      "endMs": 39817,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "team",
+      "startMs": 39817,
+      "endMs": 40200,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "of",
+      "startMs": 40200,
+      "endMs": 40583,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "a",
+      "startMs": 40583,
+      "endMs": 40966,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "thousand",
+      "startMs": 40966,
+      "endMs": 41349,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "agents",
+      "startMs": 41349,
+      "endMs": 41731,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "formalized",
+      "startMs": 41731,
+      "endMs": 42114,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Fermat's",
+      "startMs": 42114,
+      "endMs": 42497,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Last",
+      "startMs": 42497,
+      "endMs": 42880,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Theorem",
+      "startMs": 42880,
+      "endMs": 43263,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "in",
+      "startMs": 43263,
+      "endMs": 43646,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "thirty",
+      "startMs": 43646,
+      "endMs": 44029,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "hours,",
+      "startMs": 44029,
+      "endMs": 44411,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "making",
+      "startMs": 44411,
+      "endMs": 44794,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "the",
+      "startMs": 44794,
+      "endMs": 45177,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "proof",
+      "startMs": 45177,
+      "endMs": 45560,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "machine-checkable.",
+      "startMs": 45560,
+      "endMs": 45943,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "That",
+      "startMs": 45943,
+      "endMs": 46326,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "wasn't",
+      "startMs": 46326,
+      "endMs": 46709,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "a",
+      "startMs": 46709,
+      "endMs": 47091,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "new",
+      "startMs": 47091,
+      "endMs": 47474,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "discovery",
+      "startMs": 47474,
+      "endMs": 47857,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "of",
+      "startMs": 47857,
+      "endMs": 48240,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "the",
+      "startMs": 48240,
+      "endMs": 48623,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "theorem.",
+      "startMs": 48623,
+      "endMs": 49006,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Opus",
+      "startMs": 49006,
+      "endMs": 49389,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "reached",
+      "startMs": 49389,
+      "endMs": 49771,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "about",
+      "startMs": 49771,
+      "endMs": 50154,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "a",
+      "startMs": 50154,
+      "endMs": 50537,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "quarter",
+      "startMs": 50537,
+      "endMs": 50920,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "in",
+      "startMs": 50920,
+      "endMs": 51303,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "the",
+      "startMs": 51303,
+      "endMs": 51686,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "same",
+      "startMs": 51686,
+      "endMs": 52069,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "comparison.",
+      "startMs": 52069,
+      "endMs": 52451,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "You",
+      "startMs": 52451,
+      "endMs": 52834,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "can",
+      "startMs": 52834,
+      "endMs": 53217,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "use",
+      "startMs": 53217,
+      "endMs": 53600,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Fable",
+      "startMs": 53600,
+      "endMs": 53983,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "five",
+      "startMs": 53983,
+      "endMs": 54366,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "point",
+      "startMs": 54366,
+      "endMs": 54749,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "two",
+      "startMs": 54749,
+      "endMs": 55131,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "in",
+      "startMs": 55131,
+      "endMs": 55514,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Claude",
+      "startMs": 55514,
+      "endMs": 55897,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Code",
+      "startMs": 55897,
+      "endMs": 56280,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "if",
+      "startMs": 56280,
+      "endMs": 56663,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "your",
+      "startMs": 56663,
+      "endMs": 57046,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "account",
+      "startMs": 57046,
+      "endMs": 57429,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "has",
+      "startMs": 57429,
+      "endMs": 57811,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "access.",
+      "startMs": 57811,
+      "endMs": 58194,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Choose",
+      "startMs": 58194,
+      "endMs": 58577,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "it",
+      "startMs": 58577,
+      "endMs": 58960,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "for",
+      "startMs": 58960,
+      "endMs": 59343,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "demanding",
+      "startMs": 59343,
+      "endMs": 59726,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "work,",
+      "startMs": 59726,
+      "endMs": 60109,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "check",
+      "startMs": 60109,
+      "endMs": 60491,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "your",
+      "startMs": 60491,
+      "endMs": 60874,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "costs,",
+      "startMs": 60874,
+      "endMs": 61257,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "and",
+      "startMs": 61257,
+      "endMs": 61640,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "review",
+      "startMs": 61640,
+      "endMs": 62023,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "the",
+      "startMs": 62023,
+      "endMs": 62406,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "result.",
+      "startMs": 62406,
+      "endMs": 62789,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "Follow",
+      "startMs": 62789,
+      "endMs": 63171,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "me",
+      "startMs": 63171,
+      "endMs": 63554,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "and",
+      "startMs": 63554,
+      "endMs": 63937,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "comment",
+      "startMs": 63937,
+      "endMs": 64320,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "BENCH",
+      "startMs": 64320,
+      "endMs": 64703,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "for",
+      "startMs": 64703,
+      "endMs": 65086,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "the",
+      "startMs": 65086,
+      "endMs": 65469,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "benchmarks",
+      "startMs": 65469,
+      "endMs": 65851,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "and",
+      "startMs": 65851,
+      "endMs": 66234,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "setup",
+      "startMs": 66234,
+      "endMs": 66617,
+      "timestampMs": null,
+      "confidence": null
+    },
+    {
+      "text": "guide!",
+      "startMs": 66617,
+      "endMs": 67000,
+      "timestampMs": null,
+      "confidence": null
+    }
+  ],
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.977142857142857,
+      "ref": [
+        0,
+        3.2
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 4.977142857142857,
+      "end": 9.188571428571429,
+      "ref": [
+        3.2,
+        8.2
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 9.188571428571429,
+      "end": 14.165714285714285,
+      "ref": [
+        8.2,
+        14
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 14.165714285714285,
+      "end": 19.908571428571427,
+      "ref": [
+        14,
+        23.5
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 19.908571428571427,
+      "end": 24.885714285714286,
+      "ref": [
+        23.5,
+        33.2
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 24.885714285714286,
+      "end": 34.84,
+      "ref": [
+        33.2,
+        40.2
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 34.84,
+      "end": 39.05142857142857,
+      "ref": [
+        40.2,
+        44.8
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 39.05142857142857,
+      "end": 49.005714285714284,
+      "ref": [
+        44.8,
+        49.4
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 49.005714285714284,
+      "end": 52.451428571428565,
+      "ref": [
+        49.4,
+        51.7
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 52.451428571428565,
+      "end": 62.78857142857143,
+      "ref": [
+        51.7,
+        63
+      ],
+      "camera": false,
+      "avatarStart": 0
+    },
+    {
+      "start": 62.78857142857143,
+      "end": 67.0,
+      "ref": [
+        63,
+        67
+      ],
+      "camera": false,
+      "avatarStart": 0
+    }
+  ]
+}

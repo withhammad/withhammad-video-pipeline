@@ -1,0 +1,39 @@
+{
+  "kind": "internal_real_narration_visual_draft",
+  "packageApproved": false,
+  "voiceVerified": false,
+  "avatarVerified": false,
+  "file": "work/reference-20261110-batch/clone-preflight/layout-draft.mp4",
+  "duration": 54.282448979591834,
+  "frames": 1629,
+  "referenceDuration": 54.9,
+  "durationTolerancePass": true,
+  "codec": "h264",
+  "size": [
+    540,
+    960
+  ],
+  "pixelFormat": "yuv420p",
+  "colorRange": "tv",
+  "actualRecordedCaptionWords": 146,
+  "sourceAudioHash": "9f6df9b3d778d5b268ee43fbe76ae89f9307886ca5050a71aee8e2bc82c8d8d7",
+  "typeScript": "PASS",
+  "eslint": "PASS",
+  "visualReviews": [
+    "all23 layout stills",
+    "full1fps contact sheet",
+    "source crop first/middle/last frames",
+    "whole-head hook repair",
+    "tight model selector repair"
+  ],
+  "sourcePresenterVisible": false,
+  "fullResolutionMaster": false,
+  "musicMixed": false,
+  "subjectiveAudioReviewPerformed": false,
+  "remaining": [
+    "owner exact voice approval",
+    "newCLONE avatar",
+    "4fps filmstrip/lip sync",
+    "full resolution final/audio mix/cover/SEO/package approval"
+  ]
+}

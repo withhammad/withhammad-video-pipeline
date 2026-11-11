@@ -1,5 +1,5 @@
 """Original instrumental + restrained UI ticks; approved narration never retimed.
-Use through studio/heavy.sh. mix_audio.py HIGGS|ADVISOR [--check-final VIDEO]
+Use through studio/heavy.sh. mix_audio.py HIGGS|ADVISOR|FABLE [--check-final VIDEO]
 Outputs are confined to the job's referral-v4 directory. No credit/state ledgers are changed.
 """
 import argparse, hashlib, json, math, subprocess, sys
@@ -15,7 +15,7 @@ def measure(p):return audio.analyze(str(p))
 def check(stats):return -14.5<=stats['lufs']<=-13.5 and stats['true_peak_dbtp']<=-1.5 and stats['clipped_samples']==0
 
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('keyword',choices=['HIGGS','ADVISOR']);ap.add_argument('--check-final',type=Path);args=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument('keyword',choices=['HIGGS','ADVISOR','FABLE']);ap.add_argument('--check-final',type=Path);args=ap.parse_args()
  batch=json.loads(Path(__file__).with_name('batch.json').read_text());j=next(x for x in batch['jobs'] if x['keyword']==args.keyword)
  out=ROOT/'studio/.local/jobs'/j['job']/'referral-v4';props_path=out/'recorded.props.json';props=json.loads(props_path.read_text())
  if args.check_final:
@@ -36,6 +36,7 @@ def main():
  # A static bed level is retained through the final frame. Frequencies avoid the voice's main presence band.
  base=[146.8324,220.0,293.6648,369.9944,440.0]
  if args.keyword=='ADVISOR':base=[130.8128,196.0,261.6256,329.6276,391.9954]
+ if args.keyword=='FABLE':base=[164.8138,246.9417,329.6276,391.9954,493.8833]
  bed=np.zeros((n,2),dtype=np.float64)
  for k,hz in enumerate(base):
   amp=[.44,.28,.20,.16,.12][k]
@@ -55,12 +56,20 @@ def main():
   s=next(s for s in props['segments'] if s['ref'][0]<=ref<s['ref'][1])
   return s['start']+(ref-s['ref'][0])/(s['ref'][1]-s['ref'][0])*(s['end']-s['start'])
  cue_refs=[(5.4,'Offer toggle'),(16.8,'Connector settings')] if args.keyword=='HIGGS' else [(19.1,'Select Opus'),(22.9,'Enable Fable advisor'),(29.8,'Reported cost comparison')]
+ if args.keyword=='FABLE':
+  # Fable.visualClock extends chapter 3 to 1.5s and retains three .31s montage shots.
+  # Mirror its corrected chapter onset; all other cues use recorded segment mapping.
+  build=next(s for s in props['segments'] if s['ref'][0]==72)
+  rate=(build['end']-build['start'])/(build['ref'][1]-build['ref'][0])
+  chapter3_ref=72+(7*rate-1.5-.93-.3)/rate if 1.5*rate<1.5 else 74
+  cue_refs=sorted([(10,'Use cases chapter'),(60.7,'Pricing chapter'),(66.5,'Standard API price reveal'),(chapter3_ref,'Build chapter'),(99,'Starter skill reveal')])
+ tick_peak_db=-37 if args.keyword=='FABLE' else -34
  sfx=np.zeros_like(voice);cues=[]
  for i,(ref,purpose) in enumerate(cue_refs):
   at=recorded_time(ref);tick=audio.make_sfx('tick',seed=110+i)
-  tick*=10**(-34/20)/max(1e-10,float(np.max(np.abs(tick))))
+  tick*=10**(tick_peak_db/20)/max(1e-10,float(np.max(np.abs(tick))))
   start=round(at*SR);count=min(len(tick),n-start);sfx[start:start+count]+=tick[:count]
-  cues.append({'referenceTime':ref,'recordedTime':at,'kind':'original procedural tick','purpose':purpose,'premasterPeakDbfs':-34})
+  cues.append({'referenceTime':ref,'recordedTime':at,'kind':'original procedural tick','purpose':purpose,'premasterPeakDbfs':tick_peak_db})
  audio.write_wav(out/'sfx_ticks.wav',sfx,SR,seed=1113)
  audio.write_wav(out/'mix_unmastered.wav',voice+bed+sfx,SR,seed=1114)
  # Two-pass whole-mix loudness/true-peak mastering; source voice remains an unfiltered unity-gain stem.

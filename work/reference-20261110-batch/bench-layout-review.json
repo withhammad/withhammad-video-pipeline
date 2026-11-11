@@ -1,0 +1,58 @@
+{
+  "job": "e25d352a1b20",
+  "keyword": "BENCH",
+  "state": "local_visual_preflight_pass_pending_owner_voice_and_duration",
+  "timingSource": "recorded",
+  "narrationSha256": "429724519a16571fe8701cec16e8670b6bb0c9f4bd6c1aeb67646b6bc71be130",
+  "durationSeconds": 75.2326530612245,
+  "frames": 2257,
+  "spokenScriptWords": 175,
+  "measuredDisplayTokens": 170,
+  "scriptMatch": true,
+  "timingErrors": [],
+  "captionOverlapErrors": [],
+  "nativePacePreserved": true,
+  "voiceVerified": false,
+  "durationExceptionApproved": false,
+  "avatarRequired": false,
+  "finalMixedAudioCreated": false,
+  "fullFinalCreated": false,
+  "subjectiveAudioAuditionPerformed": false,
+  "visualReview": {
+    "passed": true,
+    "stills": 19,
+    "allReferenceBeatsIncluded": true,
+    "longestCaptionInspected": true,
+    "afterNarrationCtaHoldInspected": true,
+    "brandY": 225,
+    "captionTop": 1370,
+    "captionFontPx": 38,
+    "captionLineHeight": 1.15,
+    "captionPaddingVerticalTotal": 26,
+    "twoLineCaptionBottom": 1483.4,
+    "blockScaleLabel": "Each block \u2248 5 percentage points",
+    "cyberCaveat": "Different tasks for each lab",
+    "setupUiLabel": "SETUP ILLUSTRATION"
+  },
+  "checks": {
+    "scopedTypeScript": "pass",
+    "scopedEslint": "pass",
+    "sixPlatformSeoCaption": "pass"
+  },
+  "fullSilentVideo": "BENCH-silent-pre-safezone-review.mp4 \u2014 earlier draft, before safe-zone/CTA-tail fixes; CURRENT stills supersede it. No updated full render requested.",
+  "requiredBeforeFinal": [
+    "Exact owner voice approval tied to original narration SHA256",
+    "Explicit owner acceptance of 75.233-second duration, tied to same source hash",
+    "Final render helper must verify approval records/hashes before setting durationExceptionApproved",
+    "Final mix and technical validation",
+    "Six covers and finished-package review"
+  ],
+  "sourcePaths": [
+    "studio/remotion/src/batchnov10/Bench.tsx",
+    "studio/remotion/src/batchnov10/bench-entry.tsx",
+    "studio/remotion/src/batchnov10/bench.preflight.json",
+    "work/reference-20261110-batch/render_bench_preflight.mjs",
+    "work/reference-20261110-batch/resources/BENCH.md",
+    "work/reference-20261110-batch/prepare_voice.py (BENCH-only normalization)"
+  ]
+}

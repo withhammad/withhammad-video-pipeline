@@ -1,0 +1,170 @@
+{
+  "keyword": "FABLE",
+  "job": "c5bc128a0a8d",
+  "packageApproved": false,
+  "ownerVoiceApproved": true,
+  "durationSeconds": 99.26666666666667,
+  "finalSha256": "7dda9d443740db7681ed1e685cf804afa82ea9f7b877bb10515fcb681e60d54d",
+  "finalAudio": {
+    "file": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/c5bc128a0a8d/referral-v4/final.mp4",
+    "sha256": "7dda9d443740db7681ed1e685cf804afa82ea9f7b877bb10515fcb681e60d54d",
+    "audio": {
+      "lufs": -14.4,
+      "lra": 2.3,
+      "true_peak_dbtp": -1.9,
+      "lufs_phone": -16.8,
+      "duration_s": 99.285,
+      "sample_peak_dbfs": -1.91,
+      "clipped_samples": 0,
+      "rms_dbfs": -17.02,
+      "centroid_hz": 537.6,
+      "share_1_4k": 0.0624,
+      "bands_db": {
+        "31-63": -44.7,
+        "63-125": -11.5,
+        "125-250": -5.2,
+        "250-500": -3.8,
+        "500-1000": -9.0,
+        "1000-2000": -14.3,
+        "2000-4000": -16.0,
+        "4000-8000": -17.8,
+        "8000-16000": -24.2
+      }
+    },
+    "audioPass": true,
+    "subjectiveListeningPerformed": false
+  },
+  "technicalChecks": {
+    "h264": true,
+    "portrait": true,
+    "pixelFormat": true,
+    "limitedRange": true,
+    "fps": true,
+    "frameCount": true,
+    "duration": true,
+    "aac": true,
+    "sampleRate": true,
+    "finalAudio": true
+  },
+  "visualReview": {
+    "visualReviewPass": true,
+    "reviewer": "release_preflight local visual inspection",
+    "finalSha256": "7dda9d443740db7681ed1e685cf804afa82ea9f7b877bb10515fcb681e60d54d",
+    "evidence": [
+      "qa/contact-sheet.jpg",
+      "qa/opening.jpg",
+      "qa/reference-side-by-side.jpg",
+      "qa/framing-samples.json",
+      "covers/cover_sheet.jpg",
+      "qa/reference-full-01.jpg",
+      "qa/reference-full-02.jpg"
+    ],
+    "findings": [
+      "Read all 99 one-fps final tiles plus enlarged first-three-second strip and 26 actual-avatar reference-mapped stills.",
+      "Opening hook visible immediately; source graphics move through first seconds. Recurring presenter face and gestures remain visible.",
+      "Corrected split portrait uses blurred video fill; whole head retained and captions below chin. Full brief cards and CTA clear face. Caption text remains inside safe area, with split two-line maximum y1500.",
+      "No source-presenter fragments in inspected crop edges or final samples. Creator attribution remains; speculative timeline label retained.",
+      "Three chapters, pricing and starter workflow retain reference sequence. Chapters one and three extended to 1.5 seconds; brief split into three evolving cards.",
+      "Six cover exports and 3:4, 4:5, 1:1 review crops retain headline and whole head.",
+      "Full one-fps source/final comparison reviewed across all 99 decoded final samples; chapters and demo/price/build/CTA order retained. Original starter workflow replaces the reference creator offer."
+    ],
+    "limitations": [
+      "Contact-sheet and targeted visual review, not full real-time audiovisual playback.",
+      "Owner full playback required for subjective sound, conversational pacing and lip-shape judgment. Audio waveform alignment verifies clock only.",
+      "Final package is unapproved. Live resource and keyword reply routing remain root release responsibilities."
+    ],
+    "subjectiveSoundReviewPerformed": false,
+    "ownerPackageApproved": false,
+    "rootReview": {
+      "pass": true,
+      "evidence": [
+        "qa/contact-sheet.jpg",
+        "qa/opening.jpg",
+        "qa/reference-side-by-side.jpg",
+        "covers/cover_sheet.jpg"
+      ],
+      "findings": "Root reviewed full contact sheet, opening, reference comparison and covers: face/captions clear, whole-head cover crops, readable chapter/price cards, source order and CTA retained. No subjective audition claim."
+    }
+  },
+  "exports": [
+    {
+      "file": "final_ig.mp4",
+      "checks": {
+        "h264": true,
+        "size": true,
+        "frames": true,
+        "fps": true,
+        "limitedRange": true,
+        "audio": true,
+        "videoStart": true,
+        "audioStart": true
+      },
+      "audio": {
+        "lufs": -14.4,
+        "lra": 2.3,
+        "true_peak_dbtp": -1.7,
+        "lufs_phone": -16.8,
+        "duration_s": 99.307,
+        "sample_peak_dbfs": -1.7,
+        "clipped_samples": 0,
+        "rms_dbfs": -17.04,
+        "centroid_hz": 530.1,
+        "share_1_4k": 0.062,
+        "bands_db": {
+          "31-63": -44.3,
+          "63-125": -11.5,
+          "125-250": -5.2,
+          "250-500": -3.8,
+          "500-1000": -9.1,
+          "1000-2000": -14.3,
+          "2000-4000": -16.1,
+          "4000-8000": -18.0,
+          "8000-16000": -24.5
+        }
+      },
+      "duration": 99.306667,
+      "pass": true
+    },
+    {
+      "file": "final_social.mp4",
+      "checks": {
+        "h264": true,
+        "size": true,
+        "frames": true,
+        "fps": true,
+        "limitedRange": true,
+        "audio": true,
+        "videoStart": true,
+        "audioStart": true
+      },
+      "audio": {
+        "lufs": -14.4,
+        "lra": 2.3,
+        "true_peak_dbtp": -1.7,
+        "lufs_phone": -16.8,
+        "duration_s": 99.307,
+        "sample_peak_dbfs": -1.7,
+        "clipped_samples": 0,
+        "rms_dbfs": -17.04,
+        "centroid_hz": 530.1,
+        "share_1_4k": 0.062,
+        "bands_db": {
+          "31-63": -44.3,
+          "63-125": -11.5,
+          "125-250": -5.2,
+          "250-500": -3.8,
+          "500-1000": -9.1,
+          "1000-2000": -14.3,
+          "2000-4000": -16.1,
+          "4000-8000": -18.0,
+          "8000-16000": -24.5
+        }
+      },
+      "duration": 99.306667,
+      "pass": true
+    }
+  ],
+  "creditTotal": 35,
+  "downloadFile": "/Users/hammad/Downloads/11 November/FABLE - Creative projects, pricing and starter skill.mp4",
+  "approvalRequested": true
+}

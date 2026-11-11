@@ -1,0 +1,102 @@
+{
+  "job": "0e375e205e9d",
+  "keyword": "CLONE",
+  "duration": 54.9,
+  "draft": true,
+  "timingSource": "preflight",
+  "voiceVerified": false,
+  "avatarVerified": false,
+  "words": [],
+  "segments": [
+    {
+      "start": 0,
+      "end": 8.3,
+      "ref": [
+        0,
+        8.3
+      ],
+      "camera": true,
+      "avatarStart": 0
+    },
+    {
+      "start": 8.3,
+      "end": 14.1,
+      "ref": [
+        8.3,
+        14.1
+      ],
+      "camera": true,
+      "avatarStart": 8.3
+    },
+    {
+      "start": 14.1,
+      "end": 23.3,
+      "ref": [
+        14.1,
+        23.3
+      ],
+      "camera": true,
+      "avatarStart": 14.1
+    },
+    {
+      "start": 23.3,
+      "end": 31.6,
+      "ref": [
+        23.3,
+        31.6
+      ],
+      "camera": true,
+      "avatarStart": 23.3
+    },
+    {
+      "start": 31.6,
+      "end": 36.5,
+      "ref": [
+        31.6,
+        36.5
+      ],
+      "camera": true,
+      "avatarStart": 31.6
+    },
+    {
+      "start": 36.5,
+      "end": 44.2,
+      "ref": [
+        36.5,
+        44.2
+      ],
+      "camera": true,
+      "avatarStart": 36.5
+    },
+    {
+      "start": 44.2,
+      "end": 47.8,
+      "ref": [
+        44.2,
+        47.8
+      ],
+      "camera": true,
+      "avatarStart": 44.2
+    },
+    {
+      "start": 47.8,
+      "end": 51.5,
+      "ref": [
+        47.8,
+        51.5
+      ],
+      "camera": true,
+      "avatarStart": 47.8
+    },
+    {
+      "start": 51.5,
+      "end": 54.9,
+      "ref": [
+        51.5,
+        54.9
+      ],
+      "camera": true,
+      "avatarStart": 51.5
+    }
+  ]
+}

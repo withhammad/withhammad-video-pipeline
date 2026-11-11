@@ -1,6 +1,7 @@
-// Run through studio/heavy.sh node work/reference-20261110-batch/render_final.mjs HIGGS|ADVISOR [--check] [--replace]
+// Run through studio/heavy.sh node work/reference-20261110-batch/render_final.mjs HIGGS|ADVISOR|FABLE [--check] [--replace]
 // Requires verified owner voice + verified avatar in recorded.props.json. Never sets approval flags.
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createRequire} from 'node:module';
@@ -10,12 +11,20 @@ const repo=path.resolve(here,'../..');const studio=path.join(repo,'studio');cons
 const require=createRequire(path.join(project,'package.json'));
 const {bundle}=require('@remotion/bundler');const {selectComposition,renderMedia,renderStill}=require('@remotion/renderer');
 const keyword=process.argv[2];
-if(!['HIGGS','ADVISOR'].includes(keyword))throw new Error('Usage: render_final.mjs HIGGS|ADVISOR [--check] [--replace]');
+if(!['HIGGS','ADVISOR','FABLE'].includes(keyword))throw new Error('Usage: render_final.mjs HIGGS|ADVISOR|FABLE [--check] [--replace]');
 const job=JSON.parse(fs.readFileSync(path.join(here,'batch.json'),'utf8')).jobs.find(j=>j.keyword===keyword);
 const out=path.join(studio,'.local/jobs',job.job,'referral-v4');
 const p=JSON.parse(fs.readFileSync(path.join(out,'recorded.props.json'),'utf8'));
 const audioReport=JSON.parse(fs.readFileSync(path.join(out,'audio-mix-report.json'),'utf8'));
 const issues=[];
+if(keyword==='FABLE'){
+ const original=fs.readFileSync(path.join(out,'narration_original.mp3'));
+ const hash=createHash('sha256').update(original).digest('hex');
+ const approvalPath=path.join(out,'owner-voice-approval.json');
+ const approval=fs.existsSync(approvalPath)?JSON.parse(fs.readFileSync(approvalPath,'utf8')):{};
+ if(!approval.approved||approval.sourceSha256!==hash||audioReport.originalSha256!==hash)issues.push('Exact FABLE narration approval/mix hash mismatch');
+ if(p.duration<job.reference_seconds*.9||p.duration>job.reference_seconds*1.1)issues.push('FABLE duration outside reference tolerance');
+}
 if(p.timingSource!=='recorded')issues.push('Recorded word timing missing');
 if(!p.voiceVerified)issues.push('Owner voice approval missing');
 if(!p.avatarVerified)issues.push('Avatar filmstrip and sync verification missing');
@@ -39,10 +48,18 @@ fs.cpSync(path.join(project,'public/batchnov10',job.job),path.join(pub,'batchnov
 for(const asset of [p.voice,p.avatar])if(asset){const target=path.join(pub,asset);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(path.join(project,'public',asset),target);}
 const props={...p,draft:false};
 fs.writeFileSync(path.join(out,'final-render.props.json'),JSON.stringify(props,null,2)+'\n');
-const serveUrl=await bundle({entryPoint:path.join(project,'src/batchnov10/index.tsx'),publicDir:pub});
+const serveUrl=await bundle({entryPoint:path.join(project,keyword==='FABLE'?'src/batchnov10/fable-entry.tsx':'src/batchnov10/index.tsx'),publicDir:pub});
 const composition=await selectComposition({serveUrl,id:keyword,inputProps:props});
 if(composition.durationInFrames!==frames||composition.fps!==30)throw new Error('Unexpected composition clock');
-if(process.argv.includes('--stills')){const qa=path.join(out,'qa');fs.mkdirSync(qa,{recursive:true});for(const t of [0,2,12,22.4,32]){if(t<duration)await renderStill({serveUrl,composition,inputProps:props,output:path.join(qa,`corrected-${t}.jpg`),imageFormat:'jpeg',frame:Math.round(t*30)});}console.log('Corrected framing stills rendered');process.exit(0);}
+if(process.argv.includes('--stills')){
+ const qa=path.join(out,'qa');fs.mkdirSync(qa,{recursive:true});
+ const refs=keyword==='FABLE'?[0,3,5,7.5,10.2,12.7,19,32,38,44,52,59,61.5,68,73.2,76.2,76.7,80.5,86,90,93.1,93.8,94.6,101,107,108.5]:null;
+ const samples=refs?refs.map(r=>{const s=p.segments.find(s=>r>=s.ref[0]&&r<s.ref[1])??p.segments[p.segments.length-1];return {r,t:s.start+(r-s.ref[0])/(s.ref[1]-s.ref[0])*(s.end-s.start)};}):[0,2,12,22.4,32].map(t=>({r:null,t}));
+ for(const {r,t} of samples)if(t<duration)await renderStill({serveUrl,composition,inputProps:props,output:path.join(qa,r===null?`corrected-${t}.jpg`:`reference-${r}.jpg`),imageFormat:'jpeg',frame:Math.min(frames-1,Math.round(t*30))});
+ fs.writeFileSync(path.join(qa,'framing-samples.json'),JSON.stringify(samples,null,2)+'\n');
+ console.log('Corrected framing stills rendered');process.exit(0);
+}
+
 let last=-1;
 const silent=path.join(out,'picture_silent.mp4');
 await renderMedia({serveUrl,composition,inputProps:props,codec:'h264',outputLocation:silent,muted:true,pixelFormat:'yuv420p',crf:18,concurrency:2,onProgress:({progress})=>{const now=Math.floor(progress*10);if(now!==last){console.log(`Picture ${now*10}%`);last=now;}}});

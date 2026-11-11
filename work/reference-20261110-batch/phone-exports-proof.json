@@ -1,0 +1,133 @@
+{
+  "kind": "optional_native_sound_handoff",
+  "packages": [
+    {
+      "checkedAt": "2026-11-11T02:51:19.105743+00:00",
+      "keyword": "HIGGS",
+      "job": "ee41d72bf8cd",
+      "phoneExport": "/Users/hammad/Downloads/11 November/HIGGS - Manual Upload/HIGGS - add your app sound.mp4",
+      "sourceMaster": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/ee41d72bf8cd/referral-v4/final.mp4",
+      "originalNarration": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/ee41d72bf8cd/referral-v4/narration_pcm.wav",
+      "approvedMasterSha256": "6b70d8ef8595208663af82cea51e5f0e5c5ef87066260d05c2edfa08f0368def",
+      "phoneExportSha256": "54959c779fce003e53b4805b5b03ba6eafedcaa49d2cf7b5f752d8a16b711207",
+      "videoBitstreamSha256": "7db530865ea379e3b100a3cdb5272859517c02236d6c6f793cff500bb3d1dc67",
+      "voicePcmSha256": "7a5f0337fb027898076fdf2772f252b482260391a8128ec3997f55f5099155a7",
+      "durationSeconds": 34.3,
+      "frames": 1029,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30.0,
+      "sourceNarrationMeter": {
+        "lufs": -21.7,
+        "lra": 3.9,
+        "true_peak_dbtp": -1.7
+      },
+      "voiceOnlyMeter": {
+        "lufs": -22.6,
+        "lra": 3.9,
+        "true_peak_dbtp": -2.5
+      },
+      "staticGainDb": -0.8,
+      "audioChannels": 1,
+      "audioGainAttempts": [
+        {
+          "staticGainDb": -0.8,
+          "lufs": -22.6,
+          "lra": 3.9,
+          "true_peak_dbtp": -2.5
+        }
+      ],
+      "checks": {
+        "exactApprovedMaster": true,
+        "identicalVideoBitstream": true,
+        "sameFrameCount": true,
+        "sameVideoDuration": true,
+        "samePictureFormat": true,
+        "containerDurationWithinOneFrame": true,
+        "narrationGainOnly": true,
+        "truePeakHeadroom": true,
+        "allProtectedFilesUnchanged": true
+      },
+      "copiedApprovedCovers": {
+        "Covers/instagram.jpg": "9eeb9bd4282e6bd19d6c9415b0d1e0b5673f03c1f8edb5557c3dd27296cdfa10",
+        "Covers/facebook.jpg": "9eeb9bd4282e6bd19d6c9415b0d1e0b5673f03c1f8edb5557c3dd27296cdfa10",
+        "Covers/linkedin.jpg": "047c380574b75fb33321871a24b32fe96b61f5de436c43d6ece1825e2f7cc105",
+        "Covers/youtube.jpg": "4fd1e65457a7c534ec67dc0455dc2be04b60b4e32faad80fb36f025a3355db19",
+        "Covers/tiktok.jpg": "9eeb9bd4282e6bd19d6c9415b0d1e0b5673f03c1f8edb5557c3dd27296cdfa10",
+        "Covers/x.jpg": "4fd1e65457a7c534ec67dc0455dc2be04b60b4e32faad80fb36f025a3355db19"
+      },
+      "captionsSha256": "76d20777a0c273627898d07cb1aa6b5561563c1e42820e9495552fd150979969",
+      "approvedCopySha256": "23d05e0c78c7ff773c0c6f1fc6b8129a341f97859a760229e6be9774ecfed3aa",
+      "newCredits": 0,
+      "retimed": false,
+      "normalizerOrCompressor": false,
+      "releaseState": "WAIT for PR21 guide/rule deployment verification and release booking",
+      "schedulerChanged": false,
+      "posted": false
+    },
+    {
+      "checkedAt": "2026-11-11T02:51:20.727743+00:00",
+      "keyword": "ADVISOR",
+      "job": "62eec03e1e93",
+      "phoneExport": "/Users/hammad/Downloads/11 November/ADVISOR - Manual Upload/ADVISOR - add your app sound.mp4",
+      "sourceMaster": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/62eec03e1e93/referral-v4/final.mp4",
+      "originalNarration": "/Users/hammad/withhammad-video-pipeline/studio/.local/jobs/62eec03e1e93/referral-v4/narration_pcm.wav",
+      "approvedMasterSha256": "b94d2e866fd0eafcddc8b403dc59cccf0ddfb0ce8f6abc7656eba2010198e48d",
+      "phoneExportSha256": "4a87b8fbccc45ad0883850187ca84696c6384916760475882e649fe3af979257",
+      "videoBitstreamSha256": "7d9ee2ddfcc575cda4b34ace86b2f661d1d7b2724097d563e96f681b639b11c6",
+      "voicePcmSha256": "697dd993ae5368aabe9d77d70e94d378ae7ad1a6daddcc8b3b3230dbf3a418f6",
+      "durationSeconds": 39.833333333333336,
+      "frames": 1195,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30.0,
+      "sourceNarrationMeter": {
+        "lufs": -22.2,
+        "lra": 4.5,
+        "true_peak_dbtp": -1.4
+      },
+      "voiceOnlyMeter": {
+        "lufs": -23.3,
+        "lra": 4.5,
+        "true_peak_dbtp": -2.5
+      },
+      "staticGainDb": -1.1,
+      "audioChannels": 1,
+      "audioGainAttempts": [
+        {
+          "staticGainDb": -1.1,
+          "lufs": -23.3,
+          "lra": 4.5,
+          "true_peak_dbtp": -2.5
+        }
+      ],
+      "checks": {
+        "exactApprovedMaster": true,
+        "identicalVideoBitstream": true,
+        "sameFrameCount": true,
+        "sameVideoDuration": true,
+        "samePictureFormat": true,
+        "containerDurationWithinOneFrame": true,
+        "narrationGainOnly": true,
+        "truePeakHeadroom": true,
+        "allProtectedFilesUnchanged": true
+      },
+      "copiedApprovedCovers": {
+        "Covers/instagram.jpg": "3eda701f3aee88a026e031c123e7d62121cc2bced493f2ed8ed72f871f519fc3",
+        "Covers/facebook.jpg": "3eda701f3aee88a026e031c123e7d62121cc2bced493f2ed8ed72f871f519fc3",
+        "Covers/linkedin.jpg": "2a4166828a1e6eeb406806063787075b0ce2afa408c2004949866a59da30baef",
+        "Covers/youtube.jpg": "faffe40f54f6b02b4f42f28af2692006838172fd68575a472c511ea9b1a356d6",
+        "Covers/tiktok.jpg": "3eda701f3aee88a026e031c123e7d62121cc2bced493f2ed8ed72f871f519fc3",
+        "Covers/x.jpg": "faffe40f54f6b02b4f42f28af2692006838172fd68575a472c511ea9b1a356d6"
+      },
+      "captionsSha256": "c201eeff98d0e6fd4cdd1c462b8ae1f692e605c2ed61f664533d1baaf9b6ac40",
+      "approvedCopySha256": "44c91664cd33ad03413079fbe9e4a70c27e6d0bcdb0b9ffb59c27673310c6f15",
+      "newCredits": 0,
+      "retimed": false,
+      "normalizerOrCompressor": false,
+      "releaseState": "WAIT for PR21 guide/rule deployment verification and release booking",
+      "schedulerChanged": false,
+      "posted": false
+    }
+  ]
+}
