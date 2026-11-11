@@ -2937,7 +2937,15 @@
       "collaborators": null,
       "status": "scheduled",
       "url": "https://www.tiktok.com/tiktokstudio/content",
-      "scheduled_at": "2026-11-07T10:59:58Z"
+      "scheduled_at": "2026-11-07T10:59:58Z",
+      "sound": {
+        "title": "Black Gate Ritual",
+        "artist": "Sam Becket",
+        "volume_db": -20,
+        "source": "TikTok Studio > Sounds > For You"
+      },
+      "posted_via": "TikTok Studio, no-music cut + TikTok sound + custom cover (owner rule 2026-11-11)",
+      "replaced": "the baked-music scheduled copy, deleted 2026-11-11 on the owner's \"Yes, replace all\""
     },
     {
       "id": "xx-990543b928c4",
@@ -4252,7 +4260,16 @@
       "url": "https://www.tiktok.com/tiktokstudio/content",
       "scheduled_at": "2026-11-07T17:01:40Z",
       "moved_from": "2026-11-13 14:00 GST",
-      "note": "moved 2026-11-07 off slots other reels already hold"
+      "note": "moved 2026-11-07 off slots other reels already hold",
+      "sound": {
+        "title": "Montagem da Chupeta",
+        "artist": "Lthiago",
+        "volume_db": -6,
+        "note": "video has no voice; the sound is the only audio",
+        "source": "TikTok Studio > Sounds > For You"
+      },
+      "posted_via": "TikTok Studio, no-music cut + TikTok sound + custom cover (owner rule 2026-11-11)",
+      "replaced": "the baked-music scheduled copy, deleted 2026-11-11 on the owner's \"Yes, replace all\""
     },
     {
       "id": "xx-g2-edit-prompt",
