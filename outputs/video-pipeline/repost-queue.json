@@ -5358,7 +5358,7 @@
       "primary_keyword": "Claude Code advisor Fable",
       "host_slug": "repost-62eec03e1e93",
       "collaborators": null,
-      "status": "scheduled",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
@@ -5376,8 +5376,21 @@
           "reason": "Existing TikTok EDIT17:00 cannot reschedule in place: only Download/Delete exposed; preserve it under no-delete/repost. ADVISOR20:15 leaves3h15 gap."
         }
       ],
-      "url": "https://www.tiktok.com/tiktokstudio/content",
-      "scheduled_at": "2026-11-11T13:40:23Z"
+      "url": "https://www.tiktok.com/@withhammad/video/7706956952416341256",
+      "posted_at": "2026-11-11T16:55:00Z",
+      "sound": {
+        "title": "Aura Farming (Slowed)",
+        "artist": "Mustafa Saboori",
+        "volume_db": -20,
+        "source": "TikTok Studio > Sounds > For You"
+      },
+      "posted_via": "TikTok Studio, no-music cut + TikTok sound (owner rule 2026-11-11)",
+      "replaced": {
+        "url": "https://www.tiktok.com/@withhammad/video/7706906786229832980",
+        "posted": "2026-11-11 20:15 GST with baked music",
+        "deleted": "2026-11-11 20:54 GST on the owner's yes, 5 views, 0 likes, 0 comments, restorable 30 days"
+      },
+      "review_note": "TikTok showed \"Content under review / Only me\" right after posting; confirm it turns public"
     },
     {
       "id": "xx-62eec03e1e93",
