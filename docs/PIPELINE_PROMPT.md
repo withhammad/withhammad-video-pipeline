@@ -60,6 +60,10 @@ Reference: <link>
    the keyword ending. No "AI avatar" text anywhere on screen; on-screen branding is only WITHHAMMAD (owner rule
    2026-10-23; the platforms' own AI labels still apply). Assemble in Remotion (Remotion skills loaded first). Lip sync checked on a /p/
    filmstrip. Then video-check and a contact sheet.
+   - Two audio versions of every finished reel (owner red line 2026-11-11): the master `final.mp4` with the
+     background music and sound design (this is what the owner reviews, and what X and LinkedIn get), and
+     `final_nomusic.mp4`, the same picture with voice and sound effects but NO music bed, for the four sound
+     platforms in step 7. Keep the voice, SFX and music stems in the job so either mix can be rebuilt.
 
 5. Covers and copy. The cover is built for click-through first (owner rule 2026-10-23): the strongest-emotion face
    that matches the hook, whole head inside the 3:4, 4:5 and 1:1 grid crops, two big lines with the punch word in
@@ -91,6 +95,14 @@ Reference: <link>
    the With Hammad AI Page; owner 2026-10-31, replaces @with.hammad / @hammadagentic.ai), LinkedIn, Facebook Reels on
    the With Hammad AI Page (facebook.com/profile.php?id=61595704034607, not the old profile), TikTok and X (@HammadYousufAI),
    each with its own title, description and hashtags. Record every post id immediately.
+   - TRENDING SOUNDS (owner red line 2026-11-11, raised three times: "without that, uploading a video is useless,
+     because you are not getting the views"): on Instagram, Facebook, YouTube Shorts and TikTok the reel goes out
+     ONLY with a sound from that platform's own library (a trending one), added in the platform's own uploader
+     over `final_nomusic.mp4`, never with our baked background music and never by API without a sound.
+     X and LinkedIn get `final.mp4` with its own music, as before. `app.repost_queue` enforces it: run-due does
+     not post SOUND_REQUIRED_LANES; an entry stays pending until it is posted with a platform sound and recorded
+     with `mark`. Only the owner's explicit OK for one entry (`allow_no_sound`) lifts it. How the sound gets
+     attached on each platform is in docs/TRENDING_SOUNDS.md.
 
 8. ManyChat on that reel: comment keyword -> DM -> ask to follow -> link to the withhammad.com resource page.
 
