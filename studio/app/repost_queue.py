@@ -16,9 +16,12 @@ per-job slug (repost-<job>) because two reels share one resource page.
     python -m app.repost_queue mark <id> <url> [--scheduled]   # record a Chrome post or a native scheduled post
     python -m app.repost_queue sounds [--date YYYY-MM-DD]      # today's Instagram reels to post in the app with a trending sound
 
-Trending sounds (owner 2026-11-03): the APIs cannot attach a library sound, so each Instagram reel waits APP_GRACE after
-its slot for the owner to post it from the app with a trending sound under the voice (then `mark`); if he has not,
-run-due posts it by API without the sound, so the cadence never breaks.
+Trending sounds (owner red line 2026-11-11, replaces the 2026-11-03 "wait 2 h, then post by API"): reels and Shorts on
+Instagram, Facebook, YouTube and TikTok go out ONLY with a sound from the platform's own library, added in the
+platform's uploader over the cut that has no music bed. "Without that, uploading a video is useless." The APIs cannot
+attach a library sound, so run-due no longer posts SOUND_REQUIRED_LANES: such an entry stays pending (never 'missed')
+until it is posted with a platform sound and recorded with `mark`. X and LinkedIn keep the cut with its own music.
+`allow_no_sound: true` on an entry is the owner's explicit OK to post that one entry by API without a sound.
 """
 import argparse
 import json
@@ -54,6 +57,9 @@ GUIDE_VIDEO_LANES = ('youtube_guide', 'tiktok_guide', 'x_guide')
 LATE_LIMIT = timedelta(hours=6)
 APP_SOUND_LANES = ('instagram', 'youtube')   # reels/Shorts the owner may post from the app with a trending sound (YouTube: owner 2026-11-05)
 APP_GRACE = timedelta(hours=2)
+# Owner 2026-11-11: video lanes that may only go out with a platform (trending) sound; run-due never posts them
+# without the entry's allow_no_sound. TikTok is a Chrome lane and follows the same rule in its own uploader.
+SOUND_REQUIRED_LANES = ('instagram', 'facebook', 'youtube', 'youtube_guide')
 SOUNDS = ROOT / 'outputs' / 'video-pipeline' / 'trending-sounds.json'
 
 
@@ -82,11 +88,14 @@ def page_live(url, _cache={}):
 
 def due(entries, now, page_check=None):
     """Pending entries whose slot has passed and is less than LATE_LIMIT old; older pending ones are 'missed'.
-    An entry with a resource_url waits (stays pending) until that page is live, so no post links to a 404."""
+    An entry with a resource_url waits (stays pending) until that page is live, so no post links to a 404.
+    A reel or Short that needs a platform sound is never ready and never missed: it waits for a post made with one."""
     page_check = page_check or page_live
     ready, missed = [], []
     for e in entries:
         if e.get('status') != 'pending' or e['platform'] in CHROME_LANES:
+            continue
+        if e['platform'] in SOUND_REQUIRED_LANES and not e.get('allow_no_sound'):
             continue
         if e.get('resource_url') and not page_check(e['resource_url']):
             if now >= _utc(e['slot_utc']) + LATE_LIMIT:
@@ -392,20 +401,31 @@ def chrome_todo(path=QUEUE):
 
 
 def sound_brief(day=None, path=QUEUE, sounds_path=SOUNDS):
-    """The Instagram reels and YouTube Shorts of one GST day for the owner to post in the app with a trending sound."""
-    day = day or datetime.now(timezone(timedelta(hours=4))).strftime('%Y-%m-%d')
+    """The reels and Shorts (Instagram, Facebook, YouTube) still waiting for a post with a platform sound: those of one
+    GST day plus every earlier one not yet posted. api_fallback_gst is None unless the entry carries allow_no_sound."""
+    gst = timezone(timedelta(hours=4))
+    day = day or datetime.now(gst).strftime('%Y-%m-%d')
     try:
         sounds = json.loads(Path(sounds_path).read_text())
     except FileNotFoundError:
         sounds = {}
     reels = []
     for e in sorted(load(path)['entries'], key=lambda e: e['slot_utc']):
-        if e['platform'] in APP_SOUND_LANES and e.get('status') == 'pending' and e['local'].startswith(day):
-            jdir = JOBS / e['job']
-            names = ('final_ig.mp4', 'final.mp4', 'final_social.mp4') if e['platform'] == 'instagram' else ('final.mp4', 'final_social.mp4')
-            video = next((str(jdir / n) for n in names if (jdir / n).exists()), str(jdir / names[0]))
-            fallback = (_utc(e['slot_utc']) + APP_GRACE).astimezone(timezone(timedelta(hours=4))).strftime('%H:%M')
+        if e['platform'] in SOUND_REQUIRED_LANES and e.get('status') == 'pending' and e['local'][:10] <= day:
+            if e.get('guide'):
+                jdir, video = GUIDES / e['guide'], str(GUIDES / e['guide'] / 'short.mp4')
+            else:
+                jdir = JOBS / e['job']
+                # the cut without the music bed first: the platform sound replaces our music (owner 2026-11-11)
+                names = ('final_nomusic.mp4', 'final_ig.mp4', 'final.mp4', 'final_social.mp4') if e['platform'] == 'instagram' \
+                    else ('final_nomusic.mp4', 'final.mp4', 'final_social.mp4')
+                video = next((str(jdir / n) for n in names if (jdir / n).exists()), str(jdir / names[1]))
+            fallback = None
+            if e.get('allow_no_sound'):
+                start = _utc(e['slot_utc']) + (APP_GRACE if e['platform'] in APP_SOUND_LANES else timedelta(0))
+                fallback = start.astimezone(gst).strftime('%H:%M')
             row = {'id': e['id'], 'platform': e['platform'], 'post_at_gst': e['local'][11:16], 'api_fallback_gst': fallback,
+                   'needs_sound': True, 'overdue': e['local'][:10] < day, 'has_nomusic_cut': video.endswith('final_nomusic.mp4'),
                    'keyword': e['keyword'], 'video': video, 'cover': str(jdir / 'cover_glow' / 'cover_1080x1920.jpg'),
                    'caption': e['caption'], 'after_posting': f"python -m app.repost_queue mark {e['id']} <post url>"}
             if e['platform'] == 'instagram':
@@ -414,7 +434,7 @@ def sound_brief(day=None, path=QUEUE, sounds_path=SOUNDS):
                 row['title'] = e['title']
             reels.append(row)
     per = {pf: {'how': (sounds.get(pf) or sounds).get('how', ''), 'sounds': (sounds.get(pf) or sounds).get('sounds', [])}
-           for pf in APP_SOUND_LANES}
+           for pf in ('instagram', 'youtube', 'facebook')}
     return {'day': day, 'checked': sounds.get('checked'), **per['instagram'], 'platforms': per, 'reels': reels}
 
 

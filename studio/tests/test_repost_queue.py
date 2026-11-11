@@ -5,9 +5,14 @@ from datetime import datetime, timezone
 from app import repost_queue as rq
 
 
-def entry(i, slot, platform='instagram', status='pending'):
-    return {'id': f'e{i}', 'job': 'j', 'platform': platform, 'slot_utc': slot, 'local': slot, 'keyword': 'K',
-            'title': 't', 'caption': 'c', 'host_slug': 'repost-j', 'collaborators': None, 'status': status}
+def entry(i, slot, platform='instagram', status='pending', no_sound_ok=True):
+    """no_sound_ok=True carries the owner's per-entry allow_no_sound, so these tests exercise the API publishers;
+    the default for a real reel or Short (no flag) is covered by the platform-sound tests below."""
+    e = {'id': f'e{i}', 'job': 'j', 'platform': platform, 'slot_utc': slot, 'local': slot, 'keyword': 'K',
+         'title': 't', 'caption': 'c', 'host_slug': 'repost-j', 'collaborators': None, 'status': status}
+    if no_sound_ok and platform in rq.SOUND_REQUIRED_LANES:
+        e['allow_no_sound'] = True
+    return e
 
 
 def test_due_window_and_missed():
@@ -277,8 +282,46 @@ def test_guide_video_lanes_youtube_by_api_tiktok_x_by_chrome(tmp_path, monkeypat
     assert rq.chrome_todo(q)[0]['video'] == str(g / 'short.mp4')
 
 
-def test_instagram_waits_for_an_app_post_then_falls_back_to_the_api(tmp_path, monkeypatch):
+def test_reels_and_shorts_never_post_by_api_without_a_platform_sound(tmp_path, monkeypatch):
+    """Owner red line 2026-11-11: Instagram, Facebook and YouTube video lanes wait for a post made with a platform
+    sound. They are never ready and never missed; LinkedIn and carousels are untouched."""
+    slot = '2026-11-02T07:00:00Z'
+    es = [entry(1, slot, 'instagram', no_sound_ok=False), entry(2, slot, 'facebook', no_sound_ok=False),
+          entry(3, slot, 'youtube', no_sound_ok=False), entry(4, slot, 'youtube_guide', no_sound_ok=False),
+          entry(5, slot, 'linkedin'), entry(6, slot, 'instagram_carousel')]
+    assert all('allow_no_sound' not in e for e in es)
+    for hours in (0, 3, 5):                                   # at the slot, after the old 2 h grace, late
+        ready, missed = rq.due(es, datetime(2026, 11, 2, 7 + hours, 5, tzinfo=timezone.utc))
+        assert [e['id'] for e in ready] == ['e5', 'e6'] and missed == []
+    ready, missed = rq.due(es, datetime(2026, 11, 3, 7, 5, tzinfo=timezone.utc))      # a day later
+    assert ready == [] and [e['id'] for e in missed] == ['e5', 'e6']                  # sound lanes are not dropped
+    q = setup(tmp_path, monkeypatch, es[:4])
+    rep = rq.run_due(datetime(2026, 11, 3, 7, 5, tzinfo=timezone.utc), live=True, rt=FakeRt(), path=q)
+    assert rep['posted'] == [] and rep['failed'] == [] and rep['missed'] == []
+    assert all(e['status'] == 'pending' for e in json.loads(q.read_text())['entries'])
+    es[0]['status'] = 'posted'                                # recorded with `mark` after the post with a sound
+    assert rq.due(es[:4], datetime(2026, 11, 2, 9, 5, tzinfo=timezone.utc)) == ([], [])
+
+
+def test_sound_brief_lists_every_waiting_reel_with_no_api_fallback(tmp_path, monkeypatch):
+    es = [dict(entry(1, '2026-11-02T07:00:00Z', 'facebook', no_sound_ok=False), local='2026-11-02 11:00 GST'),
+          dict(entry(2, '2026-11-03T07:00:00Z', 'instagram', no_sound_ok=False), local='2026-11-03 11:00 GST'),
+          dict(entry(3, '2026-11-03T08:00:00Z', 'youtube', no_sound_ok=False), local='2026-11-03 12:00 GST'),
+          dict(entry(4, '2026-11-04T07:00:00Z', 'instagram', no_sound_ok=False), local='2026-11-04 11:00 GST'),
+          dict(entry(5, '2026-11-03T07:00:00Z', 'instagram', status='posted', no_sound_ok=False), local='2026-11-03 11:00 GST')]
+    q = setup(tmp_path, monkeypatch, es)
+    (tmp_path / 'jobs' / 'j' / 'final_ig.mp4').write_bytes(b'v')
+    (tmp_path / 'jobs' / 'j' / 'final_nomusic.mp4').write_bytes(b'v')
+    rows = rq.sound_brief('2026-11-03', path=q, sounds_path=tmp_path / 'none.json')['reels']
+    assert [r['id'] for r in rows] == ['e1', 'e2', 'e3']      # the earlier unposted one stays on the list
+    assert [r['overdue'] for r in rows] == [True, False, False]
+    assert all(r['api_fallback_gst'] is None and r['needs_sound'] for r in rows)
+    assert all(r['video'].endswith('final_nomusic.mp4') and r['has_nomusic_cut'] for r in rows)   # no music bed under the sound
+
+
+def test_instagram_with_the_owners_ok_waits_then_falls_back_to_the_api(tmp_path, monkeypatch):
     es = [entry(1, '2026-11-02T07:00:00Z'), entry(2, '2026-11-02T07:00:00Z', 'linkedin')]
+    assert es[0]['allow_no_sound'] is True                    # the owner's explicit OK for this one entry
     ready, _ = rq.due(es, datetime(2026, 11, 2, 8, 5, tzinfo=timezone.utc))
     assert [e['id'] for e in ready] == ['e2']                 # the owner has 2 h to post it with a trending sound
     ready, _ = rq.due(es, datetime(2026, 11, 2, 9, 5, tzinfo=timezone.utc))
