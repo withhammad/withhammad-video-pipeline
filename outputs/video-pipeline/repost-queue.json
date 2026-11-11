@@ -5209,43 +5209,47 @@
       "id": "tt-ee41d72bf8cd",
       "job": "ee41d72bf8cd",
       "platform": "tiktok",
-      "slot_utc": "2026-11-11T10:00:00Z",
-      "local": "2026-11-11 14:00 GST",
+      "slot_utc": "2026-11-12T14:00:00Z",
+      "local": "2026-11-12 18:00 GST",
       "keyword": "HIGGS",
       "title": "Make AI videos inside Claude with Higgsfield MCP",
       "caption": "Make AI videos inside Claude with Higgsfield MCP\nComment HIGGS for the guide; link in bio. Follow for practical AI builds.\nThe live offer determines eligibility, qualifying models, dates and credit costs. Check its current terms before generating.\nAI avatar of me, using my own ElevenLabs voice clone.\n#ClaudeAI #AITools #LearnOnTikTok",
       "primary_keyword": "Claude Higgsfield video",
       "host_slug": "repost-ee41d72bf8cd",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": null,
         "expected_runner_gst": null
-      }
+      },
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-11T13:40:23Z"
     },
     {
       "id": "xx-ee41d72bf8cd",
       "job": "ee41d72bf8cd",
       "platform": "x",
-      "slot_utc": "2026-11-11T10:00:00Z",
-      "local": "2026-11-11 14:00 GST",
+      "slot_utc": "2026-11-11T17:00:00Z",
+      "local": "2026-11-11 21:00 GST",
       "keyword": "HIGGS",
       "title": "Make AI videos inside Claude with Higgsfield MCP",
       "caption": "Make AI videos inside Claude with Higgsfield MCP. Comment HIGGS for the guide.\nhttps://withhammad.com/resources/claude-higgsfield-video-setup\nAI avatar of me. #ClaudeAI",
       "primary_keyword": "Claude Higgsfield video",
       "host_slug": "repost-ee41d72bf8cd",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": null,
         "expected_runner_gst": null
-      }
+      },
+      "url": "https://x.com/HammadYousufAI",
+      "scheduled_at": "2026-11-11T13:31:13Z"
     },
     {
       "id": "in-62eec03e1e93",
@@ -5343,7 +5347,7 @@
       "primary_keyword": "Claude Code advisor Fable",
       "host_slug": "repost-62eec03e1e93",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
@@ -5360,7 +5364,9 @@
           "new_local": "2026-11-11 20:15 GST",
           "reason": "Existing TikTok EDIT17:00 cannot reschedule in place: only Download/Delete exposed; preserve it under no-delete/repost. ADVISOR20:15 leaves3h15 gap."
         }
-      ]
+      ],
+      "url": "https://www.tiktok.com/tiktokstudio/content",
+      "scheduled_at": "2026-11-11T13:40:23Z"
     },
     {
       "id": "xx-62eec03e1e93",
@@ -5374,14 +5380,16 @@
       "primary_keyword": "Claude Code advisor Fable",
       "host_slug": "repost-62eec03e1e93",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": null,
         "expected_runner_gst": null
-      }
+      },
+      "url": "https://x.com/HammadYousufAI",
+      "scheduled_at": "2026-11-11T13:28:11Z"
     }
   ]
 }
