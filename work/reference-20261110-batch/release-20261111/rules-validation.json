@@ -1,0 +1,9 @@
+{
+  "existingRulesPreserved": true,
+  "newRules": 1,
+  "keyword": "FABLE",
+  "positiveCaseInsensitive": true,
+  "negativeSubstring": true,
+  "deployedHiggsAdvisorMatches": true,
+  "customerEventsSent": 0
+}

@@ -1,0 +1,43 @@
+{
+  "protected_posted_held_rows_unchanged": 113,
+  "new_rows": [
+    "fa-62eec03e1e93",
+    "fa-ee41d72bf8cd",
+    "in-62eec03e1e93",
+    "in-ee41d72bf8cd",
+    "li-62eec03e1e93",
+    "li-ee41d72bf8cd",
+    "tt-62eec03e1e93",
+    "tt-ee41d72bf8cd",
+    "xx-62eec03e1e93",
+    "xx-ee41d72bf8cd",
+    "yo-62eec03e1e93",
+    "yo-ee41d72bf8cd"
+  ],
+  "native_new_rows_correctly_pending": [
+    {
+      "id": "tt-62eec03e1e93",
+      "local": "2026-11-11 20:15 GST",
+      "status": "pending"
+    },
+    {
+      "id": "tt-ee41d72bf8cd",
+      "local": "2026-11-11 14:00 GST",
+      "status": "pending"
+    },
+    {
+      "id": "xx-62eec03e1e93",
+      "local": "2026-11-11 18:00 GST",
+      "status": "pending"
+    },
+    {
+      "id": "xx-ee41d72bf8cd",
+      "local": "2026-11-11 14:00 GST",
+      "status": "pending"
+    }
+  ],
+  "13_03_runner": "09:03:05Z run completed09:03:58Z: posted[],failed[],missed[]",
+  "no_manual_live_run": true,
+  "no_queue_build": true,
+  "no_commits_by_this_agent": true
+}

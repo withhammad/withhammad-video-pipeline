@@ -1,48 +1,43 @@
-# CLONE isolated edit
+# CLONE final integration — 11 November 2026
 
-Entry: `studio/remotion/src/batchnov10/clone-entry.tsx`; composition `CLONE`.
-Component: `Clone.tsx`; type `CloneProps` extends existing media/word/segment schema with keyword CLONE and optional referenceImage.
+Job `0e375e205e9d`. Composition `CLONE`; isolated entry `studio/remotion/src/batchnov10/clone-entry.tsx`, component `Clone.tsx`. Shared render, mixer and cover/export helpers support CLONE. Final package approval remains separate from narration approval.
 
-## Parent integration
+## Source and approval gates
 
-- Add CLONE to the allowed keywords in `render_final.mjs` and `mix_audio.py` when FABLE's owner is finished editing those files. Entry selection for CLONE must be `src/batchnov10/clone-entry.tsx`.
-- Retain the render gate: recorded timings, verified exact voice, verified new avatar and approved original-source audio hash. This agent sets no approval flags.
-- Stage new CLONE avatar and narration in its public folder and use existing `recorded.props.json`. The original source reference map is the 9 segments from batch.json. Camera is present throughout; avatarStart is continuous through the actual recorded script unless parent changes camera-only assembly.
-- Optional referenceImage defaults to `batchnov10/0e375e205e9d/saved-look.webp` (existing approved saved look). Never use earlier avatar mouth movements for current narration.
-- Match 49.41–60.39 seconds without mechanically speeding voice; the silent visual draft is 54.9 seconds. Recheck actual segment durations for screen reading time after real narration is available.
-- Final screen crops are source excerpts, credited on screen; the owner inputs, review checklist and targeted-revision prompt are original explanatory graphics. The last is labelled illustrative, not a live retry.
-- Audio must preserve the new approved voice and natural pauses, steady quiet licensed bed, -14 LUFS and ≤-1.5 dBTP. No audio/SFX are invented for the silent draft.
-- Hook labels Saved avatar look / Generated motion are truthful. No original-camera label and no claim the source creator's tests are ours.
+Owner approved “Voice matches—continue”. Exact narration SHA256 `9f6df9b3d778d5b268ee43fbe76ae89f9307886ca5050a71aee8e2bc82c8d8d7`; native duration54.282449s,44.1kHz,2,393,856samples. Final1629frames/54.3s is within49.41–60.39s reference tolerance. No speed, pitch, word or pause changes. Recorded captions contain146 display tokens/148 spoken tokens; compact5.2 and twenty-five→25 display normalization are documented. CTA transcription CLONE was independently corroborated. All-camera upload PCM equals source narration PCM; all146 words are retained across segment boundaries.
 
-## Commands
+Root owns exact approval and avatar verification records. The new black-polo/warm-bookcase take is720×1280/25fps. Root inspected217 four-fps samples plus enlarged opening. Avatar SHA256 `1e47b6c85d95fb6bf810160f87e600ce70bac7f0385a6a487bd8fac0405e3f73`.
 
-From repository root:
+Raw whole-track correlation .97182 missed the initial .98 threshold. Root's diagnostic established provider gain changes rather than clock drift: gain-invariant correlation .99327,105 active windows, maximum residual .1875ms and fitted drift .0105ms. Independent transcript/speech coverage and consistent+23ms local lag support the approved picture mapping. Diagnostic normalization never changed production narration. `avatar-alignment.json` and `work/release-20261111/clone-audio-diagnostic.json` hold exact evidence. Two regression tests accept a variable-gain fixed clock and reject100ms mid-take lag. This is content/clock evidence, not an audible-quality or subjective lip-shape claim.
+
+## Edit and sound
+
+Source order: saved look/generated motion → creator results → model/topic/research/script → own references → skill/connectors/consent → workflow brief → review → targeted correction → held CLONE CTA. Muted source UI excerpts are attributed to Arshman Khalid. Three photos/about25 seconds are explicitly the creator's example, not universal requirements. Claude coordinates connected tools; creator results are not Hammad's tests. The revision prompt is labelled illustrative. The saved-look image is the matching black-polo asset.
+
+Actual speech compressed the model/topic/research/script section. Visual-only redistribution gives all four screens at least1.5s and ends at spoken photos20.540s. Narration/captions/avatar clock are unchanged. Split presenter uses880px contained picture over blurred fill; whole head and chin clear. Captions42px at y1380 remain inside y1500 even with two lines. Final CTA card is below the face and retains Follow + get the checklist. One relevant visual action per beat.
+
+Restrained audio recipe: four quiet ticks (model topic, connector, review, CTA) with continuous quiet synthesized bed. Original narration is unaltered. CLONE mastering includes measured+0.2dB whole-mix trim; WAV−14.4LUFS/−1.8dBTP and AAC preview−14.4/−1.7. Final encoded sound must pass its own meter. Agents cannot directly audition; owner playback reviews the mixed sound and subjective lip sync.
+
+## Reproduction and final review
+
+Run heavy work through `studio/heavy.sh`. Existing final requires explicit `--replace` after reviewing a real change.
 
 ```
 studio/remotion/node_modules/.bin/tsc --noEmit -p studio/remotion/src/batchnov10/clone-tsconfig.json
-studio/heavy.sh python3 work/reference-20261110-batch/clone_assets.py
-studio/.venv/bin/python work/reference-20261110-batch/clone_qa_assets.py
-studio/heavy.sh node studio/remotion/src/batchnov10/render-clone-preflight.mjs --video
+studio/heavy.sh node work/reference-20261110-batch/render_final.mjs CLONE --check
+studio/heavy.sh node work/reference-20261110-batch/render_final.mjs CLONE --stills
+studio/heavy.sh node work/reference-20261110-batch/render_final.mjs CLONE
+studio/.venv/bin/python work/reference-20261110-batch/clone_review_sheet.py
 ```
 
-The render helper accepts an optional recorded props path before `--video`. It always forces `draft:true` and never changes verified flags. It copies only this job's assets/fonts, renders 23 full-size stills, and optionally renders the actual full-length half-resolution internal MP4/contact sheet. `clone.preflight.json` contains no guessed word timings; the caption band explicitly says recorded words are pending.
+`render_final.mjs` enforces exact narration approval/mix SHA, recorded timing, verified staged avatar, duration tolerance and audio frame clock. `clone_review_sheet.py` creates mapped reference comparisons and full decoded one-fps paired sheets. `package_clone.py` refuses a master without exact-hash root visual review, technical/audio/music pass, exact source/avatar evidence, validated platform exports and inspected cover crops. It creates six-platform copy, review notes, setup checklist, manifest and Downloads copies; packageApproved stays false. Root supplies final review after inspecting the exact master. Six copy entries pass `rq.seo_caption`.
 
-## One visual motion per beat
+Covers use the new take's13.5s smiling/open-eyed frame. Root inspected portrait3:4/4:5/1:1 and landscape crops; headline “Your AI Clone / Claude Plans It”. Whole head retained. No paid generation by the local editor.
 
-Split comparison → progressively populated source example strip → real model/topic/research/script screens → owner references with stylized audio waveform → skill/connector/consent sequence → prompt instruction reveal → review checklist → targeted fix → held comment CTA. No effect stack; no new 3D inserts required by this reference. Existing warm saved look is reused to conserve credits.
+Release still requires owner approval of the finished video, mixed sound, covers and copy, plus verified live guide and CLONE reply route. No publishing, scheduling or commits performed by this agent.
 
-## Final gates still required
+## Completed master evidence
 
-Actual recorded-word alignment; new-avatar 4fps filmstrip and lip sync; safe-zone and head-framing review on the new media; real narration-side-by-side match; full-resolution H.264 limited-range master; voice/music loudness and continuity; cover crops; six-platform copy; live resource/rule; finished-package approval. Silent layout QA cannot satisfy these.
+Final SHA256 `65e2c3a6a5fc11cdbf73c31acc993ca882a76c42076c671da019b03ff9251666`. Master and both platform exports measure −14.4 LUFS / −1.7 dBTP, zero clipped samples. All ten master checks and both export validations pass. Editor inspected all 54 decoded one-fps samples, 12-frame opening, full reference comparisons and cover sheet; exact-hash record is `editor-visual-review.json`. Root's independent exact-master review is required by the package helper. Isolated CLONE TypeScript and helper Python compilation pass; parent full studio suite passed 649 tests with one existing warning.
 
-## Actual narration — 11 November
-
-Exact source SHA256: `9f6df9b3d778d5b268ee43fbe76ae89f9307886ca5050a71aee8e2bc82c8d8d7`.
-Review copy: `~/Downloads/11 November/Voice review/CLONE - REFERRAL voice.mp3`.
-Native PCM duration54.282449s, 44.1kHz, 2,393,856 samples.146 display tokens;148 spoken script tokens before compact5.2. No timing/overlap errors, no warnings, no retiming or removed pauses. Voice remains unapproved.
-
-`prepare_voice.py` changed only twenty-five→25 display normalization. `words-reviewed.json` corrects the low-confidence CTA transcription Claude→CLONE, corroborated by a separate unprompted CTA transcription. No audio altered or audible-identity claim. See `caption-normalization-review.json`.
-
-All-camera upload's PCM equals narration PCM byte-for-byte. Generic per-segment caption filtering omitted one word crossing a boundary; this job's camera_captions.json was replaced with the identical full146-word captions, and alignment-report.json records that correction. The parent-authorized reproducible helper fix now applies automatically only when every segment is camera and the upload bytes exactly match source PCM; other context cases are unchanged. Re-preparation passed with146 camera words and allCameraPcmIdentity:true; original voice hash and protected owner ledgers stayed unchanged.
-
-Actual speech compressed the model/topic/research/script segment to5.4s. Visual-only redistribution gives all four screens at least1.5s and ends on spoken photos at20.540s; the following references beat consumes the remaining time to29.633s. All source screens stay in order. Recorded narration, captions, source segments and avatar clock are unchanged. The review checklist highlights one item at a time across its6.37s beat.
+Root independent exact-master visual review passed and is saved in `final-visual-review.json`. Package helper completed; both chat `outputs/CLONE` and `~/Downloads/11 November/CLONE` contain 24 hash-verified files. Top-level Downloads MP4/SRT and `Thumbnails/CLONE` also staged. Finished-package approval remains false.

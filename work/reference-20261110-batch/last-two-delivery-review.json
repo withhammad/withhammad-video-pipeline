@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-11",
+  "remaining": "Owner finished-package approvals, live resource/rules and release-date decision",
+  "packages": [
+    {
+      "keyword": "CLONE",
+      "job": "0e375e205e9d",
+      "finalSha256": "65e2c3a6a5fc11cdbf73c31acc993ca882a76c42076c671da019b03ff9251666",
+      "technicalPass": true,
+      "audioPass": true,
+      "visualReviewPass": true,
+      "exportsPass": true,
+      "lufs": -14.4,
+      "truePeakDbtp": -1.7,
+      "manifestFiles": 24,
+      "copySha256": "9011b7d0d95d648e5cb7815b8569c143d7408275f88ee5b47e3d449b18176565",
+      "coverSheetSha256": "ab27abf8f566aa931746286cdbc389e5aaeced87f7af9f3f3fc30a99fe0f9013",
+      "voiceApproval": {
+        "approved": true,
+        "ownerMessage": "Voice matches—continue",
+        "clientDate": "2026-11-11",
+        "sourceSha256": "9f6df9b3d778d5b268ee43fbe76ae89f9307886ca5050a71aee8e2bc82c8d8d7",
+        "scope": "Exact CLONE narration likeness and energy; continue one matching saved-look avatar render. Finished package requires separate approval.",
+        "avatarApproved": false
+      },
+      "ownerPackageApproved": false
+    },
+    {
+      "keyword": "BENCH",
+      "job": "e25d352a1b20",
+      "finalSha256": "105905a90ed1fe1f30752085e765288402783cea8737852a3d334a5af101f546",
+      "technicalPass": true,
+      "audioPass": true,
+      "visualReviewPass": true,
+      "exportsPass": true,
+      "lufs": -14.2,
+      "truePeakDbtp": -1.9,
+      "manifestFiles": 24,
+      "copySha256": "44b3c8ae1636deb24abb1e7e80f7dd491dfd33f47ab5163f2fe17d828ebaa000",
+      "coverSheetSha256": "5ba5d15855874dad5acc799a646ed47d7f517f02314553bf1291977a1c737139",
+      "voiceApproval": {
+        "approved": true,
+        "sourceSha256": "429724519a16571fe8701cec16e8670b6bb0c9f4bd6c1aeb67646b6bc71be130",
+        "ownerQuote": "Voice matches—keep75.2 seconds",
+        "approvedOn": "2026-11-11",
+        "scope": "Exact BENCH narration and natural duration only; final package is not approved",
+        "recordedBy": "release_preflight from explicit parent relay of owner response",
+        "subjectiveAgentListeningPerformed": false
+      },
+      "ownerPackageApproved": false
+    }
+  ]
+}

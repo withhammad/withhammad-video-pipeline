@@ -3,7 +3,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 
 type Word = {text:string;startMs:number;endMs:number};
 type Segment = {start:number;end:number;ref:[number,number];camera:boolean;avatarStart:number};
-export type BenchProps = {job:string;keyword:'BENCH';duration:number;draft:boolean;words:Word[];segments:Segment[];voice?:string;timingSource?:string;voiceVerified?:boolean;durationExceptionApproved?:boolean};
+export type BenchProps = {job:string;keyword:'BENCH';duration:number;draft:boolean;words:Word[];segments:Segment[];voice?:string;timingSource?:string;voiceVerified?:boolean;durationExceptionApproved?:boolean;durationApprovedSeconds?:number;approvedNarrationSha256?:string};
 const blue='#4788e9', ink='#17272e', cream='#f1f7f6', gray='#c9d4d8', purple='#7652de';
 const clamp=(v:number)=>Math.min(1,Math.max(0,v));
 const ease=(v:number)=>1-Math.pow(1-clamp(v),3);
@@ -72,6 +72,7 @@ export const Bench:React.FC<BenchProps>=(p)=>{
   {scene==='computer'&&<><Head title="Computer use" sub="OSWorld 2.1 · offline partial set"/>{blueRows(89.3,79.5).map((row,i)=><Panel key={row.name} style={{position:'absolute',left:78+i*438,top:565,width:416,height:630,padding:28}}><Label>{row.name}</Label><div style={{display:'grid',gridTemplateColumns:'repeat(10,1fr)',gap:7,marginTop:45}}>{Array.from({length:100},(_,n)=><div key={n} style={{height:27,borderRadius:4,background:n<Math.floor(row.v*u)?(i===0?blue:'#90a8b8'):'#ecf1f2'}}/>)}</div><div style={{marginTop:30}}><Count value={row.v} progress={u} color={i===0?blue:'#718b9b'} size={90}/></div></Panel>)}<Source>Each square ≈ 1 percentage point · Decimal score retained</Source></>}
   {scene==='science'&&<><Head title="Scientific research" sub="Terminal-Bench-Science 0.1"/><ChartBars rows={blueRows(74.6,64.8,'Gemini 4 Carbon')} kind="tubes" progress={u}/><Source>Selected comparison · GPT-6 Astra: 68.1%</Source></>}
   {scene==='cyber'&&<><Head title="Cybersecurity" sub="CyScenarioBench · separately reported scores"/><ChartBars rows={[{name:'Mythos 5.2',v:76.3,color:purple},{name:'GPT-6 Cyber',v:61,color:gray}]} progress={progressFor(p,t,5,'seventy-six')}/><div style={{position:'absolute',left:100,right:170,top:1192,padding:'17px 23px',borderRadius:14,background:'#ede6ff',fontSize:28,fontWeight:750,color:'#6038b5',textAlign:'center'}}>Different tasks for each lab</div><Source>Not a like-for-like comparison. Specific tests do not prove<br/>that one model wins everything.</Source></>}
+  {scene==='cyber'&&local>=4&&(()=>{const phase=local<8?1:2;return <Panel style={{position:'absolute',left:120,top:805,width:770,padding:35,background:'#f6f1ff',border:'2px solid #d3c4f7',transform:`translateY(${20*(1-ease((local-(phase===1?4:8))/.35))}px)`}}><div style={{fontSize:45,fontWeight:780,color:purple}}>{phase===1?'Different task sets':'Specific tests'}</div><div style={{fontSize:31,marginTop:18,color:ink}}>{phase===1?'Scores reported separately':'No universal winner'}</div></Panel>;})()}
   {scene==='growth'&&<>
    <Head title="Against the last Fable" sub="5.1 → 5.2 · more than doubled"/>
    <Panel style={{position:'absolute',left:78,top:545,width:854,height:685,padding:25}}><svg viewBox="0 0 800 610" width="800" height="610">
@@ -96,6 +97,7 @@ export const Bench:React.FC<BenchProps>=(p)=>{
     </svg><div style={{fontSize:24,color:'#60777f'}}>Endpoints only · Opus made little later progress</div>
    </Panel><Source>Machine-checkable formalization · Not a new theorem<br/>Dashed line guides the eye; it is not a measured trajectory</Source>
   </>}
+  {scene==='fermat'&&index===7&&t>=55.1&&(()=>{const caveat=t>=58.87;return <Panel style={{position:'absolute',left:112,top:550,width:786,height:170,padding:'25px 34px',background:'#edf4ff',border:`2px solid ${blue}`,transform:`translateY(${15*(1-ease((t-(caveat?58.87:55.1))/.3))}px)`}}><div style={{fontSize:48,fontWeight:780,color:blue}}>{caveat?'A known theorem':'30 hours'}</div><div style={{fontSize:29,marginTop:15}}>{caveat?'Formalized, not newly discovered':'A machine-checkable proof'}</div></Panel>;})()}
   {scene==='setup'&&<>
    <Head title="Use it for demanding work" sub="Claude Code · version 2.1.321 or newer"/>
    <Panel style={{position:'absolute',left:78,top:540,width:854,height:640,padding:40}}>

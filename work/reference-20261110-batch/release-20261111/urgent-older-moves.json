@@ -1,0 +1,56 @@
+{
+  "at_utc": "2026-11-11T08:55:31.733717+00:00",
+  "before_sha256": "dcb7205318df10dbe2411b58d69a2b33c185f1fa19e45e80e8cfa16149315909",
+  "after_sha256": "6cb18cd14e08b7f20b13608b8b4122fa02a58ce93f646922c7f15ad31e2cb1d2",
+  "changes": [
+    {
+      "before": {
+        "id": "in-e5c7bfbcd56c",
+        "platform": "instagram",
+        "status": "pending",
+        "slot_utc": "2026-11-11T07:00:00Z",
+        "local": "2026-11-11 11:00 GST"
+      },
+      "after": {
+        "id": "in-e5c7bfbcd56c",
+        "platform": "instagram",
+        "status": "pending",
+        "slot_utc": "2026-11-17T13:00:00Z",
+        "local": "2026-11-17 17:00 GST"
+      },
+      "audit": {
+        "changed_at_utc": "2026-11-11T08:55:31.733717+00:00",
+        "original_slot_utc": "2026-11-11T07:00:00Z",
+        "original_local": "2026-11-11 11:00 GST",
+        "new_slot_utc": "2026-11-17T13:00:00Z",
+        "new_local": "2026-11-17 17:00 GST",
+        "reason": "Owner explicitly prioritized five business batch and authorized moving older bookings later. Urgent fallback protection; selected vacant later lane after existing bookings, preserving 3h real spacing and 2h phone window."
+      }
+    },
+    {
+      "before": {
+        "id": "yo-85fb47b66b4b",
+        "platform": "youtube",
+        "status": "pending",
+        "slot_utc": "2026-11-11T08:00:00Z",
+        "local": "2026-11-11 12:00 GST"
+      },
+      "after": {
+        "id": "yo-85fb47b66b4b",
+        "platform": "youtube",
+        "status": "pending",
+        "slot_utc": "2026-11-15T05:00:00Z",
+        "local": "2026-11-15 09:00 GST"
+      },
+      "audit": {
+        "changed_at_utc": "2026-11-11T08:55:31.733717+00:00",
+        "original_slot_utc": "2026-11-11T08:00:00Z",
+        "original_local": "2026-11-11 12:00 GST",
+        "new_slot_utc": "2026-11-15T05:00:00Z",
+        "new_local": "2026-11-15 09:00 GST",
+        "reason": "Owner explicitly prioritized five business batch and authorized moving older bookings later. Urgent fallback protection; selected vacant later lane after existing bookings, preserving 3h real spacing and 2h phone window."
+      }
+    }
+  ],
+  "scope": "Only two pending slot/local fields plus append-only schedule_history; no publishing, status or native edits."
+}

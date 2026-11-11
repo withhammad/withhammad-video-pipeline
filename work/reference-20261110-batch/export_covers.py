@@ -3,7 +3,7 @@ from pathlib import Path
 import json,sys
 from PIL import Image,ImageDraw
 ROOT=Path(__file__).resolve().parents[2]
-keyword=sys.argv[1];job={'HIGGS':'ee41d72bf8cd','ADVISOR':'62eec03e1e93','FABLE':'c5bc128a0a8d'}[keyword]
+keyword=sys.argv[1];job={'HIGGS':'ee41d72bf8cd','ADVISOR':'62eec03e1e93','FABLE':'c5bc128a0a8d','CLONE':'0e375e205e9d','BENCH':'e25d352a1b20'}[keyword]
 p=ROOT/'studio/.local/jobs'/job/'referral-v4/covers'
 portrait=Image.open(p/'cover.png').convert('RGB');wide=Image.open(p/'wide.png').convert('RGB')
 spec={'instagram':(portrait,(1080,1920)),'facebook':(portrait,(1080,1920)),'tiktok':(portrait,(1080,1920)),'linkedin':(portrait,(720,1280)),'youtube':(wide,(1280,720)),'x':(wide,(1280,720))}

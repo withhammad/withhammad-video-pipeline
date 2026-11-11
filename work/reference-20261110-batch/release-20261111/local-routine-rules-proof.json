@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-11-11T09:33:19.962587+00:00",
+  "siteCloneUpdatedTo": "a9bd5ad4917ea7f8995a43942c58caeb30498b7b",
+  "rulesFile": "/Users/hammad/withhammad-video-pipeline/work/site/withhammad-rebuild/src/content/dm-rules.json",
+  "rulesSha256": "9b0194abc3bf350ada3844a2d6eee4193cfa4e77c55430badf17113f642f3e7c",
+  "checks": [
+    {
+      "keyword": "HIGGS",
+      "link": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "youtubeMatcher": true,
+      "linkedinXTiktokMatcher": true,
+      "negativeSubstringRejected": true
+    },
+    {
+      "keyword": "ADVISOR",
+      "link": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "youtubeMatcher": true,
+      "linkedinXTiktokMatcher": true,
+      "negativeSubstringRejected": true
+    }
+  ],
+  "actualCustomerReplySent": false,
+  "note": "Shared site clone was clean but stale before update; fast-forwarded to deployed PR21 commit so all four local reply routines load the new keywords."
+}

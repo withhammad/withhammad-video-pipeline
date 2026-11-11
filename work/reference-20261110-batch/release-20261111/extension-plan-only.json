@@ -1,0 +1,359 @@
+{
+  "as_of_utc": "2026-11-11T09:07:56.610942+00:00",
+  "mode": "PLAN ONLY \u2014 do not apply until owner authorizes date extension, each package approved and guide/reply rule production verified",
+  "max_guaranteed_complete_packages_11_nov": 2,
+  "guaranteed_completion_date": "2026-11-13",
+  "why": "Full2h IG/YT phone windows plus hourly :03 fallback and>=3h actual gaps permit two guaranteed releases after13:00 today and two tomorrow within08\u201321runner. Third remaining package requires13Nov. Manual receipts could permit tighter adaptive schedule but are not assumed.",
+  "new_rows": [
+    {
+      "keyword": "FABLE",
+      "job": "c5bc128a0a8d",
+      "platform": "instagram",
+      "local": "2026-11-12 08:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": "10:03"
+    },
+    {
+      "keyword": "FABLE",
+      "job": "c5bc128a0a8d",
+      "platform": "youtube",
+      "local": "2026-11-12 08:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": "10:03"
+    },
+    {
+      "keyword": "FABLE",
+      "job": "c5bc128a0a8d",
+      "platform": "facebook",
+      "local": "2026-11-12 09:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "FABLE",
+      "job": "c5bc128a0a8d",
+      "platform": "linkedin",
+      "local": "2026-11-12 09:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "FABLE",
+      "job": "c5bc128a0a8d",
+      "platform": "tiktok",
+      "local": "2026-11-12 10:45 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "FABLE",
+      "job": "c5bc128a0a8d",
+      "platform": "x",
+      "local": "2026-11-12 10:45 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "CLONE",
+      "job": "0e375e205e9d",
+      "platform": "instagram",
+      "local": "2026-11-12 13:15 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": "16:03"
+    },
+    {
+      "keyword": "CLONE",
+      "job": "0e375e205e9d",
+      "platform": "youtube",
+      "local": "2026-11-12 13:15 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": "16:03"
+    },
+    {
+      "keyword": "CLONE",
+      "job": "0e375e205e9d",
+      "platform": "facebook",
+      "local": "2026-11-12 13:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "CLONE",
+      "job": "0e375e205e9d",
+      "platform": "linkedin",
+      "local": "2026-11-12 13:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "CLONE",
+      "job": "0e375e205e9d",
+      "platform": "tiktok",
+      "local": "2026-11-12 17:15 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "CLONE",
+      "job": "0e375e205e9d",
+      "platform": "x",
+      "local": "2026-11-12 14:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "BENCH",
+      "job": "e25d352a1b20",
+      "platform": "instagram",
+      "local": "2026-11-13 08:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": "10:03"
+    },
+    {
+      "keyword": "BENCH",
+      "job": "e25d352a1b20",
+      "platform": "youtube",
+      "local": "2026-11-13 08:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": "10:03"
+    },
+    {
+      "keyword": "BENCH",
+      "job": "e25d352a1b20",
+      "platform": "facebook",
+      "local": "2026-11-13 09:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "BENCH",
+      "job": "e25d352a1b20",
+      "platform": "linkedin",
+      "local": "2026-11-13 09:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "BENCH",
+      "job": "e25d352a1b20",
+      "platform": "tiktok",
+      "local": "2026-11-13 09:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    },
+    {
+      "keyword": "BENCH",
+      "job": "e25d352a1b20",
+      "platform": "x",
+      "local": "2026-11-13 09:00 GST",
+      "status": "PLAN_ONLY",
+      "fallback_gst": null
+    }
+  ],
+  "older_moves": [
+    {
+      "id": "in-990543b928c4",
+      "platform": "instagram",
+      "keyword": "PLANE",
+      "old_local": "2026-11-12 14:00 GST",
+      "old_slot_utc": "2026-11-12T10:00:00Z",
+      "new_local": "2026-11-19 15:00 GST",
+      "new_slot_utc": "2026-11-19T11:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "in-comedy20261023",
+      "platform": "instagram",
+      "keyword": "SCOPE",
+      "old_local": "2026-11-12 17:00 GST",
+      "old_slot_utc": "2026-11-12T13:00:00Z",
+      "new_local": "2026-11-20 09:00 GST",
+      "new_slot_utc": "2026-11-20T05:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "in-4a606d94c5cd",
+      "platform": "instagram",
+      "keyword": "CARTOON",
+      "old_local": "2026-11-12 20:00 GST",
+      "old_slot_utc": "2026-11-12T16:00:00Z",
+      "new_local": "2026-11-20 15:00 GST",
+      "new_slot_utc": "2026-11-20T11:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "yo-4a606d94c5cd",
+      "platform": "youtube",
+      "keyword": "CARTOON",
+      "old_local": "2026-11-12 12:00 GST",
+      "old_slot_utc": "2026-11-12T08:00:00Z",
+      "new_local": "2026-11-19 09:00 GST",
+      "new_slot_utc": "2026-11-19T05:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "yo-990543b928c4",
+      "platform": "youtube",
+      "keyword": "PLANE",
+      "old_local": "2026-11-12 16:00 GST",
+      "old_slot_utc": "2026-11-12T12:00:00Z",
+      "new_local": "2026-11-19 15:00 GST",
+      "new_slot_utc": "2026-11-19T11:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "fa-4a606d94c5cd",
+      "platform": "facebook",
+      "keyword": "CARTOON",
+      "old_local": "2026-11-12 11:00 GST",
+      "old_slot_utc": "2026-11-12T07:00:00Z",
+      "new_local": "2026-11-19 09:00 GST",
+      "new_slot_utc": "2026-11-19T05:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "li-85fb47b66b4b",
+      "platform": "linkedin",
+      "keyword": "VOXEL",
+      "old_local": "2026-11-12 09:00 GST",
+      "old_slot_utc": "2026-11-12T05:00:00Z",
+      "new_local": "2026-11-18 13:00 GST",
+      "new_slot_utc": "2026-11-18T09:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "li-990543b928c4",
+      "platform": "linkedin",
+      "keyword": "PLANE",
+      "old_local": "2026-11-12 13:00 GST",
+      "old_slot_utc": "2026-11-12T09:00:00Z",
+      "new_local": "2026-11-18 17:00 GST",
+      "new_slot_utc": "2026-11-18T13:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "tt-4a606d94c5cd",
+      "platform": "tiktok",
+      "keyword": "CARTOON",
+      "old_local": "2026-11-12 17:00 GST",
+      "old_slot_utc": "2026-11-12T13:00:00Z",
+      "new_local": "2026-11-18 13:00 GST",
+      "new_slot_utc": "2026-11-18T09:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "xx-4a606d94c5cd",
+      "platform": "x",
+      "keyword": "CARTOON",
+      "old_local": "2026-11-12 09:00 GST",
+      "old_slot_utc": "2026-11-12T05:00:00Z",
+      "new_local": "2026-11-18 13:00 GST",
+      "new_slot_utc": "2026-11-18T09:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "in-d61788123d13",
+      "platform": "instagram",
+      "keyword": "SCAN",
+      "old_local": "2026-11-13 11:00 GST",
+      "old_slot_utc": "2026-11-13T07:00:00Z",
+      "new_local": "2026-11-21 09:00 GST",
+      "new_slot_utc": "2026-11-21T05:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "yo-fef5b7f3b5af",
+      "platform": "youtube",
+      "keyword": "BRAND",
+      "old_local": "2026-11-13 10:00 GST",
+      "old_slot_utc": "2026-11-13T06:00:00Z",
+      "new_local": "2026-11-20 09:00 GST",
+      "new_slot_utc": "2026-11-20T05:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "yo-df71c9d45658",
+      "platform": "youtube",
+      "keyword": "ROBOT",
+      "old_local": "2026-11-13 09:00 GST",
+      "old_slot_utc": "2026-11-13T05:00:00Z",
+      "new_local": "2026-11-20 15:00 GST",
+      "new_slot_utc": "2026-11-20T11:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "fa-df71c9d45658",
+      "platform": "facebook",
+      "keyword": "ROBOT",
+      "old_local": "2026-11-13 11:00 GST",
+      "old_slot_utc": "2026-11-13T07:00:00Z",
+      "new_local": "2026-11-19 13:00 GST",
+      "new_slot_utc": "2026-11-19T09:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "li-agentic-concepts",
+      "platform": "linkedin",
+      "keyword": "AGENTIC",
+      "old_local": "2026-11-13 09:00 GST",
+      "old_slot_utc": "2026-11-13T05:00:00Z",
+      "new_local": "2026-11-19 09:00 GST",
+      "new_slot_utc": "2026-11-19T05:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    },
+    {
+      "id": "xx-df71c9d45658",
+      "platform": "x",
+      "keyword": "ROBOT",
+      "old_local": "2026-11-13 09:00 GST",
+      "old_slot_utc": "2026-11-13T05:00:00Z",
+      "new_local": "2026-11-18 17:00 GST",
+      "new_slot_utc": "2026-11-18T13:00:00Z",
+      "status": "pending",
+      "reason": "Proposed only: displace conflicting older pending entry for approved-date-extension priority batch; leave native PLANE/PROMPT and held/posted intact."
+    }
+  ],
+  "additional_native_moves_required": [],
+  "preserved_native": [
+    {
+      "keyword": "EDIT",
+      "platform": "tiktok",
+      "local": "2026-11-11 17:00 GST"
+    },
+    {
+      "keyword": "PLANE",
+      "platform": "tiktok",
+      "local": "2026-11-12 14:00 GST"
+    },
+    {
+      "keyword": "PLANE",
+      "platform": "x",
+      "local": "2026-11-12 18:00 GST"
+    },
+    {
+      "keyword": "PROMPT",
+      "platform": "tiktok+x",
+      "local": "2026-11-14 14:00 GST"
+    },
+    {
+      "keyword": "EDIT",
+      "platform": "x",
+      "local": "2026-11-15 14:00 GST"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 """Original instrumental + restrained UI ticks; approved narration never retimed.
-Use through studio/heavy.sh. mix_audio.py HIGGS|ADVISOR|FABLE [--check-final VIDEO]
+Use through studio/heavy.sh. mix_audio.py HIGGS|ADVISOR|FABLE|BENCH|CLONE [--check-final VIDEO]
 Outputs are confined to the job's referral-v4 directory. No credit/state ledgers are changed.
 """
 import argparse, hashlib, json, math, subprocess, sys
@@ -15,7 +15,7 @@ def measure(p):return audio.analyze(str(p))
 def check(stats):return -14.5<=stats['lufs']<=-13.5 and stats['true_peak_dbtp']<=-1.5 and stats['clipped_samples']==0
 
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('keyword',choices=['HIGGS','ADVISOR','FABLE']);ap.add_argument('--check-final',type=Path);args=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument('keyword',choices=['HIGGS','ADVISOR','FABLE','BENCH','CLONE']);ap.add_argument('--check-final',type=Path);args=ap.parse_args()
  batch=json.loads(Path(__file__).with_name('batch.json').read_text());j=next(x for x in batch['jobs'] if x['keyword']==args.keyword)
  out=ROOT/'studio/.local/jobs'/j['job']/'referral-v4';props_path=out/'recorded.props.json';props=json.loads(props_path.read_text())
  if args.check_final:
@@ -27,6 +27,10 @@ def main():
  approval=json.loads(approval_path.read_text()) if approval_path.exists() else {}
  if not props.get('voiceVerified') or approval.get('approved') is not True or approval.get('sourceSha256')!=original_hash:
   raise ValueError('Exact narration owner approval is missing; mixing does not grant approval')
+ if args.keyword=='BENCH':
+  exception=json.loads((out/'duration-exception.json').read_text())
+  if exception.get('approved') is not True or exception.get('sourceSha256')!=original_hash or abs(exception.get('approvedDurationSeconds',0)-props['duration'])>1e-6 or not props.get('durationExceptionApproved'):
+   raise ValueError('Exact BENCH natural-length approval missing')
  frames=math.ceil(props['duration']*30);duration=frames/30;n=frames*(SR//30)
  voice=audio.decode(original,sr=SR,channels=2);source_n=len(voice)
  assert source_n<=n
@@ -36,6 +40,7 @@ def main():
  # A static bed level is retained through the final frame. Frequencies avoid the voice's main presence band.
  base=[146.8324,220.0,293.6648,369.9944,440.0]
  if args.keyword=='ADVISOR':base=[130.8128,196.0,261.6256,329.6276,391.9954]
+ if args.keyword=='BENCH':base=[130.8128,196.0,261.6256,329.6276,440.0]
  if args.keyword=='FABLE':base=[164.8138,246.9417,329.6276,391.9954,493.8833]
  bed=np.zeros((n,2),dtype=np.float64)
  for k,hz in enumerate(base):
@@ -63,7 +68,9 @@ def main():
   rate=(build['end']-build['start'])/(build['ref'][1]-build['ref'][0])
   chapter3_ref=72+(7*rate-1.5-.93-.3)/rate if 1.5*rate<1.5 else 74
   cue_refs=sorted([(10,'Use cases chapter'),(60.7,'Pricing chapter'),(66.5,'Standard API price reveal'),(chapter3_ref,'Build chapter'),(99,'Starter skill reveal')])
- tick_peak_db=-37 if args.keyword=='FABLE' else -34
+ if args.keyword=='CLONE':cue_refs=[(14.1,'Model and topic'),(31.6,'Skill and connector'),(44.2,'Output review'),(51.5,'Checklist CTA')]
+ if args.keyword=='BENCH':cue_refs=[(3.2,'Robotics chart'),(14,'Exam and coding'),(40.2,'Previous model comparison'),(44.8,'Agent formalization'),(63,'Guide CTA')]
+ tick_peak_db=-37 if args.keyword in ['FABLE','BENCH','CLONE'] else -34
  sfx=np.zeros_like(voice);cues=[]
  for i,(ref,purpose) in enumerate(cue_refs):
   at=recorded_time(ref);tick=audio.make_sfx('tick',seed=110+i)
@@ -75,6 +82,12 @@ def main():
  # Two-pass whole-mix loudness/true-peak mastering; source voice remains an unfiltered unity-gain stem.
  mastering=audio.master(out/'mix_unmastered.wav',out/'mix_master.wav',I=-14,TP=-2.0,LRA=11)
  stats=measure(out/'mix_master.wav')
+ if args.keyword=='CLONE' and stats['lufs'] < -14.5 and stats['true_peak_dbtp'] <= -2.0:
+  trim_db=.2
+  trimmed=audio.decode(out/'mix_master.wav',sr=SR,channels=2)*10**(trim_db/20)
+  audio.write_wav(out/'mix_master.wav',trimmed,SR,seed=1115)
+  mastering['postMasterWholeMixTrimDb']=trim_db
+  stats=measure(out/'mix_master.wav')
  # Check actual AAC delivery encoding, not only the WAV meter.
  preview=out/'mix_delivery_check.m4a'
  subprocess.run(['ffmpeg','-y','-v','error','-i',str(out/'mix_master.wav'),'-c:a','aac','-b:a','192k','-ar','48000',str(preview)],check=True)

@@ -3,7 +3,7 @@ from pathlib import Path
 import json,sys,subprocess
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'studio'))
 from app import audio
-keyword=sys.argv[1];job={'HIGGS':'ee41d72bf8cd','ADVISOR':'62eec03e1e93','FABLE':'c5bc128a0a8d'}[keyword]
+keyword=sys.argv[1];job={'HIGGS':'ee41d72bf8cd','ADVISOR':'62eec03e1e93','FABLE':'c5bc128a0a8d','CLONE':'0e375e205e9d','BENCH':'e25d352a1b20'}[keyword]
 p=ROOT/'studio/.local/jobs'/job/'referral-v4'
 frames=json.loads((p/'render-preflight.json').read_text())['frames'];reports=[]
 for name in ['final_ig.mp4','final_social.mp4']:

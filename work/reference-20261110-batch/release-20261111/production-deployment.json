@@ -1,0 +1,20 @@
+{
+  "id": "dpl_BniDdSafUNdqpzzXGxXqigyQZt2v",
+  "url": "withhammad-rebuild-qj9qn826c-hammad-s-projects9.vercel.app",
+  "readyState": "READY",
+  "target": "production",
+  "alias": [
+    "withhammad.com",
+    "withhammad-rebuild.vercel.app",
+    "withhammad-rebuild-hammad-s-projects9.vercel.app",
+    "withhammad-rebuild-git-main-hammad-s-projects9.vercel.app"
+  ],
+  "gitSource": {
+    "ref": "main",
+    "repoId": 1325707785,
+    "sha": "a9bd5ad4917ea7f8995a43942c58caeb30498b7b",
+    "type": "github",
+    "prId": null
+  },
+  "createdAt": 1794386193667
+}

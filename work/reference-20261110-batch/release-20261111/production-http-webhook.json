@@ -1,0 +1,54 @@
+{
+  "HIGGS": {
+    "url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+    "http": 200,
+    "title": "Higgsfield Claude MCP: Setup and Video Prompt",
+    "h1Count": 1,
+    "canonical": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+    "description": "Connect Higgsfield to Claude, brief a short video and check credits before generating. Includes a reusable prompt and a practical quality checklist.",
+    "ogImage": "https://withhammad.com/api/og?title=Higgsfield%20Claude%20MCP%3A%20Setup%20and%20Video%20Prompt&amp;tag=HIGGS%20GUIDE",
+    "faqSchema": true,
+    "ogHttp": 200
+  },
+  "ADVISOR": {
+    "url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+    "http": 200,
+    "title": "Claude Code Fable Advisor: Setup and Cost Checks",
+    "h1Count": 1,
+    "canonical": "https://withhammad.com/resources/claude-fable-advisor-setup",
+    "description": "Set up Opus with a Fable 5.2 advisor in Claude Code. Check versions, provider access, billing consent and usage before your first substantial task.",
+    "ogImage": "https://withhammad.com/api/og?title=Claude%20Code%20Fable%20Advisor%3A%20Setup%20and%20Cost%20Checks&amp;tag=ADVISOR%20GUIDE",
+    "faqSchema": true,
+    "ogHttp": 200
+  },
+  "handshake": {
+    "http": 200,
+    "challengeMatches": true
+  },
+  "instagramEmptyEvent": {
+    "http": 200,
+    "response": {
+      "ok": true,
+      "comments": 0,
+      "messages": 0
+    }
+  },
+  "pageEmptyEvent": {
+    "http": 200,
+    "response": {
+      "ok": true,
+      "feed": 0,
+      "messages": 0
+    }
+  },
+  "actualCustomerDelivery": "Not tested; no customer comments or messages fabricated.",
+  "checkedAt": "2026-11-11T08:47:05.211659+00:00",
+  "/resources": {
+    "higgsIncluded": true,
+    "advisorIncluded": true
+  },
+  "/sitemap.xml": {
+    "higgsIncluded": true,
+    "advisorIncluded": true
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "at_utc": "2026-11-11T09:00:50.872764+00:00",
+  "changes": [
+    {
+      "before": {
+        "id": "xx-g2-edit-videos-guide",
+        "local": "2026-11-11 14:00 GST",
+        "slot_utc": "2026-11-11T10:00:00Z",
+        "status": "scheduled"
+      },
+      "after": {
+        "id": "xx-g2-edit-videos-guide",
+        "local": "2026-11-15 14:00 GST",
+        "slot_utc": "2026-11-15T10:00:00Z",
+        "status": "scheduled"
+      },
+      "evidence": "Observed X native scheduled list after in-place save: Will send on Sun, Nov 15, 2026 at 2:00 PM. EDIT38sec caption unchanged."
+    },
+    {
+      "before": {
+        "id": "tt-62eec03e1e93",
+        "local": "2026-11-11 18:00 GST",
+        "slot_utc": "2026-11-11T14:00:00Z",
+        "status": "pending"
+      },
+      "after": {
+        "id": "tt-62eec03e1e93",
+        "local": "2026-11-11 20:15 GST",
+        "slot_utc": "2026-11-11T16:15:00Z",
+        "status": "pending"
+      },
+      "evidence": "Existing TikTok EDIT17:00 cannot reschedule in place: only Download/Delete exposed; preserve it under no-delete/repost. ADVISOR20:15 leaves3h15 gap."
+    }
+  ],
+  "tiktok_preserved": {
+    "id": "tt-g2-edit-videos-guide",
+    "url": "https://www.tiktok.com/@withhammad/video/7705478342039932161",
+    "local": "2026-11-11 17:00 GST",
+    "observed_menu": [
+      "Download",
+      "Delete"
+    ]
+  },
+  "existing_native_other": [
+    {
+      "platform": "x",
+      "keyword": "PLANE",
+      "local": "2026-11-12 18:00 GST"
+    },
+    {
+      "platform": "x",
+      "keyword": "PROMPT",
+      "local": "2026-11-14 14:00 GST"
+    },
+    {
+      "platform": "tiktok",
+      "keyword": "PLANE",
+      "local": "2026-11-12 14:00 GST",
+      "url": "https://www.tiktok.com/@withhammad/video/7705382432094178612"
+    },
+    {
+      "platform": "tiktok",
+      "keyword": "PROMPT",
+      "local": "2026-11-14 14:00 GST",
+      "url": "https://www.tiktok.com/@withhammad/video/7705478708181699892"
+    }
+  ]
+}

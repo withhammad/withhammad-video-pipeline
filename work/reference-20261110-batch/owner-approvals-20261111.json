@@ -40,6 +40,26 @@
       "condition": "Resource guide and keyword reply rule live before scheduling or release; owner merges website PR",
       "scheduled": false,
       "posted": false
+    },
+    {
+      "approved_at": "2026-11-11",
+      "statement": "Approve FABLE package",
+      "keyword": "FABLE",
+      "job": "c5bc128a0a8d",
+      "video_sha256": "7dda9d443740db7681ed1e685cf804afa82ea9f7b877bb10515fcb681e60d54d",
+      "copy_sha256": "e4eef8687cbb6384cd67ab9c0293b533872f986d7613f1bfa771a83e64a9669f",
+      "cover_sha256": "9ab92c19829685db3cc2bbf3e7fa35db9c9b2892e7e57f45cd5db22ab3ca7ad3",
+      "platform_cover_sha256": {
+        "instagram": "b255d674b39be2093dbe09fb0d1bfc9a2a1fd7c253b0bce035e1392d754bfdcf",
+        "facebook": "b255d674b39be2093dbe09fb0d1bfc9a2a1fd7c253b0bce035e1392d754bfdcf",
+        "linkedin": "bda26302783e34abf33b1d072c9a65e8e281b0d8b3fc05a27e9b9a03fc6fc844",
+        "youtube": "96e12b43c3a080c94bb97c20c3787df93586aa6585d211dc76716d78827d665f",
+        "tiktok": "b255d674b39be2093dbe09fb0d1bfc9a2a1fd7c253b0bce035e1392d754bfdcf",
+        "x": "96e12b43c3a080c94bb97c20c3787df93586aa6585d211dc76716d78827d665f"
+      },
+      "condition": "Resource guide and keyword reply rule live before scheduling or release; separate website merge approval required",
+      "scheduled": false,
+      "posted": false
     }
   ],
   "FABLE_voice": {
@@ -49,5 +69,49 @@
     "sourceSha256": "864456dbd440f213ad1adfafe2eb5df4fd67679082e69a56391514e2ef88cf23",
     "scope": "Exact FABLE narration voice likeness and energy; continue single matching-look avatar render. Final edited package requires separate approval.",
     "avatarApproved": false
+  },
+  "CLONE_voice": {
+    "approved": true,
+    "ownerMessage": "Voice matches—continue",
+    "clientDate": "2026-11-11",
+    "sourceSha256": "9f6df9b3d778d5b268ee43fbe76ae89f9307886ca5050a71aee8e2bc82c8d8d7",
+    "scope": "Exact CLONE narration likeness and energy; continue one matching saved-look avatar render. Finished package requires separate approval.",
+    "avatarApproved": false
+  },
+  "release_authorizations": {
+    "website_pr_21": {
+      "approved": true,
+      "ownerMessage": "You may merge PR #21 for me"
+    },
+    "priority": {
+      "approved": true,
+      "ownerMessage": "Prioritize this batch; move older bookings later",
+      "scope": "Move unposted older bookings later; preserve posted records and native schedule consistency"
+    }
+  },
+  "BENCH_voice": {
+    "approved": true,
+    "sourceSha256": "429724519a16571fe8701cec16e8670b6bb0c9f4bd6c1aeb67646b6bc71be130",
+    "ownerQuote": "Voice matches—keep75.2 seconds",
+    "approvedOn": "2026-11-11",
+    "scope": "Exact BENCH narration and natural duration only; final package is not approved",
+    "recordedBy": "release_preflight from explicit parent relay of owner response",
+    "subjectiveAgentListeningPerformed": false
+  },
+  "BENCH_duration_exception": {
+    "status": "approved",
+    "referenceSeconds": 67,
+    "referenceMaximumSeconds": 73.7,
+    "actualNativeSeconds": 75.2326530612245,
+    "overMaximumSeconds": 1.5326530612244937,
+    "relativeDifferencePercent": 12.287541882424623,
+    "nativePacePreserved": true,
+    "voiceVerified": true,
+    "sourceSha256": "429724519a16571fe8701cec16e8670b6bb0c9f4bd6c1aeb67646b6bc71be130",
+    "noRetryAuthorized": true,
+    "approved": true,
+    "ownerQuote": "Voice matches—keep75.2 seconds",
+    "approvedOn": "2026-11-11",
+    "approvedDurationSeconds": 75.2326530612245
   }
 }

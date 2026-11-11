@@ -1,0 +1,65 @@
+{
+  "pr": "https://github.com/withhammad/withhammad-rebuild/pull/22",
+  "commit": "80ddb5f3797454fd83b597c5d18796ed05858af0",
+  "base": "a9bd5ad4917ea7f8995a43942c58caeb30498b7b",
+  "scopedFiles": 5,
+  "build": true,
+  "typecheck": true,
+  "lint": {
+    "errors": 0,
+    "existingWarnings": 5
+  },
+  "viewportWidths": [
+    375,
+    390,
+    1440
+  ],
+  "horizontalOverflow": false,
+  "darkAndLightVisualReview": true,
+  "serverRenderedWithoutJavascript": true,
+  "oneH1": true,
+  "canonicalOgFaq": true,
+  "downloadExactApprovedStarter": true,
+  "existingRulesPreserved": true,
+  "newKeyword": "FABLE",
+  "lighthouse": {
+    "scores": {
+      "performance": 95,
+      "accessibility": 96,
+      "seo": 100
+    },
+    "LCP": "2.7\u00a0s",
+    "CLS": "0.02",
+    "TBT": "110\u00a0ms"
+  },
+  "limitations": [
+    "Mobile LCP2.7s repeat (2.8s first run) exceeds2.5s target.",
+    "Field INP not measured; TBT is not INP.",
+    "Full-site SEO382/383 pass; existing ai-business missingJSON-LD remains.",
+    "CI fails in existing prompt sync/governance drift; see fable-ci-failed.log."
+  ],
+  "ownerMergeRequired": true,
+  "merged": false,
+  "productionPageLive": false,
+  "preview": {
+    "url": "https://withhammad-rebuild-1fdqoowiy-hammad-s-projects9.vercel.app/resources/fable-creative-project-starter",
+    "deploymentId": "dpl_8wRQtzcKWf3FPahFkGo85DvyMLDR",
+    "pageHttp": 200,
+    "downloadHttp": 200,
+    "title": "Fable 5.2 Creative Projects: Starter Skill and Costs",
+    "canonical": "https://withhammad.com/resources/fable-creative-project-starter",
+    "h1Count": 1,
+    "faqSchema": true,
+    "starterServerRendered": true,
+    "starterByteIdentical": true,
+    "starterSha256": "41ed009d2183834b4578588037a6f9031fe3ba65464ba278c1dcd7b04a9dfa13",
+    "ready": true
+  },
+  "ci": {
+    "status": "failure",
+    "cause": "64 existing prompt drift entries",
+    "workflowRun": "https://github.com/withhammad/withhammad-rebuild/actions/runs/42990927379"
+  },
+  "worktreeClean": true,
+  "branchHeadMatchesRemote": true
+}

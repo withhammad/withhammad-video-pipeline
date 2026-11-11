@@ -1,0 +1,25 @@
+{
+  "deploymentId": "dpl_BniDdSafUNdqpzzXGxXqigyQZt2v",
+  "readyState": "READY",
+  "gitSha": "a9bd5ad4917ea7f8995a43942c58caeb30498b7b",
+  "productionAliasPresent": true,
+  "rulesSource": "src/content/dm-rules.json imported directly by src/app/api/instagram/webhook/route.ts at the verified production commit",
+  "rules": [
+    {
+      "keyword": "HIGGS",
+      "link": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "dm": "Here is the Higgsfield + Claude setup guide \ud83d\udc47\n{link}",
+      "reply": "Sent you a DM \u2705",
+      "media_ids": []
+    },
+    {
+      "keyword": "ADVISOR",
+      "link": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "dm": "Here is the Opus + Fable advisor setup guide \ud83d\udc47\n{link}",
+      "reply": "Sent you a DM \u2705",
+      "media_ids": []
+    }
+  ],
+  "customerDeliveryVerified": false,
+  "limitations": "Vercel deployment source file-tree endpoint returned404. Rules verified through exact deployed Git SHA and imported source; no runtime rule debug endpoint or fabricated customer event used."
+}

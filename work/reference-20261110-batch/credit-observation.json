@@ -11,7 +11,7 @@
   "avatar_higgs": "completed, one take, actual 1080p default",
   "avatar_advisor": "completed, one take, 720p selected",
   "after_both_avatar_submissions_refresh": 175,
-  "observed_total_batch_debit": 73,
+  "observed_total_batch_debit": 109,
   "observed_avatar_combined_debit": 27,
   "proof": "credits-175.png",
   "itemized_receipts": {
@@ -32,8 +32,8 @@
     },
     "CLONE": {
       "narration": 3,
-      "avatar": 0,
-      "total": 3
+      "avatar": 36,
+      "total": 39
     },
     "BENCH": {
       "narration": 4,
@@ -56,20 +56,28 @@
   "CLONE": {
     "narration_quote": 4,
     "narration_actual": 3,
-    "voice_review_pending": true,
-    "avatar_submitted": false
+    "voice_review_pending": false,
+    "avatar_submitted": true,
+    "voice_approved": true,
+    "avatar_actual": 36,
+    "accepted_avatar_submissions": 1,
+    "total": 39,
+    "avatar_state": "completed"
   },
   "balance_before_fable_avatar": 167,
   "receipt_proof_voice_fable_clone": "credit-history-167.png",
   "observed_total_batch_debit_before_fable_avatar": 39,
   "after_fable_avatar": 137,
-  "latest_receipt_proof": "credit-history-133.png",
+  "latest_receipt_proof": "credit-history-97.png",
   "BENCH": {
     "narration_quote": 4,
     "narration_actual": 4,
     "avatar_required": false,
-    "voice_review_pending": true,
-    "duration_exception_pending": true
+    "voice_review_pending": false,
+    "duration_exception_pending": false,
+    "voice_approved": true,
+    "duration_exception_approved": true
   },
-  "after_bench_narration": 133
+  "after_bench_narration": 133,
+  "after_clone_avatar": 97
 }
