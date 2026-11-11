@@ -5335,14 +5335,15 @@
       "primary_keyword": "Claude Code advisor Fable",
       "host_slug": "repost-62eec03e1e93",
       "collaborators": null,
-      "status": "pending",
+      "status": "failed",
       "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": null,
         "expected_runner_gst": "19:03"
-      }
+      },
+      "error": "LinkedIn upload_part 1/3 did not complete: PUT https://www.linkedin.com/dms-uploads/mp/v2/D4D10AQGxKd5g7l4Qbw/uploadedVideo/B4DaHLImcQKIAA-?<redacted> (ReadError: [Errno 54] Connection reset by peer)"
     },
     {
       "id": "tt-62eec03e1e93",
