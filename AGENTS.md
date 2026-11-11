@@ -1,4 +1,5 @@
-> **Codex: start with `docs/CODEX_MASTER_PROMPT.md`** (the full owner instruction set), then `docs/HANDOVER_CODEX.md`.
+> **Owner handover, 11 November 2026:** Claude Code's existing **Pipe Line Master** session now owns this pipeline, using **Fable 5.2**, in this same folder. Start with `docs/HANDOVER_CLAUDE.md`. Codex's six pipeline automations are paused; keep the independent launchd poster and website webhook running. This supersedes the earlier Codex-only ownership instruction.
+> Historical editorial rules: read `docs/CODEX_MASTER_PROMPT.md` and `docs/HANDOVER_CODEX.md` after the new handover; current approvals/receipts and newer owner corrections take precedence.
 > **Handover 2026-11-07:** the current state, standing owner rules and how posting works are in `docs/HANDOVER_CODEX.md`. Read it after this file.
 
 # Agent instructions (Codex and Claude Code read this file)

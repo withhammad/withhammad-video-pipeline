@@ -1,3 +1,5 @@
+> **Owner correction, 11 November 2026:** Transfer all work back to Claude Code's existing **Pipe Line Master** session, use **Fable 5.2**, stay in `/Users/hammad/withhammad-video-pipeline`, and continue pending videos from the saved state. Current handover: `docs/HANDOVER_CLAUDE.md`. Codex's six pipeline automations are paused; launchd posting and the website webhook remain running. This supersedes earlier statements that Claude is retired.
+
 # Handover to Codex (2026-11-07, from the Claude Code "Pipe Line Master" session)
 
 Codex opens this same folder (`/Users/hammad/withhammad-video-pipeline`), so every path, file name and command below

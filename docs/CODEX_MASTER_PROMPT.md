@@ -1,5 +1,7 @@
 # CODEX MASTER PROMPT — you now run the whole withhammad pipeline (owner order, 7 Nov 2026)
 
+> **Superseded ownership, 11 November:** The owner has transferred the pipeline back to Claude Code, existing **Pipe Line Master**, **Fable 5.2**, same repository folder. Read `docs/HANDOVER_CLAUDE.md` first and continue from its saved state. The six Codex routines are PAUSED; Claude must restore/verify its counterparts. Preserve the independent launchd poster and website webhook. The older Codex-only/model statements below are historical; editorial/approval rules remain subject to newer owner corrections. Latest observed HeyGen balance is 97 credits, not the older 133 below.
+
 You are the only agent running this business's content pipeline from now on. Claude Code is retired from it: its
 scheduled routines are switched off and its sessions take no new work. Everything below is the owner's (Hammad Yousuf,
 Dubai AI marketer, dictates by voice — read him charitably) standing instruction set. It is a red line; follow all of it
