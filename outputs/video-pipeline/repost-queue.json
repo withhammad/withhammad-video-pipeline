@@ -5093,14 +5093,15 @@
       "primary_keyword": "Claude Higgsfield video",
       "host_slug": "repost-ee41d72bf8cd",
       "collaborators": null,
-      "status": "pending",
+      "status": "failed",
       "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": "13:00–15:00",
         "expected_runner_gst": "15:03"
-      }
+      },
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AhsVAXP2h6Np0kOXRuRaD16]"
     },
     {
       "id": "yo-ee41d72bf8cd",
@@ -5114,14 +5115,16 @@
       "primary_keyword": "Claude Higgsfield video",
       "host_slug": "repost-ee41d72bf8cd",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": "13:00–15:00",
         "expected_runner_gst": "15:03"
-      }
+      },
+      "url": "https://www.youtube.com/shorts/d4b5qIrdIKk",
+      "posted_at": "2026-11-11T11:03:05Z"
     },
     {
       "id": "fa-ee41d72bf8cd",
@@ -5135,14 +5138,16 @@
       "primary_keyword": "Claude Higgsfield video",
       "host_slug": "repost-ee41d72bf8cd",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": null,
         "expected_runner_gst": "15:03"
-      }
+      },
+      "url": "https://www.facebook.com/reel/2401460707266964/",
+      "posted_at": "2026-11-11T11:03:05Z"
     },
     {
       "id": "li-ee41d72bf8cd",
@@ -5156,14 +5161,16 @@
       "primary_keyword": "Claude Higgsfield video",
       "host_slug": "repost-ee41d72bf8cd",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": null,
         "expected_runner_gst": "15:03"
-      }
+      },
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7526240560010027008/",
+      "posted_at": "2026-11-11T11:03:05Z"
     },
     {
       "id": "tt-ee41d72bf8cd",
