@@ -476,9 +476,12 @@
       "primary_keyword": "claude code plugin",
       "host_slug": "repost-b95794dc72cf",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "moved_from": "2026-11-09 17:00 GST",
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AtsR66UQ1ppQOMYAXIfeBTg]"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AtsR66UQ1ppQOMYAXIfeBTg]",
+      "url": "https://www.instagram.com/reel/DfhTN0lD1oZ/",
+      "posted_at": "2026-11-09T12:11:00Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "li-b95794dc72cf",
@@ -1257,10 +1260,13 @@
       "primary_keyword": "AI engineering projects",
       "host_slug": "repost-c9d9bd2b786c",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "moved_from": "2026-11-05 14:00 GST",
       "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id ACJpvoWQo-hooO7xO5DHrr6]"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id ACJpvoWQo-hooO7xO5DHrr6]",
+      "url": "https://www.instagram.com/reel/Dfb061JAKx8/",
+      "posted_at": "2026-11-07T09:10:00Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "fa-fa00b63b4fa2",
@@ -1988,10 +1994,13 @@
       "primary_keyword": null,
       "host_slug": "guide-claude-code-cold-email",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "moved_from": "2026-11-08 10:00 GST",
       "note": "re-slotted 2026-11-05: 2 reels + 1 carousel per platform per day (owner red line)",
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai",
+      "url": "https://www.instagram.com/p/DfeFHAtiluV/",
+      "posted_at": "2026-11-08T06:09:00Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "fg-claude-code-cold-email",
@@ -2738,9 +2747,12 @@
       "primary_keyword": "opus 5.5 vs sonnet 5.5",
       "host_slug": "repost-dbedc134cc10",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "note": "owner approved 2026-11-07 (\"Approved, queue it\"); placed on the 10 Nov free slots",
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AOCD_wlSWIZ1Nmlpl0eSIIn]"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AOCD_wlSWIZ1Nmlpl0eSIIn]",
+      "url": "https://www.instagram.com/reel/Dfj4CB3Cv4Z/",
+      "posted_at": "2026-11-10T12:11:34Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "li-dbedc134cc10",
@@ -4310,7 +4322,7 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "failed",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/chamber-ai-hub-dubai",
       "owner_approved_at": "2026-11-08",
       "approval_record": "studio/.local/jobs/762cf7fb383a/owner-approval-20261108.json",
@@ -4321,7 +4333,10 @@
           "resolution": "Publishing clone restored to clean main. Failed queue entries require explicit requeue; launchd does not automatically retry failed status."
         }
       ],
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id Af6N_hr4T8HCREOm1wiZX9t]"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id Af6N_hr4T8HCREOm1wiZX9t]",
+      "url": "https://www.instagram.com/reel/DfhLjR7klOy/",
+      "posted_at": "2026-11-09T11:04:00Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "li-762cf7fb383a",
@@ -4436,10 +4451,13 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "failed",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-instagram-skills",
       "owner_approval": "owner-approval-20261108.json",
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id A9wNOr5lHZr44KqIElE0iIt]"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id A9wNOr5lHZr44KqIElE0iIt]",
+      "url": "https://www.instagram.com/reel/DfhE8trAhle/",
+      "posted_at": "2026-11-09T10:06:00Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "li-0f869c3f2de7",
@@ -4554,10 +4572,13 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "failed",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/build-an-agent-harness",
       "owner_approval": "owner-approval-20261108.json",
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AUQlMEjDtO6ZNZlycx7tTKY]"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AUQlMEjDtO6ZNZlycx7tTKY]",
+      "url": "https://www.instagram.com/reel/Dfjpa7cElBI/",
+      "posted_at": "2026-11-10T10:03:55Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "li-b6b36d9b50b3",
@@ -4731,10 +4752,13 @@
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "status": "failed",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/edge0-local-ai",
       "approval": "Owner: Approve Edge0 package; deploy PR #18 explicitly authorized on 8 Nov 2026.",
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id ARnPRvUoTfZ4WQxDxbiJvhY]"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id ARnPRvUoTfZ4WQxDxbiJvhY]",
+      "url": "https://www.instagram.com/reel/Dfh0uHrgGw8/",
+      "posted_at": "2026-11-09T17:04:53Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "li-6eba3a812294",
@@ -4841,14 +4865,17 @@
       "resource_url": "https://withhammad.com/resources/ai-agent-developer-learning-plan",
       "local": "2026-11-09 09:00 GST",
       "slot_utc": "2026-11-09T05:00:00Z",
-      "status": "failed",
+      "status": "posted",
       "owner_approved": true,
       "approved_at": "2026-11-08",
       "collaborators": [
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai",
+      "url": "https://www.instagram.com/p/DfgvW3BDNUa/",
+      "posted_at": "2026-11-09T06:57:00Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "linkedin-image-agentmap",
@@ -4955,14 +4982,17 @@
       "resource_url": "https://withhammad.com/resources/vector-databases-explained",
       "local": "2026-11-10 09:00 GST",
       "slot_utc": "2026-11-10T05:00:00Z",
-      "status": "failed",
+      "status": "posted",
       "owner_approved": true,
       "approved_at": "2026-11-08",
       "collaborators": [
         "with.hammad",
         "hammadagentic.ai"
       ],
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 403, code 4/2207051, OAuthException): Application request limit reached - تم حظر الإجراء نحن نقيد بعض الأنشطة لحماية مجتمعنا. أخبرنا إذا كنت تعتقد إننا قد قمنا بذلك عن طريق الخطأ. -> Instagram flagged the action as possible spam: wai",
+      "url": "https://www.instagram.com/p/DfjHJM9CoOm/",
+      "posted_at": "2026-11-10T05:03:54Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "linkedin-image-vectors",
@@ -5093,7 +5123,7 @@
       "primary_keyword": "Claude Higgsfield video",
       "host_slug": "repost-ee41d72bf8cd",
       "collaborators": null,
-      "status": "failed",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
@@ -5101,7 +5131,10 @@
         "phone_window_gst": "13:00–15:00",
         "expected_runner_gst": "15:03"
       },
-      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AhsVAXP2h6Np0kOXRuRaD16]"
+      "error": "Instagram POST /v25.0/17841429263270808/media_publish failed (HTTP 400, code -1/2207032, OAuthException): Fatal - لا يمكن إنشاء وسائط فشل إنشاء وسائط، يرجى تجربة إعادة إنشاء الوسائط [fbtrace_id AhsVAXP2h6Np0kOXRuRaD16]",
+      "url": "https://www.instagram.com/reel/DfmV6kMDRAw/",
+      "posted_at": "2026-11-11T11:11:03Z",
+      "reconciled": "2026-11-11: publish call returned an error but the post is live on @withhammad.ai (verified via Graph API media list)"
     },
     {
       "id": "yo-ee41d72bf8cd",
