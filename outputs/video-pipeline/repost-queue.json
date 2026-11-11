@@ -2829,43 +2829,73 @@
       "id": "yo-85fb47b66b4b",
       "job": "85fb47b66b4b",
       "platform": "youtube",
-      "slot_utc": "2026-11-11T08:00:00Z",
-      "local": "2026-11-11 12:00 GST",
+      "slot_utc": "2026-11-15T05:00:00Z",
+      "local": "2026-11-15 09:00 GST",
       "keyword": "VOXEL",
       "title": "Claude Code 3D Animation: Voxel Cartoon Reel (No Blender)",
       "caption": "Claude Code 3D animation: Claude Code writes the Three.js code for this voxel cartoon reel, and my laptop renders it frame by frame (1,378 frames at 1080x1920, 30 fps, under 2 minutes on an M1 Pro).\nFree guide: https://withhammad.com/resources/claude-3d-voxel-reels\n\nHow to make 3D cartoon reels with Claude Code in 5 steps: a two-character script, two ElevenLabs voices (my cloned voice + a library voice), a voxel world in Three.js code, word timings that sync mouths and captions, then a frame-by-frame render.\nNo AI video model and no Blender: every character is boxes in code. You rarely edit code by hand, but you still install Node, run commands and approve Claude's permission prompts.\nThe catch: the guide is free, the tools are not. Claude Code needs a paid Claude plan (Pro from $20/mo) and voice cloning needs ElevenLabs Starter ($6/mo).\nThe guide has all 7 prompts, including the one-line edit that turned my t-shirt yellow.\n\nTested 2026-11-06: rendered with HyperFrames (Apache-2.0) + Three.js (MIT) on an Apple M1 Pro, 1,378 frames in under 2 minutes.\nSources: https://code.claude.com/docs/en/setup and https://github.com/mrdoob/three.js\n\nSubscribe for more AI builds. Voxel cartoon of me made in code, AI voices (my cloned voice + a library voice); altered-content label on.\nFree guide + all 7 prompts: https://withhammad.com/resources/claude-3d-voxel-reels\n#Shorts #3DAnimation #ClaudeCode",
       "primary_keyword": "claude code 3d animation",
       "host_slug": "repost-85fb47b66b4b",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:55:31.733717+00:00",
+          "original_slot_utc": "2026-11-11T08:00:00Z",
+          "original_local": "2026-11-11 12:00 GST",
+          "new_slot_utc": "2026-11-15T05:00:00Z",
+          "new_local": "2026-11-15 09:00 GST",
+          "reason": "Owner explicitly prioritized five business batch and authorized moving older bookings later. Urgent fallback protection; selected vacant later lane after existing bookings, preserving 3h real spacing and 2h phone window."
+        }
+      ]
     },
     {
       "id": "in-85fb47b66b4b",
       "job": "85fb47b66b4b",
       "platform": "instagram",
-      "slot_utc": "2026-11-11T10:00:00Z",
-      "local": "2026-11-11 14:00 GST",
+      "slot_utc": "2026-11-18T05:00:00Z",
+      "local": "2026-11-18 09:00 GST",
       "keyword": "VOXEL",
       "title": "Claude Code 3D Animation: Voxel Cartoon Reel (No Blender)",
       "caption": "Claude Code 3D animation: these voxel reels are code, not an AI video tool. Comment VOXEL and I'll DM you the guide.\n\nHow to make 3D cartoon reels with Claude Code, in 5 steps:\n1. Script: two characters, short lines\n2. Voices: ElevenLabs (your cloned voice + a library voice)\n3. World: Claude writes Three.js code that builds every voxel character block by block\n4. Sync: word timings drive the mouths and captions\n5. Render: your laptop renders it frame by frame. This one: 1,378 frames, 1080x1920, under 2 minutes on an M1 Pro\n\nNo Blender. No animator. You rarely edit code by hand: you mostly tell Claude what to change (you still install Node, run commands and approve prompts).\nThe guide is free; Claude Code needs a paid Claude plan (Pro from $20/mo) and voice cloning needs ElevenLabs Starter ($6/mo).\n\nComment VOXEL and I'll DM you the guide with all 7 prompts.\nFollow @withhammad.ai so the DM reaches you.\nVoxel cartoon of me made in code; AI voices (my cloned voice + a library voice).\n\n#claudecode #3danimation #aianimation #threejs #voxelart",
       "primary_keyword": "claude code 3d animation",
       "host_slug": "repost-85fb47b66b4b",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T10:00:00Z",
+          "original_local": "2026-11-11 14:00 GST",
+          "new_slot_utc": "2026-11-18T05:00:00Z",
+          "new_local": "2026-11-18 09:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "fa-85fb47b66b4b",
       "job": "85fb47b66b4b",
       "platform": "facebook",
-      "slot_utc": "2026-11-11T13:00:00Z",
-      "local": "2026-11-11 17:00 GST",
+      "slot_utc": "2026-11-18T05:00:00Z",
+      "local": "2026-11-18 09:00 GST",
       "keyword": "VOXEL",
       "title": "Claude Code 3D Animation: Voxel Cartoon Reel (No Blender)",
       "caption": "Claude Code 3D animation: these voxel cartoon reels are Three.js code, not an AI video generator. Free guide + all 7 prompts: https://withhammad.com/resources/claude-3d-voxel-reels\n\nClaude Code writes the code that builds every voxel character block by block, two ElevenLabs voices do the talking, and my laptop renders it frame by frame (this one: 1,378 frames in under 2 minutes on an M1 Pro). You rarely edit code by hand; you mostly tell Claude what to change.\nThe guide is free; Claude Code needs a paid Claude plan (Pro from $20/mo) and voice cloning needs ElevenLabs Starter ($6/mo).\n\nFree guide: https://withhammad.com/resources/claude-3d-voxel-reels\nFollow With Hammad AI for more AI builds.\nVoxel cartoon of me made in code; AI voices (my cloned voice + a library voice).\n#claudecode #3danimation #aianimation",
       "primary_keyword": "claude code 3d animation",
       "host_slug": "repost-85fb47b66b4b",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T13:00:00Z",
+          "original_local": "2026-11-11 17:00 GST",
+          "new_slot_utc": "2026-11-18T05:00:00Z",
+          "new_local": "2026-11-18 09:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "li-85fb47b66b4b",
@@ -3900,8 +3930,8 @@
       "id": "yo-e5c7bfbcd56c",
       "job": "e5c7bfbcd56c",
       "platform": "youtube",
-      "slot_utc": "2026-11-11T05:00:00Z",
-      "local": "2026-11-11 09:00 GST",
+      "slot_utc": "2026-11-18T05:00:00Z",
+      "local": "2026-11-18 09:00 GST",
       "keyword": "LINES",
       "title": "Claude Code Animation Skill for Websites (Free, Open Source)",
       "caption": "Claude Code animation skill for websites: Hairline draws SVG line animations that react to your cursor, starting from one sentence and built to ten design rules.\nFree guide: https://withhammad.com/resources/hairline-line-animations\n\nInstall: npx skills add lucasmarkes/hairline (Node.js 22.20+), then type /hairline-create and your idea, like a sales funnel.\nPick one of two or three concepts. It builds the figure, checks it against the ten rules and tests it in a browser.\nYou get one HTML file with no dependencies to embed on a landing page, your docs or a demo.\nThe catch: the skill is free and open source (MIT, by Lucas Marques), a community project, not an Anthropic feature. Claude Code itself needs a paid Claude plan or API billing.\n\nOur test (finished 2026-11-07): Claude Code followed the hairline-create skill files to draw a lead-to-booked-call funnel figure, and the one HTML file passed our own static and headless-browser checks. MIT license re-checked the same day.\nSources: https://github.com/lucasmarkes/hairline (README install command, skills/hairline-create/rules.md)\n\nFree guide with the install command, prompts and embed code: https://withhammad.com/resources/hairline-line-animations\nSubscribe for more AI builds. AI avatar of me; altered-content label on.\n#Shorts #WebDesign #ClaudeCode",
@@ -3909,14 +3939,24 @@
       "host_slug": "repost-e5c7bfbcd56c",
       "collaborators": null,
       "status": "pending",
-      "resource_url": "https://withhammad.com/resources/hairline-line-animations"
+      "resource_url": "https://withhammad.com/resources/hairline-line-animations",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T05:00:00Z",
+          "original_local": "2026-11-11 09:00 GST",
+          "new_slot_utc": "2026-11-18T05:00:00Z",
+          "new_local": "2026-11-18 09:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "xx-e5c7bfbcd56c",
       "job": "e5c7bfbcd56c",
       "platform": "x",
-      "slot_utc": "2026-11-11T05:00:00Z",
-      "local": "2026-11-11 09:00 GST",
+      "slot_utc": "2026-11-18T05:00:00Z",
+      "local": "2026-11-18 09:00 GST",
       "keyword": "LINES",
       "title": "Claude Code Animation Skill for Websites (Free, Open Source)",
       "caption": "Claude Code skill for line animations that react to your cursor. Free guide: https://withhammad.com/resources/hairline-line-animations\n\nHairline (free, MIT, by Lucas Marques): one sentence in, two or three concepts, one HTML file for your landing page.\n\nFollow for more AI builds. AI avatar of me. #ClaudeCode",
@@ -3924,14 +3964,24 @@
       "host_slug": "repost-e5c7bfbcd56c",
       "collaborators": null,
       "status": "pending",
-      "resource_url": "https://withhammad.com/resources/hairline-line-animations"
+      "resource_url": "https://withhammad.com/resources/hairline-line-animations",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T05:00:00Z",
+          "original_local": "2026-11-11 09:00 GST",
+          "new_slot_utc": "2026-11-18T05:00:00Z",
+          "new_local": "2026-11-18 09:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "in-e5c7bfbcd56c",
       "job": "e5c7bfbcd56c",
       "platform": "instagram",
-      "slot_utc": "2026-11-11T07:00:00Z",
-      "local": "2026-11-11 11:00 GST",
+      "slot_utc": "2026-11-17T13:00:00Z",
+      "local": "2026-11-17 17:00 GST",
       "keyword": "LINES",
       "title": "Claude Code Animation Skill for Websites (Free, Open Source)",
       "caption": "Claude Code skill for line animations that react to your cursor (free, MIT).\nComment LINES and I'll DM you the guide.\n\nHairline by Lucas Marques (lucasmarkes/hairline on GitHub) teaches your coding agent ten design rules for isometric SVG line figures that move under your cursor.\n\nHow it works:\n1. Install: npx skills add lucasmarkes/hairline (Node 22.20+)\n2. Type /hairline-create and your idea, like a sales funnel\n3. Pick one of two or three concepts\n4. It builds the figure, checks it against the ten rules and tests it in a browser\n5. You get one HTML file with no dependencies to embed on a landing page, your docs or a demo\n\nThe skill is free; Claude Code needs a paid Claude plan or API billing. A community project, not an Anthropic feature.\n\nComment LINES and I'll DM you the guide: install command, my funnel prompt and the embed code.\nFollow @withhammad.ai for more AI builds (and so the DM reaches you).\nIdea credit: @nick_saraev. AI avatar of me. Claims checked against the GitHub repo.\n\n#claudecode #claudeskills #webanimation #landingpage #webdesign",
@@ -3939,14 +3989,24 @@
       "host_slug": "repost-e5c7bfbcd56c",
       "collaborators": null,
       "status": "pending",
-      "resource_url": "https://withhammad.com/resources/hairline-line-animations"
+      "resource_url": "https://withhammad.com/resources/hairline-line-animations",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:55:31.733717+00:00",
+          "original_slot_utc": "2026-11-11T07:00:00Z",
+          "original_local": "2026-11-11 11:00 GST",
+          "new_slot_utc": "2026-11-17T13:00:00Z",
+          "new_local": "2026-11-17 17:00 GST",
+          "reason": "Owner explicitly prioritized five business batch and authorized moving older bookings later. Urgent fallback protection; selected vacant later lane after existing bookings, preserving 3h real spacing and 2h phone window."
+        }
+      ]
     },
     {
       "id": "fa-e5c7bfbcd56c",
       "job": "e5c7bfbcd56c",
       "platform": "facebook",
-      "slot_utc": "2026-11-11T10:00:00Z",
-      "local": "2026-11-11 14:00 GST",
+      "slot_utc": "2026-11-18T09:00:00Z",
+      "local": "2026-11-18 13:00 GST",
       "keyword": "LINES",
       "title": "Claude Code Animation Skill for Websites (Free, Open Source)",
       "caption": "Claude Code skill for line animations that react to your cursor (free, open source).\nFree guide: https://withhammad.com/resources/hairline-line-animations\n\nHairline by Lucas Marques (MIT) teaches your coding agent ten design rules for isometric SVG line figures. Type /hairline-create and an idea, like a sales funnel, pick one of two or three concepts, and it builds the figure, tests it in a browser and hands you one HTML file with no dependencies to embed on a landing page, your docs or a demo.\nInstall: npx skills add lucasmarkes/hairline (Node 22.20+). The skill is free; Claude Code needs a paid Claude plan or API billing. A community project, not an Anthropic feature.\n\nFree guide with the install command, my funnel prompt and the embed code: https://withhammad.com/resources/hairline-line-animations\nFollow With Hammad AI for more AI builds.\nAI avatar of me. Claims checked against the GitHub repo.\n#claudecode #webdesign #landingpage",
@@ -3954,14 +4014,24 @@
       "host_slug": "repost-e5c7bfbcd56c",
       "collaborators": null,
       "status": "pending",
-      "resource_url": "https://withhammad.com/resources/hairline-line-animations"
+      "resource_url": "https://withhammad.com/resources/hairline-line-animations",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T10:00:00Z",
+          "original_local": "2026-11-11 14:00 GST",
+          "new_slot_utc": "2026-11-18T09:00:00Z",
+          "new_local": "2026-11-18 13:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "tt-e5c7bfbcd56c",
       "job": "e5c7bfbcd56c",
       "platform": "tiktok",
-      "slot_utc": "2026-11-11T10:00:00Z",
-      "local": "2026-11-11 14:00 GST",
+      "slot_utc": "2026-11-18T05:00:00Z",
+      "local": "2026-11-18 09:00 GST",
       "keyword": "LINES",
       "title": "Claude Code Animation Skill for Websites (Free, Open Source)",
       "caption": "Claude Code skill for line animations that react to your cursor (free, MIT). Full guide: link in bio.\nHairline by Lucas Marques: type /hairline-create plus an idea, like a sales funnel, pick one of two or three concepts, and it builds an SVG line figure to ten design rules, tests it in a browser and hands you one HTML file with no dependencies to embed on a landing page, your docs or a demo. Install: npx skills add lucasmarkes/hairline (Node 22.20+). The skill is free; Claude Code needs a paid Claude plan or API billing.\nFull guide (install command, funnel prompt, embed code): link in bio. The LINES DM runs on Instagram only.\nFollow for more AI builds.\nAI avatar of me.\n#claudecode #claudeskills #webanimation #webdesign #vibecoding",
@@ -3969,14 +4039,24 @@
       "host_slug": "repost-e5c7bfbcd56c",
       "collaborators": null,
       "status": "pending",
-      "resource_url": "https://withhammad.com/resources/hairline-line-animations"
+      "resource_url": "https://withhammad.com/resources/hairline-line-animations",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T10:00:00Z",
+          "original_local": "2026-11-11 14:00 GST",
+          "new_slot_utc": "2026-11-18T05:00:00Z",
+          "new_local": "2026-11-18 09:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "li-e5c7bfbcd56c",
       "job": "e5c7bfbcd56c",
       "platform": "linkedin",
-      "slot_utc": "2026-11-11T13:00:00Z",
-      "local": "2026-11-11 17:00 GST",
+      "slot_utc": "2026-11-18T05:00:00Z",
+      "local": "2026-11-18 09:00 GST",
       "keyword": "LINES",
       "title": "Claude Code Animation Skill for Websites (Free, Open Source)",
       "caption": "Claude Code skill for line animations that react to the cursor, on your landing page, docs or demo.\nFree install + embed guide: https://withhammad.com/resources/hairline-line-animations\n\nHairline is a free, open-source (MIT) project by Lucas Marques. Its hairline-create skill teaches your coding agent ten design rules and draws isometric SVG line figures, starting from one sentence.\n\nHow it works:\n1. Install the skills: npx skills add lucasmarkes/hairline\n2. Type /hairline-create and your idea, say \"a sales funnel\"\n3. It pitches two or three concepts. You pick one.\n4. It builds the figure, checks it against the ten rules and tests it in a browser.\n\nWhat you get: one HTML file with no dependencies (intensity slider, light/dark switch, play button). Embed it with an iframe on a landing page, your docs or a product demo.\n\nGood to know:\n- The skill is free. Claude Code itself needs a paid Claude plan or API billing.\n- The installer needs Node.js 22.20 or later. The skills also work in Cursor, Codex and other agents that read skills.\n- A community project, not an Anthropic feature.\n\nMy install + embed guide, with my funnel prompt: https://withhammad.com/resources/hairline-line-animations\n\nWhich would you animate first: your pricing, your onboarding or your hero section?\nFollow me for more AI builds for marketers and founders.\n\nThe presenter in this video is an AI avatar of me.\n\n#ClaudeCode #WebDesign #MicroInteractions",
@@ -3984,7 +4064,17 @@
       "host_slug": "repost-e5c7bfbcd56c",
       "collaborators": null,
       "status": "pending",
-      "resource_url": "https://withhammad.com/resources/hairline-line-animations"
+      "resource_url": "https://withhammad.com/resources/hairline-line-animations",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T13:00:00Z",
+          "original_local": "2026-11-11 17:00 GST",
+          "new_slot_utc": "2026-11-18T05:00:00Z",
+          "new_local": "2026-11-18 09:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "tt-g2-edit-videos-guide",
@@ -4008,8 +4098,8 @@
       "id": "xx-g2-edit-videos-guide",
       "job": "g2-edit-videos-guide",
       "platform": "x",
-      "slot_utc": "2026-11-11T10:00:00Z",
-      "local": "2026-11-11 14:00 GST",
+      "slot_utc": "2026-11-15T10:00:00Z",
+      "local": "2026-11-15 14:00 GST",
       "keyword": "EDIT",
       "title": "How to edit videos with Claude Code: the 10-step setup (one take in, finished reel out)",
       "caption": "Claude Code video editing in 10 steps: one take in, finished reel out. Whisper cuts the dead air, OpenCV keeps you in frame, Remotion animates, a skill keeps your notes.\n\nFree guide: https://withhammad.com/resources/edit-videos-with-claude-code\n\nReel in the phone: AI avatar of me.\n#ClaudeCode #AIVideoEditing",
@@ -4018,49 +4108,89 @@
       "collaborators": null,
       "status": "scheduled",
       "url": "https://x.com/compose/post/unsent/scheduled",
-      "scheduled_at": "2026-11-07T16:53:54Z"
+      "scheduled_at": "2026-11-07T16:53:54Z",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T09:00:50.872764+00:00",
+          "original_slot_utc": "2026-11-11T10:00:00Z",
+          "original_local": "2026-11-11 14:00 GST",
+          "new_slot_utc": "2026-11-15T10:00:00Z",
+          "new_local": "2026-11-15 14:00 GST",
+          "reason": "Observed X native scheduled list after in-place save: Will send on Sun, Nov 15, 2026 at 2:00 PM. EDIT38sec caption unchanged."
+        }
+      ]
     },
     {
       "id": "in-g2-edit-videos-guide",
       "job": "g2-edit-videos-guide",
       "platform": "instagram",
-      "slot_utc": "2026-11-11T13:00:00Z",
-      "local": "2026-11-11 17:00 GST",
+      "slot_utc": "2026-11-18T11:00:00Z",
+      "local": "2026-11-18 15:00 GST",
       "keyword": "EDIT",
       "title": "How to edit videos with Claude Code: the 10-step setup (one take in, finished reel out)",
       "caption": "Claude Code video editing: one take in, finished reel out, in 10 steps. Comment EDIT and I'll DM you the free guide.\n\nThe 10 steps:\n1. Install the tools once (Claude Code, ffmpeg, Node, Whisper, OpenCV, Remotion)\n2. One folder per video (style.md, beats.md, rules.md)\n3. Show it 2-3 reels you rate\n4. It trims the dead air on your words\n5. It keeps your face in the 9:16 frame\n6. You sign off a storyboard before any render\n7. Motion graphics on every word (Remotion)\n8. Captions, then music\n9. It grades its own cut\n10. Your notes become a Claude Code skill\n\nThe catch: Claude Code needs a paid Claude plan. Remotion is free for individuals and small teams.\n\nWhich step would save you the most time?\nComment EDIT and I'll DM you the guide + copy-paste prompt.\nFollow @withhammad.ai first: the DM only reaches followers.\n\nThe reel playing in the phone shows an AI avatar of me.\n\n#claudecode #claudeai #aivideoediting #videoediting #remotion",
       "primary_keyword": "claude code video editing",
       "host_slug": "repost-g2-edit-videos-guide",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T13:00:00Z",
+          "original_local": "2026-11-11 17:00 GST",
+          "new_slot_utc": "2026-11-18T11:00:00Z",
+          "new_local": "2026-11-18 15:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "yo-g2-edit-videos-guide",
       "job": "g2-edit-videos-guide",
       "platform": "youtube",
-      "slot_utc": "2026-11-11T16:00:00Z",
-      "local": "2026-11-11 20:00 GST",
+      "slot_utc": "2026-11-18T11:00:00Z",
+      "local": "2026-11-18 15:00 GST",
       "keyword": "EDIT",
       "title": "How to edit videos with Claude Code: the 10-step setup (one take in, finished reel out)",
       "caption": "Claude Code video editing in 10 steps: record one take, and Claude Code runs the cut, the framing, the motion graphics, the captions and the checks.\nFree guide: https://withhammad.com/resources/edit-videos-with-claude-code\n\nThe 10 steps: install the tools once, one folder per video, reels you rate as style references, trim the dead air, keep you in frame, sign off a storyboard, motion on every word, captions then music, a self-check, and a skill that keeps your notes.\nThe tools: Claude Code, ffmpeg, Node, OpenAI Whisper (word timings), OpenCV (face framing) and Remotion (motion graphics in React).\nStep 10 compounds: every note lands in rules.md, then one prompt saves the workflow as a Claude Code skill (.claude/skills/edit-reel/SKILL.md), so each edit needs fewer notes.\nThe catch: Claude Code needs a paid Claude plan. Remotion is free for individuals and small teams; larger companies need its company licence. Whisper runs locally (use the base model on an older Mac).\n\nSources: https://code.claude.com/docs/en/setup and https://code.claude.com/docs/en/skills and https://www.remotion.dev/license\nThe reel playing in the phone shows an AI avatar of me.\n\nFree guide + copy-paste prompt: https://withhammad.com/resources/edit-videos-with-claude-code\nSubscribe for a new AI build every day: https://www.youtube.com/channel/UCJtrEDGg1R3kNe7t7PQFiEw?sub_confirmation=1\n#Shorts #AIVideoEditing #ClaudeCode",
       "primary_keyword": "claude code video editing",
       "host_slug": "repost-g2-edit-videos-guide",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T16:00:00Z",
+          "original_local": "2026-11-11 20:00 GST",
+          "new_slot_utc": "2026-11-18T11:00:00Z",
+          "new_local": "2026-11-18 15:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "fa-g2-edit-videos-guide",
       "job": "g2-edit-videos-guide",
       "platform": "facebook",
-      "slot_utc": "2026-11-11T16:00:00Z",
-      "local": "2026-11-11 20:00 GST",
+      "slot_utc": "2026-11-18T13:00:00Z",
+      "local": "2026-11-18 17:00 GST",
       "keyword": "EDIT",
       "title": "How to edit videos with Claude Code: the 10-step setup (one take in, finished reel out)",
       "caption": "Claude Code video editing, the full 10-step setup. Free guide: https://withhammad.com/resources/edit-videos-with-claude-code\n\nRecord one take and Claude Code runs the rest: Whisper stamps every word so the dead air gets cut, OpenCV keeps your face in the 9:16 frame, and Remotion builds the motion graphics. You approve a storyboard before anything renders, and Claude grades its own cut (a still every 0.25 s, safe zones, loudness).\nEvery note you give lands in rules.md, and one prompt turns the workflow into a Claude Code skill, so each edit needs fewer notes.\nThe catch: Claude Code needs a paid Claude plan; Remotion is free for individuals and small teams.\n\nWhich step would you hand to Claude first?\nFree guide + copy-paste prompt: https://withhammad.com/resources/edit-videos-with-claude-code\nFollow With Hammad AI for a new AI build every day.\n\nThe reel playing in the phone shows an AI avatar of me.\n\n#ClaudeCode #AIVideoEditing #VideoEditing",
       "primary_keyword": "claude code video editing",
       "host_slug": "repost-g2-edit-videos-guide",
       "collaborators": null,
-      "status": "pending"
+      "status": "pending",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T16:00:00Z",
+          "original_local": "2026-11-11 20:00 GST",
+          "new_slot_utc": "2026-11-18T13:00:00Z",
+          "new_local": "2026-11-18 17:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "in-g2-edit-prompt",
@@ -4506,8 +4636,8 @@
       "id": "ic-b6b36d9b50b3",
       "job": "b6b36d9b50b3",
       "platform": "instagram_carousel",
-      "slot_utc": "2026-11-11T16:00:00Z",
-      "local": "2026-11-11 20:00 GST",
+      "slot_utc": "2026-11-19T05:00:00Z",
+      "local": "2026-11-19 09:00 GST",
       "keyword": "HARNESS",
       "title": "Build Your Own Claude Code: 15 Agent Harness Parts",
       "caption": "Build your own Claude Code-style agent: the 15-part map.\nComment HARNESS for the guide. Follow @withhammad.ai so the DM reaches you.\n\nStart with the loop, then add tools, memory, permissions and review. Free teaching code; model usage may cost.\n\nDiagrams: Paweł Huryn / phuryn/mini-harness. Animated adaptation by WITHHAMMAD.\n\nSave the map and comment HARNESS for the guide.\n#ClaudeCode #AIAgents #AgentHarness",
@@ -4519,7 +4649,17 @@
       ],
       "status": "pending",
       "resource_url": "https://withhammad.com/resources/build-an-agent-harness",
-      "owner_approval": "owner-approval-20261108.json"
+      "owner_approval": "owner-approval-20261108.json",
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
+          "original_slot_utc": "2026-11-11T16:00:00Z",
+          "original_local": "2026-11-11 20:00 GST",
+          "new_slot_utc": "2026-11-19T05:00:00Z",
+          "new_local": "2026-11-19 09:00 GST",
+          "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
+        }
+      ]
     },
     {
       "id": "fc-b6b36d9b50b3",
@@ -4940,6 +5080,268 @@
       "verified_at": "2026-11-10T06:57:29.706255+00:00",
       "native_sound_verified": false,
       "custom_thumbnail_verified": true
+    },
+    {
+      "id": "in-ee41d72bf8cd",
+      "job": "ee41d72bf8cd",
+      "platform": "instagram",
+      "slot_utc": "2026-11-11T09:00:00Z",
+      "local": "2026-11-11 13:00 GST",
+      "keyword": "HIGGS",
+      "title": "Make AI videos inside Claude with Higgsfield MCP",
+      "caption": "Make AI videos inside Claude with Higgsfield MCP\n\nComment HIGGS for the guide. Follow @withhammad.ai so the DM reaches you.\n\nThe live offer determines eligibility, qualifying models, dates and credit costs. Check its current terms before generating.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference: Vishnu Vijayan. Demonstration excerpts are credited to the source; they are not Hammad's own tests.\n#ClaudeAI #Fable52 #AITools",
+      "primary_keyword": "Claude Higgsfield video",
+      "host_slug": "repost-ee41d72bf8cd",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": "13:00–15:00",
+        "expected_runner_gst": "15:03"
+      }
+    },
+    {
+      "id": "yo-ee41d72bf8cd",
+      "job": "ee41d72bf8cd",
+      "platform": "youtube",
+      "slot_utc": "2026-11-11T09:00:00Z",
+      "local": "2026-11-11 13:00 GST",
+      "keyword": "HIGGS",
+      "title": "Make AI videos inside Claude with Higgsfield MCP",
+      "caption": "Make AI videos inside Claude with Higgsfield MCP\nFree guide: https://withhammad.com/resources/claude-higgsfield-video-setup\n\nThe live offer determines eligibility, qualifying models, dates and credit costs. Check its current terms before generating.\n\nComment HIGGS for the guide. Subscribe for practical AI workflows.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference: Vishnu Vijayan. Demonstration excerpts are credited to the source; they are not Hammad's own tests.\nSources checked 10 November 2026.\n#Shorts #ClaudeAI #AITools",
+      "primary_keyword": "Claude Higgsfield video",
+      "host_slug": "repost-ee41d72bf8cd",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": "13:00–15:00",
+        "expected_runner_gst": "15:03"
+      }
+    },
+    {
+      "id": "fa-ee41d72bf8cd",
+      "job": "ee41d72bf8cd",
+      "platform": "facebook",
+      "slot_utc": "2026-11-11T11:00:00Z",
+      "local": "2026-11-11 15:00 GST",
+      "keyword": "HIGGS",
+      "title": "Make AI videos inside Claude with Higgsfield MCP",
+      "caption": "Make AI videos inside Claude with Higgsfield MCP\n\nComment HIGGS for the guide and follow With Hammad AI for practical tutorials.\nhttps://withhammad.com/resources/claude-higgsfield-video-setup\n\nThe live offer determines eligibility, qualifying models, dates and credit costs. Check its current terms before generating.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference: Vishnu Vijayan. Demonstration excerpts are credited to the source; they are not Hammad's own tests.\n#ClaudeAI #AITools",
+      "primary_keyword": "Claude Higgsfield video",
+      "host_slug": "repost-ee41d72bf8cd",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": null,
+        "expected_runner_gst": "15:03"
+      }
+    },
+    {
+      "id": "li-ee41d72bf8cd",
+      "job": "ee41d72bf8cd",
+      "platform": "linkedin",
+      "slot_utc": "2026-11-11T11:00:00Z",
+      "local": "2026-11-11 15:00 GST",
+      "keyword": "HIGGS",
+      "title": "Make AI videos inside Claude with Higgsfield MCP",
+      "caption": "Make AI videos inside Claude with Higgsfield MCP\n\nThe live offer determines eligibility, qualifying models, dates and credit costs. Check its current terms before generating.\n\nThe guide and exact sources: https://withhammad.com/resources/claude-higgsfield-video-setup\nComment HIGGS if you want the checklist. Follow for practical AI workflows.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference: Vishnu Vijayan. Demonstration excerpts are credited to the source; they are not Hammad's own tests.\n#ArtificialIntelligence #ClaudeAI",
+      "primary_keyword": "Claude Higgsfield video",
+      "host_slug": "repost-ee41d72bf8cd",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": null,
+        "expected_runner_gst": "15:03"
+      }
+    },
+    {
+      "id": "tt-ee41d72bf8cd",
+      "job": "ee41d72bf8cd",
+      "platform": "tiktok",
+      "slot_utc": "2026-11-11T10:00:00Z",
+      "local": "2026-11-11 14:00 GST",
+      "keyword": "HIGGS",
+      "title": "Make AI videos inside Claude with Higgsfield MCP",
+      "caption": "Make AI videos inside Claude with Higgsfield MCP\nComment HIGGS for the guide; link in bio. Follow for practical AI builds.\nThe live offer determines eligibility, qualifying models, dates and credit costs. Check its current terms before generating.\nAI avatar of me, using my own ElevenLabs voice clone.\n#ClaudeAI #AITools #LearnOnTikTok",
+      "primary_keyword": "Claude Higgsfield video",
+      "host_slug": "repost-ee41d72bf8cd",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": null,
+        "expected_runner_gst": null
+      }
+    },
+    {
+      "id": "xx-ee41d72bf8cd",
+      "job": "ee41d72bf8cd",
+      "platform": "x",
+      "slot_utc": "2026-11-11T10:00:00Z",
+      "local": "2026-11-11 14:00 GST",
+      "keyword": "HIGGS",
+      "title": "Make AI videos inside Claude with Higgsfield MCP",
+      "caption": "Make AI videos inside Claude with Higgsfield MCP. Comment HIGGS for the guide.\nhttps://withhammad.com/resources/claude-higgsfield-video-setup\nAI avatar of me. #ClaudeAI",
+      "primary_keyword": "Claude Higgsfield video",
+      "host_slug": "repost-ee41d72bf8cd",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-higgsfield-video-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": null,
+        "expected_runner_gst": null
+      }
+    },
+    {
+      "id": "in-62eec03e1e93",
+      "job": "62eec03e1e93",
+      "platform": "instagram",
+      "slot_utc": "2026-11-11T14:15:00Z",
+      "local": "2026-11-11 18:15 GST",
+      "keyword": "ADVISOR",
+      "title": "Use Fable 5.2 as a Claude Code advisor",
+      "caption": "Use Fable 5.2 as a Claude Code advisor\n\nComment ADVISOR for the guide. Follow @withhammad.ai so the DM reaches you.\n\nThe seven-build comparison is Charlie Hills’s reported experiment: $25.81 with Opus + Fable advisor versus $39.29 with Fable alone. Your usage will vary. The advisor is experimental; account/provider and billing limits apply.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference: Charlie Hills. Demonstration excerpts are credited to the source; they are not Hammad's own tests.\n#ClaudeAI #Fable52 #AITools",
+      "primary_keyword": "Claude Code advisor Fable",
+      "host_slug": "repost-62eec03e1e93",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": "18:15–20:15",
+        "expected_runner_gst": "21:03"
+      }
+    },
+    {
+      "id": "yo-62eec03e1e93",
+      "job": "62eec03e1e93",
+      "platform": "youtube",
+      "slot_utc": "2026-11-11T14:15:00Z",
+      "local": "2026-11-11 18:15 GST",
+      "keyword": "ADVISOR",
+      "title": "Use Fable 5.2 as a Claude Code advisor",
+      "caption": "Use Fable 5.2 as a Claude Code advisor\nFree guide: https://withhammad.com/resources/claude-fable-advisor-setup\n\nThe seven-build comparison is Charlie Hills’s reported experiment: $25.81 with Opus + Fable advisor versus $39.29 with Fable alone. Your usage will vary. The advisor is experimental; account/provider and billing limits apply.\n\nComment ADVISOR for the guide. Subscribe for practical AI workflows.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference: Charlie Hills. Demonstration excerpts are credited to the source; they are not Hammad's own tests.\nSources checked 10 November 2026.\n#Shorts #ClaudeAI #AITools",
+      "primary_keyword": "Claude Code advisor Fable",
+      "host_slug": "repost-62eec03e1e93",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": "18:15–20:15",
+        "expected_runner_gst": "21:03"
+      }
+    },
+    {
+      "id": "fa-62eec03e1e93",
+      "job": "62eec03e1e93",
+      "platform": "facebook",
+      "slot_utc": "2026-11-11T15:00:00Z",
+      "local": "2026-11-11 19:00 GST",
+      "keyword": "ADVISOR",
+      "title": "Use Fable 5.2 as a Claude Code advisor",
+      "caption": "Use Fable 5.2 as a Claude Code advisor\n\nComment ADVISOR for the guide and follow With Hammad AI for practical tutorials.\nhttps://withhammad.com/resources/claude-fable-advisor-setup\n\nThe seven-build comparison is Charlie Hills’s reported experiment: $25.81 with Opus + Fable advisor versus $39.29 with Fable alone. Your usage will vary. The advisor is experimental; account/provider and billing limits apply.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference: Charlie Hills. Demonstration excerpts are credited to the source; they are not Hammad's own tests.\n#ClaudeAI #AITools",
+      "primary_keyword": "Claude Code advisor Fable",
+      "host_slug": "repost-62eec03e1e93",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": null,
+        "expected_runner_gst": "19:03"
+      }
+    },
+    {
+      "id": "li-62eec03e1e93",
+      "job": "62eec03e1e93",
+      "platform": "linkedin",
+      "slot_utc": "2026-11-11T15:00:00Z",
+      "local": "2026-11-11 19:00 GST",
+      "keyword": "ADVISOR",
+      "title": "Use Fable 5.2 as a Claude Code advisor",
+      "caption": "Use Fable 5.2 as a Claude Code advisor\n\nThe seven-build comparison is Charlie Hills’s reported experiment: $25.81 with Opus + Fable advisor versus $39.29 with Fable alone. Your usage will vary. The advisor is experimental; account/provider and billing limits apply.\n\nThe guide and exact sources: https://withhammad.com/resources/claude-fable-advisor-setup\nComment ADVISOR if you want the checklist. Follow for practical AI workflows.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference: Charlie Hills. Demonstration excerpts are credited to the source; they are not Hammad's own tests.\n#ArtificialIntelligence #ClaudeAI",
+      "primary_keyword": "Claude Code advisor Fable",
+      "host_slug": "repost-62eec03e1e93",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": null,
+        "expected_runner_gst": "19:03"
+      }
+    },
+    {
+      "id": "tt-62eec03e1e93",
+      "job": "62eec03e1e93",
+      "platform": "tiktok",
+      "slot_utc": "2026-11-11T16:15:00Z",
+      "local": "2026-11-11 20:15 GST",
+      "keyword": "ADVISOR",
+      "title": "Use Fable 5.2 as a Claude Code advisor",
+      "caption": "Use Fable 5.2 as a Claude Code advisor\nComment ADVISOR for the guide; link in bio. Follow for practical AI builds.\nThe seven-build comparison is Charlie Hills’s reported experiment: $25.81 with Opus + Fable advisor versus $39.29 with Fable alone. Your usage will vary. The advisor is experimental; account/provider and billing limits apply.\nAI avatar of me, using my own ElevenLabs voice clone.\n#ClaudeAI #AITools #LearnOnTikTok",
+      "primary_keyword": "Claude Code advisor Fable",
+      "host_slug": "repost-62eec03e1e93",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": null,
+        "expected_runner_gst": null
+      },
+      "schedule_history": [
+        {
+          "changed_at_utc": "2026-11-11T09:00:50.872764+00:00",
+          "original_slot_utc": "2026-11-11T14:00:00Z",
+          "original_local": "2026-11-11 18:00 GST",
+          "new_slot_utc": "2026-11-11T16:15:00Z",
+          "new_local": "2026-11-11 20:15 GST",
+          "reason": "Existing TikTok EDIT17:00 cannot reschedule in place: only Download/Delete exposed; preserve it under no-delete/repost. ADVISOR20:15 leaves3h15 gap."
+        }
+      ]
+    },
+    {
+      "id": "xx-62eec03e1e93",
+      "job": "62eec03e1e93",
+      "platform": "x",
+      "slot_utc": "2026-11-11T14:00:00Z",
+      "local": "2026-11-11 18:00 GST",
+      "keyword": "ADVISOR",
+      "title": "Use Fable 5.2 as a Claude Code advisor",
+      "caption": "Use Fable 5.2 as a Claude Code advisor. Comment ADVISOR for the guide.\nhttps://withhammad.com/resources/claude-fable-advisor-setup\nAI avatar of me. #ClaudeAI",
+      "primary_keyword": "Claude Code advisor Fable",
+      "host_slug": "repost-62eec03e1e93",
+      "collaborators": null,
+      "status": "pending",
+      "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
+      "release_audit": {
+        "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
+        "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
+        "phone_window_gst": null,
+        "expected_runner_gst": null
+      }
     }
   ]
 }
