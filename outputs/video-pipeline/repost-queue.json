@@ -5226,7 +5226,15 @@
         "expected_runner_gst": null
       },
       "url": "https://www.tiktok.com/tiktokstudio/content",
-      "scheduled_at": "2026-11-11T13:40:23Z"
+      "scheduled_at": "2026-11-11T13:40:23Z",
+      "sound": {
+        "title": "MAFIA",
+        "artist": "Soothewave",
+        "volume_db": -20,
+        "source": "TikTok Studio > Sounds > For You"
+      },
+      "posted_via": "TikTok Studio, no-music cut + TikTok sound + custom cover (owner rule 2026-11-11)",
+      "replaced": "the baked-music scheduled copy, deleted 2026-11-11 21:03 GST on the owner's \"Yes, replace all\""
     },
     {
       "id": "xx-ee41d72bf8cd",
