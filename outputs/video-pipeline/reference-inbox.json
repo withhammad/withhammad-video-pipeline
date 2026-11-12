@@ -384,6 +384,125 @@
         "2026-11-11"
       ],
       "delivery_timezone": "Asia/Dubai"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DflgZlHgwAa/",
+      "note": "",
+      "added": "2026-11-11",
+      "status": "in_progress",
+      "job": "e08dc5238b3e"
+    },
+    {
+      "url": "https://www.instagram.com/p/Dfke5nijqjG/",
+      "note": "",
+      "added": "2026-11-11",
+      "status": "pending",
+      "job": null
+    },
+    {
+      "url": "https://www.instagram.com/reel/Dfm3zUdHNBs/",
+      "note": "",
+      "added": "2026-11-11",
+      "status": "in_progress",
+      "job": "abedb4efa2df"
+    },
+    {
+      "url": "https://www.instagram.com/reel/Dfm9CnRRKTv/",
+      "note": "",
+      "added": "2026-11-11",
+      "status": "in_progress",
+      "job": "3410ea61e3cc"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfkJzC2sRMI/",
+      "note": "",
+      "added": "2026-11-11",
+      "status": "in_progress",
+      "job": "442c9f68fb5e"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfNEbYcALyt/",
+      "note": "",
+      "added": "2026-11-11",
+      "status": "in_progress",
+      "job": "4a300e0907a4"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfFCz06IoFM/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Vaibhav Sisinty, 134 s: Google \"AI hacker\" (Gemini 4 Carbon), 7 features",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "c31532ffd540"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfWmB4yoVBW/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Ai by Anil lobo, 40 s: hand-drawn animation skill for Claude Code",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "821164afb6b1"
+    },
+    {
+      "url": "https://www.instagram.com/reel/Dfd9OAHhyUx/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Vishnu Vijayan, 46 s: free Agentic AI course from DeepLearning.AI",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "593b74fe4824"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfltGIiTrTF/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Vishnu Vijayan, 36 s: Claude Sheets launch",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "67277d9cfb83"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfkHU-xoeSf/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Vishnu Vijayan, 55 s: editing videos with Claude Fable 5.2 + Higgsfield connector",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "e336ec1df012"
+    },
+    {
+      "url": "https://www.instagram.com/reel/Dfmp-V4hDF1/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Ashutosh, 52 s: making money from GTA 6 clips, is it real",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "965179a8b711"
+    },
+    {
+      "url": "https://www.instagram.com/p/DfnGcVfDzyG/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Image carousel (no video): reel intake fails by design; carousel lane",
+      "added": "2026-11-12",
+      "status": "pending",
+      "job": null
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfnNWLLzje6/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Neeraj Walia, 54 s, Hindi/Urdu: ChatGPT business listing launch; needs Whisper medium translate",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "2a1cb8d3ad49"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfMunn4OsOa/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Ayush Mishra, 174 s, Hindi: AI agents \"secret society\" story; needs Whisper medium translate",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "7de0c080bb8f"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DfnXOzLjzyu/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Duncan Rogoff, 47 s: giving Claude its own Mac for computer use",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "e5b8cfd64c45"
+    },
+    {
+      "url": "https://www.instagram.com/reel/Dfkwf6uEwHv/",
+      "note": "Owner 12 Nov (\"Build all one by one\"). Duncan Rogoff, 46 s: Claude makes a full animated cartoon short",
+      "added": "2026-11-12",
+      "status": "in_progress",
+      "job": "7d00715ad3e6"
     }
   ]
 }
