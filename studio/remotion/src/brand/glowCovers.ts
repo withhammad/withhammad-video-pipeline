@@ -45,12 +45,15 @@ export const LOGO = {
   gamepad: {src: g('gamepad.svg'), bg: 'linear-gradient(160deg, #FF5A4E 0%, #E0261B 100%)', glow: '#FF3B30', fit: 0.66},
   blender: {mask: g('si-blender.svg'), color: '#EA7600', bg: WHITE, glow: '#F5792A', fit: 0.66},
   twentyFourText: {text: '24', color: '#FFFFFF', bg: 'linear-gradient(160deg, #FF5F5F 0%, #C81E1E 100%)', glow: '#FF4D4D'},
+  swift: {mask: g('si-swift.svg'), color: '#FFFFFF', bg: 'linear-gradient(160deg, #FF7A45 0%, #F05138 100%)', glow: '#FF6A3D', fit: 0.6},
+  linux: {mask: g('si-linux.svg'), color: '#111111', bg: WHITE, glow: '#FCC624', fit: 0.68},
 } satisfies Record<string, GlowLogo>;
 
 export type GlowJob = {job: string; date: string; title: string; cover: GlowCoverProps};
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '442c9f68fb5e', date: 'awaiting approval', title: 'xtool: build and install iPhone apps from Linux or Windows (WSL) without a Mac (free, MIT)', cover: c('iPhone Apps', 'Without a Mac', LOGO.swift, LOGO.linux)},
   {job: '0f869c3f2de7', date: 'awaiting approval', title: 'Claude just killed Instagram: 13 free Claude skills that run your account (instagram-agent-skill, MIT)', cover: c('Claude Killed', 'Instagram', LOGO.claude, LOGO.instagram)},
   {job: '762cf7fb383a', date: 'awaiting approval', title: 'Chamber AI Hub: Dubai Chambers launches an AI agent marketplace for Dubai businesses', cover: c('AI Agent Store', 'Now in Dubai', LOGO.uaeText, LOGO.aiText)},
   {job: '7f7f39548dd4', date: 'awaiting approval', title: '77 game-dev skills: Claude Code builds full games in Unreal, Unity, Godot and web', cover: c('Build Full Games', 'Inside Claude', LOGO.claude, LOGO.gamepad)},
