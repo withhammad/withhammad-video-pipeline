@@ -53,6 +53,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'e08dc5238b3e', date: 'awaiting approval', title: 'Claude Fable 5.2 launch: 12 things the new model can do, each checked against Anthropic\'s launch post', cover: c('12 Wild Things', 'Fable 5.2 Can Do', LOGO.anthropic, LOGO.claude)},
   {job: '442c9f68fb5e', date: 'awaiting approval', title: 'xtool: build and install iPhone apps from Linux or Windows (WSL) without a Mac (free, MIT)', cover: c('iPhone Apps', 'Without a Mac', LOGO.swift, LOGO.linux)},
   {job: '0f869c3f2de7', date: 'awaiting approval', title: 'Claude just killed Instagram: 13 free Claude skills that run your account (instagram-agent-skill, MIT)', cover: c('Claude Killed', 'Instagram', LOGO.claude, LOGO.instagram)},
   {job: '762cf7fb383a', date: 'awaiting approval', title: 'Chamber AI Hub: Dubai Chambers launches an AI agent marketplace for Dubai businesses', cover: c('AI Agent Store', 'Now in Dubai', LOGO.uaeText, LOGO.aiText)},
