@@ -14,7 +14,7 @@ const LINES: [number, string][] = [
   [18.37, 'کوئی لکھ نہ سکا آج تک باپ پر'], [24.2, 'میں ہی کیسے اٹھاؤں قلم'], [31.03, 'اے میرے والدِ محترم'], [37.03, 'اے میرے والدِ محترم'],
   [42.77, 'تیرا سایہ ہے جیسے حرم'], [49.3, 'اے میرے والدِ محترم'], [55.23, 'اے میرے والدِ محترم'],
 ];
-const PHOTOS: [string, number, string][] = [['father.jpg', 0, '40% 30%'], ['father3.jpg', 20.5, '50% 25%'], ['father2.jpg', 40.5, '50% 28%']];
+const PHOTOS: [string, number, string][] = [['father.jpg', 0, '50% 35%'], ['father3.jpg', 20.5, '60% 20%'], ['father2.jpg', 40.5, '50% 30%']];
 const END = 54.6;   // the closing dua replaces the bottom line from here
 
 // gold text with a light sweep running across it
