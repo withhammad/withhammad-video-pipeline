@@ -1,4 +1,3 @@
-import type React from 'react';
 import {AbsoluteFill,Composition,registerRoot} from 'remotion';
 import {Clone,type CloneProps} from './Clone';
 import {CloneV2} from './CloneV2';
