@@ -36,6 +36,8 @@ def _read(path, default):
 def reels():
     rows = []
     for jdir in sorted(JOBS.iterdir()):
+        if not jdir.is_dir():
+            continue
         lesson = _read(jdir / 'lesson.json', None)
         if not lesson or not (jdir / 'final.mp4').exists():
             continue
@@ -61,6 +63,8 @@ def _meta(jdir):
 def posts():
     rows = []
     for jdir in sorted(JOBS.iterdir()):
+        if not jdir.is_dir():
+            continue
         meta = _meta(jdir)
         for f in glob.glob(str(jdir / 'publish*.json')):
             data = _read(f, {})
