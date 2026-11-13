@@ -11,7 +11,7 @@ export const FPS = 30, DURATION = 36.3;
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const ease = (x: number) => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
 const back = (x: number) => { const c = 1.9, u = Math.min(1, Math.max(0, x)) - 1; return 1 + (c + 1) * u * u * u + c * u * u; };
-const AR = '"DecoType Naskh", "Al Nile", serif', UR = 'Nastaliq, serif';
+export const AR = '"DecoType Naskh", "Al Nile", serif', UR = 'Nastaliq, serif';
 const ALLAH = 'اللهُ';
 
 type Item = {k: 'n' | 'a' | 'end'; s: number; e: number; ar?: string; ur?: string; i?: number};
@@ -42,14 +42,14 @@ const LIGHTS: [number, number, number][] = [[94, 54, 1], [270, 58, 0.8], [411, 3
   [131, 1722, 0.6], [287, 1722, 0.6], [503, 1690, 0.7], [579, 1700, 0.7], [793, 1722, 0.6], [949, 1721, 0.6]];
 
 // gold metallic yarn with a light sweep
-const gold = (t: number, speed = 0.5): React.CSSProperties => {
+export const gold = (t: number, speed = 0.5): React.CSSProperties => {
   const p = ((t * speed) % 1) * 300 - 100;
   return {backgroundImage: `linear-gradient(100deg, #C48A26 0%, #F2C04E ${p - 28}%, #FFF4C8 ${p}%, #F2C04E ${p + 28}%, #C48A26 100%)`,
     WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextStroke: '4px #E7B040'};
 };
-const PUFF = 'url(#yarn) drop-shadow(0 3px 2px #2A0508cc) drop-shadow(0 12px 18px #00000099)';
+export const PUFF = 'url(#yarn) drop-shadow(0 3px 2px #2A0508cc) drop-shadow(0 12px 18px #00000099)';
 
-const YarnDefs: React.FC = () => <svg width={0} height={0} style={{position: 'absolute'}}>
+export const YarnDefs: React.FC = () => <svg width={0} height={0} style={{position: 'absolute'}}>
   <defs>
     <filter id="yarn" x="-8%" y="-30%" width="116%" height="160%" colorInterpolationFilters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="0.85 0.06" numOctaves={2} seed={7} result="fib"/>
@@ -77,7 +77,7 @@ const Needle: React.FC<{x: number; y: number; o: number}> = ({x, y, o}) => <svg 
 </svg>;
 
 // knitted tasbih: one bead lights gold per Name
-const Tasbih: React.FC<{t: number; lit: number; cur: number; all: number}> = ({t, lit, cur, all}) => {
+export const Tasbih: React.FC<{t: number; lit: number; cur: number; all: number}> = ({t, lit, cur, all}) => {
   const n = 18, pts = Array.from({length: n}, (_, j) => { const u = j / (n - 1), x = 170 + u * 740, v = (x - 540) / 370; return [x, 968 + 46 * (1 - v * v)]; });
   return <>
     <svg width={1080} height={1100} style={{position: 'absolute', left: 0, top: 0}}>
