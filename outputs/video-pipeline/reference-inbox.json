@@ -555,10 +555,10 @@
     },
     {
       "url": "https://www.linkedin.com/posts/charlie-hills_youve-installed-100-claude-repos-unchecked-activity-7526943214692552704-6O0D",
-      "note": "Owner 13 Nov (lnkd.in/p/dDUXHdt3). Charlie Hills LinkedIn IMAGE post (not video): \"You've installed 100+ Claude repos (unchecked)\" - NVIDIA SkillSpector, 5 steps, tested on 151 skills. DUPLICATE TOPIC of reel d61788123d13 (keyword SCAN, posted on Facebook and LinkedIn only). Waiting for owner: skip, or make a LinkedIn infographic in our style.",
+      "note": "Owner 13 Nov (lnkd.in/p/dDUXHdt3). Charlie Hills LinkedIn IMAGE post (not video): \"You've installed 100+ Claude repos (unchecked)\" - NVIDIA SkillSpector, 5 steps, tested on 151 skills. DUPLICATE TOPIC of reel d61788123d13 (keyword SCAN, posted on Facebook and LinkedIn only). Waiting for owner: skip, or make a LinkedIn infographic in our style. Owner 13 Nov: \"Make an infographic\". Built: studio/remotion/src/skillspector (1080x1350, rendered 2x), saved to ~/Downloads/13 November/SkillSpector infographic (LinkedIn)/ with post text; facts re-checked; not posted.",
       "added": "2026-11-13",
-      "status": "pending",
-      "job": null
+      "status": "awaiting_approval",
+      "job": "skillspector-infographic"
     }
   ]
 }
