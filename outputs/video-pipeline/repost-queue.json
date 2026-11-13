@@ -4608,12 +4608,14 @@
       "primary_keyword": "claude fable 5.2",
       "host_slug": "repost-e08dc5238b3e",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-fable-5-2-twelve-things",
       "release_audit": {
         "booked_at_utc": "2026-11-13T01:25:00Z",
         "authorization": "Owner approved the LAUNCH reel 2026-11-12 (\"LAUNCH reel\" in his Approve pick) and said \"Yes, queue LAUNCH\" 2026-11-13. Guide PR #25 merged; page returns 200; LAUNCH DM rule deployed with it."
-      }
+      },
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7526978752258535424/",
+      "posted_at": "2026-11-13T12:03:01Z"
     },
     {
       "id": "fa-motion20261020",
