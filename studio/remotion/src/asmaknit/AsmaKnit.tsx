@@ -68,7 +68,7 @@ export const YarnDefs: React.FC = () => <svg width={0} height={0} style={{positi
 </svg>;
 
 // a silver needle trailing a gold thread, its tip at (x, y)
-const Needle: React.FC<{x: number; y: number; o: number}> = ({x, y, o}) => <svg width={300} height={120} viewBox="0 0 300 120"
+export const Needle: React.FC<{x: number; y: number; o: number}> = ({x, y, o}) => <svg width={300} height={120} viewBox="0 0 300 120"
   style={{position: 'absolute', left: x - 8, top: y - 60, opacity: o, overflow: 'visible', filter: 'drop-shadow(0 4px 4px #00000088)'}}>
   <defs><linearGradient id="steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#FFFFFF"/><stop offset="0.5" stopColor="#C9CED6"/><stop offset="1" stopColor="#6E7580"/></linearGradient></defs>
   <path d="M150 52 C 200 30, 240 90, 300 60" stroke="#F2C55C" strokeWidth={4} fill="none" strokeLinecap="round"/>
