@@ -4671,13 +4671,21 @@
       "primary_keyword": "claude fable 5.2",
       "host_slug": "repost-e08dc5238b3e",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/claude-fable-5-2-twelve-things",
       "release_audit": {
         "booked_at_utc": "2026-11-13T01:25:00Z",
         "authorization": "Owner approved the LAUNCH reel 2026-11-12 (\"LAUNCH reel\" in his Approve pick) and said \"Yes, queue LAUNCH\" 2026-11-13. Guide PR #25 merged; page returns 200; LAUNCH DM rule deployed with it."
       },
-      "note": "Post final_nomusic.mp4 with a TikTok trending sound (owner red line 2026-11-11)."
+      "note": "Post final_nomusic.mp4 with a TikTok trending sound (owner red line 2026-11-11).",
+      "url": "https://www.tiktok.com/@withhammad",
+      "scheduled_at": "2026-11-13T01:39:41Z",
+      "sound": {
+        "title": "Magenta Dancefloor",
+        "artist": "TikTok Studio library (For You tab)",
+        "volume_db": -20
+      },
+      "schedule_receipt": "TikTok Studio content list: \"Nov 13, 5:00 PM (GMT+4) Dubai\", Everyone, AI label on, custom cover; uploaded final_social_nomusic.mp4"
     },
     {
       "id": "in-e08dc5238b3e",
@@ -4729,13 +4737,16 @@
       "primary_keyword": "claude fable 5.2",
       "host_slug": "repost-e08dc5238b3e",
       "collaborators": null,
-      "status": "pending",
+      "status": "scheduled",
       "resource_url": "https://withhammad.com/resources/claude-fable-5-2-twelve-things",
       "release_audit": {
         "booked_at_utc": "2026-11-13T01:25:00Z",
         "authorization": "Owner approved the LAUNCH reel 2026-11-12 (\"LAUNCH reel\" in his Approve pick) and said \"Yes, queue LAUNCH\" 2026-11-13. Guide PR #25 merged; page returns 200; LAUNCH DM rule deployed with it."
       },
-      "note": "Post final_x.mp4 (139.5 s, X 140 s limit; final_social.mp4 is the same file)."
+      "note": "Post final_x.mp4 (139.5 s, X 140 s limit; final_social.mp4 is the same file).",
+      "url": "https://x.com/HammadYousufAI",
+      "scheduled_at": "2026-11-13T01:39:41Z",
+      "schedule_receipt": "X toast: \"Your post will be sent on Fri, Nov 13, 2026 at 6:00 PM\" (Gulf Standard Time); uploaded final_social.mp4 (139.5 s)"
     },
     {
       "id": "fa-harness-engineering",
