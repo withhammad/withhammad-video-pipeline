@@ -1,0 +1,295 @@
+{
+ "researched_at": "2026-11-14",
+ "job": "8672c9af2b8c",
+ "source_job": "09a9d211fff0",
+ "post": {
+  "instagram": "https://www.instagram.com/reel/DfuHwiHos2Q/",
+  "account": "@with.hammad",
+  "collab": "@withhammad.ai",
+  "posted_by": "owner, by hand, 2026-11-14 11:42 UTC",
+  "audio": "Mustafa Saboori - Aura Farming"
+ },
+ "primary_keyword": "reverse engineer anything",
+ "comment_keyword": "BLUEPRINT",
+ "resource_url": "https://withhammad.com/resources/reverse-engineer-features-with-claude-code",
+ "status": "review_only",
+ "owner_approved": false,
+ "publishing_authorized": false,
+ "upload_note": "Owner: \"you don't need to upload this\". Nothing is queued or posted from this pack. The same cut already went out on 17 Oct 2026 on YouTube @with.hammad (HClAkG74r6A), LinkedIn (ugcPost 7517235951950065666), TikTok @hammadyousuf01 and the old Facebook profile; re-posting there duplicates it.",
+ "caption_format": "Hashtags are already at the end of every caption/text/post; hashtag arrays are metadata, do not append again.",
+ "rationale": "'reverse engineer anything' is the tool's own name and the strongest query in the data: YouTube autocomplete returns a full tree for it (rea, demo, github, tutorial, setup, skill, repo) and the top recent videos for all three seeds are titled around it (Nick Saraev 1.8M, Low Level 3.7M, Fireship 6.8M views). 'claude code reverse engineering' is a YouTube and Google suggestion with its own tree (skill, github, plugin, mcp, binary), so 'Claude Code' sits next to the primary keyword everywhere. Captions keep the owner's live Instagram wording where it was already right.",
+ "ctas": {
+  "instagram": "Comment BLUEPRINT (keyword DM) + follow @withhammad.ai; fallback DM BLUEPRINT to @withhammad.ai",
+  "youtube": "Free guide link on line 2 and at the end + subscribe link; pinned comment (waits for owner OK)",
+  "tiktok": "Full guide: link in bio + follow",
+  "linkedin": "Guide URL + comment question",
+  "facebook": "Guide URL + comment BLUEPRINT for a Messenger link + follow the Page",
+  "x": "Guide URL"
+ },
+ "youtube": {
+  "title": "Reverse Engineer Anything with Claude Code: Free REA Setup",
+  "description": "Reverse Engineer Anything (REA) lets Claude Code show how a feature in an app works, with evidence, after one free setup command.\nFree guide (setup + 3 prompts): https://withhammad.com/resources/reverse-engineer-features-with-claude-code\n\nSetup: run npx rea-agents setup, choose Claude Code, approve, restart.\nIt inspects desktop and Electron apps, websites and Android APKs on your own machine. No iOS target is listed.\nIt shows the evidence for each step and lists what it could not confirm.\nOnly use it on software you own or are authorized to examine.\n\nChecked 14 Nov 2026: MIT licence, npm rea-agents 6.9.0, Node.js 22.23.4+, 24.22.1+ or 26.12.1+.\nSource: https://github.com/morluto/rea\n\nGet the setup steps and my 3 prompts: https://withhammad.com/resources/reverse-engineer-features-with-claude-code\nSubscribe for more AI builds: https://www.youtube.com/@with.hammad?sub_confirmation=1\nAI avatar of me. Altered-content label on.\n#Shorts #ReverseEngineering #ClaudeCode",
+  "tags": [
+   "reverse engineer anything",
+   "reverse engineer anything rea",
+   "claude code reverse engineering",
+   "rea reverse engineering",
+   "how to reverse engineer an app",
+   "reverse engineering tool open source",
+   "claude code ghidra mcp",
+   "reverse engineer anything setup"
+  ],
+  "hashtags": [
+   "#Shorts",
+   "#ReverseEngineering",
+   "#ClaudeCode"
+  ],
+  "pinned_comment": "Setup steps + my 3 prompts (free): https://withhammad.com/resources/reverse-engineer-features-with-claude-code\nOnly on software you own or may examine. Subscribe for more AI builds.",
+  "containsSyntheticMedia": true
+ },
+ "instagram": {
+  "account": "@with.hammad (Collab @withhammad.ai)",
+  "caption": "Reverse Engineer Anything (REA) + Claude Code: see how a feature in an app works, from click to final output.\nComment BLUEPRINT and I'll DM you the guide.\n\nREA is free and open source (MIT). One command sets it up for Claude Code: npx rea-agents setup\n\nIt inspects desktop and Electron apps, websites and Android APKs on your own machine. It shows the evidence for each step and tells you what it couldn't confirm. No iOS target is listed.\n\nThe rule: only use it on software you own or are authorized to examine. Learn the pattern, then build your own version on your stack.\n\nComment BLUEPRINT and I'll DM you the setup steps + my 3 prompts.\nFollow @withhammad.ai first, the DM only goes to followers. Or DM BLUEPRINT to @withhammad.ai.\n\nAI avatar of me.\n\n#ReverseEngineering #ClaudeCode #OpenSource #AITools #AIAgents",
+  "hashtags": [
+   "#ReverseEngineering",
+   "#ClaudeCode",
+   "#OpenSource",
+   "#AITools",
+   "#AIAgents"
+  ],
+  "alt_text": "Hammad, shown as an AI avatar in a bright room, explains Reverse Engineer Anything (REA) for Claude Code. On-screen title 'Reverse Engineer Any Feature' with Desktop, Web and Android chips, screen recordings of the REA guides and case-study pages, a terminal running npx rea-agents setup and a Claude Code prompt, and a closing 'comment BLUEPRINT' caption. Captions are burned in.",
+  "live_caption_gaps": [
+   "no hashtags",
+   "no AI-avatar disclosure line",
+   "no DM fallback while comment DMs are not wired for this post"
+  ]
+ },
+ "tiktok": {
+  "account": "@withhammad",
+  "caption": "Reverse engineer anything with Claude Code: a free tool called REA shows how a feature in an app works, click to output.\nFull guide: link in bio\n\nSetup is one command: npx rea-agents setup\nDesktop and Electron apps, websites, Android APKs. No iOS listed.\nIt shows the evidence and says what it couldn't confirm.\nOnly on apps you own or are allowed to examine.\n\nFull guide: link in bio\nFollow for more AI builds.\nAI avatar of me.\n\n#ReverseEngineering #ClaudeCode #OpenSource #AITools",
+  "hashtags": [
+   "#ReverseEngineering",
+   "#ClaudeCode",
+   "#OpenSource",
+   "#AITools"
+  ]
+ },
+ "linkedin": {
+  "text": "Reverse engineer anything with Claude Code.\nFree, open source, one setup command.\n\nYou spot a feature you love in an app.\nYou wonder how it really works.\n\nREA (Reverse Engineer Anything) answers that question.\nOne command plugs it into Claude Code.\n\nIt inspects desktop apps, websites and Android APKs.\nIt shows the evidence for every step.\nIt lists what it could not confirm.\n\nFrom curious, to clear, to confident.\n\nTwo things the hype skips.\nNo iOS target is listed.\nOnly use it on software you own or may examine.\n\nUnderstand the pattern first. Then build your own.\n\nSetup steps + my 3 prompts (free): https://withhammad.com/resources/reverse-engineer-features-with-claude-code\nWhich app feature would you love to understand?\nThe video uses an AI avatar of me.\n#ClaudeCode #ReverseEngineering #OpenSource",
+  "hashtags": [
+   "#ClaudeCode",
+   "#ReverseEngineering",
+   "#OpenSource"
+  ],
+  "method": "10-3-1 (docs/LINKEDIN_POSTS.md)"
+ },
+ "facebook": {
+  "page": "With Hammad AI",
+  "caption": "Reverse engineer anything with Claude Code: REA shows how a feature in an app works, from click to final output.\nFree guide: https://withhammad.com/resources/reverse-engineer-features-with-claude-code\n\nREA is free and open source (MIT). Setup is one command: npx rea-agents setup\nIt inspects desktop and Electron apps, websites and Android APKs on your own machine, shows the evidence for each step and says what it couldn't confirm. No iOS target is listed.\nOnly use it on software you own or are authorized to examine.\n\nGet the setup steps + my 3 prompts: https://withhammad.com/resources/reverse-engineer-features-with-claude-code\nOr comment BLUEPRINT and I'll send the link to your Messenger.\nFollow With Hammad AI for more practical AI builds.\n\nAI avatar of me.\n\n#ReverseEngineering #ClaudeCode #OpenSource",
+  "hashtags": [
+   "#ReverseEngineering",
+   "#ClaudeCode",
+   "#OpenSource"
+  ]
+ },
+ "x": {
+  "account": "@HammadYousufAI",
+  "post": "Reverse engineer anything with Claude Code: REA (free, MIT) shows how a feature in an app works, with evidence.\nSetup: npx rea-agents setup. Only on apps you own or may examine.\nGuide + 3 prompts: https://withhammad.com/resources/reverse-engineer-features-with-claude-code\nAI avatar of me.\n#ClaudeCode #ReverseEngineering",
+  "hashtags": [
+   "#ClaudeCode",
+   "#ReverseEngineering"
+  ]
+ },
+ "keywords": [
+  {
+   "term": "reverse engineer anything",
+   "platform": "primary: YouTube title/line 1, first line of every caption",
+   "evidence": "YouTube autocomplete tree: reverse engineer anything + demo/rea/github/tutorial/skill/repo/setup; Google: github/repo/reddit/rea/mcp; top videos: \"I Tested The Viral Github Repo That Reverse Engineers Anything\" (Nick Saraev, 1,806,429 views), \"I Tested The Viral Reverse Engineering Repo\" (Low Level, 3,730,148)",
+   "intent": "tool discovery + setup"
+  },
+  {
+   "term": "claude code reverse engineering",
+   "platform": "YouTube tag, LinkedIn/Instagram/TikTok hook, hashtag #ClaudeCode",
+   "evidence": "YouTube autocomplete for \"claude code reverse engineer\"; Google tree: skill, github, plugin, binary, mcp, reddit",
+   "intent": "how-to"
+  },
+  {
+   "term": "how to reverse engineer an app",
+   "platform": "YouTube tag",
+   "evidence": "YouTube + Google autocomplete; Google also returns \"how to reverse engineer an app with claude\" and \"...an electron app\"",
+   "intent": "how-to"
+  },
+  {
+   "term": "reverse engineering tool open source",
+   "platform": "YouTube tag, #OpenSource",
+   "evidence": "Google autocomplete (own tree: software open source, tools for reverse engineering)",
+   "intent": "tool discovery"
+  },
+  {
+   "term": "claude code ghidra mcp",
+   "platform": "YouTube tag",
+   "evidence": "Google autocomplete for \"claude code ghidra\": mcp, skill, reverse engineering ghidra",
+   "intent": "setup"
+  },
+  {
+   "term": "reverse engineer anything rea / setup",
+   "platform": "YouTube tags",
+   "evidence": "YouTube autocomplete ranks 3 and 8 under the primary",
+   "intent": "setup"
+  }
+ ],
+ "sources": [
+  {
+   "type": "autocomplete",
+   "url": "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&hl=en&q=<seed>",
+   "note": "YouTube autocomplete via curl, 12 seeds, 2026-11-14; raw in seo/research-2026-11-14-suggest.json"
+  },
+  {
+   "type": "autocomplete",
+   "url": "https://suggestqueries.google.com/complete/search?client=firefox&hl=en&q=<seed>",
+   "note": "Google autocomplete, same 12 seeds. Rank = suggestion order, not volume."
+  },
+  {
+   "type": "youtube_data_api",
+   "url": "https://www.googleapis.com/youtube/v3/search",
+   "note": "read-only search.list for 'claude code reverse engineering', 'reverse engineer anything', 'reverse engineer app with ai'; order=viewCount, publishedAfter=90 days, maxResults=15, plus videos.list stats (306 quota units); owner OAuth from studio/, token never printed; raw in seo/research-2026-11-14-youtube.json"
+  },
+  {
+   "type": "competitor_title",
+   "url": "https://www.youtube.com/results?search_query=reverse+engineer+anything",
+   "note": "Winning pattern: the tool/repo name + \"Reverse Engineers Anything\" up front, a test or result framing, no hashtags in titles."
+  },
+  {
+   "type": "live_post",
+   "url": "https://www.instagram.com/reel/DfuHwiHos2Q/",
+   "note": "REA capture_web_screenshot + inspect_web_page (logged out): Collab with.hammad + withhammad.ai, Aura Farming sound, caption without hashtags or AI line; analysis/rea.md"
+  },
+  {
+   "type": "facts",
+   "url": "https://github.com/morluto/rea#readme",
+   "note": "README, DISCLAIMER.md and npm registry re-read 2026-11-14; analysis/facts.md"
+  },
+  {
+   "type": "platform_rules",
+   "url": "docs/profile-seo/youtube.md, docs/profile-seo/instagram-facebook.md, docs/LINKEDIN_POSTS.md",
+   "note": "Shorts template (keyword sentence, guide line 2, exactly 3 hashtags with #Shorts), Instagram 5-hashtag cap and first-125-character hook, LinkedIn 10-3-1"
+  }
+ ],
+ "checks": {
+  "youtube": {
+   "chars": 975,
+   "hashtags_in_text": [
+    "#Shorts",
+    "#ReverseEngineering",
+    "#ClaudeCode"
+   ],
+   "avatar_line_count": 1,
+   "url_count": 4,
+   "hashtags_at_end_match_array": true,
+   "title_chars": 58,
+   "title_le_70": true,
+   "title_no_hash": true,
+   "line1_keyword_sentence": "Reverse Engineer Anything (REA) lets Claude Code show how a feature in an app works, with evidence, after one free setup command.",
+   "line2_guide": true,
+   "shorts_count": 1,
+   "hashtag_total": 3,
+   "desc_le_5000": true,
+   "tags_aggregate_chars": 227,
+   "sub_confirmation_link": true
+  },
+  "instagram": {
+   "chars": 818,
+   "hashtags_in_text": [
+    "#ReverseEngineering",
+    "#ClaudeCode",
+    "#OpenSource",
+    "#AITools",
+    "#AIAgents"
+   ],
+   "avatar_line_count": 1,
+   "url_count": 0,
+   "hashtags_at_end_match_array": true,
+   "first_125": "Reverse Engineer Anything (REA) + Claude Code: see how a feature in an app works, from click to final output.\nComment BLUEPRI",
+   "hashtags_le_5": true,
+   "cap_2200": true,
+   "cta_comment_count": 2,
+   "cta_follow": true,
+   "alt_text_chars": 380
+  },
+  "tiktok": {
+   "chars": 482,
+   "hashtags_in_text": [
+    "#ReverseEngineering",
+    "#ClaudeCode",
+    "#OpenSource",
+    "#AITools"
+   ],
+   "avatar_line_count": 1,
+   "url_count": 0,
+   "hashtags_at_end_match_array": true,
+   "cap_4000": true,
+   "hashtags_3_5": true,
+   "link_in_bio_count": 2,
+   "follow_ask": true
+  },
+  "linkedin": {
+   "chars": 807,
+   "hashtags_in_text": [
+    "#ClaudeCode",
+    "#ReverseEngineering",
+    "#OpenSource"
+   ],
+   "avatar_line_count": 1,
+   "url_count": 1,
+   "hashtags_at_end_match_array": true,
+   "first_210": "Reverse engineer anything with Claude Code.\nFree, open source, one setup command.\n\nYou spot a feature you love in an app.\nYou wonder how it really works.\n\nREA (Reverse Engineer Anything) answers that question.\n",
+   "keyword_in_first_210": true,
+   "body_line_max_words": 10,
+   "body_lines_le_10_words": true,
+   "rule_of_three_line": "From curious, to clear, to confident.",
+   "closing_line": "Understand the pattern first. Then build your own.",
+   "closing_line_words": 8,
+   "closing_le_12": true,
+   "cta_block": [
+    "Setup steps + my 3 prompts (free): https://withhammad.com/resources/reverse-engineer-features-with-claude-code",
+    "Which app feature would you love to understand?",
+    "The video uses an AI avatar of me.",
+    "#ClaudeCode #ReverseEngineering #OpenSource"
+   ],
+   "cap_3000": true,
+   "hashtags_0_3": true,
+   "question": true
+  },
+  "facebook": {
+   "chars": 811,
+   "hashtags_in_text": [
+    "#ReverseEngineering",
+    "#ClaudeCode",
+    "#OpenSource"
+   ],
+   "avatar_line_count": 1,
+   "url_count": 2,
+   "hashtags_at_end_match_array": true,
+   "hashtags_1_3": true,
+   "follow_ask": true
+  },
+  "x": {
+   "chars": 321,
+   "hashtags_in_text": [
+    "#ClaudeCode",
+    "#ReverseEngineering"
+   ],
+   "avatar_line_count": 1,
+   "url_count": 1,
+   "hashtags_at_end_match_array": true,
+   "weighted_len": 269,
+   "le_280": true
+  },
+  "all_pass": true,
+  "fails": [],
+  "resource_url": {
+   "url": "https://withhammad.com/resources/reverse-engineer-features-with-claude-code",
+   "http": "200"
+  }
+ }
+}

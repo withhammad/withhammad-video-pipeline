@@ -1,0 +1,151 @@
+CAPTION PACK - BLUEPRINT reel (Reverse Engineer Anything + Claude Code)
+Reel: https://www.instagram.com/reel/DfuHwiHos2Q/ (posted by you on @with.hammad, Collab @withhammad.ai)
+Guide: https://withhammad.com/resources/reverse-engineer-features-with-claude-code
+Keyword: BLUEPRINT
+Nothing below has been posted. Copy and paste only where you want it.
+
+----------------------------------------
+
+INSTAGRAM (edit the live caption: ... > Edit)
+
+Reverse Engineer Anything (REA) + Claude Code: see how a feature in an app works, from click to final output.
+Comment BLUEPRINT and I'll DM you the guide.
+
+REA is free and open source (MIT). One command sets it up for Claude Code: npx rea-agents setup
+
+It inspects desktop and Electron apps, websites and Android APKs on your own machine. It shows the evidence for each step and tells you what it couldn't confirm. No iOS target is listed.
+
+The rule: only use it on software you own or are authorized to examine. Learn the pattern, then build your own version on your stack.
+
+Comment BLUEPRINT and I'll DM you the setup steps + my 3 prompts.
+Follow @withhammad.ai first, the DM only goes to followers. Or DM BLUEPRINT to @withhammad.ai.
+
+AI avatar of me.
+
+#ReverseEngineering #ClaudeCode #OpenSource #AITools #AIAgents
+
+ALT TEXT (Edit > Advanced settings > Accessibility > Write alt text):
+Hammad, shown as an AI avatar in a bright room, explains Reverse Engineer Anything (REA) for Claude Code. On-screen title 'Reverse Engineer Any Feature' with Desktop, Web and Android chips, screen recordings of the REA guides and case-study pages, a terminal running npx rea-agents setup and a Claude Code prompt, and a closing 'comment BLUEPRINT' caption. Captions are burned in.
+
+----------------------------------------
+
+TIKTOK (@withhammad) - turn on the AI-generated content label
+
+Reverse engineer anything with Claude Code: a free tool called REA shows how a feature in an app works, click to output.
+Full guide: link in bio
+
+Setup is one command: npx rea-agents setup
+Desktop and Electron apps, websites, Android APKs. No iOS listed.
+It shows the evidence and says what it couldn't confirm.
+Only on apps you own or are allowed to examine.
+
+Full guide: link in bio
+Follow for more AI builds.
+AI avatar of me.
+
+#ReverseEngineering #ClaudeCode #OpenSource #AITools
+
+----------------------------------------
+
+YOUTUBE SHORTS (@with.hammad) - altered/synthetic content: Yes
+
+TITLE:
+Reverse Engineer Anything with Claude Code: Free REA Setup
+
+DESCRIPTION:
+Reverse Engineer Anything (REA) lets Claude Code show how a feature in an app works, with evidence, after one free setup command.
+Free guide (setup + 3 prompts): https://withhammad.com/resources/reverse-engineer-features-with-claude-code
+
+Setup: run npx rea-agents setup, choose Claude Code, approve, restart.
+It inspects desktop and Electron apps, websites and Android APKs on your own machine. No iOS target is listed.
+It shows the evidence for each step and lists what it could not confirm.
+Only use it on software you own or are authorized to examine.
+
+Checked 14 Nov 2026: MIT licence, npm rea-agents 6.9.0, Node.js 22.23.4+, 24.22.1+ or 26.12.1+.
+Source: https://github.com/morluto/rea
+
+Get the setup steps and my 3 prompts: https://withhammad.com/resources/reverse-engineer-features-with-claude-code
+Subscribe for more AI builds: https://www.youtube.com/@with.hammad?sub_confirmation=1
+AI avatar of me. Altered-content label on.
+#Shorts #ReverseEngineering #ClaudeCode
+
+TAGS:
+reverse engineer anything, reverse engineer anything rea, claude code reverse engineering, rea reverse engineering, how to reverse engineer an app, reverse engineering tool open source, claude code ghidra mcp, reverse engineer anything setup
+
+PINNED COMMENT (post only after your OK):
+Setup steps + my 3 prompts (free): https://withhammad.com/resources/reverse-engineer-features-with-claude-code
+Only on software you own or may examine. Subscribe for more AI builds.
+
+----------------------------------------
+
+LINKEDIN
+
+Reverse engineer anything with Claude Code.
+Free, open source, one setup command.
+
+You spot a feature you love in an app.
+You wonder how it really works.
+
+REA (Reverse Engineer Anything) answers that question.
+One command plugs it into Claude Code.
+
+It inspects desktop apps, websites and Android APKs.
+It shows the evidence for every step.
+It lists what it could not confirm.
+
+From curious, to clear, to confident.
+
+Two things the hype skips.
+No iOS target is listed.
+Only use it on software you own or may examine.
+
+Understand the pattern first. Then build your own.
+
+Setup steps + my 3 prompts (free): https://withhammad.com/resources/reverse-engineer-features-with-claude-code
+Which app feature would you love to understand?
+The video uses an AI avatar of me.
+#ClaudeCode #ReverseEngineering #OpenSource
+
+----------------------------------------
+
+FACEBOOK (Page: With Hammad AI) - AI info label on
+
+Reverse engineer anything with Claude Code: REA shows how a feature in an app works, from click to final output.
+Free guide: https://withhammad.com/resources/reverse-engineer-features-with-claude-code
+
+REA is free and open source (MIT). Setup is one command: npx rea-agents setup
+It inspects desktop and Electron apps, websites and Android APKs on your own machine, shows the evidence for each step and says what it couldn't confirm. No iOS target is listed.
+Only use it on software you own or are authorized to examine.
+
+Get the setup steps + my 3 prompts: https://withhammad.com/resources/reverse-engineer-features-with-claude-code
+Or comment BLUEPRINT and I'll send the link to your Messenger.
+Follow With Hammad AI for more practical AI builds.
+
+AI avatar of me.
+
+#ReverseEngineering #ClaudeCode #OpenSource
+
+----------------------------------------
+
+X (@HammadYousufAI) - 269/280 with the link counted as 23
+
+Reverse engineer anything with Claude Code: REA (free, MIT) shows how a feature in an app works, with evidence.
+Setup: npx rea-agents setup. Only on apps you own or may examine.
+Guide + 3 prompts: https://withhammad.com/resources/reverse-engineer-features-with-claude-code
+AI avatar of me.
+#ClaudeCode #ReverseEngineering
+
+----------------------------------------
+
+ACTION LIST
+1. Instagram: edit the live caption to the one above (adds 5 hashtags, the AI-avatar line and the DM fallback) and add the alt text.
+2. Instagram keyword DMs: comments on this post do NOT trigger the withhammad.com DM bot yet. The post belongs to @with.hammad; the bot answers only for @withhammad.ai, and Meta does not send a collaborator the comments of someone else's post. The @with.hammad API login has also expired. To fix: you re-connect @with.hammad (python3 outputs/video-pipeline/instagram_oauth.py --account with.hammad, you do the login/2FA), then the bot gets a second account (webhook subscription + its own token). Until then, anyone who DMs BLUEPRINT to @withhammad.ai gets the follow-gated link.
+3. YouTube, LinkedIn, TikTok @hammadyousuf01 and the old Facebook profile already have this exact video from 17 Oct. Post it again only on accounts that do not have it (TikTok @withhammad, Facebook Page With Hammad AI, X), or skip.
+4. Anything you post: the guide page is live and BLUEPRINT is in the keyword rules.
+
+----------------------------------------
+
+CAVEATS
+- REA facts re-checked 14 Nov 2026 (MIT, npx rea-agents setup, no iOS target, Node.js 22.23.4+ / 24.22.1+ / 26.12.1+, npm 6.9.0). The tool changes fast.
+- The spoken line "traces every single step" is softened in the copy to "shows the evidence for each step and says what it couldn't confirm", which is what the README promises.
+- Use REA only on software you own or are authorized to examine.
