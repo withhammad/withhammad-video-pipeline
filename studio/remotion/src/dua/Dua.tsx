@@ -29,7 +29,7 @@ export const LINES: [number, number, string, string][] = [
 
 // one picture per stretch of the dua, cut in the gaps between lines. y = centre of the text block for that shot,
 // placed over architecture, never over the face. rot = degrees of slow turn across the shot (the reference turns).
-type Shot = {src: string; from: number; to: number; y: number; z0: number; z1: number; rot: number; ox: number; oy: number;
+export type Shot = {src: string; from: number; to: number; y: number; z0: number; z1: number; rot: number; ox: number; oy: number;
   l?: number; r?: number}; // l/r: text box edges in px (default 60..1020)
 export const SHOTS: Shot[] = [
   {src: 'shots/s1-wide.jpg', from: 0, to: 7.0, y: 640, z0: 1.18, z1: 1.30, rot: 4, ox: 50, oy: 40},
@@ -41,7 +41,7 @@ export const SHOTS: Shot[] = [
 ];
 const XF = 0.8; // cross-dissolve length
 
-const Motes: React.FC<{f: number}> = ({f}) => <>{Array.from({length: 26}, (_, k) => {
+export const Motes: React.FC<{f: number}> = ({f}) => <>{Array.from({length: 26}, (_, k) => {
   const life = 260 + random(`ml${k}`) * 200, ph = (f + random(`mp${k}`) * life) % life, u = ph / life;
   const gen = Math.floor((f + random(`mp${k}`) * life) / life);
   const x = 80 + random(`mx${k}-${gen}`) * 920 + Math.sin(u * 4 + k) * 26, y = 1750 - u * 1500, s = 2 + random(`ms${k}`) * 4;
@@ -49,7 +49,7 @@ const Motes: React.FC<{f: number}> = ({f}) => <>{Array.from({length: 26}, (_, k)
     boxShadow: `0 0 ${3 * s}px ${s}px #F6C75A66`, opacity: Math.sin(Math.PI * u) * (0.35 + 0.3 * Math.sin(f / 9 + k))}}/>;
 })}</>;
 
-const Picture: React.FC<{s: Shot; t: number}> = ({s, t}) => {
+export const Picture: React.FC<{s: Shot; t: number}> = ({s, t}) => {
   const a = interpolate(t, [s.from - XF / 2, s.from + XF / 2, s.to - XF / 2, s.to + XF / 2], [0, 1, 1, 0], clamp);
   if (a <= 0) return null;
   const u = Math.min(1, Math.max(0, (t - (s.from - XF / 2)) / (s.to - s.from + XF)));
