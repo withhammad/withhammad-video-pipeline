@@ -11,6 +11,7 @@ export const fontsReady = Promise.all([
 ]);
 // Public dir: studio/.local/jobs/808c92b7fc32/knit/public (bg.jpg, parts/bead-*.png, medallion.png, scroll.png, tassel.png,
 // fonts/, audio.wav = the reference audio with gain + limiter only). Parts: prep.py. Arabic: text.ts (text.py).
+// A spoken-dhikr layer, when its takes exist, is mixed over audio.wav and re-muxed onto the rendered picture by voice.py.
 // PRIVATE: for the owner's wife (@heal.ingthroughquran), never posted from the business accounts.
 registerRoot(() => <>
   <Composition id="TASBIH-KNIT" component={TasbihKnit} width={1080} height={1920} fps={FPS} durationInFrames={Math.round(DURATION * FPS)}/>

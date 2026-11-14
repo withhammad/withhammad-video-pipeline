@@ -87,6 +87,9 @@ Description:
 - Audio is the reference's own sound (gain and limiter only, no cuts, no speed or pitch change). If Instagram offers the
   original audio, it is the same track.
 - Every count lands on the reference's tick: count 1 at 3.0 s, then one count every 0.6 s, 100 at 62.4 s.
+- This version has NO spoken voice yet (the files are named "no voice yet"). The owner asked for a voice saying
+  SubhanAllah on the counts; a human or native voice is being arranged, and it drops in with one command
+  (studio/remotion/src/tasbihknit/voice.py). The captions above stay the same either way.
 """
 Path(sys.argv[1]).write_text(out)
 print(out)
