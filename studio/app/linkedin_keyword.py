@@ -25,7 +25,7 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from app import dm_rules
+from app import automations_api, dm_rules
 from app.publish_linkedin import LINKEDIN_VERSION, load_credentials
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -99,6 +99,13 @@ def watched_posts(jobs=JOBS, state=None, now=None, window_days=WINDOW_DAYS):
         posts.setdefault(extra['urn'], {'urn': extra['urn'], 'url': extra.get('url') or f"https://www.linkedin.com/feed/update/{extra['urn']}/",
                                         'at': extra.get('at', ''), 'job': 'manual'})
     return list(posts.values())
+
+
+def rules_for(platform='linkedin'):
+    """The dashboard's rules for this platform when it can be reached (withhammad.cloud Automations),
+    otherwise the local dm-rules.json, so the routine never stops answering."""
+    remote = automations_api.rules_for(platform) if platform in ('linkedin', 'tiktok') else None
+    return remote if remote is not None else dm_rules.load()['rules']
 
 
 def match(text, rules=None):
@@ -176,7 +183,7 @@ def reply(post_urn, comment_urn, author, text, *, state_path=STATE, credential=C
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest='cmd', required=True)
-    sub.add_parser('watchlist')
+    wl = sub.add_parser('watchlist'); wl.add_argument('--platform', choices=sorted(PLATFORMS), default='linkedin')
     sub.add_parser('state')
     m = sub.add_parser('match'); m.add_argument('text')
     w = sub.add_parser('watch'); w.add_argument('--post', required=True); w.add_argument('--url')
@@ -187,7 +194,7 @@ def main(argv=None):
     r.add_argument('--platform', choices=sorted(PLATFORMS), default='linkedin')
     args = parser.parse_args(argv)
     if args.cmd == 'watchlist':
-        out = {'posts': watched_posts(), 'rules': dm_rules.load()['rules'], 'replied': sorted(load_state()['replied'])}
+        out = {'posts': watched_posts(), 'rules': rules_for(args.platform), 'replied': sorted(load_state()['replied'])}
     elif args.cmd == 'state':
         out = load_state()
     elif args.cmd == 'match':
@@ -199,8 +206,14 @@ def main(argv=None):
         save_state(state); out = state['extra_posts']
     else:
         p = PLATFORMS[args.platform]
+        rules = rules_for(args.platform)
         out = reply(args.post, args.comment if args.platform == 'linkedin' else '', args.author, args.text,
-                    mark_only=args.mark, state_path=p['state'], template=p['reply'])
+                    mark_only=args.mark, state_path=p['state'], template=p['reply'], rules=rules)
+        if out.get('status') == 'replied' and args.platform in ('linkedin', 'tiktok'):
+            rule = next((r for r in rules if r.get('keyword') == out.get('keyword')), {})
+            out['dashboard'] = 'logged' if automations_api.report(
+                args.platform, out['key'], post=args.post, author=args.author, text=args.text, keyword=out.get('keyword'),
+                automation_id=rule.get('automation_id'), message=out.get('message')) else 'queued (dashboard not reachable)'
     json.dump(out, sys.stdout, indent=2, ensure_ascii=False); print()
 
 
