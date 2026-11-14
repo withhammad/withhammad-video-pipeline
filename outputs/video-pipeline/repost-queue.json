@@ -4864,9 +4864,10 @@
       "primary_keyword": "Dubai AI Agents Championship",
       "host_slug": "repost-d24ed130c3d9",
       "collaborators": null,
-      "status": "pending",
+      "status": "failed",
       "moved_from": "2026-11-12 09:00 GST",
-      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels",
+      "error": "LinkedIn upload_part 1/6 did not complete: PUT https://www.linkedin.com/dms-uploads/mp/v2/D4D10AQElh-fe5lWe5A/uploadedVideo/B4DaHZgs2HIcAA-?<redacted> (ReadError: [Errno 54] Connection reset by peer)"
     },
     {
       "id": "fa-d24ed130c3d9",
