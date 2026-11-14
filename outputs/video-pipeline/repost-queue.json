@@ -4799,9 +4799,10 @@
       "primary_keyword": "harness engineering",
       "host_slug": "repost-harness-engineering",
       "collaborators": null,
-      "status": "pending",
+      "status": "failed",
       "moved_from": "2026-11-11 13:00 GST",
-      "note": "moved 2026-11-07 to make room for the owner-approved new reels"
+      "note": "moved 2026-11-07 to make room for the owner-approved new reels",
+      "error": "LinkedIn identity_check did not complete: GET https://api.linkedin.com/v2/userinfo (ConnectError: [Errno 8] nodename nor servname provided, or not known)"
     },
     {
       "id": "in-harness-engineering",
