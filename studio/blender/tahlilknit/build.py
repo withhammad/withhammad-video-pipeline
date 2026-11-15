@@ -5,6 +5,7 @@ Reference DfOTKmjIIU2 (@sabbih.ar): a bead string slides one bead per count, the
     studio/heavy.sh /Applications/Blender.app/Contents/MacOS/Blender -b -P studio/blender/tahlilknit/build.py -- <out> stills 0,30,200
     studio/heavy.sh /Applications/Blender.app/Contents/MacOS/Blender -b -P studio/blender/tahlilknit/build.py -- <out> anim [first] [last]
     ... -- <out> geom            (only writes <out>/geom.json: per-frame screen anchors for the Remotion text layer)
+    ... -- <out> fgpass          (the burst pompoms and snippets alone, RGBA, S10-2 .. S10+112, laid over the text in Remotion)
 
 Production run (2026-11-15, Apple M1 Pro, EEVEE, 12 TAA samples, motion blur, depth of field, 1080x1920): 150-frame chunks, each
 through heavy.sh with a 25 s pause between chunks so other sessions can take the lock, `anim <a> <b> --samples 12 --exposure -0.7`.
@@ -1130,6 +1131,27 @@ print('geom.json written; plaque at frame 0 / 60:', geom['plaque'][0], geom['pla
 
 # ================================================================================================ render
 if MODE == 'geom':
+    sys.exit(0)
+if MODE == 'fgpass':
+    # the burst pompoms and yarn snippets alone on a transparent film (same camera, light, blur): Remotion lays this over the text
+    # from S10 - 2 to S10 + 112, because they fly towards the lens, in front of the plaque
+    keep = {o.name for o in sc.objects if o.name.startswith(('Burst pompom', 'Snippet'))}
+    for o in list(sc.objects):
+        if o.type in ('MESH', 'CURVE', 'META', 'EMPTY') and o.name not in keep:
+            sc.collection.objects.unlink(o)
+    sc.render.film_transparent = True
+    sc.render.image_settings.file_format = 'PNG'
+    sc.render.image_settings.color_mode = 'RGBA'
+    (OUT / 'fg').mkdir(exist_ok=True)
+    for f in range(S10 - 2, min(NF, S10 + 113)):
+        dst = OUT / 'fg' / f'f{f:04d}.png'
+        if dst.exists():
+            continue
+        sc.frame_set(f)
+        sc.render.filepath = str(dst)
+        t0 = time.time()
+        bpy.ops.render.render(write_still=True)
+        print(f'FG {f} {time.time() - t0:.1f} s', flush=True)
     sys.exit(0)
 if MODE == 'blend':
     bpy.ops.wm.save_as_mainfile(filepath=str(OUT / 'tahlilknit.blend'))

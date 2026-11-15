@@ -10,7 +10,7 @@
 // plate's camera through geom.json (per-frame screen anchors exported by build.py). The render is silent; voice.py lays the
 // soundtrack (the reference's blackbird song + the Lamia dhikr when its take exists).
 import React from 'react';
-import {AbsoluteFill, OffthreadVideo, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Img, OffthreadVideo, staticFile, useCurrentFrame} from 'remotion';
 import {YarnDefs, gold} from '../asmaknit/AsmaKnit';
 import {ArDefs} from '../lanternknit/LanternKnit';
 import TX from './texts.json';
@@ -57,7 +57,8 @@ const Divider: React.FC<{y: number; w?: number; col?: string}> = ({y, w = 250, c
     <span style={{width: w, borderTop: `3px dashed ${col}`, opacity: 0.75}}/>
   </div>;
 
-/** everything printed on the felted plaque while counting: the hook, the dhikr in three lines, transliteration, the hadith */
+/** everything printed on the felted plaque while counting: the hook (with the hadith's reward and source), the dhikr in three lines,
+ * the transliteration; laid out so no glyph enters the top 220 px even at the end of the slow camera push */
 const PlaqueText: React.FC<{f: number}> = ({f}) => {
   const out = 1 - c01((f - (END - 6)) / 8);
   if (out <= 0) return null;
@@ -70,32 +71,29 @@ const PlaqueText: React.FC<{f: number}> = ({f}) => {
   const hk = ease((f - 16) / 26), body = c01((f - 30) / 12), rv = (k: number) => ease((f - 30 - 5 * k) / 14);
   return <Pinned f={f} anchor="plaque" cx={540} cy={489.65} style={{opacity: out}}>
     {/* the hook, readable from frame 0 */}
-    <Center y={232 + 140 * (1 - hk)} style={{opacity: 1 - c01((f - S10 - 4) / 8), transform: `scale(${1 + 0.4 * (1 - hk)})`, transformOrigin: '50% 0'}}>
+    <Center y={256 + 140 * (1 - hk)} style={{opacity: 1 - c01((f - S10 - 4) / 8), transform: `scale(${1 + 0.4 * (1 - hk)})`, transformOrigin: '50% 0'}}>
       <div style={{fontFamily: SERIF, fontSize: 72, lineHeight: 1, ...gold(f / FPS, 0.25), WebkitTextStroke: '1.5px #B8801F',
         filter: 'url(#yarn) drop-shadow(0 2px 0 #FFFFFFAA) drop-shadow(0 4px 5px #6A3A1066)'}}>Say it 10 times</div>
       <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 31, lineHeight: 1.2, marginTop: 6, color: PLUM2}}>
         like freeing four souls <span style={{color: '#B8801F'}}>✦</span> Sahih Muslim 2693</div>
     </Center>
-    {f >= S10 + 6 ? <Center y={226} style={{opacity: c01(springy((f - S10 - 8) / FPS, 1.4) * 3),
+    {f >= S10 + 6 ? <Center y={250} style={{opacity: c01(springy((f - S10 - 8) / FPS, 1.4) * 3),
       transform: `translateY(${(1 - springy((f - S10 - 8) / FPS, 1.4)) * 20}px)`}}>
       <div dir="rtl" lang="ar" style={{fontFamily: AR, fontSize: 56, lineHeight: 1.4, color: '#8A5A12', filter: AR_THREAD}}>{TX.taqabbal}</div>
       <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 28, lineHeight: 1.1, color: PLUM2}}>May Allah accept it from us and from you</div>
     </Center> : null}
     <div style={{filter: `${glow}`, opacity: body}}>
-      {[TX.line1, TX.line2, TX.line3].map((l, k) => <Center key={k} y={336 + k * 90}>
+      {[TX.line1, TX.line2, TX.line3].map((l, k) => <Center key={k} y={360 + k * 90}>
         <span dir="rtl" lang="ar" style={{fontFamily: AR, fontSize: 64, lineHeight: 1.45, color: PLUM, filter: AR_THREAD,
           display: 'inline-block', transform: `scale(${1 + 0.025 * beat + 0.03 * ten})`,
           clipPath: rv(k) >= 1 ? undefined : `inset(-40% 0 -40% ${100 - 100 * rv(k)}%)`}}>{l}</span>
       </Center>)}
     </div>
     <div style={{opacity: c01((f - 44) / 12)}}>
-    <Divider y={610}/>
-    <Center y={638}>
+    <Divider y={636}/>
+    <Center y={664}>
       <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 29, lineHeight: 1.25, color: PLUM2, margin: '0 120px'}}>
         Lā ilāha illallāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamd, wa huwa ʿalā kulli shayʾin qadīr</div>
-    </Center>
-    <Center y={706}>
-      <span dir="rtl" lang="ar" style={{fontFamily: AR, fontSize: 35, lineHeight: 1.5, color: PLUM2}}>{TX.reward}</span>
     </Center>
     </div>
   </Pinned>;
@@ -152,6 +150,11 @@ const EndCard: React.FC<{f: number}> = ({f}) => {
   </Pinned>;
 };
 
+/** the burst pompoms and yarn snippets fly towards the lens, in front of the plaque: their own transparent Blender pass (fgpass) goes
+ * over the text from S10 - 2 to S10 + 112 */
+const Foreground: React.FC<{f: number}> = ({f}) => f >= S10 - 2 && f <= S10 + 112 ?
+  <Img src={staticFile(`fg/f${String(f).padStart(4, '0')}.png`)} style={{position: 'absolute', inset: 0, width: 1080, height: 1920}}/> : null;
+
 export const TahlilKnit: React.FC = () => {
   const f = useCurrentFrame();
   return <AbsoluteFill style={{background: '#2A1840', overflow: 'hidden'}}>
@@ -162,5 +165,6 @@ export const TahlilKnit: React.FC = () => {
     <Counter f={f}/>
     <Under f={f}/>
     <EndCard f={f}/>
+    <Foreground f={f}/>
   </AbsoluteFill>;
 };
