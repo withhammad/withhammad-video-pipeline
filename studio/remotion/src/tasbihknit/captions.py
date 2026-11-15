@@ -84,12 +84,14 @@ Description:
 
 ==== NOTES ====
 - Cover: use the cover JPG (it reads in the 4:5 and 1:1 grid crops).
-- Audio is the reference's own sound (gain and limiter only, no cuts, no speed or pitch change). If Instagram offers the
-  original audio, it is the same track.
+- Audio: the reference's own sound underneath (gain and limiter only, no cuts, no speed or pitch change). If Instagram
+  offers the original audio, it is that track without the voice, so keep the video's own sound.
 - Every count lands on the reference's tick: count 1 at 3.0 s, then one count every 0.6 s, 100 at 62.4 s.
-- This version has NO spoken voice yet (the files are named "no voice yet"). The owner asked for a voice saying
-  SubhanAllah on the counts; a human or native voice is being arranged, and it drops in with one command
-  (studio/remotion/src/tasbihknit/voice.py). The captions above stay the same either way.
+- Voice: a soft female voice says SubhanAllah on every third count, starting on count 1 (34 times: 1, 4, 7 ... 100).
+  Each phrase is longer than the 0.6 s between counts and is never sped up, so it cannot land on every count.
+- The voice is an AI voice (Lamia, a native Arabic female voice made with ElevenLabs in the owner's HeyGen account), not a
+  real person. Every phrase was checked by transcribing it back in Arabic, alone and in the mix. If she prefers, she can
+  mention "voice: AI" in the caption.
 """
 Path(sys.argv[1]).write_text(out)
 print(out)

@@ -1,6 +1,7 @@
 """Swappable spoken-dhikr layer of the private knitted "Subhan Allah x100" reel (TASBIH-KNIT). The owner asked on 15 Nov
 for a voice saying «سُبْحَانَ اللّٰهِ» over the reference audio (which stays underneath unchanged); the edge-tts voice
-was rejected ("its accent is not that good"), so a human or native voice is being arranged. Drop its takes in and run
+was rejected ("its accent is not that good"); the owner then chose Lamia, a native Arabic female voice made with ElevenLabs
+in his HeyGen account (takes cut from its sample at the pauses, not stretched or pitched). Drop its takes in and run
 ONE command; the picture is not rendered again (raw.mp4 is re-muxed with the new soundtrack):
 
     cp <takes> studio/.local/jobs/808c92b7fc32/knit/voice/          # subhanallah_01.wav, subhanallah_02.wav, ... (wav/mp3/m4a/flac)
@@ -11,7 +12,8 @@ Options: --takes <dir> (default <job>/knit/voice), --every N (counts per phrase;
 Arabic, offline: every phrase, alone and in the mix, must read "سبحان الله"; stops before delivering if one does not),
 --deliver (copies the master and a 720p preview under 2.5 MB to ~/Downloads), --out <name> (default final_voice).
 
-What it does, per take: trims to the speech (12 ms before, 60 ms after), 6 ms fade in and 30 ms fade out, matches the takes'
+What it does, per take: trims to the speech (within 55 dB of the take's loudest 5 ms, 20 ms before, 60 ms after; 40 dB cut
+into the soft "s" of the Lamia takes), 6 ms fade in and 30 ms fade out, matches the takes'
 speech level, and places one phrase per N counts with its first sound on the count's own time (count k at
 3.0 + 0.6 (k - 1) s, the reference tick), never overlapping the previous phrase; with two or more takes the order is
 seeded and uneven (never three alike in a row) with a +-0.6 dB spread. Only gain, fades and one lookahead limiter on the
@@ -69,8 +71,8 @@ takes = []
 for f in files:
     a = decode(f)[:, 0]
     env = np.convolve(np.abs(a), np.ones(240) / 240, 'same')
-    on = np.where(env > env.max() * 10 ** (-40 / 20))[0]                  # speech: within 40 dB of the take's loudest 5 ms
-    s0, s1 = max(0, on[0] - int(0.012 * SR)), min(len(a), on[-1] + int(0.06 * SR))
+    on = np.where(env > env.max() * 10 ** (-55 / 20))[0]                  # speech: within 55 dB of the take's loudest 5 ms
+    s0, s1 = max(0, on[0] - int(0.02 * SR)), min(len(a), on[-1] + int(0.06 * SR))
     x = a[s0:s1].copy()
     fi, fo = int(0.006 * SR), int(0.03 * SR)
     x[:fi] *= np.linspace(0, 1, fi); x[-fo:] *= np.linspace(1, 0, fo) ** 2
@@ -106,18 +108,19 @@ for j, k in enumerate(counts):
     placed.append((k, t, tk['name']))
 print(f'bed {bed_db:.1f} dB RMS over the count; voice {DB:+.1f} dB over the bed around each phrase')
 
-# the sum, gain-staged, then one lookahead limiter so the peak-to-loudness ratio fits a linear master to -14 / -1.5
+# the sum, gain-staged, then one lookahead limiter (latency-compensated: without it the whole soundtrack ran 5 ms late)
+# so the peak-to-loudness ratio fits a linear master to -14 / -1.5
 tmp = KNIT / 'voice_mix.f32.wav'
 mix = bed + voice
 write(mix, tmp); I0, _ = loud(tmp)
 g = 10 ** ((-16.5 - I0) / 20); mix *= g
 I = -16.5
 for _ in range(4):
-    write(mix, KNIT / 'public' / 'mix.wav', f'alimiter=limit={min(1.0, 10 ** ((I + 11.8) / 20)):.4f}:attack=5:release=60:level=false')
+    write(mix, KNIT / 'public' / 'mix.wav', f'alimiter=limit={min(1.0, 10 ** ((I + 11.3) / 20)):.4f}:attack=5:release=60:level=false:latency=true')
     I2, tp2 = loud(KNIT / 'public' / 'mix.wav')
-    if tp2 - I2 <= 12.4:
+    if tp2 - I2 <= 12.0:                     # 0.5 dB under what a linear -14 / -1.5 master allows, for the AAC overshoot
         break
-    I -= (tp2 - I2) - 12.2
+    I -= (tp2 - I2) - 11.8
 write(voice * g, KNIT / 'voice_alone.wav')
 tmp.unlink()
 print(f'mix.wav {I2:.1f} LUFS, true peak {tp2:.1f} dBTP')
@@ -158,6 +161,7 @@ for p in (1, 2):
     run(['ffmpeg', '-v', 'error', '-y', '-i', str(out), '-vf', 'scale=720:1280', '-c:v', 'libx264', '-preset', 'slow', '-b:v', '190k',
          '-pass', str(p), '-passlogfile', str(KNIT / 'p720v')] + (['-an', '-f', 'mp4', os.devnull] if p == 1 else
          ['-pix_fmt', 'yuv420p', '-color_range', 'tv', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709',
+          '-af', 'alimiter=limit=0.5309:attack=5:release=60:level=false:latency=true',   # -5.5 dB: low-bitrate AAC overshoots ~3 dB
           '-c:a', 'aac', '-b:a', '48k', '-movflags', '+faststart', str(prev)]))
 for f in KNIT.glob('p720v*'):
     f.unlink()
