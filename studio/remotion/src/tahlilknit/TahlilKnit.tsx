@@ -79,8 +79,8 @@ const PlaqueText: React.FC<{f: number}> = ({f}) => {
     </Center>
     {f >= S10 + 6 ? <Center y={262} style={{opacity: c01(springy((f - S10 - 8) / FPS, 1.4) * 3),
       transform: `translateY(${(1 - springy((f - S10 - 8) / FPS, 1.4)) * 20}px)`}}>
-      <div dir="rtl" lang="ar" style={{fontFamily: AR, fontSize: 52, lineHeight: 1.3, color: '#8A5A12', filter: AR_THREAD}}>{TX.taqabbal}</div>
-      <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 26, lineHeight: 1.1, color: PLUM2}}>May Allah accept it from us and from you</div>
+      <div dir="rtl" lang="ar" style={{fontFamily: AR, fontSize: 46, lineHeight: 1.62, color: '#8A5A12', filter: AR_THREAD}}>{TX.taqabbal}</div>
+      <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 24, lineHeight: 1.05, marginTop: -2, color: PLUM2}}>May Allah accept it from us and from you</div>
     </Center> : null}
     <div style={{filter: `${glow}`, opacity: body}}>
       {[TX.line1, TX.line2, TX.line3].map((l, k) => <Center key={k} y={360 + k * 90}>
@@ -136,7 +136,7 @@ const EndCard: React.FC<{f: number}> = ({f}) => {
     <Center y={346} style={{transform: `translateY(${(1 - r(0)) * 24}px)`}}>
       <div style={{fontFamily: SERIF, fontSize: 64, lineHeight: 1.05, ...gold(f / FPS, 0.3), WebkitTextStroke: '1.5px #B8801F',
         filter: 'url(#yarn) drop-shadow(0 2px 0 #FFFFFFAA) drop-shadow(0 4px 5px #6A3A1066)'}}>Don't forget us</div>
-      <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 46, lineHeight: 1.15, color: PLUM}}>in your duʿā 🤍</div>
+      <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 46, lineHeight: 1.15, color: PLUM}}>in your duʿā</div>
     </Center>
     <Center y={476} style={{transform: `translateY(${(1 - r(1)) * 24}px)`, opacity: c01(r(1) * 2)}}>
       <span dir="rtl" lang="ar" style={{fontFamily: AR, fontSize: 56, lineHeight: 1.5, color: PLUM, filter: AR_THREAD}}>{TX.dua_ask}</span>
