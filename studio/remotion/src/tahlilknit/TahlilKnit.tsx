@@ -77,10 +77,10 @@ const PlaqueText: React.FC<{f: number}> = ({f}) => {
       <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 31, lineHeight: 1.2, marginTop: 6, color: PLUM2}}>
         like freeing four souls <span style={{color: '#B8801F'}}>✦</span> Sahih Muslim 2693</div>
     </Center>
-    {f >= S10 + 6 ? <Center y={250} style={{opacity: c01(springy((f - S10 - 8) / FPS, 1.4) * 3),
+    {f >= S10 + 6 ? <Center y={262} style={{opacity: c01(springy((f - S10 - 8) / FPS, 1.4) * 3),
       transform: `translateY(${(1 - springy((f - S10 - 8) / FPS, 1.4)) * 20}px)`}}>
-      <div dir="rtl" lang="ar" style={{fontFamily: AR, fontSize: 56, lineHeight: 1.4, color: '#8A5A12', filter: AR_THREAD}}>{TX.taqabbal}</div>
-      <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 28, lineHeight: 1.1, color: PLUM2}}>May Allah accept it from us and from you</div>
+      <div dir="rtl" lang="ar" style={{fontFamily: AR, fontSize: 52, lineHeight: 1.3, color: '#8A5A12', filter: AR_THREAD}}>{TX.taqabbal}</div>
+      <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 26, lineHeight: 1.1, color: PLUM2}}>May Allah accept it from us and from you</div>
     </Center> : null}
     <div style={{filter: `${glow}`, opacity: body}}>
       {[TX.line1, TX.line2, TX.line3].map((l, k) => <Center key={k} y={360 + k * 90}>
