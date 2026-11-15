@@ -60,7 +60,7 @@ const Divider: React.FC<{y: number; w?: number; col?: string}> = ({y, w = 250, c
 /** everything printed on the felted plaque while counting: the hook (with the hadith's reward and source), the dhikr in three lines,
  * the transliteration; laid out so no glyph enters the top 220 px even at the end of the slow camera push */
 const PlaqueText: React.FC<{f: number}> = ({f}) => {
-  const out = 1 - c01((f - (END - 6)) / 8);
+  const out = 1 - c01((f - (END - 2)) / 8);
   if (out <= 0) return null;
   const last = STEPS.filter((s) => f >= s).pop() ?? -99, beat = pulse((f - last) / FPS, 0.7);
   const col = countAt(f) > 0 ? BEAD_COLS[countAt(f) - 1] : '#E9A93B';
@@ -71,14 +71,14 @@ const PlaqueText: React.FC<{f: number}> = ({f}) => {
   const hk = ease((f - 16) / 26), body = c01((f - 30) / 12), rv = (k: number) => ease((f - 30 - 5 * k) / 14);
   return <Pinned f={f} anchor="plaque" cx={540} cy={489.65} style={{opacity: out}}>
     {/* the hook, readable from frame 0 */}
-    <Center y={256 + 140 * (1 - hk)} style={{opacity: 1 - c01((f - S10 - 4) / 8), transform: `scale(${1 + 0.4 * (1 - hk)})`, transformOrigin: '50% 0'}}>
+    <Center y={256 + 140 * (1 - hk)} style={{opacity: 1 - c01((f - S10) / 5), transform: `scale(${1 + 0.4 * (1 - hk)})`, transformOrigin: '50% 0'}}>
       <div style={{fontFamily: SERIF, fontSize: 72, lineHeight: 1, ...gold(f / FPS, 0.25), WebkitTextStroke: '1.5px #B8801F',
         filter: 'url(#yarn) drop-shadow(0 2px 0 #FFFFFFAA) drop-shadow(0 4px 5px #6A3A1066)'}}>Say it 10 times</div>
       <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 31, lineHeight: 1.2, marginTop: 6, color: PLUM2}}>
         like freeing four souls <span style={{color: '#B8801F'}}>✦</span> Sahih Muslim 2693</div>
     </Center>
-    {f >= S10 + 6 ? <Center y={262} style={{opacity: c01(springy((f - S10 - 8) / FPS, 1.4) * 3),
-      transform: `translateY(${(1 - springy((f - S10 - 8) / FPS, 1.4)) * 20}px)`}}>
+    {f >= S10 + 2 ? <Center y={262} style={{opacity: c01(springy((f - S10 - 3) / FPS, 1.4) * 3),
+      transform: `translateY(${(1 - springy((f - S10 - 3) / FPS, 1.4)) * 20}px)`}}>
       <div dir="rtl" lang="ar" style={{fontFamily: AR, fontSize: 46, lineHeight: 1.62, color: '#8A5A12', filter: AR_THREAD}}>{TX.taqabbal}</div>
       <div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 24, lineHeight: 1.05, marginTop: -2, color: PLUM2}}>May Allah accept it from us and from you</div>
     </Center> : null}
