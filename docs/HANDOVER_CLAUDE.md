@@ -129,7 +129,7 @@ Master section4 and several inbox labels are stale; use dated handover appendice
 | BLENDER /3f33678db749 | New REFERRAL narration awaits owner verdict; saved white-shirt avatar draft, Generate NEVER clicked. Then one approved avatar, sync/edit/gates/approval. `docs/videos/2026-11-10-business-edit-resume.md`, `work/blender-resume/` |
 | GAME /7f7f39548dd4 | Existing39.6s package awaits review; older v3 voice and1.2x speedup conflict with fixedREFERRAL rule. Resolve before calling release-ready; no queue |
 | WORLD /8bcf01ad1b0f | One-voice rejected; Hammad/Annie replacement awaits approval; all6rows HELD |
-| JOBS /d463f2086d47 | 32.5s deadpan-to-excited awaits approval; all6rows HELD |
+| JOBS /d463f2086d47 | 32.5s deadpan-to-excited cut APPROVED by owner 2026-11-15; all6rows still HELD (old 11-12 Nov dates); guide + JOBS rule in withhammad-rebuild PR #12 (open) |
 | WILD /2af4ebc1b07a | Lesson, alternate video and covers; verify completeness/owner verdict; no queue |
 | STARTUP /3392f8abb96e | Intake/transcript/source only; government-list/startup claim needs research before script/production |
 | API-credit tutorial /087c5f89b591 | Intake/breakdown/corrected eligibility facts ready; voice/look/edit remain; no generation credits spent |
