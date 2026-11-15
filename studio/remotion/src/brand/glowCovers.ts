@@ -47,12 +47,18 @@ export const LOGO = {
   twentyFourText: {text: '24', color: '#FFFFFF', bg: 'linear-gradient(160deg, #FF5F5F 0%, #C81E1E 100%)', glow: '#FF4D4D'},
   swift: {mask: g('si-swift.svg'), color: '#FFFFFF', bg: 'linear-gradient(160deg, #FF7A45 0%, #F05138 100%)', glow: '#FF6A3D', fit: 0.6},
   linux: {mask: g('si-linux.svg'), color: '#111111', bg: WHITE, glow: '#FCC624', fit: 0.68},
+  python: {mask: g('si-python.svg'), color: '#3776AB', bg: WHITE, glow: '#FFD43B', fit: 0.62},
+  gemini: {mask: g('si-googlegemini.svg'), color: '#8E75B2', bg: WHITE, glow: '#8E75B2', fit: 0.62},
 } satisfies Record<string, GlowLogo>;
 
 export type GlowJob = {job: string; date: string; title: string; cover: GlowCoverProps};
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'c31532ffd540', date: 'awaiting approval', title: 'Gemini 4 Carbon: Google\'s AI bug hunter, seven things it does (Google-reported numbers)', cover: c('AI Bug Hunter', 'Gemini 4 Carbon', LOGO.google, LOGO.gemini)},
+  {job: '2a1cb8d3ad49', date: 'awaiting approval', title: 'Businesses in ChatGPT: claim your business inside ChatGPT (beta, free for now)', cover: c('Claim Your Biz', 'Inside ChatGPT', LOGO.chatgpt, LOGO.google)},
+  {job: '593b74fe4824', date: 'awaiting approval', title: 'Agentic AI by Andrew Ng on DeepLearning.AI: free to watch, five modules', cover: c('Free AI Agents', 'Andrew Ng Course', LOGO.aiText, LOGO.python)},
+  {job: '821164afb6b1', date: 'awaiting approval', title: 'Claude Code paints hand-drawn animations with ClaudeAnimationBase (p5.brush, MIT)', cover: c('Claude Paints', 'Hand-Drawn Art', LOGO.claude, LOGO.github)},
   {job: 'e08dc5238b3e', date: 'awaiting approval', title: 'Claude Fable 5.2 launch: 12 things the new model can do, each checked against Anthropic\'s launch post', cover: c('12 Wild Things', 'Fable 5.2 Can Do', LOGO.anthropic, LOGO.claude)},
   {job: '442c9f68fb5e', date: 'awaiting approval', title: 'xtool: build and install iPhone apps from Linux or Windows (WSL) without a Mac (free, MIT)', cover: c('iPhone Apps', 'Without a Mac', LOGO.swift, LOGO.linux)},
   {job: '0f869c3f2de7', date: 'awaiting approval', title: 'Claude just killed Instagram: 13 free Claude skills that run your account (instagram-agent-skill, MIT)', cover: c('Claude Killed', 'Instagram', LOGO.claude, LOGO.instagram)},
