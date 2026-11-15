@@ -127,9 +127,12 @@ if mode == 'cut':
         else:
             i += 1
     on, off = np.where(sp)[0][[0, -1]]
-    inner = sorted([q for q in runs if q[0] > on and q[1] < off and q[1] - q[0] >= 350], key=lambda q: q[0] - q[1])[:2]
-    inner.sort()
-    assert len(inner) == 2, f'expected 3 phrases split by 2 long pauses, found pauses {runs}'
+    # the "..." pauses are no longer than the breaths inside a phrase (measured 522/529 ms vs up to 555 ms), so the split points
+    # are the pauses of >= 350 ms nearest one and two thirds of the speech span (the three phrases are about equally long)
+    cand = [q for q in runs if q[0] > on and q[1] < off and q[1] - q[0] >= 350]
+    inner = [min(cand, key=lambda q: abs((q[0] + q[1]) / 2 - (on + (off - on) * k / 3))) for k in (1, 2)]
+    assert len(cand) >= 2 and inner[0] != inner[1], f'expected 3 phrases split by 2 pauses, found pauses {runs}'
+    print('split at pauses', [(round(q[0] / 1000, 3), round(q[1] / 1000, 3)) for q in inner], 'of', [(round(q[0] / 1000, 2), q[1] - q[0]) for q in cand])
     cuts = [(on, inner[0][0]), (inner[0][1], inner[1][0]), (inner[1][1], off + 5)]
     meta, FADE = [], int(0.010 * SR)
     for k, (s0, s1) in enumerate(cuts, 1):
