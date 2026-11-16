@@ -4118,16 +4118,20 @@
       "job": "d463f2086d47",
       "platform": "youtube",
       "slot_utc": "2026-11-12T05:00:00Z",
-      "local": "2026-11-12 09:00 GST",
+      "local": "2026-11-16 (released on approval)",
       "keyword": "JOBS",
       "title": "Claude Job Search Hack: Find Jobs on Company Career Pages",
       "caption": "Claude job search: Google site: searches of Lever, Ashby and Greenhouse career pages, then a Claude scheduled task shortlists the roles that fit your CV every morning.\nFree guide: https://withhammad.com/resources/career-page-job-search-claude\n\nHow to find jobs using Claude AI:\n1. Search the job boards companies host on Lever, Ashby and Greenhouse:\nsite:jobs.lever.co \"your job title\" remote\nsite:jobs.ashbyhq.com \"your job title\" remote\nsite:greenhouse.io \"your job title\" remote\n2. Set Google Tools > Past week so you only see fresh posts. Three separate searches find more than one combined OR search.\n3. Make it a Claude scheduled task (daily 8:00 AM): it runs the searches, reads your CV and keeps the roles you fit. Scheduled tasks need a paid Claude plan.\n4. You still apply yourself: no auto-apply. Remove your phone number and address from the CV first.\n\nThe catch: many of these roles are also on LinkedIn, and big companies with their own careers sites (Airbnb, Stripe) won't show up, so check those directly. Works for Dubai and UAE job hunting too: swap \"remote\" for your city.\n\nTested 2026-11-07: the search for \"frontend engineer\" returned 39 postings from the past month, 18 from the past week. Greenhouse boards moved to job-boards.greenhouse.io, so search site:greenhouse.io.\nSources: support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-cowork | developers.google.com/search/docs/monitor-debug/search-operators/all-search-site\n\nFree guide: https://withhammad.com/resources/career-page-job-search-claude\nSubscribe for more AI builds. Animated in 3D; AI-generated voices. Altered-content label on.\n#Shorts #JobSearch #ClaudeAI",
       "primary_keyword": "claude job search",
       "host_slug": "repost-d463f2086d47",
       "collaborators": null,
-      "status": "held",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources",
-      "note": "owner 2026-11-16: \"Yes\" (release) then \"Post\" (without the guide page; links go to /resources until site PR #41 is merged); YouTube held: Shorts need a library sound, which desktop Studio cannot add, and the API token is revoked"
+      "note": "owner 2026-11-16: \"Yes\" (release), \"Post\" (links to /resources until site PR #41 merges), \"Yes\" (Studio upload with own music: no-sound exception for this Short only)",
+      "url": "https://youtube.com/shorts/v8n-ZK0by8g",
+      "posted_at": "2026-11-16T17:56:16Z",
+      "moved_from": "2026-11-12 09:00 GST",
+      "allow_no_sound": true
     },
     {
       "id": "xx-4a606d94c5cd",

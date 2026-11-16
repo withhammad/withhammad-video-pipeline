@@ -13,7 +13,7 @@
 | Instagram @withhammad.ai (Collab @with.hammad accepted) | https://www.instagram.com/reel/DfztmhpD4o8/ | cloud cover · Clim Jiffy, Audio API, audio 10 / video 100; first comment with JOBS + follow ask |
 | TikTok | https://www.tiktok.com/@withhammad/video/7708797949928541448 | Marta Salas · Tavern Road at Dawn at -18 dB; custom cover; AI label on |
 | Facebook Page reel | https://www.facebook.com/reel/2188061415110729/ | Art Music · November Sky at about 13%; custom cover; AI label on; no link in the caption (Page link limit) |
-| YouTube Short | not posted | held: Shorts need a library sound, desktop Studio cannot add one, and the API token is revoked |
+| YouTube Short (Studio upload, public) | https://youtube.com/shorts/v8n-ZK0by8g | own bed; `allow_no_sound` (owner: "Yes" to posting from Studio with our own music, this Short only); custom thumbnail; AI-use answered Yes; guide + subscribe comment pinned |
 
 ## What changed for this release
 
@@ -31,4 +31,5 @@
   Not tested end to end: every account I can comment from is the owner's, which the webhook skips.
 - **Instagram:** `media_publish` answered 2207032 again and the reel was live (`/media` read back). The Audio API
   script now takes `AUDIO_VOLUME` / `VIDEO_VOLUME`; a dialogue reel needs video 100 and audio about 10.
-- **Queue:** rows `li/xx/tt/in/fa-d463f2086d47` marked posted in place; `yo-d463f2086d47` stays held with the reason.
+- **Queue:** all six rows `li/xx/tt/yo/in/fa-d463f2086d47` marked posted in place; the YouTube row carries `allow_no_sound`.
+- **YouTube:** descriptions reject the `>` character ("Tools > Past week" made the field invalid and disabled Next); it was reworded. Published only after the checks cleared with no notices (about 16 minutes). The owner's "Yes" answered an either/or question (Studio with own music, or a trending sound from his phone); Pipe Line Master read it as the first option.
