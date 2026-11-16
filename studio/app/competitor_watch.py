@@ -70,6 +70,12 @@ ACCOUNTS = [
     {'key': 'denis-panjuta', 'name': 'Denis Panjuta', 'platform': 'linkedin',
      'url': 'https://www.linkedin.com/in/denis-panjuta/recent-activity/all/',
      'secondary': {'youtube': None, 'tiktok': None, 'x': None, 'instagram': None}},
+    {'key': 'ai-ayan', 'name': 'Ayan (ai-ayan)', 'platform': 'linkedin',
+     'url': 'https://www.linkedin.com/in/ai-ayan/recent-activity/all/',
+     'secondary': {'youtube': None, 'tiktok': None, 'x': None, 'instagram': None}},
+    {'key': 'adam-biddlecombe', 'name': 'Adam Biddlecombe', 'platform': 'linkedin',
+     'url': 'https://www.linkedin.com/in/adam-biddlecombe/recent-activity/all/',
+     'secondary': {'youtube': None, 'tiktok': None, 'x': None, 'instagram': None}},
     {'key': 'vaibhavsisinty', 'name': 'Vaibhav Sisinty', 'platform': 'instagram',
      'url': 'https://www.instagram.com/vaibhavsisinty/reels/', 'stories': 'https://www.instagram.com/stories/vaibhavsisinty/',
      'secondary': {'youtube': None, 'tiktok': None, 'x': None, 'linkedin': None}},
@@ -223,6 +229,7 @@ def normalise(capture):
             hours = age_hours(age)
             if hours is None:
                 continue                      # no age label = promoted or pinned card
+            caption = re.sub(r'^(Follow|Following)\s+', '', caption or '')
             handle = (caption or f'{age}|{reactions}|{comments}')[:80]
             posts.append({
                 'id': post_id('linkedin', acc['key'], handle), 'platform': 'linkedin', 'account': acc['key'],

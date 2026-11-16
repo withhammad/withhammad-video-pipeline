@@ -37,6 +37,8 @@ This overrides the "same beats, exact rebuild" wording of `docs/PIPELINE_PROMPT.
 | LinkedIn | Nate Herkelman | `linkedin.com/in/nateherkelman/recent-activity/all/` |
 | LinkedIn | Jonathan Parsons (added 2026-11-16) | `linkedin.com/in/jonathan-parsons-marketing/recent-activity/all/` |
 | LinkedIn | Denis Panjuta (added 2026-11-16) | `linkedin.com/in/denis-panjuta/recent-activity/all/` |
+| LinkedIn | Ayan (added 2026-11-16) | `linkedin.com/in/ai-ayan/recent-activity/all/` |
+| LinkedIn | Adam Biddlecombe (added 2026-11-16) | `linkedin.com/in/adam-biddlecombe/recent-activity/all/` |
 | Instagram | @vaibhavsisinty | `instagram.com/vaibhavsisinty/reels/` (+ stories) |
 | Instagram | @sabrina_ramonov | `instagram.com/sabrina_ramonov/reels/` (+ stories) |
 | Instagram | @adam.godigital | `instagram.com/adam.godigital/reels/` (+ stories) |
