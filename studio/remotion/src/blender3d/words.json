@@ -1,0 +1,730 @@
+[
+{
+"text": "Five",
+"startMs": 0,
+"endMs": 400,
+"timestampMs": 0,
+"confidence": 0.21
+},
+{
+"text": "AI",
+"startMs": 400,
+"endMs": 760,
+"timestampMs": 400,
+"confidence": 0.9
+},
+{
+"text": "tools",
+"startMs": 760,
+"endMs": 1160,
+"timestampMs": 760,
+"confidence": 0.89
+},
+{
+"text": "that",
+"startMs": 1160,
+"endMs": 1380,
+"timestampMs": 1160,
+"confidence": 0.99
+},
+{
+"text": "make",
+"startMs": 1380,
+"endMs": 1600,
+"timestampMs": 1380,
+"confidence": 0.98
+},
+{
+"text": "3D",
+"startMs": 1600,
+"endMs": 2080,
+"timestampMs": 1600,
+"confidence": 0.97
+},
+{
+"text": "way",
+"startMs": 2080,
+"endMs": 2480,
+"timestampMs": 2080,
+"confidence": 0.7
+},
+{
+"text": "easier!",
+"startMs": 2480,
+"endMs": 3180,
+"timestampMs": 2480,
+"confidence": 0.98
+},
+{
+"text": "Number",
+"startMs": 3560,
+"endMs": 3620,
+"timestampMs": 3560,
+"confidence": 0.38
+},
+{
+"text": "one:",
+"startMs": 3620,
+"endMs": 4020,
+"timestampMs": 3620,
+"confidence": 0.61
+},
+{
+"text": "MCP",
+"startMs": 4300,
+"endMs": 4800,
+"timestampMs": 4300,
+"confidence": 0.97
+},
+{
+"text": "for",
+"startMs": 4800,
+"endMs": 5160,
+"timestampMs": 4800,
+"confidence": 0.99
+},
+{
+"text": "Blender.",
+"startMs": 5160,
+"endMs": 5580,
+"timestampMs": 5160,
+"confidence": 0.92
+},
+{
+"text": "Type",
+"startMs": 5900,
+"endMs": 6020,
+"timestampMs": 5900,
+"confidence": 0.97
+},
+{
+"text": "a",
+"startMs": 6020,
+"endMs": 6240,
+"timestampMs": 6020,
+"confidence": 0.9
+},
+{
+"text": "scene",
+"startMs": 6240,
+"endMs": 6420,
+"timestampMs": 6240,
+"confidence": 0.99
+},
+{
+"text": "in",
+"startMs": 6420,
+"endMs": 6720,
+"timestampMs": 6420,
+"confidence": 1.0
+},
+{
+"text": "plain",
+"startMs": 6720,
+"endMs": 6880,
+"timestampMs": 6720,
+"confidence": 0.99
+},
+{
+"text": "English,",
+"startMs": 6880,
+"endMs": 7260,
+"timestampMs": 6880,
+"confidence": 0.95
+},
+{
+"text": "and",
+"startMs": 7260,
+"endMs": 7660,
+"timestampMs": 7260,
+"confidence": 0.73
+},
+{
+"text": "Claude",
+"startMs": 7660,
+"endMs": 7960,
+"timestampMs": 7660,
+"confidence": 0.98
+},
+{
+"text": "builds",
+"startMs": 7960,
+"endMs": 8300,
+"timestampMs": 7960,
+"confidence": 0.99
+},
+{
+"text": "it",
+"startMs": 8300,
+"endMs": 8500,
+"timestampMs": 8300,
+"confidence": 1.0
+},
+{
+"text": "right",
+"startMs": 8500,
+"endMs": 8820,
+"timestampMs": 8500,
+"confidence": 0.99
+},
+{
+"text": "inside",
+"startMs": 8820,
+"endMs": 9260,
+"timestampMs": 8820,
+"confidence": 1.0
+},
+{
+"text": "Blender!",
+"startMs": 9260,
+"endMs": 9700,
+"timestampMs": 9260,
+"confidence": 0.98
+},
+{
+"text": "Number",
+"startMs": 10120,
+"endMs": 10220,
+"timestampMs": 10120,
+"confidence": 0.99
+},
+{
+"text": "two:",
+"startMs": 10220,
+"endMs": 10580,
+"timestampMs": 10220,
+"confidence": 0.95
+},
+{
+"text": "Blender",
+"startMs": 10960,
+"endMs": 11240,
+"timestampMs": 10960,
+"confidence": 0.98
+},
+{
+"text": "Skills.",
+"startMs": 11240,
+"endMs": 11660,
+"timestampMs": 11240,
+"confidence": 0.71
+},
+{
+"text": "Twenty-eight",
+"startMs": 12100,
+"endMs": 12500,
+"timestampMs": 12100,
+"confidence": 0.5
+},
+{
+"text": "agent",
+"startMs": 12500,
+"endMs": 12920,
+"timestampMs": 12500,
+"confidence": 0.78
+},
+{
+"text": "skills,",
+"startMs": 12920,
+"endMs": 13360,
+"timestampMs": 12920,
+"confidence": 1.0
+},
+{
+"text": "from",
+"startMs": 13600,
+"endMs": 13740,
+"timestampMs": 13600,
+"confidence": 0.99
+},
+{
+"text": "modeling",
+"startMs": 13740,
+"endMs": 14100,
+"timestampMs": 13740,
+"confidence": 0.5
+},
+{
+"text": "to",
+"startMs": 14100,
+"endMs": 14420,
+"timestampMs": 14100,
+"confidence": 1.0
+},
+{
+"text": "rigging,",
+"startMs": 14420,
+"endMs": 14700,
+"timestampMs": 14420,
+"confidence": 1.0
+},
+{
+"text": "so",
+"startMs": 15020,
+"endMs": 15180,
+"timestampMs": 15020,
+"confidence": 0.99
+},
+{
+"text": "your",
+"startMs": 15180,
+"endMs": 15360,
+"timestampMs": 15180,
+"confidence": 0.99
+},
+{
+"text": "agent",
+"startMs": 15360,
+"endMs": 15680,
+"timestampMs": 15360,
+"confidence": 1.0
+},
+{
+"text": "follows",
+"startMs": 15680,
+"endMs": 16020,
+"timestampMs": 15680,
+"confidence": 1.0
+},
+{
+"text": "a",
+"startMs": 16020,
+"endMs": 16320,
+"timestampMs": 16020,
+"confidence": 1.0
+},
+{
+"text": "real",
+"startMs": 16320,
+"endMs": 16520,
+"timestampMs": 16320,
+"confidence": 0.99
+},
+{
+"text": "workflow",
+"startMs": 16520,
+"endMs": 17020,
+"timestampMs": 16520,
+"confidence": 0.98
+},
+{
+"text": "instead",
+"startMs": 17020,
+"endMs": 17420,
+"timestampMs": 17020,
+"confidence": 0.97
+},
+{
+"text": "of",
+"startMs": 17420,
+"endMs": 17640,
+"timestampMs": 17420,
+"confidence": 1.0
+},
+{
+"text": "guessing.",
+"startMs": 17640,
+"endMs": 17960,
+"timestampMs": 17640,
+"confidence": 1.0
+},
+{
+"text": "Number",
+"startMs": 18380,
+"endMs": 18480,
+"timestampMs": 18380,
+"confidence": 0.98
+},
+{
+"text": "three:",
+"startMs": 18480,
+"endMs": 18860,
+"timestampMs": 18480,
+"confidence": 0.97
+},
+{
+"text": "Hun-yuan",
+"startMs": 19160,
+"endMs": 19620,
+"timestampMs": 19160,
+"confidence": 0.83
+},
+{
+"text": "3D",
+"startMs": 19620,
+"endMs": 20220,
+"timestampMs": 19620,
+"confidence": 0.92
+},
+{
+"text": "two",
+"startMs": 20220,
+"endMs": 20467,
+"timestampMs": 20220,
+"confidence": 0.5
+},
+{
+"text": "point",
+"startMs": 20467,
+"endMs": 20713,
+"timestampMs": 20467,
+"confidence": 0.5
+},
+{
+"text": "one,",
+"startMs": 20713,
+"endMs": 20960,
+"timestampMs": 20713,
+"confidence": 0.5
+},
+{
+"text": "from",
+"startMs": 20960,
+"endMs": 21220,
+"timestampMs": 20960,
+"confidence": 0.88
+},
+{
+"text": "Tencent.",
+"startMs": 21220,
+"endMs": 21760,
+"timestampMs": 21220,
+"confidence": 0.98
+},
+{
+"text": "One",
+"startMs": 22120,
+"endMs": 22280,
+"timestampMs": 22120,
+"confidence": 0.98
+},
+{
+"text": "photo",
+"startMs": 22280,
+"endMs": 22620,
+"timestampMs": 22280,
+"confidence": 1.0
+},
+{
+"text": "in,",
+"startMs": 22620,
+"endMs": 22940,
+"timestampMs": 22620,
+"confidence": 0.99
+},
+{
+"text": "a",
+"startMs": 23220,
+"endMs": 23460,
+"timestampMs": 23220,
+"confidence": 0.99
+},
+{
+"text": "textured",
+"startMs": 23460,
+"endMs": 23880,
+"timestampMs": 23460,
+"confidence": 1.0
+},
+{
+"text": "3D",
+"startMs": 23880,
+"endMs": 24320,
+"timestampMs": 23880,
+"confidence": 0.97
+},
+{
+"text": "model",
+"startMs": 24320,
+"endMs": 24580,
+"timestampMs": 24320,
+"confidence": 1.0
+},
+{
+"text": "out!",
+"startMs": 24580,
+"endMs": 25040,
+"timestampMs": 24580,
+"confidence": 1.0
+},
+{
+"text": "Number",
+"startMs": 25400,
+"endMs": 25520,
+"timestampMs": 25400,
+"confidence": 0.99
+},
+{
+"text": "four:",
+"startMs": 25520,
+"endMs": 25940,
+"timestampMs": 25520,
+"confidence": 0.99
+},
+{
+"text": "UniRig.",
+"startMs": 26340,
+"endMs": 26760,
+"timestampMs": 26340,
+"confidence": 0.77
+},
+{
+"text": "It",
+"startMs": 27020,
+"endMs": 27180,
+"timestampMs": 27020,
+"confidence": 0.99
+},
+{
+"text": "gives",
+"startMs": 27180,
+"endMs": 27380,
+"timestampMs": 27180,
+"confidence": 1.0
+},
+{
+"text": "your",
+"startMs": 27380,
+"endMs": 27560,
+"timestampMs": 27380,
+"confidence": 0.99
+},
+{
+"text": "model",
+"startMs": 27560,
+"endMs": 27780,
+"timestampMs": 27560,
+"confidence": 1.0
+},
+{
+"text": "a",
+"startMs": 27780,
+"endMs": 28060,
+"timestampMs": 27780,
+"confidence": 1.0
+},
+{
+"text": "skeleton,",
+"startMs": 28060,
+"endMs": 28480,
+"timestampMs": 28060,
+"confidence": 1.0
+},
+{
+"text": "ready",
+"startMs": 28780,
+"endMs": 28960,
+"timestampMs": 28780,
+"confidence": 1.0
+},
+{
+"text": "to",
+"startMs": 28960,
+"endMs": 29180,
+"timestampMs": 28960,
+"confidence": 1.0
+},
+{
+"text": "animate.",
+"startMs": 29180,
+"endMs": 29560,
+"timestampMs": 29180,
+"confidence": 1.0
+},
+{
+"text": "And",
+"startMs": 29560,
+"endMs": 30020,
+"timestampMs": 29560,
+"confidence": 0.53
+},
+{
+"text": "number",
+"startMs": 30020,
+"endMs": 30260,
+"timestampMs": 30020,
+"confidence": 0.83
+},
+{
+"text": "five:",
+"startMs": 30260,
+"endMs": 30740,
+"timestampMs": 30260,
+"confidence": 0.49
+},
+{
+"text": "dream-loop.",
+"startMs": 31120,
+"endMs": 31520,
+"timestampMs": 31120,
+"confidence": 0.67
+},
+{
+"text": "A",
+"startMs": 31840,
+"endMs": 31840,
+"timestampMs": 31840,
+"confidence": 0.95
+},
+{
+"text": "critic",
+"startMs": 31840,
+"endMs": 32140,
+"timestampMs": 31840,
+"confidence": 0.96
+},
+{
+"text": "agent",
+"startMs": 32140,
+"endMs": 32500,
+"timestampMs": 32140,
+"confidence": 0.99
+},
+{
+"text": "checks",
+"startMs": 32500,
+"endMs": 32840,
+"timestampMs": 32500,
+"confidence": 0.99
+},
+{
+"text": "every",
+"startMs": 32840,
+"endMs": 33280,
+"timestampMs": 32840,
+"confidence": 1.0
+},
+{
+"text": "render",
+"startMs": 33280,
+"endMs": 33660,
+"timestampMs": 33280,
+"confidence": 0.99
+},
+{
+"text": "and",
+"startMs": 33660,
+"endMs": 33960,
+"timestampMs": 33660,
+"confidence": 0.95
+},
+{
+"text": "sends",
+"startMs": 33960,
+"endMs": 34200,
+"timestampMs": 33960,
+"confidence": 0.99
+},
+{
+"text": "fixes",
+"startMs": 34200,
+"endMs": 34560,
+"timestampMs": 34200,
+"confidence": 1.0
+},
+{
+"text": "back,",
+"startMs": 34560,
+"endMs": 35000,
+"timestampMs": 34560,
+"confidence": 1.0
+},
+{
+"text": "loop",
+"startMs": 35240,
+"endMs": 35540,
+"timestampMs": 35240,
+"confidence": 0.99
+},
+{
+"text": "after",
+"startMs": 35540,
+"endMs": 35920,
+"timestampMs": 35540,
+"confidence": 0.99
+},
+{
+"text": "loop!",
+"startMs": 35920,
+"endMs": 36360,
+"timestampMs": 35920,
+"confidence": 1.0
+},
+{
+"text": "Comment",
+"startMs": 36620,
+"endMs": 36860,
+"timestampMs": 36620,
+"confidence": 0.99
+},
+{
+"text": "BLENDER",
+"startMs": 36860,
+"endMs": 37240,
+"timestampMs": 36860,
+"confidence": 0.7
+},
+{
+"text": "and",
+"startMs": 37240,
+"endMs": 37480,
+"timestampMs": 37240,
+"confidence": 0.65
+},
+{
+"text": "I'll",
+"startMs": 37480,
+"endMs": 37700,
+"timestampMs": 37480,
+"confidence": 0.98
+},
+{
+"text": "send",
+"startMs": 37700,
+"endMs": 37840,
+"timestampMs": 37700,
+"confidence": 1.0
+},
+{
+"text": "you",
+"startMs": 37840,
+"endMs": 37960,
+"timestampMs": 37840,
+"confidence": 1.0
+},
+{
+"text": "the",
+"startMs": 37960,
+"endMs": 38140,
+"timestampMs": 37960,
+"confidence": 0.99
+},
+{
+"text": "setup",
+"startMs": 38140,
+"endMs": 38380,
+"timestampMs": 38140,
+"confidence": 0.68
+},
+{
+"text": "for",
+"startMs": 38380,
+"endMs": 38640,
+"timestampMs": 38380,
+"confidence": 1.0
+},
+{
+"text": "all",
+"startMs": 38640,
+"endMs": 38920,
+"timestampMs": 38640,
+"confidence": 1.0
+},
+{
+"text": "five!",
+"startMs": 38920,
+"endMs": 39320,
+"timestampMs": 38920,
+"confidence": 0.99
+}
+]

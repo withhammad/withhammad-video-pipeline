@@ -55,6 +55,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'b270e26281f7', date: 'awaiting approval', title: '5 AI tools that let Claude build, rig and animate 3D: MCP for Blender, Blender Skills, Hunyuan3D 2.1, UniRig, dream-loop', cover: c('5 AI Tools', 'Make 3D Easier', LOGO.claude, LOGO.blender)},
   {job: 'c31532ffd540', date: 'awaiting approval', title: 'Gemini 4 Carbon: Google\'s AI bug hunter, seven things it does (Google-reported numbers)', cover: c('AI Bug Hunter', 'Gemini 4 Carbon', LOGO.google, LOGO.gemini)},
   {job: '2a1cb8d3ad49', date: 'awaiting approval', title: 'Businesses in ChatGPT: claim your business inside ChatGPT (beta, free for now)', cover: c('Claim Your Biz', 'Inside ChatGPT', LOGO.chatgpt, LOGO.google)},
   {job: '593b74fe4824', date: 'awaiting approval', title: 'Agentic AI by Andrew Ng on DeepLearning.AI: free to watch, five modules', cover: c('Free AI Agents', 'Andrew Ng Course', LOGO.aiText, LOGO.python)},
