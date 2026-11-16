@@ -33,7 +33,21 @@ CHATBOT rule added with `app.guide site` (site commit a7b1733).
 | Instagram @withhammad.ai (Collab @with.hammad accepted) | https://www.instagram.com/reel/DfzSt04DlzO/ | Magnetic Sirens · Parallel Lines, Audio API |
 | TikTok | https://www.tiktok.com/@withhammad/video/7708734324811631880 | Speaker Knob Party (Kenny Bostick) |
 | YouTube Short (Studio upload, public) | https://youtube.com/shorts/_trHeNRMwA4 | own music; `allow_no_sound` (owner: "Post without sound", this Short only); guide + subscribe comment pinned |
-| Carousel (11 pages, `outputs/guides/how-ai-chatbot-is-made`) | not posted | held: a third LinkedIn post in one afternoon |
+
+### Carousel (11 pages, `outputs/guides/how-ai-chatbot-is-made`), posted 16 Nov evening
+
+Owner approval relayed by Pipe Line Master after he saw all 11 pages and the PDF: "Ok". Captions from the guide's
+`captions.json`. Pages hosted at `withhammad.com/media/carousels/guide-how-ai-chatbot-is-made/NN.jpg` (site commits
+`70c5938`, `5db9888`). Job script: `studio/.local/jobs/chatbotinfographic/post_carousel.py` (git-ignored).
+
+| Platform | URL | Notes |
+|---|---|---|
+| LinkedIn document post (API) | https://www.linkedin.com/feed/update/urn:li:ugcPost:7528106159379988480/ | 11-page PDF, title "How an AI Chatbot Is Built (7 stages)" |
+| Instagram carousel @withhammad.ai (Collab @with.hammad accepted) | https://www.instagram.com/p/DfznlycjF5-/ | 11 pages, API; first comment with CHATBOT + follow ask |
+| Facebook Page multi-photo post | https://www.facebook.com/122105678205523467/posts/122110982457523467 | 11 pages, API; link-ending last page; caption carries the resources link (the API accepted it despite the Page link limit) |
+| X thread | https://x.com/HammadYousufAI/status/2122341032625131732 | head post is text only (see below); pages 1-4, 5-8, 9-11 in three replies, guide PDF link in the last |
+| TikTok photo post | https://www.tiktok.com/@withhammad/video/7708782661103504658 | 11 pages, sound: My Time (JOSH.WAV); last page is the "visit withhammad.com/resources" ending |
+| YouTube | not posted | channel Posts are unavailable in this Chrome profile ("Posts aren't currently available on this device"); a slide-video Short needs a library sound, and the no-sound exception covered only the two Shorts |
 
 ## What was learned
 
@@ -60,3 +74,14 @@ CHATBOT rule added with `app.guide site` (site commit a7b1733).
   even though the youtube.com watch page hides comments under Restricted Mode in this Chrome profile.
 - YouTube's AI-use question was answered "No" on both: no avatar, no realistic synthetic scene, music is a bed.
 - Neither post has a repost-queue entry, so `allow_no_sound` is recorded here and in each job's `published.json`.
+- **Carousel, Instagram:** `media_publish` answered HTTP 403 code 4 / 2207051 ("action blocked", possible spam) and
+  the carousel was live anyway. Same rule as 2207032: read `/me/media` before any retry. The state file was marked
+  published by hand with the media id.
+- **Carousel, X:** the compose dialog at `/compose/post` has two file inputs on the page (the dialog's and the home
+  composer behind it). The pages attached to the hidden home composer, so the head post went out as text only. The
+  pages were added as three replies instead of deleting the post. Next time: check `tweetPhoto`/"Remove media" count
+  inside the dialog before Post, or compose from the status/home inline box.
+- **Carousel, TikTok:** TikTok Studio has a Photos tab (up to 35 images, sound picker). X and TikTok have no keyword
+  DM, so TikTok and Facebook use the link-ending last page (`linkedin-11`); the X thread used the "Comment CHATBOT"
+  page with the PDF link in the reply text.
+
