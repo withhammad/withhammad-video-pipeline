@@ -1,0 +1,74 @@
+{
+ "ayat": {
+  "34": {
+   "key": "41:34",
+   "ar": "وَلَا تَسْتَوِى ٱلْحَسَنَةُ وَلَا ٱلسَّيِّئَةُ ۚ ٱدْفَعْ بِٱلَّتِى هِىَ أَحْسَنُ فَإِذَا ٱلَّذِى بَيْنَكَ وَبَيْنَهُۥ عَدَٰوَةٌ كَأَنَّهُۥ وَلِىٌّ حَمِيمٌ",
+   "en": "And not equal are the good deed and the bad. Repel [evil] by that [deed] which is better; and thereupon the one whom between you and him is enmity [will become] as though he was a devoted friend.",
+   "simple": "وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ۚ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ",
+   "end": "۝٣٤"
+  },
+  "35": {
+   "key": "41:35",
+   "ar": "وَمَا يُلَقَّىٰهَآ إِلَّا ٱلَّذِينَ صَبَرُوا۟ وَمَا يُلَقَّىٰهَآ إِلَّا ذُو حَظٍّ عَظِيمٍ",
+   "en": "But none is granted it except those who are patient, and none is granted it except one having a great portion [of good].",
+   "simple": "وَمَا يُلَقَّاهَا إِلَّا الَّذِينَ صَبَرُوا وَمَا يُلَقَّاهَا إِلَّا ذُو حَظٍّ عَظِيمٍ",
+   "end": "۝٣٥"
+  }
+ },
+ "phrases": [
+  {
+   "id": "A",
+   "n": 34,
+   "key": "41:34",
+   "ar": "وَلَا تَسْتَوِى ٱلْحَسَنَةُ وَلَا ٱلسَّيِّئَةُ ۚ",
+   "en": "And not equal are the good deed and the bad.",
+   "last": false,
+   "simple": "وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ۚ"
+  },
+  {
+   "id": "B",
+   "n": 34,
+   "key": "41:34",
+   "ar": "ٱدْفَعْ بِٱلَّتِى هِىَ أَحْسَنُ",
+   "en": "Repel [evil] by that [deed] which is better;",
+   "last": false,
+   "simple": "ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ"
+  },
+  {
+   "id": "C",
+   "n": 34,
+   "key": "41:34",
+   "ar": "فَإِذَا ٱلَّذِى بَيْنَكَ وَبَيْنَهُۥ عَدَٰوَةٌ",
+   "en": "and thereupon the one whom between you and him is enmity",
+   "last": false,
+   "simple": "فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ"
+  },
+  {
+   "id": "D",
+   "n": 34,
+   "key": "41:34",
+   "ar": "كَأَنَّهُۥ وَلِىٌّ حَمِيمٌ",
+   "en": "[will become] as though he was a devoted friend.",
+   "last": true,
+   "simple": "كَأَنَّهُ وَلِيٌّ حَمِيمٌ"
+  },
+  {
+   "id": "E",
+   "n": 35,
+   "key": "41:35",
+   "ar": "وَمَا يُلَقَّىٰهَآ إِلَّا ٱلَّذِينَ صَبَرُوا۟",
+   "en": "But none is granted it except those who are patient,",
+   "last": false,
+   "simple": "وَمَا يُلَقَّاهَا إِلَّا الَّذِينَ صَبَرُوا"
+  },
+  {
+   "id": "F",
+   "n": 35,
+   "key": "41:35",
+   "ar": "وَمَا يُلَقَّىٰهَآ إِلَّا ذُو حَظٍّ عَظِيمٍ",
+   "en": "and none is granted it except one having a great portion [of good].",
+   "last": true,
+   "simple": "وَمَا يُلَقَّاهَا إِلَّا ذُو حَظٍّ عَظِيمٍ"
+  }
+ ]
+}
