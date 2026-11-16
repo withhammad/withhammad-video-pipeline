@@ -463,13 +463,33 @@ def seen_before(post, urls, texts, history, date):
     return None
 
 
-def cmd_pick(date, n, apply):
+def cmd_pick(date, n, apply, ids=None):
     scored = _read(STATE / f'scored-{date}.json', None)
     if not scored:
         raise WatchError(f'no scores for {date}: run `score --apply` first')
     urls, texts = known_work()
     history = _read(STATE / 'picked.json', {})
     picks, skipped = [], []
+    if ids:
+        # Owner-chosen posts (he sent the link): skip the score filters and the one-a-day rule, keep the dedup
+        # check, and add to the day's picks instead of replacing them.
+        old = _read(STATE / f'picks-{date}.json', {'picks': [], 'skipped': []})
+        picks = [q for q in old['picks'] if q['id'] not in ids]
+        found = {p['id']: p for p in scored['posts'] if p['id'] in ids}
+        for pid in ids:
+            p = found.get(pid)
+            why = 'not in the scores' if not p else seen_before(p, urls, texts, history, date)
+            if why:
+                skipped.append({'id': pid, 'account': p and p['account'], 'why': why})
+            else:
+                picks.append(dict(p, owner_pick=True))
+        if apply and len(picks) > len(old['picks']) - sum(q['id'] in ids for q in old['picks']):
+            _write(STATE / f'picks-{date}.json', {'date': date, 'picks': picks, 'skipped': old['skipped'] + skipped})
+            for p in picks:
+                history.setdefault(p['id'], {'date': date, 'account': p['account'], 'caption': p['caption'][:120]})
+            _write(STATE / 'picked.json', history)
+        return {'date': date, 'written': apply, 'skipped': skipped,
+                'picks': [{k: p.get(k) for k in ('id', 'account', 'type', 'permalink', 'owner_pick', 'caption')} for p in picks]}
     for p in scored['posts']:
         if not p['fresh'] or p['too_early'] or not p['ratio'] or not p['caption']:
             continue
@@ -558,6 +578,7 @@ def main(argv=None):
             p.add_argument('file')
         if name == 'pick':
             p.add_argument('--n', type=int, default=3)
+            p.add_argument('--id', action='append', help='pick this post id (owner-sent link); repeatable')
         if name in ('resolve', 'brief'):
             p.add_argument('id')
         if name == 'resolve':
@@ -574,7 +595,7 @@ def main(argv=None):
                cmd_fetch(args.apply) if args.cmd == 'fetch' else
                cmd_ingest(args.file, args.apply, args.date) if args.cmd == 'ingest' else
                cmd_score(args.date, args.apply) if args.cmd == 'score' else
-               cmd_pick(args.date, args.n, args.apply) if args.cmd == 'pick' else
+               cmd_pick(args.date, args.n, args.apply, args.id) if args.cmd == 'pick' else
                cmd_resolve(args.date, args.id, args.permalink, args.apply) if args.cmd == 'resolve' else
                cmd_inbox(args.date, args.apply))
     except WatchError as error:

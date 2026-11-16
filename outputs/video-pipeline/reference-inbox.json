@@ -559,6 +559,14 @@
       "added": "2026-11-13",
       "status": "awaiting_approval",
       "job": "skillspector-infographic"
+    },
+    {
+      "url": "https://www.instagram.com/p/DfzfUkOESsm/",
+      "note": "competitor watch 2026-11-16 pick 4dc6cdc3fd78: own version, see the brief (python -m app.competitor_watch brief 4dc6cdc3fd78)",
+      "added": "2026-11-16",
+      "status": "pending",
+      "job": null,
+      "source": "competitor_watch"
     }
   ]
 }
