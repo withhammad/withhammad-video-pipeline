@@ -501,7 +501,7 @@ def test_corrupt_state_file_is_a_readable_error(video, tmp_path):
 
 
 def test_resolve_collaborators_defaults_to_the_other_owner_account():
-    assert ig.resolve_collaborators(None, 'with.hammad') == ['hammadagentic.ai']
+    assert ig.resolve_collaborators(None, 'with.hammad') == ['withhammad.ai', 'hammadagentic.ai']   # owner 2026-11-16
     assert ig.resolve_collaborators(None, '@Hammadagentic.ai') == []
     assert ig.resolve_collaborators(None, 'someone.else') == []
     assert ig.resolve_collaborators(None, 'withhammad.ai') == ['with.hammad', 'hammadagentic.ai']   # owner 2026-10-31
@@ -518,8 +518,21 @@ def test_default_collab_lands_in_the_container_body(video):
     meta, provider = FakeMeta(video.stat().st_size, username='with.hammad'), FakeProvider()
     plan = run(video, meta, dry_run=True, url_provider=provider, expected_username='with.hammad')
     create = next(r for r in plan['requests'] if r['step'] == 'create_container')
-    assert create['json']['collaborators'] == ['hammadagentic.ai']
-    assert plan['collaborators'] == ['hammadagentic.ai'] and meta.writes() == []
+    assert create['json']['collaborators'] == ['withhammad.ai', 'hammadagentic.ai']
+    assert plan['collaborators'] == ['withhammad.ai', 'hammadagentic.ai'] and meta.writes() == []
+    # owner rule 2026-11-16: the big account only posts Trial Reels
+    assert create['json']['trial_params'] == {'graduation_strategy': 'SS_PERFORMANCE'} and plan['trial'] == 'SS_PERFORMANCE'
+
+
+def test_big_account_trial_opt_out_and_trending_sound(video):
+    meta, provider = FakeMeta(video.stat().st_size, username='with.hammad'), FakeProvider()
+    plan = run(video, meta, dry_run=True, url_provider=provider, expected_username='with.hammad', trial=False,
+               audio={'audio_id': 123, 'audio_volume': 10})
+    create = next(r for r in plan['requests'] if r['step'] == 'create_container')
+    assert 'trial_params' not in create['json']
+    assert create['json']['audio_configuration'] == {'audio_id': '123', 'audio_volume': 10, 'video_volume': 100}
+    with pytest.raises(ValueError, match='audio_id'):
+        run(video, meta, dry_run=True, url_provider=provider, expected_username='with.hammad', audio={})
 
 
 def test_empty_collaborators_list_posts_without_collab(video):
@@ -889,8 +902,8 @@ def test_cli_is_a_dry_run_and_live_only_stops_after_the_container(monkeypatch, t
     monkeypatch.setattr(ig, 'publish', lambda *a, **kw: calls.append((a, kw)) or {'status': 'planned'})
     base = ['final.mp4', str(lesson_path), '--video-url', VIDEO_URL, '--cover-url', COVER_URL, '--cover', 'c.jpg']
     assert ig.main(base) == 0
-    assert calls[0][1]['dry_run'] is True and calls[0][1]['expected_username'] == 'withhammad.ai'
-    assert calls[0][1]['credentials_path'].name == 'instagram-withhammad-ai-oauth.json'
+    assert calls[0][1]['dry_run'] is True and calls[0][1]['expected_username'] == 'with.hammad'
+    assert calls[0][1]['credentials_path'].name == 'instagram-with-hammad-oauth.json'
     assert ig.main(base + ['--live', '--stop-after', 'container', '--state', 's.json']) == 0
     assert calls[1][1]['dry_run'] is False and calls[1][1]['stop_after'] == 'container'
     with pytest.raises(SystemExit):

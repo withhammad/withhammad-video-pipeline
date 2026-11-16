@@ -55,7 +55,12 @@ TRIAL_STRATEGIES = (None, 'MANUAL', 'SS_PERFORMANCE')
 # @with.hammad was renamed @with.hamad (one m) on 2026-11-01, which is why the old handle read "unavailable"; the owner
 # wants it invited on every post (2026-11-02). It was renamed back to @with.hammad on 2026-11-05; repost_queue retries
 # the other spelling when Meta refuses a handle.
-DEFAULT_COLLABORATORS = {'withhammad.ai': ('with.hammad', 'hammadagentic.ai'), 'with.hammad': ('hammadagentic.ai',), 'with.hamad': ('hammadagentic.ai',),
+# Owner rule 2026-11-16: every reel goes out on the big account @with.hammad as a Trial Reel (non-followers first), with
+# Collab invites to @withhammad.ai and @hammadagentic.ai. A trending sound rides along via audio_configuration.
+REEL_ACCOUNT = 'with.hammad'
+DEFAULT_TRIAL = 'SS_PERFORMANCE'
+DEFAULT_COLLABORATORS = {'withhammad.ai': ('with.hammad', 'hammadagentic.ai'),
+                         'with.hammad': ('withhammad.ai', 'hammadagentic.ai'), 'with.hamad': ('hammadagentic.ai',),
                          'hammadagentic.ai': ()}
 MAX_COLLABORATORS = 3
 POLL_SECONDS = float(os.environ.get('STUDIO_IG_POLL_SECONDS', '20'))
@@ -685,9 +690,15 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
              token=None, transport=None, probe=None, sleep=time.sleep, clock=time.monotonic,
              expected_username=EXPECTED_USERNAME, share_to_feed=True, ai_generated=True, thumb_offset_ms=None,
              poll_seconds=POLL_SECONDS, timeout=PROCESS_TIMEOUT, api_version=API_VERSION, collaborators=None,
-             trial=None, cover_url=None, cover_path=None, cover_required=False, stop_after=None):
+             trial=None, cover_url=None, cover_path=None, cover_required=False, stop_after=None, audio=None):
     if stop_after not in (None, 'container'):
         raise ValueError("stop_after must be None or 'container'")
+    if trial is None and str(expected_username or '').lstrip('@').lower() == REEL_ACCOUNT:
+        trial = DEFAULT_TRIAL   # owner rule 2026-11-16: the big account only gets Trial Reels; trial=False opts out
+    if trial is False:
+        trial = None
+    if audio is not None and not str((audio or {}).get('audio_id') or '').strip():
+        raise ValueError('audio needs an audio_id (from ig_audio)')
     if trial not in TRIAL_STRATEGIES:
         raise ValueError(f'trial must be one of {TRIAL_STRATEGIES}')
     caption = caption_for(lesson)
@@ -822,6 +833,11 @@ def _publish(video_path, lesson, *, live, state_path, url_provider=None, credent
             if trial:   # Trial Reel: Meta shows it to non-followers first [ig-user/media trial_params]
                 base_body['trial_params'] = {'graduation_strategy': trial}
             result['trial'] = trial
+            if audio:   # trending sound from the Instagram Audio API catalog [ig-user/media audio_configuration]
+                base_body['audio_configuration'] = {'audio_id': str(audio['audio_id']),
+                                                    'audio_volume': int(audio.get('audio_volume', 10)),
+                                                    'video_volume': int(audio.get('video_volume', 100))}
+            result['audio'] = base_body.get('audio_configuration')
             hosted_cover = None
             if cover_provider is not None:
                 try:
@@ -1350,7 +1366,7 @@ def main(argv=None):
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('video')
     parser.add_argument('lesson', help='lesson.json (its captions.instagram is the caption)')
-    parser.add_argument('--account', default='withhammad.ai',
+    parser.add_argument('--account', default=REEL_ACCOUNT,
                         help='posting account; the token is work/.secrets/instagram-<account>-oauth.json')
     parser.add_argument('--video-url', required=True, help='public https URL already serving the video')
     parser.add_argument('--cover-url', help='public https URL already serving the cover JPEG')
@@ -1359,6 +1375,9 @@ def main(argv=None):
     parser.add_argument('--stop-after', choices=('container',), help='never call media_publish')
     parser.add_argument('--cover-required', action='store_true', help='stop instead of dropping a cover that fails')
     parser.add_argument('--trial', choices=('MANUAL', 'SS_PERFORMANCE'), help='Trial Reel graduation strategy')
+    parser.add_argument('--audio-id', help='Instagram Audio API audio_id (trending sound)')
+    parser.add_argument('--audio-volume', type=int, default=10)
+    parser.add_argument('--video-volume', type=int, default=100)
     parser.add_argument('--live', action='store_true', help='send the writes (needs --stop-after container)')
     args = parser.parse_args(argv)
     if args.live and args.stop_after != 'container':
@@ -1369,7 +1388,9 @@ def main(argv=None):
                          state_path=args.state, url_provider=args.video_url, cover_url=args.cover_url,
                          cover_path=args.cover, expected_username=account,
                          credentials_path=instagram_tokens.account_file(account),
-                         cover_required=args.cover_required, stop_after=args.stop_after, trial=args.trial)
+                         cover_required=args.cover_required, stop_after=args.stop_after, trial=args.trial,
+                         audio=({'audio_id': args.audio_id, 'audio_volume': args.audio_volume,
+                                 'video_volume': args.video_volume} if args.audio_id else None))
     except InstagramPublishError as error:
         print(f'instagram: {error}', file=sys.stderr)
         return 1
