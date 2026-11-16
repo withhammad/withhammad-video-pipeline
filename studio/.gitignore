@@ -5,3 +5,5 @@ __pycache__/
 secrets/*
 !secrets/.gitkeep
 .local/
+# competitor watch state: posts, scores, reports. Public repo: never commit competitor data (docs/COMPETITOR_WATCH.md)
+.local/competitor_watch/
