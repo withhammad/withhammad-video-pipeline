@@ -1,0 +1,705 @@
+{
+ "names": [
+  {
+   "n": 1,
+   "ar": "الرَّحْمَنُ",
+   "en": "the Most Merciful (to the creation)",
+   "tr": "Ar-Raḥmān",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 2,
+   "ar": "الرَّحِيمُ",
+   "en": "the Most Beneficent (to the believers)",
+   "tr": "Ar-Raḥīm",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 3,
+   "ar": "الْمَلِكُ",
+   "en": "the King",
+   "tr": "Al-Malik",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 4,
+   "ar": "الْقُدُّوسُ",
+   "en": "the Free of Deficiencies",
+   "tr": "Al-Quddūs",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 5,
+   "ar": "السَّلاَمُ",
+   "en": "the Granter of Safety",
+   "tr": "As-Salām",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 6,
+   "ar": "الْمُؤْمِنُ",
+   "en": "the Granter of Security",
+   "tr": "Al-Mu’min",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 7,
+   "ar": "الْمُهَيْمِنُ",
+   "en": "the Watcher",
+   "tr": "Al-Muhaimin",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 8,
+   "ar": "الْعَزِيزُ",
+   "en": "the Mighty",
+   "tr": "Al-`Azīz",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 9,
+   "ar": "الْجَبَّارُ",
+   "en": "the Compeller",
+   "tr": "Al-Jabbār",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 10,
+   "ar": "الْمُتَكَبِّرُ",
+   "en": "the Supreme",
+   "tr": "Al-Mutakabbir",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 11,
+   "ar": "الْخَالِقُ",
+   "en": "the Creator",
+   "tr": "Al-Khāliq",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 12,
+   "ar": "الْبَارِئُ",
+   "en": "the Originator",
+   "tr": "Al-Bāri’",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 13,
+   "ar": "الْمُصَوِّرُ",
+   "en": "the Fashioner",
+   "tr": "Al-Muṣawwir",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 14,
+   "ar": "الْغَفَّارُ",
+   "en": "the Pardoner",
+   "tr": "Al-Ghaffār",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 15,
+   "ar": "الْقَهَّارُ",
+   "en": "the Overwhelming",
+   "tr": "Al-Qahhār",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 16,
+   "ar": "الْوَهَّابُ",
+   "en": "the Giving",
+   "tr": "Al-Wahhāb",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 17,
+   "ar": "الرَّزَّاقُ",
+   "en": "the Provider",
+   "tr": "Ar-Razzāq",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 18,
+   "ar": "الْفَتَّاحُ",
+   "en": "the Opener",
+   "tr": "Al-Fattāḥ",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 19,
+   "ar": "الْعَلِيمُ",
+   "en": "the Knowing",
+   "tr": "Al-`Alīm",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 20,
+   "ar": "الْقَابِضُ",
+   "en": "the Taker",
+   "tr": "Al-Qābiḍ",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 21,
+   "ar": "الْبَاسِطُ",
+   "en": "the Giver",
+   "tr": "Al-Bāsiṭ",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 22,
+   "ar": "الْخَافِضُ",
+   "en": "the Abaser",
+   "tr": "Al-Khāfiḍ",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 23,
+   "ar": "الرَّافِعُ",
+   "en": "the Exalter",
+   "tr": "Ar-Rāfi`",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 24,
+   "ar": "الْمُعِزُّ",
+   "en": "the One who grants honor",
+   "tr": "Al-Mu`izz",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 25,
+   "ar": "الْمُذِلُّ",
+   "en": "the One who humiliates",
+   "tr": "Al-Mudhil",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 26,
+   "ar": "السَّمِيعُ",
+   "en": "the Hearing",
+   "tr": "As-Samī`",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 27,
+   "ar": "الْبَصِيرُ",
+   "en": "the Seeing",
+   "tr": "Al-Baṣīr",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 28,
+   "ar": "الْحَكَمُ",
+   "en": "the Judge",
+   "tr": "Al-Ḥakam",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 29,
+   "ar": "الْعَدْلُ",
+   "en": "the Just",
+   "tr": "Al-`Adl",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 30,
+   "ar": "اللَّطِيفُ",
+   "en": "the Kind",
+   "tr": "Al-Laṭīf",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 31,
+   "ar": "الْخَبِيرُ",
+   "en": "the Aware",
+   "tr": "Al-Khabīr",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 32,
+   "ar": "الْحَلِيمُ",
+   "en": "the Forbearing",
+   "tr": "Al-Ḥalīm",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 33,
+   "ar": "الْعَظِيمُ",
+   "en": "the Magnificent",
+   "tr": "Al-`Aẓīm",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 34,
+   "ar": "الْغَفُورُ",
+   "en": "the Oft-Forgiving",
+   "tr": "Al-Ghafūr",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 35,
+   "ar": "الشَّكُورُ",
+   "en": "the Grateful",
+   "tr": "Ash-Shakūr",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 36,
+   "ar": "الْعَلِيُّ",
+   "en": "the Most High",
+   "tr": "Al-`Aliyy",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 37,
+   "ar": "الْكَبِيرُ",
+   "en": "the Great",
+   "tr": "Al-Kabīr",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 38,
+   "ar": "الْحَفِيظُ",
+   "en": "the Guardian",
+   "tr": "Al-Ḥafīẓ",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 39,
+   "ar": "الْمُقِيتُ",
+   "en": "the Powerful",
+   "tr": "Al-Muqīt",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 40,
+   "ar": "الْحَسِيبُ",
+   "en": "the Reckoner",
+   "tr": "Al-Ḥasīb",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 41,
+   "ar": "الْجَلِيلُ",
+   "en": "the Glorious",
+   "tr": "Al-Jalīl",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 42,
+   "ar": "الْكَرِيمُ",
+   "en": "the Generous",
+   "tr": "Al-Karīm",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 43,
+   "ar": "الرَّقِيبُ",
+   "en": "the Watcher",
+   "tr": "Ar-Raqīb",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 44,
+   "ar": "الْمُجِيبُ",
+   "en": "the Responder",
+   "tr": "Al-Mujīb",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 45,
+   "ar": "الْوَاسِعُ",
+   "en": "the Liberal Giver",
+   "tr": "Al-Wāsi`",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 46,
+   "ar": "الْحَكِيمُ",
+   "en": "the Wise",
+   "tr": "Al-Ḥakīm",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 47,
+   "ar": "الْوَدُودُ",
+   "en": "the Loving",
+   "tr": "Al-Wadūd",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 48,
+   "ar": "الْمَجِيدُ",
+   "en": "the Majestic",
+   "tr": "Al-Majīd",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 49,
+   "ar": "الْبَاعِثُ",
+   "en": "the Reviver",
+   "tr": "Al-Bā`ith",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 50,
+   "ar": "الشَّهِيدُ",
+   "en": "the Witness",
+   "tr": "Ash-Shahīd",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 51,
+   "ar": "الْحَقُّ",
+   "en": "the Truth",
+   "tr": "Al-Ḥaqq",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 52,
+   "ar": "الْوَكِيلُ",
+   "en": "the Guarantor",
+   "tr": "Al-Wakīl",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 53,
+   "ar": "الْقَوِيُّ",
+   "en": "the Strong",
+   "tr": "Al-Qawiyy",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 54,
+   "ar": "الْمَتِينُ",
+   "en": "the Firm",
+   "tr": "Al-Matīn",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 55,
+   "ar": "الْوَلِيُّ",
+   "en": "the One Who Aids",
+   "tr": "Al-Waliyy",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 56,
+   "ar": "الْحَمِيدُ",
+   "en": "the Praiseworthy",
+   "tr": "Al-Ḥamīd",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 57,
+   "ar": "الْمُحْصِي",
+   "en": "the Encompasser",
+   "tr": "Al-Muḥṣi",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 58,
+   "ar": "الْمُبْدِئُ",
+   "en": "the One Who Begins things",
+   "tr": "Al-Mubdi’",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 59,
+   "ar": "الْمُعِيدُ",
+   "en": "the One Who brings things back",
+   "tr": "Al-Mu`īd",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 60,
+   "ar": "الْمُحْيِي",
+   "en": "the One Who gives life",
+   "tr": "Al-Muḥyi",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 61,
+   "ar": "الْمُمِيتُ",
+   "en": "the One Who causes death",
+   "tr": "Al-Mumīt",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 62,
+   "ar": "الْحَىُّ",
+   "en": "the Living",
+   "tr": "Al-Ḥayyu",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 63,
+   "ar": "الْقَيُّومُ",
+   "en": "the Self-Sufficient",
+   "tr": "Al-Qayyūm",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 64,
+   "ar": "الْوَاجِدُ",
+   "en": "the One Who brings into existence",
+   "tr": "Al-Wājid",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 65,
+   "ar": "الْمَاجِدُ",
+   "en": "the Illustrious",
+   "tr": "Al-Mājid",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 66,
+   "ar": "الْوَاحِدُ",
+   "en": "the One",
+   "tr": "Al-Wāḥid",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 67,
+   "ar": "الأَحَدُ",
+   "en": "the One",
+   "tr": "Al-Aḥad",
+   "src": "Quran 112:1"
+  },
+  {
+   "n": 68,
+   "ar": "الصَّمَدُ",
+   "en": "the Master",
+   "tr": "Aṣ-Ṣamad",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 69,
+   "ar": "الْقَادِرُ",
+   "en": "the Able",
+   "tr": "Al-Qādir",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 70,
+   "ar": "الْمُقْتَدِرُ",
+   "en": "the Powerful",
+   "tr": "Al-Muqtadir",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 71,
+   "ar": "الْمُقَدِّمُ",
+   "en": "the One who hastens",
+   "tr": "Al-Muqaddim",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 72,
+   "ar": "الْمُؤَخِّرُ",
+   "en": "the One who delays",
+   "tr": "Al-Mu’akhkhir",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 73,
+   "ar": "الأَوَّلُ",
+   "en": "the First",
+   "tr": "Al-Awwal",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 74,
+   "ar": "الآخِرُ",
+   "en": "the Last",
+   "tr": "Al-Ākhir",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 75,
+   "ar": "الظَّاهِرُ",
+   "en": "the Apparent",
+   "tr": "Aẓ-Ẓāhir",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 76,
+   "ar": "الْبَاطِنُ",
+   "en": "the Inner",
+   "tr": "Al-Bāṭin",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 77,
+   "ar": "الْوَالِي",
+   "en": "the Owner",
+   "tr": "Al-Wāli",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 78,
+   "ar": "الْمُتَعَالِي",
+   "en": "the Exalted",
+   "tr": "Al-Muta`āli",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 79,
+   "ar": "الْبَرُّ",
+   "en": "the Doer of Good",
+   "tr": "Al-Barr",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 80,
+   "ar": "التَّوَّابُ",
+   "en": "the Acceptor of repentance",
+   "tr": "At-Tawwāb",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 81,
+   "ar": "الْمُنْتَقِمُ",
+   "en": "the Avenger",
+   "tr": "Al-Muntaqim",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 82,
+   "ar": "الْعَفُوُّ",
+   "en": "the Pardoning",
+   "tr": "Al-`Afuww",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 83,
+   "ar": "الرَّءُوفُ",
+   "en": "the Kind",
+   "tr": "Ar-Ra’ūf",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 84,
+   "ar": "مَالِكُ الْمُلْكِ",
+   "en": "the Owner of Dominion",
+   "tr": "Mālikul-Mulk",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 85,
+   "ar": "ذُو الْجَلاَلِ وَالإِكْرَامِ",
+   "en": "the Possessor of Glory and Generosity",
+   "tr": "Dhul Jalāli wal Ikrām",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 86,
+   "ar": "الْمُقْسِطُ",
+   "en": "the One who does justice",
+   "tr": "Al-Muqsiṭ",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 87,
+   "ar": "الْجَامِعُ",
+   "en": "the Gatherer",
+   "tr": "Al-Jāmi`",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 88,
+   "ar": "الْغَنِيُّ",
+   "en": "the Rich",
+   "tr": "Al-Ghaniyy",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 89,
+   "ar": "الْمُغْنِي",
+   "en": "the Enricher",
+   "tr": "Al-Mughni",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 90,
+   "ar": "الْمَانِعُ",
+   "en": "the Preventer",
+   "tr": "Al-Māni`",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 91,
+   "ar": "الضَّارُّ",
+   "en": "the Harmer",
+   "tr": "Aḍ-Ḍār",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 92,
+   "ar": "النَّافِعُ",
+   "en": "the One who benefits",
+   "tr": "An-Nāfi`",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 93,
+   "ar": "النُّورُ",
+   "en": "the Light",
+   "tr": "An-Nūr",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 94,
+   "ar": "الْهَادِي",
+   "en": "the Guide",
+   "tr": "Al-Hādi",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 95,
+   "ar": "الْبَدِيعُ",
+   "en": "the Originator",
+   "tr": "Al-Badī`",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 96,
+   "ar": "الْبَاقِي",
+   "en": "the Lasting",
+   "tr": "Al-Bāqi",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 97,
+   "ar": "الْوَارِثُ",
+   "en": "the Inheritor",
+   "tr": "Al-Wārith",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 98,
+   "ar": "الرَّشِيدُ",
+   "en": "the Guide",
+   "tr": "Ar-Rashīd",
+   "src": "Tirmidhi 3507"
+  },
+  {
+   "n": 99,
+   "ar": "الصَّبُورُ",
+   "en": "the Tolerant",
+   "tr": "Aṣ-Ṣabūr",
+   "src": "Tirmidhi 3507"
+  }
+ ],
+ "listRef": "Jami` at-Tirmidhi 3507",
+ "listGrade": "Da'if (Darussalam)",
+ "ayahAr": "قُلْ هُوَ ٱللَّهُ أَحَدٌ",
+ "ayahEn": "Say, \"He is Allah, [who is] One,",
+ "ayahRef": "Al-Ikhlas 112:1",
+ "hadithAr": "إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا مِائَةً إِلاَّ وَاحِدًا، مَنْ أَحْصَاهَا دَخَلَ الْجَنَّةَ",
+ "hadithEn": "Allah has ninety-nine Names, one-hundred less one; and he who memorized them all by heart will enter Paradise.",
+ "hadithRef": "Sahih al-Bukhari 7392"
+}
