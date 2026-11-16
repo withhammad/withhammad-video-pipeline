@@ -226,7 +226,8 @@ def post_id(platform, key, handle):
 
 def normalise(capture):
     """One capture (Chrome rows or API media) -> post records."""
-    acc = account(capture['account'])
+    # An owner-sent post from an account we do not watch daily carries its own account record ("adhoc").
+    acc = dict(capture['adhoc'], key=capture['account']) if capture.get('adhoc') else account(capture['account'])
     captured = datetime.fromisoformat(capture['captured_at'])
     posts = []
     if acc['platform'] == 'linkedin':
