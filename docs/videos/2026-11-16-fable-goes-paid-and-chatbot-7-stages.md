@@ -17,7 +17,7 @@ Source `studio/remotion/src/fablelastday`. 22 s, 4:5 and 9:16 (hook on frame 0).
 | Facebook Page reel | https://www.facebook.com/reel/2117316252323846/ | tienanh109 · X-COOL! (Instrumental Slowed) |
 | Instagram @withhammad.ai (Collab @with.hammad accepted) | https://www.instagram.com/reel/DfzRqTACcJV/ | Chela Rivas · Make It Pop (Instrumental), Audio API |
 | TikTok | https://www.tiktok.com/@withhammad/video/7708733109197360402 | Fades Away (Sophia Glow Nelson) |
-| YouTube Shorts | not posted | needs the phone app for a sound: owner decision |
+| YouTube Short (Studio upload, public) | https://youtube.com/shorts/p-gRqBBe4uQ | own music; `allow_no_sound` (owner: "Post without sound", this Short only); guide + subscribe comment pinned |
 
 ## 2. How AI chatbots are built in 7 stages (job `studio/.local/jobs/chatbotinfographic`, keyword CHATBOT)
 
@@ -32,7 +32,7 @@ CHATBOT rule added with `app.guide site` (site commit a7b1733).
 | Facebook Page reel | https://www.facebook.com/reel/1490330576333423/ | Giulio Cercato · Beautiful |
 | Instagram @withhammad.ai (Collab @with.hammad accepted) | https://www.instagram.com/reel/DfzSt04DlzO/ | Magnetic Sirens · Parallel Lines, Audio API |
 | TikTok | https://www.tiktok.com/@withhammad/video/7708734324811631880 | Speaker Knob Party (Kenny Bostick) |
-| YouTube Shorts | not posted | owner decision |
+| YouTube Short (Studio upload, public) | https://youtube.com/shorts/_trHeNRMwA4 | own music; `allow_no_sound` (owner: "Post without sound", this Short only); guide + subscribe comment pinned |
 | Carousel (11 pages, `outputs/guides/how-ai-chatbot-is-made`) | not posted | held: a third LinkedIn post in one afternoon |
 
 ## What was learned
@@ -51,3 +51,12 @@ CHATBOT rule added with `app.guide site` (site commit a7b1733).
 - Instagram keyword DMs for these two posts were not tested end to end: every account I can comment from is one of
   the owner's own, which the webhook skips. First comments with the keyword and follow ask are posted on both reels.
 - The LinkedIn video publisher only accepts 9:16; the 4:5 posts set `publish_linkedin.ASPECT = 4/5` in a job script.
+- **YouTube API token is dead** (16 Nov: `invalid_grant`, "Token has been expired or revoked"). The Google reconnect
+  opened in Chrome was declined on screen, so both Shorts were uploaded through YouTube Studio in Chrome (owner:
+  "Yes, use Studio"). Every other YouTube API job (queue uploads, youtube_keyword replies) stays blocked until the
+  owner approves `outputs/video-pipeline/youtube_oauth.py --captions`.
+- Studio route: publish only after "Checking…" clears in the Shorts list (publishing earlier shows a strike warning;
+  the checks took about 15 minutes). The channel can comment and pin from Studio > video > Comments, which works
+  even though the youtube.com watch page hides comments under Restricted Mode in this Chrome profile.
+- YouTube's AI-use question was answered "No" on both: no avatar, no realistic synthetic scene, music is a bed.
+- Neither post has a repost-queue entry, so `allow_no_sound` is recorded here and in each job's `published.json`.
