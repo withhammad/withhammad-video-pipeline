@@ -43,6 +43,7 @@ This overrides the "same beats, exact rebuild" wording of `docs/PIPELINE_PROMPT.
 | Instagram | @sabrina_ramonov | `instagram.com/sabrina_ramonov/reels/` (+ stories) |
 | Instagram | @adam.godigital | `instagram.com/adam.godigital/reels/` (+ stories) |
 | Instagram | @nick_saraev | `instagram.com/nick_saraev/reels/` |
+| Instagram | @tessa.fairbrook (added 2026-11-16, Claude carousels) | `instagram.com/tessa.fairbrook/` (profile grid; likes fetched for posts up to 14 days) |
 
 Secondary sources (YouTube, TikTok, X and the other network of each account) are slots in `ACCOUNTS[...]['secondary']`.
 They are empty until each handle is verified by opening the profile; a guessed handle is never written there.

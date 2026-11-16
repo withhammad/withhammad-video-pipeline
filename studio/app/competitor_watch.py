@@ -88,6 +88,11 @@ ACCOUNTS = [
     {'key': 'nick_saraev', 'name': 'Nick Saraev', 'platform': 'instagram',
      'url': 'https://www.instagram.com/nick_saraev/reels/',
      'secondary': {'youtube': None, 'tiktok': None, 'x': None, 'linkedin': None}},
+    # Carousel-first account: read the profile grid (not /reels/), and fetch likes for posts up to 14 days old so
+    # the baseline has numbers (the grid shows no view counts here).
+    {'key': 'tessa.fairbrook', 'name': 'Tessa Fairbrook', 'platform': 'instagram',
+     'url': 'https://www.instagram.com/tessa.fairbrook/',
+     'secondary': {'youtube': None, 'tiktok': None, 'x': None, 'linkedin': None}},
 ]
 
 # Read-only page extractors, tested 2026-11-16 in the owner's logged-in Chrome. The javascript tool returns about
