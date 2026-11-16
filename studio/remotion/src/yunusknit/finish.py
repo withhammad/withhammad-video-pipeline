@@ -6,7 +6,7 @@
    reference's 48 kHz stereo track, lookahead-limited, from prep.py) are muxed with no audio processing at all.
 2. app.audio.master: two-pass loudnorm in linear mode (a single gain) to -14 LUFS / -1.5 dBTP, resampled to 48 kHz, AAC
    192k. No time-stretch, no speed or pitch change.
-3. A 720p review copy under 2.5 MB (scale 720x1280, crf 28 preset veryslow, AAC 128k, 96k past crf 32; crf goes up until it fits).
+3. A 720p review copy under 2.5 MB (scale 720x1280, two-pass x264 at 270 kb/s, AAC 64k).
 Writes <job>/knit/final.mp4, <job>/knit/preview720.mp4 and <job>/knit/master.json.
 """
 import json
@@ -31,10 +31,12 @@ print('master', info['normalization_type'], info['output'])
 os.remove(mux)
 
 prev = knit / 'preview720.mp4'
-for crf in (28, 30, 32, 34, 36, 38, 40):           # 57 s of knit texture: the crf climbs until the copy fits under 2.5 MB
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(knit / 'final.mp4'), '-vf', 'scale=720:1280', '-c:v', 'libx264', '-crf', str(crf),
-                    '-preset', 'veryslow', '-pix_fmt', 'yuv420p', '-color_range', 'tv', '-c:a', 'aac', '-b:a', '96k' if crf > 32 else '128k',
-                    '-movflags', '+faststart', str(prev)], check=True)
-    if prev.stat().st_size < 2.5e6:
-        break
-print('preview', crf, prev.stat().st_size)
+# 57 s of knit texture does not fit 2.5 MB at any sane crf: two-pass 270k video + 64k AAC lands at ~2.46 MB
+log = str(knit / 'x264pass')
+subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(knit / 'final.mp4'), '-vf', 'scale=720:1280', '-c:v', 'libx264', '-b:v', '270k', '-pass', '1',
+                '-preset', 'slow', '-passlogfile', log, '-an', '-f', 'mp4', os.devnull], check=True)
+subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(knit / 'final.mp4'), '-vf', 'scale=720:1280', '-c:v', 'libx264', '-b:v', '270k', '-pass', '2',
+                '-preset', 'slow', '-passlogfile', log, '-pix_fmt', 'yuv420p', '-color_range', 'tv', '-c:a', 'aac', '-b:a', '64k', '-movflags', '+faststart',
+                str(prev)], check=True)
+assert prev.stat().st_size < 2.5e6, prev.stat().st_size
+print('preview', prev.stat().st_size)

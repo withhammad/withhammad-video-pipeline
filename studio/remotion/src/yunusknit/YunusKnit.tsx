@@ -54,7 +54,7 @@ const Word: React.FC<{w: string; t: number; a: number; b: number; size: number; 
     transform: `translateY(${-5 * pop}px)`}}>
     <span style={{color: '#F1E6D0', opacity: 0.55, textShadow: '0 2px 4px #000000cc'}}>{w}</span>
     {p > 0 ? <span style={{position: 'absolute', left: -ph, right: -ph, top: -pv, bottom: -pv, padding: `${pv}px ${ph}px`, clipPath: `inset(0 0 0 ${100 - 100 * p}%)`,
-      ...gold(t + k * 0.11, 0.4), WebkitTextStroke: '1.1px #E3AC45',
+      color: '#F7C552', WebkitTextStroke: '1px #E3AC45',
       filter: `${AR_THREAD} drop-shadow(0 0 ${8 + 20 * pop}px #FFC85A88)`}}>{w}</span> : null}
   </span>;
 };
@@ -74,7 +74,7 @@ export const AyahBlock: React.FC<{a: Ayah; t: number; o: number; still?: boolean
         return <Word key={k} w={w} t={tt} a={ck[k][0]} b={ck[k][1]} size={AYAH.size} gap={n === y - x - 1 && li === 0 ? 0 : AYAH.size * 0.24} k={k}/>;
       })}
       {li === lines.length - 1 ? <span style={{fontFamily: AR, fontSize: AYAH.size * 0.9, lineHeight: 1.7, display: 'inline-block',
-        ...(tt >= ck[ck.length - 1][1] - 0.2 ? {...gold(tt, 0.4), WebkitTextStroke: '1px #E3AC45'} : {color: '#F1E6D0', opacity: 0.6}),
+        ...(tt >= ck[ck.length - 1][1] - 0.2 ? {color: '#F7C552', WebkitTextStroke: '1px #E3AC45'} : {color: '#F1E6D0', opacity: 0.6}),
         filter: 'drop-shadow(0 2px 3px #000000cc)'}}>{'۝' + toArabicDigits(a)}</span> : null}
     </div>)}
     <div style={{position: 'absolute', top: AYAH.top + 2 * AYAH.pitch + 18, left: 150, right: 150, textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic',
@@ -184,6 +184,42 @@ const Shafts: React.FC<{t: number; o: number}> = ({t, o}) => o <= 0 ? null : <>{
     transformOrigin: '50% 0%', mixBlendMode: 'screen', filter: 'blur(26px)', opacity: o * (0.22 + 0.1 * Math.sin(t * 1.3 + k * 2)),
     background: 'linear-gradient(180deg, #CFF6FFcc 0%, #9FE6F066 40%, #9FE6F000 85%)'}}/>)}</>;
 
+/** a slow Ken Burns push per shot; in the opening a punch-in towards the breaching whale, with a kick on the splash */
+const SHOT_T = Object.values(CUTS);
+const kenBurns = (t: number, g: Geom | null, f: number) => {
+  let i = 0;
+  for (let k = 0; k < SHOT_T.length; k++) if (t >= SHOT_T[k]) i = k;
+  const a = SHOT_T[i], b = i + 1 < SHOT_T.length ? SHOT_T[i + 1] : FRAMES / FPS;
+  const u = c01((t - a) / (b - a));
+  if (i === 0) {
+    const w = g?.whale_head?.[f];
+    const s = 1.04 + 0.16 * smooth((t - 0.5) / 1.8) - 0.06 * smooth((t - 3.6) / 1.6) + 0.02 * pulse(t - 3.8, 0.35);
+    return {s, x: w ? Math.min(900, Math.max(180, w[0])) : 600, y: w ? Math.min(1300, Math.max(700, w[1])) : 1000};
+  }
+  return {s: 1.0 + 0.05 * smooth(u), x: 540, y: i % 2 ? 900 : 1100};
+};
+
+/** at each hard cut a row of gold running stitches sweeps across the frame */
+const HARD = [CUTS.A139, CUTS.A140, CUTS.A141a, CUTS.A141b, CUTS.A142, CUTS.A143, CUTS.A145, CUTS.A146];
+const StitchWipe: React.FC<{t: number}> = ({t}) => {
+  const c = HARD.find((x) => t >= x - 0.12 && t < x + 0.3);
+  if (c === undefined) return null;
+  const u = c01((t - (c - 0.12)) / 0.42), x = -200 + 1480 * smooth(u), o = Math.sin(Math.PI * u);
+  return <svg width={1080} height={1920} style={{position: 'absolute', inset: 0, opacity: 0.85 * o, mixBlendMode: 'screen'}}>
+    {[0, 1, 2].map((k) => <line key={k} x1={x - 260 - 40 * k} y1={-40} x2={x + 120 - 40 * k} y2={1960} stroke={k === 1 ? '#FFE7A8' : '#E3AC45'}
+      strokeWidth={k === 1 ? 7 : 4} strokeDasharray="22 14" strokeLinecap="round" filter="url(#soft2)"/>)}
+  </svg>;
+};
+
+/** warm wool motes drifting up in the dawn light */
+const Motes: React.FC<{t: number}> = ({t}) => <svg width={1080} height={1920} style={{position: 'absolute', inset: 0, mixBlendMode: 'screen'}}>
+  {Array.from({length: 40}, (_, k) => {
+    const sp = 30 + 50 * random(`ms${k}`), x = 1080 * random(`mx${k}`) + 30 * Math.sin(t * 0.7 + k), y = 1920 - ((t * sp + 1920 * random(`my${k}`)) % 1920);
+    const r = 2 + 4 * random(`mr${k}`);
+    return <circle key={k} cx={x} cy={y} r={r} fill="#FFE2A8" opacity={(0.25 + 0.35 * random(`mo${k}`)) * c01((t - CUTS.A145 - 1.5) / 1.0)}/>;
+  })}
+</svg>;
+
 export const YunusKnit: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS;
   const g = useGeom();
@@ -193,6 +229,7 @@ export const YunusKnit: React.FC = () => {
   // passes through black: into the belly (the whale's flank fills the lens), and between the three darknesses
   const dip = (tc: number, a: number, b: number) => (t < tc ? smooth((t - (tc - a)) / a) : 1 - smooth((t - tc) / b));
   const black = Math.max(dip(CUTS.A144a, 0.32, 0.4), dip(CUTS.A144b, 0.22, 0.3), dip(CUTS.A144c, 0.22, 0.3));
+  const kb = kenBurns(t, g, f);
   const night = t < CUTS.A143 || inShot(t, 'A144c', 'A145');
   const dawn = t >= CUTS.A145;
   return <AbsoluteFill style={{background: '#0B0E24', overflow: 'hidden'}}>
@@ -200,7 +237,9 @@ export const YunusKnit: React.FC = () => {
     <YarnDefs/>
     <ArDefs/>
     <Filters/>
-    <OffthreadVideo src={staticFile('plate.mp4')} muted style={{position: 'absolute', inset: 0, width: 1080, height: 1920}}/>
+    <div style={{position: 'absolute', inset: 0, transform: `scale(${kb.s})`, transformOrigin: `${kb.x}px ${kb.y}px`}}>
+      <OffthreadVideo src={staticFile('plate.mp4')} muted style={{position: 'absolute', inset: 0, width: 1080, height: 1920}}/>
+    </div>
     {g ? <>
       {night && !inShot(t, 'A141a', 'A141b') ? <Glow p={g.moon[f]} r={150} col="#FFF1CC" o={0.55}/> : null}
       {inShot(t, 'OPEN', 'A143') && !inShot(t, 'A141a', 'A141b') ? <Glow p={g.lantern[f]} r={46} col="#FFB54A" o={0.8 + 0.2 * Math.sin(t * 9)}/> : null}
@@ -212,6 +251,8 @@ export const YunusKnit: React.FC = () => {
     {/* calm the top band behind the ayah, keep the corners soft */}
     <AbsoluteFill style={{background: 'linear-gradient(180deg, #05061Ad0 0px, #05061Ab0 230px, #05061A90 560px, #05061A55 760px, #05061A00 900px)'}}/>
     <AbsoluteFill style={{background: 'radial-gradient(ellipse 85% 70% at 50% 50%, #00000000 60%, #00000066 100%)'}}/>
+    <StitchWipe t={t}/>
+    {dawn ? <Motes t={t}/> : null}
     {black > 0 ? <AbsoluteFill style={{background: '#020208', opacity: black}}/> : null}
     <Handle top={226} endP={c01((t - ENDLINE) / 0.6)}/>
     <Hook t={t}/>

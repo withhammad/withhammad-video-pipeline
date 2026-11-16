@@ -29,7 +29,7 @@ export const YunusCover: React.FC<{grid?: boolean}> = ({grid = false}) => {
         textShadow: '0 3px 5px #000000dd, 0 0 18px #000000aa', filter: 'url(#yarn)'}}>and one thing saved him</div>
     </div>
     <div dir="rtl" lang="ar" style={{position: 'absolute', top: 1232 + dy, left: 90, right: 90, textAlign: 'center', fontFamily: AR, fontSize: 70, lineHeight: 1.7,
-      ...gold(0.6, 0.4), WebkitTextStroke: '1.1px #E3AC45', filter: AR_THREAD, whiteSpace: 'nowrap'}}>{ws.join(' ')}</div>
+      color: '#F7C552', WebkitTextStroke: '1.1px #E3AC45', filter: AR_THREAD, whiteSpace: 'nowrap'}}>{ws.join(' ')}</div>
     <div style={{position: 'absolute', top: 1366 + dy, left: 0, right: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 14}}>
       <span style={{width: 60, borderTop: '2px dashed #D9A847'}}/>
       <span style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: 32, color: '#F6E3BC', textShadow: '0 2px 3px #000000cc'}}>

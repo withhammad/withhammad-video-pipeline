@@ -108,7 +108,7 @@ def tryset(o, **kw):
 
 tryset(ee, taa_render_samples=SAMPLES, use_raytracing=True, ray_tracing_method='SCREEN', use_shadows=True, shadow_ray_count=2,
        shadow_step_count=8, use_fast_gi=True, fast_gi_method='GLOBAL_ILLUMINATION', bokeh_max_size=80, motion_blur_steps=1,
-       use_volumetric_shadows=False, volumetric_tile_size='8', volumetric_samples=48, volumetric_start=0.5, volumetric_end=160.0,
+       use_volumetric_shadows=False, volumetric_tile_size='16', volumetric_samples=32, volumetric_start=0.5, volumetric_end=160.0,
        use_bloom=False)
 try:
     ee.ray_tracing_options.resolution_scale = '2'
@@ -116,6 +116,7 @@ try:
 except Exception:
     pass
 tryset(sc.render, hair_type='STRAND', hair_subdiv=0)
+tryset(ee, shadow_pool_size='512')
 tryset(sc.view_settings, view_transform='AgX')
 tryset(sc.view_settings, look='AgX - Punchy')
 sc.view_settings.exposure = float(opt('--exposure', 0.0))
@@ -966,7 +967,7 @@ yard.parent = ship
 Csail = bands(40, 46, ['#F6E9D2', '#F2A93B', '#F6E9D2', '#C2512E', '#F6E9D2', '#2C8C83'], [6, 3, 6, 3, 6, 2], R).transpose(1, 0, 2).copy()
 stamp(Csail, STAR7, {'a': '#F2A93B', 'b': '#C2512E', 'c': '#FFF6E0'}, 16, 19)
 sail_img = color_png('sail', Csail)
-sail_mat = knit_mat('Sail knit', img=sail_img, coords='UV', spm=(40, 46), bump=0.9, dist=0.04, sss=0.25)
+sail_mat = knit_mat('Sail knit', img=sail_img, coords='UV', spm=(40, 46), bump=0.9, dist=0.04, sss=0.5, emis=0.22)
 sail = grid('Sail', 5.8, 4.0, 28, 24, sail_mat)
 for v in sail.data.vertices:                                   # hang in the YZ plane under the yard, billowed forward
     y, z = v.co.x, v.co.y
@@ -983,7 +984,7 @@ for i, v in enumerate(sail.data.vertices):
     sail_sk2.data[i].co = co + Vector((0.45 * math.sin(math.pi * u) * (1 - (co.y / 2.9) ** 2), 0, 0))
 key_fn(sail.data.shape_keys, 'key_blocks["Gust"].value', 0, lambda f: 0.5 + 0.5 * math.sin(f / 11.0) * math.sin(f / 23.0 + 1), list(range(0, NF, 3)))
 rig = knit_mat('Rigging', '#E9D9B8', coords='UV', spm=(300, 4), bump=1, dist=0.01)
-for a_, b_ in (((0.6, 0, 9.2), (5.3, 0, 2.7)), ((0.6, 0, 9.2), (-5.2, 0, 2.9)), ((0.6, 0, 9.0), (0.4, 2.1, 1.4)), ((0.6, 0, 9.0), (0.4, -2.1, 1.4))):
+for a_, b_ in (((0.6, 0, 9.2), (5.3, 0, 2.7)), ((0.6, 0, 9.2), (-5.2, -0.7, 2.9)), ((0.6, 0, 9.0), (0.4, 2.1, 1.4)), ((0.6, 0, 9.0), (0.4, -2.1, 1.4))):
     pts = np.array([np.array(a_) + (np.array(b_) - np.array(a_)) * t for t in np.linspace(0, 1, 16)])
     pts[:, 2] -= 0.25 * np.sin(np.linspace(0, np.pi, 16))
     curve_obj('Rope', [pts], 0.03, rig).parent = ship
