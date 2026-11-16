@@ -1,5 +1,5 @@
-"""Finish the Quran Beat "Has harm touched you?" reel (QB-HARM): put the reference's own stereo track (public/audio.wav: the
-recitation of Yunus 10:107, first half, untouched but for gain; no music) under the Remotion picture as PCM, through a safety
+"""Finish the Quran Beat "Has harm touched you?" reel (QB-HARM): put public/audio.wav (1 s of silence, then Mishary Alafasy's
+whole Yunus 10:107 from everyayah.com, untouched but for gain; no music) under the Remotion picture as PCM, through a safety
 limiter (alimiter latency=true, so its lookahead is compensated and nothing shifts), padded with silence for the end card,
 then app.audio.master(TP=-1.5) to H.264 + AAC, and cut the 720p review copy under 2.6 MB.
 Run from studio/: .venv/bin/python remotion/src/qbharm/finish.py <render dir> <duration s>  (video.mp4 in, master.mp4 +

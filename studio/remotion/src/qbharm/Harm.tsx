@@ -1,13 +1,14 @@
 // PRIVATE (owner's Islamic account "Quran Beat", @quranbeat; never posted from the business accounts): the "Has harm touched
 // you?" reel (reference DfsFqEpxneY by @hous_semai2719, job qb-DfsFqEpxneY, 26.4 s, one continuous AI-animated shot over a
-// recitation of Yunus 10:107, first half) rebuilt in the reference's own look: a soft stylised-3D bedroom at night, a big
+// trimmed recitation of Yunus 10:107, first half; here the WHOLE ayah by Mishary Alafasy, owner's pick 2026-11-16 "Find
+// full recitation") rebuilt in the reference's own look: a soft stylised-3D bedroom at night, a big
 // open window on a rain storm, a candle and a phone on the bedside table, the listener in bed with a broken heart floating
 // above his head that is mended and then glows while the recitation plays. The reference's listener (a ball-headed doodle
 // figure) is the owner here, a stylised-3D likeness from his headshot (GPT Image 2 --ref), in four poses: sad, reaching for
 // the phone; eyes closed, hand on his heart; hands clasped, at peace; looking up at the window with a small smile. No prophet
 // is in this story or on screen. The owner is also in the "Quran Beat" chip and on the end-card pill.
-// Audio: the reference's own stereo track, untouched: no cut, no speed or pitch change, no music; gain, a lookahead-compensated
-// safety limiter and app.audio.master only, after the render (finish.py).
+// Audio: Alafasy's 10:107 (everyayah.com Alafasy_128kbps/010107.mp3) after 1 s of silence, untouched: no cut, no speed or
+// pitch change, no music; gain, a lookahead-compensated safety limiter and app.audio.master only, after the render (finish.py).
 // Text: texts.json from text.py (quran.com text_uthmani = Tanzil letters and harakat; Sahih International), shown phrase by
 // phrase as the reciter says it.
 import React from 'react';
@@ -161,7 +162,7 @@ const PhraseText: React.FC<{i: number; f: number}> = ({i, f}) => {
   return <div style={{position: 'absolute', left: 110, width: 860, top: 585, textAlign: 'center', opacity: o, transform: `translateY(${dy}px)`,
     filter: bl ? `blur(${bl}px)` : undefined}}>
     <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 25, letterSpacing: 3, color: GOLD, textShadow: SHADOW}}>YUNUS {P.key}</div>
-    <div dir="rtl" style={{marginTop: 2, fontFamily: AR, fontSize: 66, lineHeight: 1.9, color: '#FFF6E4', textShadow: SHADOW}}><WaqfText ar={P.ar}/></div>
+    <div dir="rtl" style={{marginTop: 2, fontFamily: AR, fontSize: 66, lineHeight: 1.9, color: '#FFF6E4', textShadow: SHADOW}}><WaqfText ar={P.ar}/>{P.last ? <span style={{fontSize: 58, marginRight: 14}}>{TX.ayah.end}</span> : null}</div>
     <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: 38, lineHeight: 1.26, color: '#F3EADA', textShadow: SHADOW, marginTop: 26}}>{P.en}</div>
   </div>;
 };

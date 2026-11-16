@@ -4,14 +4,17 @@
   "surah": "Yunus",
   "ar": "وَإِن يَمْسَسْكَ ٱللَّهُ بِضُرٍّ فَلَا كَاشِفَ لَهُۥٓ إِلَّا هُوَ ۖ وَإِن يُرِدْكَ بِخَيْرٍ فَلَا رَآدَّ لِفَضْلِهِۦ ۚ يُصِيبُ بِهِۦ مَن يَشَآءُ مِنْ عِبَادِهِۦ ۚ وَهُوَ ٱلْغَفُورُ ٱلرَّحِيمُ",
   "en": "And if Allah should touch you with adversity, there is no remover of it except Him; and if He intends for you good, then there is no repeller of His bounty. He causes it to reach whom He wills of His servants. And He is the Forgiving, the Merciful",
-  "recited": "وَإِن يَمْسَسْكَ ٱللَّهُ بِضُرٍّ فَلَا كَاشِفَ لَهُۥٓ إِلَّا هُوَ ۖ وَإِن يُرِدْكَ بِخَيْرٍ فَلَا رَآدَّ لِفَضْلِهِۦ ۚ"
+  "end": "۝١٠٧"
  },
+ "reciter": "Mishary Rashid Alafasy",
+ "audio": "https://everyayah.com/data/Alafasy_128kbps/010107.mp3",
  "phrases": [
   {
    "id": "A",
    "key": "10:107",
    "ar": "وَإِن يَمْسَسْكَ ٱللَّهُ بِضُرٍّ",
    "en": "And if Allah should touch you with adversity,",
+   "last": false,
    "simple": "وَإِنْ يَمْسَسْكَ اللَّهُ بِضُرٍّ"
   },
   {
@@ -19,6 +22,7 @@
    "key": "10:107",
    "ar": "فَلَا كَاشِفَ لَهُۥٓ إِلَّا هُوَ ۖ",
    "en": "there is no remover of it except Him;",
+   "last": false,
    "simple": "فَلَا كَاشِفَ لَهُ إِلَّا هُوَ ۖ"
   },
   {
@@ -26,6 +30,7 @@
    "key": "10:107",
    "ar": "وَإِن يُرِدْكَ بِخَيْرٍ",
    "en": "and if He intends for you good,",
+   "last": false,
    "simple": "وَإِنْ يُرِدْكَ بِخَيْرٍ"
   },
   {
@@ -33,7 +38,24 @@
    "key": "10:107",
    "ar": "فَلَا رَآدَّ لِفَضْلِهِۦ ۚ",
    "en": "then there is no repeller of His bounty.",
+   "last": false,
    "simple": "فَلَا رَادَّ لِفَضْلِهِ ۚ"
+  },
+  {
+   "id": "E",
+   "key": "10:107",
+   "ar": "يُصِيبُ بِهِۦ مَن يَشَآءُ مِنْ عِبَادِهِۦ ۚ",
+   "en": "He causes it to reach whom He wills of His servants.",
+   "last": false,
+   "simple": "يُصِيبُ بِهِ مَنْ يَشَاءُ مِنْ عِبَادِهِ ۚ"
+  },
+  {
+   "id": "F",
+   "key": "10:107",
+   "ar": "وَهُوَ ٱلْغَفُورُ ٱلرَّحِيمُ",
+   "en": "And He is the Forgiving, the Merciful.",
+   "last": true,
+   "simple": "وَهُوَ الْغَفُورُ الرَّحِيمُ"
   }
  ]
 }

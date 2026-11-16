@@ -3,29 +3,25 @@
     /usr/bin/python3 studio/remotion/src/qbharm/text.py <job dir> [--write]     (needs fontTools)
 
 The reference (DfsFqEpxneY, @hous_semai2719) captions its reel «مسّـك الضّـر؟ اسمـعها فقـط، لعلّـك ترتـاح» ("Has harm touched
-you? Just listen, maybe you'll find rest"). That wording echoes the dua of Ayyub (AS), al-Anbiya 21:83 «أَنِّى مَسَّنِىَ ٱلضُّرُّ»,
-but the audio is NOT that ayah. The recitation itself (faster-whisper large-v3 read-backs, below) is Yunus 10:107, its first
-half: «وَإِن يَمْسَسْكَ ٱللَّهُ بِضُرٍّ فَلَا كَاشِفَ لَهُۥٓ إِلَّا هُوَ ۖ وَإِن يُرِدْكَ بِخَيْرٍ فَلَا رَآدَّ لِفَضْلِهِۦ ۚ», stopping at the
-waqf sign ۚ after «لِفَضْلِهِۦ». (al-An'am 6:17 opens with the same words but its second half is «وَإِن يَمْسَسْكَ بِخَيْرٍ فَهُوَ
-عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ»; the reciter says «يُرِدْكَ بِخَيْرٍ فَلَا رَآدَّ لِفَضْلِهِۦ», which only 10:107 has.)
+you? Just listen, maybe you'll find rest") and plays the first half of Yunus 10:107, trimmed by its creator (the opening «وَ»
+of «وَإِن» cut off, the voice cut at «لِفَضْلِهِۦ»). Owner, 2026-11-16: "Find full recitation". So the reel's audio is a complete,
+attributed recitation of the whole ayah instead:
 
-The reference creator's trim (as recorded, left untouched): the recording opens with 1.4 s of silence and the voice starts on
-«إِن»; the opening «وَ» of «وَإِن» is not heard (large-v3 writes «إِن» even when prompted with the full ayah starting «وَإِن»;
-the spectrogram shows a front vowel /i/ at the onset, no /w/). The voice stops sharply at 26.25 s at the end of «لِفَضْلِهِۦ»
-(the ۚ waqf), the file then ends. On screen the ayah's words are shown as written in the mushaf (with «وَ»): the Quran text
-is never cut to fit a recording.
+  Mishary Rashid Alafasy, Hafs, everyayah.com/data/Alafasy_128kbps/010107.mp3 (32.85 s, 128 kbps stereo), used whole.
+
+It opens on «وَإِن» and ends on the ayah's end «ٱلرَّحِيمُ», with the reciter's own pauses at both waqf signs (ۖ after «هُوَ»,
+10.7-11.0 s; ۚ after «لِفَضْلِهِۦ», 20.0-20.4 s; ۚ after «عِبَادِهِۦ», 26.8-27.1 s).
 
 Sources, downloaded once into <job>/src (kept out of git):
   tz_10_107.json  api.alquran.cloud (the Tanzil texts): quran-uthmani, quran-simple, en.sahih
   qc_10_107.json  api.quran.com v4 verses/by_key/10:107: text_uthmani, words, translation 20 (Sahih International)
-  tz_6_17.json, qc_6_17.json  the look-alike ayah, to rule it out
-  whisper_large_{noprompt,prompted}.json  faster-whisper large-v3 (ar) read-backs of the whole reference audio, word level
-  whisper_win_start{,_prompted}.json  large-v3 read-backs of the first 3.6 s (the opening «وَ» question)
+  tz_6_17.json, qc_6_17.json  the look-alike ayah al-An'am 6:17, to rule it out
+  full/wl_{noprompt,prompted}.json  faster-whisper large-v3 (ar) read-backs of the Alafasy file, word level
 
-Arabic on screen: quran.com verse text_uthmani, verbatim, split at word boundaries into the reciter's four phrases (joined
-with single spaces they give back the recited part of the ayah exactly). Checked against Tanzil quran-uthmani: letters and
-harakat identical; Tanzil adds a small low meem (U+06E2) to the tanween of «بِضُرٍّۢ» and «بِخَيْرٍۢ» (iqlab/ikhfa marks), which
-Amiri Quran draws as a visible mark the Madinah mushaf does not print there, so the quran.com text is the one shown.
+Arabic on screen: quran.com verse text_uthmani, verbatim, split at word boundaries into the reciter's six phrases (joined
+with single spaces they give back the whole ayah exactly). Checked against Tanzil quran-uthmani: letters and harakat
+identical; Tanzil adds a small low meem (U+06E2) to the tanween of «بِضُرٍّۢ» and «بِخَيْرٍۢ», which Amiri Quran draws as a visible
+mark the Madinah mushaf does not print there, so the quran.com text is the one shown.
 English: Sahih International (Tanzil en.sahih), cut at the same phrase boundaries. quran.com translation 20 is the same
 text, spelling Allah with a macron ("Allāh").
 Exit code 1 on any mismatch.
@@ -42,6 +38,7 @@ job = Path(sys.argv[1])
 src = job / 'src'
 here = Path(__file__).resolve().parent
 BOM, TATWEEL, MEEMS = chr(0xFEFF), chr(0x0640), {chr(0x06ED), chr(0x06E2)}
+IND = '٠١٢٣٤٥٦٧٨٩'
 
 
 def cps(s):
@@ -62,8 +59,9 @@ PHRASES = [
     ('B', 4, 10, 'there is no remover of it except Him;'),
     ('C', 10, 13, 'and if He intends for you good,'),
     ('D', 13, 17, 'then there is no repeller of His bounty.'),
+    ('E', 17, 24, 'He causes it to reach whom He wills of His servants.'),
+    ('F', 24, 27, 'And He is the Forgiving, the Merciful.'),
 ]
-RECITED_WORDS = 17          # tokens 0-16: up to and including the ۚ after «لِفَضْلِهِۦ»
 
 bad = 0
 tz, qv = load('10:107')
@@ -79,14 +77,16 @@ print('      Sahih International Tanzil vs quran.com 20:', 'SAME (quran.com spel
 W = qc.split(' ')
 ar_join = ' '.join(' '.join(W[a:b]) for _, a, b, _ in PHRASES)
 en_join = ' '.join(p[3] for p in PHRASES)
-ok = ar_join == ' '.join(W[:RECITED_WORDS]) and en.startswith(en_join.rstrip('.')) and W[RECITED_WORDS - 1] == 'ۚ'
+ok = ar_join == qc and en_join.rstrip('.') == en.rstrip('.') and PHRASES[-1][2] == len(W)
 bad += not ok
-print(f'      phrases rejoin to the recited part (Arabic, up to the ۚ) and to the start of the English: {"YES" if ok else "NO"}')
-print('      the part not recited:', ' '.join(W[RECITED_WORDS:]))
-out = {'ayah': {'key': '10:107', 'surah': 'Yunus', 'ar': qc, 'en': en, 'recited': ' '.join(W[:RECITED_WORDS])}, 'phrases': []}
+print(f'      six phrases rejoin to the whole ayah (Arabic) and its whole translation (English): {"YES" if ok else "NO"}')
+out = {'ayah': {'key': '10:107', 'surah': 'Yunus', 'ar': qc, 'en': en, 'end': '۝' + ''.join(IND[int(d)] for d in '107')},
+       'reciter': 'Mishary Rashid Alafasy', 'audio': 'https://everyayah.com/data/Alafasy_128kbps/010107.mp3', 'phrases': []}
 SIMPLE = tz['quran-simple'].split(' ')
+assert len(SIMPLE) == len(W)
 for pid, a, b, e in PHRASES:
-    out['phrases'].append({'id': pid, 'key': '10:107', 'ar': ' '.join(W[a:b]), 'en': e, 'simple': ' '.join(SIMPLE[a:b])})
+    out['phrases'].append({'id': pid, 'key': '10:107', 'ar': ' '.join(W[a:b]), 'en': e, 'last': b == len(W),
+                           'simple': ' '.join(SIMPLE[a:b])})
 
 # the look-alike 6:17 differs after «هُوَ ۖ وَإِن»
 tz6, qv6 = load('6:17')
@@ -108,19 +108,14 @@ def norm(s):
 
 
 text = [norm(w) for p in out['phrases'] for w in p['simple'].split(' ') if norm(w)]
-as_recorded = ['ان'] + text[1:]           # the recording opens on «إِن», without the «وَ» (see above)
-assert text[0] == 'وان'
-for name in ('whisper_large_prompted', 'whisper_large_noprompt'):
-    heard = [norm(w[2]) for w in json.loads((src / f'{name}.json').read_text())['words'] if norm(w[2])]
-    if heard == as_recorded:
-        print(f'full read-back {name}: MATCH, all {len(heard)} words in order (opening «إِن», no «وَ»)')
+for name in ('wl_prompted', 'wl_noprompt'):
+    heard = [norm(w[2]) for w in json.loads((src / 'full' / f'{name}.json').read_text())['words'] if norm(w[2])]
+    if heard == text:
+        print(f'full read-back {name}: MATCH, all {len(heard)} words in order, «وَإِن» to «ٱلرَّحِيمُ»')
     else:
-        diff = [(i, t, h) for i, (t, h) in enumerate(zip(as_recorded, heard)) if t != h]
-        print(f'full read-back {name}: {len(heard)} words, letter-level misses {diff}')
-        bad += name == 'whisper_large_prompted' or len(heard) != len(as_recorded)
-for name in ('whisper_win_start', 'whisper_win_start_prompted'):
-    heard = [norm(w[2]) for w in json.loads((src / f'{name}.json').read_text())['words'] if norm(w[2])]
-    print(f'opening window 1.0-4.6 s {name}: {" ".join(heard)}', '(no «وَ»)' if heard and heard[0] != 'وان' else '')
+        diff = [(i, t, h) for i, (t, h) in enumerate(zip(text, heard)) if t != h]
+        print(f'full read-back {name}: {len(heard)} of {len(text)} words, letter-level misses {diff}')
+        bad += name == 'wl_prompted' or len(heard) != len(text)
 
 used = json.loads(path.read_text())
 same = used == out
@@ -132,7 +127,7 @@ for a in out['phrases']:
 amiri = TTFont(str(job / 'qb/public/fonts/AmiriQuran.ttf'))
 assert not {'COLR', 'CPAL', 'SVG ', 'CBDT', 'sbix'} & set(amiri.keys()), 'colour-layer font build'
 cmap = amiri.getBestCmap()
-allar = out['ayah']['recited']
+allar = qc + out['ayah']['end']
 miss = sorted({c for c in allar if c != ' ' and ord(c) not in cmap})
 bad += bool(miss)
 print('Amiri Quran (plain build) covers every Arabic code point:', 'yes' if not miss else f'NO, missing {cps("".join(miss))}')
