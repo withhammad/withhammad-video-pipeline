@@ -35,6 +35,8 @@ This overrides the "same beats, exact rebuild" wording of `docs/PIPELINE_PROMPT.
 | LinkedIn | GenAI Works | `linkedin.com/company/genai-works/posts/?feedView=all` |
 | LinkedIn | Matt Pogla | `linkedin.com/in/matt-pogla/recent-activity/all/` |
 | LinkedIn | Nate Herkelman | `linkedin.com/in/nateherkelman/recent-activity/all/` |
+| LinkedIn | Jonathan Parsons (added 2026-11-16) | `linkedin.com/in/jonathan-parsons-marketing/recent-activity/all/` |
+| LinkedIn | Denis Panjuta (added 2026-11-16) | `linkedin.com/in/denis-panjuta/recent-activity/all/` |
 | Instagram | @vaibhavsisinty | `instagram.com/vaibhavsisinty/reels/` (+ stories) |
 | Instagram | @sabrina_ramonov | `instagram.com/sabrina_ramonov/reels/` (+ stories) |
 | Instagram | @adam.godigital | `instagram.com/adam.godigital/reels/` (+ stories) |
@@ -49,7 +51,7 @@ What was tested on 2026-11-16, cheapest path first:
 |---|---|
 | Instagram Graph API `business_discovery` with the Facebook Page token | Refused: `(#10) Application does not have permission for this action`. The token lacks `instagram_manage_insights`. `fetch --apply` tries it every day and uses it by itself once the permission exists. |
 | LinkedIn public pages without login | Refused: HTTP 999 (profiles) and 403 (company page). |
-| Owner's logged-in Chrome (Claude in Chrome), read-only | Works for all 8 accounts. This is the daily path. |
+| Owner's logged-in Chrome (Claude in Chrome), read-only | Works for all accounts. This is the daily path. |
 
 Chrome pass (one tab, read-only, 5+ seconds between pages, nothing clicked except as noted):
 
