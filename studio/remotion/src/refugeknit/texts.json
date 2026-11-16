@@ -1,0 +1,23 @@
+{
+ "hook": [
+  {
+   "ar": "حِينَ تُرْهِقُكَ الْحَيَاةُ",
+   "en": "When life {exhausts} you…"
+  },
+  {
+   "ar": "اجْعَلِ الصَّلَاةَ مَلْجَأَكَ وَمَلَاذَكَ",
+   "en": "make [prayer] your refuge and shelter"
+  }
+ ],
+ "hookNote": "the reference creator's own caption (no attribution)",
+ "restAr": "وَفِي الصَّلَاةِ رَاحَتُكَ",
+ "restEn": "and in [prayer] is your [rest]",
+ "quranAr": "وَٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ",
+ "quranEn": "And seek help through patience and prayer.",
+ "quranRef": "Quran 2:45 (Al-Baqarah)",
+ "basmala": "بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
+ "basmalaRef": "Quran 1:1",
+ "hadithAr": "يَا بِلاَلُ أَقِمِ الصَّلاَةَ أَرِحْنَا بِهَا",
+ "hadithEn": "O Bilal, call iqamah for prayer: give us comfort by it.",
+ "hadithRef": "Sunan Abi Dawud 4985 (Sahih, al-Albani), sunnah.com"
+}
