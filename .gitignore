@@ -17,3 +17,9 @@ outputs/guides/*/instagram-[0-9][0-9].png
 outputs/guides/*/linkedin-[0-9][0-9].png
 outputs/guides/*/short.mp4
 studio/remotion/public/gift/
+
+# Media never goes in this public repo (owner rule; 17 Nov 2026)
+studio/remotion/public/ipo/mix.wav
+outputs/guides/sky-property-tour/slide-00-hero.mp4
+studio/remotion/public/guides/sky-property-tour/shots/tour.png
+outputs/guides/sky-property-tour/carousel-linkedin.pdf
