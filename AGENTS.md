@@ -39,7 +39,10 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
   Re-record the actions with original narration and appropriate assets, retaining factual checks and copyright
   boundaries. The owner will provide a new reference for the next task; do not start a new video without it.
 
-- HeyGen renders: **720p, portrait (9:16)**, cloned voice "Hammad Yousuf", engine Avatar V. Look: the owner rejected the
+- HeyGen credit policy (owner rule 2026-11-17, overrides the engine and resolution below): follow
+  docs/HEYGEN_CREDIT_POLICY.md on every render. That means Avatar 6 Turbo only, 1080p only, Photo Look, 60 s or shorter, one render per
+  video, no paid extras, `tools/heygen_credits.py estimate` before rendering (ask the owner above 40 credits) and `log` after.
+- HeyGen renders: portrait (9:16), cloned voice "Hammad Yousuf". (The older 720p / Avatar V defaults are replaced by the credit policy above.) Look: the owner rejected the
   dark black-blazer look on 2026-10-17; he wants a bright, casual creator look like the reference reel (black tee, daylight
   room, white chair). New looks are made in HeyGen Look Studio (Avatar → Create new look → Generate with AI, portrait).
 - Every video mirrors the reference reel's beats, length and edit style (docs/EDIT_STYLE.md) in our own words.
