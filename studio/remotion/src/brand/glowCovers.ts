@@ -56,6 +56,8 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '45a6c16a7ad3', date: 'awaiting approval', title: 'Interview in an hour? Practice with Claude as your mock interviewer (no live-answer tools; 3D dialogue)', cover: c('1 Hour Left?', 'Practice With AI', LOGO.claude,
+    {text: '1h', color: '#FFFFFF', bg: 'linear-gradient(160deg, #F58A4B 0%, #D9541C 100%)', glow: '#FF8A5B'})},
   {job: '154b32644087', date: 'awaiting approval', title: 'Is local AI worth it? We tested a 16 GB MacBook (Ollama, 3D dialogue)', cover: c('Run AI Locally', 'On a 16GB Mac?', LOGO.claude,
     {text: '16GB', color: '#FFFFFF', bg: 'linear-gradient(160deg, #3D4560 0%, #161A28 100%)', glow: '#7CC4FF'})},
   {job: '8d98760c9650', date: 'awaiting approval', title: 'Free AI API keys that still work: OpenRouter, Google AI Studio, Groq, NVIDIA, Ollama (and the dead GitHub list)', cover: c('Free AI APIs', 'That Still Work', LOGO.gemini, LOGO.nvidia)},
