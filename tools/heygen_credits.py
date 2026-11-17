@@ -1,6 +1,5 @@
 """HeyGen credit and B-roll guard
 (Avatar 6 Turbo, 1080p, 20 credits/min) for docs/VIDEO_PIPELINE_POLICY.md.
-(Avatar 6 Turbo, 1080p, 20 credits/min).
 
   estimate <seconds>                            one clip: exit 2 if > 60 s or > 40 credits
   reel <clip1_s> [clip2_s]                      reel plan: max 2 clips of 5-8 s, total under 15 s / 5 credits
