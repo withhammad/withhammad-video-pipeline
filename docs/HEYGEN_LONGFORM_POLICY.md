@@ -1,5 +1,7 @@
 # Long-Form Video Policy (10–60 minute videos)
 
+> **Superseded on 2026-11-17 by `docs/VIDEO_PIPELINE_POLICY.md`, the master policy.** That file is canonical. This one is kept for history only.
+
 Owner's rules, added 2026-11-17. They sit alongside `docs/HEYGEN_CREDIT_POLICY.md`, whose avatar rules (Avatar 6 Turbo, 1080p, Photo Look, render once, no extras, 2,000 credits/month) also apply here.
 
 ## Purpose

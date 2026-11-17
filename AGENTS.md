@@ -39,12 +39,15 @@ up the work from a cold start using only what is in the repo plus `work/.secrets
   Re-record the actions with original narration and appropriate assets, retaining factual checks and copyright
   boundaries. The owner will provide a new reference for the next task; do not start a new video without it.
 
-- HeyGen credit policy (owner rule 2026-11-17, overrides the engine and resolution below): follow
-  docs/HEYGEN_CREDIT_POLICY.md on every render. That means Avatar 6 Turbo only, 1080p only, Photo Look, 60 s or shorter, one render per
-  video, no paid extras, `tools/heygen_credits.py estimate` before rendering (ask the owner above 40 credits) and `log` after.
-- Long videos (10–60 min): follow docs/HEYGEN_LONGFORM_POLICY.md. Avatar only as intro 45–60 s, at most 5 face cuts of 15–20 s and an
-  outro 20–30 s (4 min / 80 credits max), the body is screen recording plus his voice, reuse cached clips by script hash, FFmpeg stitch.
-- HeyGen renders: portrait (9:16), cloned voice "Hammad Yousuf". (The older 720p / Avatar V defaults are replaced by the credit policy above.) Look: the owner rejected the
+- **VIDEO PIPELINE MASTER POLICY (owner rule 2026-11-17, Claude Code and Codex): read docs/VIDEO_PIPELINE_POLICY.md in full
+  before any video task.** It overrides anything below on HeyGen engine, resolution, avatar length and B-roll:
+  - HeyGen: Avatar 6 Turbo, 1080p, Photo Look, render once, no extras, 2,000 credits/month.
+  - Avatar limits: reels get avatar clips of 5–8 s only (under 15 s, under 5 credits); long videos get an intro, at most 5 face cuts
+    and an outro (80 credits max).
+  - B-roll: Google Flow (Veo) instead of Higgsfield.
+  - Assembly: FFmpeg only.
+  - Checks and logs: `tools/heygen_credits.py`.
+- HeyGen renders: cloned voice "Hammad Yousuf", via the master policy above. Look: the owner rejected the
   dark black-blazer look on 2026-10-17; he wants a bright, casual creator look like the reference reel (black tee, daylight
   room, white chair). New looks are made in HeyGen Look Studio (Avatar → Create new look → Generate with AI, portrait).
 - Every video mirrors the reference reel's beats, length and edit style (docs/EDIT_STYLE.md) in our own words.

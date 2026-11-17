@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-"""HeyGen credit guard for docs/HEYGEN_CREDIT_POLICY.md and docs/HEYGEN_LONGFORM_POLICY.md
+"""HeyGen credit and B-roll guard
+(Avatar 6 Turbo, 1080p, 20 credits/min) for docs/VIDEO_PIPELINE_POLICY.md.
 (Avatar 6 Turbo, 1080p, 20 credits/min).
 
   estimate <seconds>                            one clip: exit 2 if > 60 s or > 40 credits
@@ -9,7 +9,12 @@
   cache <script.txt>                            print the cached clip for this script's hash, if any (exit 3 if none)
   cache <script.txt> <clip.mp4>                 store a rendered clip under the script's hash
   log <name> <seconds> [credits] [--project P]  append to the log, print the month total
-  total                                         print this month's total
+  total                                         print this month's HeyGen total
+  broll-find <words...>                         list saved B-roll clips whose path or prompt matches all words
+  broll-plan <project> reel|long <shots>        Flow budget: max 10 shots per reel, 25 per long video (exit 2 over)
+  broll-log <project> <shot> <seconds> [tool]   append to broll_usage.log (tool defaults to "Google Flow (Veo)")
+  totals                                        print the HeyGen and B-roll monthly totals
+Policy: docs/VIDEO_PIPELINE_POLICY.md
 """
 import datetime as dt
 import hashlib
@@ -28,6 +33,18 @@ MODEL, RES = 'Avatar 6 Turbo', '1080p'
 ROOT = Path(__file__).resolve().parents[1]
 LOG = ROOT / 'studio' / '.local' / 'heygen_credits.log'
 CACHE = ROOT / 'studio' / '.local' / 'assets' / 'avatar' / 'cache'
+BROLL_DIR = ROOT / 'studio' / '.local' / 'assets' / 'broll'
+BROLL_LOG = ROOT / 'studio' / '.local' / 'broll_usage.log'
+BROLL_MAX = {'reel': 10, 'long': 25}
+
+
+def broll_month(month: str | None = None) -> tuple[int, float]:
+    month = month or dt.date.today().strftime('%Y-%m')
+    if not BROLL_LOG.exists():
+        return 0, 0.0
+    rows = [l.split('\t') for l in BROLL_LOG.read_text().splitlines()]
+    rows = [r for r in rows if len(r) >= 5 and r[0].startswith(month)]
+    return len(rows), round(sum(float(r[3]) for r in rows), 1)
 
 
 def credits(seconds: float) -> float:
@@ -65,11 +82,47 @@ def stop(problems: list[str]) -> int:
 
 
 def main(argv: list[str]) -> int:
-    cmds = ('estimate', 'reel', 'longform', 'cache', 'log', 'total')
+    cmds = ('estimate', 'reel', 'longform', 'cache', 'log', 'total', 'broll-find', 'broll-plan', 'broll-log', 'totals')
     if len(argv) < 2 or argv[1] not in cmds:
         print(__doc__.strip())
         return 1
     cmd, args = argv[1], argv[2:]
+
+    if cmd == 'broll-find':
+        words = [w.lower() for w in args]
+        hits = []
+        for clip in sorted(BROLL_DIR.glob('*/*.mp4')) if BROLL_DIR.exists() else []:
+            txt = clip.with_suffix('.txt')
+            hay = (str(clip.relative_to(BROLL_DIR)) + ' ' + (txt.read_text() if txt.exists() else '')).lower()
+            if all(w in hay for w in words):
+                hits.append(clip)
+        for h in hits:
+            print(f'REUSE: {h}')
+        if not hits:
+            print('no matching B-roll; generate in Google Flow (one take per shot)')
+        return 0 if hits else 3
+
+    if cmd == 'broll-plan':
+        project, kind, shots = args[0], args[1], int(args[2])
+        cap = BROLL_MAX.get(kind)
+        if cap is None:
+            return stop(['kind must be reel or long'])
+        print(f'B-roll plan for {project}: {shots} new Flow shot(s), cap {cap} per {kind}')
+        return stop([f'{shots} shots is over the {cap}-shot cap for a {kind}. Ask the owner.'] if shots > cap else [])
+
+    if cmd == 'broll-log':
+        project, shot, sec = args[0], args[1], float(args[2])
+        tool = args[3] if len(args) > 3 else 'Google Flow (Veo)'
+        BROLL_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with BROLL_LOG.open('a') as f:
+            f.write('\t'.join([dt.datetime.now().strftime('%Y-%m-%d %H:%M'), project, shot, f'{sec:g}', tool]) + '\n')
+        cmd = 'totals'
+
+    if cmd == 'totals':
+        print_total()
+        n, s = broll_month()
+        print(f'B-roll this month: {n} shot(s), {s:g}s (Google Flow credits are tracked separately in Flow)')
+        return 0
 
     if cmd == 'estimate':
         sec = float(args[0])

@@ -1,5 +1,7 @@
 # HeyGen Avatar Video — Credit Policy
 
+> **Superseded on 2026-11-17 by `docs/VIDEO_PIPELINE_POLICY.md`, the master policy.** That file is canonical. This one is kept for history only.
+
 Owner's rules, added 2026-11-17. They apply to every HeyGen generation in this pipeline, whether it is made in the web app, the `heygen` CLI or the MCP. Only a direct instruction from the owner in the same request can override a rule, and only for that one video.
 
 ## Purpose
