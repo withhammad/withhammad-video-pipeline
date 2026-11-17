@@ -4,6 +4,8 @@
   python3 tools/heygen_credits.py estimate <seconds>                -> exit 2 if > 40 credits or > 60 s
   python3 tools/heygen_credits.py log <filename> <seconds> [credits] -> append to the log, print the month total
   python3 tools/heygen_credits.py total                              -> print this month's total
+  python3 tools/heygen_credits.py reel <clip1_s> [clip2_s]          -> per-reel avatar check: max 2 clips of 5-8 s,
+                                                                       total under 15 s, target under 5 credits (exit 2 on fail)
 """
 import datetime as dt
 import sys
@@ -35,10 +37,27 @@ def month_total(month: str | None = None) -> float:
 
 
 def main(argv: list[str]) -> int:
-    if len(argv) < 2 or argv[1] not in ('estimate', 'log', 'total'):
+    if len(argv) < 2 or argv[1] not in ('estimate', 'log', 'total', 'reel'):
         print(__doc__.strip())
         return 1
     cmd = argv[1]
+    if cmd == 'reel':
+        clips = [float(x) for x in argv[2:]]
+        total_s = sum(clips)
+        c = credits(total_s)
+        print(f'Reel avatar plan: {len(clips)} clip(s) {", ".join(f"{x:g}s" for x in clips)} = {total_s:g}s, '
+              f'{MODEL} {RES}, ~{c:g} credits')
+        problems = []
+        if not 1 <= len(clips) <= 2:
+            problems.append('use an intro clip and at most one mid-video clip')
+        problems += [f'clip {x:g}s is outside 5-8 s' for x in clips if not 5 <= x <= 8]
+        if total_s >= 15:
+            problems.append(f'total avatar time {total_s:g}s must stay under 15 s')
+        if c >= 5:
+            problems.append(f'~{c:g} credits is not under the 5-credit target')
+        for p in problems:
+            print('STOP:', p)
+        return 2 if problems else 0
     if cmd == 'estimate':
         sec = float(argv[2])
         c = credits(sec)
