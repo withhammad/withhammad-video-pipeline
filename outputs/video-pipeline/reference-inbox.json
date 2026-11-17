@@ -572,7 +572,8 @@
       "url": "https://www.instagram.com/reel/Dfw9Qr7xfS0/",
       "note": "competitor watch 2026-11-16 pick 5e051edfaac7: own version, see the brief (python -m app.competitor_watch brief 5e051edfaac7)",
       "added": "2026-11-16",
-      "status": "awaiting_approval",
+      "status": "approved",
+      "approved": "2026-11-17",
       "job": "b270e26281f7",
       "source": "competitor_watch"
     }
