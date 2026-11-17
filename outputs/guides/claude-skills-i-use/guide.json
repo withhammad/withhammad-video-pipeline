@@ -1,0 +1,277 @@
+{
+ "docTitle": "9 Claude Skills I Actually Use",
+ "footUrl": "WITHHAMMAD.COM/RESOURCES",
+ "keyword": "LOADOUT",
+ "source": "github.com/vercel-labs/skills; github.com/anthropics/skills (skill-creator, document-skills); github.com/garrytan/gstack; github.com/Graphify-Labs/graphify; github.com/AgriciDaniel/claude-seo; github.com/remotion-dev/skills; github.com/heygen-com/hyperframes; github.com/taoufik123-collab/claude-watch; code.claude.com/docs/en/skills (checked 17 Nov 2026)",
+ "reference": "Own WithHammad list of the skills installed in this pipeline; topic signal from competitor watch pick 4dc6cdc3fd78; carousel template: AI Central style",
+ "instagram": [
+  {
+   "kind": "cover",
+   "line1": "9 Claude Skills",
+   "line2": "I Actually Use",
+   "sub": "All free, all on GitHub, all installed on my Mac",
+   "hero": "glow/si-claude.svg",
+   "sticker": "9 SKILLS",
+   "ghost": "Skills"
+  },
+  {
+   "kind": "promise",
+   "title": "9 skills, *one install line each*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "code.claude.com/docs/en/skills"
+   },
+   "get": "a skill is a folder with a SKILL.md file; Claude loads it when the task fits",
+   "shot": "guides/claude-skills-i-use/shots/docs.png",
+   "callout": "Read the docs here",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Find Skills: Search First",
+   "what": "Claude searches the open skills directory and installs the right one for your task",
+   "bestFor": "Anyone hunting for the right skill",
+   "shot": "guides/claude-skills-i-use/shots/find-skills.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "npx skills add vercel-labs/skills --skill find-skills"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Skill Creator: Build Your Own",
+   "what": "Turns a task you repeat into a new skill, then tests and tunes it",
+   "bestFor": "Anything you explain every week",
+   "shot": "guides/claude-skills-i-use/shots/skill-creator.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "/plugin install example-skills@anthropic-agent-skills"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "gstack: A Dev Team in One",
+   "what": "23 tools that act as CEO, designer, eng manager, QA and release manager",
+   "bestFor": "Founders who ship code alone",
+   "shot": "guides/claude-skills-i-use/shots/gstack.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "git clone garrytan/gstack, then run ./setup"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Graphify: Map Your Codebase",
+   "what": "Turns a whole project into a knowledge graph Claude can query instead of grepping",
+   "bestFor": "Big or unfamiliar codebases",
+   "shot": "guides/claude-skills-i-use/shots/graphify.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "uv tool install graphifyy"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Claude SEO: Full Site Audit",
+   "what": "Technical SEO, schema, Core Web Vitals and AI-search checks, in one command",
+   "bestFor": "Site owners and marketers",
+   "shot": "guides/claude-skills-i-use/shots/claude-seo.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "/plugin install claude-seo@agricidaniel-claude-seo"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Remotion: Videos in React",
+   "what": "Best-practice rules so Claude writes working Remotion video code",
+   "bestFor": "Making videos with code",
+   "shot": "guides/claude-skills-i-use/shots/remotion.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "npx skills add remotion-dev/skills"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "HyperFrames: HTML to Video",
+   "what": "Write the video as HTML, render the same MP4 every time",
+   "bestFor": "Explainers, title cards, motion",
+   "shot": "guides/claude-skills-i-use/shots/hyperframes.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "claude plugin install hyperframes@hyperframes"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Document Skills: Office Files",
+   "what": "Claude creates and edits Word, Excel, PowerPoint and PDF files",
+   "bestFor": "Reports, decks and spreadsheets",
+   "shot": "guides/claude-skills-i-use/shots/document-skills.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "/plugin install document-skills@anthropic-agent-skills"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Watch: Claude Sees Videos",
+   "what": "Paste a video link: Claude pulls frames and a transcript, then answers",
+   "bestFor": "Breaking down reels and tutorials",
+   "shot": "guides/claude-skills-i-use/shots/watch.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "/plugin install watch@claude-watch"
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the skills.",
+   "line2": "Now install one.",
+   "sub": "Don't install all 9 today.",
+   "bullets": [
+    "Pick the one that fits your week",
+    "Paste its install line",
+    "Give it one real task"
+   ],
+   "stamp1": "Comment LOADOUT",
+   "stamp2": "I'll DM you every link"
+  }
+ ],
+ "linkedin": [
+  {
+   "kind": "cover",
+   "line1": "9 Claude Skills",
+   "line2": "I Actually Use",
+   "sub": "All free, all on GitHub, all installed on my Mac",
+   "hero": "glow/si-claude.svg",
+   "sticker": "9 SKILLS",
+   "ghost": "Skills"
+  },
+  {
+   "kind": "promise",
+   "title": "9 skills, *one install line each*",
+   "setup": {
+    "label": "The setup is inside:",
+    "url": "code.claude.com/docs/en/skills"
+   },
+   "get": "a skill is a folder with a SKILL.md file; Claude loads it when the task fits",
+   "shot": "guides/claude-skills-i-use/shots/docs.png",
+   "callout": "Read the docs here",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Find Skills: Search First",
+   "what": "Claude searches the open skills directory and installs the right one for your task",
+   "bestFor": "Anyone hunting for the right skill",
+   "shot": "guides/claude-skills-i-use/shots/find-skills.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "npx skills add vercel-labs/skills --skill find-skills"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Skill Creator: Build Your Own",
+   "what": "Turns a task you repeat into a new skill, then tests and tunes it",
+   "bestFor": "Anything you explain every week",
+   "shot": "guides/claude-skills-i-use/shots/skill-creator.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "/plugin install example-skills@anthropic-agent-skills"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "gstack: A Dev Team in One",
+   "what": "23 tools that act as CEO, designer, eng manager, QA and release manager",
+   "bestFor": "Founders who ship code alone",
+   "shot": "guides/claude-skills-i-use/shots/gstack.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "git clone garrytan/gstack, then run ./setup"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Graphify: Map Your Codebase",
+   "what": "Turns a whole project into a knowledge graph Claude can query instead of grepping",
+   "bestFor": "Big or unfamiliar codebases",
+   "shot": "guides/claude-skills-i-use/shots/graphify.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "uv tool install graphifyy"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Claude SEO: Full Site Audit",
+   "what": "Technical SEO, schema, Core Web Vitals and AI-search checks, in one command",
+   "bestFor": "Site owners and marketers",
+   "shot": "guides/claude-skills-i-use/shots/claude-seo.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "/plugin install claude-seo@agricidaniel-claude-seo"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "Remotion: Videos in React",
+   "what": "Best-practice rules so Claude writes working Remotion video code",
+   "bestFor": "Making videos with code",
+   "shot": "guides/claude-skills-i-use/shots/remotion.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "npx skills add remotion-dev/skills"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "HyperFrames: HTML to Video",
+   "what": "Write the video as HTML, render the same MP4 every time",
+   "bestFor": "Explainers, title cards, motion",
+   "shot": "guides/claude-skills-i-use/shots/hyperframes.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "claude plugin install hyperframes@hyperframes"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Document Skills: Office Files",
+   "what": "Claude creates and edits Word, Excel, PowerPoint and PDF files",
+   "bestFor": "Reports, decks and spreadsheets",
+   "shot": "guides/claude-skills-i-use/shots/document-skills.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "/plugin install document-skills@anthropic-agent-skills"
+  },
+  {
+   "kind": "item",
+   "n": 9,
+   "title": "Watch: Claude Sees Videos",
+   "what": "Paste a video link: Claude pulls frames and a transcript, then answers",
+   "bestFor": "Breaking down reels and tutorials",
+   "shot": "guides/claude-skills-i-use/shots/watch.png",
+   "callout": "Get it here",
+   "icon": "glow/si-github.svg",
+   "meta": "/plugin install watch@claude-watch"
+  },
+  {
+   "kind": "cta",
+   "line1": "You've got the skills.",
+   "line2": "Now install one.",
+   "sub": "Don't install all 9 today.",
+   "bullets": [
+    "Pick the one that fits your week",
+    "Paste its install line",
+    "Give it one real task"
+   ],
+   "stamp1": "Get every free guide here",
+   "stamp2": "VISIT WITHHAMMAD.COM/RESOURCES"
+  }
+ ]
+}
