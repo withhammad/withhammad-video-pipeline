@@ -56,6 +56,8 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '0215fbca0f39', date: 'awaiting approval', title: 'Launching tomorrow? Get a second opinion with Cloudflare\'s open-source security-audit skill (3D dialogue)', cover: c('Launch Tomorrow?', 'Audit It First', LOGO.claude,
+    {text: '🔐', color: '#FFFFFF', bg: 'linear-gradient(160deg, #F6A04D 0%, #E8701C 100%)', glow: '#F38020'})},
   {job: '45a6c16a7ad3', date: 'awaiting approval', title: 'Interview in an hour? Practice with Claude as your mock interviewer (no live-answer tools; 3D dialogue)', cover: c('1 Hour Left?', 'Practice With AI', LOGO.claude,
     {text: '1h', color: '#FFFFFF', bg: 'linear-gradient(160deg, #F58A4B 0%, #D9541C 100%)', glow: '#FF8A5B'})},
   {job: '154b32644087', date: 'awaiting approval', title: 'Is local AI worth it? We tested a 16 GB MacBook (Ollama, 3D dialogue)', cover: c('Run AI Locally', 'On a 16GB Mac?', LOGO.claude,
