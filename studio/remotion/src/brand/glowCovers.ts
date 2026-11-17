@@ -56,6 +56,8 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '89e38db8d358', date: 'awaiting approval', title: 'He gave Claude 12 years of texts: an Anthropic employee\'s iMessage wedding website (3D dialogue)', cover: c('161,015 Texts', '1 Wedding Site', LOGO.claude,
+    {text: '❤', color: '#FFFFFF', bg: 'linear-gradient(160deg, #F08A7A 0%, #C9483A 100%)', glow: '#FF7A6B'})},
   {job: 'c1be587e1d6a', date: 'awaiting approval', title: 'Anthropic IPO explained: can you get in at the IPO price? (3D dialogue, not financial advice)', cover: c('Anthropic IPO', 'Can I Get In?', LOGO.anthropic,
     {text: 'IPO', color: '#FFFFFF', bg: 'linear-gradient(160deg, #F58A4B 0%, #D9541C 100%)', glow: '#FF8A5B'})},
   {job: '94d5af0523c0', date: 'awaiting approval', title: 'mirroir-mcp: Claude Code controls your real iPhone through iPhone Mirroring (free, Apache-2.0)', cover: c('Claude Code', 'Uses Your iPhone', LOGO.claude, LOGO.apple)},
