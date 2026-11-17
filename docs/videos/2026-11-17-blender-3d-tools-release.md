@@ -17,17 +17,21 @@ cut, 17 Nov: "Approved".
 
 Owner, 17 Nov: he posted it himself everywhere and edits manually; the pipeline only adds the follow-up automation.
 
-## State
+## State (after the merge, 17 Nov)
 
-- First comment with the BLENDER ask and the follow line posted on both reels by API (comment ids 18121665655994272,
-  18115506953134388). Pinning is done in the app.
-- Guide page `withhammad.com/resources/ai-3d-tools` and the BLENDER keyword DM rule are in site PR #42, built and
-  verified, NOT merged (website merges are the owner's). Until it merges and deploys the page is a 404 and a BLENDER
-  comment gets no DM.
-- Not checked: whether the owner's uploads are Trial Reels, carry a trending sound, or sent Collab invites; the API
-  does not return these.
-- Link comments (YouTube pinned guide comment, X reply, LinkedIn and Facebook first comments) are held until the
-  guide page answers 200: the rule is never to promise a link that 404s. The captions on X, YouTube, LinkedIn and
-  Facebook already carry the guide link.
-- The BLENDER rule could not be pushed to site main from the release session (permission check); it is only in PR #42.
-- Queue: rows `in/yo/li/xx/tt/fa-b270e26281f7` appended as posted so the pipeline does not post again.
+- Site PR #42 merged on the owner's word in the release session ("You merge it"), commit `d14b73f`. Read back:
+  `withhammad.com/resources/ai-3d-tools` answers 200 with the right title, and the BLENDER rule is on site main
+  (DM = guide link + resources link, reply "Sent you a DM"). CI "check" on that commit fails on prompt-check
+  violations that were already on main.
+- Instagram: first comment with the BLENDER ask and follow line on both reels (ids 18121665655994272,
+  18115506953134388). Pinning is done in the app. The DM was not tested end to end: every account available is the
+  owner's, which the webhook skips.
+- YouTube: guide + subscribe comment posted from Studio and pinned ("Pinned by @with.hammad" read back).
+- X: reply with the guide link, https://x.com/HammadYousufAI/status/2122598688593989726
+- LinkedIn: comment with the guide link posted through Chrome (1 comment read back).
+- Facebook: Page comment with the guide link by API (id 2702104813587040_4432355473761716).
+- TikTok: CTA comment ("link in bio"). The first attempt typed into the player and liked the video from the
+  owner's account; the like was left. Focus the Draft editor by script before typing.
+- Not done: blog entry; YouTube keyword replies (API token revoked). Not checked: TikTok bio link target; whether the
+  owner's Instagram uploads are Trial Reels with a trending sound.
+- Queue: rows `in/yo/li/xx/tt/fa-b270e26281f7` are marked posted.
