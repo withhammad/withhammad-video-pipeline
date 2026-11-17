@@ -1,0 +1,233 @@
+{
+  "docTitle": "Build a Property Tour With Claude",
+  "footUrl": "WITHHAMMAD.COM/RESOURCES",
+  "keyword": "TOUR",
+  "source": "Our own build on 17 Nov 2026: tour site written by Claude (Fable 5.2), views from one master picture made with GPT Image 2 (ChatGPT plan), 3D shots in Blender 5.2. Price range checked 17 Nov 2026 on vendor pages: realestateclubdubai.com (Dubai rendering and virtual tour prices 2026), elipsestudio.com (off-plan packages AUD 14k-60k+), framesixty.com (VR walkthroughs $20k-50k+), maverickframe.com (CGI walkthrough from about $1,500).",
+  "reference": "Own WithHammad build of a fictional concept project (Halo Sky Residences); topic signal from an owner-sent post (competitor watch pick cd60314ff09e); carousel template: AI Central style",
+  "instagram": [
+    {
+      "kind": "cover",
+      "line1": "Claude Built",
+      "line2": "This Tour",
+      "sub": "One picture, 7 prompts, no 3D artist",
+      "hero": "glow/si-claude.svg",
+      "sticker": "7 PROMPTS",
+      "ghost": "Tour"
+    },
+    {
+      "kind": "promise",
+      "title": "A tour buyers *can click through*",
+      "setup": {
+        "label": "What we built:",
+        "url": "Halo Sky Residences (concept)"
+      },
+      "get": "studios quote about $1,500 for a CGI walkthrough and $20,000+ for an interactive build; this one took an afternoon",
+      "shot": "guides/sky-property-tour/shots/tour.png",
+      "callout": "The finished tour",
+      "icon": "glow/si-claude.svg"
+    },
+    {
+      "kind": "item",
+      "n": 1,
+      "title": "Plan the Project",
+      "what": "Claude turns one idea into views, captions, facts and a palette",
+      "bestFor": "Your first demo project",
+      "bestLabel": "Use it for",
+      "prompt": "Act as the marketing lead for a luxury tower called [name] in [city]. Give me 4 outside views and 3 inside views a buyer would want to see, one caption each, the 3 facts buyers ask about first, a palette with hex codes and 2 fonts every computer has. Keep it believable for [city].",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude"
+    },
+    {
+      "kind": "item",
+      "n": 2,
+      "title": "Make One Master Picture",
+      "what": "Every other view is built from this one picture, so the building never changes",
+      "bestFor": "Getting the look right once",
+      "bestLabel": "Use it for",
+      "prompt": "Photoreal architectural render, 21:9. [Paste the building description from step 1.] Golden hour, crisp reflections on the glass, premium real-estate look. No people, no text, no logos.",
+      "icon": "glow/si-openai.svg",
+      "meta": "Any image model (we used GPT Image 2)"
+    },
+    {
+      "kind": "item",
+      "n": 3,
+      "title": "Turn It Into 7 Views",
+      "what": "Attach the master picture and ask for one view at a time",
+      "bestFor": "Inside and outside shots",
+      "bestLabel": "Use it for",
+      "prompt": "Use the attached picture as the reference. Show [view: aerial / rooftop pool / living room / spa bath]. Same building, same materials, same light. Photoreal, 21:9, no people, no text.",
+      "icon": "glow/si-openai.svg",
+      "meta": "Same image model, image attached"
+    },
+    {
+      "kind": "item",
+      "n": 4,
+      "title": "Build the Tour Site",
+      "what": "One HTML file you can preview right in the chat",
+      "bestFor": "The page buyers open",
+      "bestLabel": "Use it for",
+      "prompt": "Build a one-file HTML property tour. Full-screen view in the middle with a slow zoom, a header with [name] and a 'Book a private viewing' button, a glass 'Choose your view' panel with Outside and Inside tabs, and the view name plus 3 facts bottom left. Use my palette. It must work on a phone.",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude"
+    },
+    {
+      "kind": "item",
+      "n": 5,
+      "title": "Make It Feel Alive",
+      "what": "Small motion is what keeps buyers clicking",
+      "bestFor": "Turning a page into a product",
+      "bestLabel": "Use it for",
+      "prompt": "Fade between views in 0.4 seconds, highlight the active row, let the arrow keys move to the next view, add a pulsing 'Live tour' label, and move the panel to the bottom on phones. Change nothing else.",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude"
+    },
+    {
+      "kind": "item",
+      "n": 6,
+      "title": "Add Moving Shots",
+      "what": "Optional: swap the stills for short clips from any video model",
+      "bestFor": "When the client pays for video",
+      "bestLabel": "Use it for",
+      "prompt": "Here are my .mp4 links in the same order as the views: [links]. Play each one muted, looped, with no controls, filling the frame. Show the still picture while a clip loads, and fall back to it if a link fails.",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude + your clips"
+    },
+    {
+      "kind": "item",
+      "n": 7,
+      "title": "Pitch a Developer",
+      "what": "The tour is your sample; the DM sells the real one",
+      "bestFor": "Your first client",
+      "bestLabel": "Use it for",
+      "prompt": "Write a DM under 60 words to the sales director at [developer], who is selling [project] in [city]. Link: [my tour]. Lead with what buyers see before anything is built. Offer a tour of their project for [price] in 7 days. Then write my reply if they say it's too expensive.",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude"
+    },
+    {
+      "kind": "cta",
+      "line1": "You've got the prompts.",
+      "line2": "Now build your demo.",
+      "sub": "Label every render as a concept.",
+      "bullets": [
+        "Pick a building in your city",
+        "Run prompts 1 to 5 tonight",
+        "Send the link to one developer"
+      ],
+      "stamp1": "Comment TOUR",
+      "stamp2": "I'll DM you every prompt"
+    }
+  ],
+  "linkedin": [
+    {
+      "kind": "cover",
+      "line1": "Claude Built",
+      "line2": "This Tour",
+      "sub": "One picture, 7 prompts, no 3D artist",
+      "hero": "glow/si-claude.svg",
+      "sticker": "7 PROMPTS",
+      "ghost": "Tour"
+    },
+    {
+      "kind": "promise",
+      "title": "A tour buyers *can click through*",
+      "setup": {
+        "label": "What we built:",
+        "url": "Halo Sky Residences (concept)"
+      },
+      "get": "studios quote about $1,500 for a CGI walkthrough and $20,000+ for an interactive build; this one took an afternoon",
+      "shot": "guides/sky-property-tour/shots/tour.png",
+      "callout": "The finished tour",
+      "icon": "glow/si-claude.svg"
+    },
+    {
+      "kind": "item",
+      "n": 1,
+      "title": "Plan the Project",
+      "what": "Claude turns one idea into views, captions, facts and a palette",
+      "bestFor": "Your first demo project",
+      "bestLabel": "Use it for",
+      "prompt": "Act as the marketing lead for a luxury tower called [name] in [city]. Give me 4 outside views and 3 inside views a buyer would want to see, one caption each, the 3 facts buyers ask about first, a palette with hex codes and 2 fonts every computer has. Keep it believable for [city].",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude"
+    },
+    {
+      "kind": "item",
+      "n": 2,
+      "title": "Make One Master Picture",
+      "what": "Every other view is built from this one picture, so the building never changes",
+      "bestFor": "Getting the look right once",
+      "bestLabel": "Use it for",
+      "prompt": "Photoreal architectural render, 21:9. [Paste the building description from step 1.] Golden hour, crisp reflections on the glass, premium real-estate look. No people, no text, no logos.",
+      "icon": "glow/si-openai.svg",
+      "meta": "Any image model (we used GPT Image 2)"
+    },
+    {
+      "kind": "item",
+      "n": 3,
+      "title": "Turn It Into 7 Views",
+      "what": "Attach the master picture and ask for one view at a time",
+      "bestFor": "Inside and outside shots",
+      "bestLabel": "Use it for",
+      "prompt": "Use the attached picture as the reference. Show [view: aerial / rooftop pool / living room / spa bath]. Same building, same materials, same light. Photoreal, 21:9, no people, no text.",
+      "icon": "glow/si-openai.svg",
+      "meta": "Same image model, image attached"
+    },
+    {
+      "kind": "item",
+      "n": 4,
+      "title": "Build the Tour Site",
+      "what": "One HTML file you can preview right in the chat",
+      "bestFor": "The page buyers open",
+      "bestLabel": "Use it for",
+      "prompt": "Build a one-file HTML property tour. Full-screen view in the middle with a slow zoom, a header with [name] and a 'Book a private viewing' button, a glass 'Choose your view' panel with Outside and Inside tabs, and the view name plus 3 facts bottom left. Use my palette. It must work on a phone.",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude"
+    },
+    {
+      "kind": "item",
+      "n": 5,
+      "title": "Make It Feel Alive",
+      "what": "Small motion is what keeps buyers clicking",
+      "bestFor": "Turning a page into a product",
+      "bestLabel": "Use it for",
+      "prompt": "Fade between views in 0.4 seconds, highlight the active row, let the arrow keys move to the next view, add a pulsing 'Live tour' label, and move the panel to the bottom on phones. Change nothing else.",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude"
+    },
+    {
+      "kind": "item",
+      "n": 6,
+      "title": "Add Moving Shots",
+      "what": "Optional: swap the stills for short clips from any video model",
+      "bestFor": "When the client pays for video",
+      "bestLabel": "Use it for",
+      "prompt": "Here are my .mp4 links in the same order as the views: [links]. Play each one muted, looped, with no controls, filling the frame. Show the still picture while a clip loads, and fall back to it if a link fails.",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude + your clips"
+    },
+    {
+      "kind": "item",
+      "n": 7,
+      "title": "Pitch a Developer",
+      "what": "The tour is your sample; the DM sells the real one",
+      "bestFor": "Your first client",
+      "bestLabel": "Use it for",
+      "prompt": "Write a DM under 60 words to the sales director at [developer], who is selling [project] in [city]. Link: [my tour]. Lead with what buyers see before anything is built. Offer a tour of their project for [price] in 7 days. Then write my reply if they say it's too expensive.",
+      "icon": "glow/si-claude.svg",
+      "meta": "Claude"
+    },
+    {
+      "kind": "cta",
+      "line1": "You've got the prompts.",
+      "line2": "Now build your demo.",
+      "sub": "Label every render as a concept.",
+      "bullets": [
+        "Pick a building in your city",
+        "Run prompts 1 to 5 tonight",
+        "Send the link to one developer"
+      ],
+      "stamp1": "Get every free guide here",
+      "stamp2": "VISIT WITHHAMMAD.COM/RESOURCES"
+    }
+  ]
+}
