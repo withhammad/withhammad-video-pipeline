@@ -56,6 +56,7 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: '8d98760c9650', date: 'awaiting approval', title: 'Free AI API keys that still work: OpenRouter, Google AI Studio, Groq, NVIDIA, Ollama (and the dead GitHub list)', cover: c('Free AI APIs', 'That Still Work', LOGO.gemini, LOGO.nvidia)},
   {job: '89e38db8d358', date: 'awaiting approval', title: 'He gave Claude 12 years of texts: an Anthropic employee\'s iMessage wedding website (3D dialogue)', cover: c('161,015 Texts', '1 Wedding Site', LOGO.claude,
     {text: '❤', color: '#FFFFFF', bg: 'linear-gradient(160deg, #F08A7A 0%, #C9483A 100%)', glow: '#FF7A6B'})},
   {job: 'c1be587e1d6a', date: 'awaiting approval', title: 'Anthropic IPO explained: can you get in at the IPO price? (3D dialogue, not financial advice)', cover: c('Anthropic IPO', 'Can I Get In?', LOGO.anthropic,
