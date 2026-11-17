@@ -40,7 +40,7 @@ const CAM: Record<string, Cam> = {
   botTight: {pos: [-1.7, 1.25, 6.3], look: [-2.3, 0.8, 1.0], fov: 26},
 };
 const push = (a: Cam, k: number, amt = 0.06): Cam => ({...a, fov: a.fov * (1 - amt * ease(k))});
-const BOY_CAM: Record<number, string> = {1: 'boyCU', 3: 'boyTight', 5: 'boyLow', 8: 'boyCU', 10: 'boyTight', 12: 'boyCU'};
+const BOY_CAM: Record<number, string> = {1: 'boyCU', 3: 'boyTight', 5: 'boyCU', 8: 'boyCU', 10: 'boyTight', 12: 'boyCU'};
 const panelOn = (t: number) => t >= C.repo - 0.1 && t < C.solo;
 function shot(t: number): ShotState {
   const l = lineAt(t) ?? LINES[0];
