@@ -1,0 +1,255 @@
+{
+ "docTitle": "FREE Claude Certification Prep",
+ "footUrl": "WITHHAMMAD.COM/RESOURCES",
+ "keyword": "CERT",
+ "source": "Checked 18 Nov 2026: anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification (60 questions, 120 min, $125, 12 months, OnVUE or test centre); CCAR-F Exam Guide v1.1 Nov 2026 (720/1,000, 4 of 6 scenarios, 12 sample questions with explanations, 4 exercises, 5 domain weights); pearsonvue.com/us/en/anthropic.html ('Certification is open to organizations in the Claude Partner Network'); Pearson SSO PDF (company credentials, partner discounts at checkout); anthropic.com/news/claude-partner-network (membership free, any organization bringing Claude to market); academy.claude.com course pages (Claude 101 13 lessons 2.5 hr; API course 67 lessons 9 hr).",
+ "reference": "Owner-sent LinkedIn image-card post 'Stop paying for Claude certification prep' (5 free steps); our own build with our template and real screenshots.",
+ "instagram": [
+  {
+   "kind": "cover",
+   "line1": "FREE Claude",
+   "line2": "Exam Prep",
+   "sub": "Claude Certified Architect · the official path, $0",
+   "hero": "glow/si-claude.svg",
+   "sticker": "DON'T PAY FOR PREP",
+   "ghost": "Claude"
+  },
+  {
+   "kind": "promise",
+   "title": "Every prep step is free, *straight from Anthropic*",
+   "setup": {
+    "label": "The exam page:",
+    "url": "anthropic-partners.skilljar.com"
+   },
+   "get": "free courses, docs, the exam guide and 12 sample questions",
+   "shot": "guides/claude-certification/shots/exam-page.png",
+   "callout": "60 questions · 120 minutes · $125",
+   "icon": "glow/si-anthropic.svg"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Claude 101",
+   "what": "Prompts, projects, artifacts and skills: everyday work with Claude",
+   "bestFor": "Your first free course",
+   "shot": "guides/claude-certification/shots/academy-claude-101.png",
+   "callout": "Start here",
+   "meta": "13 lessons · 1 quiz · 2.5 hr",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Building with the Claude API",
+   "what": "Prompting, tool use, RAG, agents, MCP and production patterns",
+   "bestFor": "The core of the exam",
+   "shot": "guides/claude-certification/shots/academy-api.png",
+   "callout": "Then this one",
+   "meta": "67 lessons · 8 quizzes · 9 hr",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "MCP docs",
+   "what": "How Model Context Protocol connects Claude to tools and data",
+   "bestFor": "Tool Design & MCP: 18% of the exam",
+   "shot": "guides/claude-certification/shots/docs-mcp.png",
+   "callout": "Read the intro",
+   "meta": "modelcontextprotocol.io",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Agent Skills docs",
+   "what": "What skills are, how they load and when to use them",
+   "bestFor": "Claude Code Configuration: 20% of the exam",
+   "shot": "guides/claude-certification/shots/docs-skills.png",
+   "callout": "Read the overview",
+   "meta": "platform.claude.com/docs",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Claude API docs",
+   "what": "Messages, batches, files, models: the endpoints behind every build",
+   "bestFor": "Prompting & structured output: 20%",
+   "shot": "guides/claude-certification/shots/docs-api.png",
+   "callout": "Read the API overview",
+   "meta": "platform.claude.com/docs",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "The official exam guide",
+   "what": "5 domains with weights, 6 scenarios (4 on your exam), every task tested",
+   "bestFor": "Knowing exactly what is tested",
+   "shot": "guides/claude-certification/shots/guide-blueprint.png",
+   "callout": "Free PDF, v1.1 Nov 2026",
+   "meta": "60 questions · 120 min · pass 720 / 1,000",
+   "icon": "glow/si-anthropic.svg"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "The sample questions",
+   "what": "12 real-format questions with the answers explained, plus 4 hands-on exercises",
+   "bestFor": "Testing yourself before you pay",
+   "shot": "guides/claude-certification/shots/guide-sample.png",
+   "callout": "Inside the exam guide",
+   "meta": "Multiple choice + multiple response",
+   "icon": "glow/si-anthropic.svg"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Who can book the exam",
+   "what": "$125 at Pearson. Only for Claude Partner Network companies (company sign-in)",
+   "bestFor": "Not a partner? Joining is free",
+   "shot": "guides/claude-certification/shots/exam-page.png",
+   "callout": "$125 · valid 12 months",
+   "meta": "Partners may get a discount at checkout",
+   "icon": "glow/si-anthropic.svg"
+  },
+  {
+   "kind": "cta",
+   "line1": "The prep is free.",
+   "line2": "Only the exam costs.",
+   "sub": "Study first. Pay once.",
+   "bullets": [
+    "Take Claude 101, then the API course",
+    "Read the exam guide and its 12 sample questions",
+    "Book only when you score well on them"
+   ],
+   "stamp1": "Comment CERT",
+   "stamp2": "I'll DM you every link"
+  }
+ ],
+ "linkedin": [
+  {
+   "kind": "cover",
+   "line1": "FREE Claude",
+   "line2": "Exam Prep",
+   "sub": "Claude Certified Architect · the official path, $0",
+   "hero": "glow/si-claude.svg",
+   "sticker": "DON'T PAY FOR PREP",
+   "ghost": "Claude"
+  },
+  {
+   "kind": "promise",
+   "title": "Every prep step is free, *straight from Anthropic*",
+   "setup": {
+    "label": "The exam page:",
+    "url": "anthropic-partners.skilljar.com"
+   },
+   "get": "free courses, docs, the exam guide and 12 sample questions",
+   "shot": "guides/claude-certification/shots/exam-page.png",
+   "callout": "60 questions · 120 minutes · $125",
+   "icon": "glow/si-anthropic.svg"
+  },
+  {
+   "kind": "item",
+   "n": 1,
+   "title": "Claude 101",
+   "what": "Prompts, projects, artifacts and skills: everyday work with Claude",
+   "bestFor": "Your first free course",
+   "shot": "guides/claude-certification/shots/academy-claude-101.png",
+   "callout": "Start here",
+   "meta": "13 lessons · 1 quiz · 2.5 hr",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 2,
+   "title": "Building with the Claude API",
+   "what": "Prompting, tool use, RAG, agents, MCP and production patterns",
+   "bestFor": "The core of the exam",
+   "shot": "guides/claude-certification/shots/academy-api.png",
+   "callout": "Then this one",
+   "meta": "67 lessons · 8 quizzes · 9 hr",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 3,
+   "title": "MCP docs",
+   "what": "How Model Context Protocol connects Claude to tools and data",
+   "bestFor": "Tool Design & MCP: 18% of the exam",
+   "shot": "guides/claude-certification/shots/docs-mcp.png",
+   "callout": "Read the intro",
+   "meta": "modelcontextprotocol.io",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 4,
+   "title": "Agent Skills docs",
+   "what": "What skills are, how they load and when to use them",
+   "bestFor": "Claude Code Configuration: 20% of the exam",
+   "shot": "guides/claude-certification/shots/docs-skills.png",
+   "callout": "Read the overview",
+   "meta": "platform.claude.com/docs",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 5,
+   "title": "Claude API docs",
+   "what": "Messages, batches, files, models: the endpoints behind every build",
+   "bestFor": "Prompting & structured output: 20%",
+   "shot": "guides/claude-certification/shots/docs-api.png",
+   "callout": "Read the API overview",
+   "meta": "platform.claude.com/docs",
+   "icon": "glow/si-claude.svg"
+  },
+  {
+   "kind": "item",
+   "n": 6,
+   "title": "The official exam guide",
+   "what": "5 domains with weights, 6 scenarios (4 on your exam), every task tested",
+   "bestFor": "Knowing exactly what is tested",
+   "shot": "guides/claude-certification/shots/guide-blueprint.png",
+   "callout": "Free PDF, v1.1 Nov 2026",
+   "meta": "60 questions · 120 min · pass 720 / 1,000",
+   "icon": "glow/si-anthropic.svg"
+  },
+  {
+   "kind": "item",
+   "n": 7,
+   "title": "The sample questions",
+   "what": "12 real-format questions with the answers explained, plus 4 hands-on exercises",
+   "bestFor": "Testing yourself before you pay",
+   "shot": "guides/claude-certification/shots/guide-sample.png",
+   "callout": "Inside the exam guide",
+   "meta": "Multiple choice + multiple response",
+   "icon": "glow/si-anthropic.svg"
+  },
+  {
+   "kind": "item",
+   "n": 8,
+   "title": "Who can book the exam",
+   "what": "$125 at Pearson. Only for Claude Partner Network companies (company sign-in)",
+   "bestFor": "Not a partner? Joining is free",
+   "shot": "guides/claude-certification/shots/exam-page.png",
+   "callout": "$125 · valid 12 months",
+   "meta": "Partners may get a discount at checkout",
+   "icon": "glow/si-anthropic.svg"
+  },
+  {
+   "kind": "cta",
+   "line1": "The prep is free.",
+   "line2": "Only the exam costs.",
+   "sub": "Study first. Pay once.",
+   "bullets": [
+    "Take Claude 101, then the API course",
+    "Read the exam guide and its 12 sample questions",
+    "Book only when you score well on them"
+   ],
+   "stamp1": "Comment CERT",
+   "stamp2": "I'll DM you every link"
+  }
+ ]
+}

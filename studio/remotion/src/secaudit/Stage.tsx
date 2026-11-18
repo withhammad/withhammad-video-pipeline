@@ -1,6 +1,6 @@
 import React, {useLayoutEffect, useMemo, useRef} from 'react';
 import {useCurrentFrame, useVideoConfig} from 'remotion';
-import {THREE, makeBoy, makeBot, makeDesk, makeRoom, Mood, BotMood} from './world';
+import {THREE, makeBoy, makeBot, makeDesk, makeRoom, Mood, BotMood, Note} from './world';
 
 export type Cam = {pos: [number, number, number]; look: [number, number, number]; fov: number};
 export type ShotState = {
@@ -15,13 +15,13 @@ const defMood: Mood = {mouth: 0, smile: 0, brow: 0, blink: 0, lookX: 0, lookY: 0
 const defBot: BotMood = {eyes: 'open', hop: 0, tilt: 0, talk: 0, squash: 0, lookX: 0};
 
 // ONE persistent WebGL canvas for the whole reel; `at(t)` returns the shot state for global time t (s).
-export const Stage: React.FC<{at: (t: number) => ShotState}> = ({at}) => {
+export const Stage: React.FC<{at: (t: number) => ShotState; notes?: Note[]}> = ({at, notes}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const ref = useRef<HTMLCanvasElement>(null);
   const world = useMemo(() => {
     const scene = new THREE.Scene();
-    const night = makeRoom(false), day = makeRoom(true); scene.add(night, day);
+    const night = makeRoom(false, notes), day = makeRoom(true, notes); scene.add(night, day);
     scene.add(makeDesk());
     const boy = makeBoy(); boy.root.position.set(0, 2.55, -2.35); scene.add(boy.root);
     const bot = makeBot(); scene.add(bot.root);

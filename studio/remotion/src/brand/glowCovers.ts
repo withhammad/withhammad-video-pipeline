@@ -56,6 +56,8 @@ export type GlowJob = {job: string; date: string; title: string; cover: GlowCove
 const c = (line1: string, line2: string, leftLogo: GlowLogo, rightLogo: GlowLogo): GlowCoverProps => ({variant: 'glow', line1, line2, leftLogo, rightLogo});
 
 export const glowJobs: GlowJob[] = [
+  {job: 'cert-0040c2b7', date: 'awaiting approval', title: 'Stop paying for Claude certification prep: the free official path, and who can book the $125 exam (3D dialogue)', cover: c('Claude Certified?', 'Prep Is Free', LOGO.claude,
+    {text: '🎓', color: '#FFFFFF', bg: 'linear-gradient(160deg, #6F8DFF 0%, #3557D6 100%)', glow: '#4C6FD1'})},
   {job: '0215fbca0f39', date: 'awaiting approval', title: 'Launching tomorrow? Get a second opinion with Cloudflare\'s open-source security-audit skill (3D dialogue)', cover: c('Launch Tomorrow?', 'Audit It First', LOGO.claude,
     {text: '🔐', color: '#FFFFFF', bg: 'linear-gradient(160deg, #F6A04D 0%, #E8701C 100%)', glow: '#F38020'})},
   {job: '45a6c16a7ad3', date: 'awaiting approval', title: 'Interview in an hour? Practice with Claude as your mock interviewer (no live-answer tools; 3D dialogue)', cover: c('1 Hour Left?', 'Practice With AI', LOGO.claude,

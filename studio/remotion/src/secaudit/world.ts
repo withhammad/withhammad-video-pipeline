@@ -300,7 +300,9 @@ export function makeDesk() {
   return g;
 }
 
-export function makeRoom(morning: boolean) {
+export type Note = [string, string, number, number, number];
+const SEC_NOTES: Note[] = [['LAUNCH', '#f08a5a', -3.6, 3.6, -0.2], ['AUDIT', '#3ddc84', 3.7, 3.4, 0.15], ['SHIP IT', '#f2d04a', 3.2, 5.0, -0.1]];
+export function makeRoom(morning: boolean, notes: Note[] = SEC_NOTES) {
   const g = new THREE.Group();
   const win = new THREE.Mesh(new THREE.PlaneGeometry(26, 20), new THREE.MeshBasicMaterial({map: cityTexture(morning ? 6 : 3, morning)}));
   win.position.set(0, 3.5, -9); g.add(win);
@@ -312,7 +314,6 @@ export function makeRoom(morning: boolean) {
   const h = box(26, 0.22, 0.2, fm); h.position.set(0, 3.2, -8.4); g.add(h);
   // sticky notes on the glass
   if (!morning) {
-    const notes: [string, string, number, number, number][] = [['LAUNCH', '#f08a5a', -3.6, 3.6, -0.2], ['AUDIT', '#3ddc84', 3.7, 3.4, 0.15], ['SHIP IT', '#f2d04a', 3.2, 5.0, -0.1]];
     for (const [t, c, x, y, rr] of notes) { const n = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 0.7), new THREE.MeshStandardMaterial({map: noteTex(t, c), roughness: 0.9})); n.position.set(x, y, -8.2); n.rotation.z = rr; g.add(n); }
     // string lights
     for (let i = 0; i < 14; i++) { const x = -7 + i; const b = new THREE.Mesh(new THREE.SphereGeometry(0.09, 6, 4), basic('#ffd27a')); b.position.set(x, 6.4 - Math.sin((i / 13) * Math.PI) * 0.7, -8.0); g.add(b); }
