@@ -1,0 +1,23 @@
+{
+  "_note": "Identical one-shot prompts for the Fable 5.2 vs GPT-6.2 Astra head-to-head. Same prompt, same empty worktree, no follow-ups.",
+  "tasks": [
+    {
+      "id": "landing",
+      "title": "Landing page",
+      "file": "index.html",
+      "prompt": "Build a single-file landing page called index.html (HTML, CSS and vanilla JS in one file, no external dependencies except Google Fonts) for Orbit, a fictional AI scheduling app. Include a hero with a headline and call-to-action, three feature cards, a pricing table with three tiers, testimonials, an FAQ accordion and a footer. Make it fully responsive, polished and modern. Do not ask questions; finish it in one go."
+    },
+    {
+      "id": "carousel",
+      "title": "Instagram carousel",
+      "file": "carousel.html",
+      "prompt": "Create an Instagram carousel as a single file called carousel.html: 7 slides, each exactly 1080x1350 px, stacked vertically with a 40px gap, on the topic '5 prompts that make AI write like you'. Slide 1 is a scroll-stopping hook, slides 2 to 6 show one prompt each with a short before/after example, slide 7 is a follow call-to-action. Use one consistent, bold, modern visual system with large readable type. No external dependencies except Google Fonts. Do not ask questions; finish it in one go."
+    },
+    {
+      "id": "game",
+      "title": "Browser game",
+      "file": "game.html",
+      "prompt": "Build a complete browser game in a single file called game.html (canvas and vanilla JS, no dependencies): a neon space dodger. The player steers a ship with the arrow keys, WASD or touch, dodges asteroids that speed up over time and collects stars for points. Include a start screen, live score, a high score saved in localStorage, a game-over screen with restart, and sound effects made with the Web Audio API. Do not ask questions; finish it in one go."
+    }
+  ]
+}
