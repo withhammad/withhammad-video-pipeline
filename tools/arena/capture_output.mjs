@@ -22,8 +22,10 @@ if (task === 'landing') {
   const H = await page.evaluate(() => document.documentElement.scrollHeight - innerHeight);
   const steps = 240;
   for (let i = 1; i <= steps; i++) { await page.evaluate(y => scrollTo(0, y), H * i / steps); await sleep(45); }
-  const faq = page.locator('summary, [aria-expanded], .faq button, .faq-question').first();
-  if (await faq.count()) { await faq.scrollIntoViewIfNeeded(); await faq.click().catch(() => {}); await sleep(1200); }
+  const faq = page.locator('summary:visible, [id*=faq i] [aria-expanded]:visible, [class*=faq i] button:visible').first();
+  try {
+    if (await faq.count()) { await faq.scrollIntoViewIfNeeded({timeout: 3000}); await faq.click({timeout: 3000}); await sleep(1200); }
+  } catch { /* no clickable FAQ: keep the scroll recording */ }
   await sleep(800);
 } else if (task === 'carousel') {
   const H = await page.evaluate(() => document.documentElement.scrollHeight - innerHeight);
