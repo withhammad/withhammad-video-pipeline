@@ -6326,6 +6326,42 @@
       "posted_via": "Page reel composer, no-music cut; AI label on; custom cover; read back in Content Library > Scheduled",
       "note": "Page has 0 links left this month: caption uses Comment KEYWORD instead of the guide URL",
       "scheduled_at": "2026-11-26T13:48:50Z"
+    },
+    {
+      "id": "in-7f7f39548dd4",
+      "job": "7f7f39548dd4",
+      "platform": "instagram",
+      "keyword": "GAME",
+      "title": "Claude Code Game Development: 77 Free Skills (Godot, Unity, Unreal)",
+      "resource_url": "https://withhammad.com/resources/claude-code-game-dev-skills",
+      "slot_utc": "2026-11-26T15:00:00Z",
+      "local": "2026-11-26 19:00 GST",
+      "status": "posted",
+      "url": "https://www.instagram.com/reel/DgNGo3ABkc1/",
+      "plan": "posting-week-2026-11-26",
+      "sound": "Dubai Run (Power Boost Melodies), audio_configuration 10/100",
+      "version": "no-music cut + platform sound",
+      "trial": "SS_PERFORMANCE",
+      "collab_invited": [
+        "withhammad.ai"
+      ],
+      "media_id": "18034571918858444",
+      "posted_at": "2026-11-26T15:01:22Z"
+    },
+    {
+      "id": "li-7f7f39548dd4",
+      "job": "7f7f39548dd4",
+      "platform": "linkedin",
+      "keyword": "GAME",
+      "title": "Claude Code Game Development: 77 Free Skills (Godot, Unity, Unreal)",
+      "resource_url": "https://withhammad.com/resources/claude-code-game-dev-skills",
+      "slot_utc": "2026-11-26T15:00:00Z",
+      "local": "2026-11-26 19:00 GST",
+      "status": "posted",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7531733788406476801/",
+      "plan": "posting-week-2026-11-26",
+      "version": "master, own music",
+      "posted_at": "2026-11-26T15:01:22Z"
     }
   ]
 }
