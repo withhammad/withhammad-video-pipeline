@@ -4922,20 +4922,26 @@
       "id": "in-e08dc5238b3e",
       "job": "e08dc5238b3e",
       "platform": "instagram",
-      "slot_utc": "2026-11-13T14:00:00Z",
-      "local": "2026-11-13 18:00 GST",
+      "slot_utc": "2026-11-27T13:00:00Z",
+      "local": "2026-11-27 17:00 GST",
       "keyword": "LAUNCH",
       "title": "Claude Fable 5.2: 12 things it can do, checked against Anthropic's launch post",
       "caption": "Claude Fable 5.2: 12 things Anthropic's new AI model can do, each checked against the launch post.\nComment LAUNCH and I'll DM you my free guide (all 12, plus how to try Fable 5.2 yourself). Follow @withhammad.ai so the DM reaches you.\n\nAnthropic's CEO asked the industry to slow the pace of AI capability gains. Two months later his company shipped Claude Fable 5.2. What it can do, in Anthropic's own numbers:\n1. Vision: 73% on Anthropic's chart test, up from 45%\n2. Robot control: it guided real robot arms in Anthropic's demo\n3. Speed: up to 30% faster than Fable 5.1, and the API price is down 20%\n4. Advisor mode: a cheaper Claude model does the work and consults Fable on the hard decisions\n5. Orchestrator mode: Fable plans, smaller models do the simpler tasks\n6. AI agents: in one experiment, over 1,000 sub-agents built a prototype operating system in 8 days\n7. Long unattended work: an Uber engineer's 10 to 12 hour security audit came back with fix pull requests\n8. Computer use: 89% on a computer-use benchmark (still a beta)\n9. Finance checks: in Box's testing it flagged salary deposits in a loan file that didn't match the bank balance\n10. Self-correction: all 3 electronic devices it designed worked without an electrical fix\n11. Honesty: a tester at Cognition says it admits when it doesn't know instead of making things up\n12. Fewer refusals: about 55% fewer safety blocks than Fable 5.1 (cyber and biology, early testing)\n\nGood to know: every figure is Anthropic's own; nothing is independently tested yet. Is Claude Fable 5.2 free? No. It is not on the Free plan, and on Pro it is billed to usage credits, apart from a capped launch week (9 to 16 Nov). Mythos 5.2 is for vetted organisations only. Fable 5.2 vs Opus 5.5: Anthropic itself says to start with Opus 5.5 for most work.\n\nWhich one surprised you? Comment LAUNCH and I'll DM you the guide.\n\nThe presenter is my AI avatar.\n\n#claudeai #claudefable #anthropic #aiagents #ainews",
       "primary_keyword": "claude fable 5.2",
       "host_slug": "repost-e08dc5238b3e",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-fable-5-2-twelve-things",
       "release_audit": {
         "booked_at_utc": "2026-11-13T01:25:00Z",
         "authorization": "Owner approved the LAUNCH reel 2026-11-12 (\"LAUNCH reel\" in his Approve pick) and said \"Yes, queue LAUNCH\" 2026-11-13. Guide PR #25 merged; page returns 200; LAUNCH DM rule deployed with it."
-      }
+      },
+      "url": "https://www.instagram.com/reel/DgPtQAaIzgE/",
+      "plan": "posting-week-2026-11-26",
+      "sound": "Bandook (Khesari Lal Yadav, Priyanka Singh, Rico), Audio API, audio 10 / video 100",
+      "posted_via": "Instagram API on @with.hammad: Trial Reel (SS_PERFORMANCE), Collab invite @withhammad.ai, no-music cut",
+      "note": "@hammadagentic.ai is rejected by the API as a collaborator (invalid user id, 26 Nov)",
+      "posted_at": "2026-11-27T13:00:29Z"
     },
     {
       "id": "fa-e08dc5238b3e",
