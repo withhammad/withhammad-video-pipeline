@@ -6643,6 +6643,38 @@
       "collaborators": null,
       "status": "scheduled",
       "note": "Scheduled natively in LinkedIn (document post, PDF); read back in the composer Scheduled list"
+    },
+    {
+      "id": "in-593b74fe4824",
+      "job": "593b74fe4824",
+      "platform": "instagram",
+      "keyword": "COURSE",
+      "title": "Andrew Ng's Agentic AI Course: How to Watch It Free",
+      "resource_url": "https://withhammad.com/resources/agentic-ai-course",
+      "slot_utc": "2026-11-27T09:00:00Z",
+      "local": "2026-11-27 13:00 GST",
+      "status": "posted",
+      "url": "https://www.instagram.com/reel/DgPRqmnpOaI/",
+      "plan": "posting-week-2026-11-26",
+      "sound": "Dubai Run (Power Boost Melodies), Audio API, audio 10 / video 100",
+      "posted_via": "Instagram API on @with.hammad: Trial Reel (SS_PERFORMANCE), Collab invite @withhammad.ai, no-music cut",
+      "note": "@hammadagentic.ai is rejected by the API as a collaborator (invalid user id, 26 Nov)",
+      "posted_at": "2026-11-27T09:00:29Z"
+    },
+    {
+      "id": "li-593b74fe4824",
+      "job": "593b74fe4824",
+      "platform": "linkedin",
+      "keyword": "COURSE",
+      "title": "Andrew Ng's Agentic AI Course: How to Watch It Free",
+      "resource_url": "https://withhammad.com/resources/agentic-ai-course",
+      "slot_utc": "2026-11-27T09:00:00Z",
+      "local": "2026-11-27 13:00 GST",
+      "status": "posted",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7532005586025222144/",
+      "plan": "posting-week-2026-11-26",
+      "posted_via": "LinkedIn API, final.mp4 with own music, 10-3-1 copy",
+      "posted_at": "2026-11-27T09:01:10Z"
     }
   ]
 }
