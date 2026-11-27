@@ -1,13 +1,28 @@
 {
- "updated_at": "2026-11-06T10:08:42Z",
+ "updated_at": "2026-11-27T13:07:51Z",
  "rows": [
+  {
+   "task": "competitor-watch",
+   "schedule": "",
+   "enabled": "unknown"
+  },
   {
    "task": "content-refill",
    "schedule": "",
    "enabled": "unknown"
   },
   {
+   "task": "flow-credits-resume-deenease",
+   "schedule": "",
+   "enabled": "unknown"
+  },
+  {
    "task": "linkedin-keyword-replies",
+   "schedule": "",
+   "enabled": "unknown"
+  },
+  {
+   "task": "linkedin-outreach-daily",
    "schedule": "",
    "enabled": "unknown"
   },

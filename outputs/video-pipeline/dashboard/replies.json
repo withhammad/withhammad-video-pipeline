@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-06T10:08:42Z",
+ "updated_at": "2026-11-27T13:07:51Z",
  "rows": [
   {
    "platform": "linkedin",
@@ -13,6 +13,62 @@
    "keyword": "SKILL",
    "author": "Simon Sela",
    "at": "2026-11-01",
+   "via": "chrome"
+  },
+  {
+   "platform": "tiktok",
+   "keyword": "VOXEL",
+   "author": "Calligraphy Art",
+   "at": "2026-11-11",
+   "via": "chrome"
+  },
+  {
+   "platform": "tiktok",
+   "keyword": "VOXEL",
+   "author": "Punjabi Meme Page",
+   "at": "2026-11-11",
+   "via": "chrome"
+  },
+  {
+   "platform": "tiktok",
+   "keyword": "FILM",
+   "author": "Punjabi Meme Page",
+   "at": "2026-11-11",
+   "via": "chrome"
+  },
+  {
+   "platform": "tiktok",
+   "keyword": "PLANE",
+   "author": "Through My Lens",
+   "at": "2026-11-13",
+   "via": "chrome"
+  },
+  {
+   "platform": "tiktok",
+   "keyword": "VOXEL",
+   "author": "keith",
+   "at": "2026-11-13",
+   "via": "chrome"
+  },
+  {
+   "platform": "tiktok",
+   "keyword": "PLANE",
+   "author": "derman6118",
+   "at": "2026-11-13",
+   "via": "chrome"
+  },
+  {
+   "platform": "tiktok",
+   "keyword": "VOXEL",
+   "author": "Karxn",
+   "at": "2026-11-16",
+   "via": "chrome"
+  },
+  {
+   "platform": "tiktok",
+   "keyword": "VOXEL",
+   "author": "sebastianglos1",
+   "at": "2026-11-22",
    "via": "chrome"
   },
   {
@@ -48,6 +104,76 @@
    "keyword": "AGENT",
    "author": "@zinahhayder7626",
    "at": "2026-11-01",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "BETTER",
+   "author": "@AbduqadirsharifMananbaji",
+   "at": "2026-11-07",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "EDIT",
+   "author": "@MukimMohammad-px3mz",
+   "at": "2026-11-07",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "GROWTH",
+   "author": "@ShukrulloNurulloev",
+   "at": "2026-11-08",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "EDGE",
+   "author": "@davidsenamaud-h7t",
+   "at": "2026-11-09",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "EDGE",
+   "author": "@ganeshkasi",
+   "at": "2026-11-09",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "AGENT",
+   "author": "@AskIt-Ai",
+   "at": "2026-11-09",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "EDGE",
+   "author": "@munisekharmandyam4730",
+   "at": "2026-11-10",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "EDGE",
+   "author": "@viktorvass3566",
+   "at": "2026-11-10",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "EDGE",
+   "author": "@saubrigo",
+   "at": "2026-11-10",
+   "via": "api"
+  },
+  {
+   "platform": "youtube",
+   "keyword": "PITCH",
+   "author": "@InksGridStudio",
+   "at": "2026-11-20",
    "via": "api"
   }
  ]

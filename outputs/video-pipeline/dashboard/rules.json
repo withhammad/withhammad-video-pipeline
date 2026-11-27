@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-06T10:08:42Z",
+ "updated_at": "2026-11-27T13:07:51Z",
  "rows": [
   {
    "keyword": "SCOPE",
@@ -8,10 +8,6 @@
   {
    "keyword": "SKILL",
    "link": "https://withhammad.com/resources/youtube-agent-skill-claude"
-  },
-  {
-   "keyword": "BLUEPRINT",
-   "link": "https://withhammad.com/resources/reverse-engineer-features-with-claude-code"
   },
   {
    "keyword": "JOBKIT",
@@ -132,6 +128,82 @@
   {
    "keyword": "OUTBOUND",
    "link": "https://withhammad.com/media/guides/claude-code-cold-email.pdf"
+  },
+  {
+   "keyword": "BETTER",
+   "link": "https://withhammad.com/resources/make-it-better-loop"
+  },
+  {
+   "keyword": "PLANE",
+   "link": "https://withhammad.com/resources/claude-animation-styles"
+  },
+  {
+   "keyword": "FILM",
+   "link": "https://withhammad.com/resources/lemo-opuscar-claude-code-films"
+  },
+  {
+   "keyword": "VOXEL",
+   "link": "https://withhammad.com/resources/claude-3d-voxel-reels"
+  },
+  {
+   "keyword": "EDIT",
+   "link": "https://withhammad.com/resources/edit-videos-with-claude-code"
+  },
+  {
+   "keyword": "PROMPT",
+   "link": "https://withhammad.com/resources/claude-code-video-edit-prompt"
+  },
+  {
+   "keyword": "DUBAI",
+   "link": "https://withhammad.com/resources/chamber-ai-hub-dubai"
+  },
+  {
+   "keyword": "GROWTH",
+   "link": "https://withhammad.com/resources/claude-instagram-skills"
+  },
+  {
+   "keyword": "EDGE",
+   "link": "https://withhammad.com/resources/edge0-local-ai"
+  },
+  {
+   "keyword": "AGENTMAP",
+   "link": "https://withhammad.com/resources/ai-agent-developer-learning-plan"
+  },
+  {
+   "keyword": "VECTORS",
+   "link": "https://withhammad.com/resources/vector-databases-explained"
+  },
+  {
+   "keyword": "REPO",
+   "link": "https://withhammad.com/resources/five-open-source-ai-repos"
+  },
+  {
+   "keyword": "GUARD",
+   "link": "https://withhammad.com/resources/ai-guardrails-explained"
+  },
+  {
+   "keyword": "HIGGS",
+   "link": "https://withhammad.com/resources/claude-higgsfield-video-setup"
+  },
+  {
+   "keyword": "ADVISOR",
+   "link": "https://withhammad.com/resources/claude-fable-advisor-setup"
+  },
+  {
+   "keyword": "LAUNCH",
+   "link": "https://withhammad.com/resources/claude-fable-5-2-twelve-things"
+  },
+  {
+   "keyword": "REFERRAL",
+   "link": "https://withhammad.com/resources/linkedin-referral-claude-templates"
+  },
+  {
+   "keyword": "BLUEPRINT",
+   "link": "https://withhammad.com/resources/reverse-engineer-features-with-claude-code"
+  },
+  {
+   "keyword": "CHATBOT",
+   "link": "https://withhammad.com/media/guides/how-ai-chatbot-is-made.pdf"
   }
  ]
 }
