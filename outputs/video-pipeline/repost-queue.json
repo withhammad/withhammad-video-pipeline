@@ -5567,15 +5567,15 @@
       "id": "in-85fb47b66b4b",
       "job": "85fb47b66b4b",
       "platform": "instagram",
-      "slot_utc": "2026-11-18T05:00:00Z",
-      "local": "2026-11-18 09:00 GST",
+      "slot_utc": "2026-11-27T17:00:00Z",
+      "local": "2026-11-27 21:00 GST",
       "keyword": "VOXEL",
       "title": "Claude Code 3D Animation: Voxel Cartoon Reel (No Blender)",
       "caption": "Claude Code 3D animation: these voxel reels are code, not an AI video tool. Comment VOXEL and I'll DM you the guide.\n\nHow to make 3D cartoon reels with Claude Code, in 5 steps:\n1. Script: two characters, short lines\n2. Voices: ElevenLabs (your cloned voice + a library voice)\n3. World: Claude writes Three.js code that builds every voxel character block by block\n4. Sync: word timings drive the mouths and captions\n5. Render: your laptop renders it frame by frame. This one: 1,378 frames, 1080x1920, under 2 minutes on an M1 Pro\n\nNo Blender. No animator. You rarely edit code by hand: you mostly tell Claude what to change (you still install Node, run commands and approve prompts).\nThe guide is free; Claude Code needs a paid Claude plan (Pro from $20/mo) and voice cloning needs ElevenLabs Starter ($6/mo).\n\nComment VOXEL and I'll DM you the guide with all 7 prompts.\nFollow @withhammad.ai so the DM reaches you.\nVoxel cartoon of me made in code; AI voices (my cloned voice + a library voice).\n\n#claudecode #3danimation #aianimation #threejs #voxelart",
       "primary_keyword": "claude code 3d animation",
       "host_slug": "repost-85fb47b66b4b",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "schedule_history": [
         {
           "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
@@ -5585,7 +5585,13 @@
           "new_local": "2026-11-18 09:00 GST",
           "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
         }
-      ]
+      ],
+      "url": "https://www.instagram.com/reel/DgQIndZA29h/",
+      "plan": "posting-week-2026-11-26",
+      "sound": "Bandook (Khesari Lal Yadav, Priyanka Singh, Rico), Audio API, audio 10 / video 100",
+      "posted_via": "Instagram API on @with.hammad: Trial Reel (SS_PERFORMANCE), Collab invite @withhammad.ai, no-music cut",
+      "note": "@hammadagentic.ai is rejected by the API as a collaborator (invalid user id, 26 Nov)",
+      "posted_at": "2026-11-27T17:00:30Z"
     },
     {
       "id": "fa-85fb47b66b4b",
