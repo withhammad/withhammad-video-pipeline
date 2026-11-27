@@ -6973,6 +6973,38 @@
       "sound": "Spectacular Moment (life motivation) at -20 dB, For You list",
       "posted_via": "TikTok Studio scheduler, AI label on, no custom cover (job has none)",
       "scheduled_at": "2026-11-27T10:53:48Z"
+    },
+    {
+      "id": "in-2a1cb8d3ad49",
+      "job": "2a1cb8d3ad49",
+      "platform": "instagram",
+      "keyword": "CLAIM",
+      "title": "ChatGPT Business Hub: Claim Your Business (Free for Now)",
+      "resource_url": "https://withhammad.com/resources/claim-your-business-in-chatgpt",
+      "slot_utc": "2026-11-27T15:00:00Z",
+      "local": "2026-11-27 19:00 GST",
+      "status": "posted",
+      "url": "https://www.instagram.com/reel/DgP7AotM4YK/",
+      "plan": "posting-week-2026-11-26",
+      "sound": "Bandook (Khesari Lal Yadav, Priyanka Singh, Rico), Audio API, audio 10 / video 100",
+      "posted_via": "Instagram API on @with.hammad: Trial Reel (SS_PERFORMANCE), Collab invite @withhammad.ai, no-music cut",
+      "note": "@hammadagentic.ai is rejected by the API as a collaborator (invalid user id, 26 Nov)",
+      "posted_at": "2026-11-27T15:00:30Z"
+    },
+    {
+      "id": "li-2a1cb8d3ad49",
+      "job": "2a1cb8d3ad49",
+      "platform": "linkedin",
+      "keyword": "CLAIM",
+      "title": "ChatGPT Business Hub: Claim Your Business (Free for Now)",
+      "resource_url": "https://withhammad.com/resources/claim-your-business-in-chatgpt",
+      "slot_utc": "2026-11-27T15:00:00Z",
+      "local": "2026-11-27 19:00 GST",
+      "status": "posted",
+      "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7532096257545342976/",
+      "plan": "posting-week-2026-11-26",
+      "posted_via": "LinkedIn API, final.mp4 with own music, 10-3-1 copy",
+      "posted_at": "2026-11-27T15:01:28Z"
     }
   ]
 }
