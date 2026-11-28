@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-27T13:07:51Z",
+ "updated_at": "2026-11-28T09:08:23Z",
  "rows": [
   {
    "job": "0215fbca0f39",
@@ -84,12 +84,12 @@
    "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "yes",
-   "linkedin": "no",
+   "linkedin": "yes",
    "instagram": "no",
    "tiktok": "no",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 1
+   "platforms_on": 2
   },
   {
    "job": "33d9c1e97156",
@@ -699,12 +699,12 @@
    "seo_researched": "yes",
    "blog_live": "no",
    "youtube": "yes",
-   "linkedin": "no",
+   "linkedin": "yes",
    "instagram": "no",
    "tiktok": "no",
    "facebook": "no",
    "x": "no",
-   "platforms_on": 1
+   "platforms_on": 2
   },
   {
    "job": "cert-0040c2b7",

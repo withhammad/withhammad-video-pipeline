@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-27T13:07:51Z",
+ "updated_at": "2026-11-28T09:08:23Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -60,6 +60,16 @@
    "status": "posted",
    "when": "2026-11-10",
    "account": "page"
+  },
+  {
+   "job": "2a1cb8d3ad49",
+   "keyword": "CLAIM",
+   "title": "Businesses in ChatGPT: claim your business inside ChatGPT (beta, free ",
+   "platform": "linkedin",
+   "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7532096257545342976/",
+   "status": "posted",
+   "when": "2026-11-27",
+   "account": ""
   },
   {
    "job": "33d9c1e97156",
@@ -490,6 +500,16 @@
    "status": "posted",
    "when": "2026-11-07",
    "account": "page"
+  },
+  {
+   "job": "cd157c0bece4",
+   "keyword": "MODELS",
+   "title": "Claude in 6 weeks: the 5.5 models, Fable, Ultra and which model to use",
+   "platform": "linkedin",
+   "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7532368083072655360/",
+   "status": "posted",
+   "when": "2026-11-28",
+   "account": ""
   },
   {
    "job": "chatbotinfographic",
@@ -1354,18 +1374,6 @@
    "account": ""
   },
   {
-   "job": "cd157c0bece4",
-   "keyword": "MODELS",
-   "title": "Which Claude Model to Use? Opus 5.5 vs Sonnet 5.5 vs Fable",
-   "platform": "linkedin",
-   "url": "",
-   "status": "missed",
-   "when": "2026-11-08",
-   "slot_utc": "2026-11-08T06:00:00Z",
-   "local": "2026-11-08 10:00 GST",
-   "account": ""
-  },
-  {
    "job": "23519e29c243",
    "keyword": "ROAST",
    "title": "AI Board of Directors in Claude Code: 7 Advisors Debate",
@@ -1448,18 +1456,6 @@
    "slot_utc": "2026-11-08T10:00:00Z",
    "local": "2026-11-08 14:00 GST",
    "account": ""
-  },
-  {
-   "job": "cd157c0bece4",
-   "keyword": "MODELS",
-   "title": "Which Claude Model to Use? Opus 5.5 vs Sonnet 5.5 vs Fable",
-   "platform": "instagram",
-   "url": "",
-   "status": "missed",
-   "when": "2026-11-08",
-   "slot_utc": "2026-11-08T10:00:00Z",
-   "local": "2026-11-08 14:00 GST",
-   "account": "withhammad.ai"
   },
   {
    "job": "0f869c3f2de7",
@@ -2185,18 +2181,6 @@
    "job": "990543b928c4",
    "keyword": "PLANE",
    "title": "10 Claude animation styles: one paper plane through ten worlds, every ",
-   "platform": "instagram",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-12",
-   "slot_utc": "2026-11-12T10:00:00Z",
-   "local": "2026-11-12 14:00 GST",
-   "account": "withhammad.ai"
-  },
-  {
-   "job": "990543b928c4",
-   "keyword": "PLANE",
-   "title": "10 Claude animation styles: one paper plane through ten worlds, every ",
    "platform": "youtube",
    "url": "https://youtube.com/shorts/x-JglE-UY68",
    "status": "scheduled",
@@ -2283,10 +2267,10 @@
    "title": "One word. 24 files?",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-12",
-   "slot_utc": "2026-11-12T16:00:00Z",
-   "local": "2026-11-12 20:00 GST",
+   "status": "scheduled",
+   "when": "2026-11-29",
+   "slot_utc": "2026-11-29T11:00:00Z",
+   "local": "2026-11-29 15:00 GST",
    "account": ""
   },
   {
@@ -2403,10 +2387,10 @@
    "title": "Claude motion graphics: clone a brand look, then animate it one line a",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-13",
-   "slot_utc": "2026-11-13T10:00:00Z",
-   "local": "2026-11-13 14:00 GST",
+   "status": "scheduled",
+   "when": "2026-11-29",
+   "slot_utc": "2026-11-29T07:00:00Z",
+   "local": "2026-11-29 11:00 GST",
    "account": ""
   },
   {
@@ -2487,10 +2471,10 @@
    "title": "Harness engineering: the layer that makes an AI agent reliable",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-13",
-   "slot_utc": "2026-11-13T16:00:00Z",
-   "local": "2026-11-13 20:00 GST",
+   "status": "scheduled",
+   "when": "2026-11-30",
+   "slot_utc": "2026-11-30T11:00:00Z",
+   "local": "2026-11-30 15:00 GST",
    "account": ""
   },
   {
@@ -2571,10 +2555,10 @@
    "title": "Dubai's Create AI Agents Championship: $150,000 per winning AI agent, ",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-14",
-   "slot_utc": "2026-11-14T10:00:00Z",
-   "local": "2026-11-14 14:00 GST",
+   "status": "scheduled",
+   "when": "2026-11-29",
+   "slot_utc": "2026-11-29T13:00:00Z",
+   "local": "2026-11-29 17:00 GST",
    "account": ""
   },
   {
@@ -2643,10 +2627,10 @@
    "title": "The 8 parts of a Claude Motion prompt: write 7 once, rewrite only the ",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-14",
-   "slot_utc": "2026-11-14T16:00:00Z",
-   "local": "2026-11-14 20:00 GST",
+   "status": "scheduled",
+   "when": "2026-11-30",
+   "slot_utc": "2026-11-30T13:00:00Z",
+   "local": "2026-11-30 17:00 GST",
    "account": ""
   },
   {
@@ -2703,10 +2687,10 @@
    "title": "What an AI startup really costs: the 14-tool stack and the honest mont",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-15",
-   "slot_utc": "2026-11-15T10:00:00Z",
-   "local": "2026-11-15 14:00 GST",
+   "status": "scheduled",
+   "when": "2026-12-01",
+   "slot_utc": "2026-12-01T17:00:00Z",
+   "local": "2026-12-01 21:00 GST",
    "account": ""
   },
   {
@@ -2739,10 +2723,10 @@
    "title": "How an AI agent works: one loop inside a harness",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-15",
-   "slot_utc": "2026-11-15T13:00:00Z",
-   "local": "2026-11-15 17:00 GST",
+   "status": "scheduled",
+   "when": "2026-12-01",
+   "slot_utc": "2026-12-01T13:00:00Z",
+   "local": "2026-12-01 17:00 GST",
    "account": ""
   },
   {
@@ -2751,10 +2735,10 @@
    "title": "AI Dashboard Audit: The Duplicate Order Trap",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-15",
-   "slot_utc": "2026-11-15T16:00:00Z",
-   "local": "2026-11-15 20:00 GST",
+   "status": "scheduled",
+   "when": "2026-12-01",
+   "slot_utc": "2026-12-01T11:00:00Z",
+   "local": "2026-12-01 15:00 GST",
    "account": ""
   },
   {
@@ -2787,10 +2771,10 @@
    "title": "Claude Motion: 16 Apple-style animations from one brief",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-16",
-   "slot_utc": "2026-11-16T10:00:00Z",
-   "local": "2026-11-16 14:00 GST",
+   "status": "scheduled",
+   "when": "2026-11-30",
+   "slot_utc": "2026-11-30T17:00:00Z",
+   "local": "2026-11-30 21:00 GST",
    "account": ""
   },
   {
@@ -2811,10 +2795,10 @@
    "title": "AI search traffic converts better? How to track your own AI traffic in",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-16",
-   "slot_utc": "2026-11-16T13:00:00Z",
-   "local": "2026-11-16 17:00 GST",
+   "status": "scheduled",
+   "when": "2026-11-30",
+   "slot_utc": "2026-11-30T07:00:00Z",
+   "local": "2026-11-30 11:00 GST",
    "account": ""
   },
   {
@@ -2823,10 +2807,10 @@
    "title": "9 agentic AI concepts every builder should know",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-16",
-   "slot_utc": "2026-11-16T16:00:00Z",
-   "local": "2026-11-16 20:00 GST",
+   "status": "scheduled",
+   "when": "2026-12-01",
+   "slot_utc": "2026-12-01T07:00:00Z",
+   "local": "2026-12-01 11:00 GST",
    "account": ""
   },
   {
@@ -2839,18 +2823,6 @@
    "when": "2026-11-17",
    "slot_utc": "2026-11-17T07:00:00Z",
    "local": "2026-11-17 11:00 GST",
-   "account": "withhammad.ai"
-  },
-  {
-   "job": "85fb47b66b4b",
-   "keyword": "VOXEL",
-   "title": "Claude Code 3D Animation: Voxel Cartoon Reel (No Blender)",
-   "platform": "instagram",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-18",
-   "slot_utc": "2026-11-18T05:00:00Z",
-   "local": "2026-11-18 09:00 GST",
    "account": "withhammad.ai"
   },
   {
@@ -3313,36 +3285,12 @@
    "job": null,
    "keyword": "CERT",
    "title": "FREE Claude Certification Prep",
-   "platform": "instagram_guide",
-   "url": "",
-   "status": "scheduled",
-   "when": "2026-11-27",
-   "slot_utc": "2026-11-27T16:00:00Z",
-   "local": "2026-11-27 20:00 GST",
-   "account": ""
-  },
-  {
-   "job": null,
-   "keyword": "CERT",
-   "title": "FREE Claude Certification Prep",
    "platform": "linkedin_guide",
    "url": "",
    "status": "scheduled",
    "when": "2026-11-27",
    "slot_utc": "2026-11-27T06:00:00Z",
    "local": "2026-11-27 10:00 GST",
-   "account": ""
-  },
-  {
-   "job": null,
-   "keyword": "LOADOUT",
-   "title": "9 Claude Skills I Actually Use (free, with install lines)",
-   "platform": "instagram_guide",
-   "url": "",
-   "status": "scheduled",
-   "when": "2026-11-28",
-   "slot_utc": "2026-11-28T06:00:00Z",
-   "local": "2026-11-28 10:00 GST",
    "account": ""
   },
   {
@@ -3523,6 +3471,18 @@
    "when": "2026-12-03",
    "slot_utc": "2026-12-03T17:00:00Z",
    "local": "2026-12-03 21:00 GST",
+   "account": ""
+  },
+  {
+   "job": "dfa218634321",
+   "keyword": "REPO",
+   "title": "5 Open Source AI Tools That Could Replace Paid Apps",
+   "platform": "facebook",
+   "url": "",
+   "status": "scheduled",
+   "when": "2026-11-29",
+   "slot_utc": "2026-11-29T17:00:00Z",
+   "local": "2026-11-29 21:00 GST",
    "account": ""
   }
  ]
