@@ -4044,22 +4044,28 @@
       "id": "in-62eec03e1e93",
       "job": "62eec03e1e93",
       "platform": "instagram",
-      "slot_utc": "2026-11-11T14:15:00Z",
-      "local": "2026-11-11 18:15 GST",
+      "slot_utc": "2026-11-28T17:00:00Z",
+      "local": "2026-11-28 21:00 GST",
       "keyword": "ADVISOR",
       "title": "Use Fable 5.2 as a Claude Code advisor",
       "caption": "Use Fable 5.2 as a Claude Code advisor\n\nComment ADVISOR for the guide. Follow @withhammad.ai so the DM reaches you.\n\nThe seven-build comparison is Charlie Hills’s reported experiment: $25.81 with Opus + Fable advisor versus $39.29 with Fable alone. Your usage will vary. The advisor is experimental; account/provider and billing limits apply.\n\nAI avatar of me, using my own ElevenLabs voice clone.\nVisual reference: Charlie Hills. Demonstration excerpts are credited to the source; they are not Hammad's own tests.\n#ClaudeAI #Fable52 #AITools",
       "primary_keyword": "Claude Code advisor Fable",
       "host_slug": "repost-62eec03e1e93",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "resource_url": "https://withhammad.com/resources/claude-fable-advisor-setup",
       "release_audit": {
         "booked_at_utc": "2026-11-11T08:57:54.742864+00:00",
         "authorization": "Exact package approved; PR21 merged, live guides and deployed reply-rule provenance verified; owner prioritizes batch and permits older moves. Native TikTok/X still require observed schedule receipt.",
         "phone_window_gst": "18:15–20:15",
         "expected_runner_gst": "21:03"
-      }
+      },
+      "url": "https://www.instagram.com/reel/DgStafyo8pQ/",
+      "plan": "posting-week-2026-11-26",
+      "sound": "Na Jaan Ignor Kar Ho (Monu Albela, Master Prince, Pranav Bihari), Audio API, audio 10 / video 100",
+      "posted_via": "Instagram API on @with.hammad: Trial Reel (SS_PERFORMANCE), Collab invite @withhammad.ai, no-music cut",
+      "note": "@hammadagentic.ai is rejected by the API as a collaborator (invalid user id, 26 Nov)",
+      "posted_at": "2026-11-28T17:00:29Z"
     },
     {
       "id": "yo-62eec03e1e93",
