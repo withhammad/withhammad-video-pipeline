@@ -5840,15 +5840,15 @@
       "id": "in-g2-edit-videos-guide",
       "job": "g2-edit-videos-guide",
       "platform": "instagram",
-      "slot_utc": "2026-11-18T11:00:00Z",
-      "local": "2026-11-18 15:00 GST",
+      "slot_utc": "2026-11-28T11:00:00Z",
+      "local": "2026-11-28 15:00 GST",
       "keyword": "EDIT",
       "title": "How to edit videos with Claude Code: the 10-step setup (one take in, finished reel out)",
       "caption": "Claude Code video editing: one take in, finished reel out, in 10 steps. Comment EDIT and I'll DM you the free guide.\n\nThe 10 steps:\n1. Install the tools once (Claude Code, ffmpeg, Node, Whisper, OpenCV, Remotion)\n2. One folder per video (style.md, beats.md, rules.md)\n3. Show it 2-3 reels you rate\n4. It trims the dead air on your words\n5. It keeps your face in the 9:16 frame\n6. You sign off a storyboard before any render\n7. Motion graphics on every word (Remotion)\n8. Captions, then music\n9. It grades its own cut\n10. Your notes become a Claude Code skill\n\nThe catch: Claude Code needs a paid Claude plan. Remotion is free for individuals and small teams.\n\nWhich step would save you the most time?\nComment EDIT and I'll DM you the guide + copy-paste prompt.\nFollow @withhammad.ai first: the DM only reaches followers.\n\nThe reel playing in the phone shows an AI avatar of me.\n\n#claudecode #claudeai #aivideoediting #videoediting #remotion",
       "primary_keyword": "claude code video editing",
       "host_slug": "repost-g2-edit-videos-guide",
       "collaborators": null,
-      "status": "pending",
+      "status": "posted",
       "schedule_history": [
         {
           "changed_at_utc": "2026-11-11T08:57:54.742864+00:00",
@@ -5858,7 +5858,13 @@
           "new_local": "2026-11-18 15:00 GST",
           "reason": "Owner prioritized five business batch and explicitly authorized moving older unposted bookings later. Vacant later slots; preserve phone windows and real spacing."
         }
-      ]
+      ],
+      "url": "https://www.instagram.com/reel/DgSEPizx9m2/",
+      "plan": "posting-week-2026-11-26",
+      "sound": "Na Jaan Ignor Kar Ho (Monu Albela, Master Prince, Pranav Bihari), Audio API, audio 10 / video 100",
+      "posted_via": "Instagram API on @with.hammad: Trial Reel (SS_PERFORMANCE), Collab invite @withhammad.ai, no-music cut",
+      "note": "@hammadagentic.ai is rejected by the API as a collaborator (invalid user id, 26 Nov)",
+      "posted_at": "2026-11-28T11:00:29Z"
     },
     {
       "id": "yo-g2-edit-videos-guide",
