@@ -3130,7 +3130,7 @@
       "collaborators": null,
       "status": "held",
       "resource_url": "https://withhammad.com/resources/rubber-world-claude-code-blender-3d-shorts",
-      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post"
+      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post. Scheduled by mistake for 2026-12-03 13:00 GST on 27 Nov; owner said \"Yes, cancel all\" on 2026-11-28: LinkedIn timer entry disabled, nothing was posted"
     },
     {
       "id": "yo-8bcf01ad1b0f",
@@ -3144,13 +3144,12 @@
       "primary_keyword": "claude code blender",
       "host_slug": "repost-8bcf01ad1b0f",
       "collaborators": null,
-      "status": "scheduled",
+      "status": "held",
       "resource_url": "https://withhammad.com/resources/rubber-world-claude-code-blender-3d-shorts",
-      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post",
+      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post. Scheduled by mistake for 2026-12-03 13:00 GST on 27 Nov; owner said \"Yes, cancel all\" on 2026-11-28: YouTube video hYevjLeVxe4 kept, set to private with no publish time",
       "url": "https://youtube.com/shorts/hYevjLeVxe4",
       "plan": "backlog-7day-2026-11-27",
-      "posted_via": "YouTube API: private + publishAt, final.mp4 with own music, custom thumbnail, AI disclosure; read back 27 Nov",
-      "scheduled_at": "2026-11-27T10:16:44Z"
+      "posted_via": "YouTube API: private + publishAt, final.mp4 with own music, custom thumbnail, AI disclosure; read back 27 Nov"
     },
     {
       "id": "xx-8bcf01ad1b0f",
@@ -3164,13 +3163,12 @@
       "primary_keyword": "claude code blender",
       "host_slug": "repost-8bcf01ad1b0f",
       "collaborators": null,
-      "status": "scheduled",
+      "status": "held",
       "resource_url": "https://withhammad.com/resources/rubber-world-claude-code-blender-3d-shorts",
-      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post",
-      "url": "https://x.com/HammadYousufAI",
+      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post. Scheduled by mistake for 2026-12-03 13:00 GST on 27 Nov; owner said \"Yes, cancel all\" on 2026-11-28: scheduled X post deleted",
+      "url": null,
       "plan": "backlog-7day-2026-11-27",
-      "posted_via": "X scheduler, own music (under-10 MB copy); toast + Scheduled list read back 27 Nov",
-      "scheduled_at": "2026-11-27T10:16:44Z"
+      "posted_via": "X scheduler, own music (under-10 MB copy); toast + Scheduled list read back 27 Nov"
     },
     {
       "id": "fa-0f869c3f2de7",
@@ -3298,7 +3296,7 @@
       "collaborators": null,
       "status": "held",
       "resource_url": "https://withhammad.com/resources/rubber-world-claude-code-blender-3d-shorts",
-      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post"
+      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post. Scheduled by mistake for 2026-12-03 13:00 GST on 27 Nov; owner said \"Yes, cancel all\" on 2026-11-28: Instagram timer entry disabled, nothing was posted"
     },
     {
       "id": "fa-b6b36d9b50b3",
@@ -3739,15 +3737,14 @@
       "primary_keyword": "claude code blender",
       "host_slug": "repost-8bcf01ad1b0f",
       "collaborators": null,
-      "status": "scheduled",
+      "status": "held",
       "resource_url": "https://withhammad.com/resources/rubber-world-claude-code-blender-3d-shorts",
-      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post",
-      "url": "https://www.tiktok.com/@withhammad",
+      "note": "owner rejected the Rubber World cut 2026-11-07 (\"Rejected\"); do not post. Scheduled by mistake for 2026-12-03 13:00 GST on 27 Nov; owner said \"Yes, cancel all\" on 2026-11-28: scheduled TikTok post deleted",
+      "url": null,
       "plan": "backlog-7day-2026-11-27",
       "version": "no-music cut",
       "sound": "The Motivation (Abraao de Santana) at -20 dB, For You list",
-      "posted_via": "TikTok Studio scheduler, AI label on",
-      "scheduled_at": "2026-11-27T10:53:48Z"
+      "posted_via": "TikTok Studio scheduler, AI label on"
     },
     {
       "id": "li-33d9c1e97156",
