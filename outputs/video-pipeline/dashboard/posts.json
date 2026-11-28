@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-28T09:08:23Z",
+ "updated_at": "2026-11-28T17:37:05Z",
  "rows": [
   {
    "job": "09a9d211fff0",
@@ -100,6 +100,16 @@
    "status": "posted",
    "when": "2026-11-07",
    "account": "page"
+  },
+  {
+   "job": "4a606d94c5cd",
+   "keyword": "CARTOON",
+   "title": "Claude Code + HyperFrames: make a cartoon episode for YouTube, all in ",
+   "platform": "linkedin",
+   "url": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7532458548417687553/",
+   "status": "posted",
+   "when": "2026-11-28",
+   "account": ""
   },
   {
    "job": "593b74fe4824",
@@ -1787,10 +1797,10 @@
    "title": "Edge0 AI: A 35B Local LLM with ~3 GiB Active Memory",
    "platform": "facebook",
    "url": "",
-   "status": "missed",
-   "when": "2026-11-09",
-   "slot_utc": "2026-11-09T17:00:00Z",
-   "local": "2026-11-09 21:00 GST",
+   "status": "scheduled",
+   "when": "2026-12-03",
+   "slot_utc": "2026-12-03T07:00:00Z",
+   "local": "2026-12-03 11:00 GST",
    "account": ""
   },
   {
@@ -2097,18 +2107,6 @@
    "job": "62eec03e1e93",
    "keyword": "ADVISOR",
    "title": "Use Fable 5.2 as a Claude Code advisor",
-   "platform": "instagram",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-11",
-   "slot_utc": "2026-11-11T14:15:00Z",
-   "local": "2026-11-11 18:15 GST",
-   "account": "withhammad.ai"
-  },
-  {
-   "job": "62eec03e1e93",
-   "keyword": "ADVISOR",
-   "title": "Use Fable 5.2 as a Claude Code advisor",
    "platform": "youtube",
    "url": "https://youtube.com/shorts/JG2Z38-hw48",
    "status": "scheduled",
@@ -2217,18 +2215,6 @@
    "job": "4a606d94c5cd",
    "keyword": "CARTOON",
    "title": "How to Make a Cartoon Video With AI (Claude Code)",
-   "platform": "linkedin",
-   "url": "",
-   "status": "missed",
-   "when": "2026-11-12",
-   "slot_utc": "2026-11-12T13:00:00Z",
-   "local": "2026-11-12 17:00 GST",
-   "account": ""
-  },
-  {
-   "job": "4a606d94c5cd",
-   "keyword": "CARTOON",
-   "title": "How to Make a Cartoon Video With AI (Claude Code)",
    "platform": "tiktok",
    "url": "https://www.tiktok.com/@withhammad/video/7712465281444089109",
    "status": "scheduled",
@@ -2272,18 +2258,6 @@
    "slot_utc": "2026-11-29T11:00:00Z",
    "local": "2026-11-29 15:00 GST",
    "account": ""
-  },
-  {
-   "job": "4a606d94c5cd",
-   "keyword": "CARTOON",
-   "title": "How to Make a Cartoon Video With AI (Claude Code)",
-   "platform": "instagram",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-12",
-   "slot_utc": "2026-11-12T16:00:00Z",
-   "local": "2026-11-12 20:00 GST",
-   "account": "withhammad.ai"
   },
   {
    "job": "df71c9d45658",
@@ -2339,10 +2313,10 @@
    "title": "Claude Code 3D Animation: Two Characters Talking in Three.js",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-13",
-   "slot_utc": "2026-11-13T07:00:00Z",
-   "local": "2026-11-13 11:00 GST",
+   "status": "scheduled",
+   "when": "2026-12-02",
+   "slot_utc": "2026-12-02T15:00:00Z",
+   "local": "2026-12-02 19:00 GST",
    "account": ""
   },
   {
@@ -2411,10 +2385,10 @@
    "title": "AI Motion Starter Kit",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-13",
-   "slot_utc": "2026-11-13T13:00:00Z",
-   "local": "2026-11-13 17:00 GST",
+   "status": "scheduled",
+   "when": "2026-12-02",
+   "slot_utc": "2026-12-02T11:00:00Z",
+   "local": "2026-12-02 15:00 GST",
    "account": ""
   },
   {
@@ -2603,10 +2577,10 @@
    "title": "OpenAI dots: AI agents that keep working after you log off",
    "platform": "facebook",
    "url": "",
-   "status": "pending",
-   "when": "2026-11-14",
-   "slot_utc": "2026-11-14T13:00:00Z",
-   "local": "2026-11-14 17:00 GST",
+   "status": "scheduled",
+   "when": "2026-12-02",
+   "slot_utc": "2026-12-02T07:00:00Z",
+   "local": "2026-12-02 11:00 GST",
    "account": ""
   },
   {
@@ -2632,18 +2606,6 @@
    "slot_utc": "2026-11-30T13:00:00Z",
    "local": "2026-11-30 17:00 GST",
    "account": ""
-  },
-  {
-   "job": "g2-edit-prompt",
-   "keyword": "PROMPT",
-   "title": "The Claude Code video edit prompt: 7 free installs + 1 copy-paste prom",
-   "platform": "instagram",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-14",
-   "slot_utc": "2026-11-14T16:00:00Z",
-   "local": "2026-11-14 20:00 GST",
-   "account": "withhammad.ai"
   },
   {
    "job": "85fb47b66b4b",
@@ -2884,18 +2846,6 @@
    "slot_utc": "2026-11-27T12:00:00Z",
    "local": "2026-11-27 16:00 GST",
    "account": ""
-  },
-  {
-   "job": "g2-edit-videos-guide",
-   "keyword": "EDIT",
-   "title": "How to edit videos with Claude Code: the 10-step setup (one take in, f",
-   "platform": "instagram",
-   "url": "",
-   "status": "pending",
-   "when": "2026-11-18",
-   "slot_utc": "2026-11-18T11:00:00Z",
-   "local": "2026-11-18 15:00 GST",
-   "account": "withhammad.ai"
   },
   {
    "job": "g2-edit-videos-guide",
@@ -3483,6 +3433,18 @@
    "when": "2026-11-29",
    "slot_utc": "2026-11-29T17:00:00Z",
    "local": "2026-11-29 21:00 GST",
+   "account": ""
+  },
+  {
+   "job": "0215fbca0f39",
+   "keyword": "AUDIT",
+   "title": "Cloudflare Security Audit Skill: Claude Code Security Review",
+   "platform": "facebook",
+   "url": "",
+   "status": "scheduled",
+   "when": "2026-12-02",
+   "slot_utc": "2026-12-02T09:00:00Z",
+   "local": "2026-12-02 13:00 GST",
    "account": ""
   }
  ]
